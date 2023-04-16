@@ -8,7 +8,7 @@
 
 section.hero
     width: 100%
-    height: calc( 100% - 9.5rem )
+    height: calc( 100vh - 10rem )
     display: flex
     flex-direction: column
     align-items: center
@@ -32,12 +32,13 @@ section.hero
     & p
         font-size: 24px
         font-weight: 400
-        opacity: 0.6
         max-width: 800px
         line-height: 1.4
         margin-top: 7px
+        color: $font2
         text-align: center
         padding: 0 10px
+        margin-bottom: 15px
         @media screen and (max-width: 600px)
             font-size: 22px
     & ul
@@ -45,7 +46,6 @@ section.hero
         flex-direction: row
         justify-content: center
         align-items: center
-        margin-top: 15px
         min-height: 100px
         list-style: none
         margin: 0

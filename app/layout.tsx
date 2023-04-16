@@ -88,31 +88,32 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <div className="container">
                         <Link href="/">
                             <header>
-                                <Image src="/cdn/assets/logo.png" width={32} height={32} alt="Logo grayscale" />
+                                <Image src="/cdn/assets/watermark.png" width={22} height={22} alt="Logo grayscale" />
                                 <h1>Nove</h1>
                             </header>
                         </Link>
                         <ul>
                             <li>
-                                <Link href="/">Projects</Link>
+                                <Link href="/about">About</Link>
                             </li>
                             <li>
-                                <Link href="/">Docs</Link>
+                                <Link href="/docs">Docs</Link>
                             </li>
                             <li>
-                                <Link href="/">About</Link>
+                                <a href="https://github.com/nove-org/" target="_blank">
+                                    GitHub
+                                </a>
                             </li>
                             <li>
-                                <Link href="/">GitHub</Link>
+                                <a href="https://github.com/orgs/nove-org/discussions/categories/announcements" target="_blank">
+                                    Announcements
+                                </a>
                             </li>
                             <li>
-                                <Link href="/">Changelog</Link>
+                                <Link href="/open-source">Open source</Link>
                             </li>
                             <li>
-                                <Link href="/">Open source</Link>
-                            </li>
-                            <li>
-                                <Link href="/">Legal</Link>
+                                <a>Legal</a>
                             </li>
                         </ul>
                         <ul>
@@ -133,7 +134,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                         <aside>
                             <header>
                                 <div className="card">
-                                    <Image src="/cdn/assets/logo.png" width={32} height={32} alt="Logo grayscale" />
+                                    <Image src="/cdn/assets/watermark.png" width={22} height={22} alt="Logo grayscale" />
                                     <h1>Nove</h1>
                                 </div>
                                 <p>&copy; 2020-{new Date().getFullYear()} Nove Group.</p>
@@ -144,16 +145,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                                 <header>Product</header>
                                 <ul>
                                     <li>
-                                        <Link href="/">Changelog</Link>
+                                        <Link href="/">Login</Link>
                                     </li>
                                     <li>
-                                        <a href="https://beta.cheems.dog">Cheems</a>
+                                        <a href="https://beta.cheems.dog" target="_blank">
+                                            Cheems
+                                        </a>
                                     </li>
                                     <li>
-                                        <Link href="/">Docs</Link>
+                                        <Link href="/docs">Docs</Link>
                                     </li>
                                     <li>
-                                        <Link href="/">Developers</Link>
+                                        <Link href="/account/developers">Developers</Link>
                                     </li>
                                 </ul>
                             </div>
@@ -161,19 +164,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                                 <header>Company</header>
                                 <ul>
                                     <li>
-                                        <Link href="/">About</Link>
+                                        <Link href="/about">About</Link>
                                     </li>
                                     <li>
-                                        <a href="https://github.com/orgs/nove-org/discussions">Community</a>
+                                        <a href="https://github.com/orgs/nove-org/discussions" target="_blank">
+                                            Community
+                                        </a>
                                     </li>
                                     <li>
-                                        <Link href="/">Open source</Link>
+                                        <Link href="/open-source">Open source</Link>
                                     </li>
                                     <li>
-                                        <Link href="/">Privacy Policy</Link>
+                                        <Link href="/privacy">Privacy Policy</Link>
                                     </li>
                                     <li>
-                                        <Link href="/">Terms of Service</Link>
+                                        <Link href="/terms">Terms of Service</Link>
                                     </li>
                                 </ul>
                             </div>

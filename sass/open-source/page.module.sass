@@ -1,0 +1,147 @@
+/* 
+ * Copyright 2023 (c) wnm210
+ * GitHub: https://wnm210.com/
+ * Apple San Francisco font is property of their respective owners.
+ */
+
+@use '../brand' as *
+
+section.projects
+    padding: 50px 0
+    padding-bottom: 0
+    & h1.title
+        font-size: 48px
+        background: $textBackground
+        background-clip: text
+        -webkit-background-clip: text
+        -webkit-text-fill-color: transparent
+        font-weight: 700
+        margin-bottom: 10px
+    & p.description
+        font-size: 24px
+        color: $font2
+        font-weight: 300
+        margin-bottom: 50px
+        max-width: 1000px
+        & span
+            background: $itemBackground
+            border-bottom: 1px solid #5f2ceb
+            background-clip: text
+            -webkit-background-clip: text
+            -webkit-text-fill-color: transparent
+    & h2.sectionTitle
+        margin-top: 80px
+        margin-bottom: 15px
+    & div.wrapper
+        display: flex
+        @media screen and (max-width: 1300px)
+            flex-direction: column
+        & div.card
+            border: 1px solid $border
+            background: $secondary
+            border-radius: $radius
+            max-width: 320px
+            width: 100%
+            height: 100%
+            margin-right: 30px
+            min-height: 366px
+            max-height: 366px
+            cursor: pointer
+            position: relative
+            z-index: 1
+            @media screen and (max-width: 1300px)
+                margin-right: 0
+                margin-top: 30px
+                min-height: min-content
+                padding-bottom: 50px
+            &:hover
+                box-shadow: 0 0 50px -5px #f3e1e134
+                border: 1px solid $border2
+                & figure
+                    background: $border2
+                    border-bottom: 1px solid $border2
+            & figure
+                marign: 0
+                padding: 0
+                border-bottom: 1px solid $border
+                background: $border
+                height: 180px
+                margin-bottom: 10px
+                display: flex
+                flex-direction: column
+                align-items: center
+                justify-content: center
+                border-top-left-radius: $radius
+                border-top-right-radius: $radius
+                & img
+                    marign: 0
+                    padding: 0
+                    border-top-left-radius: $radius
+                    border-top-right-radius: $radius
+            & h1
+                padding: 0 12px
+            & p.text
+                font-weight: 300
+                color: $font2
+                padding: 0 12px
+                letter-spacing: .1px
+                min-height: 76px
+            & div.tags
+                display: flex
+                align-items: center
+                flex-wrap: wrap
+                padding: 0 12px
+                margin: 15px 0
+                position: absolute
+                bottom: 0
+                left: 0
+                & div
+                    &:not(:last-child)
+                        margin-right: 8px
+                    &.tag
+                        background: $itemBackground
+                        border-radius: $radius
+                        padding: 4px 6px
+                    &.version
+                        background: $border
+                        border-radius: $radius
+                        padding: 4px 6px
+                        color: $font2
+    & ul.links
+        margin: 0
+        padding: 0
+        display: flex
+        align-items: center
+        list-style: none
+        margin-bottom: 80px
+        @media screen and (max-width: 550px)
+            flex-direction: column
+            align-items: flex-start
+            margin-top: -10px
+        & li
+            display: flex
+            align-items: center
+            margin-right: 40px
+            @media screen and (max-width: 550px)
+                margin-right: 0
+                margin-top: 10px
+            &:hover
+                & header
+                    & p
+                        color: $font2
+            & img
+                border: 1px solid $border
+                background: $secondary
+                margin-right: 10px
+                border-radius: 50%
+                padding: 5px
+            & header
+                display: flex
+                flex-direction: column
+                & h1
+                    font-size: 16px
+                    line-height: 1.1
+                & p
+                    font-size: 14px
+                    line-height: 1.1
+                    color: $font3
