@@ -1,3 +1,7 @@
 export default function Home() {
-    return <main></main>;
+    return (
+        <main>
+            <h1>Live. Laugh. Nove</h1>
+        </main>
+    );
 }

@@ -1,0 +1,218 @@
+/* 
+ * Copyright 2023 (c) wnm210
+ * GitHub: https://wnm210.com/
+ * Apple San Francisco font is property of their respective owners.
+ */
+
+@use 'brand' as *
+
+@import url('https://nove.team/cdn/fonts/inter/conf.css')
+
+*
+    user-select: none
+    font-family: 'Inter'
+    transition-duration: .15s
+    scrollbar-width: thin
+    margin: 0
+
+img
+    pointer-events: none
+
+a
+    text-decoration: none
+    color: $font
+
+html
+    height: 100%
+
+body
+    margin: 0
+    background: $primary
+    color: $font
+    width: 100%
+    height: 100%
+    & main
+        padding: 0 20px
+        width: calc( 100% - 20px * 2 )
+        height: 100%
+        min-height: calc( 100% - 10rem )
+
+::-webkit-scrollbar
+    width: 2px
+
+nav.navBox
+    background: #00000061
+    backdrop-filter: blur(5px)
+    position: sticky
+    top: -0.01px
+    max-height: 4rem
+    height: 100%
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    border-bottom: 1px solid #00000000
+    transition-duration: 0s
+    &.is-pinned
+        padding-top: 1px
+        border-bottom: 1px solid $border
+        & div.container
+            & header
+                & img
+                    margin-top: -1px
+    & div.container
+        max-width: 1300px
+        width: calc( 100% - 20px * 2 )
+        padding: 0 20px
+        margin: auto
+        display: flex
+        flex-direction: row
+        align-items: center
+        justify-content: space-between
+        & header
+            display: flex
+            flex-direction: row
+            align-items: center
+            & img
+                transition-duration: 0s
+                margin-right: 3px
+        & ul
+            display: flex
+            flex-direction: row
+            align-items: center
+            list-style: none
+            padding: 0
+            margin: 0
+            & li
+                font-size: 14px
+                letter-spacing: .2px
+                &:not(:last-child)
+                    margin-right: 35px
+                & a
+                    color: $font2
+                    &:hover
+                        color: $font
+                &.login
+                    margin-right: 20px
+                    & a
+                        color: $font3
+                        &:hover
+                            color: $font
+                &.button
+                    background: $font
+                    border: 1px solid $font
+                    border-radius: $radius
+                    cursor: pointer
+                    max-height: 33px
+                    min-height: 33px
+                    max-width: 80px
+                    min-width: 80px
+                    &:hover
+                        background: $secondary
+                        border: 1px solid $border
+                        & a
+                            color: $font
+                    & a
+                        width: 100%
+                        height: 100%
+                        color: $primary
+                        font-weight: 500
+                        max-height: 33px
+                        min-height: 33px
+                        max-width: 80px
+                        min-width: 80px
+                        display: flex
+                        flex-direction: column
+                        align-items: center
+                        justify-content: center
+
+footer.footerBox
+    border-top: 1px solid $border
+    background: $secondary
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    max-height: fit-content
+    & div.container
+        max-width: 1300px
+        width: calc( 100% - 20px * 4 )
+        padding: 50px 20px
+        padding-right: 60px
+        margin: auto
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        & aside
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+            & header
+                & div.card
+                    display: flex
+                    align-items: center
+                & p
+                    color: $font2
+                    font-weight: 300
+                    margin-left: 3px
+                    font-size: 14px
+                & img
+                    margin-right: 3px
+        & section.content
+            display: flex
+            flex-direction: row
+            justify-content: space-between
+            & div.card
+                &:not(:last-child)
+                    margin-right: 150px
+                & header
+                    font-size: 18px
+                    font-weight: 600
+                    margin-botom: 5px
+                & ul
+                    padding: 0
+                    margin: 0
+                    list-style: none
+                    & li
+                        margin-top: 5px
+                        & a
+                            color: $font2
+                            font-weight: 300
+                            &:hover
+                                color: $font
+
+@media screen and (max-width: 1010px)
+    nav.navBox
+        & div.container
+            & ul
+                & li
+                    font-size: 12px
+                    &:not(:last-child)
+                        margin-right: 20px
+                    &.login,&.button
+                        font-size: 14px
+
+@media screen and (max-width: 798px)
+    nav.navBox
+        & div.container
+            & ul
+                & li
+                    display: none
+                    &.login,&.button
+                        display: block
+    footer.footerBox
+        & div.container
+            width: calc( 100% - 20px )
+            padding-right: 0px
+            & section.content
+                flex-direction: column
+                & div.card:not(:first-child)
+                    margin-top: 30px
+
+@media screen and (max-width: 550px)
+    footer.footerBox
+        & div.container
+            flex-direction: column
+            & section.content
+                & div.card
+                    margin-top: 30px

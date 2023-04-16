@@ -1,0 +1,62 @@
+@font-face {
+    font-family: "Inter";
+    src: url("https://nove.team/cdn/fonts/inter/thin.ttf");
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("https://nove.team/cdn/fonts/inter/extralight.ttf");
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("https://nove.team/cdn/fonts/inter/light.ttf");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("https://nove.team/cdn/fonts/inter/regular.ttf");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("https://nove.team/cdn/fonts/inter/medium.ttf");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("https://nove.team/cdn/fonts/inter/semibold.ttf");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("https://nove.team/cdn/fonts/inter/bold.ttf");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("https://nove.team/cdn/fonts/inter/extrabold.ttf");
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("https://nove.team/cdn/fonts/inter/black.ttf");
+    font-weight: 900;
+    font-style: normal;
+}
