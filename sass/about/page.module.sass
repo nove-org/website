@@ -1,0 +1,98 @@
+/* 
+ * Copyright 2023 (c) wnm210
+ * GitHub: https://wnm210.com/
+ * Inter font is property of their respective owners.
+ */
+
+@use '../brand' as *
+
+section.about
+    padding: 0
+    min-height: calc( 100vh - 7.2rem )
+    height: max-content
+    display: flex
+    flex-direction: column
+    justify-content: center
+    & h1.title
+        font-size: 48px
+        background: $textBackground
+        background-clip: text
+        -webkit-background-clip: text
+        -webkit-text-fill-color: transparent
+        font-weight: 700
+        margin-bottom: 10px
+        & span
+            font-size: 64px
+            font-weight: 600
+    & p.description
+        font-size: 28px
+        color: $font2
+        font-weight: 300
+        margin-bottom: 0
+        & span
+            font-size: 32px
+            font-weight: 500
+            background: $itemBackground
+            background-clip: text
+            -webkit-background-clip: text
+            -webkit-text-fill-color: transparent
+            &.orange
+                background: $textOrange
+                background-clip: text
+                -webkit-background-clip: text
+                -webkit-text-fill-color: transparent
+                font-size: 32px
+                font-weight: 500
+    & h2.sectionTitle
+        margin-top: 40px
+        margin-bottom: 15px
+        color: $font2
+        font-size: 14px
+        text-transform: uppercase
+    & div.team
+        display: flex
+        align-items: center
+        flex-wrap: wrap
+        @media screen and (max-width: 798px)
+            flex-direction: column
+        & div.card
+            padding: 12px
+            width: calc( 50% - 13px * 2 - 10px )
+            border: 1px solid $border
+            background: $secondary
+            border-radius: $radius
+            display: flex
+            align-items: center
+            max-height: 70px
+            min-height: 70px
+            margin-bottom: 20px
+            @media screen and (max-width: 798px)
+                width: calc( 100% - 13px * 2 )
+                max-height: max-content
+                &:last-child
+                    margin-bottom: 60px
+            &:hover
+                box-shadow: 0 0 50px -5px #f3e1e134
+                border: 1px solid $border2
+                & figure
+                    background: $border2
+                    border-bottom: 1px solid $border2
+            &:nth-of-type(even)
+                @media screen and (min-width: 798px)
+                    margin-left: 20px
+            & img
+                border-radius: 50%
+                margin-right: 15px
+            & div.user
+                & h1
+                    font-size: 24px
+                    word-break: break-all
+                    word-wrap: normal
+                    @media screen and (max-width: 798px)
+                        font-size: 20px
+                    @media screen and (max-width: 300px)
+                        font-size: 18px
+                & p
+                    font-size: 16px
+                    font-weight: 300
+                    color: $font2

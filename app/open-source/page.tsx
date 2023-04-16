@@ -8,26 +8,35 @@ import o from '~/open-source/page.module.sass';
 
 export default function Projects() {
     const [cheemsVersion, setCheemsVersion] = useState<string>('0.000.0');
+    const [jfVersion, setJFVersion] = useState<string>('0.0.0');
 
     useEffect(() => {
-        const fetchCheemsVersion = async () => {
+        const fetchVersions = async () => {
             await axios
                 .get('https://api.cheems.dog/v1/service/release')
                 .then((res) => (res.data.body ? setCheemsVersion(res.data.body.data.version) : setCheemsVersion('?')))
-                .catch((err) => setCheemsVersion('?'));
+                .catch(() => setCheemsVersion('?'));
+
+            await axios
+                .get('https://api.github.com/repos/nove-org/JuzioFont/releases')
+                .then((res) => setJFVersion(res.data[0].tag_name))
+                .catch(() => setJFVersion('?'));
         };
 
-        fetchCheemsVersion();
+        fetchVersions();
     }, []);
 
     return (
         <main>
             <title>Projects — Nove</title>
             <section className={o.projects}>
-                <h1 className={o.title}>Open-source</h1>
+                <h1 className={o.title}>
+                    <span>O</span>pen-source
+                </h1>
                 <p className={o.description}>
                     Because <span>open-source</span> software takes essential part in working together, protecting users privacy, and ensuring app reliability.
                 </p>
+                <h2 className={o.sectionTitle}>Projects</h2>
                 <div className={o.wrapper}>
                     <a href="https://github.com/nove-org/cheems" target="_blank">
                         <div className={o.card + ' ' + o.dark}>
@@ -52,7 +61,7 @@ export default function Projects() {
                             <p className={o.text}>Type like a boss. Be like @JuzioMiecio520. First font in the world that everyone will love! Now open-sourced.</p>
                             <div className={o.tags}>
                                 <div className={o.tag}>Open-source</div>
-                                <div className={o.version}>1.0.0</div>
+                                <div className={o.version}>{jfVersion}</div>
                             </div>
                         </div>
                     </a>
@@ -61,7 +70,7 @@ export default function Projects() {
                             <h1>NAPI Auth</h1>
                         </figure>
                         <h1>NAPI Auth</h1>
-                        <p className={o.text}>Create new accounts or login with ease to websites with NAPI system hooked into it. Are you a developer? Go to docs and read more about implementing NAPI to your app.</p>
+                        <p className={o.text}>Create new account or login with ease to websites with NAPI system hooked. Are you a developer? Go to docs and read more about implementing NAPI to your app.</p>
                         <div className={o.tags}>
                             <div className={o.tag}>Beta</div>
                             <div className={o.version}>0.1.0</div>

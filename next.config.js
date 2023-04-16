@@ -6,6 +6,9 @@ const nextConfig = {
     sassOptions: {
         includePaths: ['./app', './sass'],
     },
+    images: {
+        domains: ['api.nove.team', 'api.cheems.dog'],
+    },
 };
 
 module.exports = nextConfig;
