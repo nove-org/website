@@ -18,11 +18,10 @@ export default function Login() {
 
     const handlePaste = (event: any) => {
         event.preventDefault();
-        const firstInput = document.getElementById('1') as HTMLInputElement;
 
         const cpData = event.clipboardData?.getData('text');
 
-        if (!firstInput || isNaN(parseInt(cpData ? cpData : ''))) return;
+        if (isNaN(parseInt(cpData ? cpData : ''))) return;
 
         for (let i = 0; i < (cpData?.length || 1); i++) {
             if (!document.getElementById(i.toString())) return console.log('not found');

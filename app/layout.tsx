@@ -118,10 +118,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                         </ul>
                         <ul>
                             <li className="login">
-                                <Link href="/">Login</Link>
+                                <Link href="/login">Login</Link>
                             </li>
                             <li className="button">
-                                <Link href="/">Sign up</Link>
+                                <Link href="/sign-up">Sign up</Link>
                             </li>
                         </ul>
                     </div>
@@ -137,7 +137,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                                     <Image src="/cdn/assets/watermark.png" width={22} height={22} alt="Logo grayscale" />
                                     <h1>Nove</h1>
                                 </div>
-                                <p>&copy; 2020-{new Date().getFullYear()} Nove Group.</p>
+                                <p>&copy; 2019-{new Date().getFullYear()} Nove Group.</p>
                             </header>
                         </aside>
                         <section className="content">
@@ -145,7 +145,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                                 <header>Product</header>
                                 <ul>
                                     <li>
-                                        <Link href="/">Login</Link>
+                                        <Link href="/login">Login</Link>
                                     </li>
                                     <li>
                                         <a href="https://beta.cheems.dog" target="_blank">
