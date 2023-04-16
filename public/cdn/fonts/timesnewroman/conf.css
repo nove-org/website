@@ -1,0 +1,13 @@
+@font-face {
+    font-family: "Times New Roman";
+    src: url("https://nove.team/cdn/fonts/timesnewroman/regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Times New Roman";
+    src: url("https://nove.team/cdn/fonts/timesnewroman/bold.ttf");
+    font-weight: bold;
+    font-style: normal;
+}

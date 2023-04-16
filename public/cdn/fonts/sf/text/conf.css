@@ -1,0 +1,62 @@
+@font-face {
+    font-family: "SF Pro Text";
+    src: url("https://nove.team/cdn/fonts/sf/text/thin.otf");
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "SF Pro Text";
+    src: url("https://nove.team/cdn/fonts/sf/text/ultralight.otf");
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "SF Pro Text";
+    src: url("https://nove.team/cdn/fonts/sf/text/light.otf");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "SF Pro Text";
+    src: url("https://nove.team/cdn/fonts/sf/text/regular.otf");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "SF Pro Text";
+    src: url("https://nove.team/cdn/fonts/sf/text/medium.otf");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "SF Pro Text";
+    src: url("https://nove.team/cdn/fonts/sf/text/semibold.otf");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "SF Pro Text";
+    src: url("https://nove.team/cdn/fonts/sf/text/bold.otf");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "SF Pro Text";
+    src: url("https://nove.team/cdn/fonts/sf/text/heavy.otf");
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "SF Pro Text";
+    src: url("https://nove.team/cdn/fonts/sf/text/black.otf");
+    font-weight: 900;
+    font-style: normal;
+}
