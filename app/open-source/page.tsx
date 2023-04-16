@@ -65,17 +65,19 @@ export default function Projects() {
                             </div>
                         </div>
                     </a>
-                    <div className={o.card + ' ' + o.light}>
-                        <figure>
+                    <a>
+                        <div className={o.card + ' ' + o.light}>
+                            <figure>
+                                <h1>NAPI Auth</h1>
+                            </figure>
                             <h1>NAPI Auth</h1>
-                        </figure>
-                        <h1>NAPI Auth</h1>
-                        <p className={o.text}>Create new account or login with ease to websites with NAPI system hooked. Are you a developer? Go to docs and read more about implementing NAPI to your app.</p>
-                        <div className={o.tags}>
-                            <div className={o.tag}>Beta</div>
-                            <div className={o.version}>0.1.0</div>
+                            <p className={o.text}>Create new account or login with ease to websites with NAPI system hooked. Are you a developer? Go to docs and read more about implementing NAPI to your app.</p>
+                            <div className={o.tags}>
+                                <div className={o.tag}>Beta</div>
+                                <div className={o.version}>0.1.0</div>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <h2 className={o.sectionTitle}>Follow us on GitHub</h2>
                 <ul className={o.links}>
