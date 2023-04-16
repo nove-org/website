@@ -49,7 +49,7 @@ export default function Projects() {
                                 <Image src="/cdn/assets/juziofont.png" alt="Cheems website screenshot" width={320} height={180} />
                             </figure>
                             <h1>JuzioFont</h1>
-                            <p className={o.text}>Type like a boss. Be like @JuzioMiecio520. First font in the World that everyone will love! Now open-sourced.</p>
+                            <p className={o.text}>Type like a boss. Be like @JuzioMiecio520. First font in the world that everyone will love! Now open-sourced.</p>
                             <div className={o.tags}>
                                 <div className={o.tag}>Open-source</div>
                                 <div className={o.version}>1.0.0</div>

@@ -9,6 +9,8 @@
 section.projects
     padding: 50px 0
     padding-bottom: 0
+    min-height: calc( 100vh - 7.2rem )
+    height: max-content
     & h1.title
         font-size: 48px
         background: $textBackground
@@ -54,7 +56,7 @@ section.projects
                 margin-top: 30px
                 min-height: fit-content
                 padding-bottom: 50px
-                max-width: calc( 100% - 20px )
+                max-width: calc( 100% - 5px )
             @media screen and (max-width: 330px)
                 padding-bottom: 80px
             @media screen and (max-width: 260px)
@@ -134,18 +136,22 @@ section.projects
         display: flex
         align-items: center
         list-style: none
-        margin-bottom: 80px
         @media screen and (max-width: 550px)
             flex-direction: column
             align-items: flex-start
             margin-top: -10px
+        & a:last-child
+            @media screen and (max-width: 550px)
+                margin-bottom: 50px
         & li
             display: flex
             align-items: center
             margin-right: 40px
             margin-top: 10px
+            margin-bottom: 50px
             @media screen and (max-width: 550px)
                 margin-right: 0
+                margin-bottom: 10px
             &:hover
                 & header
                     & p
