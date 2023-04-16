@@ -30,12 +30,13 @@ body
     background: $primary
     color: $font
     width: 100%
-    height: 100%
+    min-height: 100%
     & main
         padding: 0 20px
         width: calc( 100% - 20px * 2 )
-        height: 100%
-        min-height: calc( 100% - 10rem )
+        max-width: 1300px
+        margin: 0 auto
+        min-height: calc( 100% - 4rem )
 
 ::-webkit-scrollbar
     width: 2px
@@ -46,13 +47,14 @@ nav.navBox
     position: sticky
     top: -0.01px
     max-height: 4rem
-    height: 100%
+    height: 4rem
     display: flex
     flex-direction: column
     align-items: center
     justify-content: center
     border-bottom: 1px solid #00000000
     transition-duration: 0s
+    z-index: 99
     &.is-pinned
         padding-top: 1px
         border-bottom: 1px solid $border
@@ -75,7 +77,7 @@ nav.navBox
             align-items: center
             & img
                 transition-duration: 0s
-                margin-right: 3px
+                margin-right: 6px
         & ul
             display: flex
             flex-direction: row
@@ -154,10 +156,10 @@ footer.footerBox
                 & p
                     color: $font2
                     font-weight: 300
-                    margin-left: 3px
                     font-size: 14px
+                    margin-top: 3px
                 & img
-                    margin-right: 3px
+                    margin-right: 6px
         & section.content
             display: flex
             flex-direction: row
@@ -186,20 +188,26 @@ footer.footerBox
         & div.container
             & ul
                 & li
-                    font-size: 12px
+                    font-size: 13px
                     &:not(:last-child)
                         margin-right: 20px
                     &.login,&.button
                         font-size: 14px
+                        &:not(:last-child)
+                            margin-right: 20px
 
-@media screen and (max-width: 798px)
+@media screen and (max-width: 700px)
     nav.navBox
         & div.container
             & ul
                 & li
-                    display: none
+                    font-size: 13px
+                    &:not(:last-child)
+                        margin-right: 10px
                     &.login,&.button
-                        display: block
+                        font-size: 14px
+                        &:not(:last-child)
+                            margin-right: 20px
     footer.footerBox
         & div.container
             width: calc( 100% - 20px )
@@ -208,6 +216,24 @@ footer.footerBox
                 flex-direction: column
                 & div.card:not(:first-child)
                     margin-top: 30px
+
+@media screen and (max-width: 677px)
+    nav.navBox
+        & div.container
+            & ul
+                & li
+                    opacity: 0
+                    &.login,&.button
+                        opacity: 1
+
+@media screen and (max-width: 668px)
+    nav.navBox
+        & div.container
+            & ul
+                & li
+                    display: none
+                    &.login,&.button
+                        display: block
 
 @media screen and (max-width: 550px)
     footer.footerBox
