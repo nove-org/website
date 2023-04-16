@@ -1,0 +1,95 @@
+/* 
+ * Copyright 2023 (c) wnm210
+ * GitHub: https://wnm210.com/
+ * Inter font is property of their respective owners.
+ */
+
+@use '../brand' as *
+
+section.docs
+    padding: 50px 0
+    padding-bottom: 0
+    min-height: calc( 100vh - 7.2rem )
+    height: max-content
+    & div.container
+        display: flex
+        margin-top: 10px
+        & aside
+            max-width: 350px
+            width: 100%
+            margin-right: 50px
+            & label
+                border: 1px solid $border
+                padding: 12px
+                background: $secondary
+                cursor: text
+                display: flex
+                align-items: center
+                border-radius: $radius
+                & input
+                    width: 100%
+                    border: 0
+                    outline: 0
+                    background: 0
+                    color: $font
+                    font-size: 16px
+                    margin-top: 1px
+                & svg
+                    min-width: 20px
+                    margin-right: 8px
+                    color: $font2
+            & ul
+                padding: 0
+                margin: 0
+                list-style: none
+                & li
+                    padding: 12px
+                    cursor: pointer
+                    border-radius: $radius
+                    margin-top: 10px
+                    border: 1px solid $secondary
+                    background: $secondary
+                    &.active, &:hover
+                        background: $secondary
+                        border: 1px solid $border
+                    & h1
+                        font-size: 24px
+                    & p
+                        margin-top: 5px
+                        font-size: 18px
+                        color: $font2
+                        font-weight: 300
+        & div.content
+            width: 100%
+            & h1.title
+                font-size: 48px
+                background: $textBackground
+                background-clip: text
+                -webkit-background-clip: text
+                -webkit-text-fill-color: transparent
+                font-weight: 700
+                margin-bottom: 10px
+            & div.card
+                padding: 20px
+                border: 1px solid $border
+                margin: 10px 0
+                border-radius: $radius
+                & header
+                    font-size: 24px
+                    font-weight: 700
+                & p
+                    font-size: 18px
+                    color: $font2
+            & p
+                font-size: 20px
+                line-height: 1.4
+                color: $font
+                font-weight: 300
+            & code
+                padding: 5px
+                user-select: text
+                font-family: monospace
+                font-size: 16px
+                border-radius: $radius
+                background: $secondary
+                color: $font
