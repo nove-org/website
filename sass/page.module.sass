@@ -1,0 +1,89 @@
+/* 
+ * Copyright 2023 (c) wnm210
+ * GitHub: https://wnm210.com/
+ * Apple San Francisco font is property of their respective owners.
+ */
+
+@use 'brand' as *
+
+section.hero
+    width: 100%
+    height: calc( 100% - 9.5rem )
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    & h1
+        font-size: 96px
+        background: $textBackground
+        background-clip: text
+        -webkit-background-clip: text
+        -webkit-text-fill-color: transparent
+        font-weight: 900
+        text-align: center
+        & span
+            background: $textSpan
+            background-clip: text
+            -webkit-background-clip: text
+            -webkit-text-fill-color: transparent
+            text-shadow: $textGlow
+        @media screen and (max-width: 1000px)
+            font-size: 72px
+    & p
+        font-size: 24px
+        font-weight: 400
+        opacity: 0.6
+        max-width: 800px
+        line-height: 1.4
+        margin-top: 7px
+        text-align: center
+        padding: 0 10px
+        @media screen and (max-width: 600px)
+            font-size: 22px
+    & ul
+        display: flex
+        flex-direction: row
+        justify-content: center
+        align-items: center
+        margin-top: 15px
+        min-height: 100px
+        list-style: none
+        margin: 0
+        padding: 0
+        & li
+            & a
+                border: 1px solid $border
+                background: $secondary
+                border-radius: 7px
+                margin-right: 30px
+                padding: 16px 18px
+                font-weight: 500
+                font-size: 18px
+                text-decoration: none
+                font-family: 'SF Pro Text'
+                display: flex
+                align-items: center
+                cursor: pointer
+                &:hover
+                    margin-top: 10px
+                & svg
+                    margin-right: 4px
+                @media screen and (max-width: 600px)
+                    margin-right: 0
+                    margin-top: 20px
+                    &:hover
+                        margin-top: 20px
+                        transform: scale(0.97)
+        & li:first-child
+            & a
+                background: $buttonBackground
+                color: #000000
+        & li:last-child
+            & a
+                background: $primary
+                color: $font
+                border: 1px solid $border
+                box-shadow: $buttonGlow
+                margin-right: 0
+        @media screen and (max-width: 600px)
+            flex-direction: column
