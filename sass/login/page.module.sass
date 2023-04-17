@@ -15,6 +15,8 @@ section.login
     justify-content: center
     align-items: center
     padding: 0 20px
+    @media screen and (max-width: 478px)
+        padding: 0 10px
     & div.box
         display: flex
         flex-direction: column
@@ -26,6 +28,8 @@ section.login
         border-radius: $radius
         border: 1px solid $border
         background: $secondary
+        @media screen and (max-width: 478px)
+            padding: 20px 15px
         & h1
             font-size: 40px
             background: $textBackground
@@ -110,7 +114,12 @@ section.login
                 text-align: center
                 outline: 0
                 color: $font2
+                @media screen and (max-width: 478px)
+                    min-height: 30px
                 &:focus
                     border: 1px solid $border2
                 &:not(:last-child)
                     margin-right: 10px
+                    @media screen and (max-width: 478px)
+                        margin-right: 5px
+                        font-size: 18px

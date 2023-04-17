@@ -7,7 +7,7 @@ import { ChangeEvent, FormEvent, useState } from 'react';
 import o from '~/login/page.module.sass';
 
 export default function Login() {
-    const [twoFactorAuth, setTwoFactorAuth] = useState<boolean>(false);
+    const [twoFactorAuth, setTwoFactorAuth] = useState<boolean>(true);
     const [tFALoader, setTFALoader] = useState<boolean>(false);
 
     const handleLogin = async (event: any) => {
