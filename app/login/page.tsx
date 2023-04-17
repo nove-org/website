@@ -7,8 +7,12 @@ import { ChangeEvent, FormEvent, useState } from 'react';
 import o from '~/login/page.module.sass';
 
 export default function Login() {
-    const [twoFactorAuth, setTwoFactorAuth] = useState<boolean>(true);
+    const [twoFactorAuth, setTwoFactorAuth] = useState<boolean>(false);
     const [tFALoader, setTFALoader] = useState<boolean>(false);
+
+    const handleLogin = async (event: any) => {
+        event.preventDefault();
+    };
 
     const handleSubmit = async () => {
         const i1 = (document.getElementById('0') as HTMLInputElement).value,
@@ -20,15 +24,17 @@ export default function Login() {
 
         const code = parseInt(i1.charAt(0) + i2.charAt(0) + i3.charAt(0) + i4.charAt(0) + i5.charAt(0) + i6.charAt(0));
 
-        if (isNaN(code) || code.toString().length !== 6) return console.log('Something went wrong: ' + code);
-
-        console.log('2FA: All tests passed successfully');
+        if (isNaN(code) || code.toString().length !== 6) return;
 
         setTFALoader(true);
 
         setTimeout(() => setTFALoader(false), 2000);
 
-        //! Implement code for submitting 2FA code.
+        // TODO: Implement code for submitting 2FA code.
+        // TODO: Implement code for submitting 2FA code.
+        // TODO: Implement code for submitting 2FA code.
+        // TODO: Implement code for submitting 2FA code.
+        // TODO: Implement code for submitting 2FA code.
     };
 
     const handlePaste = (event: any) => {
@@ -39,7 +45,7 @@ export default function Login() {
         if (isNaN(parseInt(cpData ? cpData : ''))) return;
 
         for (let i = 0; i < (cpData?.length || 1); i++) {
-            if (!document.getElementById(i.toString())) return console.log('not found');
+            if (!document.getElementById(i.toString())) return;
 
             setTimeout(() => {
                 const value = parseInt(cpData?.charAt(i));

@@ -14,10 +14,14 @@ section.docs
     & div.container
         display: flex
         margin-top: 10px
+        @media screen and (max-width: 1000px)
+            flex-direction: column
         & aside
             max-width: 350px
             width: 100%
             margin-right: 50px
+            @media screen and (max-width: 1000px)
+                max-width: 100%
             & label
                 border: 1px solid $border
                 padding: 12px
@@ -61,6 +65,9 @@ section.docs
                         font-weight: 300
         & div.content
             width: 100%
+            @media screen and (max-width: 1000px)
+                max-width: 100%
+                margin: 20px 0
             & h1.title
                 font-size: 48px
                 background: $textBackground

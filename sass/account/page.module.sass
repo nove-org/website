@@ -1,0 +1,68 @@
+/* 
+ * Copyright 2019-2023 (c) Nove Group
+ * GitHub: https://github.com/nove-org/
+ * Inter font is property of their respective owners.
+ */
+
+@use '../brand' as *
+
+section.dashboard
+    padding: 50px 0
+    padding-bottom: 0
+    min-height: calc( 100vh - 7.2rem )
+    height: max-content
+    display: flex
+    @media screen and (max-width: 1000px)
+        flex-direction: column
+    & aside
+        max-width: 350px
+        width: 100%
+        margin-right: 50px
+        @media screen and (max-width: 1000px)
+            max-width: 100%
+        & header
+            display: flex
+            align-items: center
+            padding: 12px
+            border: 1px solid $border
+            border-radius: $radius
+            & img
+                margin-right: 10px
+                border-radius: 50%
+            & h1
+                font-size: 24px
+        & ul
+            padding: 0
+            margin: 0
+            list-style: none
+            @media screen and (max-width: 1000px)
+                margin: 20px 0
+            & li
+                & a
+                    display: flex
+                    align-items: center
+                    padding: 12px
+                    cursor: pointer
+                    border-radius: $radius
+                    margin-top: 10px
+                    border: 1px solid $secondary
+                    background: $secondary
+                    display: flex
+                    align-items: center
+                    & svg
+                        margin-right: 5px
+                        display: block
+                        color: $font
+                    &.active, &:hover
+                        background: $secondary
+                        border: 1px solid $border
+    & div.content
+        width: 100%
+        & h1.title
+            font-size: 48px
+            background: $textBackground
+            background-clip: text
+            -webkit-background-clip: text
+            -webkit-text-fill-color: transparent
+            font-weight: 700
+            margin-bottom: 10px
