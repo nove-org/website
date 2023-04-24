@@ -71,15 +71,29 @@ section.dashboard
             border: 1px solid $border
             display: flex
             align-items: center
+            @media screen and (max-width: 450px)
+                flex-direction: column
+                align-items: flex-start
             & img
                 border-radius: 50%
+                @media screen and (max-width: 620px)
+                    max-width: 50px
+                    width: auto
+                    height: auto
             & div.content
                 margin-left: 15px
+                @media screen and (max-width: 450px)
+                    margin-left: 0
                 & div.username
                     display: flex
                     align-items: center
+                    @media screen and (max-width: 620px)
+                        flex-direction: column
+                        align-items: flex-start
                     & h1
                         font-size: 32px
+                        @media screen and (max-width: 620px)
+                            font-size: 28px
                     & button
                         margin-left: 10px
                         background: 0
@@ -91,6 +105,8 @@ section.dashboard
                         color: $colored2
                         cursor: pointer
                         font-size: 16px
+                        @media screen and (max-width: 620px)
+                            margin-left: 0
                         &:hover
                             text-decoration: underline
                 & div.email
@@ -121,5 +137,7 @@ section.dashboard
                     padding: 8px
                     outline: 0
                     cursor: pointer
+                    @media screen and (max-width: 450px)
+                        margin-top: 10px
                     &:hover
                         background: $border2
