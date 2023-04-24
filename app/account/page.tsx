@@ -23,11 +23,11 @@ export default function AccountOverview() {
                 <h2>Account connections</h2>
                 <div className={o.card}>
                     <div className={o.info}>
-                    <Image src="https://api.nove.team/v1/users/00000000/avatar.webp" width={96} height={96} alt="User avatar" />
-                    <header>
-                        <h1>cheems.dog</h1>
-                        <span>Basic user permissions</span>
-                    </header>
+                        <Image src="/cdn/assets/cheems.png" width={24} height={24} alt="Connection logo" />
+                        <header>
+                            <h1>cheems.dog</h1>
+                            <span>Basic user permissions</span>
+                        </header>
                     </div>
                     <button>Deauthorize</button>
                 </div>

@@ -40,14 +40,12 @@ section.dashboard
             & li
                 & a
                     display: flex
-                    align-items: center
                     padding: 12px
                     cursor: pointer
                     border-radius: $radius
                     margin-top: 10px
                     border: 1px solid $secondary
                     background: $secondary
-                    display: flex
                     align-items: center
                     & svg
                         margin-right: 5px
@@ -66,3 +64,62 @@ section.dashboard
             -webkit-text-fill-color: transparent
             font-weight: 700
             margin-bottom: 10px
+        & div.card
+            padding: 20px
+            border-radius: $radius
+            background: $secondary
+            border: 1px solid $border
+            display: flex
+            align-items: center
+            & img
+                border-radius: 50%
+            & div.content
+                margin-left: 15px
+                & div.username
+                    display: flex
+                    align-items: center
+                    & h1
+                        font-size: 32px
+                    & button
+                        margin-left: 10px
+                        background: 0
+                        border: 0
+                        outline: 0
+                        padding: 0
+                        width: fit-content
+                        height: fit-content
+                        color: $colored2
+                        cursor: pointer
+                        font-size: 16px
+                        &:hover
+                            text-decoration: underline
+                & div.email
+                    color: $font2
+                    font-size: 16px
+        & div.connections
+            margin-top: 20px
+            & div.card
+                justify-content: space-between
+                margin-top: 8px
+                padding: 10px 15px
+                & div.info
+                    display: flex
+                    align-items: center
+                    & img
+                        margin-right: 10px
+                    & header
+                        & h1
+                            font-size: 22px
+                        & span
+                            color: $font2
+                            font-size: 14px
+                & button
+                    border: 1px solid $border2
+                    background: $border
+                    color: $font
+                    border-radius: $radius
+                    padding: 8px
+                    outline: 0
+                    cursor: pointer
+                    &:hover
+                        background: $border2
