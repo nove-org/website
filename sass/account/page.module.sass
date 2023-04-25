@@ -88,12 +88,6 @@ section.dashboard
             margin: 0
             background: #00000000
             opacity: 1
-            animation: fadein 250ms ease-in-out
-            @keyframes fadein
-                0%
-                    opacity: 0
-                100%
-                    opacity: 1
             & div.background
                 width: 100%
                 min-height: 100vh
@@ -103,13 +97,11 @@ section.dashboard
                 top: 0
                 left: 0
                 z-index: 99
-                animation: opacityin 600ms ease-in-out
+                animation: opacityin 400ms ease-in-out
                 @keyframes opacityin
                     0%
                         opacity: 0
-                    50%
-                        opacity: 1
-                    80%
+                    100%
                         opacity: 1
             & form
                 max-width: 450px
@@ -123,7 +115,7 @@ section.dashboard
                 position: sticky
                 top: 100px
                 z-index: 100
-                animation: bouncein 250ms ease-in-out
+                animation: bouncein 350ms ease-in-out
                 @keyframes bouncein
                     0%
                         transform: scale(0.2)
