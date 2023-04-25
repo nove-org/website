@@ -87,16 +87,30 @@ section.dashboard
             padding: 0 20px
             margin: 0
             background: #00000000
+            opacity: 1
+            animation: fadein 250ms ease-in-out
+            @keyframes fadein
+                0%
+                    opacity: 0
+                100%
+                    opacity: 1
             & div.background
-                backdrop-filter: blur(1px)
                 width: 100%
                 min-height: 100vh
                 height: 100%
-                background: #00000050
+                background: #00000075
                 position: absolute
                 top: 0
                 left: 0
                 z-index: 99
+                animation: opacityin 600ms ease-in-out
+                @keyframes opacityin
+                    0%
+                        opacity: 0
+                    50%
+                        opacity: 1
+                    80%
+                        opacity: 1
             & form
                 max-width: 450px
                 background: $secondary
@@ -109,6 +123,17 @@ section.dashboard
                 position: sticky
                 top: 100px
                 z-index: 100
+                animation: bouncein 250ms ease-in-out
+                @keyframes bouncein
+                    0%
+                        transform: scale(0.2)
+                        opacity: 0
+                    40%
+                        opacity: 1
+                    60%
+                        transform: scale(0.96)
+                    100%
+                        transform: scale(1)
                 & h1
                     padding: 15px
                     border-bottom: 1px solid $border
