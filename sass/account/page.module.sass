@@ -184,6 +184,7 @@ section.dashboard
             font-weight: 500
             line-height: 0
             margin-bottom: 10px
+            cursor: pointer
             &:last-child
                 margin-bottom: 30px
             & input[type=radio]
@@ -264,7 +265,7 @@ section.dashboard
             margin-top: 20px
             @media screen and (max-width: 1234px)
                 flex-direction: column
-            & div.card
+            & a.card
                 width: 100%
                 min-height: 180px
                 height: 100%
@@ -272,12 +273,17 @@ section.dashboard
                 align-items: flex-start
                 padding: 15px
                 cursor: pointer
+                border-radius: $radius
+                background: $secondary
+                border: 1px solid $border
+                display: flex
+                align-items: center
                 @media screen and (max-width: 1234px)
                     width: calc( 100% - 15px * 2 )
                     min-height: fit-content
                     margin-bottom: 10px
                 &:hover
-                    background: $border
+                    box-shadow: 0 0 50px -5px #f3e1e134
                     border: 1px solid $border2
                 &:not(:last-child)
                     margin-right: 20px

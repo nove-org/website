@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 import o from '~/account/page.module.sass';
 
@@ -46,7 +47,7 @@ export default function AccountOverview() {
                 </div>
             </div>
             <div className={o.shortcuts}>
-                <div className={o.card}>
+                <Link className={o.card} href="/account/language">
                     <header>
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
                             <path
@@ -66,8 +67,8 @@ export default function AccountOverview() {
                                 d="M13.071,12L9.25,8.179c-0.414-0.414-0.414-1.086,0-1.5l0,0c0.414-0.414,1.086-0.414,1.5,0l4.614,4.614 c0.391,0.391,0.391,1.024,0,1.414l-4.614,4.614c-0.414,0.414-1.086,0.414-1.5,0h0c-0.414-0.414-0.414-1.086,0-1.5L13.071,12z"></path>
                         </svg>
                     </div>
-                </div>
-                <div className={o.card}>
+                </Link>
+                <Link href="/account/security" className={o.card}>
                     <header>
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 24 24">
                             <path
@@ -87,8 +88,8 @@ export default function AccountOverview() {
                                 d="M13.071,12L9.25,8.179c-0.414-0.414-0.414-1.086,0-1.5l0,0c0.414-0.414,1.086-0.414,1.5,0l4.614,4.614 c0.391,0.391,0.391,1.024,0,1.414l-4.614,4.614c-0.414,0.414-1.086,0.414-1.5,0h0c-0.414-0.414-0.414-1.086,0-1.5L13.071,12z"></path>
                         </svg>
                     </div>
-                </div>
-                <div className={o.card}>
+                </Link>
+                <Link href="/account/security" className={o.card}>
                     <header>
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 24 24">
                             <path fill="currentColor" d="M11.188,1.361l-7,3.111C3.465,4.793,3,5.509,3,6.3V11c0,7.83,6.439,11.486,9,12c2.561-0.514,9-4.17,9-12V6.3 c0-0.79-0.465-1.507-1.188-1.828l-7-3.111C12.295,1.131,11.705,1.131,11.188,1.361z"></path>
@@ -106,7 +107,7 @@ export default function AccountOverview() {
                                 d="M13.071,12L9.25,8.179c-0.414-0.414-0.414-1.086,0-1.5l0,0c0.414-0.414,1.086-0.414,1.5,0l4.614,4.614 c0.391,0.391,0.391,1.024,0,1.414l-4.614,4.614c-0.414,0.414-1.086,0.414-1.5,0h0c-0.414-0.414-0.414-1.086,0-1.5L13.071,12z"></path>
                         </svg>
                     </div>
-                </div>
+                </Link>
             </div>
             <div className={o.connections}>
                 <h2>Account connections</h2>

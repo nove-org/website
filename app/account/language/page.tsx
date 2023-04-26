@@ -8,7 +8,7 @@ export default function Privacy() {
             <h1 className={o.title}>Language</h1>
             <p className={o.description}>Select your preferred language. This setting will be used to display content in your language on all Nove websites and your connected apps might use it.</p>
             <label className={o.card}>
-                <input type="radio" name="language" value="en_US" />
+                <input defaultChecked={true} type="radio" name="language" value="en_US" />
                 <header>
                     English, US
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 48 48">
