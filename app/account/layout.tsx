@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 import o from '~/account/page.module.sass';
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function AccountLayout({ children }: { children: React.ReactNode }) {
     const active = useSelectedLayoutSegment();
 
     const sidebar = [

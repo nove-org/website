@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 import o from '~/docs/page.module.sass';
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function DocsLayout({ children }: { children: React.ReactNode }) {
     const active = useSelectedLayoutSegment();
 
     const sidebar = [

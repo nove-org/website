@@ -2,7 +2,7 @@
 
 import o from '~/account/page.module.sass';
 
-export default function Privacy() {
+export default function AccountLanguage() {
     return (
         <div className={o.content}>
             <h1 className={o.title}>Language</h1>

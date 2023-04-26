@@ -2,7 +2,7 @@
 
 import o from '~/docs/page.module.sass';
 
-export default function Docs() {
+export default function DocsHelloWorld() {
     return (
         <div className={o.content}>
             <h1 className={o.title}>Hello, World</h1>

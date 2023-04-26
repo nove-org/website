@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 import o from '~/login/page.module.sass';
 
-export default function Login() {
+export default function SignUp() {
     const handleLogin = async (event: any) => {
         event.preventDefault();
     };

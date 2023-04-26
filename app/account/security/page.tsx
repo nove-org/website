@@ -3,7 +3,7 @@
 import o from '~/account/page.module.sass';
 import Device from './device';
 
-export default function Security() {
+export default function AccountSecurity() {
     return (
         <div className={o.content}>
             <h1 className={o.title}>Security</h1>

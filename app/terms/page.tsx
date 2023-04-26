@@ -2,7 +2,7 @@
 
 import o from '~/article.module.sass';
 
-export default function Privacy() {
+export default function Terms() {
     return (
         <main>
             <title>Privacy — Nove</title>

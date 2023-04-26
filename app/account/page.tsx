@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import o from '~/account/page.module.sass';
 
-export default function AccountOverview() {
+export default function Account() {
     const [namePopup, setNamePopup] = useState<boolean>(false);
 
     return (
