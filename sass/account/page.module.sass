@@ -141,7 +141,7 @@ section.dashboard
                     padding: 0 15px
                     font-size: 16px
                     color: $font2
-                    margin-bottom: 15px
+                    margin-bottom: 5px
                     line-height: 1.5
                 & input
                     padding: 10px
@@ -153,6 +153,7 @@ section.dashboard
                     font-weight: 400
                     font-size: 14px
                     border-radius: $radius
+                    margin-top: 10px
                     &:focus
                         outline: 1px solid $colored2
                 & div.footer
@@ -263,7 +264,7 @@ section.dashboard
             align-items: center
             justify-content: space-between
             margin-top: 20px
-            @media screen and (max-width: 1234px)
+            @media screen and (max-width: 1300px)
                 flex-direction: column
             & a.card
                 width: 100%
@@ -277,8 +278,7 @@ section.dashboard
                 background: $secondary
                 border: 1px solid $border
                 display: flex
-                align-items: center
-                @media screen and (max-width: 1234px)
+                @media screen and (max-width: 1300px)
                     width: calc( 100% - 15px * 2 )
                     min-height: fit-content
                     margin-bottom: 10px
@@ -287,7 +287,7 @@ section.dashboard
                     border: 1px solid $border2
                 &:not(:last-child)
                     margin-right: 20px
-                    @media screen and (max-width: 1234px)
+                    @media screen and (max-width: 1300px)
                         margin-right: 0
                 & header
                     display: flex
@@ -295,7 +295,7 @@ section.dashboard
                     margin-bottom: 10px
                     max-height: 165px
                     min-height: 145px
-                    @media screen and (max-width: 1234px)
+                    @media screen and (max-width: 1300px)
                         min-height: fit-content
                     & svg
                         margin-right: 10px
@@ -344,6 +344,7 @@ section.dashboard
                     padding: 8px
                     outline: 0
                     cursor: pointer
+                    position: relative
                     @media screen and (max-width: 450px)
                         margin-top: 10px
                     &:hover
