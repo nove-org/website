@@ -3,7 +3,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
+
 import o from '~/account/page.module.sass';
+import Connection from './connection';
 
 export default function Account() {
     const [namePopup, setNamePopup] = useState<boolean>(false);
@@ -111,16 +113,7 @@ export default function Account() {
             </div>
             <div className={o.connections}>
                 <h2>Account connections</h2>
-                <div className={o.card}>
-                    <div className={o.info}>
-                        <Image src="/cdn/assets/cheems.png" width={24} height={24} alt="Connection logo" />
-                        <header>
-                            <h1>cheems.dog</h1>
-                            <span>Basic user permissions</span>
-                        </header>
-                    </div>
-                    <button>Deauthorize</button>
-                </div>
+                <Connection data={{ name: 'cheems.dog', logo: '/cdn/assets/cheems.png', permissionLevel: 0 }} />
             </div>
         </div>
     );
