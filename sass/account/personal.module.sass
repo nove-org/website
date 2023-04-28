@@ -1,0 +1,63 @@
+/* 
+ * Copyright 2019-2023 (c) Nove Group
+ * GitHub: https://github.com/nove-org/
+ * Inter font is property of their respective owners.
+ */
+
+@use '../brand' as *
+
+div.profile
+    width: 100%
+    & div.card
+        padding: 20px
+        border-radius: $radius
+        background: $secondary
+        border: 1px solid $border
+        display: flex
+        align-items: flex-start
+        flex-direction: column
+        width: calc( 100% - 20px * 2 )
+        margin-bottom: 20px
+        @media screen and (max-width: 450px)
+            flex-direction: column
+            align-items: flex-start
+        & header
+            font-size: 24px
+            font-weight: 700
+        & div.input
+            width: 100%
+            & header
+                font-size: 14px
+                color: $font2
+                text-transform: uppercase
+                margin-top: 10px
+            & div.content
+                display: flex
+                justify-content: space-between
+                align-items: center
+                width: 100%
+                & h1
+                    font-size: 24px
+                    font-weight: 600
+                    margin: 5px 0
+                & a
+                    color: $colored2
+                    cursor: pointer
+                    &:hover
+                        text-decoration: underline
+                & img
+                    border-radius: 50%
+                    margin: 5px 0
+                & textarea
+                    width: 100%
+                    border-radius: $radius
+                    background: $tertiary
+                    border: 1px solid $border
+                    resize: none
+                    margin: 5px 0
+                    font-family: monospace
+                    font-size: 14px
+                    padding: 10px
+                    outline: 0
+                    &:focus
+                        outline: 1px solid $colored2b
