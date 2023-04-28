@@ -69,6 +69,18 @@ section.dashboard
             font-weight: 400
             margin-bottom: 10px
             color: $font2
+        & p.error
+            display: block
+            position: fixed
+            bottom: 10px
+            right: 10px
+            color: $colored
+            background: $secondary
+            border: 1px solid $border
+            border-radius: $radius
+            padding: 10px
+            width: fit-content
+            z-index: 100
         & dialog.popup
             display: block
             position: fixed
@@ -105,13 +117,14 @@ section.dashboard
                         opacity: 1
             & form
                 max-width: 450px
+                width: 100%
                 background: $secondary
                 border: 1px solid $border
                 border-radius: $radius
                 box-shadow: 0 0 150px 5px #000000c0
                 display: flex
                 flex-direction: column
-                align-items: center
+                align-items: flex-start
                 position: sticky
                 top: 100px
                 z-index: 100
@@ -154,8 +167,60 @@ section.dashboard
                     font-size: 14px
                     border-radius: $radius
                     margin-top: 10px
+                    &[type=file]
+                        position: absolute
+                        top: 0
+                        left: 0
+                        width: 0px
+                        height: 0px
+                        padding: 0
+                        margin: 0
+                        outline: 0
+                        border: 0
+                        &:focus
+                            outline: 0
                     &:focus
                         outline: 1px solid $colored2
+                & div.file
+                    display: flex
+                    align-items: center
+                    justify-content: space-between
+                    padding: 10px
+                    border: 1px solid $border
+                    background: $tertiary
+                    border-radius: $radius
+                    margin: 5px 0
+                    width: calc( 100% - 25px * 2 )
+                    color: $font2
+                    margin: 5px 15px
+                    & header
+                        display: flex
+                        align-items: center
+                        & svg
+                            color: $font2
+                            margin-right: 5px
+                    & div.progress
+                        max-width: 90px
+                        width: 100%
+                        border-radius: 10px
+                        height: 10px
+                        background: $border
+                        & div.value
+                            width: 0px
+                            background: $colored2
+                            border-radius: 10px
+                            height: 10px
+                            transition-duration: .2s
+                & label
+                    padding: 8px
+                    margin: 5px 15px
+                    margin-bottom: 0
+                    border-radius: $radius
+                    border: 1px solid $colored2
+                    cursor: pointer
+                    font-size: 13px
+                    font-weight: 400
+                    background: linear-gradient($colored2, $colored2b)
                 & div.footer
                     display: flex
                     flex-direction: row
