@@ -1,8 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import o from '~/account/page.module.sass';
 import Device from './device';
+
+import o from '~/account/page.module.sass';
+import s from '~/account/security.module.sass';
 
 export default function AccountSecurity() {
     const [passwordPopup, setPasswordPopup] = useState<boolean>(false);
@@ -59,8 +61,8 @@ export default function AccountSecurity() {
                 </dialog>
             ) : null}
             <h1 className={o.title}>Security</h1>
-            <div className={o.security}>
-                <div className={o.card}>
+            <div className={s.security}>
+                <div className={s.card}>
                     <header>Your devices</header>
                     <p>List of most recent devices that logged in to your account this month</p>
                     <Device icon="desktop" name="Linux" date="22 Apr" ip="89.42.51.69" />
@@ -70,10 +72,10 @@ export default function AccountSecurity() {
                         We store info about three most recent devices that logged in to your account in the last month on our servers. <a>Opt-out</a>
                     </p>
                 </div>
-                <div className={o.card}>
+                <div className={s.card}>
                     <header>How do you sign in</header>
                     <p>Add more secure ways of signing in to your account and confirming your identity</p>
-                    <div onClick={() => setPasswordPopup(true)} className={o.option}>
+                    <div onClick={() => setPasswordPopup(true)} className={s.option}>
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
                             <path
                                 fill="currentColor"
@@ -81,7 +83,7 @@ export default function AccountSecurity() {
                         </svg>
                         Password
                     </div>
-                    <div onClick={() => setEmailPopup(true)} className={o.option}>
+                    <div onClick={() => setEmailPopup(true)} className={s.option}>
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
                             <path
                                 fill="currentColor"
@@ -89,7 +91,7 @@ export default function AccountSecurity() {
                         </svg>
                         Recovery email
                     </div>
-                    <div className={o.option + ' disabled'}>
+                    <div className={s.option + ' disabled'}>
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
                             <path
                                 fill="currentColor"
@@ -97,7 +99,7 @@ export default function AccountSecurity() {
                         </svg>
                         Recovery passphrase
                     </div>
-                    <div className={o.option + ' disabled'}>
+                    <div className={s.option + ' disabled'}>
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
                             <path
                                 fill="currentColor"

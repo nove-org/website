@@ -3,7 +3,7 @@
 import { NextPage } from 'next';
 import Link from 'next/link';
 
-import o from '~/account/page.module.sass';
+import o from '~/account/shortcuts.module.sass';
 
 interface Props {
     name: string;

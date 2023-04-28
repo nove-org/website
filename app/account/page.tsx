@@ -2,10 +2,12 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
-
-import o from '~/account/page.module.sass';
 import Connection from './connection';
 import Card from './card';
+
+import o from '~/account/page.module.sass';
+import s from '~/account/shortcuts.module.sass';
+import c from '~/account/connections.module.sass';
 
 export default function Account() {
     const [namePopup, setNamePopup] = useState<boolean>(false);
@@ -48,12 +50,12 @@ export default function Account() {
                     <div className={o.email}>wnm210@****.team</div>
                 </div>
             </div>
-            <div className={o.shortcuts}>
+            <div className={s.shortcuts}>
                 <Card name="Language" description="Change your language preferences" option="English, US" url="/account/language" />
                 <Card name="Recent activity" description="Check recent activity on your account" option="2 sessions on Linux" url="/account/security" />
                 <Card name="Account recovery" description="Set up two factor authentication and download backup codes" option="Download" url="/account/security" />
             </div>
-            <div className={o.connections}>
+            <div className={c.connections}>
                 <h2>Account connections</h2>
                 <Connection data={{ name: 'cheems.dog', logo: '/cdn/assets/cheems.png', permissionLevel: 0 }} />
             </div>

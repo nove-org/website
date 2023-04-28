@@ -4,7 +4,7 @@ import { NextPage } from 'next';
 import Image from 'next/image';
 import { useState } from 'react';
 
-import o from '~/account/page.module.sass';
+import o from '~/account/connections.module.sass';
 
 interface Props {
     data: {

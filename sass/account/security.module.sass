@@ -1,0 +1,74 @@
+/* 
+ * Copyright 2019-2023 (c) Nove Group
+ * GitHub: https://github.com/nove-org/
+ * Inter font is property of their respective owners.
+ */
+
+@use '../brand' as *
+
+div.security
+    & div.card
+        flex-direction: column
+        align-items: flex-start
+        margin-bottom: 20px
+        padding-bottom: 0
+        padding: 20px
+        border-radius: $radius
+        background: $secondary
+        border: 1px solid $border
+        display: flex
+        @media screen and (max-width: 450px)
+            flex-direction: column
+            align-items: flex-start
+        & header
+            font-size: 24px
+            font-weight: 700
+        & p
+            font-size: 18px
+            font-weight: 400
+            color: $font2
+            margin-top: 5px
+            margin-bottom: 15px
+        & div.device
+            display: flex
+            align-items: center
+            justify-content: space-between
+            width: calc( 100% - 10px * 2 )
+            padding: 10px
+            border: 1px solid $border
+            border-radius: $radius
+            margin-bottom: 10px
+            & header
+                display: flex
+                align-items: flex-start
+                margin: 0
+                & div.align
+                    flex-direction: column
+                    font-size: 18px
+                    font-weight: 400
+                    display: flex
+                    & span
+                        font-size: 14px
+                        color: $font2
+                & svg
+                    margin-top: 2px
+                    margin-right: 8px
+            & time
+                font-size: 14px
+                color: $font2
+        & div.option
+            width: calc( 100% - 10px * 2 )
+            padding: 10px
+            border-radius: $radius
+            display: flex
+            align-items: center
+            border: 1px solid $border
+            cursor: pointer
+            &:not(:last-child)
+                margin-bottom: 10px
+            &:last-child
+                margin-bottom: 20px
+            &:hover
+                background: $border
+            & svg
+                margin-right: 8px
