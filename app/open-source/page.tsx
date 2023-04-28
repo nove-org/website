@@ -1,10 +1,11 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
 
 import o from '~/open-source/page.module.sass';
+import Card from './card';
 
 export default function Projects() {
     const [cheemsVersion, setCheemsVersion] = useState<string>('0.000.0');
@@ -38,33 +39,22 @@ export default function Projects() {
                 </p>
                 <h2 className={o.sectionTitle}>Projects</h2>
                 <div className={o.wrapper}>
-                    <a href="https://github.com/nove-org/cheems" target="_blank">
-                        <div className={o.card + ' ' + o.dark}>
-                            <figure>
-                                <Image src="/cdn/assets/cheems.png" alt="Cheems website screenshot" width={320} height={180} />
-                            </figure>
-                            <h1>Cheems</h1>
-                            <p className={o.text}>Revolutionary file hosting, just as it is. Browse, upload, and share files up to 20MB; increase if needed. Join Cheems today.</p>
-                            <div className={o.tags}>
-                                <div className={o.tag}>Beta</div>
-                                <div className={o.tag}>Open-source</div>
-                                <div className={o.version}>{cheemsVersion}</div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://github.com/nove-org/JuzioFont" target="_blank">
-                        <div className={o.card + ' ' + o.light}>
-                            <figure>
-                                <Image src="/cdn/assets/juziofont.png" alt="Cheems website screenshot" width={320} height={180} />
-                            </figure>
-                            <h1>JuzioFont</h1>
-                            <p className={o.text}>Type like a boss. Be like @JuzioMiecio520. First font in the world that everyone will love! Now open-sourced.</p>
-                            <div className={o.tags}>
-                                <div className={o.tag}>Open-source</div>
-                                <div className={o.version}>{jfVersion}</div>
-                            </div>
-                        </div>
-                    </a>
+                    <Card
+                        name="Cheems"
+                        description="Revolutionary file hosting, just as it is. Browse, upload, and share files up to 20MB; increase if needed. Join Cheems today."
+                        img="/cdn/assets/cheems.png"
+                        tags={['Beta', 'Open-source']}
+                        version={cheemsVersion}
+                        url="https://beta.cheems.dog"
+                    />
+                    <Card
+                        name="JuzioFont"
+                        description="Type like a boss. Be like @JuzioMiecio520. First font in the world that everyone will love! Now open-sourced."
+                        img="/cdn/assets/juziofont.png"
+                        tags={['Open-source']}
+                        version={jfVersion}
+                        url="https://github.com/nove-org/JuzioFont"
+                    />
                     <a>
                         <div className={o.card + ' ' + o.light}>
                             <figure>
