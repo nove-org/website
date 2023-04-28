@@ -63,8 +63,8 @@ export default function AccountSecurity() {
                 <div className={o.card}>
                     <header>Your devices</header>
                     <p>List of most recent devices that logged in to your account this month</p>
-                    <Device icon="laptop" name="Linux" date="22 Apr" ip="89.42.51.69" />
-                    <Device icon="laptop" name="Linux" date="18 Apr" ip="72.92.291.43" />
+                    <Device icon="desktop" name="Linux" date="22 Apr" ip="89.42.51.69" />
+                    <Device icon="desktop" name="Linux" date="18 Apr" ip="72.92.291.43" />
                     <Device icon="phone" name="Android" date="11 Apr" ip="49.55.21.12" />
                     <p>
                         We store info about three most recent devices that logged in to your account in the last month on our servers. <a>Opt-out</a>

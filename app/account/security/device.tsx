@@ -4,7 +4,7 @@ import { NextPage } from 'next';
 import o from '~/account/page.module.sass';
 
 interface Props {
-    icon: 'laptop' | 'phone';
+    icon: 'desktop' | 'phone';
     name: string;
     ip: string;
     date: string;
@@ -14,7 +14,7 @@ const Device: NextPage<Props> = ({ icon, name, ip, date }) => {
     return (
         <div className={o.device}>
             <header>
-                {icon === 'laptop' ? (
+                {icon === 'desktop' ? (
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
                         <path
                             fill="currentColor"
