@@ -36,7 +36,7 @@ export default function AccountPersonal() {
 
         await axios
             .patch(
-                '/users/me',
+                '/users/avatar',
                 { file: elm.files[0] },
                 {
                     baseURL: config.api,
