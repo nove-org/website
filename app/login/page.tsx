@@ -63,7 +63,7 @@ export default function Login() {
                 if (res.data?.body?.error) return throwError(res.data.body.error.message);
                 else {
                     localStorage.setItem('key', res.data.body.data.token);
-                    await axios.get('/ls?key=' + res.data.body.data.token, { baseURL: config.api }).catch(() => {});
+                    await axios.get('/ls?key=' + res.data.body.data.token, { baseURL: 'https://api.nove.team' }).catch(() => {});
 
                     const redirect = searchParams.get('redirectBack') || '/account';
 
