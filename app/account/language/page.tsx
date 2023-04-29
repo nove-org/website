@@ -80,14 +80,21 @@ export default function AccountLanguage() {
             <p className={o.description}>Select your preferred language. This setting will be used to display content in your language on all Nove websites and your connected apps might use it.</p>
             <form id="languageForm">
                 <label className={o.card}>
-                    <input defaultChecked={data.body.data.language === 'en'} type="radio" name="language" onChange={handleInputChange} value="en" />
+                    <input defaultChecked={data.body.data.language === 'en-US'} type="radio" name="language" onChange={handleInputChange} value="en-US" />
                     <header>
-                        English
+                        English, US
                         <ReactCountryFlag countryCode="us" svg />
                     </header>
                 </label>
                 <label className={o.card}>
-                    <input defaultChecked={data.body.data.language === 'pl'} type="radio" name="language" onChange={handleInputChange} value="pl" />
+                    <input defaultChecked={data.body.data.language === 'en-GB'} type="radio" name="language" onChange={handleInputChange} value="en-GB" />
+                    <header>
+                        English, UK
+                        <ReactCountryFlag countryCode="gb" svg />
+                    </header>
+                </label>
+                <label className={o.card}>
+                    <input defaultChecked={data.body.data.language === 'pl-PL'} type="radio" name="language" onChange={handleInputChange} value="pl-PL" />
                     <header>
                         Polish
                         <ReactCountryFlag countryCode="pl" svg />
