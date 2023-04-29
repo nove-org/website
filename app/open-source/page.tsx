@@ -42,7 +42,7 @@ export default function Projects() {
                     <Card
                         name="Cheems"
                         description="Revolutionary file hosting, just as it is. Browse, upload, and share files up to 20MB; increase if needed. Join Cheems today."
-                        img="/cdn/assets/cheems.png"
+                        img="/cdn/assets/cheemsBanner.png"
                         tags={['Beta', 'Open-source']}
                         version={cheemsVersion}
                         url="https://beta.cheems.dog"
