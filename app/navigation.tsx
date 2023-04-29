@@ -76,7 +76,7 @@ export default function Navigation() {
                             <Loader type="classic" />
                         ) : data?.body?.data ? (
                             <figure onClick={() => setSwitcher((switcher) => !switcher)}>
-                                <Image src={data.body.data.avatar} width={24} height={24} alt="Account avatar" />
+                                <Image src={data.body.data.avatar + '?dummy=' + Math.floor(Math.random() * (999999 - 100000) + 100000)} width={24} height={24} alt="Account avatar" />
                                 {switcher ? (
                                     <div className="switcher">
                                         <header>
