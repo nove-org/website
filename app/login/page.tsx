@@ -1,5 +1,6 @@
 'use client';
 
+import { Response, User } from '../Interfaces';
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
@@ -11,6 +12,7 @@ import o from '~/login/page.module.sass';
 
 export default function Login() {
     const [loading, setLoading] = useState<boolean>(true);
+    const [data, setData] = useState<Response<User>>();
     const [twoFactorAuth, setTwoFactorAuth] = useState<boolean>(false);
     const [tFALoader, setTFALoader] = useState<boolean>(false);
     const [postError, setPostError] = useState<string>();
@@ -36,8 +38,8 @@ export default function Login() {
                         Authorization: `Owner ${localStorage.getItem('key')}`,
                     },
                 })
-                .then((res) => (res.data.body.data ? window.location.replace(searchParams.get('redirectBack') || '/account') : setLoading(false)))
-                .catch((err) => setLoading(false));
+                .then((res) => (res.data.body.data ? window.location.replace(searchParams.get('redirectBack') || '/account') : setLoading(false), setData(res.data)))
+                .catch((err) => (setLoading(false), err.response?.data ? setData(err.response.data) : null));
         };
 
         getData();
@@ -129,7 +131,7 @@ export default function Login() {
             <title>Login — Nove</title>
             <Loader type="window" text="Loading data from our servers..." />
         </main>
-    ) : (
+    ) : data?.body ? (
         <main>
             <title>Login — Nove</title>
             {postError ? <p className="error">{postError}</p> : null}
@@ -186,6 +188,11 @@ export default function Login() {
                     </div>
                 )}
             </section>
+        </main>
+    ) : (
+        <main>
+            <title>Login — Nove</title>
+            <Loader type="hidden" text={data?.body?.error?.message ? data.body.error.message.charAt(0) + data.body.error.message.slice(1).toLowerCase() : "Something went wrong and we can't reach the API"} />
         </main>
     );
 }
