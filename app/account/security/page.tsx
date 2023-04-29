@@ -62,7 +62,7 @@ export default function AccountSecurity() {
             ) : null}
             <h1 className={o.title}>Security</h1>
             <div className={s.security}>
-                <div className={s.card}>
+                <div className={s.card + ' disabled'}>
                     <header>Your devices</header>
                     <p>List of most recent devices that logged in to your account this month</p>
                     <Device icon="desktop" name="Linux" date="22 Apr" ip="89.42.51.69" />
@@ -75,7 +75,7 @@ export default function AccountSecurity() {
                 <div className={s.card}>
                     <header>How do you sign in</header>
                     <p>Add more secure ways of signing in to your account and confirming your identity</p>
-                    <div onClick={() => setPasswordPopup(true)} className={s.option}>
+                    <div onClick={() => setPasswordPopup(true)} className={s.option + ' disabled'}>
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
                             <path
                                 fill="currentColor"
@@ -83,7 +83,7 @@ export default function AccountSecurity() {
                         </svg>
                         Password
                     </div>
-                    <div onClick={() => setEmailPopup(true)} className={s.option}>
+                    <div onClick={() => setEmailPopup(true)} className={s.option + ' disabled'}>
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
                             <path
                                 fill="currentColor"

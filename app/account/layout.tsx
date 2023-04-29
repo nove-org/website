@@ -58,7 +58,7 @@ export default function AccountLayout({ children }: { children: React.ReactNode 
             <section className={o.dashboard}>
                 <aside>
                     <header>
-                        <Image src={data.body.data.avatar} width={48} height={48} alt="User avatar" />
+                        <Image src={data.body.data.avatar + '?dummy=' + Math.floor(Math.random() * (999999 - 100000) + 100000)} width={48} height={48} alt="User avatar" />
                         <h1>{data.body.data.username}</h1>
                     </header>
                     <ul>
