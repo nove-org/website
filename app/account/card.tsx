@@ -9,7 +9,7 @@ interface Props {
     name: string;
     description: string;
     url: string;
-    option: string;
+    option: string | undefined;
 }
 
 const Card: NextPage<Props> = ({ name, description, url, option }) => {

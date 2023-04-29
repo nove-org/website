@@ -35,6 +35,8 @@ export default function Account() {
         getData();
     }, []);
 
+    const lang = new Intl.DisplayNames(['en'], { type: 'language' });
+
     return loading ? (
         <main>
             <title>Dashboard — Nove</title>
@@ -79,7 +81,7 @@ export default function Account() {
                 </div>
             </div>
             <div className={s.shortcuts}>
-                <Card name="Language" description="Change your language preferences" option="English, US" url="/account/language" />
+                <Card name="Language" description="Change your language preferences" option={lang.of(data.body.data.language)} url="/account/language" />
                 <Card name="Recent activity" description="Check recent activity on your account" option="2 sessions on Linux" url="/account/security" />
                 <Card name="Account recovery" description="Set up two factor authentication and download backup codes" option="Download" url="/account/security" />
             </div>
