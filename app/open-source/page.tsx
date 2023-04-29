@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Card from './card';
 import axios from 'axios';
 
 import o from '~/open-source/page.module.sass';
-import Card from './card';
 
 export default function Projects() {
     const [cheemsVersion, setCheemsVersion] = useState<string>('0.000.0');

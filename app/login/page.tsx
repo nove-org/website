@@ -1,8 +1,8 @@
 'use client';
 
+import { ChangeEvent, FormEvent, useState } from 'react';
 import Image from 'next/image';
 import Loader from '../loader';
-import { ChangeEvent, FormEvent, useState } from 'react';
 
 import o from '~/login/page.module.sass';
 
