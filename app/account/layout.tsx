@@ -24,7 +24,7 @@ export default function AccountLayout({ children }: { children: React.ReactNode 
     ];
 
     useEffect(() => {
-        if (!localStorage.getItem('key')) return window.location.replace('/login');
+        if (!localStorage.getItem('key')) return window.location.replace(`/login?redirectBack=${active ? '/account/' + active : '/account'}`);
 
         const getData = async () => {
             await axios
@@ -35,11 +35,11 @@ export default function AccountLayout({ children }: { children: React.ReactNode 
                         Authorization: `Owner ${localStorage.getItem('key')}`,
                     },
                 })
-                .then((res) => (res.data ? setData(res.data) : window.location.replace('/login'), setLoading(false)))
+                .then((res) => (res.data ? setData(res.data) : window.location.replace(`/login?redirectBack=${active ? '/account/' + active : '/account'}`), setLoading(false)))
                 .catch(
                     (err) => (
-                        err.response?.data ? (err.response.data.body.error.code === 'invalid_authorization_token' ? window.location.replace(`/login?redirectBack=${active ? '/account/' + active : '/account'}`) : setData(err.response.data)) : window.location.replace('/'),
-                        err.response.data.body.error.code !== 'invalid_authorization_token' ? setLoading(false) : null
+                        err.response?.data ? (err.response.data.body.error.code === 'invalid_authorization_token' ? window.location.replace(`/login?redirectBack=${active ? '/account/' + active : '/account'}`) : setData(err.response.data)) : null,
+                        err.response?.data.body.error.code !== 'invalid_authorization_token' ? setLoading(false) : null
                     )
                 );
         };

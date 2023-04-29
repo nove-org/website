@@ -1,9 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Response, User } from '../Interfaces';
 import Image from 'next/image';
 import Connection from './connection';
+import Loader from '../loader';
 import Card from './card';
+import axios from 'axios';
+import config from '@/config.json';
 
 import o from '~/account/page.module.sass';
 import s from '~/account/shortcuts.module.sass';
@@ -11,8 +15,32 @@ import c from '~/account/connections.module.sass';
 
 export default function Account() {
     const [namePopup, setNamePopup] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [data, setData] = useState<Response<User>>();
 
-    return (
+    useEffect(() => {
+        const getData = async () => {
+            await axios
+                .get('/users/me', {
+                    baseURL: config.api,
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Owner ${localStorage.getItem('key')}`,
+                    },
+                })
+                .then((res) => (res.data ? setData(res.data) : null, setLoading(false)))
+                .catch((err) => (err.response?.data ? setData(err.response.data) : null, setLoading(false)));
+        };
+
+        getData();
+    }, []);
+
+    return loading ? (
+        <main>
+            <title>Dashboard — Nove</title>
+            <Loader type="window" />
+        </main>
+    ) : data?.body?.data ? (
         <div className={o.content}>
             {namePopup ? (
                 <dialog id="changeName" className={o.popup}>
@@ -27,7 +55,7 @@ export default function Account() {
                             </svg>
                         </h1>
                         <p>Type something new, unique and easy to remember. This is alias to your account which means you can log in with it to your Nove account.</p>
-                        <input autoComplete="off" autoFocus={true} autoCorrect="off" type="text" placeholder="New username" id="accountTagUpdate" name="accountTagUpdate" />
+                        <input autoComplete="off" autoFocus={true} autoCorrect="off" type="text" placeholder="New username" id="accountTagUpdate" name="accountTagUpdate" defaultValue={data.body.data.username} />
                         <div className={o.footer}>
                             <button onClick={() => setNamePopup(false)} type="reset">
                                 Cancel
@@ -40,14 +68,14 @@ export default function Account() {
             <h1 className={o.title}>Overview</h1>
             <div className={o.card}>
                 <label htmlFor="image">
-                    <Image src="https://api.nove.team/v1/users/00000000/avatar.webp" width={96} height={96} alt="User avatar" />
+                    <Image src={data.body.data.avatar} width={96} height={96} alt="User avatar" />
                 </label>
                 <div className={o.content}>
                     <div className={o.username}>
-                        <h1>wnm210</h1>
+                        <h1>{data.body.data.username}</h1>
                         <button onClick={() => setNamePopup(true)}>Edit</button>
                     </div>
-                    <div className={o.email}>wnm210@****.team</div>
+                    <div className={o.email}>{data.body.data.email}</div>
                 </div>
             </div>
             <div className={s.shortcuts}>
@@ -60,5 +88,10 @@ export default function Account() {
                 <Connection data={{ name: 'cheems.dog', logo: '/cdn/assets/cheems.png', permissionLevel: 0 }} />
             </div>
         </div>
+    ) : (
+        <main>
+            <title>Dashboard — Nove</title>
+            <Loader type="hidden" text={data?.body?.error?.message ? data.body.error.message.charAt(0) + data.body.error.message.slice(1).toLowerCase() : "Something went wrong and we can't reach the API"} />
+        </main>
     );
 }
