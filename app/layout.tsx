@@ -1,9 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import Script from 'next/script';
+import Navigation from './navigation';
 
 import '~/globals.sass';
-import Navigation from './navigation';
 
 export const metadata = {
     metadataBase: new URL('https://nove.team'),
