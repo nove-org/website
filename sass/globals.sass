@@ -8,6 +8,13 @@
 
 @import url('https://f.nove.team/fonts/inter/conf.css')
 
+*
+    user-select: none
+    font-family: 'Inter'
+    transition-duration: .15s
+    scrollbar-width: thin
+    margin: 0
+
 .disabled
     pointer-events: none
     cursor: default
@@ -36,18 +43,9 @@ div.background
     animation: backgronud 300ms ease-in-out
     @keyframes backgronud
         0%
-
             background: #00000000
         100%
-
             background: #00000042
-
-*
-    user-select: none
-    font-family: 'Inter'
-    transition-duration: .15s
-    scrollbar-width: thin
-    margin: 0
 
 img
     pointer-events: none
