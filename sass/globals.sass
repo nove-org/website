@@ -26,6 +26,22 @@ p.error
     width: fit-content
     z-index: 100
 
+div.background
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100vh
+    background: #00000042
+    animation: backgronud 300ms ease-in-out
+    @keyframes backgronud
+        0%
+
+            background: #00000000
+        100%
+
+            background: #00000042
+
 *
     user-select: none
     font-family: 'Inter'
@@ -86,9 +102,8 @@ nav.navBox
         padding-top: 1px
         border-bottom: 1px solid $border
         & div.container
-            & header
-                & img
-                    margin-top: -1px
+            & img
+                margin-top: -1px
     & div.container
         max-width: 1300px
         width: calc( 100% - 20px * 2 )
@@ -112,6 +127,62 @@ nav.navBox
             list-style: none
             padding: 0
             margin: 0
+            & figure
+                margin: 0
+                padding: 0
+                border-radius: 50%
+                position: relative
+                cursor: pointer
+                & img
+                    border-radius: 50%
+                & div.switcher
+                    position: absolute
+                    bottom: calc( -166px )
+                    left: calc( -277px )
+                    width: 300px
+                    height: 156px
+                    background: $secondary
+                    border: 1px solid $border
+                    border-radius: $radius
+                    box-shadow: 0 0 50px 5px #0000007c
+                    cursor: default
+                    animation: switcher 200ms ease-in-out
+                    @keyframes switcher
+                        0%
+                            opacity: 0
+                        100%
+                            opacity: 1
+
+                    & header
+                        display: flex
+                        align-items: center
+                        padding: 15px
+                        border-bottom: 1px solid $border
+                        cursor: default
+                    & ul
+                        padding: 0
+                        margin: 0
+                        list-style: none
+                        flex-direction: column
+                        align-items: flex-start
+                        & li
+                            opacity: 1 !important
+                            display: block !important
+                            width: 100%
+                            margin-right: 0 !important
+                            margin-left: 0 !important
+                            cursor: pointer
+                            & a
+                                padding: 15px
+                                margin: 0
+                                width: calc( 100% - 15px * 2 )
+                                display: flex !important
+                                align-items: center
+                                & svg
+                                    margin-right: 5px
+                                &:hover
+                                    background: $border
+                                    color: $font
             & li
                 font-size: 14px
                 letter-spacing: .2px

@@ -12,7 +12,7 @@ export default function SignUp() {
     return (
         <main>
             <title>Sign up — Nove</title>
-            <section className={o.login}>
+            <section className={o.login + ' disabled'}>
                 <div className={o.box}>
                     <Image src="/cdn/assets/logo.png" width={64} height={64} alt="Nove logo" />
                     <h1>New Nove account</h1>

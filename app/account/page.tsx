@@ -143,7 +143,7 @@ export default function Account() {
                     </svg>
                 </Card>
             </div>
-            <div className={c.connections}>
+            <div className={c.connections + ' disabled'}>
                 <h2>Account connections</h2>
                 <Connection data={{ name: 'cheems.dog', logo: '/cdn/assets/cheems.png', permissionLevel: 0 }} />
             </div>

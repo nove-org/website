@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Script from 'next/script';
 
 import '~/globals.sass';
+import Navigation from './navigation';
 
 export const metadata = {
     metadataBase: new URL('https://nove.team'),
@@ -79,53 +80,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="en">
             <body>
-                <Script id="border-nav" strategy="afterInteractive">
-                    {`const el = document.querySelector(".navBox");
-                    const observer = new IntersectionObserver(([e]) => e.target.classList.toggle("is-pinned", e.intersectionRatio < 1), { threshold: [1] });
-                    observer.observe(el);`}
-                </Script>
-                <nav className="navBox">
-                    <div className="container">
-                        <Link href="/">
-                            <header>
-                                <Image src="/cdn/assets/watermark.png" width={22} height={22} alt="Logo grayscale" />
-                                <h1>Nove</h1>
-                            </header>
-                        </Link>
-                        <ul>
-                            <li>
-                                <Link href="/about">About</Link>
-                            </li>
-                            <li>
-                                <Link href="/docs">Docs</Link>
-                            </li>
-                            <li>
-                                <a href="https://github.com/nove-org/" target="_blank">
-                                    GitHub
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/orgs/nove-org/discussions/categories/announcements" target="_blank">
-                                    Announcements
-                                </a>
-                            </li>
-                            <li>
-                                <Link href="/open-source">Open source</Link>
-                            </li>
-                            <li>
-                                <a>Legal</a>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li className="login">
-                                <Link href="/login">Login</Link>
-                            </li>
-                            <li className="button">
-                                <Link href="/sign-up">Sign up</Link>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+                <Navigation />
 
                 {children}
 
