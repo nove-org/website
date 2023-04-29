@@ -14,8 +14,8 @@ export default function AccountPersonal() {
     const [avatarPopup, setAvatarPopup] = useState<boolean>(false);
     const [selected, setSelected] = useState<boolean>(false);
     const [bioChange, setBioChange] = useState<boolean>(false);
-    const [fileName, setFileName] = useState<string>('');
-    const [postError, setPostError] = useState<string>('');
+    const [fileName, setFileName] = useState<string>();
+    const [postError, setPostError] = useState<string>();
 
     const throwError = (message?: string, bool?: boolean) => {
         if (bool === false) return setPostError('');
@@ -96,7 +96,7 @@ export default function AccountPersonal() {
 
     return (
         <div className={o.content}>
-            {postError ? <p className={o.error}>{postError}</p> : null}
+            {postError ? <p className="error">{postError}</p> : null}
             {namePopup ? (
                 <dialog id="changeName" className={o.popup}>
                     <div onClick={() => setNamePopup(false)} className={o.background}></div>

@@ -5,11 +5,11 @@ import { useSelectedLayoutSegment } from 'next/navigation';
 import { Response, User } from '../Interfaces';
 import Image from 'next/image';
 import Link from 'next/link';
+import Loader from '../loader';
 import axios from 'axios';
 import config from '@/config.json';
 
 import o from '~/account/page.module.sass';
-import Loader from '../loader';
 
 export default function AccountLayout({ children }: { children: React.ReactNode }) {
     const active = useSelectedLayoutSegment();
@@ -36,21 +36,21 @@ export default function AccountLayout({ children }: { children: React.ReactNode 
                     },
                 })
                 .then((res) => (res.data ? setData(res.data) : window.location.replace('/login'), setLoading(false)))
-                .catch((err) => (err.response?.data ? setData(err.response.data) : window.location.replace('/'), setLoading(false)));
+                .catch(
+                    (err) => (
+                        err.response?.data ? (err.response.data.body.error.code === 'invalid_authorization_token' ? window.location.replace(`/login?redirectBack=${active ? '/account/' + active : '/account'}`) : setData(err.response.data)) : window.location.replace('/'),
+                        err.response.data.body.error.code !== 'invalid_authorization_token' ? setLoading(false) : null
+                    )
+                );
         };
 
         getData();
-    }, []);
+    }, [active]);
 
     return loading ? (
         <main>
             <title>Dashboard — Nove</title>
             <Loader type="window" text="Please wait while we're setting up credentials..." />
-        </main>
-    ) : data?.body?.error ? (
-        <main>
-            <title>Dashboard — Nove</title>
-            <Loader type="hidden" text={data.body.error.message} />
         </main>
     ) : data?.body?.data ? (
         <main>
@@ -102,7 +102,7 @@ export default function AccountLayout({ children }: { children: React.ReactNode 
     ) : (
         <main>
             <title>Dashboard — Nove</title>
-            <Loader type="hidden" text="Something went wrong and we can't reach the API" />
+            <Loader type="hidden" text={data?.body?.error?.message || "Something went wrong and we can't reach the API"} />
         </main>
     );
 }
