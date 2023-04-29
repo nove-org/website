@@ -53,7 +53,7 @@ export default function AccountPersonal() {
                     },
                 }
             )
-            .then((res) => {
+            .then(() => {
                 (document.getElementById('fileForm') as HTMLFormElement).reset();
 
                 setAvatarPopup(false);
