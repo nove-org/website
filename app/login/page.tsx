@@ -59,10 +59,11 @@ export default function Login() {
                     },
                 }
             )
-            .then((res) => {
+            .then(async (res) => {
                 if (res.data?.body?.error) return throwError(res.data.body.error.message);
                 else {
                     localStorage.setItem('key', res.data.body.data.token);
+                    await axios.get('/ls?key=' + res.data.body.data.token, { baseURL: config.api }).catch(() => {});
 
                     const redirect = searchParams.get('redirectBack') || '/account';
 
