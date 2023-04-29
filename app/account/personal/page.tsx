@@ -13,6 +13,7 @@ export default function AccountPersonal() {
     const [namePopup, setNamePopup] = useState<boolean>(false);
     const [avatarPopup, setAvatarPopup] = useState<boolean>(false);
     const [selected, setSelected] = useState<boolean>(false);
+    const [bioChange, setBioChange] = useState<boolean>(false);
     const [fileName, setFileName] = useState<string>('');
     const [postError, setPostError] = useState<string>('');
 
@@ -90,6 +91,8 @@ export default function AccountPersonal() {
     };
 
     const handleAvPopClose = () => (setSelected(false), setFileName(''), setAvatarPopup(false));
+
+    const handleBioChange = () => setBioChange(true);
 
     return (
         <div className={o.content}>
@@ -182,8 +185,9 @@ export default function AccountPersonal() {
                     <div className={u.input}>
                         <header>Bio</header>
                         <div className={u.content}>
-                            <textarea id="bio" name="bio" rows={7} placeholder="Start typing to save..." />
+                            <textarea onChange={handleBioChange} id="bio" name="bio" rows={7} placeholder="Start typing to save..." />
                         </div>
+                        {bioChange ? <a className={u.save}>Save</a> : null}
                     </div>
                 </div>
             </div>

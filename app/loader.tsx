@@ -2,17 +2,25 @@
 
 import { NextPage } from 'next';
 
-import ss from '~/loader.module.sass';
+import o from '~/loader.module.sass';
 
-const Loader: NextPage = () => {
+interface Props {
+    type?: 'classic' | 'window' | 'button' | 'hidden';
+    text?: string;
+}
+
+const Loader: NextPage<Props> = ({ type, text }) => {
     return (
-        <div className={ss.loaderContainer}>
-            <div className={ss.loader}>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
+        <div className={type === 'button' ? o.loaderButton : type === 'window' || type === 'hidden' ? o.loaderWindow : o.loaderClassic}>
+            {type === 'hidden' ? null : (
+                <div className={o.loader}>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            )}
+            {text ? <p className={o.text}>{text}</p> : null}
         </div>
     );
 };

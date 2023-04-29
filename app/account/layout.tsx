@@ -1,13 +1,20 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { useSelectedLayoutSegment } from 'next/navigation';
+import { Response, User } from '../Interfaces';
 import Image from 'next/image';
 import Link from 'next/link';
+import axios from 'axios';
+import config from '@/config.json';
 
 import o from '~/account/page.module.sass';
+import Loader from '../loader';
 
 export default function AccountLayout({ children }: { children: React.ReactNode }) {
     const active = useSelectedLayoutSegment();
+    const [loading, setLoading] = useState<boolean>(true);
+    const [data, setData] = useState<Response<User>>();
 
     const sidebar = [
         { label: 'Overview', path: '/account/', target: null },
@@ -16,14 +23,43 @@ export default function AccountLayout({ children }: { children: React.ReactNode 
         { label: 'Security', path: '/account/security', target: 'security' },
     ];
 
-    return (
+    useEffect(() => {
+        if (!localStorage.getItem('key')) return window.location.replace('/login');
+
+        const getData = async () => {
+            await axios
+                .get('/users/me', {
+                    baseURL: config.api,
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Owner ${localStorage.getItem('key')}`,
+                    },
+                })
+                .then((res) => (res.data ? setData(res.data) : window.location.replace('/login'), setLoading(false)))
+                .catch((err) => (err.response?.data ? setData(err.response.data) : window.location.replace('/'), setLoading(false)));
+        };
+
+        getData();
+    }, []);
+
+    return loading ? (
+        <main>
+            <title>Dashboard — Nove</title>
+            <Loader type="window" text="Please wait while we're setting up credentials..." />
+        </main>
+    ) : data?.body?.error ? (
+        <main>
+            <title>Dashboard — Nove</title>
+            <Loader type="hidden" text={data.body.error.message} />
+        </main>
+    ) : data?.body?.data ? (
         <main>
             <title>Account — Nove</title>
             <section className={o.dashboard}>
                 <aside>
                     <header>
-                        <Image src="https://api.nove.team/v1/users/00000000/avatar.webp" width={48} height={48} alt="User avatar" />
-                        <h1>wnm210</h1>
+                        <Image src={data.body.data.avatar} width={48} height={48} alt="User avatar" />
+                        <h1>{data.body.data.username}</h1>
                     </header>
                     <ul>
                         {sidebar.map((list) => (
@@ -62,6 +98,11 @@ export default function AccountLayout({ children }: { children: React.ReactNode 
                 </aside>
                 {children}
             </section>
+        </main>
+    ) : (
+        <main>
+            <title>Dashboard — Nove</title>
+            <Loader type="hidden" text="Something went wrong and we can't reach the API" />
         </main>
     );
 }
