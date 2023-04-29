@@ -80,7 +80,7 @@ export default function Navigation() {
                                 {switcher ? (
                                     <div className="switcher">
                                         <header>
-                                            <Image src={data.body.data.avatar} width={24} height={24} alt="Account avatar" />
+                                            <Image src={data.body.data.avatar + '?dummy=' + Math.floor(Math.random() * (999999 - 100000) + 100000)} width={24} height={24} alt="Account avatar" />
                                             <h1>{data.body.data.username}</h1>
                                         </header>
                                         <ul>
