@@ -7,7 +7,7 @@ const nextConfig = {
         includePaths: ['./app', './sass'],
     },
     images: {
-        domains: ['api.nove.team', 'api.cheems.dog'],
+        domains: ['api.nove.team', 'api.cheems.dog', 'f.nove.team'],
     },
 };
 
