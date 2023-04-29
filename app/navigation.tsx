@@ -1,7 +1,3 @@
-/*
-
-*/
-
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -56,7 +52,7 @@ export default function Navigation() {
                             <Link href="/about">About</Link>
                         </li>
                         <li>
-                            <Link href="https://github.com/nove-org/docs">Docs</Link>
+                            <Link href="/docs">Docs</Link>
                         </li>
                         <li>
                             <a href="https://github.com/nove-org/" target="_blank">

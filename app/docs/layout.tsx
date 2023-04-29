@@ -10,7 +10,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
 
     const sidebar = [
         { label: 'Getting started', description: 'All the requirements, important notes and the getting started itself', path: '/docs/', target: null },
-        { label: 'Hello, World', description: 'As it says, Hello World. For testing purposes. I love you exate', path: '/docs/hello-world', target: 'hello-world' },
+        { label: 'Hello, World', description: 'As it says, Hello World. For testing purposes.', path: '/docs/hello-world', target: 'hello-world' },
     ];
 
     return (
