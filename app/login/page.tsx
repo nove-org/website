@@ -1,17 +1,74 @@
 'use client';
 
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Loader from '../loader';
+import axios from 'axios';
+import config from '@/config.json';
 
 import o from '~/login/page.module.sass';
 
 export default function Login() {
+    const [loading, setLoading] = useState<boolean>(true);
     const [twoFactorAuth, setTwoFactorAuth] = useState<boolean>(false);
     const [tFALoader, setTFALoader] = useState<boolean>(false);
+    const [postError, setPostError] = useState<string>();
+    const searchParams = useSearchParams();
+
+    const throwError = (message?: string, bool?: boolean) => {
+        if (bool === false) return setPostError('');
+
+        if (message) {
+            setPostError(message.charAt(0).toUpperCase() + message.slice(1).toLowerCase());
+
+            setTimeout(() => setPostError(''), 5000);
+        }
+    };
+
+    useEffect(() => {
+        const getData = async () => {
+            await axios
+                .get('/users/me', {
+                    baseURL: config.api,
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Owner ${localStorage.getItem('key')}`,
+                    },
+                })
+                .then((res) => (res.data.body.data ? window.location.replace(searchParams.get('redirectBack') || '/account') : setLoading(false)))
+                .catch((err) => setLoading(false));
+        };
+
+        getData();
+    }, [searchParams]);
 
     const handleLogin = async (event: any) => {
         event.preventDefault();
+
+        await axios
+            .post(
+                '/users/login',
+                { username: event.target.username.value, password: event.target.password.value },
+                {
+                    baseURL: config.api,
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                }
+            )
+            .then((res) => {
+                if (res.data?.body?.error) return throwError(res.data.body.error.message);
+                else {
+                    localStorage.setItem('key', res.data.body.data.token);
+
+                    const redirect = searchParams.get('redirectBack') || '/account';
+
+                    if (redirect == '__CLOSE__') window.close();
+                    else window.location.replace(redirect);
+                }
+            })
+            .catch((err) => (err.response?.data.body.error ? throwError(err.response.data.body.error.message) : null));
     };
 
     const handleSubmit = async () => {
@@ -30,10 +87,6 @@ export default function Login() {
 
         setTimeout(() => setTFALoader(false), 2000);
 
-        // TODO: Implement code for submitting 2FA code.
-        // TODO: Implement code for submitting 2FA code.
-        // TODO: Implement code for submitting 2FA code.
-        // TODO: Implement code for submitting 2FA code.
         // TODO: Implement code for submitting 2FA code.
     };
 
@@ -71,9 +124,15 @@ export default function Login() {
         document.getElementById((parseInt(event.target.id) + 1).toString())?.focus();
     };
 
-    return (
+    return loading ? (
         <main>
             <title>Login — Nove</title>
+            <Loader type="window" text="Loading data from our servers..." />
+        </main>
+    ) : (
+        <main>
+            <title>Login — Nove</title>
+            {postError ? <p className="error">{postError}</p> : null}
             <section className={o.login}>
                 {twoFactorAuth ? (
                     tFALoader ? (
@@ -105,7 +164,7 @@ export default function Login() {
                         <Image src="/cdn/assets/logo.png" width={64} height={64} alt="Nove logo" />
                         <h1>Welcome back</h1>
                         <p>Login to your Nove account and get started.</p>
-                        <form onSubmit={handleLogin}>
+                        <form id="loginStep1" onSubmit={handleLogin}>
                             <label htmlFor="username">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 48 48">
                                     <path
