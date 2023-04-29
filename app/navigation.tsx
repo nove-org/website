@@ -51,12 +51,12 @@ export default function Navigation() {
                             <h1>Nove</h1>
                         </header>
                     </Link>
-                    <ul>
+                    <ul className="ul">
                         <li>
                             <Link href="/about">About</Link>
                         </li>
                         <li>
-                            <Link href="/docs">Docs</Link>
+                            <Link href="https://github.com/nove-org/docs">Docs</Link>
                         </li>
                         <li>
                             <a href="https://github.com/nove-org/" target="_blank">
@@ -72,7 +72,7 @@ export default function Navigation() {
                             <Link href="/open-source">Open source</Link>
                         </li>
                         <li>
-                            <a>Legal</a>
+                            <Link href="/privacy">Legal</Link>
                         </li>
                     </ul>
                     <ul>
