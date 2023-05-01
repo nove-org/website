@@ -141,6 +141,17 @@ section.dashboard
                     justify-content: space-between
                     & svg
                         color: $font2
+                        padding: 7px
+                        border-radius: $radius
+                        cursor: pointer
+                        animation: opacityin 1000ms ease-in-out
+                        @keyframes opacityin
+                            0%
+                                opacity: 0
+                            100%
+                                opacity: 1
+                        &:hover
+                            background: $border
                 & p
                     padding: 0 15px
                     font-size: 16px
