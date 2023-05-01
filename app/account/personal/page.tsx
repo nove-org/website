@@ -240,7 +240,7 @@ export default function AccountPersonal() {
                     <div className={u.input}>
                         <header>Avatar</header>
                         <div className={u.content}>
-                            <Image src={data.body.data.avatar + '?dummy=' + Math.floor(Math.random() * (999999 - 100000) + 100000)} width={64} height={64} alt="Avatar" />
+                            <Image src={`${data.body.data.avatar}?v=${data.body.data.updatedAt}`} width={64} height={64} alt="Avatar" />
                             <a onClick={() => setAvatarPopup(true)}>Edit</a>
                         </div>
                     </div>

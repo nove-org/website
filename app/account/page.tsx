@@ -110,7 +110,7 @@ export default function Account() {
             <h1 className={o.title}>Overview</h1>
             <div className={o.card}>
                 <label htmlFor="image">
-                    <Image src={data.body.data.avatar + '?dummy=' + Math.floor(Math.random() * (999999 - 100000) + 100000)} width={96} height={96} alt="User avatar" />
+                    <Image src={`${data.body.data.avatar}?v=${data.body.data.updatedAt}`} width={96} height={96} alt="User avatar" />
                 </label>
                 <div className={o.content}>
                     <div className={o.username}>
