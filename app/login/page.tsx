@@ -3,10 +3,9 @@
 import { Response, User } from '../Interfaces';
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { axiosClient } from '@/app/utils';
 import Image from 'next/image';
 import Loader from '../loader';
-import axios from 'axios';
-import config from '@/config.json';
 
 import o from '~/login/page.module.sass';
 
@@ -30,9 +29,8 @@ export default function Login() {
 
     useEffect(() => {
         const getData = async () => {
-            await axios
+            await axiosClient
                 .get('/users/me', {
-                    baseURL: config.api,
                     headers: {
                         'Content-Type': 'application/json',
                         Authorization: `Owner ${localStorage.getItem('key')}`,
@@ -48,12 +46,11 @@ export default function Login() {
     const handleLogin = async (event: any) => {
         event.preventDefault();
 
-        await axios
+        await axiosClient
             .post(
                 '/users/login',
                 { username: event.target.username.value, password: event.target.password.value },
                 {
-                    baseURL: config.api,
                     headers: {
                         'Content-Type': 'application/json',
                     },

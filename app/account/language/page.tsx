@@ -2,10 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import { Response, User } from '@/app/Interfaces';
+import { axiosClient } from '@/app/utils';
 import Loader from '@/app/loader';
 import ReactCountryFlag from 'react-country-flag';
-import axios from 'axios';
-import config from '@/config.json';
 
 import o from '~/account/page.module.sass';
 
@@ -29,9 +28,8 @@ export default function AccountLanguage() {
 
     useEffect(() => {
         const getData = async () => {
-            await axios
+            await axiosClient
                 .get('/users/me', {
-                    baseURL: config.api,
                     headers: {
                         'Content-Type': 'application/json',
                         Authorization: `Owner ${localStorage.getItem('key')}`,
@@ -47,14 +45,13 @@ export default function AccountLanguage() {
     const handleInputChange = async (event: any) => {
         setLoading(true);
 
-        await axios
+        await axiosClient
             .patch(
                 '/users/me',
                 {
                     language: event.target.value,
                 },
                 {
-                    baseURL: config.api,
                     headers: {
                         'Content-Type': 'application/json',
                         Authorization: `Owner ${localStorage.getItem('key')}`,

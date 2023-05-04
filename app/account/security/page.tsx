@@ -1,6 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Response, Activity } from '@/app/Interfaces';
+import { axiosClient } from '@/app/utils';
+import Loader from '@/app/loader';
 import Device from './device';
 
 import o from '~/account/page.module.sass';
@@ -9,8 +12,42 @@ import s from '~/account/security.module.sass';
 export default function AccountSecurity() {
     const [passwordPopup, setPasswordPopup] = useState<boolean>(false);
     const [emailPopup, setEmailPopup] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [data, setData] = useState<Response<Activity[]>>();
+    const [postError, setPostError] = useState<string>();
 
-    return (
+    const throwError = (message?: string, bool?: boolean) => {
+        if (bool === false) return setPostError('');
+
+        if (message) {
+            setPostError(message.charAt(0).toUpperCase() + message.slice(1).toLowerCase());
+
+            setTimeout(() => setPostError(''), 5000);
+        }
+    };
+
+    useEffect(() => {
+        const getData = async () => {
+            await axiosClient
+                .get('/users/me/activity', {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Owner ${localStorage.getItem('key')}`,
+                    },
+                })
+                .then((res) => (res.data ? setData(res.data) : null, setLoading(false)))
+                .catch((err) => (err.response?.data ? setData(err.response.data) : null, setLoading(false)));
+        };
+
+        getData();
+    }, []);
+
+    return loading ? (
+        <main>
+            <title>Dashboard — Nove</title>
+            <Loader type="window" />
+        </main>
+    ) : data?.body?.data ? (
         <div className={o.content}>
             {passwordPopup ? (
                 <dialog id="changeName" className={o.popup}>
@@ -62,12 +99,11 @@ export default function AccountSecurity() {
             ) : null}
             <h1 className={o.title}>Security</h1>
             <div className={s.security}>
-                <div className={s.card + ' disabled'}>
+                <div className={s.card}>
                     <header>Your devices</header>
                     <p>List of most recent devices that logged in to your account this month</p>
+                    {}
                     <Device icon="desktop" name="Linux" date="22 Apr" ip="89.42.51.69" />
-                    <Device icon="desktop" name="Linux" date="18 Apr" ip="72.92.291.43" />
-                    <Device icon="phone" name="Android" date="11 Apr" ip="49.55.21.12" />
                     <p>
                         We store info about three most recent devices that logged in to your account in the last month on our servers. <a>Opt-out</a>
                     </p>
@@ -118,5 +154,10 @@ export default function AccountSecurity() {
                 </div>
             </div>
         </div>
+    ) : (
+        <main>
+            <title>Dashboard — Nove</title>
+            <Loader type="hidden" text={data?.body?.error?.message ? data.body.error.message.charAt(0) + data.body.error.message.slice(1).toLowerCase() : "Something went wrong and we can't reach the API"} />
+        </main>
     );
 }

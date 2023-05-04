@@ -2,11 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import { Response, User } from './Interfaces';
+import { axiosClient } from '@/app/utils';
 import Link from 'next/link';
 import Script from 'next/script';
 import Image from 'next/image';
 import Loader from './loader';
-import axios from 'axios';
 import config from '@/config.json';
 
 export default function Navigation() {
@@ -16,9 +16,8 @@ export default function Navigation() {
 
     useEffect(() => {
         const getData = async () => {
-            await axios
+            await axiosClient
                 .get('/users/me', {
-                    baseURL: config.api,
                     headers: {
                         'Content-Type': 'application/json',
                         Authorization: `Owner ${localStorage.getItem('key')}`,

@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import { Response, User } from '@/app/Interfaces';
+import { AxiosProgressEvent } from 'axios';
+import { axiosClient } from '@/app/utils';
 import Image from 'next/image';
 import Loader from '@/app/loader';
-import axios, { AxiosProgressEvent } from 'axios';
-import config from '@/config.json';
 import mime from 'mime-types';
 
 import o from '~/account/page.module.sass';
@@ -33,9 +33,8 @@ export default function AccountPersonal() {
 
     useEffect(() => {
         const getData = async () => {
-            await axios
+            await axiosClient
                 .get('/users/me', {
-                    baseURL: config.api,
                     headers: {
                         'Content-Type': 'application/json',
                         Authorization: `Owner ${localStorage.getItem('key')}`,
@@ -51,14 +50,13 @@ export default function AccountPersonal() {
     const handleUsernameUpdate = async (event: any) => {
         event.preventDefault();
 
-        await axios
+        await axiosClient
             .patch(
                 '/users/me',
                 {
                     username: event.target.accountTagUpdate.value,
                 },
                 {
-                    baseURL: config.api,
                     headers: {
                         'Content-Type': 'application/json',
                         Authorization: `Owner ${localStorage.getItem('key')}`,
@@ -82,12 +80,11 @@ export default function AccountPersonal() {
 
         if (!elm || !elm.files) return;
 
-        await axios
+        await axiosClient
             .patch(
                 '/users/avatar',
                 { file: elm.files[0] },
                 {
-                    baseURL: config.api,
                     headers: {
                         'Content-Type': 'multipart/form-data',
                         Authorization: `Owner ${localStorage.getItem('key')}`,
@@ -137,14 +134,13 @@ export default function AccountPersonal() {
     const handleBioUpdate = async (event: any) => {
         event.preventDefault();
 
-        await axios
+        await axiosClient
             .patch(
                 '/users/me',
                 {
                     bio: event.target.bio.value,
                 },
                 {
-                    baseURL: config.api,
                     headers: {
                         'Content-Type': 'application/json',
                         Authorization: `Owner ${localStorage.getItem('key')}`,

@@ -3,10 +3,10 @@
 import { useEffect, useState } from 'react';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import { Response, User } from '../Interfaces';
+import { axiosClient } from '@/app/utils';
 import Image from 'next/image';
 import Link from 'next/link';
 import Loader from '../loader';
-import axios from 'axios';
 import config from '@/config.json';
 
 import o from '~/account/page.module.sass';
@@ -27,9 +27,8 @@ export default function AccountLayout({ children }: { children: React.ReactNode 
         if (!localStorage.getItem('key')) return window.location.replace(`/login?redirectBack=${active ? '/account/' + active : '/account'}`);
 
         const getData = async () => {
-            await axios
+            await axiosClient
                 .get('/users/me', {
-                    baseURL: config.api,
                     headers: {
                         'Content-Type': 'application/json',
                         Authorization: `Owner ${localStorage.getItem('key')}`,

@@ -2,12 +2,11 @@
 
 import { useEffect, useState } from 'react';
 import { Response, User } from '../Interfaces';
+import { axiosClient } from '@/app/utils';
 import Image from 'next/image';
 import Connection from './connection';
 import Loader from '../loader';
 import Card from './card';
-import axios from 'axios';
-import config from '@/config.json';
 
 import o from '~/account/page.module.sass';
 import s from '~/account/shortcuts.module.sass';
@@ -33,9 +32,8 @@ export default function Account() {
 
     useEffect(() => {
         const getData = async () => {
-            await axios
+            await axiosClient
                 .get('/users/me', {
-                    baseURL: config.api,
                     headers: {
                         'Content-Type': 'application/json',
                         Authorization: `Owner ${localStorage.getItem('key')}`,
@@ -51,14 +49,13 @@ export default function Account() {
     const handleUsernameUpdate = async (event: any) => {
         event.preventDefault();
 
-        await axios
+        await axiosClient
             .patch(
                 '/users/me',
                 {
                     username: event.target.accountTagUpdate.value,
                 },
                 {
-                    baseURL: config.api,
                     headers: {
                         'Content-Type': 'application/json',
                         Authorization: `Owner ${localStorage.getItem('key')}`,
