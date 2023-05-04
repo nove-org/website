@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Response, Activity } from '@/app/Interfaces';
+import { Response, Activity, User } from '@/app/Interfaces';
 import { axiosClient } from '@/app/utils';
 import Loader from '@/app/loader';
 import Device from './device';
@@ -14,6 +14,7 @@ export default function AccountSecurity() {
     const [emailPopup, setEmailPopup] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(true);
     const [data, setData] = useState<Response<Activity[]>>();
+    const [user, setUser] = useState<Response<User>>();
     const [postError, setPostError] = useState<string>();
 
     const throwError = (message?: string, bool?: boolean) => {
@@ -29,25 +30,37 @@ export default function AccountSecurity() {
     useEffect(() => {
         const getData = async () => {
             await axiosClient
-                .get('/users/me/activity', {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        Authorization: `Owner ${localStorage.getItem('key')}`,
-                    },
-                })
+                .get('/users/me/activity?perPage=3', { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${localStorage.getItem('key')}` } })
                 .then((res) => (res.data ? setData(res.data) : null, setLoading(false)))
                 .catch((err) => (err.response?.data ? setData(err.response.data) : null, setLoading(false)));
+
+            await axiosClient
+                .get('/users/me', { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${localStorage.getItem('key')}` } })
+                .then((res) => (res.data ? setUser(res.data) : null, setLoading(false)))
+                .catch((err) => (err.response?.data ? setUser(err.response.data) : null, setLoading(false)));
         };
 
         getData();
     }, []);
+
+    const handleActivityOptOut = async () =>
+        await axiosClient
+            .patch('/users/me', { trackActivity: false }, { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${localStorage.getItem('key')}` } })
+            .then(() => window.location.reload())
+            .catch((err) => (err.response?.data.body.error ? throwError(err.response.data.body.error.message) : null));
+
+    const handleActivityOptIn = async () =>
+        await axiosClient
+            .patch('/users/me', { trackActivity: true }, { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${localStorage.getItem('key')}` } })
+            .then(() => window.location.reload())
+            .catch((err) => (err.response?.data.body.error ? throwError(err.response.data.body.error.message) : null));
 
     return loading ? (
         <main>
             <title>Dashboard — Nove</title>
             <Loader type="window" />
         </main>
-    ) : data?.body?.data ? (
+    ) : data?.body && user?.body?.data ? (
         <div className={o.content}>
             {passwordPopup ? (
                 <dialog id="changeName" className={o.popup}>
@@ -101,12 +114,23 @@ export default function AccountSecurity() {
             <div className={s.security}>
                 <div className={s.card}>
                     <header>Your devices</header>
-                    <p>List of most recent devices that logged in to your account this month</p>
-                    {}
-                    <Device icon="desktop" name="Linux" date="22 Apr" ip="89.42.51.69" />
-                    <p>
-                        We store info about three most recent devices that logged in to your account in the last month on our servers. <a>Opt-out</a>
-                    </p>
+                    {!data.body?.error ? (
+                        <>
+                            <p>List of most recent devices that logged in to your account this month</p>
+                            {data.body?.data.map((device) => {
+                                const date = new Date(device.updatedAt);
+
+                                return <Device key={device.id} icon={device.device} name={device.system} date={date.toLocaleString(user.body.data.language, { day: 'numeric', month: 'short' })} ip={device.ip} />;
+                            })}
+                            <p className={s.bottom}>
+                                We store info about three most recent devices that logged in to your account in the last month on our servers. <a onClick={handleActivityOptOut}>Opt-out</a>
+                            </p>
+                        </>
+                    ) : (
+                        <p className={s.bottom}>
+                            You disabled activity logging on your account. <a onClick={handleActivityOptIn}>Enable</a>
+                        </p>
+                    )}
                 </div>
                 <div className={s.card}>
                     <header>How do you sign in</header>

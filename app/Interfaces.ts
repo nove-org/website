@@ -34,7 +34,7 @@ export interface Activity {
     id: string;
     userId: string;
     ip: string;
-    device: string;
+    device: 'desktop' | 'mobile';
     system: string;
     createdAt: string;
     updatedAt: string;

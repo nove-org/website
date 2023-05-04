@@ -28,7 +28,11 @@ div.security
             font-weight: 400
             color: $font2
             margin-top: 5px
-            margin-bottom: 15px
+            &:not(.bottom)
+                margin-bottom: 15px
+            & a:hover
+                cursor: pointer
+                text-decoration: underline
         & div.device
             display: flex
             align-items: center

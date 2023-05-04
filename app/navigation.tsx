@@ -7,7 +7,6 @@ import Link from 'next/link';
 import Script from 'next/script';
 import Image from 'next/image';
 import Loader from './loader';
-import config from '@/config.json';
 
 export default function Navigation() {
     const [loading, setLoading] = useState<boolean>(true);

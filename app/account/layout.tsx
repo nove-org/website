@@ -7,7 +7,6 @@ import { axiosClient } from '@/app/utils';
 import Image from 'next/image';
 import Link from 'next/link';
 import Loader from '../loader';
-import config from '@/config.json';
 
 import o from '~/account/page.module.sass';
 

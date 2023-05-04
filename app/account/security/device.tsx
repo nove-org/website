@@ -5,7 +5,7 @@ import { NextPage } from 'next';
 import o from '~/account/security.module.sass';
 
 interface Props {
-    icon: 'desktop' | 'phone';
+    icon: 'desktop' | 'mobile';
     name: string;
     ip: string;
     date: string;
