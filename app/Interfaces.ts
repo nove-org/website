@@ -24,6 +24,18 @@ export interface User {
     bio: string;
     username: string;
     language: string;
+    profilePublic: boolean;
+    trackActivity: boolean;
+    createdAt: string;
+    updatedAt: string;
+}
+
+export interface Activity {
+    id: string;
+    userId: string;
+    ip: string;
+    device: string;
+    system: string;
     createdAt: string;
     updatedAt: string;
 }
