@@ -35,13 +35,15 @@ export default function Account() {
         const getData = async () => {
             await axiosClient
                 .get('/users/me', { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${localStorage.getItem('key')}` } })
-                .then((res) => (res.data ? setData(res.data) : null))
-                .catch((err) => (err.response?.data ? setData(err.response.data) : null));
+                .then(async (res) => {
+                    res.data ? setData(res.data) : null;
 
-            await axiosClient
-                .get('/users/me/activity', { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${localStorage.getItem('key')}` } })
-                .then((res) => (res.data ? setActivity(res.data) : null, setLoading(false)))
-                .catch((err) => (err.response?.data ? setActivity(err.response.data) : null, setLoading(false)));
+                    await axiosClient
+                        .get('/users/me/activity', { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${localStorage.getItem('key')}` } })
+                        .then((res) => (res.data ? setActivity(res.data) : null, setLoading(false)))
+                        .catch((err) => (err.response?.data ? setActivity(err.response.data) : null, setLoading(false)));
+                })
+                .catch((err) => (err.response?.data ? setData(err.response.data) : null));
         };
 
         getData();

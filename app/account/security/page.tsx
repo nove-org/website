@@ -30,13 +30,15 @@ export default function AccountSecurity() {
     useEffect(() => {
         const getData = async () => {
             await axiosClient
-                .get('/users/me/activity?perPage=3', { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${localStorage.getItem('key')}` } })
-                .then((res) => (res.data ? setData(res.data) : null, setLoading(false)))
-                .catch((err) => (err.response?.data ? setData(err.response.data) : null, setLoading(false)));
-
-            await axiosClient
                 .get('/users/me', { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${localStorage.getItem('key')}` } })
-                .then((res) => (res.data ? setUser(res.data) : null, setLoading(false)))
+                .then(async (res) => {
+                    res.data ? setUser(res.data) : null;
+
+                    await axiosClient
+                        .get('/users/me/activity?perPage=3', { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${localStorage.getItem('key')}` } })
+                        .then((res) => (res.data ? setData(res.data) : null, setLoading(false)))
+                        .catch(async (err) => (err.response?.data ? setData(err.response.data) : null, setLoading(false)));
+                })
                 .catch((err) => (err.response?.data ? setUser(err.response.data) : null, setLoading(false)));
         };
 
@@ -55,6 +57,26 @@ export default function AccountSecurity() {
             .then(() => window.location.reload())
             .catch((err) => (err.response?.data.body.error ? throwError(err.response.data.body.error.message) : null));
 
+    const handlePasswordUpdate = async (event: any) => {
+        event.preventDefault();
+
+        await axiosClient
+            .patch(
+                '/users/password',
+                {
+                    oldPassword: event.target.oldPassword.value,
+                    newPassword: event.target.newPassword.value,
+                },
+                { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${localStorage.getItem('key')}` } }
+            )
+            .then((res) => {
+                const token = res.data.body.data.token;
+
+                localStorage.setItem('key', token);
+            })
+            .catch((err) => (err.response.data.body.error ? throwError(err.response.data.body.error?.details ? err.response.data.body.error.details[0].message : err.response.data.body.error.message) : null));
+    };
+
     return loading ? (
         <main>
             <title>Dashboard — Nove</title>
@@ -62,10 +84,11 @@ export default function AccountSecurity() {
         </main>
     ) : data?.body && user?.body?.data ? (
         <div className={o.content}>
+            {postError ? <p className="error">{postError}</p> : null}
             {passwordPopup ? (
                 <dialog id="changeName" className={o.popup}>
                     <div onClick={() => setPasswordPopup(false)} className={o.background}></div>
-                    <form autoComplete="off">
+                    <form autoComplete="off" onSubmit={handlePasswordUpdate}>
                         <h1>
                             Change your password
                             <svg onClick={() => setPasswordPopup(false)} xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
@@ -75,13 +98,15 @@ export default function AccountSecurity() {
                             </svg>
                         </h1>
                         <p>Choose a strong password and do not reuse it for other accounts. Changing your password will sign you out on your devices.</p>
-                        <input autoComplete="off" autoFocus={true} autoCorrect="off" type="text" placeholder="Verify your old password" id="oldPassword" name="oldPassword" />
-                        <input autoComplete="off" autoFocus={false} autoCorrect="off" type="text" placeholder="New password" id="accountPasswordUpdate" name="accountPasswordUpdate" />
+                        <input required minLength={1} maxLength={128} autoComplete="off" autoFocus={true} autoCorrect="off" type="password" placeholder="Verify your old password" id="oldPassword" name="oldPassword" />
+                        <input required minLength={8} maxLength={128} autoComplete="off" autoFocus={false} autoCorrect="off" type="password" placeholder="New password" id="newPassword" name="newPassword" />
                         <div className={o.footer}>
                             <button onClick={() => setPasswordPopup(false)} type="reset">
                                 Cancel
                             </button>
-                            <button type="submit">Save changes</button>
+                            <button type="submit" id="pevs">
+                                Save changes
+                            </button>
                         </div>
                     </form>
                 </dialog>
@@ -135,7 +160,7 @@ export default function AccountSecurity() {
                 <div className={s.card}>
                     <header>How do you sign in</header>
                     <p>Add more secure ways of signing in to your account and confirming your identity</p>
-                    <div onClick={() => setPasswordPopup(true)} className={s.option + ' disabled'}>
+                    <div onClick={() => setPasswordPopup(true)} className={s.option}>
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
                             <path
                                 fill="currentColor"
@@ -181,7 +206,7 @@ export default function AccountSecurity() {
     ) : (
         <main>
             <title>Dashboard — Nove</title>
-            <Loader type="hidden" text={data?.body?.error?.message ? data.body.error.message.charAt(0) + data.body.error.message.slice(1).toLowerCase() : "Something went wrong and we can't reach the API"} />
+            <Loader type="hidden" text={user?.body?.error?.message ? user.body.error.message.charAt(0) + user.body.error.message.slice(1).toLowerCase() : "Something went wrong and we can't reach the API"} />
         </main>
     );
 }
