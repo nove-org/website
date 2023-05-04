@@ -73,6 +73,8 @@ export default function AccountSecurity() {
                 const token = res.data.body.data.token;
 
                 localStorage.setItem('key', token);
+
+                window.location.reload();
             })
             .catch((err) => (err.response.data.body.error ? throwError(err.response.data.body.error?.details ? err.response.data.body.error.details[0].message : err.response.data.body.error.message) : null));
     };
