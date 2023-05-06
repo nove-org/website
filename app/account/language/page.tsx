@@ -74,7 +74,9 @@ export default function AccountLanguage() {
     ) : data?.body?.data ? (
         <div className={o.content}>
             <h1 className={o.title}>Language</h1>
-            <p className={o.description}>Select your preferred language. This setting will be used to display content in your language on all Nove websites and your connected apps might use it.</p>
+            <p className={o.description}>
+                Select your preferred language. This setting will be used to display content in your language on all Nove websites and your connected apps might use it.
+            </p>
             <form id="languageForm">
                 <label className={o.card}>
                     <input defaultChecked={data.body.data.language === 'en-US'} type="radio" name="language" onChange={handleInputChange} value="en-US" />
@@ -102,7 +104,14 @@ export default function AccountLanguage() {
     ) : (
         <main>
             <title>Dashboard — Nove</title>
-            <Loader type="hidden" text={data?.body?.error?.message ? data.body.error.message.charAt(0) + data.body.error.message.slice(1).toLowerCase() : "Something went wrong and we can't reach the API"} />
+            <Loader
+                type="hidden"
+                text={
+                    data?.body?.error?.message
+                        ? data.body.error.message.charAt(0) + data.body.error.message.slice(1).toLowerCase()
+                        : "Something went wrong and we can't reach the API"
+                }
+            />
         </main>
     );
 }

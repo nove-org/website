@@ -76,7 +76,11 @@ export default function AccountSecurity() {
 
                 window.location.reload();
             })
-            .catch((err) => (err.response.data.body.error ? throwError(err.response.data.body.error?.details ? err.response.data.body.error.details[0].message : err.response.data.body.error.message) : null));
+            .catch((err) =>
+                err.response.data.body.error
+                    ? throwError(err.response.data.body.error?.details ? err.response.data.body.error.details[0].message : err.response.data.body.error.message)
+                    : null
+            );
     };
 
     return loading ? (
@@ -100,8 +104,30 @@ export default function AccountSecurity() {
                             </svg>
                         </h1>
                         <p>Choose a strong password and do not reuse it for other accounts. Changing your password will sign you out on your devices.</p>
-                        <input required minLength={1} maxLength={128} autoComplete="off" autoFocus={true} autoCorrect="off" type="password" placeholder="Verify your old password" id="oldPassword" name="oldPassword" />
-                        <input required minLength={8} maxLength={128} autoComplete="off" autoFocus={false} autoCorrect="off" type="password" placeholder="New password" id="newPassword" name="newPassword" />
+                        <input
+                            required
+                            minLength={1}
+                            maxLength={128}
+                            autoComplete="off"
+                            autoFocus={true}
+                            autoCorrect="off"
+                            type="password"
+                            placeholder="Verify your old password"
+                            id="oldPassword"
+                            name="oldPassword"
+                        />
+                        <input
+                            required
+                            minLength={8}
+                            maxLength={128}
+                            autoComplete="off"
+                            autoFocus={false}
+                            autoCorrect="off"
+                            type="password"
+                            placeholder="New password"
+                            id="newPassword"
+                            name="newPassword"
+                        />
                         <div className={o.footer}>
                             <button onClick={() => setPasswordPopup(false)} type="reset">
                                 Cancel
@@ -125,9 +151,20 @@ export default function AccountSecurity() {
                                     d="M 4.9902344 3.9902344 A 1.0001 1.0001 0 0 0 4.2929688 5.7070312 L 10.585938 12 L 4.2929688 18.292969 A 1.0001 1.0001 0 1 0 5.7070312 19.707031 L 12 13.414062 L 18.292969 19.707031 A 1.0001 1.0001 0 1 0 19.707031 18.292969 L 13.414062 12 L 19.707031 5.7070312 A 1.0001 1.0001 0 0 0 18.980469 3.9902344 A 1.0001 1.0001 0 0 0 18.292969 4.2929688 L 12 10.585938 L 5.7070312 4.2929688 A 1.0001 1.0001 0 0 0 4.9902344 3.9902344 z"></path>
                             </svg>
                         </h1>
-                        <p>The address where we can contact you if there is an unusual activity in your account or if you get locked out. You can also use it to log in to your Nove account.</p>
+                        <p>
+                            The address where we can contact you if there is an unusual activity in your account or if you get locked out. You can also use it to log in to your
+                            Nove account.
+                        </p>
                         <input autoComplete="off" autoFocus={true} autoCorrect="off" type="text" placeholder="Password" id="password" name="password" />
-                        <input autoComplete="off" autoFocus={false} autoCorrect="off" type="text" placeholder="New contact email" id="accountRecoveryEmail" name="accountRecoveryEmail" />
+                        <input
+                            autoComplete="off"
+                            autoFocus={false}
+                            autoCorrect="off"
+                            type="text"
+                            placeholder="New contact email"
+                            id="accountRecoveryEmail"
+                            name="accountRecoveryEmail"
+                        />
                         <div className={o.footer}>
                             <button onClick={() => setEmailPopup(false)} type="reset">
                                 Cancel
@@ -147,10 +184,19 @@ export default function AccountSecurity() {
                             {data.body?.data.map((device) => {
                                 const date = new Date(device.updatedAt);
 
-                                return <Device key={device.id} icon={device.device} name={device.system} date={date.toLocaleString(user.body.data.language, { day: 'numeric', month: 'short' })} ip={device.ip} />;
+                                return (
+                                    <Device
+                                        key={device.id}
+                                        icon={device.device}
+                                        name={device.system}
+                                        date={date.toLocaleString(user.body.data.language, { day: 'numeric', month: 'short' })}
+                                        ip={device.ip}
+                                    />
+                                );
                             })}
                             <p className={s.bottom}>
-                                We store info about three most recent devices that logged in to your account in the last month on our servers. <a onClick={handleActivityOptOut}>Opt-out</a>
+                                We store info about three most recent devices that logged in to your account in the last month on our servers.{' '}
+                                <a onClick={handleActivityOptOut}>Opt-out</a>
                             </p>
                         </>
                     ) : (
@@ -208,7 +254,14 @@ export default function AccountSecurity() {
     ) : (
         <main>
             <title>Dashboard — Nove</title>
-            <Loader type="hidden" text={user?.body?.error?.message ? user.body.error.message.charAt(0) + user.body.error.message.slice(1).toLowerCase() : "Something went wrong and we can't reach the API"} />
+            <Loader
+                type="hidden"
+                text={
+                    user?.body?.error?.message
+                        ? user.body.error.message.charAt(0) + user.body.error.message.slice(1).toLowerCase()
+                        : "Something went wrong and we can't reach the API"
+                }
+            />
         </main>
     );
 }

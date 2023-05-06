@@ -189,7 +189,14 @@ export default function Login() {
     ) : (
         <main>
             <title>Login — Nove</title>
-            <Loader type="hidden" text={data?.body?.error?.message ? data.body.error.message.charAt(0) + data.body.error.message.slice(1).toLowerCase() : "Something went wrong and we can't reach the API"} />
+            <Loader
+                type="hidden"
+                text={
+                    data?.body?.error?.message
+                        ? data.body.error.message.charAt(0) + data.body.error.message.slice(1).toLowerCase()
+                        : "Something went wrong and we can't reach the API"
+                }
+            />
         </main>
     );
 }

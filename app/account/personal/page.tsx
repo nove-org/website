@@ -177,7 +177,16 @@ export default function AccountPersonal() {
                             </svg>
                         </h1>
                         <p>Type something new, unique and easy to remember. This is alias to your account which means you can log in with it to your Nove account.</p>
-                        <input autoComplete="off" autoFocus={true} autoCorrect="off" type="text" placeholder="New username" id="accountTagUpdate" name="accountTagUpdate" defaultValue={data.body.data.username} />
+                        <input
+                            autoComplete="off"
+                            autoFocus={true}
+                            autoCorrect="off"
+                            type="text"
+                            placeholder="New username"
+                            id="accountTagUpdate"
+                            name="accountTagUpdate"
+                            defaultValue={data.body.data.username}
+                        />
                         <div className={o.footer}>
                             <button onClick={() => setNamePopup(false)} type="reset">
                                 Cancel
@@ -195,7 +204,14 @@ export default function AccountPersonal() {
                     <form onSubmit={handleAvatarUpdate} id="fileForm" autoComplete="off">
                         <h1>
                             Change your avatar
-                            <svg onClick={() => (setSelected(false), setFileName(''), setAvatarPopup(false))} xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
+                            <svg
+                                onClick={() => (setSelected(false), setFileName(''), setAvatarPopup(false))}
+                                xmlns="http://www.w3.org/2000/svg"
+                                x="0px"
+                                y="0px"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24">
                                 <path
                                     fill="currentColor"
                                     d="M 4.9902344 3.9902344 A 1.0001 1.0001 0 0 0 4.2929688 5.7070312 L 10.585938 12 L 4.2929688 18.292969 A 1.0001 1.0001 0 1 0 5.7070312 19.707031 L 12 13.414062 L 18.292969 19.707031 A 1.0001 1.0001 0 1 0 19.707031 18.292969 L 13.414062 12 L 19.707031 5.7070312 A 1.0001 1.0001 0 0 0 18.980469 3.9902344 A 1.0001 1.0001 0 0 0 18.292969 4.2929688 L 12 10.585938 L 5.7070312 4.2929688 A 1.0001 1.0001 0 0 0 4.9902344 3.9902344 z"></path>
@@ -206,7 +222,9 @@ export default function AccountPersonal() {
                         <div className={o.file}>
                             <header>
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
-                                    <path fill="currentColor" d="M 6 2 C 4.9057453 2 4 2.9057453 4 4 L 4 20 C 4 21.094255 4.9057453 22 6 22 L 18 22 C 19.094255 22 20 21.094255 20 20 L 20 8 L 14 2 L 6 2 z M 6 4 L 13 4 L 13 9 L 18 9 L 18 20 L 6 20 L 6 4 z"></path>
+                                    <path
+                                        fill="currentColor"
+                                        d="M 6 2 C 4.9057453 2 4 2.9057453 4 4 L 4 20 C 4 21.094255 4.9057453 22 6 22 L 18 22 C 19.094255 22 20 21.094255 20 20 L 20 8 L 14 2 L 6 2 z M 6 4 L 13 4 L 13 9 L 18 9 L 18 20 L 6 20 L 6 4 z"></path>
                                 </svg>
                                 {selected ? fileName : 'Nothing is selected'}
                             </header>
@@ -221,7 +239,11 @@ export default function AccountPersonal() {
                             <button onClick={() => (setSelected(false), setFileName(''), setAvatarPopup(false))} type="reset">
                                 Cancel
                             </button>
-                            <button type="submit" id="pevs2" className={!selected ? 'disabled' : undefined} onClick={() => (document.getElementById('pevs2') as HTMLElement).classList.add(`disabled`)}>
+                            <button
+                                type="submit"
+                                id="pevs2"
+                                className={!selected ? 'disabled' : undefined}
+                                onClick={() => (document.getElementById('pevs2') as HTMLElement).classList.add(`disabled`)}>
                                 Upload
                             </button>
                         </div>
@@ -229,7 +251,10 @@ export default function AccountPersonal() {
                 </dialog>
             ) : null}
             <h1 className={o.title}>Personal info</h1>
-            <p className={o.description}>Manage your personal info displayed on your Nove account profile. You can change display method of your profile to private and public. While on private profile we will share only basic info about your account like username and avatar.</p>
+            <p className={o.description}>
+                Manage your personal info displayed on your Nove account profile. You can change display method of your profile to private and public. While on private profile we
+                will share only basic info about your account like username and avatar.
+            </p>
             <div className={u.profile}>
                 <div className={u.card}>
                     <header>Basic account info</header>
@@ -256,7 +281,14 @@ export default function AccountPersonal() {
                         <div className={u.input}>
                             <header>Bio</header>
                             <div className={u.content}>
-                                <textarea onChange={() => setBioChange(true)} id="bio" name="bio" rows={7} placeholder="Start typing to save..." defaultValue={data.body.data.bio} />
+                                <textarea
+                                    onChange={() => setBioChange(true)}
+                                    id="bio"
+                                    name="bio"
+                                    rows={7}
+                                    placeholder="Start typing to save..."
+                                    defaultValue={data.body.data.bio}
+                                />
                             </div>
                             {bioChange ? (
                                 <>
@@ -276,7 +308,14 @@ export default function AccountPersonal() {
     ) : (
         <main>
             <title>Dashboard — Nove</title>
-            <Loader type="hidden" text={data?.body?.error?.message ? data.body.error.message.charAt(0) + data.body.error.message.slice(1).toLowerCase() : "Something went wrong and we can't reach the API"} />
+            <Loader
+                type="hidden"
+                text={
+                    data?.body?.error?.message
+                        ? data.body.error.message.charAt(0) + data.body.error.message.slice(1).toLowerCase()
+                        : "Something went wrong and we can't reach the API"
+                }
+            />
         </main>
     );
 }

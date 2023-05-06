@@ -53,7 +53,11 @@ export default function Account() {
         event.preventDefault();
 
         await axiosClient
-            .patch('/users/me', { username: event.target.accountTagUpdate.value }, { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${localStorage.getItem('key')}` } })
+            .patch(
+                '/users/me',
+                { username: event.target.accountTagUpdate.value },
+                { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${localStorage.getItem('key')}` } }
+            )
             .then(() => window.location.reload())
             .catch((err) => {
                 throwError(err.response?.data.body?.error.message ? err.response.data.body.error.message : 'Something went wrong and we cannot explain it.');
@@ -84,7 +88,16 @@ export default function Account() {
                             </svg>
                         </h1>
                         <p>Type something new, unique and easy to remember. This is alias to your account which means you can log in with it to your Nove account.</p>
-                        <input autoComplete="off" autoFocus={true} autoCorrect="off" type="text" placeholder="New username" id="accountTagUpdate" name="accountTagUpdate" defaultValue={data.body.data.username} />
+                        <input
+                            autoComplete="off"
+                            autoFocus={true}
+                            autoCorrect="off"
+                            type="text"
+                            placeholder="New username"
+                            id="accountTagUpdate"
+                            name="accountTagUpdate"
+                            defaultValue={data.body.data.username}
+                        />
                         <div className={o.footer}>
                             <button onClick={() => setNamePopup(false)} type="reset">
                                 Cancel
@@ -119,7 +132,9 @@ export default function Account() {
                 </Card>
                 <Card
                     name={activity?.body?.data ? 'Recent activity' : 'Logging in'}
-                    description={activity?.body?.data ? 'Check and manage your recent account activity logs with ease' : 'Change your account credentials or add security layers with ease'}
+                    description={
+                        activity?.body?.data ? 'Check and manage your recent account activity logs with ease' : 'Change your account credentials or add security layers with ease'
+                    }
                     option={activity?.body?.data ? activity.body.data.length + ' active sessions' : 'Go'}
                     url="/account/security">
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 24 24">
@@ -144,7 +159,14 @@ export default function Account() {
     ) : (
         <main>
             <title>Dashboard — Nove</title>
-            <Loader type="hidden" text={data?.body?.error?.message ? data.body.error.message.charAt(0) + data.body.error.message.slice(1).toLowerCase() : "Something went wrong and we can't reach the API"} />
+            <Loader
+                type="hidden"
+                text={
+                    data?.body?.error?.message
+                        ? data.body.error.message.charAt(0) + data.body.error.message.slice(1).toLowerCase()
+                        : "Something went wrong and we can't reach the API"
+                }
+            />
         </main>
     );
 }

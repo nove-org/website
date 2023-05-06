@@ -61,7 +61,10 @@ export default function Projects() {
                                 <h1>NAPI Auth</h1>
                             </figure>
                             <h1>NAPI Auth</h1>
-                            <p className={o.text}>Create new account or login with ease to websites with NAPI system hooked. Are you a developer? Go to docs and read more about implementing NAPI to your app.</p>
+                            <p className={o.text}>
+                                Create new account or login with ease to websites with NAPI system hooked. Are you a developer? Go to docs and read more about implementing NAPI to
+                                your app.
+                            </p>
                             <div className={o.tags}>
                                 <div className={o.tag}>Beta</div>
                                 <div className={o.version}>0.1.0</div>

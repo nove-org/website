@@ -12,7 +12,8 @@ export const metadata = {
         maximumScale: 1,
     },
     title: 'Live. Laugh. Nove.',
-    description: 'An unexpected focus on privacy with all standard features or even more. Surprising emphasis on data security. Enjoy everything for free and open-source to everyone.',
+    description:
+        'An unexpected focus on privacy with all standard features or even more. Surprising emphasis on data security. Enjoy everything for free and open-source to everyone.',
     category: 'technology',
     assets: ['/cdn/assets'],
     colorScheme: 'dark',
@@ -30,7 +31,8 @@ export const metadata = {
         url: 'https://nove.team/',
         siteName: 'nove.team',
         title: 'Live. Laugh. Nove.',
-        description: 'An unexpected focus on privacy with all standard features or even more. Surprising emphasis on data security. Enjoy everything for free and open-source to everyone.',
+        description:
+            'An unexpected focus on privacy with all standard features or even more. Surprising emphasis on data security. Enjoy everything for free and open-source to everyone.',
         authors: ['Nove Group'],
         images: [
             {
@@ -44,7 +46,8 @@ export const metadata = {
     twitter: {
         card: 'summary_large_image',
         title: 'Live. Laugh. Nove.',
-        description: 'An unexpected focus on privacy with all standard features or even more. Surprising emphasis on data security. Enjoy everything for free and open-source to everyone.',
+        description:
+            'An unexpected focus on privacy with all standard features or even more. Surprising emphasis on data security. Enjoy everything for free and open-source to everyone.',
         images: [
             {
                 url: '/cdn/assets/banner.png',
