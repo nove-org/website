@@ -1,12 +1,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Response, User } from './Interfaces';
-import { axiosClient } from '@/app/utils';
+import { Response, User } from '@/Interfaces';
+import { axiosClient } from '@/utils';
 import Link from 'next/link';
 import Script from 'next/script';
 import Image from 'next/image';
-import Loader from './loader';
+import Loader from '@/loader';
 
 export default function Navigation() {
     const [loading, setLoading] = useState<boolean>(true);

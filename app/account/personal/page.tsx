@@ -1,15 +1,15 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Response, User } from '@/app/Interfaces';
+import { Response, User } from '@/Interfaces';
 import { AxiosProgressEvent } from 'axios';
-import { axiosClient } from '@/app/utils';
+import { axiosClient } from '@/utils';
 import Image from 'next/image';
-import Loader from '@/app/loader';
+import Loader from '@/loader';
 import mime from 'mime-types';
 
 import o from '~/account/page.module.sass';
-import u from '~/account/personal.module.sass';
+import oa from '~/account/personal.module.sass';
 
 export default function AccountPersonal() {
     const [namePopup, setNamePopup] = useState<boolean>(false);
@@ -255,19 +255,19 @@ export default function AccountPersonal() {
                 Manage your personal info displayed on your Nove account profile. You can change display method of your profile to private and public. While on private profile we
                 will share only basic info about your account like username and avatar.
             </p>
-            <div className={u.profile}>
-                <div className={u.card}>
+            <div className={oa.profile}>
+                <div className={oa.card}>
                     <header>Basic account info</header>
-                    <div className={u.input}>
+                    <div className={oa.input}>
                         <header>Avatar</header>
-                        <div className={u.content}>
+                        <div className={oa.content}>
                             <Image src={`${data.body.data.avatar}?v=${data.body.data.updatedAt}`} width={64} height={64} alt="Avatar" />
                             <a onClick={() => setAvatarPopup(true)}>Edit</a>
                         </div>
                     </div>
-                    <div className={u.input}>
+                    <div className={oa.input}>
                         <header>Username</header>
-                        <div className={u.content}>
+                        <div className={oa.content}>
                             <h1>
                                 {data.body.data.username} <span>{data.body.data.id}</span>
                             </h1>
@@ -276,11 +276,11 @@ export default function AccountPersonal() {
                     </div>
                 </div>
                 <form onSubmit={handleBioUpdate} id="bioForm">
-                    <div className={u.card}>
+                    <div className={oa.card}>
                         <header>Details</header>
-                        <div className={u.input}>
+                        <div className={oa.input}>
                             <header>Bio</header>
-                            <div className={u.content}>
+                            <div className={oa.content}>
                                 <textarea
                                     onChange={() => setBioChange(true)}
                                     id="bio"

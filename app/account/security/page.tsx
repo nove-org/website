@@ -1,13 +1,13 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Response, Activity, User } from '@/app/Interfaces';
-import { axiosClient } from '@/app/utils';
-import Loader from '@/app/loader';
+import { Response, Activity, User } from '@/Interfaces';
+import { axiosClient } from '@/utils';
+import Loader from '@/loader';
 import Device from './device';
 
 import o from '~/account/page.module.sass';
-import s from '~/account/security.module.sass';
+import oa from '~/account/security.module.sass';
 
 export default function AccountSecurity() {
     const [passwordPopup, setPasswordPopup] = useState<boolean>(false);
@@ -175,8 +175,8 @@ export default function AccountSecurity() {
                 </dialog>
             ) : null}
             <h1 className={o.title}>Security</h1>
-            <div className={s.security}>
-                <div className={s.card}>
+            <div className={oa.security}>
+                <div className={oa.card}>
                     <header>Your devices</header>
                     {!data.body?.error ? (
                         <>
@@ -194,21 +194,21 @@ export default function AccountSecurity() {
                                     />
                                 );
                             })}
-                            <p className={s.bottom}>
+                            <p className={oa.bottom}>
                                 We store info about three most recent devices that logged in to your account in the last month on our servers.{' '}
                                 <a onClick={handleActivityOptOut}>Opt-out</a>
                             </p>
                         </>
                     ) : (
-                        <p className={s.bottom}>
+                        <p className={oa.bottom}>
                             You disabled activity logging on your account. <a onClick={handleActivityOptIn}>Enable</a>
                         </p>
                     )}
                 </div>
-                <div className={s.card}>
+                <div className={oa.card}>
                     <header>How do you sign in</header>
                     <p>Add more secure ways of signing in to your account and confirming your identity</p>
-                    <div onClick={() => setPasswordPopup(true)} className={s.option}>
+                    <div onClick={() => setPasswordPopup(true)} className={oa.option}>
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
                             <path
                                 fill="currentColor"
@@ -216,7 +216,7 @@ export default function AccountSecurity() {
                         </svg>
                         Password
                     </div>
-                    <div onClick={() => setEmailPopup(true)} className={s.option + ' disabled'}>
+                    <div onClick={() => setEmailPopup(true)} className={oa.option + ' disabled'}>
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
                             <path
                                 fill="currentColor"
@@ -224,7 +224,7 @@ export default function AccountSecurity() {
                         </svg>
                         Email
                     </div>
-                    <div onClick={() => setEmailPopup(true)} className={s.option + ' disabled'}>
+                    <div onClick={() => setEmailPopup(true)} className={oa.option + ' disabled'}>
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
                             <path
                                 fill="currentColor"
@@ -232,7 +232,7 @@ export default function AccountSecurity() {
                         </svg>
                         Recovery email
                     </div>
-                    <div className={s.option + ' disabled'}>
+                    <div className={oa.option + ' disabled'}>
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
                             <path
                                 fill="currentColor"
@@ -240,7 +240,7 @@ export default function AccountSecurity() {
                         </svg>
                         Recovery passphrase
                     </div>
-                    <div className={s.option + ' disabled'}>
+                    <div className={oa.option + ' disabled'}>
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
                             <path
                                 fill="currentColor"

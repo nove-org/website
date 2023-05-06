@@ -1,9 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { axiosClient } from '@/utils';
 import Image from 'next/image';
 import Card from './card';
-import axios from 'axios';
 
 import o from '~/open-source/page.module.sass';
 
@@ -13,12 +13,12 @@ export default function Projects() {
 
     useEffect(() => {
         const fetchVersions = async () => {
-            await axios
+            await axiosClient
                 .get('https://api.cheems.dog/v1/service/release')
                 .then((res) => (res.data.body ? setCheemsVersion(res.data.body.data.version) : setCheemsVersion('?')))
                 .catch(() => setCheemsVersion('?'));
 
-            await axios
+            await axiosClient
                 .get('https://api.github.com/repos/nove-org/JuzioFont/releases')
                 .then((res) => setJFVersion(res.data[0].tag_name))
                 .catch(() => setJFVersion('?'));

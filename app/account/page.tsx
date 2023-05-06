@@ -1,16 +1,16 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Activity, Response, User } from '../Interfaces';
-import { axiosClient } from '@/app/utils';
+import { Activity, Response, User } from '@/Interfaces';
+import { axiosClient } from '@/utils';
 import Image from 'next/image';
 import Connection from './connection';
-import Loader from '../loader';
+import Loader from '@/loader';
 import Card from './card';
 
 import o from '~/account/page.module.sass';
-import s from '~/account/shortcuts.module.sass';
-import c from '~/account/connections.module.sass';
+import oa from '~/account/shortcuts.module.sass';
+import ob from '~/account/connections.module.sass';
 
 export default function Account() {
     const [namePopup, setNamePopup] = useState<boolean>(false);
@@ -122,7 +122,7 @@ export default function Account() {
                     <div className={o.email}>{data.body.data.email}</div>
                 </div>
             </div>
-            <div className={s.shortcuts}>
+            <div className={oa.shortcuts}>
                 <Card name="Language" description="Change your preferred language across the Internet" option={lang.of(data.body.data.language)} url="/account/language">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
                         <path
@@ -151,7 +151,7 @@ export default function Account() {
                     </svg>
                 </Card>
             </div>
-            <div className={c.connections + ' disabled'}>
+            <div className={ob.connections + ' disabled'}>
                 <h2>Account connections</h2>
                 <Connection data={{ name: 'cheems.dog', logo: '/cdn/assets/cheems.png', permissionLevel: 0 }} />
             </div>

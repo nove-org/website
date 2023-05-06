@@ -1,9 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Response, User } from '@/app/Interfaces';
-import { axiosClient } from '@/app/utils';
-import Loader from '@/app/loader';
+import { Response, User } from '@/Interfaces';
+import { axiosClient } from '@/utils';
+import Loader from '@/loader';
 import ReactCountryFlag from 'react-country-flag';
 
 import o from '~/account/page.module.sass';

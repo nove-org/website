@@ -1,11 +1,11 @@
 'use client';
 
-import { Response, User } from '../Interfaces';
+import { Response, User } from '@/Interfaces';
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { axiosClient } from '@/app/utils';
+import { axiosClient } from '@/utils';
 import Image from 'next/image';
-import Loader from '../loader';
+import Loader from '@/loader';
 
 import o from '~/login/page.module.sass';
 

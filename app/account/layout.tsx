@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from 'react';
 import { useSelectedLayoutSegment } from 'next/navigation';
-import { Response, User } from '../Interfaces';
-import { axiosClient } from '@/app/utils';
+import { Response, User } from '@/Interfaces';
+import { axiosClient } from '@/utils';
 import Image from 'next/image';
 import Link from 'next/link';
-import Loader from '../loader';
+import Loader from '@/loader';
 
 import o from '~/account/page.module.sass';
 
