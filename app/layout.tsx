@@ -1,8 +1,7 @@
 import '~/globals.sass';
 
-import Image from 'next/image';
-import Link from 'next/link';
 import Navigation from '@/navigation';
+import Footer from '@/footer';
 
 export const metadata = {
     metadataBase: new URL('https://nove.team'),
@@ -86,62 +85,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
                 {children}
 
-                <footer className="footerBox">
-                    <div className="container">
-                        <aside>
-                            <header>
-                                <div className="card">
-                                    <Image src="/cdn/assets/watermark.png" width={22} height={22} alt="Logo grayscale" />
-                                    <h1>Nove</h1>
-                                </div>
-                                <p>&copy; 2019-{new Date().getFullYear()} Nove Group.</p>
-                            </header>
-                        </aside>
-                        <section className="content">
-                            <div className="card">
-                                <header>Product</header>
-                                <ul>
-                                    <li>
-                                        <Link href="/login">Login</Link>
-                                    </li>
-                                    <li>
-                                        <a href="https://beta.cheems.dog" target="_blank">
-                                            Cheems
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <Link href="/docs">Docs</Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/account/developers">Developers</Link>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div className="card">
-                                <header>Company</header>
-                                <ul>
-                                    <li>
-                                        <Link href="/about">About</Link>
-                                    </li>
-                                    <li>
-                                        <a href="https://github.com/orgs/nove-org/discussions" target="_blank">
-                                            Community
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <Link href="/open-source">Open source</Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/privacy">Privacy Policy</Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/terms">Terms of Service</Link>
-                                    </li>
-                                </ul>
-                            </div>
-                        </section>
-                    </div>
-                </footer>
+                <Footer />
             </body>
         </html>
     );

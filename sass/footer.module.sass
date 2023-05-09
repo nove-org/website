@@ -1,0 +1,76 @@
+/* 
+ * Copyright 2019-2023 (c) Nove Group
+ * GitHub: https://github.com/nove-org/
+ * Inter font is property of their respective owners.
+ */
+
+@use 'brand' as *
+
+footer.box
+    border-top: 1px solid $border
+    background: $secondary
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    max-height: fit-content
+    transition-duration: 0s
+    & div.container
+        max-width: 1300px
+        width: calc( 100% - 20px * 2 )
+        padding: 50px 20px
+        margin: auto
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        transition-duration: 0
+        @media screen and (max-width: 600px)
+            flex-direction: column
+        & aside
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+            & header
+                & div.card
+                    display: flex
+                    align-items: center
+                    & h1
+                        & span
+                            font-size: 14px
+                            font-weight: 400
+                & p
+                    color: $font2
+                    font-weight: 300
+                    font-size: 14px
+                    margin-top: 3px
+                & img
+                    margin-right: 6px
+        & section.content
+            display: flex
+            flex-direction: row
+            justify-content: space-between
+            @media screen and (max-width: 1300px)
+                flex-direction: column
+            & div.card
+                &:not(:last-child)
+                    margin-right: 150px
+                @media screen and (max-width: 1300px)
+                    &:not(:first-child)
+                        margin-top: 30px
+                @media screen and (max-width: 600px)
+                    margin-top: 30px
+                & header
+                    font-size: 18px
+                    font-weight: 600
+                    margin-botom: 5px
+                & ul
+                    padding: 0
+                    margin: 0
+                    list-style: none
+                    & li
+                        margin-top: 5px
+                        & a
+                            color: $font2
+                            font-weight: 300
+                            &:hover
+                                color: $font
