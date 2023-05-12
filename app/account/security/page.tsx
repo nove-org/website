@@ -188,7 +188,7 @@ export default function AccountSecurity() {
                                     <Device
                                         key={device.id}
                                         icon={device.device}
-                                        name={device.system}
+                                        name={device.os_name + ' ' + device.os_version}
                                         date={date.toLocaleString(user.body.data.language, { day: 'numeric', month: 'short' })}
                                         ip={device.ip}
                                     />
