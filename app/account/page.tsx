@@ -135,7 +135,7 @@ export default function Account() {
                     description={
                         activity?.body?.data ? 'Check and manage your recent account activity logs with ease' : 'Change your account credentials or add security layers with ease'
                     }
-                    option={activity?.body?.data ? activity.body.data.length + ' active sessions' : 'Go'}
+                    option={activity?.body?.data ? activity.body.data.length + ' active session' + (activity.body.data.length < 2 ? '' : 's') : 'Go'}
                     url="/account/security">
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 24 24">
                         <path
