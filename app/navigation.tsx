@@ -149,10 +149,10 @@ export default function Navigation() {
                             </figure>
                         ) : (
                             <>
-                                <li className="login">
+                                <li className={o.login}>
                                     <Link href="/login">Login</Link>
                                 </li>
-                                <li className="button">
+                                <li className={o.button}>
                                     <Link href="/sign-up">Sign up</Link>
                                 </li>
                             </>
