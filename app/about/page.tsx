@@ -30,7 +30,7 @@ export default function About() {
                         <Image src="https://api.nove.team/v1/users/00000000/avatar.webp" width={42} height={42} alt="wnm210" />
                         <div className={o.user}>
                             <h1>wnm210</h1>
-                            <p>Owner, web-developer and UI/UX designer</p>
+                            <p>Owner, web developer and UI/UX designer</p>
                         </div>
                     </div>
                     <div className={o.card}>
