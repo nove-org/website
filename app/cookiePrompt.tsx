@@ -20,7 +20,6 @@ export default function CookiePrompt() {
                     (document.getElementById('cookiePrompt') as HTMLElement).style.display = 'none';
                     setCookie('cookies', 'set', {
                         maxAge: 1 * 30 * 24 * 60 * 60,
-                        domain: 'nove.team',
                         sameSite: 'strict',
                         secure: true,
                     });

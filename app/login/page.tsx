@@ -34,7 +34,7 @@ export default function Login() {
                 .get('/users/me', {
                     headers: {
                         'Content-Type': 'application/json',
-                        Authorization: `Owner ${getCookie('token')}`,
+                        Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
                     },
                 })
                 .then((res) => (res.data.body.data ? window.location.replace(searchParams.get('redirectBack') || '/account') : setLoading(false), setData(res.data)))
@@ -52,7 +52,7 @@ export default function Login() {
             .then(async (res) => {
                 if (res.data?.body?.error) return throwError(res.data.body.error.message);
                 else {
-                    setCookie('token', res.data.body.data.token, {
+                    setCookie('napiAuthorizationToken', res.data.body.data.token, {
                         maxAge: 3 * 30 * 24 * 60 * 60,
                         domain: 'nove.team',
                         sameSite: 'strict',

@@ -23,7 +23,7 @@ export default function Navigation() {
                 .get('/users/me', {
                     headers: {
                         'Content-Type': 'application/json',
-                        Authorization: `Owner ${getCookie('token')}`,
+                        Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
                     },
                 })
                 .then((res) => (res.data ? setData(res.data) : null, setLoading(false)))
@@ -135,7 +135,7 @@ export default function Navigation() {
                                                 </Link>
                                             </li>
                                             <li>
-                                                <a onClick={() => (deleteCookie('token'), window.location.reload())}>
+                                                <a onClick={() => (deleteCookie('napiAuthorizationToken'), window.location.reload())}>
                                                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
                                                         <path
                                                             fill="currentColor"

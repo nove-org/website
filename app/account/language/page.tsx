@@ -33,7 +33,7 @@ export default function AccountLanguage() {
                 .get('/users/me', {
                     headers: {
                         'Content-Type': 'application/json',
-                        Authorization: `Owner ${getCookie('token')}`,
+                        Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
                     },
                 })
                 .then((res) => (res.data ? setData(res.data) : null, setLoading(false)))
@@ -55,7 +55,7 @@ export default function AccountLanguage() {
                 {
                     headers: {
                         'Content-Type': 'application/json',
-                        Authorization: `Owner ${getCookie('token')}`,
+                        Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
                     },
                 }
             )

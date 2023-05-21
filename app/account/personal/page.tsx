@@ -38,7 +38,7 @@ export default function AccountPersonal() {
                 .get('/users/me', {
                     headers: {
                         'Content-Type': 'application/json',
-                        Authorization: `Owner ${getCookie('token')}`,
+                        Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
                     },
                 })
                 .then((res) => (res.data ? setData(res.data) : null, setLoading(false)))
@@ -60,7 +60,7 @@ export default function AccountPersonal() {
                 {
                     headers: {
                         'Content-Type': 'application/json',
-                        Authorization: `Owner ${getCookie('token')}`,
+                        Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
                     },
                 }
             )
@@ -88,7 +88,7 @@ export default function AccountPersonal() {
                 {
                     headers: {
                         'Content-Type': 'multipart/form-data',
-                        Authorization: `Owner ${getCookie('token')}`,
+                        Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
                     },
                     onUploadProgress: (progressEvent: AxiosProgressEvent) => {
                         if (progressEvent && progressEvent.total) {
@@ -144,7 +144,7 @@ export default function AccountPersonal() {
                 {
                     headers: {
                         'Content-Type': 'application/json',
-                        Authorization: `Owner ${getCookie('token')}`,
+                        Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
                     },
                 }
             )

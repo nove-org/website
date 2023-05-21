@@ -35,12 +35,12 @@ export default function Account() {
     useEffect(() => {
         const getData = async () => {
             await axiosClient
-                .get('/users/me', { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${getCookie('token')}` } })
+                .get('/users/me', { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } })
                 .then(async (res) => {
                     res.data ? setData(res.data) : null;
 
                     await axiosClient
-                        .get('/users/me/activity', { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${getCookie('token')}` } })
+                        .get('/users/me/activity', { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } })
                         .then((res) => (res.data ? setActivity(res.data) : null, setLoading(false)))
                         .catch((err) => (err.response?.data ? setActivity(err.response.data) : null, setLoading(false)));
                 })
@@ -57,7 +57,7 @@ export default function Account() {
             .patch(
                 '/users/me',
                 { username: event.target.accountTagUpdate.value },
-                { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${getCookie('token')}` } }
+                { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } }
             )
             .then(() => window.location.reload())
             .catch((err) => {

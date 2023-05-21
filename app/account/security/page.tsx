@@ -31,12 +31,12 @@ export default function AccountSecurity() {
     useEffect(() => {
         const getData = async () => {
             await axiosClient
-                .get('/users/me', { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${getCookie('token')}` } })
+                .get('/users/me', { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } })
                 .then(async (res) => {
                     res.data ? setUser(res.data) : null;
 
                     await axiosClient
-                        .get('/users/me/activity?perPage=3', { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${getCookie('token')}` } })
+                        .get('/users/me/activity?perPage=3', { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } })
                         .then((res) => (res.data ? setData(res.data) : null, setLoading(false)))
                         .catch(async (err) => (err.response?.data ? setData(err.response.data) : null, setLoading(false)));
                 })
@@ -48,13 +48,13 @@ export default function AccountSecurity() {
 
     const handleActivityOptOut = async () =>
         await axiosClient
-            .patch('/users/me', { trackActivity: false }, { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${getCookie('token')}` } })
+            .patch('/users/me', { trackActivity: false }, { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } })
             .then(() => window.location.reload())
             .catch((err) => (err.response?.data.body.error ? throwError(err.response.data.body.error.message) : null));
 
     const handleActivityOptIn = async () =>
         await axiosClient
-            .patch('/users/me', { trackActivity: true }, { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${getCookie('token')}` } })
+            .patch('/users/me', { trackActivity: true }, { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } })
             .then(() => window.location.reload())
             .catch((err) => (err.response?.data.body.error ? throwError(err.response.data.body.error.message) : null));
 
@@ -68,12 +68,12 @@ export default function AccountSecurity() {
                     oldPassword: event.target.oldPassword.value,
                     newPassword: event.target.newPassword.value,
                 },
-                { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${getCookie('token')}` } }
+                { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } }
             )
             .then((res) => {
                 const token = res.data.body.data.token;
 
-                setCookie('token', token, {
+                setCookie('napiAuthorizationToken', token, {
                     maxAge: 3 * 30 * 24 * 60 * 60,
                     domain: 'nove.team',
                     sameSite: 'strict',

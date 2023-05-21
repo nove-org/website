@@ -24,14 +24,14 @@ export default function AccountLayout({ children }: { children: React.ReactNode 
     ];
 
     useEffect(() => {
-        if (!getCookie('token')) return window.location.replace(`/login?redirectBack=${active ? '/account/' + active : '/account'}`);
+        if (!getCookie('napiAuthorizationToken')) return window.location.replace(`/login?redirectBack=${active ? '/account/' + active : '/account'}`);
 
         const getData = async () => {
             await axiosClient
                 .get('/users/me', {
                     headers: {
                         'Content-Type': 'application/json',
-                        Authorization: `Owner ${getCookie('token')}`,
+                        Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
                     },
                 })
                 .then((res) => (res.data ? setData(res.data) : window.location.replace(`/login?redirectBack=${active ? '/account/' + active : '/account'}`), setLoading(false)))
