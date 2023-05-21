@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Response, User } from '@/Interfaces';
 import { axiosClient } from '@/utils';
+import { getCookie, deleteCookie } from 'cookies-next';
 import Link from 'next/link';
 import Script from 'next/script';
 import Image from 'next/image';
@@ -22,7 +23,7 @@ export default function Navigation() {
                 .get('/users/me', {
                     headers: {
                         'Content-Type': 'application/json',
-                        Authorization: `Owner ${localStorage.getItem('key')}`,
+                        Authorization: `Owner ${getCookie('token')}`,
                     },
                 })
                 .then((res) => (res.data ? setData(res.data) : null, setLoading(false)))
@@ -134,7 +135,7 @@ export default function Navigation() {
                                                 </Link>
                                             </li>
                                             <li>
-                                                <a onClick={() => (localStorage.removeItem('key'), window.location.reload())}>
+                                                <a onClick={() => (deleteCookie('token'), window.location.reload())}>
                                                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
                                                         <path
                                                             fill="currentColor"

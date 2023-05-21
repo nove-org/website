@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Response, User } from '@/Interfaces';
 import { AxiosProgressEvent } from 'axios';
 import { axiosClient } from '@/utils';
+import { getCookie } from 'cookies-next';
 import Image from 'next/image';
 import Loader from '@/loader';
 import mime from 'mime-types';
@@ -37,7 +38,7 @@ export default function AccountPersonal() {
                 .get('/users/me', {
                     headers: {
                         'Content-Type': 'application/json',
-                        Authorization: `Owner ${localStorage.getItem('key')}`,
+                        Authorization: `Owner ${getCookie('token')}`,
                     },
                 })
                 .then((res) => (res.data ? setData(res.data) : null, setLoading(false)))
@@ -59,7 +60,7 @@ export default function AccountPersonal() {
                 {
                     headers: {
                         'Content-Type': 'application/json',
-                        Authorization: `Owner ${localStorage.getItem('key')}`,
+                        Authorization: `Owner ${getCookie('token')}`,
                     },
                 }
             )
@@ -87,7 +88,7 @@ export default function AccountPersonal() {
                 {
                     headers: {
                         'Content-Type': 'multipart/form-data',
-                        Authorization: `Owner ${localStorage.getItem('key')}`,
+                        Authorization: `Owner ${getCookie('token')}`,
                     },
                     onUploadProgress: (progressEvent: AxiosProgressEvent) => {
                         if (progressEvent && progressEvent.total) {
@@ -143,7 +144,7 @@ export default function AccountPersonal() {
                 {
                     headers: {
                         'Content-Type': 'application/json',
-                        Authorization: `Owner ${localStorage.getItem('key')}`,
+                        Authorization: `Owner ${getCookie('token')}`,
                     },
                 }
             )

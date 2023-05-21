@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { Activity, Response, User } from '@/Interfaces';
 import { axiosClient } from '@/utils';
+import { getCookie } from 'cookies-next';
 import Image from 'next/image';
 import Connection from './connection';
 import Loader from '@/loader';
@@ -34,12 +35,12 @@ export default function Account() {
     useEffect(() => {
         const getData = async () => {
             await axiosClient
-                .get('/users/me', { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${localStorage.getItem('key')}` } })
+                .get('/users/me', { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${getCookie('token')}` } })
                 .then(async (res) => {
                     res.data ? setData(res.data) : null;
 
                     await axiosClient
-                        .get('/users/me/activity', { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${localStorage.getItem('key')}` } })
+                        .get('/users/me/activity', { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${getCookie('token')}` } })
                         .then((res) => (res.data ? setActivity(res.data) : null, setLoading(false)))
                         .catch((err) => (err.response?.data ? setActivity(err.response.data) : null, setLoading(false)));
                 })
@@ -56,7 +57,7 @@ export default function Account() {
             .patch(
                 '/users/me',
                 { username: event.target.accountTagUpdate.value },
-                { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${localStorage.getItem('key')}` } }
+                { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${getCookie('token')}` } }
             )
             .then(() => window.location.reload())
             .catch((err) => {

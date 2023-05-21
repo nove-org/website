@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Response, User } from '@/Interfaces';
 import { axiosClient } from '@/utils';
+import { getCookie } from 'cookies-next';
 import Loader from '@/loader';
 import ReactCountryFlag from 'react-country-flag';
 
@@ -32,7 +33,7 @@ export default function AccountLanguage() {
                 .get('/users/me', {
                     headers: {
                         'Content-Type': 'application/json',
-                        Authorization: `Owner ${localStorage.getItem('key')}`,
+                        Authorization: `Owner ${getCookie('token')}`,
                     },
                 })
                 .then((res) => (res.data ? setData(res.data) : null, setLoading(false)))
@@ -54,7 +55,7 @@ export default function AccountLanguage() {
                 {
                     headers: {
                         'Content-Type': 'application/json',
-                        Authorization: `Owner ${localStorage.getItem('key')}`,
+                        Authorization: `Owner ${getCookie('token')}`,
                     },
                 }
             )

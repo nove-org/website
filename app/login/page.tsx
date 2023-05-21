@@ -4,6 +4,7 @@ import { Response, User } from '@/Interfaces';
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { axiosClient } from '@/utils';
+import { getCookie, setCookie } from 'cookies-next';
 import Image from 'next/image';
 import Loader from '@/loader';
 
@@ -33,7 +34,7 @@ export default function Login() {
                 .get('/users/me', {
                     headers: {
                         'Content-Type': 'application/json',
-                        Authorization: `Owner ${localStorage.getItem('key')}`,
+                        Authorization: `Owner ${getCookie('token')}`,
                     },
                 })
                 .then((res) => (res.data.body.data ? window.location.replace(searchParams.get('redirectBack') || '/account') : setLoading(false), setData(res.data)))
@@ -47,19 +48,16 @@ export default function Login() {
         event.preventDefault();
 
         await axiosClient
-            .post(
-                '/users/login',
-                { username: event.target.username.value, password: event.target.password.value },
-                {
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                }
-            )
+            .post('/users/login', { username: event.target.username.value, password: event.target.password.value }, { headers: { 'Content-Type': 'application/json' } })
             .then(async (res) => {
                 if (res.data?.body?.error) return throwError(res.data.body.error.message);
                 else {
-                    localStorage.setItem('key', res.data.body.data.token);
+                    setCookie('token', res.data.body.data.token, {
+                        maxAge: 3 * 30 * 24 * 60 * 60,
+                        domain: 'nove.team',
+                        sameSite: 'strict',
+                        secure: true,
+                    });
 
                     const redirect = searchParams.get('redirectBack') || '/account';
 

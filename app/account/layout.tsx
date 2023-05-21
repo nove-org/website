@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import { Response, User } from '@/Interfaces';
 import { axiosClient } from '@/utils';
+import { getCookie } from 'cookies-next';
 import Image from 'next/image';
 import Link from 'next/link';
 import Loader from '@/loader';
@@ -23,14 +24,14 @@ export default function AccountLayout({ children }: { children: React.ReactNode 
     ];
 
     useEffect(() => {
-        if (!localStorage.getItem('key')) return window.location.replace(`/login?redirectBack=${active ? '/account/' + active : '/account'}`);
+        if (!getCookie('token')) return window.location.replace(`/login?redirectBack=${active ? '/account/' + active : '/account'}`);
 
         const getData = async () => {
             await axiosClient
                 .get('/users/me', {
                     headers: {
                         'Content-Type': 'application/json',
-                        Authorization: `Owner ${localStorage.getItem('key')}`,
+                        Authorization: `Owner ${getCookie('token')}`,
                     },
                 })
                 .then((res) => (res.data ? setData(res.data) : window.location.replace(`/login?redirectBack=${active ? '/account/' + active : '/account'}`), setLoading(false)))
