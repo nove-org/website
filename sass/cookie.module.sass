@@ -1,0 +1,43 @@
+/* 
+ * Copyright 2019-2023 (c) Nove Group
+ * GitHub: https://github.com/nove-org/
+ * Inter font is property of their respective owners.
+ */
+
+@use 'brand' as *
+
+div.box
+    position: fixed
+    bottom: 15px
+    left: 15px
+    right: 15px
+    padding: 20px
+    border-radius: $radius
+    background: $secondary
+    border: 1px solid $font2
+    box-shadow: 0 0 20px 0 #ffffff11
+    max-width: 400px
+    animation: fadeIn .5s ease-in-out
+    z-index: 99999
+    @keyframes fadeIn
+        0%
+            opacity: 0
+        100%
+            opacity: 1
+
+    & *
+        font-family: monospace
+    & p
+        font-size: 16px
+        color: $font2
+    & button
+        margin-top: 10px
+        border: 0
+        background: 0
+        outline: 0
+        padding: 0
+        cursor: pointer
+        color: $font
+        font-size: 16px
+        &:hover
+            color: $coloredb

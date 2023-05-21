@@ -2,6 +2,7 @@ import '~/globals.sass';
 
 import Navigation from '@/navigation';
 import Footer from '@/footer';
+import CookiePrompt from '@/cookiePrompt';
 
 export const metadata = {
     metadataBase: new URL('https://nove.team'),
@@ -14,7 +15,7 @@ export const metadata = {
     description:
         'An unexpected focus on privacy with all standard features or even more. Surprising emphasis on data security. Enjoy everything for free and open-source to everyone.',
     category: 'technology',
-    assets: ['/cdn/assets'],
+    assets: ['https://nove.team/cdn/assets'],
     colorScheme: 'dark',
     publisher: 'Nove Group',
     formatDetection: {
@@ -49,7 +50,7 @@ export const metadata = {
             'An unexpected focus on privacy with all standard features or even more. Surprising emphasis on data security. Enjoy everything for free and open-source to everyone.',
         images: [
             {
-                url: '/cdn/assets/banner.png',
+                url: 'https://nove.team/cdn/assets/banner.png',
                 alt: 'Live. Laugh. Nove campaign banner',
                 width: 1920,
                 height: 1080,
@@ -67,12 +68,12 @@ export const metadata = {
         { media: '(prefers-color-scheme: dark)', color: '#2b2d31' },
     ],
     icons: {
-        icon: '/cdn/assets/logo.png',
-        shortcut: '//cdn/assets/banner.png',
-        apple: '//cdn/assets/logo.png',
+        icon: 'https://nove.team/cdn/assets/logo.png',
+        shortcut: 'https://nove.team/cdn/assets/banner.png',
+        apple: 'https://nove.team/cdn/assets/logo.png',
         other: {
             rel: 'apple-touch-icon-precomposed',
-            url: '//cdn/assets/logo.png',
+            url: 'https://nove.team/cdn/assets/logo.png',
         },
     },
 };
@@ -81,6 +82,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="en">
             <body>
+                <CookiePrompt />
+
                 <Navigation />
 
                 {children}
