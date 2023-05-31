@@ -201,7 +201,7 @@ export default function AccountSecurity() {
                                 );
                             })}
                             <p className={oa.bottom}>
-                                We store info about three most recent devices that logged in to your account in the last month on our servers.{' '}
+                                We store information about recent devices that logged in to your account in the last month on our servers.{' '}
                                 <a onClick={handleActivityOptOut}>Opt-out</a>
                             </p>
                         </>
