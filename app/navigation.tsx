@@ -12,6 +12,8 @@ import Loader from '@/loader';
 import o from '~/navigation.module.sass';
 
 export default function Navigation() {
+    const [pm, setPM] = useState<boolean>(true);
+
     const [loading, setLoading] = useState<boolean>(true);
     const [switcher, setSwitcher] = useState<boolean>(false);
     const [products, setProducts] = useState<boolean>(false);
@@ -41,6 +43,7 @@ export default function Navigation() {
                 observer.observe(el);`}
             </Script>
             {switcher || products ? <div onClick={() => (setSwitcher((s) => false), setProducts((p) => false))} className="background"></div> : null}
+            {pm ? <div className={o.colorBox}></div> : null}
             <nav className={o.box} id="navBox">
                 <div className={o.container}>
                     <Link href="/">
