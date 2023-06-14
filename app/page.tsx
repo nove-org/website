@@ -22,7 +22,7 @@ export default function Home() {
                         </a>
                     </li>
                     <li>
-                        <a href="https://files.nove.team">Files file hosting</a>
+                        <a href="https://files.nove.team">Files Cloud Hosting</a>
                     </li>
                 </ul>
             </section>
