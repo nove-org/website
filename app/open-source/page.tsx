@@ -8,15 +8,15 @@ import Card from './card';
 import o from '~/open-source/page.module.sass';
 
 export default function Projects() {
-    const [cheemsVersion, setCheemsVersion] = useState<string>('0.000.0');
+    const [filesVersion, setFilesVersion] = useState<string>('0.000.0');
     const [jfVersion, setJFVersion] = useState<string>('0.0.0');
 
     useEffect(() => {
         const fetchVersions = async () => {
             await axiosClient
-                .get('https://api.cheems.dog/v1/service/release')
-                .then((res) => (res.data.body ? setCheemsVersion(res.data.body.data.version) : setCheemsVersion('?')))
-                .catch(() => setCheemsVersion('?'));
+                .get('https://files-api.nove.team/v1/service/release')
+                .then((res) => (res.data.body ? setFilesVersion(res.data.body.data.version) : setFilesVersion('?')))
+                .catch(() => setFilesVersion('?'));
 
             await axiosClient
                 .get('https://api.github.com/repos/nove-org/JuzioFont/releases')
@@ -40,12 +40,12 @@ export default function Projects() {
                 <h2 className={o.sectionTitle}>Projects</h2>
                 <div className={o.wrapper}>
                     <Card
-                        name="Cheems"
-                        description="Revolutionary file hosting, just as it is. Browse, upload, and share files up to 20MB; increase if needed. Join Cheems today."
-                        img="/cdn/assets/cheemsBanner.png"
+                        name="Files"
+                        description="Revolutionary file hosting, just as it is. Browse, upload, and share files up to 20MB; increase if needed. Start using Files today."
+                        img="/cdn/assets/filesBanner.png"
                         tags={['Beta', 'Open-source']}
-                        version={cheemsVersion}
-                        url="https://beta.cheems.dog"
+                        version={filesVersion}
+                        url="https://files.nove.team"
                     />
                     <Card
                         name="JuzioFont"

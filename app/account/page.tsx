@@ -154,7 +154,7 @@ export default function Account() {
             </div>
             <div className={ob.connections + ' disabled'}>
                 <h2>Account connections</h2>
-                <Connection data={{ name: 'cheems.dog', logo: '/cdn/assets/cheems.png', permissionLevel: 0 }} />
+                <Connection data={{ name: 'Files', logo: '/cdn/assets/files.png', permissionLevel: 0 }} />
             </div>
         </div>
     ) : (

@@ -2,7 +2,7 @@
     "name": "website",
     "description": "Repository for handling NAPI backend with easy to use frontend server",
     "version": "0.0.1",
-    "repository": "https://github.com/nove-org/cheems.frontend",
+    "repository": "https://github.com/nove-org/website",
     "author": {
         "name": "Nove Group",
         "url": "https://nove.team"

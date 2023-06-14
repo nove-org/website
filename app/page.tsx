@@ -22,7 +22,7 @@ export default function Home() {
                         </a>
                     </li>
                     <li>
-                        <a href="https://beta.cheems.dog">Cheems File Hosting</a>
+                        <a href="https://files.nove.team">Files file hosting</a>
                     </li>
                 </ul>
             </section>

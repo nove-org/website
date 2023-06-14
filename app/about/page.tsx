@@ -15,7 +15,7 @@ export default function About() {
                 <p className={o.description}>
                     Our <span className={o.orange}>goal</span> is to make the Internet <span>cleaner</span> and <span>safer</span>. We provide tools free from bloatware, trackers,
                     and annoying advertisements. With an open-source policy. We are working since 2019 as a small team of four people. At first, we started with a Discord bot
-                    called vave, then we worked on a couple of projects that helped us launch Cheems and will help launch others in 2023 and later. This is who we are, we are Nove.
+                    called vave, then we worked on a couple of projects that helped us launch Files and will help launch others in 2023 and later. This is who we are, we are Nove.
                 </p>
                 <h2 className={o.sectionTitle}>Meet the team</h2>
                 <div className={o.team}>
