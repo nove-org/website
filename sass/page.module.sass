@@ -2,19 +2,18 @@
 
 section.hero
     width: 100%
-    height: calc(100vh - 70px * 2)
+    height: calc(100vh - 5rem - 70px * 2)
     display: flex
     flex-direction: column
-    align-items: center
     justify-content: center
     & h1
-        font-size: 72px
+        font-size: 64px
         font-weight: 800
         margin: 5px 0
         background: linear-gradient(0deg, $font-primary, $font-tertiary)
         -webkit-background-clip: text
         -webkit-text-fill-color: transparent
-        text-align: center
+        max-width: 950px
         & span
             background: $font-span-primary
             font-smooth: always
@@ -22,10 +21,9 @@ section.hero
             -webkit-text-fill-color: transparent
     & p
         font-size: 22px
-        font-weight: 500
+        font-weight: 400
         margin: 5px 0
-        max-width: 800px
-        text-align: center
+        max-width: 1000px
     & ul
         display: flex
         align-items: center
@@ -36,7 +34,12 @@ section.hero
         & li
             &:not(:last-child)
                 margin-right: 15px
-            & a
+            & a.link
+                color: $accent-primary
+                text-decoration-line: underline
+                text-decoration-style: wavy
+                text-decoration-thickness: 1px
+            & a.button
                 display: flex
                 align-items: center
                 padding: 10px 15px
@@ -47,7 +50,7 @@ section.hero
                 &:hover
                     background: $border-primary
                 & svg
-                    margin-right: 5px
+                    margin-left: 5px
 
     & svg.top
         position: absolute

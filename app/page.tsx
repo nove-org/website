@@ -24,12 +24,15 @@ export default function Home() {
             </svg>
 
             <h1>
-                Meet the world where <span>privacy</span> is on the first place
+                Meet the world where <span>your privacy</span> is on the first place
             </h1>
-            <p>We code websites, tools, software. We are Nove, with an unexpected focus on privacy and all of the tools you expect.</p>
+            <p>
+                Ditch Google, Facebook and other companies that sell data, profile and track you. Take back control over this and start using our open-source and privacy respecting
+                solutions
+            </p>
             <ul>
                 <li>
-                    <a>
+                    <a className={o.button}>
                         Sign up today
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 30 30">
                             <path
@@ -38,34 +41,14 @@ export default function Home() {
                         </svg>
                     </a>
                 </li>
+                <li>
+                    Don&apos;t take our word for this. View the{' '}
+                    <a className={o.link} href="https://github.com/nove-org">
+                        code
+                    </a>{' '}
+                    yourself
+                </li>
             </ul>
-            <svg className={o.bottom} width="270" height="467" viewBox="0 0 270 467" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clipPath="url(#clip0_129_250)">
-                    <path d="M-2 54.7776C488.437 -45.7766 142.902 259.388 231.059 468" stroke="url(#paint0_linear_129_250)" strokeWidth="3" />
-                    <path d="M-2 40.4628C431.707 -63.5748 126.141 252.161 204.1 468" stroke="url(#paint1_linear_129_250)" strokeWidth="3" />
-                    <path d="M-2 23.2849C374.977 -84.9328 109.38 243.489 177.142 468" stroke="url(#paint2_linear_129_250)" strokeWidth="3" />
-                </g>
-                <defs>
-                    <linearGradient id="paint0_linear_129_250" x1="133" y1="35" x2="133" y2="468" gradientUnits="userSpaceOnUse">
-                        <stop stopColor="#E81493" />
-                        <stop offset="0.432292" stopColor="#CC3690" />
-                        <stop offset="1" stopColor="#D21930" />
-                    </linearGradient>
-                    <linearGradient id="paint1_linear_129_250" x1="117.384" y1="20" x2="117.384" y2="468" gradientUnits="userSpaceOnUse">
-                        <stop stopColor="#E81493" />
-                        <stop offset="0.432292" stopColor="#CC3690" />
-                        <stop offset="1" stopColor="#D21930" />
-                    </linearGradient>
-                    <linearGradient id="paint2_linear_129_250" x1="101.769" y1="2" x2="101.769" y2="468" gradientUnits="userSpaceOnUse">
-                        <stop stopColor="#E81493" />
-                        <stop offset="0.432292" stopColor="#CC3690" />
-                        <stop offset="1" stopColor="#D21930" />
-                    </linearGradient>
-                    <clipPath id="clip0_129_250">
-                        <rect width="270" height="467" fill="white" />
-                    </clipPath>
-                </defs>
-            </svg>
         </section>
     );
 }
