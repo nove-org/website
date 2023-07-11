@@ -1,38 +1,24 @@
 {
     "name": "website",
-    "description": "Repository for handling NAPI backend with easy to use frontend server",
-    "version": "0.0.1",
-    "repository": "https://github.com/nove-org/website",
-    "author": {
-        "name": "Nove Group",
-        "url": "https://nove.team"
-    },
-    "license": "MIT",
+    "version": "0.1.0",
+    "private": true,
     "scripts": {
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint",
-        "prettier": "prettier --write ."
+        "lint": "next lint"
     },
     "dependencies": {
-        "@types/mime-types": "^2.1.1",
-        "@types/node": "^20.1.0",
-        "@types/react": "18.0.35",
-        "@types/react-dom": "18.0.11",
-        "axios": "^1.4.0",
-        "cookies-next": "^2.1.1",
-        "eslint": "^8.40.0",
-        "eslint-config-next": "^13.4.1",
-        "mime-types": "^2.1.35",
-        "next": "^13.4.1",
+        "@types/node": "20.3.3",
+        "@types/react": "18.2.14",
+        "@types/react-dom": "18.2.6",
+        "eslint": "8.44.0",
+        "eslint-config-next": "13.4.7",
+        "next": "13.4.7",
         "prettier": "^2.8.8",
         "react": "18.2.0",
-        "react-country-flag": "^3.1.0",
         "react-dom": "18.2.0",
-        "sass": "^1.62.1",
-        "sharp": "^0.32.1",
-        "typescript": "^5.0.4"
-    },
-    "private": true
+        "sass": "^1.63.6",
+        "typescript": "5.1.6"
+    }
 }
