@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import Logo from './Logo';
 import o from '~/Navigation.module.sass';
@@ -14,22 +12,22 @@ export default function Navigation() {
                 </header>
                 <ul>
                     <li>
-                        <Link href="">Products</Link>
+                        <Link href="/">Products</Link>
                     </li>
                     <li>
-                        <Link href="">About</Link>
+                        <Link href="/about">About</Link>
                     </li>
                     <li>
-                        <Link href="">Docs</Link>
+                        <Link href="/">Docs</Link>
                     </li>
                     <li>
-                        <Link href="">Donate</Link>
+                        <Link href="/">Donate</Link>
                     </li>
                 </ul>
             </div>
             <div className={o.buttons}>
-                <Link href="">Login</Link>
-                <Link href="">Sign up</Link>
+                <Link href="/login">Login</Link>
+                <Link href="/register">Sign up</Link>
             </div>
         </nav>
     );
