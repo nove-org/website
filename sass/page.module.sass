@@ -2,9 +2,10 @@
 
 section.hero
     width: 100%
-    min-height: calc(100vh - 2rem - 70px * 2)
+    min-height: calc(100vh - 1rem - 70px * 2 - 50px)
     display: flex
     flex-direction: column
+    margin: 25px 0
     justify-content: center
     & h1
         font-size: 64px
@@ -17,7 +18,9 @@ section.hero
         @media screen and (max-width: 650px)
             font-size: 48px
         & span
-            background: $font-span-primary
+            animation: animateBg 8s linear infinite
+            background-image: linear-gradient(35deg,#f31a78,#f10d87,#d50cdc,#eb1291,#eb1291,#c923d8,#d50cdc,#f10d87,#f31a78)
+            background-size: 100% 1100%
             font-smooth: always
             -webkit-background-clip: text
             -webkit-text-fill-color: transparent
@@ -49,9 +52,11 @@ section.hero
                 align-items: center
                 padding: 10px 15px
                 border-radius: 50px
-                background: $border-secondary
+                background: $secondary
                 transition-duration: .2s
                 cursor: pointer
+                color: $font-primary
+                text-decoration: none
                 @media screen and (max-width: 650px)
                     margin-top: 20px
                 &:hover
@@ -77,3 +82,175 @@ section.hero
             opacity: 0
             width: 0
             height: 0
+
+section.word
+    width: 100%
+    display: flex
+    flex-direction: column
+    align-items: flex-end
+    position: relative
+    @media screen and (max-width: 600px)
+        margin-top: 50px
+    & svg.top
+        position: absolute
+        top: 50%
+        left: -100px
+        z-index: -99999
+        transform: translateY(-50%)
+        transition-duration: .2s
+        @media screen and (max-width: 1530px)
+            left: -200px
+        @media screen and (max-width: 975px)
+            transform: translateY(0)
+            top: 30%
+    & h1
+        font-size: 32px
+        margin: 5px 0
+    & ul
+        display: flex
+        align-items: center
+        gap: 25px
+        margin: 20px 0
+        list-style: none
+        padding: 0
+        @media screen and (max-width: 997px)
+            flex-direction: column
+        & li
+            padding: 20px 25px
+            border-radius: 20px
+            min-height: 190px
+            max-height: 190px
+            max-width: 260px
+            background: #ffffffd0
+            backdrop-filter: blur(100px)
+            position: relative
+            &::before
+                content: ""
+                z-index: -1
+                position: absolute
+                top: 0
+                right: 0
+                bottom: 0
+                left: 0
+                background-image: linear-gradient(-45deg, #ff1b5c 0%, #f733c3 25%, #e81a69 50%, #f733c3 75%, #ff1b5c 100% )
+                transform: translate3d(0px, 20px, 0) scale(0.85)
+                filter: blur(30px)
+                opacity: 0.6
+                transition: opacity 0.3s
+                border-radius: inherit
+                background-size: 100% 1100%
+                animation: animateBg 8s linear infinite
+            &::after
+                content: ""
+                z-index: -1
+                position: absolute
+                top: 0
+                right: 0
+                bottom: 0
+                left: 0
+                background: inherit
+                border-radius: inherit
+            @media screen and (max-width: 997px)
+                max-width: calc( 100% - 25px * 2 )
+                min-height: fit-content
+                max-height: fit-content
+
+            & h1
+                font-size: 24px
+                display: flex
+                flex-direction: column
+                align-items: flex-start
+                & svg
+                    margin: 0 0 10px 0
+            & p
+                margin: 0
+                font-size: 16px
+    & a
+        color: $accent-primary
+        text-decoration-line: underline
+        text-decoration-style: wavy
+        text-decoration-thickness: 1px
+
+section.breakup
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: space-between
+    position: relative
+    margin: 100px 0
+    position: relative
+    min-height: calc( 100vh - 25rem )
+    @media screen and (max-width: 1380px)
+        flex-direction: column-reverse
+        align-items: flex-start
+        justify-content: center
+        & img
+            margin: 0 auto
+            max-width: 591px
+            max-height: auto
+            height: auto
+            width: 100%
+    & aside
+        max-width: 900px
+        @media screen and (max-width: 1380px)
+            max-width: 100%
+        & h1
+            font-size: 36px
+            margin: 10px 0
+        & p
+            font-size: 20px
+            margin: 10px 0
+        & ul
+            margin: 20px 0
+            padding: 0 25px
+            list-style-type: '― '
+            & li
+                font-size: 18px
+                margin: 5px 0
+
+svg.line
+    display: block
+    margin: 50px auto
+
+section.ready
+    width: 100%
+    min-height: calc(100vh - 40rem)
+    display: flex
+    flex-direction: column
+    align-items: center
+    margin: 25px 0
+    justify-content: center
+    margin-bottom: 100px
+    & h1
+        font-size: 36px
+        margin: 5px 0
+        font-weight: 700
+        background: linear-gradient(0deg, $font-primary, $font-tertiary)
+        -webkit-background-clip: text
+        -webkit-text-fill-color: transparent
+    & p
+        font-size: 24px
+        margin: 5px 0
+    & a
+        display: flex
+        align-items: center
+        padding: 10px 15px
+        border-radius: 50px
+        background: $secondary
+        transition-duration: .2s
+        cursor: pointer
+        color: $font-primary
+        text-decoration: none
+        margin-top: 20px
+        @media screen and (max-width: 650px)
+            margin-top: 20px
+        &:hover
+            background: $border-primary
+        & svg
+            margin-left: 5px
+
+@keyframes animateBg
+    0%
+        background-position: 0% 0%
+    100%
+        background-position: 0% 100%
