@@ -1,5 +1,6 @@
 import '~/globals.sass';
 import Navigation from './Navigation';
+import Footer from './Footer';
 
 export const metadata = {
     title: 'Create Next App',
@@ -10,10 +11,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="en">
             <body>
-                <main>
-                    <Navigation />
-                    {children}
-                </main>
+                <Navigation />
+
+                <main>{children}</main>
+
+                <Footer />
             </body>
         </html>
     );
