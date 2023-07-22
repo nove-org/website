@@ -117,16 +117,15 @@ export default function Home() {
                 <aside>
                     <h1>Built by privacy enthusiasts and the community</h1>
                     <p>
-                        At Nove, we create open-source and we appreciate every support from the community to our projects. Because <b>privacy and safety</b> stands for{' '}
+                        At Nove, we create open-source and we appreciate every support from the community to our projects. Because <b>privacy and safety</b> goes with{' '}
                         <b>open-source and auditable</b>.
                     </p>
                     <ul>
                         <li>Easily accessible projects through GitHub</li>
-                        <li>Contribute to our projects by catching bugs, improving the code or suggesting some changes</li>
+                        <li>Contribute by catching bugs, improving the code or suggesting some changes</li>
                         <li>Host your own fork of our software directly on your hardware</li>
                     </ul>
                 </aside>
-                <Image src="/frame.png" width={591} height={436} alt="GitHub repository" />
             </section>
 
             <svg className={o.line} width="114" height="21" viewBox="0 0 114 21" fill="none" xmlns="http://www.w3.org/2000/svg">
