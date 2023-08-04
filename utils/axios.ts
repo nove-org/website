@@ -1,5 +1,6 @@
 import axios from 'axios';
+import { NAPI_URL } from '@util/config';
 
 export const axiosClient = axios.create({
-    baseURL: process.env.NAPI_URL,
+    baseURL: NAPI_URL,
 });
