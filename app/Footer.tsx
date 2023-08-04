@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import Logo from './Logo';
-import o from '~/Footer.module.sass';
+import Logo from '@app/Logo';
+import o from '@sass/Footer.module.sass';
 
 export default function Footer() {
     const year = new Date().getFullYear();

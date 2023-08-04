@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import o from '~/dashboard/page.module.sass';
+import o from '@sass/account/page.module.sass';
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
     return (

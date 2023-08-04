@@ -1,6 +1,6 @@
-import '~/globals.sass';
-import Navigation from './Navigation';
-import Footer from './Footer';
+import '@sass/globals.sass';
+import Navigation from '@app/Navigation';
+import Footer from '@app/Footer';
 
 export const metadata = {
     title: 'Create Next App',

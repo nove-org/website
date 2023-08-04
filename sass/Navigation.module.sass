@@ -45,6 +45,73 @@ nav.box
                     transition-duration: .2s
                     &:hover
                         color: $font-primary
+    & details
+        position: relative
+        max-width: 260px
+        width: 100%
+        & summary
+            margin: 0
+            padding: 0
+            display: flex
+            align-items: flex-start
+            justify-content: flex-end
+            & header
+                display: flex
+                align-items: center
+                margin: 0
+                padding: 0
+                background: $secondary
+                border-radius: 50px
+                text-decoration: none
+                color: $font-primary
+                padding-right: 7px
+                font-size: 14px
+                font-weight: 500
+                cursor: pointer
+                width: fit-content
+                & img
+                    border-radius: 50%
+                    margin-right: 7px
+        & div.module
+            position: absolute
+            top: 40px
+            right: 0
+            background: $secondary
+            border-radius: 15px
+            display: flex
+            flex-direction: column
+            align-items: flex-start
+            justify-content: center
+            max-width: 260px
+            min-width: 200px
+            width: 100%
+            animation: fade .2s ease-in-out
+            @keyframes fade
+                0%
+                    opacity: 0
+                    transform: translateY(-15px)
+                100%
+                    opacity: 1
+                    transform: translateY(0)
+            & a
+                display: flex
+                align-items: center
+                padding: 12px
+                font-size: 15px
+                color: $font-primary
+                text-decoration: none
+                transition-duration: .1s
+                width: calc( 100% - 12px * 2 )
+                &:hover
+                    background: $border-primary
+                    &:first-child
+                        border-top-left-radius: 15px
+                        border-top-right-radius: 15px
+                    &:last-child
+                        border-bottom-right-radius: 15px
+                        border-bottom-left-radius: 15px
+                & svg
+                    margin-right: 7px
     & div.buttons
         display: flex
         align-items: center

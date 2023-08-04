@@ -1,4 +1,4 @@
-import o from '~/page.module.sass';
+import o from '@sass/page.module.sass';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -132,7 +132,7 @@ export default function Home() {
                 <path
                     d="M1 14.9935C22 5.4935 31.5 3.4935 37.5 3.4935C43.5 3.4935 43 6.9935 47 11.4935C54.9451 20.4317 69.5 -2.60486 82 1.49349C106.4 9.49349 112.5 17.1602 112.5 19.9935"
                     stroke="black"
-                    stroke-width="2"
+                    strokeWidth="2"
                 />
             </svg>
 
