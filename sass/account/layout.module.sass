@@ -1,0 +1,42 @@
+@use '../brand' as *
+
+section.box
+    width: 100%
+    min-height: calc( 100vh - 68px )
+    height: 100%
+    display: flex
+    align-items: flex-start
+    & aside
+        max-width: 290px
+        width: 100%
+        margin-top: 30px
+        margin-right: 50px
+        & h1
+            margin: 0
+            margin-bottom: 10px
+            font-size: 24px
+            font-weight: 500
+        & ul
+            width: 100%
+            list-style: none
+            padding: 0
+            margin: 0
+            & li
+                margin: 10px 0
+                & a
+                    text-decoration: none
+                    color: $font-primary
+                    font-size: 15px
+                    display: block
+                    border-radius: 50px
+                    background: $secondary
+                    display: flex
+                    align-items: center
+                    padding: 11px
+                    transition-duration: .2s
+                    &.active
+                        background: $border-secondary
+                    &:hover
+                        background: $border-primary
+                    & svg
+                        margin-right: 5px

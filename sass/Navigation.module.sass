@@ -19,11 +19,14 @@ nav.box
     & div.flex
         display: flex
         align-items: center
+        & a
+            text-decoration: none
         & header
             display: flex
             align-items: center
             font-size: 20px
             font-weight: 600
+            color: $font-primary
             & svg
                 margin-right: 10px
         & ul
@@ -47,8 +50,6 @@ nav.box
                         color: $font-primary
     & details
         position: relative
-        max-width: 260px
-        width: 100%
         & summary
             margin: 0
             padding: 0
@@ -86,6 +87,7 @@ nav.box
             min-width: 200px
             width: 100%
             animation: fade .2s ease-in-out
+            z-index: 99999
             @keyframes fade
                 0%
                     opacity: 0

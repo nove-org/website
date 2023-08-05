@@ -6,7 +6,7 @@ interface Props {
     size: number;
 }
 
-const Logo: NextPage<Props> = ({ size }) => {
+const Logo: NextPage<Props> = ({ size, o }) => {
     return (
         <svg width={size} height={size} viewBox="0 0 250 250" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clipPath="url(#clip0_575_2)">
