@@ -1,11 +1,3 @@
-/* 
- * Made by Nove Group with love.
- * Visit our GitHub: https://github.com/nove-org
- * Copyright (c) 2023 Nove Group - All rights reserved.
- */
-
-@use './brand' as *
-
 p.text
     display: none
 
@@ -28,7 +20,7 @@ div.loaderWindow
         display: block
         margin-top: 10px
         font-weight: 400
-        color: $font-secondary
+        color: var(--font-nd)
         text-align: center
 
 div.loader
@@ -40,9 +32,9 @@ div.loader
         display: block
         position: absolute
         border-radius: 50%
-        border: 4px solid $accent-tertiary
+        border: 4px solid var(--accent-rd)
         animation: _ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite
-        border-color: $accent-tertiary transparent transparent transparent !important
+        border-color: var(--accent-rd) transparent transparent transparent !important
         width: 24px
         height: 24px
         &:nth-child(1)

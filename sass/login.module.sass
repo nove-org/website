@@ -1,5 +1,3 @@
-@use './brand' as *
-
 section.box
     max-width: 350px
     margin: 0 auto
@@ -15,7 +13,7 @@ section.box
         text-decoration-line: underline
         text-decoration-style: wavy
         text-decoration-thickness: 1px
-        color: $font-primary
+        color: var(--font-st)
         opacity: .7
         font-size: 14px
         &:hover
@@ -73,17 +71,17 @@ section.box
             margin: 0
             margin-bottom: 3px
         & input[type=text], input[type=password]
-            color: $font-primary
+            color: var(--font-st)
             border-radius: 50px
             width: calc( 100% - 12px * 2 )
             padding: 10px 12px
             margin: 5px 0 10px 0
             border: 0
-            background: $secondary
+            background: var(--secondary)
             outline: 0
             font-size: 16px
         & p.error
-            background: $tertiary
+            background: var(--tertiary)
             font-size: 14px
             padding: 7px 10px
             border-radius: 50px
@@ -107,13 +105,15 @@ section.box
             display: flex
             align-items: center
             margin: 0
-            background: $tertiary
+            background: var(--tertiary)
+            color: var(--font-st)
             font-weight: 500
-            font-size: 14px
-            padding: 7px 10px
+            font-size: 16px
+            padding: 9px 12px
             outline: 0
             border: 0
             cursor: pointer
             transition-duration: .2s
+            margin-top: 10px
             &:hover
-                background: $border-primary
+                background: var(--border-st)

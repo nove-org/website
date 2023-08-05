@@ -1,5 +1,3 @@
-@use './brand' as *
-
 nav.box
     width: 100%
     & div.padding
@@ -26,7 +24,7 @@ nav.box
             align-items: center
             font-size: 20px
             font-weight: 600
-            color: $font-primary
+            color: var(--font-st)
             & svg
                 margin-right: 10px
         & ul
@@ -44,10 +42,10 @@ nav.box
                     font-size: 14px
                     font-weight: 300
                     text-decoration: none
-                    color: $font-tertiary
+                    color: var(--font-rd)
                     transition-duration: .2s
                     &:hover
-                        color: $font-primary
+                        color: var(--font-st)
     & details
         position: relative
         & summary
@@ -61,10 +59,10 @@ nav.box
                 align-items: center
                 margin: 0
                 padding: 0
-                background: $secondary
+                background: var(--secondary)
                 border-radius: 50px
                 text-decoration: none
-                color: $font-primary
+                color: var(--font-st)
                 padding-right: 7px
                 font-size: 14px
                 font-weight: 500
@@ -77,7 +75,7 @@ nav.box
             position: absolute
             top: 40px
             right: 0
-            background: $secondary
+            background: var(--secondary)
             border-radius: 15px
             display: flex
             flex-direction: column
@@ -100,12 +98,12 @@ nav.box
                 align-items: center
                 padding: 12px
                 font-size: 15px
-                color: $font-primary
+                color: var(--font-st)
                 text-decoration: none
                 transition-duration: .1s
                 width: calc( 100% - 12px * 2 )
                 &:hover
-                    background: $border-primary
+                    background: var(--border-st)
                     &:first-child
                         border-top-left-radius: 15px
                         border-top-right-radius: 15px
@@ -125,12 +123,12 @@ nav.box
             background: 0
             padding: 0
             text-decoration: none
-            color: $font-primary
+            color: var(--font-st)
             &:last-child
                 padding: 5px 10px
                 border-radius: 50px
-                background: $secondary
+                background: var(--secondary)
                 transition-duration: .1s
                 font-weight: 500
                 &:hover
-                    background: $border-primary
+                    background: var(--border-st)

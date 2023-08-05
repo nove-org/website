@@ -1,5 +1,3 @@
-@use '../brand' as *
-
 section.box
     width: 100%
     min-height: calc( 100vh - 68px )
@@ -25,18 +23,18 @@ section.box
                 margin: 10px 0
                 & a
                     text-decoration: none
-                    color: $font-primary
+                    color: var(--font-st)
                     font-size: 15px
                     display: block
                     border-radius: 50px
-                    background: $secondary
+                    background: var(--secondary)
                     display: flex
                     align-items: center
                     padding: 11px
                     transition-duration: .2s
                     &.active
-                        background: $border-secondary
+                        background: var(--border-nd)
                     &:hover
-                        background: $border-primary
+                        background: var(--border-st)
                     & svg
                         margin-right: 5px

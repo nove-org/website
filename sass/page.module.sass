@@ -1,5 +1,3 @@
-@use './brand' as *
-
 section.hero
     width: 100%
     min-height: calc(100vh - 1rem - 70px * 2 - 50px)
@@ -11,7 +9,7 @@ section.hero
         font-size: 64px
         font-weight: 800
         margin: 5px 0
-        background: linear-gradient(0deg, $font-primary, $font-tertiary)
+        background: linear-gradient(0deg, var(--font-st), var(--font-rd))
         -webkit-background-clip: text
         -webkit-text-fill-color: transparent
         max-width: 950px
@@ -43,7 +41,7 @@ section.hero
             &:not(:last-child)
                 margin-right: 15px
             & a.link
-                color: $accent-primary
+                color: var(--accent-st)
                 text-decoration-line: underline
                 text-decoration-style: wavy
                 text-decoration-thickness: 1px
@@ -52,15 +50,15 @@ section.hero
                 align-items: center
                 padding: 10px 15px
                 border-radius: 50px
-                background: $secondary
+                background: var(--secondary)
                 transition-duration: .2s
                 cursor: pointer
-                color: $font-primary
+                color: var(--font-st)
                 text-decoration: none
                 @media screen and (max-width: 650px)
                     margin-top: 20px
                 &:hover
-                    background: $border-primary
+                    background: var(--border-st)
                 & svg
                     margin-left: 5px
 
@@ -121,7 +119,7 @@ section.word
             min-height: 190px
             max-height: 190px
             max-width: 260px
-            border: 1px solid $border-primary
+            border: 1px solid var(--border-st)
             backdrop-filter: blur(100px)
             position: relative
             @media screen and (max-width: 997px)
@@ -140,7 +138,7 @@ section.word
                 margin: 0
                 font-size: 16px
     & a
-        color: $accent-primary
+        color: var(--accent-st)
         text-decoration-line: underline
         text-decoration-style: wavy
         text-decoration-thickness: 1px
@@ -199,7 +197,7 @@ section.ready
         font-size: 36px
         margin: 5px 0
         font-weight: 700
-        background: linear-gradient(0deg, $font-primary, $font-tertiary)
+        background: linear-gradient(0deg, var(--font-st), var(--font-rd))
         -webkit-background-clip: text
         -webkit-text-fill-color: transparent
     & p
@@ -210,16 +208,16 @@ section.ready
         align-items: center
         padding: 10px 15px
         border-radius: 50px
-        background: $secondary
+        background: var(--secondary)
         transition-duration: .2s
         cursor: pointer
-        color: $font-primary
+        color: var(--font-st)
         text-decoration: none
         margin-top: 20px
         @media screen and (max-width: 650px)
             margin-top: 20px
         &:hover
-            background: $border-primary
+            background: var(--border-st)
         & svg
             margin-left: 5px
 
