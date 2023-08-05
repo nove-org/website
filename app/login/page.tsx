@@ -4,8 +4,8 @@ import { axiosClient } from '@util/axios';
 import { useSearchParams } from 'next/navigation';
 import Logo from '../Logo';
 import o from '@sass/login.module.sass';
-import { setCookie } from 'cookies-next';
-import { useState } from 'react';
+import { getCookie, setCookie } from 'cookies-next';
+import { useEffect, useState } from 'react';
 import { COOKIE_HOSTNAME } from '-/utils/config';
 
 export default function Login() {
@@ -22,9 +22,19 @@ export default function Login() {
         }
     };
 
+    useEffect(() => {
+        const token = getCookie('napiAuthorizationToken');
+        if (!token) return;
+        const fetchUser = async () =>
+            await axiosClient
+                .get('/v1/users/me', { headers: { Authorization: `Owner ${token}` } })
+                .then((user) => (user.data?.body?.data?.username ? window.location.replace('/account') : null));
+        fetchUser();
+    }, []);
+
     const handleLogin = async (form: FormData) => {
         const user = await axiosClient
-            .post('/v1/users/login', { username: form.get('username'), password: form.get('password') }, { headers: { 'Content-Type': 'application/json' } })
+            .post('/v1/users/login', { username: form.get('username'), password: form.get('password') })
             .then((user) => {
                 if (user?.data?.body?.error) return throwError(user.data.body.error.message);
                 else {

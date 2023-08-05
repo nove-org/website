@@ -3,8 +3,8 @@
 import { axiosClient } from '@util/axios';
 import Logo from '../Logo';
 import o from '@sass/login.module.sass';
-import { setCookie } from 'cookies-next';
-import { useState } from 'react';
+import { getCookie, setCookie } from 'cookies-next';
+import { useEffect, useState } from 'react';
 import { COOKIE_HOSTNAME } from '-/utils/config';
 
 export default function Register() {
@@ -19,6 +19,16 @@ export default function Register() {
             setTimeout(() => setPostError(''), 5000);
         }
     };
+
+    useEffect(() => {
+        const token = getCookie('napiAuthorizationToken');
+        if (!token) return;
+        const fetchUser = async () =>
+            await axiosClient
+                .get('/v1/users/me', { headers: { Authorization: `Owner ${token}` } })
+                .then((user) => (user.data?.body?.data?.username ? window.location.replace('/account') : null));
+        fetchUser();
+    }, []);
 
     const handleRegister = async (form: FormData) => {
         const user = await axiosClient

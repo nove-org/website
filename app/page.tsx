@@ -30,8 +30,8 @@ export default function Home() {
                     Meet the world where <span>your privacy</span> is on the first place
                 </h1>
                 <p>
-                    Ditch Google, Facebook and other companies that sell data, profile and track you. Take back control over this and start using our openSource and privacy
-                    respecting solutions
+                    Ditch Google, Facebook and other companies that sell data, profile and track you. Take back control over this and start using our FOSS and privacy-respecting
+                    solutions
                 </p>
                 <ul>
                     <li>
