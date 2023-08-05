@@ -1,16 +1,14 @@
 'use client';
 
 import { axiosClient } from '@util/axios';
-import { useSearchParams } from 'next/navigation';
 import Logo from '../Logo';
 import o from '@sass/login.module.sass';
 import { setCookie } from 'cookies-next';
 import { useState } from 'react';
 import { COOKIE_HOSTNAME } from '-/utils/config';
 
-export default function Login() {
+export default function Register() {
     const [postError, setPostError] = useState<string>();
-    const searchParams = useSearchParams();
 
     const throwError = (message?: string, bool?: boolean) => {
         if (bool === false) return setPostError('');
@@ -22,9 +20,9 @@ export default function Login() {
         }
     };
 
-    const handleLogin = async (form: FormData) => {
+    const handleRegister = async (form: FormData) => {
         const user = await axiosClient
-            .post('/v1/users/login', { username: form.get('username'), password: form.get('password') }, { headers: { 'Content-Type': 'application/json' } })
+            .post('/v1/users/register', document.querySelector('#loginForm'), { headers: { 'Content-Type': 'application/json' } })
             .then((user) => {
                 if (user?.data?.body?.error) return throwError(user.data.body.error.message);
                 else {
@@ -35,10 +33,7 @@ export default function Login() {
                         secure: true,
                     });
 
-                    const uri = searchParams.get('redirectBack') || '/account';
-
-                    if (uri == '__CLOSE__') window.close();
-                    else window.location.replace(uri);
+                    window.location.replace('/account');
                 }
             })
             .catch((err) => (err?.response?.data?.body?.error ? throwError(err.response.data.body.error.message) : console.error(err)));
@@ -47,10 +42,12 @@ export default function Login() {
     return (
         <section className={o.box}>
             <Logo size={48} />
-            <h1>Welcome back</h1>
-            <p>Provide your credentials to access your Nove account</p>
-            <form id="loginForm" action={handleLogin}>
-                <label htmlFor="username">Login</label>
+            <h1>New Nove account</h1>
+            <p>Complete the form and create brand new account</p>
+            <form id="loginForm" action={handleRegister}>
+                <label htmlFor="email">E-mail</label>
+                <input type="text" id="email" name="email" />
+                <label htmlFor="username">Username</label>
                 <input type="text" id="username" name="username" />
                 <label htmlFor="password">Password</label>
                 <input type="password" id="password" name="password" />
@@ -66,9 +63,6 @@ export default function Login() {
                     {postError ? <p className={o.error}>{postError}</p> : null}
                 </div>
             </form>
-            <a className={o.passwordReset} href="/password-reset">
-                Forgot your password?
-            </a>
             <svg className={o.left} width="369" height="421" viewBox="0 0 369 421" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0_206_257)">
                     <path d="M-17.1175 99.5959C486.128 -180.012 209.998 253.278 376.332 431.615" stroke="url(#paint0_linear_206_257)" strokeWidth="3" />
