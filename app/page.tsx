@@ -1,8 +1,11 @@
+import { axiosClient } from '-/utils/axios';
 import o from '@sass/page.module.sass';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function Home() {
+export default async function Home() {
+    const napi = await axiosClient.get('https://api.github.com/repos/nove-org/NAPI');
+
     return (
         <>
             <section className={o.hero}>
@@ -42,6 +45,19 @@ export default function Home() {
                                     fill="currentColor"
                                     d="M 9.9902344 3.9902344 A 1.0001 1.0001 0 0 0 9.2929688 5.7070312 L 18.585938 15 L 9.2929688 24.292969 A 1.0001 1.0001 0 1 0 10.707031 25.707031 L 20.707031 15.707031 A 1.0001 1.0001 0 0 0 20.707031 14.292969 L 10.707031 4.2929688 A 1.0001 1.0001 0 0 0 9.9902344 3.9902344 z"></path>
                             </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/nove-org/NAPI" className={o.button}>
+                            <div className={o.stargazers}>
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
+                                    <path
+                                        fill="currentColor"
+                                        d="M12,18.091l4.969,2.999c0.784,0.473,1.751-0.23,1.543-1.121l-1.319-5.653l4.391-3.804c0.692-0.599,0.322-1.736-0.59-1.813 l-5.78-0.49l-2.261-5.335c-0.357-0.841-1.549-0.841-1.906,0L8.786,8.209l-5.78,0.49c-0.912,0.077-1.282,1.214-0.59,1.813 l4.391,3.804l-1.319,5.653c-0.208,0.891,0.759,1.594,1.543,1.121L12,18.091z"></path>
+                                </svg>
+                                {napi.data.stargazers_count}
+                            </div>
+                            Star us on GitHub
                         </a>
                     </li>
                     <li>
