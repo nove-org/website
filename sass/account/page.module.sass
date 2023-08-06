@@ -14,37 +14,61 @@ div.content
         margin: 0
         width: 100%
         gap: 2rem
-        max-height: 300px
         height: 100%
-        & li.card
-            & a
-                text-decoration: none
-                color: var(--font-st)
-                max-width: calc( 260px - 25px * 2 )
-                min-height: calc( 280px - 25px * 2 )
-                padding: 25px
-                border-radius: 30px
-                background: var(--secondary)
-                display: flex
+        @media screen and (max-width: 1810px)
+            flex-wrap: wrap
+        & div.flex
+            display: flex
+            justify-content: space-between
+            gap: 2rem
+            width: 100%
+            @media screen and (max-width: 1215px)
                 flex-direction: column
-                position: relative
-                transition-duration: .2s
-                z-index: 1
-                &:hover
-                    background: var(--border-nd)
-                & h1
-                    margin: 5px 0
-                    font-size: 30px
-                    font-weight: 600
-                & p
-                    font-size: 20px
-                    margin: 0
-                & span
-                    position: absolute
-                    bottom: 25px
-                    right: 25px
-                    & svg
-                        margin-left: 5px
+            & li.card
+                width: 100%
+                & a
+                    text-decoration: none
+                    color: var(--font-st)
+                    min-height: calc( 280px - 25px * 2 )
+                    padding: 25px
+                    border-radius: 30px
+                    background: var(--secondary)
+                    display: flex
+                    flex-direction: column
+                    position: relative
+                    transition-duration: .2s
+                    z-index: 1
+                    @media screen and (max-width: 1810px)
+                        min-height: calc( 250px - 25px * 2 )
+                    @media screen and (max-width: 1450px)
+                        min-height: calc( 270px - 25px * 2 )
+                    @media screen and (max-width: 1215px)
+                        min-height: 100%
+                    @media screen and (max-width: 950px)
+                        padding: 20px
+                    &:hover
+                        background: var(--border-nd)
+                    & h1
+                        margin: 5px 0
+                        font-size: 30px
+                        font-weight: 600
+                        @media screen and (max-width: 950px)
+                            font-size: 24px
+                    & p
+                        font-size: 20px
+                        margin: 0
+                        @media screen and (max-width: 950px)
+                            font-size: 18px
+                    & span
+                        position: absolute
+                        bottom: 25px
+                        right: 25px
+                        @media screen and (max-width: 1215px)
+                            top: 25px
+                        @media screen and (max-width: 950px)
+                            display: none
+                        & svg
+                            margin-left: 5px
         & li.profile
             max-width: 442px
             max-height: calc( 280px - 30px * 2 )
@@ -53,21 +77,37 @@ div.content
             padding: 30px
             border-radius: 30px
             background: var(--secondary)
+            @media screen and (max-width: 1810px)
+                max-width: 100%
+                width: calc( 100% - 30px * 2 )
+            @media screen and (max-width: 950px)
+                max-height: 100%
+                width: calc( 100% - 20px * 2 )
+                padding: 20px
             & header
                 display: flex
                 align-items: center
                 & img
                     border-radius: 50%
                     margin-right: 15px
+                    @media screen and (max-width: 950px)
+                        max-width: 36px
+                        max-height: 36px
                 & div.data
                     & h1
                         font-size: 24px
                         font-weight: 700
                         margin: 2px 0
+                        word-wrap: anywhere
+                        @media screen and (max-width: 950px)
+                            font-size: 20px
                     & p
                         font-size: 16px
                         font-weight: 400
                         margin: 2px 0
+                        word-wrap: anywhere
+                        @media screen and (max-width: 950px)
+                            font-size: 14px
             & h2
                 font-size: 14px
                 font-weight: 700
@@ -115,6 +155,8 @@ div.content
                 align-items: center
                 justify-content: space-between
                 margin-bottom: 5px
+                @media screen and (max-width: 950px)
+                    flex-direction: column
                 & div.name
                     display: flex
                     align-items: center
@@ -137,11 +179,18 @@ div.content
                     border: 0
                     cursor: pointer
                     transition-duration: .2s
+                    @media screen and (max-width: 950px)
+                        font-size: 14px
+                        margin: 3px 0
+                        padding: 2px 4px
                     &:hover
                         background: var(--font-nd)
             & p
                 font-size: 20px
                 margin: 0
+                @media screen and (max-width: 950px)
+                    font-size: 16px
+                    margin-top: 5px
             & ul
                 margin: 2px 0
                 padding: 0
@@ -151,5 +200,7 @@ div.content
                 bottom: 25px
                 right: 25px
                 opacity: .7
+                @media screen and (max-width: 950px)
+                    display: none
                 & svg
                     margin-left: 5px
