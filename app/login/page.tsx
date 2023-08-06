@@ -6,7 +6,7 @@ import Logo from '../Logo';
 import o from '@sass/login.module.sass';
 import { getCookie, setCookie } from 'cookies-next';
 import { useEffect, useState } from 'react';
-import { COOKIE_HOSTNAME } from '-/utils/config';
+import { COOKIE_HOSTNAME } from '@util/config';
 
 export default function Login() {
     const [postError, setPostError] = useState<string>();
@@ -64,6 +64,9 @@ export default function Login() {
                 <input type="text" id="username" name="username" />
                 <label htmlFor="password">Password</label>
                 <input type="password" id="password" name="password" />
+                <noscript>
+                    You can login without Javascript enabled by using our <a href="/login/legacy">legacy login</a>
+                </noscript>
                 <div className={o.flex}>
                     <button type="submit">
                         Proceed{' '}

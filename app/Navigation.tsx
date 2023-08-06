@@ -10,7 +10,7 @@ export default async function Navigation() {
         .get('/v1/users/me', {
             headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
         })
-        .catch((e) => e);
+        .catch((e) => e.response);
 
     return (
         <nav className={o.box}>

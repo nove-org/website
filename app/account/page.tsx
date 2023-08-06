@@ -3,21 +3,26 @@ import { axiosClient } from '@util/axios';
 import o from '@sass/account/page.module.sass';
 import { cookies } from 'next/headers';
 import Link from 'next/link';
+import { Response, Device, User } from '@util/schema';
 
 export default async function Overview() {
-    const user = await axiosClient
-        .get('/v1/users/me', {
-            headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-        })
-        .catch((e) => e);
+    const user: Response<User> = (
+        await axiosClient
+            .get('/v1/users/me', {
+                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
+            })
+            .catch((e) => e.response)
+    ).data;
 
-    const devices = await axiosClient
-        .get('/v1/users/me/activity', {
-            headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-        })
-        .catch((e) => e);
+    const device: Response<Device[]> = (
+        await axiosClient
+            .get('/v1/users/me/activity', {
+                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
+            })
+            .catch((e) => e.response)
+    ).data;
 
-    if (!user?.data || !user?.data?.body?.data?.username)
+    if (!user || !user.body?.data?.username || !device)
         return (
             <div className={o.content}>
                 <h1 className={o.title}>Something is wrong with the API</h1>
@@ -33,10 +38,10 @@ export default async function Overview() {
             <ul className={o.overview}>
                 <li className={o.profile}>
                     <header>
-                        <Image src={user.data.body.data.avatar} width="72" height="72" alt="Avatar" />
+                        <Image src={user.body.data.avatar} width="72" height="72" alt="Avatar" />
                         <div className={o.data}>
-                            <h1>{user?.data.body.data.username}</h1>
-                            <p>{user.data.body.data.email}</p>
+                            <h1>{user.body.data.username}</h1>
+                            <p>{user.body.data.email}</p>
                         </div>
                     </header>
                     <h2>Tips to improve your security and privacy</h2>
@@ -77,7 +82,7 @@ export default async function Overview() {
                         <h1>Language</h1>
                         <p>Change your preferred language across all Nove products</p>
                         <span>
-                            {lang.of(user?.data?.body?.data?.language)}
+                            {lang.of(user.body.data.language)}
                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="14" height="14" viewBox="0 0 30 30">
                                 <path
                                     fill="currentColor"
@@ -93,14 +98,14 @@ export default async function Overview() {
                                 fill="currentColor"
                                 d="M16.256,3.005C13.515,3.117,12,5.09,12,5.09S10.377,2.976,7.451,3C6.338,3.009,5.278,3.476,4.403,4.164 C2.019,6.038,1.702,8.067,2.203,10h3.464L7.4,8.7c0.459-0.344,1.114-0.232,1.432,0.245l1.414,2.12l0.888-0.666 c0.346-0.26,0.767-0.4,1.2-0.4h0.944c0.423-0.727,1.28-1.169,2.224-0.938c0.72,0.176,1.301,0.781,1.453,1.506 C17.226,11.861,16.246,13,15,13c-0.738,0-1.376-0.405-1.723-1h-0.944L10.6,13.3c-0.459,0.344-1.114,0.232-1.432-0.245l-1.414-2.12 L6.867,11.6C6.521,11.86,6.1,12,5.667,12H3.024c1.514,2.764,4.282,5.08,5.257,5.99c1.033,0.962,2.307,2.105,3.064,2.779 c0.375,0.334,0.934,0.334,1.309,0c0.757-0.674,2.032-1.817,3.064-2.779c1.72-1.603,9.032-7.574,5.17-12.678 C19.779,3.845,18.094,2.93,16.256,3.005z"></path>
                         </svg>
-                        <h1>{devices?.data?.body?.data ? 'Activity' : 'Logging in'}</h1>
+                        <h1>{device.body.data ? 'Activity' : 'Logging in'}</h1>
                         <p>
-                            {devices?.data?.body?.data
+                            {device.body.data
                                 ? 'Manage recent activity on your account with ease using activity logs'
                                 : 'Change your account credentials or add security layers with ease'}
                         </p>
                         <span>
-                            {devices?.data?.body?.data ? devices?.data?.body?.data?.length + ' active session' + (devices?.data?.body?.data?.length > 1 ? 's' : '') : 'Go'}
+                            {device.body.data ? device.body.data.length + ' active session' + (device.body.data.length > 1 ? 's' : '') : 'Go'}
                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="14" height="14" viewBox="0 0 30 30">
                                 <path
                                     fill="currentColor"

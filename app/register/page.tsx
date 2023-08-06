@@ -5,7 +5,7 @@ import Logo from '../Logo';
 import o from '@sass/login.module.sass';
 import { getCookie, setCookie } from 'cookies-next';
 import { useEffect, useState } from 'react';
-import { COOKIE_HOSTNAME } from '-/utils/config';
+import { COOKIE_HOSTNAME } from '@util/config';
 
 export default function Register() {
     const [postError, setPostError] = useState<string>();

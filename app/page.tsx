@@ -1,4 +1,4 @@
-import { axiosClient } from '-/utils/axios';
+import { axiosClient } from '@util/axios';
 import o from '@sass/page.module.sass';
 import Image from 'next/image';
 import Link from 'next/link';

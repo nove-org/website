@@ -4,6 +4,7 @@ import o from '@sass/account/layout.module.sass';
 import { axiosClient } from '@util/axios';
 import { cookies, headers } from 'next/headers';
 import { redirect } from 'next/navigation';
+import { Response, User } from '@util/schema';
 
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
     const sidebar = [
@@ -15,13 +16,17 @@ export default async function DashboardLayout({ children }: { children: React.Re
 
     if (!cookies().get('napiAuthorizationToken')?.value) return redirect(`/login?redirectBack=/account`);
 
-    const user = await axiosClient
-        .get('/v1/users/me', {
-            headers: { Authorization: `Owner ${cookies().get('napiAuthorizationToken')?.value}` },
-        })
-        .catch((err) => (err.response?.data ? (err.response.data.body.error.code === 'invalid_authorization_token' ? redirect(`/login?redirectBack=/account`) : null) : null));
+    const user: Response<User> = (
+        await axiosClient
+            .get('/v1/users/me', {
+                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
+            })
+            .catch((e) => e.response)
+    ).data;
 
-    return user?.data?.body?.data ? (
+    if (!user || user.body.error?.code === 'invalid_authorization_token') return redirect('/login?redirectBack=/account');
+
+    return user.body.data ? (
         <section className={o.box}>
             <title>Account — Nove</title>
             <aside>
@@ -69,9 +74,9 @@ export default async function DashboardLayout({ children }: { children: React.Re
             <Loader
                 type="hidden"
                 text={
-                    user?.data?.body?.error?.code === 'verify_email' || !user?.data?.body?.data?.verified
+                    user.body.error?.code === 'verify_email'
                         ? 'Please verify your e-mail to gain access to the account'
-                        : user?.data?.body?.error?.message || "Something went wrong and we can't reach the API"
+                        : user.body.error?.message || "Something went wrong and we can't reach the API"
                 }
             />
         </section>
