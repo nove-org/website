@@ -64,9 +64,6 @@ export default function Login() {
                 <input type="text" id="username" name="username" />
                 <label htmlFor="password">Password</label>
                 <input type="password" id="password" name="password" />
-                <noscript>
-                    You can login without Javascript enabled by using our <a href="/login/legacy">legacy login</a>
-                </noscript>
                 <div className={o.flex}>
                     <button type="submit">
                         Proceed{' '}
