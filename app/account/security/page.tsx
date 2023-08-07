@@ -37,7 +37,7 @@ export default async function Overview() {
                 <h2>Your devices</h2>
                 <p>List of most recent devices that logged in to your account this month</p>
                 <ul className={o.devices}>
-                    {device.body?.data ? (
+                    {device.body?.data?.length >= 1 ? (
                         device.body.data.map((item) => {
                             const date = new Date(item.updatedAt);
 
