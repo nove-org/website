@@ -7,8 +7,10 @@ import o from '@sass/login.module.sass';
 import { getCookie, setCookie } from 'cookies-next';
 import { useEffect, useState } from 'react';
 import { COOKIE_HOSTNAME } from '@util/config';
+import Loader from '@app/Loader';
 
 export default function Login() {
+    const [loading, setLoading] = useState<boolean>(true);
     const [postError, setPostError] = useState<string>();
     const searchParams = useSearchParams();
 
@@ -23,14 +25,13 @@ export default function Login() {
     };
 
     useEffect(() => {
-        const token = getCookie('napiAuthorizationToken');
-        if (!token) return;
         const fetchUser = async () =>
             await axiosClient
-                .get('/v1/users/me', { headers: { Authorization: `Owner ${token}` } })
-                .then((user) => (user.data?.body?.data?.username ? window.location.replace('/account') : null));
+                .get('/v1/users/me', { headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } })
+                .then((user) => (user.data?.body?.data?.username ? window.location.replace(searchParams.get('redirectBack') || '/account') : setLoading(false)))
+                .catch(() => setLoading(false));
         fetchUser();
-    }, []);
+    }, [searchParams]);
 
     const handleLogin = async (form: FormData) => {
         const user = await axiosClient
@@ -54,7 +55,11 @@ export default function Login() {
             .catch((err) => (err?.response?.data?.body?.error ? throwError(err.response.data.body.error.message) : console.error(err)));
     };
 
-    return (
+    return loading ? (
+        <section className={o.box}>
+            <Loader type="window" text="Please stand by while fetching data..." />
+        </section>
+    ) : (
         <section className={o.box}>
             <Logo size={48} />
             <h1>Welcome back</h1>
