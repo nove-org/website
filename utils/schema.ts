@@ -8,7 +8,15 @@ export interface Response<T> {
             message: string;
             param: string;
             type: string;
-            details?: any;
+            details?: {
+                code: string;
+                minimum: number;
+                maximum: number;
+                type: string;
+                inclusive: boolean;
+                message: string;
+                path: string[];
+            }[];
         };
     };
     meta: {
