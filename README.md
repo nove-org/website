@@ -1,4 +1,26 @@
-# Tool to manage your Nove account through NAPI
+<h1 align="center">NAPI frontend project</h1>
+Tool to manage your Nove account with the power of NAPI and Next.js
+
+### Run
+
+Use the **latest** Node.js version or `>=20.5.0`, use `yarn` as your package manager.<br />
+Remember to connect the frontend server with working NAPI instance.
+
+```yml
+# Install all required dependencies
+$ yarn
+...
+Done in 2.49s
+
+# Start Next server in development mode,
+# for production environment please use build script ("yarn build") and
+# start the project using "yarn start".
+$ yarn dev
+...
+Server started on port 3000
+```
+
+### Copyright notice
 
 <pre>
 Copyright (C) 2019 Nove Group
