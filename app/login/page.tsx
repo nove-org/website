@@ -57,7 +57,7 @@ export default function Login() {
 
     return loading ? (
         <section className={o.box}>
-            <Loader type="window" text="Please stand by while fetching data..." />
+            <Loader type="window" text="Please standby while fetching data..." />
         </section>
     ) : (
         <section className={o.box}>
