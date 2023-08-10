@@ -144,7 +144,7 @@ export default async function Home() {
                 <aside>
                     <h1>Built by privacy enthusiasts and the community</h1>
                     <p>
-                        At Nove, we create open-source and we appreciate every support from the community to our projects. Because <b>privacy and safety</b> goes with{' '}
+                        At Nove, we create open-source and we appreciate any support from the community to our projects. Because <b>privacy and safety</b> goes with{' '}
                         <b>open-source and auditable</b>.
                     </p>
                     <ul>
