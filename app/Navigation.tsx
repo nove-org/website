@@ -4,6 +4,7 @@ import Image from 'next/image';
 import o from '@sass/Navigation.module.sass';
 import { axiosClient } from '@util/axios';
 import { cookies } from 'next/headers';
+import { DONATE_LINK, REPOSITORY } from '@util/config';
 
 export default async function Navigation() {
     const user = await axiosClient
@@ -30,10 +31,12 @@ export default async function Navigation() {
                             <a href="/about">About</a>
                         </li>
                         <li>
-                            <a href="/">Docs</a>
+                            <a href={REPOSITORY + '/wiki'}>Docs</a>
                         </li>
                         <li>
-                            <a href="/">Donate</a>
+                            <a target="_blank" href={DONATE_LINK}>
+                                Donate
+                            </a>
                         </li>
                     </ul>
                 </div>

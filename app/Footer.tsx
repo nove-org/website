@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Logo from '@app/Logo';
 import o from '@sass/Footer.module.sass';
-import { SUPPORT_MAIL, REPOSITORY } from '@util/config';
+import { SUPPORT_MAIL, REPOSITORY, DONATE_LINK } from '@util/config';
 
 export default function Footer() {
     const year = new Date().getFullYear();
@@ -27,19 +27,21 @@ export default function Footer() {
                 <div className={o.links}>
                     <ul>
                         <li>
-                            <Link href="/">About</Link>
+                            <Link href="/about">About</Link>
                         </li>
                         <li>
-                            <Link href="/">Docs</Link>
+                            <Link href={REPOSITORY + '/wiki'}>Docs</Link>
                         </li>
                         <li>
-                            <Link href="/">Donate</Link>
+                            <a target="_blank" href={DONATE_LINK}>
+                                Donate
+                            </a>
                         </li>
                         <li>
-                            <Link href="/">Login</Link>
+                            <Link href="/login">Login</Link>
                         </li>
                         <li>
-                            <Link href="/">Sign up</Link>
+                            <Link href="/register">Sign up</Link>
                         </li>
                         <li>
                             <a href={'mailto:' + SUPPORT_MAIL}>Support</a>
@@ -52,13 +54,13 @@ export default function Footer() {
                             </a>
                         </li>
                         <li>
-                            <Link href="/">Privacy Policy</Link>
+                            <Link href="/privacy">Privacy Policy</Link>
                         </li>
                         <li>
-                            <Link href="/">Terms of Service</Link>
+                            <Link href="/terms">Terms of Service</Link>
                         </li>
                         <li>
-                            <Link href="/">Developers</Link>
+                            <Link href="/account/developers">Developers</Link>
                         </li>
                     </ul>
                 </div>
