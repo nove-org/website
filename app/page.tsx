@@ -1,7 +1,24 @@
+/* 
+ Tool to manage your Nove account through NAPI
+ Copyright (C) 2019 Nove Group
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Affero General Public License as
+ published by the Free Software Foundation, either version 3 of the
+ License, or (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Affero General Public License for more details.
+
+ You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
+
 import { axiosClient } from '@util/axios';
 import o from '@sass/page.module.sass';
-import Image from 'next/image';
 import Link from 'next/link';
+import { REPOSITORY } from '@util/config';
 
 export default async function Home() {
     const napi = await axiosClient.get('https://api.github.com/repos/nove-org/NAPI');
@@ -49,7 +66,7 @@ export default async function Home() {
                     </li>
                     <li>
                         Don&apos;t take our word for this. View the{' '}
-                        <a className={o.link} target="_blank" href="https://github.com/nove-org">
+                        <a className={o.link} target="_blank" href={REPOSITORY}>
                             code
                         </a>{' '}
                         yourself
@@ -115,7 +132,7 @@ export default async function Home() {
                 </ul>
                 <p>
                     All of this is easily verifiable, check out our source code. It is open to everyone, view it on{' '}
-                    <a className={o.link} target="_blank" href="https://github.com/nove-org">
+                    <a className={o.link} target="_blank" href={REPOSITORY}>
                         GitHub
                     </a>
                     .

@@ -22,17 +22,9 @@ export default async function Overview() {
             .catch((e) => e.response)
     ).data;
 
-    if (!user || !user.body?.data?.username || !device)
-        return (
-            <div className={o.content}>
-                <h1 className={o.title}>Something is wrong with the API</h1>
-                <p>We cannot sign your session which leads to data retrieval failure</p>
-            </div>
-        );
-
     const lang = new Intl.DisplayNames(['en'], { type: 'language' });
 
-    return (
+    return user?.body?.data?.username ? (
         <div className={o.content}>
             <h1 className={o.title}>Overview</h1>
             <ul className={o.overview}>
@@ -199,6 +191,11 @@ export default async function Overview() {
                     </ul>
                 </li>
             </ul>
+        </div>
+    ) : (
+        <div className={o.content}>
+            <h1 className={o.title}>Something is wrong with the API</h1>
+            <p>We cannot sign your session which leads to data retrieval failure</p>
         </div>
     );
 }

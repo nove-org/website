@@ -32,6 +32,12 @@ footer.box
                 font-size: 14px
                 font-weight: 400
                 color: var(--font-rd)
+                margin: 2px 0
+                & a
+                    color: var(--accent-st)
+                    text-decoration: none
+                    &:hover
+                        text-decoration: underline
         & div.links
             display: flex
             align-items: flex-start
@@ -42,11 +48,11 @@ footer.box
                 padding: 0
                 margin: 0
                 margin-left: 40px
-                gap: 2px
                 @media screen and (max-width: 550px)
                     margin-left: 0
                     margin-top: 20px
                 & li
+                    margin: 2px 0
                     & a
                         color: var(--font-st)
                         opacity: 0.7

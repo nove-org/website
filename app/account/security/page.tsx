@@ -22,15 +22,7 @@ export default async function Overview() {
             .catch((e) => e.response)
     ).data;
 
-    if (!device || !device?.body)
-        return (
-            <div className={o.content}>
-                <h1 className={o.title}>Something is wrong with the API</h1>
-                <p>We cannot sign your session which leads to data retrieval failure</p>
-            </div>
-        );
-
-    return (
+    return user?.body?.data?.username && device?.body ? (
         <div className={o.content}>
             <h1 className={o.title}>Security</h1>
             <div className={o.devices}>
@@ -138,6 +130,11 @@ export default async function Overview() {
                     </li>
                 </ul>
             </div>
+        </div>
+    ) : (
+        <div className={o.content}>
+            <h1 className={o.title}>Something is wrong with the API</h1>
+            <p>We cannot sign your session which leads to data retrieval failure</p>
         </div>
     );
 }

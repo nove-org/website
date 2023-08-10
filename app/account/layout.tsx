@@ -10,7 +10,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
     const sidebar = [
         { label: 'Overview', path: '/account/', target: null },
         { label: 'Security', path: '/account/security', target: 'security' },
-        { label: 'My profile', path: '/account/personal', target: 'personal' },
+        { label: 'My profile', path: '/account/profile', target: 'profile' },
         { label: 'Language', path: '/account/language', target: 'language' },
     ];
 
