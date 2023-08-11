@@ -1,0 +1,56 @@
+form.box
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    gap: 10px
+    & label
+        width: calc( 100% - 15px * 2 )
+        padding: 10px 15px
+        border-radius: 50px
+        background: var(--secondary)
+        display: flex
+        align-items: center
+        justify-content: space-between
+        gap: 5px
+        cursor: pointer
+        & header
+            display: flex
+            align-items: center
+            gap: 10px
+            font-weight: 500
+            & img
+                border-radius: 50%
+        & input[type=radio]
+            -webkit-appearance: none
+            appearance: none
+            margin: 0
+            color: var(--font-st)
+            width: 15px
+            height: 15px
+            border: 2px solid var(--border)
+            background: var(--tertiary)
+            border-radius: 50px
+            &:checked
+                background: var(--accent-st)
+                border: 2px solid var(--accent-st) !important
+    & button
+        display: flex
+        align-items: center
+        gap: 7px
+        padding: 5px 10px
+        border-radius: 50px
+        font-size: 16px
+        font-weight: 500
+        color: var(--primary)
+        background: var(--font-st)
+        outline: 0
+        border: 0
+        cursor: pointer
+        transition-duration: .2s
+        margin-top: 5px
+        @media screen and (max-width: 950px)
+            font-size: 14px
+            margin: 3px 0
+            padding: 2px 4px
+        &:hover
+            background: var(--font-nd)

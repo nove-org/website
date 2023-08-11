@@ -46,6 +46,21 @@ div.loader
         &:nth-child(3)
             animation-delay: -0.15s
 
+div.loaderButton
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    width: 16px
+    height: 16px
+    & div
+        width: 16px
+        height: 16px
+        border: 2px solid var(--primary)
+        border-color: var(--primary) transparent transparent transparent !important
+        &:first-child
+            border: 0
+
 @keyframes _ring
     0%
         transform: rotate(0deg)
