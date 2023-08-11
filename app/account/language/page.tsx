@@ -20,6 +20,7 @@ export default async function Overview() {
             <p className={a.desc}>
                 Select your preferred language. This setting will be used to display content in your language on all Nove websites and your connected apps might use it.
             </p>
+            <p className={a.desc}>Not fully supported by us yet. You might want to set it for OAuth2 apps to use.</p>
             <Form user={user.body.data} />
         </div>
     ) : (
