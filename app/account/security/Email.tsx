@@ -2,9 +2,39 @@
 
 import { useState } from 'react';
 import o from '@sass/account/security/page.module.sass';
+import { axiosClient } from '@util/axios';
+import { getCookie } from 'cookies-next';
 
 export default function Email() {
     const [popup, setPopup] = useState<boolean>(false);
+    const [postError, setPostError] = useState<string>();
+
+    const throwError = (message?: string, bool?: boolean) => {
+        if (bool === false) return setPostError('');
+
+        if (message) {
+            setPostError(message.charAt(0).toUpperCase() + message.slice(1).toLowerCase());
+
+            setTimeout(() => setPostError(''), 4000);
+        }
+    };
+
+    const handleSubmit = async (e: any) => {
+        e.preventDefault();
+
+        await axiosClient
+            .patch(
+                '/v1/users/emailReset',
+                { oldPassword: e.target.oldPassword.value, newPassword: e.target.newPassword.value },
+                { headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } }
+            )
+            .then(() => alert('Confirmation message was sent to your old and new email'))
+            .catch((err) =>
+                err.response.data.body.error
+                    ? throwError(err.response.data.body.error?.details ? err.response.data.body.error.details[0].message : err.response.data.body.error.message)
+                    : null
+            );
+    };
 
     return (
         <>
@@ -31,22 +61,7 @@ export default function Email() {
                             The address where we can contact you if there is an unusual activity in your account or if you get locked out. You can also use it to log in to your
                             account.
                         </p>
-                        <form>
-                            <label>
-                                Old email
-                                <input
-                                    required
-                                    minLength={1}
-                                    maxLength={128}
-                                    autoComplete="off"
-                                    autoFocus={true}
-                                    autoCorrect="off"
-                                    type="email"
-                                    placeholder="Verify your old email"
-                                    id="oldEmail"
-                                    name="oldEmail"
-                                />
-                            </label>
+                        <form onSubmit={handleSubmit}>
                             <label>
                                 New email
                                 <input
