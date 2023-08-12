@@ -4,6 +4,7 @@ import Image from 'next/image';
 export default function About() {
     return (
         <section className={o.hero}>
+            <title>About — Nove</title>
             <h1 className={o.title}>
                 Our <b>goal</b> is to make the Internet <span>cleaner</span> and <span>safer</span>.
             </h1>

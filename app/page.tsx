@@ -16,14 +16,11 @@
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import { axiosClient } from '@util/axios';
 import o from '@sass/page.module.sass';
 import Link from 'next/link';
 import { REPOSITORY } from '@util/config';
 
 export default async function Home() {
-    const napi = await axiosClient.get('https://api.github.com/repos/nove-org/NAPI');
-
     return (
         <>
             <section className={o.hero}>
@@ -48,7 +45,7 @@ export default async function Home() {
                 </svg>
 
                 <h1>
-                    Meet the world where <span>your privacy</span> is on the first place
+                    Meet the world where <span>your privacy</span> matters.
                 </h1>
                 <p>
                     Ditch Google, Facebook and other companies that sell data, profile and track you. Take back control over this and start using our FOSS and privacy-respecting

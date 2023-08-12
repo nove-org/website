@@ -55,11 +55,13 @@ export default function Login() {
 
     return loading ? (
         <section className={o.box}>
+            <title>Login — Nove</title>
             <Loader type="window" text="Please standby while we fetch the data..." />
             <Lines />
         </section>
     ) : (
         <section className={o.box}>
+            <title>Login — Nove</title>
             <Logo size={48} />
             <h1>Welcome back</h1>
             <p>Provide your credentials to access your Nove account</p>

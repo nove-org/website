@@ -3,6 +3,7 @@ import o from '@sass/foss.module.sass';
 export default function FOSS() {
     return (
         <section className={o.hero}>
+            <title>FOSS projects — Nove</title>
             <h1 className={o.title}>
                 We love <span>free</span> and <span>open source</span>.
             </h1>

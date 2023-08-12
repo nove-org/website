@@ -59,11 +59,13 @@ export default function Register() {
 
     return loading ? (
         <section className={o.box}>
+            <title>Register — Nove</title>
             <Loader type="window" text="Please standby while we fetch the data..." />
             <Lines />
         </section>
     ) : (
         <section className={o.box}>
+            <title>Register — Nove</title>
             <Logo size={48} />
             <h1>New Nove account</h1>
             <p>Complete the form and create brand new account</p>

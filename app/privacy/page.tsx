@@ -3,6 +3,7 @@ import o from '@sass/article.module.sass';
 export default function Terms() {
     return (
         <article className={o.content}>
+            <title>Privacy Policy — Nove</title>
             <h1>Privacy Policy</h1>
             <h2>
                 Last modified: <time>12th of August 2023</time>
