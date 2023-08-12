@@ -62,6 +62,9 @@ export default function Footer() {
                         <li>
                             <Link href="/account/developers">Developers</Link>
                         </li>
+                        <li>
+                            <Link href="/foss">FOSS</Link>
+                        </li>
                     </ul>
                 </div>
             </div>
