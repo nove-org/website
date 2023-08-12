@@ -40,7 +40,7 @@ export default function Avatar({ user, cookie }: { user: User; cookie?: string }
             <li>
                 {!edit ? (
                     <>
-                        <Image src={user.avatar} alt="Avatar" width="36" height="36" />
+                        <Image src={user.avatar + '?u=' + user.updatedAt} alt="Avatar" width="36" height="36" />
                         <button onClick={() => setEdit((e) => !e)}>Edit</button>
                     </>
                 ) : (

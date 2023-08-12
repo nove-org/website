@@ -30,7 +30,7 @@ export default async function Overview() {
             <ul className={o.overview}>
                 <li className={o.profile}>
                     <header>
-                        <Image src={user.body.data.avatar} width="72" height="72" alt="Avatar" />
+                        <Image src={user.body.data.avatar + '?u=' + user.body.data.updatedAt} width="72" height="72" alt="Avatar" />
                         <div className={o.data}>
                             <h1>{user.body.data.username}</h1>
                             <p>{user.body.data.email}</p>
