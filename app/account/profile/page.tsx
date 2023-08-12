@@ -4,6 +4,8 @@ import o from '@sass/account/profile/page.module.sass';
 import { cookies } from 'next/headers';
 import { Response, User } from '@util/schema';
 import Username from './Username';
+import Bio from './Bio';
+import ProfilePublic from './ProfilePublic';
 
 export default async function Overview() {
     const user: Response<User> = (
@@ -13,6 +15,8 @@ export default async function Overview() {
             })
             .catch((e) => e.response)
     ).data;
+
+    const cookie = cookies().get('napiAuthorizationToken')?.value;
 
     return user?.body?.data?.username ? (
         <div className={o.content}>
@@ -28,22 +32,12 @@ export default async function Overview() {
                     <Image src={user.body.data.avatar} alt="Avatar" width="36" height="36" />
                     <button>Edit</button>
                 </li>
-                <Username user={user.body.data} cookie={cookies().get('napiAuthorizationToken')?.value} />
+                <Username user={user.body.data} cookie={cookie} />
             </ul>
             <h2>Details</h2>
             <ul className={o.options}>
-                <header>About me</header>
-                <li>
-                    <textarea spellCheck={false} defaultValue={user.body.data.bio} />
-                    <button>Save</button>
-                </li>
-                <label className={o.li} htmlFor="switch">
-                    <p>Display more details on your public profile</p>
-                    <label className={o.switch}>
-                        <input id="switch" type="checkbox" defaultChecked={true} />
-                        <span className={o.slider}></span>
-                    </label>
-                </label>
+                <Bio user={user.body.data} cookie={cookie} />
+                <ProfilePublic user={user.body.data} cookie={cookie} />
             </ul>
         </div>
     ) : (
