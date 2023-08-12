@@ -21,6 +21,27 @@
     pointer-events: none
     opacity: .65
 
+p.error
+    background: var(--accent-st)
+    color: var(--primary)
+    font-weight: 500
+    font-size: 14px
+    padding: 7px 10px
+    border-radius: 50px
+    margin: 0
+    margin-left: 5px
+    animation: fade .3s ease-in-out
+    position: fixed
+    bottom: 25px
+    left: 50%
+    transform: translateX(-50%)
+    z-index: 99999999
+    @keyframes fade
+        0%
+            opacity: 0
+        100%
+            opacity: 1
+
 *
     user-select: none
     font-smooth: always

@@ -2,9 +2,51 @@
 
 import { useState } from 'react';
 import o from '@sass/account/security/page.module.sass';
+import { getCookie, setCookie } from 'cookies-next';
+import { axiosClient } from '@util/axios';
+import { COOKIE_HOSTNAME } from '@util/config';
 
 export default function Password() {
     const [popup, setPopup] = useState<boolean>(false);
+    const [postError, setPostError] = useState<string>();
+
+    const throwError = (message?: string, bool?: boolean) => {
+        if (bool === false) return setPostError('');
+
+        if (message) {
+            setPostError(message.charAt(0).toUpperCase() + message.slice(1).toLowerCase());
+
+            setTimeout(() => setPostError(''), 4000);
+        }
+    };
+
+    const handleSubmit = async (e: any) => {
+        e.preventDefault();
+
+        await axiosClient
+            .patch(
+                '/v1/users/password',
+                { oldPassword: e.target.oldPassword.value, newPassword: e.target.newPassword.value },
+                { headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } }
+            )
+            .then((res) => {
+                const token = res.data.body.data.token;
+
+                setCookie('napiAuthorizationToken', token, {
+                    maxAge: 3 * 30 * 24 * 60 * 60,
+                    domain: COOKIE_HOSTNAME,
+                    sameSite: 'strict',
+                    secure: true,
+                });
+
+                window.location.reload();
+            })
+            .catch((err) =>
+                err.response.data.body.error
+                    ? throwError(err.response.data.body.error?.details ? err.response.data.body.error.details[0].message : err.response.data.body.error.message)
+                    : null
+            );
+    };
 
     return (
         <>
@@ -24,12 +66,13 @@ export default function Password() {
                     </svg>
                 </h1>
             </li>
+            {postError ? <p className="error">{postError}</p> : null}
             {popup ? (
                 <div className={o.popup}>
                     <div className={o.container}>
                         <h1>Change your password</h1>
                         <p>Choose a strong password and do not reuse it for other accounts. Changing your password will sign you out on your devices.</p>
-                        <form>
+                        <form onSubmit={handleSubmit}>
                             <label>
                                 Old password
                                 <input

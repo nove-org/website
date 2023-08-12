@@ -33,7 +33,7 @@ export default function Bio({ user, cookie }: { user: User; cookie?: string }) {
                 <form onSubmit={handleSubmit}>
                     <textarea spellCheck={false} name="bio" defaultValue={user.bio} />
                     <button type="submit">Save</button>
-                    {postError ? <p className={o.error}>{postError}</p> : null}
+                    {postError ? <p className="error">{postError}</p> : null}
                 </form>
             </li>
         </>

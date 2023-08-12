@@ -75,7 +75,7 @@ export default function Avatar({ user, cookie }: { user: User; cookie?: string }
                             <p>{selected ? fileName : 'Nothing is selected'}</p>
                         </label>
                         <button type="submit">Save</button>
-                        {postError ? <p className={o.error}>{postError}</p> : null}
+                        {postError ? <p className="error">{postError}</p> : null}
                     </form>
                 )}
             </li>

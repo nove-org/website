@@ -42,7 +42,7 @@ export default function Username({ user, cookie }: { user: User; cookie?: string
                     <form onSubmit={handleSubmit}>
                         <input type="text" placeholder={user.username + ' (new username here)'} name="username" required />
                         <button type="submit">Save</button>
-                        {postError ? <p className={o.error}>{postError}</p> : null}
+                        {postError ? <p className="error">{postError}</p> : null}
                     </form>
                 )}
             </li>
