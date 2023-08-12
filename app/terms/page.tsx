@@ -3,7 +3,7 @@ import o from '@sass/article.module.sass';
 export default function Terms() {
     return (
         <article className={o.content}>
-            <h1>Terms of service</h1>
+            <h1>Terms of Service</h1>
             <h2>
                 Last modified: <time>12th of August 2023</time>
             </h2>
