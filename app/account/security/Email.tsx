@@ -23,11 +23,7 @@ export default function Email() {
         e.preventDefault();
 
         await axiosClient
-            .patch(
-                '/v1/users/emailReset',
-                { oldPassword: e.target.oldPassword.value, newPassword: e.target.newPassword.value },
-                { headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } }
-            )
+            .post('/v1/users/emailReset', { newEmail: e.target.newEmail.value }, { headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } })
             .then(() => alert('Confirmation message was sent to your old and new email'))
             .catch((err) =>
                 err.response.data.body.error
