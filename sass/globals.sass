@@ -1,93 +1,80 @@
 /* 
- * Copyright 2019-2023 (c) Nove Group
- * GitHub: https://github.com/nove-org/
- * Inter font is property of their respective owners.
- */
+ Tool to manage your Nove account through NAPI
+ Copyright (C) 2019 Nove Group
 
-@use 'brand' as *
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Affero General Public License as
+ published by the Free Software Foundation, either version 3 of the
+ License, or (at your option) any later version.
 
-@import url('https://f.nove.team/fonts/inter/conf.css')
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Affero General Public License for more details.
 
-*
-    user-select: none
-    font-family: 'Inter'
-    transition-duration: .15s
-    scrollbar-width: thin
-    margin: 0
+ You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
+
+@use './brand' as *
 
 .disabled
     pointer-events: none
-    cursor: default
-    opacity: .5
+    opacity: .65
 
 p.error
-    display: block
+    background: var(--accent-st)
+    color: var(--primary)
+    font-weight: 500
+    font-size: 14px !important
+    padding: 7px 10px
+    border-radius: 50px
+    margin: 0
+    margin-left: 5px
+    animation: fade .3s ease-in-out
     position: fixed
-    bottom: 30px
-    right: 30px
-    color: $colored
-    background: $secondary
-    border: 1px solid $border
-    border-radius: $radius
-    padding: 10px
-    width: fit-content
-    z-index: 100
-
-div.background
-    position: fixed
-    top: 0
-    left: 0
-    width: 100%
-    height: 100vh
-    background: #00000042
-    animation: backgronud 300ms ease-in-out
-    @keyframes backgronud
+    bottom: 25px
+    left: 50%
+    transform: translateX(-50%)
+    z-index: 99999999
+    @keyframes fade
         0%
-            background: #00000000
+            opacity: 0
         100%
-            background: #00000042
+            opacity: 1
+
+*
+    user-select: none
+    font-smooth: always
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+    text-rendering: optimizeLegibility
 
 img
     pointer-events: none
 
-a
-    text-decoration: none
-    color: $font
-
 html
+    width: 100%
     height: 100%
-    transition-duration: 0s
+    overflow-x: hidden
 
 body
     margin: 0
-    background: $primary
-    color: $font
+    padding: 0
     width: 100%
-    min-height: 100%
-    transition-duration: 0s
+    height: 100%
+    min-height: 100vh
+    background: linear-gradient(180deg, var(--primary), var(--primary)) #fff no-repeat 50% fixed
+    color: var(--font-st)
+    font-family: 'Inter', sans-serif
+    background-size: cover
     & main
-        padding: 0 20px
-        padding-bottom: 30px
-        width: calc( 100% - 20px * 2 )
-        max-width: 1300px
+        width: calc(100% - 100px * 2)
+        min-height: calc(100vh - 68px)
         margin: 0 auto
-        min-height: calc( 100vh - 4rem )
-
-span.badge
-    padding: 2px 4px
-    border-radius: 10px
-    font-size: 14px
-    color: $font
-    font-weight: 600
-    text-transform: uppercase
-    background: $colored2
-
-::-webkit-scrollbar
-    width: 2px
-
-.is-pinned
-    padding-top: 1px !important
-    border-bottom: 1px solid $border !important
-
-.is-pinned-image
-    margin-top: -1px !important
+        transition-duration: .2s
+        @media screen and (max-width: 1430px)
+            width: calc(100% - 70px * 2)
+        @media screen and (max-width: 1100px)
+            width: calc(100% - 40px * 2)
+        @media screen and (max-width: 500px)
+            width: calc(100% - 20px * 2)

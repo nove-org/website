@@ -1,118 +1,32 @@
-'use client';
+import { axiosClient } from '@util/axios';
+import a from '@sass/account/part.module.sass';
+import o from '@sass/account/language/page.module.sass';
+import { cookies } from 'next/headers';
+import { Response, User } from '@util/schema';
+import Form from './Form';
 
-import { useState, useEffect } from 'react';
-import { Response, User } from '@/Interfaces';
-import { axiosClient } from '@/utils';
-import { getCookie } from 'cookies-next';
-import Loader from '@/loader';
-import ReactCountryFlag from 'react-country-flag';
-
-import o from '~/account/page.module.sass';
-
-export default function AccountLanguage() {
-    const [loading, setLoading] = useState<boolean>(true);
-    const [data, setData] = useState<Response<User>>();
-    const [selectedLang, setSelectedLang] = useState<string>();
-    const [postError, setPostError] = useState<string>();
-
-    const throwError = (message?: string, bool?: boolean) => {
-        if (bool === false) return setPostError('');
-
-        if (message) {
-            setPostError(message.charAt(0).toUpperCase() + message.slice(1).toLowerCase());
-
-            setTimeout(() => setPostError(''), 5000);
-        }
-    };
-
-    const lang = new Intl.DisplayNames(['en'], { type: 'language' });
-
-    useEffect(() => {
-        const getData = async () => {
-            await axiosClient
-                .get('/users/me', {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
-                    },
-                })
-                .then((res) => (res.data ? setData(res.data) : null, setLoading(false)))
-                .catch((err) => (err.response?.data ? setData(err.response.data) : null, setLoading(false)));
-        };
-
-        getData();
-    }, [selectedLang]);
-
-    const handleInputChange = async (event: any) => {
-        setLoading(true);
-
+export default async function Overview() {
+    const user: Response<User> = (
         await axiosClient
-            .patch(
-                '/users/me',
-                {
-                    language: event.target.value,
-                },
-                {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
-                    },
-                }
-            )
-            .then(() => setSelectedLang(event.target.value))
-            .catch((err) => {
-                throwError(err.response?.data.body?.error.message ? err.response.data.body.error.message : 'Something went wrong and we cannot explain it.');
+            .get('/v1/users/me', {
+                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
+            })
+            .catch((e) => e.response)
+    ).data;
 
-                (document.getElementById('languageForm') as HTMLFormElement).reset();
-            });
-    };
-
-    return loading ? (
-        <main>
-            <title>Dashboard — Nove</title>
-            <Loader type="window" />
-        </main>
-    ) : data?.body?.data ? (
-        <div className={o.content}>
-            <h1 className={o.title}>Language</h1>
-            <p className={o.description}>
+    return user?.body?.data?.username ? (
+        <div className={a.content}>
+            <h1 className={a.title}>Language</h1>
+            <p className={a.desc}>
                 Select your preferred language. This setting will be used to display content in your language on all Nove websites and your connected apps might use it.
             </p>
-            <form id="languageForm">
-                <label className={o.card}>
-                    <input defaultChecked={data.body.data.language === 'en-US'} type="radio" name="language" onChange={handleInputChange} value="en-US" />
-                    <header>
-                        English, US
-                        <ReactCountryFlag countryCode="us" svg />
-                    </header>
-                </label>
-                <label className={o.card}>
-                    <input defaultChecked={data.body.data.language === 'en-GB'} type="radio" name="language" onChange={handleInputChange} value="en-GB" />
-                    <header>
-                        English, UK
-                        <ReactCountryFlag countryCode="gb" svg />
-                    </header>
-                </label>
-                <label className={o.card}>
-                    <input defaultChecked={data.body.data.language === 'pl-PL'} type="radio" name="language" onChange={handleInputChange} value="pl-PL" />
-                    <header>
-                        Polish
-                        <ReactCountryFlag countryCode="pl" svg />
-                    </header>
-                </label>
-            </form>
+            <p className={a.desc}>Not fully supported by us yet. You might want to set it for OAuth2 apps to use.</p>
+            <Form user={user.body.data} />
         </div>
     ) : (
-        <main>
-            <title>Dashboard — Nove</title>
-            <Loader
-                type="hidden"
-                text={
-                    data?.body?.error?.message
-                        ? data.body.error.message.charAt(0) + data.body.error.message.slice(1).toLowerCase()
-                        : "Something went wrong and we can't reach the API"
-                }
-            />
-        </main>
+        <div className={o.content}>
+            <h1 className={o.title}>Something is wrong with the API</h1>
+            <p>We cannot sign your session which leads to data retrieval failure</p>
+        </div>
     );
 }

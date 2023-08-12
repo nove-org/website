@@ -1,0 +1,156 @@
+div.content
+    width: 100%
+    height: 100%
+    min-height: calc( 100vh - 68px )
+    & h1.title
+        font-size: 32px
+        font-weight: 600
+        margin-bottom: 10px
+    & p.desc
+        font-size: 20px
+        margin: 0
+        margin-bottom: 10px
+    & h2
+        font-size: 26px
+        font-weight: 500
+        margin-bottom: 10px
+    & ul.options
+        list-style: none
+        margin: 0
+        padding: 0
+        & header
+            margin: 0
+            font-size: 14px
+            font-weight: 700
+            opacity: .7
+            text-transform: uppercase
+        & li, label.li
+            margin: 5px 0 15px 0
+            padding: 20px
+            border-radius: 20px
+            background: var(--secondary)
+            display: flex
+            align-items: center
+            justify-content: space-between
+            & form
+                display: flex
+                align-items: center
+                justify-content: space-between
+                width: 100%
+                & label
+                    display: flex
+                    align-items: center
+                    font-size: 16px
+                    gap: 7px
+                    @media screen and (max-width: 950px)
+                        font-size: 14px
+                    & input[type=file]
+                        display: none
+                    & a
+                        display: flex
+                        align-items: center
+                        gap: 7px
+                        padding: 5px 10px
+                        border-radius: 50px
+                        font-size: 16px
+                        font-weight: 500
+                        color: var(--primary)
+                        background: var(--font-st)
+                        outline: 0
+                        border: 0
+                        cursor: pointer
+                        transition-duration: .2s
+                        width: fit-content
+                        @media screen and (max-width: 950px)
+                            font-size: 14px
+                            margin: 3px 0
+                            padding: 2px 4px
+                        &:hover
+                            background: var(--font-nd)
+            & input
+                background: 0
+                border: 0
+                outline: 0
+                width: 100%
+                padding: 0
+                margin: 0
+                color: var(--font-st)
+                font-size: 16px
+            &.li
+                cursor: pointer
+                & p
+                    font-weight: 500
+            & img
+                border-radius: 50%
+            & p
+                margin: 0
+                font-size: 16px
+                & span
+                    font-size: 14px
+                    font-family: monospace
+                    background: var(--primary-rd)
+                    color: var(--font-st)
+                    padding: 3px
+                    user-select: text
+                    border-radius: 5px
+            & button
+                border: 0
+                margin: 0
+                padding: 0
+                color: var(--font-nd)
+                text-decoration: none
+                background: 0
+                font-size: 16px
+                font-weight: 400
+                opacity: .7
+                transition-duration: .1s
+                cursor: pointer
+                &:hover
+                    opacity: 1
+            & textarea
+                width: 100%
+                height: 80px
+                padding: 0
+                border: 0
+                margin: 0
+                background: 0
+                color: var(--font-st)
+                font-size: 14px
+                font-family: monospace
+                outline: 0
+                resize: none
+
+.switch
+    position: relative
+    display: inline-block
+    min-width: 40px
+    min-height: 25px
+    & input
+        opacity: 0
+        width: 0
+        height: 0
+
+.slider
+    position: absolute
+    cursor: pointer
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background-color: var(--tertiary)
+    transition: .2s
+    border-radius: 34px
+    &:before
+        position: absolute
+        content: ""
+        height: 15px
+        width: 15px
+        left: 5px
+        bottom: 5px
+        background-color: var(--font-st)
+        transition: .2s
+        border-radius: 50%
+        input:checked + &
+            transform: translateX(15px)
+    input:checked + &
+        background-color: var(--accent-st)

@@ -1,0 +1,101 @@
+section.box
+    max-width: 350px
+    margin: 0 auto
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    min-height: calc( 100vh - 68px )
+    & a.passwordReset
+        position: absolute
+        bottom: 20px
+        left: 20px
+        text-decoration-line: underline
+        text-decoration-style: wavy
+        text-decoration-thickness: 1px
+        color: var(--font-st)
+        opacity: .7
+        font-size: 14px
+        &:hover
+            opacity: 1
+    & svg
+        margin-top: -30px
+        &.left
+            margin-top: 0
+            position: absolute
+            bottom: 0
+            left: 0
+            z-index: -99999
+            transition-duration: .2s
+            @media screen and (max-width: 1100px)
+                margin-left: -100px
+                margin-bottom: -100px
+                transform: rotate(-20deg)
+            @media screen and (max-width: 900px)
+                margin-bottom: -150px
+            @media screen and (max-width: 780px)
+                opacity: 0
+        &.right
+            margin-top: 0
+            position: absolute
+            top: 0
+            right: 0
+            z-index: -99999
+            transition-duration: .2s
+            @media screen and (max-width: 1100px)
+                margin-top: -100px
+                transform: rotate(-10deg)
+            @media screen and (max-width: 900px)
+                margin-top: -200px
+            @media screen and (max-width: 780px)
+                opacity: 0
+        &.button
+            margin-top: 0
+            margin-left: 5px
+    & h1
+        margin: 5px 0
+        margin-top: 15px
+        font-size: 32px
+        font-weight: 600
+        text-align: center
+    & p
+        margin: 15px 0
+        margin-top: -5px
+        font-size: 23px
+        text-align: center
+    & form
+        width: 100%
+        & label
+            font-size: 14px
+            font-weight: 700
+            text-transform: uppercase
+            margin: 0
+            margin-bottom: 3px
+        & input[type=text], input[type=password]
+            color: var(--font-st)
+            border-radius: 50px
+            width: calc( 100% - 12px * 2 )
+            padding: 10px 12px
+            margin: 5px 0 10px 0
+            border: 0
+            background: var(--secondary)
+            outline: 0
+            font-size: 16px
+        & button[type=submit]
+            border-radius: 50px
+            width: fit-content
+            display: flex
+            align-items: center
+            margin: 0
+            background: var(--tertiary)
+            color: var(--font-st)
+            font-weight: 500
+            font-size: 16px
+            padding: 9px 12px
+            outline: 0
+            border: 0
+            cursor: pointer
+            transition-duration: .2s
+            margin-top: 10px
+            &:hover
+                background: var(--border-st)

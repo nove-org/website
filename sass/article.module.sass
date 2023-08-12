@@ -1,29 +1,7 @@
-/* 
- * Copyright 2019-2023 (c) Nove Group
- * GitHub: https://github.com/nove-org/
- * Inter font is property of their respective owners.
- */
-
-@use 'brand' as *
-
-section.document
-    padding: 50px 0
-    padding-bottom: 0
-    min-height: calc( 100vh - 7.2rem )
-    height: max-content
-    & h1.title
-        font-size: 48px
-        background: $textBackground
-        background-clip: text
-        -webkit-background-clip: text
-        -webkit-text-fill-color: transparent
-        font-weight: 700
-        margin-bottom: 10px
-        & span
-            font-size: 64px
-            font-weight: 600
-    & p.description
+article.content
+    & h1
         font-size: 28px
-        color: $font2
-        font-weight: 300
-        margin-bottom: 0
+    & h2
+        font-size: 20px
+    & p
+        font-size: 18px

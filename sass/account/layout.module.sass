@@ -1,0 +1,49 @@
+@import url(https://f.nove.team/fonts/inter/conf.css)
+
+section.box
+    width: 100%
+    min-height: calc( 100vh - 68px )
+    height: 100%
+    display: flex
+    align-items: flex-start
+    @media screen and (max-width: 950px)
+        flex-direction: column
+    & aside
+        max-width: 290px
+        width: 100%
+        margin-top: 30px
+        margin-right: 50px
+        transition-duration: .2s
+        @media screen and (max-width: 1450px)
+            max-width: 250px
+        @media screen and (max-width: 950px)
+            max-width: 100%
+        & h1
+            margin: 0
+            margin-bottom: 10px
+            font-size: 24px
+            font-weight: 500
+        & ul
+            width: 100%
+            list-style: none
+            padding: 0
+            margin: 0
+            & li
+                margin: 10px 0
+                & a
+                    text-decoration: none
+                    color: var(--font-st)
+                    font-size: 15px
+                    display: block
+                    border-radius: 50px
+                    background: var(--secondary)
+                    display: flex
+                    align-items: center
+                    padding: 11px
+                    transition-duration: .2s
+                    &.active
+                        background: var(--border-nd)
+                    &:hover
+                        background: var(--border-st)
+                    & svg
+                        margin-right: 5px

@@ -1,0 +1,138 @@
+@import url(https://f.nove.team/fonts/inter/conf.css)
+
+nav.box
+    width: 100%
+    & div.padding
+        padding: 20px 0
+        display: flex
+        align-items: center
+        justify-content: space-between
+        max-height: calc( 70px - 20px * 2 )
+        height: 100%
+        width: calc(100% - 100px * 2)
+        margin: 0 auto
+        transition-duration: .2s
+        @media screen and (max-width: 1430px)
+            width: calc(100% - 70px * 2)
+        @media screen and (max-width: 1100px)
+            width: calc(100% - 40px * 2)
+        @media screen and (max-width: 500px)
+            width: calc(100% - 20px * 2)
+    & div.flex
+        display: flex
+        align-items: center
+        & a
+            text-decoration: none
+        & header
+            display: flex
+            align-items: center
+            font-size: 20px
+            font-weight: 600
+            color: var(--font-st)
+            & svg
+                margin-right: 10px
+        & ul
+            display: flex
+            align-items: center
+            list-style: none
+            padding: 0
+            margin: 0
+            margin-left: 25px
+            @media screen and (max-width: 600px)
+                display: none
+            & li
+                margin-right: 25px
+                & a
+                    font-size: 14px
+                    font-weight: 300
+                    text-decoration: none
+                    color: var(--font-rd)
+                    transition-duration: .2s
+                    &:hover
+                        color: var(--font-st)
+    & details
+        position: relative
+        & summary
+            margin: 0
+            padding: 0
+            display: flex
+            align-items: flex-start
+            justify-content: flex-end
+            & header
+                display: flex
+                align-items: center
+                margin: 0
+                padding: 0
+                background: var(--secondary)
+                border-radius: 50px
+                text-decoration: none
+                color: var(--font-st)
+                padding-right: 8px
+                font-size: 14px
+                font-weight: 500
+                cursor: pointer
+                width: fit-content
+                & img
+                    border-radius: 50%
+                    margin-right: 5px
+        & div.module
+            position: absolute
+            top: 40px
+            right: 0
+            background: var(--secondary)
+            border-radius: 15px
+            display: flex
+            flex-direction: column
+            align-items: flex-start
+            justify-content: center
+            max-width: 260px
+            min-width: 200px
+            width: 100%
+            animation: fade .2s ease-in-out
+            z-index: 99999
+            @keyframes fade
+                0%
+                    opacity: 0
+                    transform: translateY(-15px)
+                100%
+                    opacity: 1
+                    transform: translateY(0)
+            & a
+                display: flex
+                align-items: center
+                padding: 12px
+                font-size: 15px
+                color: var(--font-st)
+                text-decoration: none
+                transition-duration: .1s
+                width: calc( 100% - 12px * 2 )
+                &:hover
+                    background: var(--border-st)
+                    &:first-child
+                        border-top-left-radius: 15px
+                        border-top-right-radius: 15px
+                    &:last-child
+                        border-bottom-right-radius: 15px
+                        border-bottom-left-radius: 15px
+                & svg
+                    margin-right: 7px
+    & div.buttons
+        display: flex
+        align-items: center
+        & a
+            margin-left: 15px
+            font-size: 14px
+            font-weight: 300
+            border: 0
+            background: 0
+            padding: 0
+            text-decoration: none
+            color: var(--font-st)
+            &:last-child
+                padding: 5px 10px
+                border-radius: 50px
+                background: var(--secondary)
+                transition-duration: .1s
+                font-weight: 500
+                &:hover
+                    background: var(--border-st)

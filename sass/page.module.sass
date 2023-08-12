@@ -1,90 +1,238 @@
-/* 
- * Copyright 2019-2023 (c) Nove Group
- * GitHub: https://github.com/nove-org/
- * Inter font is property of their respective owners.
- */
-
-@use 'brand' as *
+@import url(https://f.nove.team/fonts/inter/conf.css)
 
 section.hero
     width: 100%
-    height: calc( 100vh - 4rem )
+    min-height: calc(100vh - 1rem - 70px * 2 - 50px)
+    display: flex
+    flex-direction: column
+    margin: 25px 0
+    justify-content: center
+    & h1
+        font-size: 64px
+        font-weight: 800
+        margin: 5px 0
+        background: linear-gradient(0deg, var(--font-st), var(--font-rd))
+        -webkit-background-clip: text
+        -webkit-text-fill-color: transparent
+        max-width: 950px
+        @media screen and (max-width: 650px)
+            font-size: 48px
+        & span
+            animation: animateBg 8s linear infinite
+            background-image: linear-gradient(35deg,#f31a5b,#f31a78,#f10d87,#f10da1,#f10d87,#f31a78,#f31a5b)
+            background-size: 100% 1100%
+            font-smooth: always
+            -webkit-background-clip: text
+            -webkit-text-fill-color: transparent
+    & p
+        font-size: 22px
+        font-weight: 400
+        margin: 5px 0
+        max-width: 1000px
+    & ul
+        display: flex
+        align-items: center
+        list-style: none
+        margin: 0
+        margin-top: 15px
+        padding: 0
+        @media screen and (max-width: 650px)
+            flex-direction: column-reverse
+            align-items: flex-start
+        & li
+            &:not(:last-child)
+                margin-right: 15px
+            & a.link
+                color: var(--accent-st)
+                text-decoration-line: underline
+                text-decoration-style: wavy
+                text-decoration-thickness: 1px
+            & a.button
+                display: flex
+                align-items: center
+                padding: 10px 15px
+                border-radius: 50px
+                background: var(--secondary)
+                transition-duration: .2s
+                cursor: pointer
+                color: var(--font-st)
+                text-decoration: none
+                & div.stargazers
+                    display: flex
+                    align-items: center
+                    font-weight: 600
+                    margin-right: 8px
+                    & svg
+                        margin-left: 0
+                        margin-right: 3px
+                @media screen and (max-width: 650px)
+                    margin-top: 20px
+                &:hover
+                    background: var(--border-st)
+                & svg
+                    margin-left: 5px
+
+    & svg.top
+        position: absolute
+        top: 0
+        right: 0
+        z-index: -99999
+        transition-duration: .2s
+        @media screen and (max-width: 1300px)
+            top: -180px
+            right: 0
+            transform: rotate(-20deg)
+        @media screen and (max-width: 935px)
+            right: -50px
+            top: -250px
+            transform: rotate(-10deg)
+        @media screen and (max-width: 700px)
+            opacity: 0
+            width: 0
+            height: 0
+
+section.word
+    width: 100%
+    display: flex
+    flex-direction: column
+    align-items: flex-end
+    position: relative
+    @media screen and (max-width: 600px)
+        margin-top: 50px
+    & svg.top
+        position: absolute
+        top: 50%
+        left: -100px
+        z-index: -99999
+        transform: translateY(-50%)
+        transition-duration: .2s
+        @media screen and (max-width: 1530px)
+            left: -200px
+        @media screen and (max-width: 975px)
+            transform: translateY(0)
+            top: 30%
+    & h1
+        font-size: 32px
+        margin: 5px 0
+    & ul
+        display: flex
+        align-items: center
+        gap: 25px
+        margin: 20px 0
+        list-style: none
+        padding: 0
+        @media screen and (max-width: 997px)
+            flex-direction: column
+        & li
+            padding: 20px 25px
+            border-radius: 20px
+            min-height: 190px
+            max-height: 190px
+            max-width: 260px
+            border: 1px solid var(--border-st)
+            backdrop-filter: blur(100px)
+            position: relative
+            @media screen and (max-width: 997px)
+                max-width: calc( 100% - 25px * 2 )
+                min-height: fit-content
+                max-height: fit-content
+
+            & h1
+                font-size: 24px
+                display: flex
+                flex-direction: column
+                align-items: flex-start
+                & svg
+                    margin: 0 0 10px 0
+            & p
+                margin: 0
+                font-size: 16px
+    & a
+        color: var(--accent-st)
+        text-decoration-line: underline
+        text-decoration-style: wavy
+        text-decoration-thickness: 1px
+
+section.breakup
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: space-between
+    position: relative
+    margin: 100px 0
+    position: relative
+    min-height: calc( 100vh - 25rem )
+    @media screen and (max-width: 1380px)
+        flex-direction: column-reverse
+        align-items: flex-start
+        justify-content: center
+        & img
+            margin: 0 auto
+            max-width: 591px
+            max-height: auto
+            height: auto
+            width: 100%
+    & aside
+        max-width: 900px
+        @media screen and (max-width: 1380px)
+            max-width: 100%
+        & h1
+            font-size: 36px
+            margin: 10px 0
+        & p
+            font-size: 20px
+            margin: 10px 0
+        & ul
+            margin: 20px 0
+            padding: 0 25px
+            list-style-type: '― '
+            & li
+                font-size: 18px
+                margin: 5px 0
+
+svg.line
+    display: block
+    margin: 50px auto
+
+section.ready
+    width: 100%
+    min-height: calc(100vh - 40rem)
     display: flex
     flex-direction: column
     align-items: center
+    margin: 25px 0
     justify-content: center
+    margin-bottom: 100px
     & h1
-        font-size: 96px
-        background: $textBackground
-        background-clip: text
+        font-size: 36px
+        margin: 5px 0
+        font-weight: 700
+        background: linear-gradient(0deg, var(--font-st), var(--font-rd))
         -webkit-background-clip: text
         -webkit-text-fill-color: transparent
-        font-weight: 900
-        text-align: center
-        & span
-            background: $textSpan
-            background-clip: text
-            -webkit-background-clip: text
-            -webkit-text-fill-color: transparent
-            text-shadow: $textGlow
-        @media screen and (max-width: 1000px)
-            font-size: 72px
     & p
         font-size: 24px
-        font-weight: 400
-        max-width: 800px
-        line-height: 1.4
-        margin-top: 7px
-        color: $font2
-        text-align: center
-        padding: 0 10px
-        margin-bottom: 15px
-        @media screen and (max-width: 600px)
-            font-size: 22px
-    & ul
+        margin: 5px 0
+    & a
         display: flex
-        flex-direction: row
-        justify-content: center
         align-items: center
-        min-height: 100px
-        list-style: none
-        margin: 0
-        padding: 0
-        & li
-            & a
-                border: 1px solid $border
-                background: $secondary
-                border-radius: 7px
-                margin-right: 30px
-                padding: 16px 18px
-                font-weight: 500
-                font-size: 18px
-                text-decoration: none
-                display: flex
-                align-items: center
-                cursor: pointer
-                min-height: calc( 58px - 17px * 2 )
-                height: fit-content
-                &:hover
-                    margin-top: 10px
-                & svg
-                    margin-right: 4px
-                @media screen and (max-width: 600px)
-                    margin-right: 0
-                    margin-top: 20px
-                    &:hover
-                        margin-top: 20px
-                        transform: scale(0.97)
-        & li:first-child
-            & a
-                background: $buttonBackground
-                color: #000000
-        & li:last-child
-            & a
-                background: $primary
-                color: $font
-                border: 1px solid $border
-                box-shadow: $buttonGlow
-                margin-right: 0
-        @media screen and (max-width: 600px)
-            flex-direction: column
+        padding: 10px 15px
+        border-radius: 50px
+        background: var(--secondary)
+        transition-duration: .2s
+        cursor: pointer
+        color: var(--font-st)
+        text-decoration: none
+        margin-top: 20px
+        @media screen and (max-width: 650px)
+            margin-top: 20px
+        &:hover
+            background: var(--border-st)
+        & svg
+            margin-left: 5px
+
+@keyframes animateBg
+    0%
+        background-position: 0% 0%
+    100%
+        background-position: 0% 100%

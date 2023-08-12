@@ -1,173 +1,201 @@
-'use client';
-
-import { useEffect, useState } from 'react';
-import { Activity, Response, User } from '@/Interfaces';
-import { axiosClient } from '@/utils';
-import { getCookie } from 'cookies-next';
 import Image from 'next/image';
-import Connection from './connection';
-import Loader from '@/loader';
-import Card from './card';
+import { axiosClient } from '@util/axios';
+import o from '@sass/account/page.module.sass';
+import { cookies } from 'next/headers';
+import Link from 'next/link';
+import { Response, Device, User } from '@util/schema';
 
-import o from '~/account/page.module.sass';
-import oa from '~/account/shortcuts.module.sass';
-import ob from '~/account/connections.module.sass';
+export default async function Overview() {
+    const user: Response<User> = (
+        await axiosClient
+            .get('/v1/users/me', {
+                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
+            })
+            .catch((e) => e.response)
+    ).data;
 
-export default function Account() {
-    const [namePopup, setNamePopup] = useState<boolean>(false);
-    const [loading, setLoading] = useState<boolean>(true);
-    const [data, setData] = useState<Response<User>>();
-    const [activity, setActivity] = useState<Response<Activity[]>>();
-    const [postError, setPostError] = useState<string>();
-
-    const throwError = (message?: string, bool?: boolean) => {
-        if (bool === false) return setPostError('');
-
-        if (message) {
-            setPostError(message.charAt(0).toUpperCase() + message.slice(1).toLowerCase());
-
-            setTimeout(() => setPostError(''), 5000);
-        }
-    };
+    const device: Response<Device[]> = (
+        await axiosClient
+            .get('/v1/users/me/activity', {
+                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
+            })
+            .catch((e) => e.response)
+    ).data;
 
     const lang = new Intl.DisplayNames(['en'], { type: 'language' });
 
-    useEffect(() => {
-        const getData = async () => {
-            await axiosClient
-                .get('/users/me', { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } })
-                .then(async (res) => {
-                    res.data ? setData(res.data) : null;
-
-                    await axiosClient
-                        .get('/users/me/activity', { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } })
-                        .then((res) => (res.data ? setActivity(res.data) : null, setLoading(false)))
-                        .catch((err) => (err.response?.data ? setActivity(err.response.data) : null, setLoading(false)));
-                })
-                .catch((err) => (err.response?.data ? setData(err.response.data) : null));
-        };
-
-        getData();
-    }, []);
-
-    const handleUsernameUpdate = async (event: any) => {
-        event.preventDefault();
-
-        await axiosClient
-            .patch(
-                '/users/me',
-                { username: event.target.accountTagUpdate.value },
-                { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } }
-            )
-            .then(() => window.location.reload())
-            .catch((err) => {
-                throwError(err.response?.data.body?.error.message ? err.response.data.body.error.message : 'Something went wrong and we cannot explain it.');
-
-                (document.getElementById('usernameForm') as HTMLFormElement).reset();
-                (document.getElementById('pevs') as HTMLElement).classList.remove(`disabled`);
-            });
-    };
-
-    return loading ? (
-        <main>
-            <title>Dashboard — Nove</title>
-            <Loader type="window" />
-        </main>
-    ) : data?.body?.data ? (
+    return user?.body?.data?.username ? (
         <div className={o.content}>
-            {postError ? <p className="error">{postError}</p> : null}
-            {namePopup ? (
-                <dialog id="changeName" className={o.popup}>
-                    <div onClick={() => setNamePopup(false)} className={o.background}></div>
-                    <form id="usernameForm" onSubmit={handleUsernameUpdate} autoComplete="off">
-                        <h1>
-                            Change your username
-                            <svg onClick={() => setNamePopup(false)} xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
+            <h1 className={o.title}>Overview</h1>
+            <ul className={o.overview}>
+                <li className={o.profile}>
+                    <header>
+                        <Image src={user.body.data.avatar + '?u=' + user.body.data.updatedAt} width="72" height="72" alt="Avatar" />
+                        <div className={o.data}>
+                            <h1>{user.body.data.username}</h1>
+                            <p>{user.body.data.email}</p>
+                        </div>
+                    </header>
+                    <h2>Tips to improve your security and privacy</h2>
+                    <ul>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
                                 <path
                                     fill="currentColor"
-                                    d="M 4.9902344 3.9902344 A 1.0001 1.0001 0 0 0 4.2929688 5.7070312 L 10.585938 12 L 4.2929688 18.292969 A 1.0001 1.0001 0 1 0 5.7070312 19.707031 L 12 13.414062 L 18.292969 19.707031 A 1.0001 1.0001 0 1 0 19.707031 18.292969 L 13.414062 12 L 19.707031 5.7070312 A 1.0001 1.0001 0 0 0 18.980469 3.9902344 A 1.0001 1.0001 0 0 0 18.292969 4.2929688 L 12 10.585938 L 5.7070312 4.2929688 A 1.0001 1.0001 0 0 0 4.9902344 3.9902344 z"></path>
+                                    d="M 12.890625 3 C 12.383625 3 11.958344 3.3817656 11.902344 3.8847656 L 10.123047 19.896484 C 10.057047 20.485484 10.517375 21 11.109375 21 C 11.615375 21 12.041656 20.618234 12.097656 20.115234 L 13.876953 4.1035156 C 13.942953 3.5145156 13.482625 3 12.890625 3 z M 5.7070312 6.7070312 C 5.4510313 6.7070312 5.195 6.805 5 7 L 0.70703125 11.292969 C 0.31603125 11.683969 0.31603125 12.317031 0.70703125 12.707031 L 5 17 C 5.39 17.39 6.0240625 17.39 6.4140625 17 C 6.8040625 16.61 6.8040625 15.975938 6.4140625 15.585938 L 2.828125 12 L 6.4140625 8.4140625 C 6.8050625 8.0240625 6.8050625 7.39 6.4140625 7 C 6.2190625 6.805 5.9630312 6.7070312 5.7070312 6.7070312 z M 18.292969 6.7070312 C 18.036969 6.7070312 17.780938 6.805 17.585938 7 C 17.195937 7.39 17.195937 8.0240625 17.585938 8.4140625 L 21.171875 12 L 17.585938 15.585938 C 17.195937 15.975938 17.195937 16.61 17.585938 17 C 17.975938 17.39 18.61 17.39 19 17 L 23.292969 12.707031 C 23.683969 12.316031 23.683969 11.682969 23.292969 11.292969 L 19 7 C 18.805 6.805 18.548969 6.7070312 18.292969 6.7070312 z"></path>
                             </svg>
-                        </h1>
-                        <p>Type something new, unique and easy to remember. This is alias to your account which means you can log in with it to your Nove account.</p>
-                        <input
-                            autoComplete="off"
-                            autoFocus={true}
-                            autoCorrect="off"
-                            type="text"
-                            placeholder="New username"
-                            id="accountTagUpdate"
-                            name="accountTagUpdate"
-                            defaultValue={data.body.data.username}
-                        />
-                        <div className={o.footer}>
-                            <button onClick={() => setNamePopup(false)} type="reset">
-                                Cancel
-                            </button>
-                            <button type="submit" id="pevs" onClick={() => (document.getElementById('pevs') as HTMLElement).classList.add(`disabled`)}>
-                                Save changes
-                            </button>
-                        </div>
-                    </form>
-                </dialog>
-            ) : null}
-            <h1 className={o.title}>Overview</h1>
-            <div className={o.card}>
-                <label htmlFor="image">
-                    <Image src={`${data.body.data.avatar}?v=${data.body.data.updatedAt}`} width={96} height={96} alt="User avatar" />
-                </label>
-                <div className={o.content}>
-                    <div className={o.username}>
-                        <h1>{data.body.data.username}</h1>
-                        <button onClick={() => setNamePopup(true)}>Edit</button>
-                    </div>
-                    <div className={o.email}>{data.body.data.email}</div>
+                            Use free and open-source software
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
+                                <path
+                                    fill="currentColor"
+                                    d="M21.694,15.28L21.694,15.28c-0.399-0.399-1.05-0.389-1.436,0.024l-1.708,1.832L17.414,16l1.293-1.293 c0.39-0.39,0.39-1.023,0-1.413l-0.001-0.001c-0.39-0.39-1.023-0.39-1.413,0L16,14.586l-3.791-3.792l0.21-0.44 c0.914-1.913,0.676-4.249-0.783-5.788C9.453,2.264,5.617,2.512,3.789,5.31C2.887,6.69,2.738,8.49,3.412,9.995 c1.212,2.708,4.29,3.689,6.745,2.518l0.637-0.305l8.499,8.499c0.39,0.39,1.023,0.39,1.413,0l0.001-0.001 c0.39-0.39,0.39-1.023,0-1.413l-0.744-0.744l1.754-1.88C22.085,16.276,22.075,15.661,21.694,15.28z M10.127,10.127 c-1.17,1.17-3.073,1.17-4.243,0c-1.17-1.17-1.17-3.073,0-4.243c1.17-1.17,3.073-1.17,4.243,0 C11.296,7.054,11.296,8.957,10.127,10.127z"></path>
+                            </svg>
+                            Try to use MFA whenever possible
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
+                                <path
+                                    fill="currentColor"
+                                    d="M 12 3 A 4 4 0 0 0 8 7 A 4 4 0 0 0 12 11 A 4 4 0 0 0 16 7 A 4 4 0 0 0 12 3 z M 12 14 C 8.996 14 3 15.508 3 18.5 L 3 20 C 3 20.552 3.448 21 4 21 L 20 21 C 20.552 21 21 20.552 21 20 L 21 18.5 C 21 15.508 15.004 14 12 14 z"></path>
+                            </svg>
+                            Create as less accounts as you can
+                        </li>
+                    </ul>
+                </li>
+                <div className={o.flex}>
+                    <li className={o.card}>
+                        <Link href="/account/language">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="36" height="36" viewBox="0 0 24 24">
+                                <path
+                                    fill="currentColor"
+                                    d="M 12 2 C 8.741068 2 5.8486894 3.5773875 4.0214844 6 L 4 6 L 4 6.0273438 C 2.7499527 7.6966931 2 9.7603852 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 15 4.5839844 C 17.935098 5.7673596 20 8.6326468 20 12 C 20 14.087831 19.200587 15.978318 17.898438 17.400391 C 17.642583 16.590687 16.894567 16 16 16 C 15.448 16 15 15.552 15 15 L 15 13 C 15 12.448 14.552 12 14 12 L 10 12 C 9.448 12 9 11.552 9 11 C 9 10.448 9.448 10 10 10 C 10.552 10 11 9.552 11 9 L 11 8 C 11 7.448 11.448 7 12 7 L 13 7 C 14.105 7 15 6.105 15 5 L 15 4.5839844 z M 4.2070312 10.207031 L 9 15 L 9 16 C 9 17.105 9.895 18 11 18 L 11 19.931641 C 7.0457719 19.441154 4 16.090654 4 12 C 4 11.382188 4.0755242 10.784034 4.2070312 10.207031 z"></path>
+                            </svg>
+                            <h1>Language</h1>
+                            <p>Change your preferred language across all Nove products</p>
+                            <span>
+                                {lang.of(user.body.data.language)}
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="14" height="14" viewBox="0 0 30 30">
+                                    <path
+                                        fill="currentColor"
+                                        d="M 9.9902344 3.9902344 A 1.0001 1.0001 0 0 0 9.2929688 5.7070312 L 18.585938 15 L 9.2929688 24.292969 A 1.0001 1.0001 0 1 0 10.707031 25.707031 L 20.707031 15.707031 A 1.0001 1.0001 0 0 0 20.707031 14.292969 L 10.707031 4.2929688 A 1.0001 1.0001 0 0 0 9.9902344 3.9902344 z"></path>
+                                </svg>
+                            </span>
+                        </Link>
+                    </li>
+                    <li className={o.card}>
+                        <Link href="/account/security">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="36" height="36" viewBox="0 0 24 24">
+                                <path
+                                    fill="currentColor"
+                                    d="M16.256,3.005C13.515,3.117,12,5.09,12,5.09S10.377,2.976,7.451,3C6.338,3.009,5.278,3.476,4.403,4.164 C2.019,6.038,1.702,8.067,2.203,10h3.464L7.4,8.7c0.459-0.344,1.114-0.232,1.432,0.245l1.414,2.12l0.888-0.666 c0.346-0.26,0.767-0.4,1.2-0.4h0.944c0.423-0.727,1.28-1.169,2.224-0.938c0.72,0.176,1.301,0.781,1.453,1.506 C17.226,11.861,16.246,13,15,13c-0.738,0-1.376-0.405-1.723-1h-0.944L10.6,13.3c-0.459,0.344-1.114,0.232-1.432-0.245l-1.414-2.12 L6.867,11.6C6.521,11.86,6.1,12,5.667,12H3.024c1.514,2.764,4.282,5.08,5.257,5.99c1.033,0.962,2.307,2.105,3.064,2.779 c0.375,0.334,0.934,0.334,1.309,0c0.757-0.674,2.032-1.817,3.064-2.779c1.72-1.603,9.032-7.574,5.17-12.678 C19.779,3.845,18.094,2.93,16.256,3.005z"></path>
+                            </svg>
+                            <h1>{device.body.data ? 'Activity' : 'Logging in'}</h1>
+                            <p>
+                                {device.body.data
+                                    ? 'Manage recent activity on your account with ease using activity logs'
+                                    : 'Change your account credentials or add security layers with ease'}
+                            </p>
+                            <span>
+                                {device.body.data ? device.body.data.length + ' active session' + (device.body.data.length > 1 ? 's' : '') : 'Go'}
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="14" height="14" viewBox="0 0 30 30">
+                                    <path
+                                        fill="currentColor"
+                                        d="M 9.9902344 3.9902344 A 1.0001 1.0001 0 0 0 9.2929688 5.7070312 L 18.585938 15 L 9.2929688 24.292969 A 1.0001 1.0001 0 1 0 10.707031 25.707031 L 20.707031 15.707031 A 1.0001 1.0001 0 0 0 20.707031 14.292969 L 10.707031 4.2929688 A 1.0001 1.0001 0 0 0 9.9902344 3.9902344 z"></path>
+                                </svg>
+                            </span>
+                        </Link>
+                    </li>
+                    <li className={o.card}>
+                        <Link href="/account/security">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="36" height="36" viewBox="0 0 24 24">
+                                <path
+                                    fill="currentColor"
+                                    d="M 6 2 C 4.895 2 4 2.895 4 4 L 4 6 C 4 6.552 4.448 7 5 7 L 19 7 C 19.552 7 20 6.552 20 6 L 20 4 C 20 2.895 19.105 2 18 2 L 6 2 z M 5 9 C 4.448 9 4 9.448 4 10 L 4 14 C 4 14.552 4.448 15 5 15 L 10.587891 15 C 11.774891 12.069 14.644 10 18 10 C 18.692 10 19.36 10.096719 20 10.261719 L 20 10 C 20 9.448 19.552 9 19 9 L 5 9 z M 18.001953 12 C 14.700328 12 12.001953 14.698375 12.001953 18 C 12.001953 19.24748 12.38752 20.410166 13.042969 21.373047 L 12.121094 22.294922 C 11.861094 22.554922 12.046062 23 12.414062 23 L 14.824219 23 A 1.0001 1.0001 0 0 0 15.732422 22.732422 A 1.0001 1.0001 0 0 0 16.001953 21.787109 L 16.001953 19.414062 C 16.001953 19.046062 15.556875 18.862094 15.296875 19.121094 L 14.496094 19.921875 C 14.183492 19.352587 14.001953 18.700274 14.001953 18 C 14.001953 15.779625 15.781579 14 18.001953 14 C 20.222328 14 22.001953 15.779625 22.001953 18 C 22.001953 19.945526 20.625661 21.550064 18.802734 21.919922 A 1.0003092 1.0003092 0 1 0 19.199219 23.880859 C 21.940292 23.324717 24.001953 20.892474 24.001953 18 C 24.001953 14.698375 21.303579 12 18.001953 12 z M 5 17 C 4.448 17 4 17.448 4 18 L 4 20 C 4 21.105 4.895 22 6 22 L 11.078125 22 C 10.396125 20.822 10 19.459 10 18 C 10 17.661 10.027359 17.328 10.068359 17 L 5 17 z"></path>
+                            </svg>
+                            <h1>Recovery</h1>
+                            <p>Set up two factor authentication and download backup codes</p>
+                            <span>
+                                Go
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="14" height="14" viewBox="0 0 30 30">
+                                    <path
+                                        fill="currentColor"
+                                        d="M 9.9902344 3.9902344 A 1.0001 1.0001 0 0 0 9.2929688 5.7070312 L 18.585938 15 L 9.2929688 24.292969 A 1.0001 1.0001 0 1 0 10.707031 25.707031 L 20.707031 15.707031 A 1.0001 1.0001 0 0 0 20.707031 14.292969 L 10.707031 4.2929688 A 1.0001 1.0001 0 0 0 9.9902344 3.9902344 z"></path>
+                                </svg>
+                            </span>
+                        </Link>
+                    </li>
                 </div>
-            </div>
-            <div className={oa.shortcuts}>
-                <Card name="Language" description="Change your preferred language across the Internet" option={lang.of(data.body.data.language)} url="/account/language">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-                        <path
-                            fill="currentColor"
-                            d="M 12 2 C 10.814 2 9.5418125 3.6912344 8.7578125 6.3652344 C 8.6648125 6.6822344 8.9121875 7 9.2421875 7 L 14.757812 7 C 15.087813 7 15.334188 6.6822344 15.242188 6.3652344 C 14.458187 3.6912344 13.186 2 12 2 z M 8.0664062 2.8085938 C 6.2694063 3.5805938 4.7487344 4.8665156 3.6777344 6.4785156 C 3.5307344 6.6995156 3.6968906 7 3.9628906 7 L 5.9296875 7 C 6.3556875 7 6.5475625 6.8363281 6.6015625 6.6113281 C 6.9555625 5.1343281 7.4554063 3.8475937 8.0664062 2.8085938 z M 15.933594 2.8085938 C 16.544594 3.8475937 17.044437 5.1353281 17.398438 6.6113281 C 17.452437 6.8363281 17.651813 7 17.882812 7 L 20.033203 7 C 20.299203 7 20.469266 6.6995156 20.322266 6.4785156 C 19.251266 4.8665156 17.730594 3.5805938 15.933594 2.8085938 z M 2.71875 9 C 2.56675 9 2.4287188 9.0991406 2.3867188 9.2441406 C 2.1357188 10.120141 2 11.045 2 12 C 2 12.955 2.1357188 13.879859 2.3867188 14.755859 C 2.4287187 14.900859 2.56675 15 2.71875 15 L 5.6289062 15 C 5.9249063 15 6.1500937 14.747125 6.1210938 14.453125 C 6.0440937 13.665125 6 12.848 6 12 C 6 11.152 6.0430937 10.334875 6.1210938 9.546875 C 6.1500937 9.252875 5.9249063 9 5.6289062 9 L 2.71875 9 z M 8.6484375 9 C 8.3944375 9 8.1764844 9.1855 8.1464844 9.4375 C 8.0524844 10.2495 8 11.107 8 12 C 8 12.893 8.0524844 13.7505 8.1464844 14.5625 C 8.1764844 14.8145 8.3944375 15 8.6484375 15 L 15.351562 15 C 15.605562 15 15.823516 14.8145 15.853516 14.5625 C 15.947516 13.7505 16 12.893 16 12 C 16 11.107 15.947516 10.2495 15.853516 9.4375 C 15.823516 9.1855 15.605563 9 15.351562 9 L 8.6484375 9 z M 18.371094 9 C 18.075094 9 17.849906 9.252875 17.878906 9.546875 C 17.955906 10.334875 18 11.152 18 12 C 18 12.848 17.956906 13.665125 17.878906 14.453125 C 17.849906 14.747125 18.075094 15 18.371094 15 L 21.28125 15 C 21.43325 15 21.571281 14.900859 21.613281 14.755859 C 21.864281 13.879859 22 12.955 22 12 C 22 11.045 21.864281 10.120141 21.613281 9.2441406 C 21.571281 9.0991406 21.43325 9 21.28125 9 L 18.371094 9 z M 3.9667969 17 C 3.7007969 17 3.5307344 17.300484 3.6777344 17.521484 C 4.7487344 19.133484 6.2694063 20.419406 8.0664062 21.191406 C 7.4554063 20.152406 6.9555625 18.864672 6.6015625 17.388672 C 6.5475625 17.163672 6.3481875 17 6.1171875 17 L 3.9667969 17 z M 9.2421875 17 C 8.9121875 17 8.6658125 17.317766 8.7578125 17.634766 C 9.5418125 20.308766 10.814 22 12 22 C 13.186 22 14.458188 20.308766 15.242188 17.634766 C 15.335187 17.317766 15.087812 17 14.757812 17 L 9.2421875 17 z M 18.070312 17 C 17.644312 17 17.452437 17.163672 17.398438 17.388672 C 17.044438 18.865672 16.544594 20.152406 15.933594 21.191406 C 17.730594 20.419406 19.251266 19.133484 20.322266 17.521484 C 20.469266 17.300484 20.303109 17 20.037109 17 L 18.070312 17 z"></path>
-                    </svg>
-                </Card>
-                <Card
-                    name={activity?.body?.data ? 'Recent activity' : 'Logging in'}
-                    description={
-                        activity?.body?.data ? 'Check and manage your recent account activity logs with ease' : 'Change your account credentials or add security layers with ease'
-                    }
-                    option={activity?.body?.data ? activity.body.data.length + ' active session' + (activity.body.data.length < 2 ? '' : 's') : 'Go'}
-                    url="/account/security">
-                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 24 24">
-                        <path
-                            fill="currentColor"
-                            d="M 3.984375 2.9863281 A 1.0001 1.0001 0 0 0 3 4 L 3 19 C 3 20.093063 3.9069372 21 5 21 L 20 21 A 1.0001 1.0001 0 1 0 20 19 L 5 19 L 5 4 A 1.0001 1.0001 0 0 0 3.984375 2.9863281 z M 18.980469 6.9902344 A 1.0001 1.0001 0 0 0 18.292969 7.2929688 L 14.984375 10.601562 L 12.691406 8.4082031 A 1.0001 1.0001 0 0 0 11.304688 8.4121094 L 7.3046875 12.28125 A 1.0001 1.0001 0 1 0 8.6953125 13.71875 L 12.003906 10.517578 L 14.308594 12.722656 A 1.0001 1.0001 0 0 0 15.707031 12.707031 L 19.707031 8.7070312 A 1.0001 1.0001 0 0 0 18.980469 6.9902344 z"></path>
-                    </svg>
-                </Card>
-                <Card name="Account recovery" description="Set up two factor authentication and download backup codes" option="Download" url="/account/security">
-                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 24 24">
-                        <path
-                            fill="currentColor"
-                            d="M 22 2 L 19.058594 4.9414062 C 16.865786 2.7436807 13.666769 1.5536385 10.212891 2.15625 C 6.1828906 2.86025 2.9227344 6.0746563 2.1777344 10.097656 C 1.0007344 16.443656 5.864 22 12 22 C 17.134 22 21.3785 18.109094 21.9375 13.121094 C 22.0045 12.525094 21.5375 12 20.9375 12 C 20.4375 12 20.007125 12.368234 19.953125 12.865234 C 19.520125 16.870234 16.119 20 12 20 C 7.059 20 3.1501562 15.498859 4.1601562 10.380859 C 4.7681562 7.3008594 7.2335937 4.8107812 10.308594 4.1757812 C 13.170804 3.5850239 15.832013 4.545023 17.642578 6.3574219 L 15 9 L 22 9 L 22 2 z"></path>
-                    </svg>
-                </Card>
-            </div>
-            <div className={ob.connections + ' disabled'}>
-                <h2>Account connections</h2>
-                <Connection data={{ name: 'Files', logo: '/cdn/assets/files.png', permissionLevel: 0 }} />
-            </div>
+            </ul>
+            <h1 className={o.title}>App connections</h1>
+            <ul className={o.connections}>
+                <li className={o.card}>
+                    <header>
+                        <div className={o.name}>
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
+                                <path
+                                    fill="currentColor"
+                                    d="M 12 4 A 7.5 7.5 0 0 0 5.3515625 8.0429688 A 6 6 0 0 0 0 14 A 6 6 0 0 0 6 20 L 19 20 A 5 5 0 0 0 24 15 A 5 5 0 0 0 19.34375 10.017578 A 7.5 7.5 0 0 0 12 4 z"></path>
+                            </svg>
+                            <h1>Files</h1>
+                            <span>Last accessed on August 2nd</span>
+                        </div>
+                        <button>Revoke</button>
+                    </header>
+                    <p>Basic level of account access</p>
+                    <ul>
+                        <li>read account username</li>
+                        <li>read account avatar</li>
+                        <li>read account public info</li>
+                    </ul>
+                </li>
+                <li className={o.card}>
+                    <header>
+                        <div className={o.name}>
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
+                                <path
+                                    fill="currentColor"
+                                    d="M 12 4 A 7.5 7.5 0 0 0 5.3515625 8.0429688 A 6 6 0 0 0 0 14 A 6 6 0 0 0 6 20 L 19 20 A 5 5 0 0 0 24 15 A 5 5 0 0 0 19.34375 10.017578 A 7.5 7.5 0 0 0 12 4 z"></path>
+                            </svg>
+                            <h1>Files</h1>
+                            <span>Last accessed on August 2nd</span>
+                        </div>
+                        <button>Revoke</button>
+                    </header>
+                    <p>Basic level of account access</p>
+                    <ul>
+                        <li>read account username</li>
+                        <li>read account avatar</li>
+                        <li>read account public info</li>
+                    </ul>
+                </li>
+                <li className={o.card}>
+                    <header>
+                        <div className={o.name}>
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
+                                <path
+                                    fill="currentColor"
+                                    d="M 12 4 A 7.5 7.5 0 0 0 5.3515625 8.0429688 A 6 6 0 0 0 0 14 A 6 6 0 0 0 6 20 L 19 20 A 5 5 0 0 0 24 15 A 5 5 0 0 0 19.34375 10.017578 A 7.5 7.5 0 0 0 12 4 z"></path>
+                            </svg>
+                            <h1>Files</h1>
+                            <span>Last accessed on August 2nd</span>
+                        </div>
+                        <button>Revoke</button>
+                    </header>
+                    <p>Basic level of account access</p>
+                    <ul>
+                        <li>read account username</li>
+                        <li>read account avatar</li>
+                        <li>read account public info</li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     ) : (
-        <main>
-            <title>Dashboard — Nove</title>
-            <Loader
-                type="hidden"
-                text={
-                    data?.body?.error?.message
-                        ? data.body.error.message.charAt(0) + data.body.error.message.slice(1).toLowerCase()
-                        : "Something went wrong and we can't reach the API"
-                }
-            />
-        </main>
+        <div className={o.content}>
+            <h1 className={o.title}>Something is wrong with the API</h1>
+            <p>We cannot sign your session which leads to data retrieval failure</p>
+        </div>
     );
 }

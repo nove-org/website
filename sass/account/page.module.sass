@@ -1,327 +1,206 @@
-/* 
- * Copyright 2019-2023 (c) Nove Group
- * GitHub: https://github.com/nove-org/
- * Inter font is property of their respective owners.
- */
-
-@use '../brand' as *
-
-section.dashboard
-    padding: 50px 0
-    padding-bottom: 0
-    min-height: calc( 100vh - 7.2rem )
-    height: max-content
-    display: flex
-    @media screen and (max-width: 1000px)
-        flex-direction: column
-        padding-top: 0
-    & aside
-        max-width: 350px
+div.content
+    width: 100%
+    height: 100%
+    min-height: calc( 100vh - 68px )
+    & h1.title
+        font-size: 32px
+        font-weight: 600
+        margin-bottom: 10px
+    & ul.overview
+        display: flex
+        align-items: center
+        list-style: none
+        padding: 0
+        margin: 0
         width: 100%
-        margin-right: 50px
-        @media screen and (max-width: 1000px)
-            max-width: 100%
-        & header
+        gap: 2rem
+        height: 100%
+        @media screen and (max-width: 1810px)
+            flex-wrap: wrap
+        & div.flex
             display: flex
-            align-items: center
-            padding: 12px
-            border: 1px solid $border
-            border-radius: $radius
-            & img
-                margin-right: 10px
-                border-radius: 50%
-            & h1
-                font-size: 24px
-                width: calc( 100% - 12px * 2 - 35px )
-                word-wrap: break-word
-        & ul
-            padding: 0
-            margin: 0
-            list-style: none
-            @media screen and (max-width: 1000px)
-                margin: 20px 0
-            & li
-                & a
-                    display: flex
-                    padding: 12px
-                    cursor: pointer
-                    border-radius: $radius
-                    margin-top: 10px
-                    border: 1px solid $secondary
-                    background: $secondary
-                    align-items: center
-                    & svg
-                        margin-right: 5px
-                        display: block
-                        color: $font
-                    &.active, &:hover
-                        background: $secondary
-                        border: 1px solid $border
-    & div.content
-        width: 100%
-        & h1.title
-            font-size: 48px
-            background: $textBackground
-            background-clip: text
-            -webkit-background-clip: text
-            -webkit-text-fill-color: transparent
-            font-weight: 700
-            margin-bottom: 5px
-        & p.description
-            font-size: 22px
-            font-weight: 400
-            margin-bottom: 10px
-            color: $font2
-        & dialog.popup
-            display: block
-            position: fixed
-            z-index: 99
-            width: calc( 100% - 20px * 2 )
-            min-height: 100vh
-            height: 100%
-            display: flex
-            flex-direction: columns
-            align-items: center
-            justify-content: center
-            top: 0
-            left: 0
-            border: 0
-            outline: 0
-            padding: 0 20px
-            margin: 0
-            background: #00000000
-            opacity: 1
-            & div.background
-                width: 100%
-                min-height: 100vh
-                height: 100%
-                background: #00000075
-                position: absolute
-                top: 0
-                left: 0
-                z-index: 99
-                animation: opacityin 370ms ease-in-out
-                @keyframes opacityin
-                    0%
-                        opacity: 0
-                    100%
-                        opacity: 1
-            & form
-                max-width: 450px
-                width: 100%
-                background: $secondary
-                border: 1px solid $border
-                border-radius: $radius
-                box-shadow: 0 0 150px 5px #000000c0
-                display: flex
+            justify-content: space-between
+            gap: 2rem
+            width: 100%
+            @media screen and (max-width: 1215px)
                 flex-direction: column
-                align-items: flex-start
-                position: sticky
-                top: 100px
-                z-index: 100
-                animation: bouncein 350ms ease-in-out
-                @keyframes bouncein
-                    0%
-                        transform: scale(0.2)
-                        opacity: 0
-                    40%
-                        opacity: 1
-                    60%
-                        transform: scale(0.96)
-                    100%
-                        transform: scale(1)
-                & h1
-                    padding: 15px
-                    border-bottom: 1px solid $border
+            & li.card
+                width: 100%
+                & a
+                    text-decoration: none
+                    color: var(--font-st)
+                    min-height: calc( 280px - 25px * 2 )
+                    padding: 25px
+                    border-radius: 30px
+                    background: var(--secondary)
                     display: flex
-                    align-items: center
-                    margin-bottom: 15px
-                    width: calc( 100% - 15px * 2 )
-                    font-size: 20px
-                    justify-content: space-between
-                    & svg
-                        color: $font2
-                        padding: 7px
-                        border-radius: $radius
-                        cursor: pointer
-                        animation: opacityin 1000ms ease-in-out
-                        @keyframes opacityin
-                            0%
-                                opacity: 0
-                            100%
-                                opacity: 1
-                        &:hover
-                            background: $border
-                & p
-                    padding: 0 15px
-                    font-size: 16px
-                    color: $font2
-                    margin-bottom: 5px
-                    line-height: 1.5
-                & input
-                    padding: 10px
-                    width: calc( 100% - 25px * 2 )
-                    margin: 0 auto
-                    border: 1px solid $border
-                    background: $tertiary
-                    color: $font2
-                    font-weight: 400
-                    font-size: 14px
-                    border-radius: $radius
-                    margin-top: 10px
-                    &[type=file]
-                        position: absolute
-                        top: 0
-                        left: 0
-                        width: 0px
-                        height: 0px
-                        padding: 0
+                    flex-direction: column
+                    position: relative
+                    transition-duration: .2s
+                    z-index: 1
+                    @media screen and (max-width: 1810px)
+                        min-height: calc( 250px - 25px * 2 )
+                    @media screen and (max-width: 1450px)
+                        min-height: calc( 270px - 25px * 2 )
+                    @media screen and (max-width: 1215px)
+                        min-height: 100%
+                    @media screen and (max-width: 950px)
+                        padding: 20px
+                    &:hover
+                        background: var(--border-nd)
+                    & h1
+                        margin: 5px 0
+                        font-size: 30px
+                        font-weight: 600
+                        @media screen and (max-width: 950px)
+                            font-size: 24px
+                    & p
+                        font-size: 20px
                         margin: 0
-                        outline: 0
-                        border: 0
-                        &:focus
-                            outline: 0
-                    &:focus
-                        outline: 1px solid $colored2
-                & div.file
-                    display: flex
-                    align-items: center
-                    justify-content: space-between
-                    padding: 10px
-                    border: 1px solid $border
-                    background: $tertiary
-                    border-radius: $radius
-                    margin: 5px 0
-                    width: calc( 100% - 25px * 2 )
-                    color: $font2
-                    margin: 5px 15px
-                    & header
-                        display: flex
-                        align-items: center
+                        @media screen and (max-width: 950px)
+                            font-size: 18px
+                    & span
+                        position: absolute
+                        bottom: 25px
+                        right: 25px
+                        @media screen and (max-width: 1215px)
+                            top: 25px
+                        @media screen and (max-width: 950px)
+                            display: none
                         & svg
-                            color: $font2
-                            margin-right: 5px
-                    & div.progress
-                        max-width: 90px
-                        width: 100%
-                        border-radius: 10px
-                        height: 10px
-                        background: $border
-                        & div.value
-                            width: 0px
-                            background: $colored2
-                            border-radius: 10px
-                            height: 10px
-                            transition-duration: .2s
-                & label
-                    padding: 8px
-                    margin: 5px 15px
-                    margin-bottom: 0
-                    border-radius: $radius
-                    border: 1px solid $colored2
-                    cursor: pointer
-                    font-size: 13px
-                    font-weight: 400
-                    background: linear-gradient($colored2, $colored2b)
-                & div.footer
-                    display: flex
-                    flex-direction: row
-                    align-items: center
-                    width: calc( 100% - 15px * 2 )
-                    margin: 20px auto
-                    justify-content: flex-end
-                    & button
-                        cursor: pointer
-                        border-radius: $radius
-                        padding: 10px
-                        &[type=reset]
-                            margin-right: 10px
-                            background: $border
-                            border: 1px solid $border2
-                        &[type=submit]
-                            background: $colored2b
-                            border: 1px solid $colored2
-        & label.card
-            padding: 15px
-            border-radius: $radius
-            background: $secondary
-            border: 1px solid $border
-            display: flex
-            align-items: center
-            font-size: 16px
-            font-weight: 500
-            line-height: 0
-            margin-bottom: 10px
-            cursor: pointer
-            &:last-child
-                margin-bottom: 30px
-            & input[type=radio]
-                -webkit-appearance: none
-                appearance: none
+                            margin-left: 5px
+        & li.profile
+            max-width: 442px
+            max-height: calc( 280px - 30px * 2 )
+            height: 100%
+            width: 100%
+            padding: 30px
+            border-radius: 30px
+            background: var(--secondary)
+            @media screen and (max-width: 1810px)
+                max-width: 100%
+                width: calc( 100% - 30px * 2 )
+            @media screen and (max-width: 950px)
+                max-height: 100%
+                width: calc( 100% - 20px * 2 )
+                padding: 20px
+            & header
+                display: flex
+                align-items: center
+                & img
+                    border-radius: 50%
+                    margin-right: 15px
+                    @media screen and (max-width: 950px)
+                        max-width: 36px
+                        max-height: 36px
+                & div.data
+                    & h1
+                        font-size: 24px
+                        font-weight: 700
+                        margin: 2px 0
+                        word-wrap: anywhere
+                        @media screen and (max-width: 950px)
+                            font-size: 20px
+                    & p
+                        font-size: 16px
+                        font-weight: 400
+                        margin: 2px 0
+                        word-wrap: anywhere
+                        @media screen and (max-width: 950px)
+                            font-size: 14px
+            & h2
+                font-size: 14px
+                font-weight: 700
+                text-transform: uppercase
+                margin: 35px 0 10px 0
+            & ul
                 margin: 0
-                color: $font
-                width: 15px
-                height: 15px
-                border: 2px solid $border
-                background: $tertiary
-                border-radius: 50%
-                margin-right: 12.5px
-                margin-top: -1px
-                &:checked
-                    background: $border
-                    border: 2px solid $border !important
-                &:hover
-                    border: 2px solid $border2
+                padding: 0
+                list-style: none
+                display: flex
+                flex-wrap: wrap
+                gap: .7rem
+                & li
+                    max-width: 200px
+                    display: flex
+                    align-items: center
+                    & svg
+                        margin-right: 10px
+                        min-width: 16px
+    & ul.connections
+        display: flex
+        flex-direction: column
+        list-style: none
+        padding: 0
+        margin: 0
+        width: 100%
+        gap: 2rem
+        height: 100%
+        margin-bottom: 50px
+        & li.card
+            text-decoration: none
+            color: var(--font-st)
+            width: calc( 100% - 25px * 2 )
+            height: fit-content
+            padding: 25px
+            border-radius: 30px
+            background: var(--secondary)
+            display: flex
+            flex-direction: column
+            position: relative
+            transition-duration: .2s
+            z-index: 1
             & header
                 display: flex
                 align-items: center
                 justify-content: space-between
-                width: 100%
-        & div.card
-            padding: 20px
-            border-radius: $radius
-            background: $secondary
-            border: 1px solid $border
-            display: flex
-            align-items: center
-            @media screen and (max-width: 450px)
-                flex-direction: column
-                align-items: flex-start
-            & img
-                border-radius: 50%
-                @media screen and (max-width: 620px)
-                    max-width: 50px
-                    width: auto
-                    height: auto
-            & div.content
-                margin-left: 15px
-                @media screen and (max-width: 450px)
-                    margin-left: 0
-                & div.username
+                margin-bottom: 5px
+                @media screen and (max-width: 950px)
+                    flex-direction: column
+                & div.name
                     display: flex
                     align-items: center
-                    @media screen and (max-width: 620px)
-                        flex-direction: column
-                        align-items: flex-start
+                    gap: 1px
                     & h1
-                        font-size: 32px
-                        @media screen and (max-width: 620px)
-                            font-size: 28px
-                    & button
-                        margin-left: 10px
-                        background: 0
-                        border: 0
-                        outline: 0
-                        padding: 0
-                        width: fit-content
-                        height: fit-content
-                        color: $colored2
-                        cursor: pointer
-                        font-size: 16px
-                        @media screen and (max-width: 620px)
-                            margin-left: 0
-                        &:hover
-                            text-decoration: underline
-                & div.email
-                    color: $font2
+                        margin: 0
+                        font-size: 26px
+                        font-weight: 600
+                    & svg
+                        margin-right: 5px
+                & button
+                    display: block
+                    padding: 5px 7px
+                    border-radius: 50px
                     font-size: 16px
+                    font-weight: 500
+                    color: var(--primary)
+                    background: var(--font-st)
+                    outline: 0
+                    border: 0
+                    cursor: pointer
+                    transition-duration: .2s
+                    @media screen and (max-width: 950px)
+                        font-size: 14px
+                        margin: 3px 0
+                        padding: 2px 4px
+                    &:hover
+                        background: var(--font-nd)
+            & p
+                font-size: 20px
+                margin: 0
+                @media screen and (max-width: 950px)
+                    font-size: 16px
+                    margin-top: 5px
+            & ul
+                margin: 2px 0
+                padding: 0
+                padding-left: 15px
+            & span
+                position: absolute
+                bottom: 25px
+                right: 25px
+                opacity: .7
+                @media screen and (max-width: 950px)
+                    display: none
+                & svg
+                    margin-left: 5px

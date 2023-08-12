@@ -1,273 +1,112 @@
-'use client';
+import { axiosClient } from '@util/axios';
+import o from '@sass/account/security/page.module.sass';
+import { cookies } from 'next/headers';
+import Card from './Device';
+import { Device, Response, User } from '@util/schema';
+import Opt from './Opt';
+import Password from './Password';
+import Email from './Email';
 
-import { useEffect, useState } from 'react';
-import { Response, Activity, User } from '@/Interfaces';
-import { axiosClient } from '@/utils';
-import { getCookie, setCookie } from 'cookies-next';
-import Loader from '@/loader';
-import Device from './device';
-
-import o from '~/account/page.module.sass';
-import oa from '~/account/security.module.sass';
-
-export default function AccountSecurity() {
-    const [passwordPopup, setPasswordPopup] = useState<boolean>(false);
-    const [emailPopup, setEmailPopup] = useState<boolean>(false);
-    const [loading, setLoading] = useState<boolean>(true);
-    const [data, setData] = useState<Response<Activity[]>>();
-    const [user, setUser] = useState<Response<User>>();
-    const [postError, setPostError] = useState<string>();
-
-    const throwError = (message?: string, bool?: boolean) => {
-        if (bool === false) return setPostError('');
-
-        if (message) {
-            setPostError(message.charAt(0).toUpperCase() + message.slice(1).toLowerCase());
-
-            setTimeout(() => setPostError(''), 5000);
-        }
-    };
-
-    useEffect(() => {
-        const getData = async () => {
-            await axiosClient
-                .get('/users/me', { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } })
-                .then(async (res) => {
-                    res.data ? setUser(res.data) : null;
-
-                    await axiosClient
-                        .get('/users/me/activity?perPage=3', { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } })
-                        .then((res) => (res.data ? setData(res.data) : null, setLoading(false)))
-                        .catch(async (err) => (err.response?.data ? setData(err.response.data) : null, setLoading(false)));
-                })
-                .catch((err) => (err.response?.data ? setUser(err.response.data) : null, setLoading(false)));
-        };
-
-        getData();
-    }, []);
-
-    const handleActivityOptOut = async () =>
+export default async function Overview() {
+    const user: Response<User> = (
         await axiosClient
-            .patch('/users/me', { trackActivity: false }, { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } })
-            .then(() => window.location.reload())
-            .catch((err) => (err.response?.data.body.error ? throwError(err.response.data.body.error.message) : null));
-
-    const handleActivityOptIn = async () =>
-        await axiosClient
-            .patch('/users/me', { trackActivity: true }, { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } })
-            .then(() => window.location.reload())
-            .catch((err) => (err.response?.data.body.error ? throwError(err.response.data.body.error.message) : null));
-
-    const handlePasswordUpdate = async (event: any) => {
-        event.preventDefault();
-
-        await axiosClient
-            .patch(
-                '/users/password',
-                {
-                    oldPassword: event.target.oldPassword.value,
-                    newPassword: event.target.newPassword.value,
-                },
-                { headers: { 'Content-Type': 'application/json', Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } }
-            )
-            .then((res) => {
-                const token = res.data.body.data.token;
-
-                setCookie('napiAuthorizationToken', token, {
-                    maxAge: 3 * 30 * 24 * 60 * 60,
-                    domain: 'nove.team',
-                    sameSite: 'strict',
-                    secure: true,
-                });
-
-                window.location.reload();
+            .get('/v1/users/me', {
+                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
             })
-            .catch((err) =>
-                err.response.data.body.error
-                    ? throwError(err.response.data.body.error?.details ? err.response.data.body.error.details[0].message : err.response.data.body.error.message)
-                    : null
-            );
-    };
+            .catch((e) => e.response)
+    ).data;
 
-    return loading ? (
-        <main>
-            <title>Dashboard — Nove</title>
-            <Loader type="window" />
-        </main>
-    ) : data?.body && user?.body?.data ? (
+    const device: Response<Device[]> = (
+        await axiosClient
+            .get('/v1/users/me/activity?perPage=3', {
+                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
+            })
+            .catch((e) => e.response)
+    ).data;
+
+    return user?.body?.data?.username && device?.body ? (
         <div className={o.content}>
-            {postError ? <p className="error">{postError}</p> : null}
-            {passwordPopup ? (
-                <dialog id="changeName" className={o.popup}>
-                    <div onClick={() => setPasswordPopup(false)} className={o.background}></div>
-                    <form autoComplete="off" onSubmit={handlePasswordUpdate}>
-                        <h1>
-                            Change your password
-                            <svg onClick={() => setPasswordPopup(false)} xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
-                                <path
-                                    fill="currentColor"
-                                    d="M 4.9902344 3.9902344 A 1.0001 1.0001 0 0 0 4.2929688 5.7070312 L 10.585938 12 L 4.2929688 18.292969 A 1.0001 1.0001 0 1 0 5.7070312 19.707031 L 12 13.414062 L 18.292969 19.707031 A 1.0001 1.0001 0 1 0 19.707031 18.292969 L 13.414062 12 L 19.707031 5.7070312 A 1.0001 1.0001 0 0 0 18.980469 3.9902344 A 1.0001 1.0001 0 0 0 18.292969 4.2929688 L 12 10.585938 L 5.7070312 4.2929688 A 1.0001 1.0001 0 0 0 4.9902344 3.9902344 z"></path>
-                            </svg>
-                        </h1>
-                        <p>Choose a strong password and do not reuse it for other accounts. Changing your password will sign you out on your devices.</p>
-                        <input
-                            required
-                            minLength={1}
-                            maxLength={128}
-                            autoComplete="off"
-                            autoFocus={true}
-                            autoCorrect="off"
-                            type="password"
-                            placeholder="Verify your old password"
-                            id="oldPassword"
-                            name="oldPassword"
-                        />
-                        <input
-                            required
-                            minLength={8}
-                            maxLength={128}
-                            autoComplete="off"
-                            autoFocus={false}
-                            autoCorrect="off"
-                            type="password"
-                            placeholder="New password"
-                            id="newPassword"
-                            name="newPassword"
-                        />
-                        <div className={o.footer}>
-                            <button onClick={() => setPasswordPopup(false)} type="reset">
-                                Cancel
-                            </button>
-                            <button type="submit" id="pevs">
-                                Save changes
-                            </button>
-                        </div>
-                    </form>
-                </dialog>
-            ) : null}
-            {emailPopup ? (
-                <dialog id="changeName" className={o.popup}>
-                    <div onClick={() => setEmailPopup(false)} className={o.background}></div>
-                    <form autoComplete="off">
-                        <h1>
-                            Change your email
-                            <svg onClick={() => setEmailPopup(false)} xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
-                                <path
-                                    fill="currentColor"
-                                    d="M 4.9902344 3.9902344 A 1.0001 1.0001 0 0 0 4.2929688 5.7070312 L 10.585938 12 L 4.2929688 18.292969 A 1.0001 1.0001 0 1 0 5.7070312 19.707031 L 12 13.414062 L 18.292969 19.707031 A 1.0001 1.0001 0 1 0 19.707031 18.292969 L 13.414062 12 L 19.707031 5.7070312 A 1.0001 1.0001 0 0 0 18.980469 3.9902344 A 1.0001 1.0001 0 0 0 18.292969 4.2929688 L 12 10.585938 L 5.7070312 4.2929688 A 1.0001 1.0001 0 0 0 4.9902344 3.9902344 z"></path>
-                            </svg>
-                        </h1>
-                        <p>
-                            The address where we can contact you if there is an unusual activity in your account or if you get locked out. You can also use it to log in to your
-                            Nove account.
-                        </p>
-                        <input autoComplete="off" autoFocus={true} autoCorrect="off" type="text" placeholder="Password" id="password" name="password" />
-                        <input
-                            autoComplete="off"
-                            autoFocus={false}
-                            autoCorrect="off"
-                            type="text"
-                            placeholder="New contact email"
-                            id="accountRecoveryEmail"
-                            name="accountRecoveryEmail"
-                        />
-                        <div className={o.footer}>
-                            <button onClick={() => setEmailPopup(false)} type="reset">
-                                Cancel
-                            </button>
-                            <button type="submit">Save changes</button>
-                        </div>
-                    </form>
-                </dialog>
-            ) : null}
             <h1 className={o.title}>Security</h1>
-            <div className={oa.security}>
-                <div className={oa.card}>
-                    <header>Your devices</header>
-                    {!data.body?.error ? (
-                        <>
-                            <p>List of most recent devices that logged in to your account this month</p>
-                            {data.body?.data.map((device) => {
-                                const date = new Date(device.updatedAt);
+            <div className={o.devices}>
+                <h2>Your devices</h2>
+                <p>List of most recent devices that logged in to your account this month</p>
+                <ul className={o.devices}>
+                    {device.body?.data?.length >= 1 ? (
+                        device.body.data.map((item) => {
+                            const date = new Date(item.updatedAt);
 
-                                return (
-                                    <Device
-                                        key={device.id}
-                                        icon={device.device}
-                                        name={device.os_name + ' ' + device.os_version}
-                                        date={date.toLocaleString(user.body.data.language, { day: 'numeric', month: 'short' })}
-                                        ip={device.ip}
-                                    />
-                                );
-                            })}
-                            <p className={oa.bottom}>
-                                We store information about recent devices that logged in to your account in the last month on our servers.{' '}
-                                <a onClick={handleActivityOptOut}>Opt-out</a>
-                            </p>
-                        </>
+                            return (
+                                <Card
+                                    key={item.id}
+                                    addr={item.ip}
+                                    object={item.device}
+                                    name={item.os_name + ' ' + item.os_version}
+                                    date={date.toLocaleString(user.body.data.language, { day: 'numeric', month: 'short' })}
+                                />
+                            );
+                        })
                     ) : (
-                        <p className={oa.bottom}>
-                            You disabled activity logging on your account. <a onClick={handleActivityOptIn}>Enable</a>
-                        </p>
+                        <li>
+                            <header>
+                                <div className={o.align}>
+                                    No device data found
+                                    <span>You have opted-out from activity or we did not record any yet</span>
+                                </div>
+                            </header>
+                        </li>
                     )}
-                </div>
-                <div className={oa.card}>
-                    <header>How do you sign in</header>
-                    <p>Add more secure ways of signing in to your account and confirming your identity</p>
-                    <div onClick={() => setPasswordPopup(true)} className={oa.option}>
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
+                </ul>
+                <p>
+                    We store information about devices that logged in to your account in the last month on our servers. <Opt data={device.body.data} />
+                </p>
+            </div>
+            <div className={o.hds}>
+                <aside>
+                    <h2>How do you sign in</h2>
+                    <p>Add or modify ways of signing in and confirming your identity</p>
+                </aside>
+                <ul className={o.buttons}>
+                    <Password />
+                    <Email />
+                    <li className="disabled">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 24 24">
                             <path
                                 fill="currentColor"
-                                d="M 12 1 C 8.6761905 1 6 3.6761905 6 7 L 6 8 C 4.9 8 4 8.9 4 10 L 4 20 C 4 21.1 4.9 22 6 22 L 18 22 C 19.1 22 20 21.1 20 20 L 20 10 C 20 8.9 19.1 8 18 8 L 18 7 C 18 3.6761905 15.32381 1 12 1 z M 12 3 C 14.27619 3 16 4.7238095 16 7 L 16 8 L 8 8 L 8 7 C 8 4.7238095 9.7238095 3 12 3 z M 12 13 C 13.1 13 14 13.9 14 15 C 14 16.1 13.1 17 12 17 C 10.9 17 10 16.1 10 15 C 10 13.9 10.9 13 12 13 z"></path>
+                                d="M 4 3 C 2.895 3 2 3.895 2 5 L 2 7.1484375 C 2 7.5644375 2.2378125 7.9705625 2.6328125 8.1015625 C 3.4278125 8.3655625 4 9.116 4 10 C 4 10.884 3.4278125 11.634438 2.6328125 11.898438 C 2.2378125 12.029438 2 12.435562 2 12.851562 L 2 15 C 2 16.105 2.895 17 4 17 L 20 17 C 21.105 17 22 16.105 22 15 L 22 12.851562 C 22 12.435562 21.762187 12.029437 21.367188 11.898438 C 20.572188 11.634438 20 10.884 20 10 C 20 9.116 20.572187 8.3655625 21.367188 8.1015625 C 21.762188 7.9705625 22 7.5644375 22 7.1484375 L 22 5 C 22 3.895 21.105 3 20 3 L 4 3 z M 4.9003906 19 L 17.339844 21.929688 C 17.549844 21.979688 17.750937 22 17.960938 22 C 19.170938 22 20.270312 21.190234 20.570312 19.990234 L 20.820312 19 L 4.9003906 19 z"></path>
                         </svg>
-                        Password
-                    </div>
-                    <div onClick={() => setEmailPopup(true)} className={oa.option + ' disabled'}>
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
+
+                        <h1>
+                            2FA
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="14" height="14" viewBox="0 0 30 30">
+                                <path
+                                    fill="currentColor"
+                                    d="M 9.9902344 3.9902344 A 1.0001 1.0001 0 0 0 9.2929688 5.7070312 L 18.585938 15 L 9.2929688 24.292969 A 1.0001 1.0001 0 1 0 10.707031 25.707031 L 20.707031 15.707031 A 1.0001 1.0001 0 0 0 20.707031 14.292969 L 10.707031 4.2929688 A 1.0001 1.0001 0 0 0 9.9902344 3.9902344 z"></path>
+                            </svg>
+                        </h1>
+                    </li>
+                    <li className="disabled">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 24 24">
                             <path
                                 fill="currentColor"
-                                d="M20,4H4C2.895,4,2,4.895,2,6v12c0,1.105,0.895,2,2,2h16c1.105,0,2-0.895,2-2V6C22,4.895,21.105,4,20,4z M19.601,8.249 l-7.071,4.42c-0.324,0.203-0.736,0.203-1.06,0l-7.071-4.42C4.151,8.094,4,7.822,4,7.53v0c0-0.666,0.733-1.072,1.297-0.719L12,11 l6.703-4.189C19.267,6.458,20,6.864,20,7.53v0C20,7.822,19.849,8.094,19.601,8.249z"></path>
+                                d="M 22 2 L 19.058594 4.9414062 C 16.865786 2.7436807 13.666769 1.5536385 10.212891 2.15625 C 6.1828906 2.86025 2.9227344 6.0746563 2.1777344 10.097656 C 1.0007344 16.443656 5.864 22 12 22 C 17.134 22 21.3785 18.109094 21.9375 13.121094 C 22.0045 12.525094 21.5375 12 20.9375 12 C 20.4375 12 20.007125 12.368234 19.953125 12.865234 C 19.520125 16.870234 16.119 20 12 20 C 7.059 20 3.1501562 15.498859 4.1601562 10.380859 C 4.7681562 7.3008594 7.2335937 4.8107812 10.308594 4.1757812 C 13.170804 3.5850239 15.832013 4.545023 17.642578 6.3574219 L 15 9 L 22 9 L 22 2 z"></path>
                         </svg>
-                        Email
-                    </div>
-                    <div onClick={() => setEmailPopup(true)} className={oa.option + ' disabled'}>
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
-                            <path
-                                fill="currentColor"
-                                d="M20,4H4C2.895,4,2,4.895,2,6v12c0,1.105,0.895,2,2,2h16c1.105,0,2-0.895,2-2V6C22,4.895,21.105,4,20,4z M19.601,8.249 l-7.071,4.42c-0.324,0.203-0.736,0.203-1.06,0l-7.071-4.42C4.151,8.094,4,7.822,4,7.53v0c0-0.666,0.733-1.072,1.297-0.719L12,11 l6.703-4.189C19.267,6.458,20,6.864,20,7.53v0C20,7.822,19.849,8.094,19.601,8.249z"></path>
-                        </svg>
-                        Recovery email
-                    </div>
-                    <div className={oa.option + ' disabled'}>
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
-                            <path
-                                fill="currentColor"
-                                d="M 6 2 C 4.895 2 4 2.895 4 4 L 4 19 C 4 20.64497 5.3550302 22 7 22 L 19 22 A 1.0001 1.0001 0 1 0 19 20 L 7 20 C 6.4349698 20 6 19.56503 6 19 C 6 18.43497 6.4349698 18 7 18 L 19 18 A 1.0001 1.0001 0 0 0 20 16.841797 L 20 3 C 20 2.448 19.552 2 19 2 L 16 2 L 16 12 L 13 10 L 10 12 L 10 2 L 6 2 z"></path>
-                        </svg>
-                        Recovery passphrase
-                    </div>
-                    <div className={oa.option + ' disabled'}>
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
-                            <path
-                                fill="currentColor"
-                                d="M21.694,15.28L21.694,15.28c-0.399-0.399-1.05-0.389-1.436,0.024l-1.708,1.832L17.414,16l1.293-1.293 c0.39-0.39,0.39-1.023,0-1.413l-0.001-0.001c-0.39-0.39-1.023-0.39-1.413,0L16,14.586l-3.791-3.792l0.21-0.44 c0.914-1.913,0.676-4.249-0.783-5.788C9.453,2.264,5.617,2.512,3.789,5.31C2.887,6.69,2.738,8.49,3.412,9.995 c1.212,2.708,4.29,3.689,6.745,2.518l0.637-0.305l8.499,8.499c0.39,0.39,1.023,0.39,1.413,0l0.001-0.001 c0.39-0.39,0.39-1.023,0-1.413l-0.744-0.744l1.754-1.88C22.085,16.276,22.075,15.661,21.694,15.28z M10.127,10.127 c-1.17,1.17-3.073,1.17-4.243,0c-1.17-1.17-1.17-3.073,0-4.243c1.17-1.17,3.073-1.17,4.243,0 C11.296,7.054,11.296,8.957,10.127,10.127z"></path>
-                        </svg>
-                        Add two factor authentication
-                    </div>
-                </div>
+
+                        <h1>
+                            Recovery
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="14" height="14" viewBox="0 0 30 30">
+                                <path
+                                    fill="currentColor"
+                                    d="M 9.9902344 3.9902344 A 1.0001 1.0001 0 0 0 9.2929688 5.7070312 L 18.585938 15 L 9.2929688 24.292969 A 1.0001 1.0001 0 1 0 10.707031 25.707031 L 20.707031 15.707031 A 1.0001 1.0001 0 0 0 20.707031 14.292969 L 10.707031 4.2929688 A 1.0001 1.0001 0 0 0 9.9902344 3.9902344 z"></path>
+                            </svg>
+                        </h1>
+                    </li>
+                </ul>
             </div>
         </div>
     ) : (
-        <main>
-            <title>Dashboard — Nove</title>
-            <Loader
-                type="hidden"
-                text={
-                    user?.body?.error?.message
-                        ? user.body.error.message.charAt(0) + user.body.error.message.slice(1).toLowerCase()
-                        : "Something went wrong and we can't reach the API"
-                }
-            />
-        </main>
+        <div className={o.content}>
+            <h1 className={o.title}>Something is wrong with the API</h1>
+            <p>We cannot sign your session which leads to data retrieval failure</p>
+        </div>
     );
 }

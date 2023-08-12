@@ -1,14 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     experimental: {
-        appDir: true,
+        serverActions: true,
     },
     sassOptions: {
         includePaths: ['./app', './sass'],
     },
     images: {
-        domains: ['api.nove.team', 'files-api.nove.team', 'f.nove.team'],
-    },
+        domains: ['api.nove.team'],
+    }
 };
 
 module.exports = nextConfig;

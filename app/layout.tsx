@@ -1,28 +1,36 @@
-import '~/globals.sass';
+/* 
+ Tool to manage your Nove account through NAPI
+ Copyright (C) 2019 Nove Group
 
-import Navigation from '@/navigation';
-import Footer from '@/footer';
-import CookiePrompt from '@/cookiePrompt';
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Affero General Public License as
+ published by the Free Software Foundation, either version 3 of the
+ License, or (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Affero General Public License for more details.
+
+ You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+import '@sass/globals.sass';
+import Navigation from '@app/Navigation';
+import Footer from '@app/Footer';
 
 export const metadata = {
     metadataBase: new URL('https://nove.team'),
+    title: 'Meet the world where your privacy matters',
+    description: 'Ditch Google, Facebook and other companies that sell data, profile and track you.',
     viewport: {
         width: 'device-width',
         initialScale: 1,
         maximumScale: 1,
     },
-    title: 'Live. Laugh. Nove.',
-    description:
-        'An unexpected focus on privacy with all standard features or even more. Surprising emphasis on data security. Enjoy everything for free and open-source to everyone.',
     category: 'technology',
-    assets: ['https://nove.team/cdn/assets'],
-    colorScheme: 'dark',
     publisher: 'Nove Group',
-    formatDetection: {
-        email: false,
-        address: false,
-        telephone: false,
-    },
     alternates: {
         canonical: '/',
     },
@@ -34,28 +42,12 @@ export const metadata = {
         description:
             'An unexpected focus on privacy with all standard features or even more. Surprising emphasis on data security. Enjoy everything for free and open-source to everyone.',
         authors: ['Nove Group'],
-        images: [
-            {
-                url: '/cdn/assets/banner.png',
-                alt: 'Live. Laugh. Nove campaign banner',
-                width: 1920,
-                height: 1080,
-            },
-        ],
     },
     twitter: {
         card: 'summary_large_image',
         title: 'Live. Laugh. Nove.',
         description:
             'An unexpected focus on privacy with all standard features or even more. Surprising emphasis on data security. Enjoy everything for free and open-source to everyone.',
-        images: [
-            {
-                url: 'https://nove.team/cdn/assets/banner.png',
-                alt: 'Live. Laugh. Nove campaign banner',
-                width: 1920,
-                height: 1080,
-            },
-        ],
     },
     authors: { name: 'Nove Group', url: 'https://nove.team' },
     keywords: ['nove', 'vave', 'vave bot', 'nove team', 'nove group'],
@@ -63,18 +55,10 @@ export const metadata = {
         index: true,
         follow: true,
     },
-    themeColor: [
-        { media: '(prefers-color-scheme: light)', color: '#f2f3f5' },
-        { media: '(prefers-color-scheme: dark)', color: '#2b2d31' },
-    ],
     icons: {
-        icon: 'https://nove.team/cdn/assets/logo.png',
-        shortcut: 'https://nove.team/cdn/assets/banner.png',
-        apple: 'https://nove.team/cdn/assets/logo.png',
-        other: {
-            rel: 'apple-touch-icon-precomposed',
-            url: 'https://nove.team/cdn/assets/logo.png',
-        },
+        icon: '/logo.png',
+        shortcut: '/logo.png',
+        apple: '/logo.png',
     },
 };
 
@@ -82,11 +66,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="en">
             <body>
-                <CookiePrompt />
-
                 <Navigation />
 
-                {children}
+                <main>{children}</main>
 
                 <Footer />
             </body>
