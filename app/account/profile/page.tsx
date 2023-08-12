@@ -3,6 +3,7 @@ import Image from 'next/image';
 import o from '@sass/account/profile/page.module.sass';
 import { cookies } from 'next/headers';
 import { Response, User } from '@util/schema';
+import Username from './Username';
 
 export default async function Overview() {
     const user: Response<User> = (
@@ -27,13 +28,7 @@ export default async function Overview() {
                     <Image src={user.body.data.avatar} alt="Avatar" width="36" height="36" />
                     <button>Edit</button>
                 </li>
-                <header>Username</header>
-                <li>
-                    <p>
-                        {user.body.data.username} <span>{user.body.data.id}</span>
-                    </p>
-                    <button>Edit</button>
-                </li>
+                <Username user={user.body.data} cookie={cookies().get('napiAuthorizationToken')?.value} />
             </ul>
             <h2>Details</h2>
             <ul className={o.options}>
