@@ -5,10 +5,13 @@ import Image from 'next/image';
 import { User } from '@util/schema';
 import { useState } from 'react';
 import o from '@sass/account/profile/page.module.sass';
+import mime from 'mime-types';
 
 export default function Avatar({ user, cookie }: { user: User; cookie?: string }) {
     const [edit, setEdit] = useState<boolean>(false);
     const [postError, setPostError] = useState<string>();
+    const [fileName, setFileName] = useState<string>();
+    const [selected, setSelected] = useState<boolean>(false);
 
     const throwError = (message?: string, bool?: boolean) => {
         if (bool === false) return setPostError('');
@@ -34,6 +37,27 @@ export default function Avatar({ user, cookie }: { user: User; cookie?: string }
             });
     };
 
+    const handleFileUpload = (e: any) => {
+        setSelected(true), setFileName(e.target.value.replace(/.*[\/\\]/, ''));
+
+        const elm = document.querySelector('input[type="file"]') as HTMLInputElement;
+        const ext = mime.contentType(e.target.value.replace(/.*[\/\\]/, ''));
+
+        if (!elm || !elm.files) return setSelected(false);
+
+        if (!ext.toString().startsWith('image/')) {
+            throwError('The file type you are trying to upload is not allowed');
+            (document.getElementById('fileForm') as HTMLFormElement).reset();
+            return setSelected(false);
+        }
+
+        if (elm.files[0].size > 20000000) {
+            throwError('The file type you are trying to upload is too big');
+            (document.getElementById('fileForm') as HTMLFormElement).reset();
+            return setSelected(false);
+        }
+    };
+
     return (
         <>
             <header>Avatar</header>
@@ -45,7 +69,11 @@ export default function Avatar({ user, cookie }: { user: User; cookie?: string }
                     </>
                 ) : (
                     <form onSubmit={handleSubmit}>
-                        <input onChange={handleSubmit} id="accountAvatarUpdate" name="accountAvatarUpdate" type="file" accept="image/*" required />
+                        <label>
+                            <input onChange={handleFileUpload} id="accountAvatarUpdate" name="accountAvatarUpdate" type="file" accept="image/*" required />
+                            <a>Select file</a>
+                            <p>{selected ? fileName : 'Nothing is selected'}</p>
+                        </label>
                         <button type="submit">Save</button>
                         {postError ? <p className={o.error}>{postError}</p> : null}
                     </form>
