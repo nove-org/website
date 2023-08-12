@@ -1,11 +1,11 @@
 import { axiosClient } from '@util/axios';
-import Image from 'next/image';
 import o from '@sass/account/profile/page.module.sass';
 import { cookies } from 'next/headers';
 import { Response, User } from '@util/schema';
 import Username from './Username';
 import Bio from './Bio';
 import ProfilePublic from './ProfilePublic';
+import Avatar from './Avatar';
 
 export default async function Overview() {
     const user: Response<User> = (
@@ -27,11 +27,7 @@ export default async function Overview() {
             </p>
             <h2>Basic account info</h2>
             <ul className={o.options}>
-                <header>Avatar</header>
-                <li>
-                    <Image src={user.body.data.avatar} alt="Avatar" width="36" height="36" />
-                    <button>Edit</button>
-                </li>
+                <Avatar user={user.body.data} cookie={cookie} />
                 <Username user={user.body.data} cookie={cookie} />
             </ul>
             <h2>Details</h2>

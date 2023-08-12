@@ -6,7 +6,6 @@ import { useState } from 'react';
 import o from '@sass/account/profile/page.module.sass';
 
 export default function Bio({ user, cookie }: { user: User; cookie?: string }) {
-    const [edit, setEdit] = useState<boolean>(false);
     const [postError, setPostError] = useState<string>();
 
     const throwError = (message?: string, bool?: boolean) => {
@@ -23,7 +22,7 @@ export default function Bio({ user, cookie }: { user: User; cookie?: string }) {
         e.preventDefault(),
         await axiosClient
             .patch('/v1/users/me', { bio: e.target.bio.value }, { headers: { Authorization: `Owner ${cookie}` } })
-            .then(() => (setEdit(false), window.location.reload()))
+            .then(() => window.location.reload())
             .catch((e) => throwError(e.response?.data.body?.error.message ? e.response.data.body.error.message : 'Something went wrong and we cannot explain it.'))
     );
 
@@ -34,6 +33,7 @@ export default function Bio({ user, cookie }: { user: User; cookie?: string }) {
                 <form onSubmit={handleSubmit}>
                     <textarea spellCheck={false} name="bio" defaultValue={user.bio} />
                     <button type="submit">Save</button>
+                    {postError ? <p className={o.error}>{postError}</p> : null}
                 </form>
             </li>
         </>
