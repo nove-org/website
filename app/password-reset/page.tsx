@@ -25,14 +25,14 @@ export default function PasswordReset() {
         }
     };
 
-    // useEffect(() => {
-    //     const fetchUser = async () =>
-    //         await axiosClient
-    //             .get('/v1/users/me', { headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } })
-    //             .then((user) => (user.data?.body?.data?.username ? window.location.replace(searchParams.get('redirectBack') || '/account') : setLoading(false)))
-    //             .catch(() => setLoading(false));
-    //     fetchUser();
-    // }, [searchParams]);
+    useEffect(() => {
+        const fetchUser = async () =>
+            await axiosClient
+                .get('/v1/users/me', { headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } })
+                .then((user) => (user.data?.body?.data?.username ? window.location.replace(searchParams.get('redirectBack') || '/account') : setLoading(false)))
+                .catch(() => setLoading(false));
+        fetchUser();
+    }, [searchParams]);
 
     const handleLogin = async (form: FormData) =>
         await axiosClient
