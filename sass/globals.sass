@@ -16,6 +16,7 @@
  along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
 @use './brand' as *
+@import url(https://f.nove.team/fonts/inter/conf.css)
 
 .disabled
     pointer-events: none
@@ -48,6 +49,7 @@ p.error
     -webkit-font-smoothing: antialiased
     -moz-osx-font-smoothing: grayscale
     text-rendering: optimizeLegibility
+    font-family: 'Inter', sans-serif
 
 img
     pointer-events: none
@@ -65,7 +67,6 @@ body
     min-height: 100vh
     background: linear-gradient(180deg, var(--primary), var(--primary)) #fff no-repeat 50% fixed
     color: var(--font-st)
-    font-family: 'Inter', sans-serif
     background-size: cover
     & main
         width: calc(100% - 100px * 2)
