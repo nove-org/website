@@ -11,7 +11,7 @@ export default function About() {
             <p className={o.desc}>We provide tools free from bloatware, trackers, and annoying advertisements. With free &amp; open-source policy.</p>
             <ul>
                 <li>
-                    <Image src="https://api.nove.team/v1/users/00000002/avatar.webp" width="64" height="64" alt="Avatar" />
+                    <Image src="https://api.nove.team/v1/users/b9dk4Pdm/avatar.webp" width="64" height="64" alt="Avatar" />
                     <h1>JuzioMiecio520</h1>
                     <p>CEO and back-end developer</p>
                 </li>
