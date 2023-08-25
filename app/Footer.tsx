@@ -16,7 +16,7 @@ export default function Footer() {
                     </div>
                     <div className={o.copyright}>
                         &copy; 2019-{year} Licensed under{' '}
-                        <a href="https://www.gnu.org/licenses/agpl-3.0.en.html" target="_blank">
+                        <a href="https://www.gnu.org/licenses/agpl-3.0.en.html" rel="noopener noreferrer" target="_blank">
                             AGPL-3.0
                         </a>
                     </div>
@@ -33,7 +33,7 @@ export default function Footer() {
                             <a href={REPOSITORY + '/wiki'}>Docs</a>
                         </li>
                         <li>
-                            <a target="_blank" href={DONATE_LINK}>
+                            <a target="_blank" rel="noopener noreferrer" href={DONATE_LINK}>
                                 Donate
                             </a>
                         </li>
@@ -49,7 +49,7 @@ export default function Footer() {
                     </ul>
                     <ul>
                         <li>
-                            <a target="_blank" href={REPOSITORY}>
+                            <a target="_blank" rel="noopener noreferrer" href={REPOSITORY}>
                                 GitHub
                             </a>
                         </li>
