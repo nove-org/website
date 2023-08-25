@@ -6,15 +6,20 @@ export default function Terms() {
             <title>Privacy Policy — Nove</title>
             <h1>Privacy Policy</h1>
             <h2>
-                Last modified: <time>12th of August 2023</time>
+                Last modified: <time>25th of August 2023</time>
             </h2>
             <p>
                 We serve (mostly) free and open-source services. We do not track nor sell user&apos;s data to third-parties. We keep our services simple, without requests to Google
                 or Facebook. We do not use tracking pixel, fingerprinting. We do not profile our user&apos;s.
             </p>
             <p>
-                We use Cloudflare (pending change) to connect you with our servers. The connection is not proxied by Cloudflare servers, so you connect directly with us. That means
-                Cloudflare is not able to collect any data about the traffic.
+                We use Cloudflare (pending change) to connect you with our servers. The connection is not proxied through Cloudflare servers, so you connect directly with us. That
+                means Cloudflare is not able to collect any data about the traffic and they are only our authoritative name servers, which as mentioned earlier is changing soon to
+                protect privacy of our users.
+            </p>
+            <p>
+                We are currently in the beta stage, so if you want to delete your account data please reach out to us through mail. All your data will be deleted as fast as
+                possible and as smooth as possible. This will change in the future.
             </p>
             <p>
                 We use Contabo as our infrastructure. They provide servers for us so we can keep our services running. You can read Contabo privacy policy on their{' '}
@@ -43,7 +48,7 @@ export default function Terms() {
             <p>Provided email is not used for marketing purposes, we only use it to confirm your identity, notify you about new login or to confirm email change</p>
             <p>We keep the right to update this Privacy Policy without notifying users about the change.</p>
             <p>By using our services you agree to this document.</p>
-            <p>Data you encrypted in our services using your password is truly encrypted and we cannot decrypt it.</p>
+            <p>Data you have encrypted in our services using your password is truly encrypted and we cannot decrypt it.</p>
         </article>
     );
 }
