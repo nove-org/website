@@ -27,7 +27,7 @@ export default function Terms() {
                     website
                 </a>
             </p>
-            <p>In our database, we only store necessary data you provided us through NAPI. Detailing</p>
+            <p>In our database, we only store necessary info you provided us through NAPI. Detailing</p>
             <ul>
                 <li>username</li>
                 <li>email</li>
@@ -42,12 +42,13 @@ export default function Terms() {
                 <li>account avatar</li>
             </ul>
             <p>
-                Some of this data is accessible publicly and we provide you a tool that allows you to change the state of your profile. By that sensitive data like language,
-                account bio is not shown.
+                Some of this info is accessible publicly and we provide you a tool that allows you to change the state of your profile. Sensitive data like language, account bio is
+                not shown.
             </p>
             <p>Provided email is not used for marketing purposes, we only use it to confirm your identity, notify you about new login or to confirm email change</p>
             <p>We keep the right to update this Privacy Policy without notifying users about the change.</p>
             <p>By using our services you agree to this document.</p>
+            <p>We store your data securely, especially your password on our infrastructure provided by Contabo.</p>
             <p>Data you have encrypted in our services using your password is truly encrypted and we cannot decrypt it.</p>
             <p>We can delete accounts if they are not verified and inactive for at least 3 days.</p>
             <p>We can delete accounts for violation of our Terms of Service</p>
@@ -58,8 +59,8 @@ export default function Terms() {
             <p>If a user lost access to their account, they can request password reset or account deletion through the mail their provided to us</p>
             <p>We keep user account data as long as they have account in our ecosystem.</p>
             <p>
-                If you opt-out from features like &quot;Your devices&quot; in &quot;Security&quot; tab, data collected through this feature is automatically deleted with no going
-                back. We can collect it again if you opt-in back.
+                If you opt-out from features like &quot;Your devices&quot; in &quot;Security&quot; tab, everything collected through this feature is automatically deleted with no
+                going back. We can collect it if you opt-in again.
             </p>
         </article>
     );
