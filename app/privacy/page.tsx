@@ -22,7 +22,7 @@ export default function Terms() {
                 possible and as smooth as possible. This will change in the future.
             </p>
             <p>
-                We use Contabo as our infrastructure. They provide servers for us so we can keep our services running. You can read Contabo privacy policy on their{' '}
+                We use Contabo as our main infrastructure. They provide servers for us so we can keep our services running. You can read Contabo privacy policy on their{' '}
                 <a href="https://contabo.com" target="_blank">
                     website
                 </a>
@@ -49,6 +49,18 @@ export default function Terms() {
             <p>We keep the right to update this Privacy Policy without notifying users about the change.</p>
             <p>By using our services you agree to this document.</p>
             <p>Data you have encrypted in our services using your password is truly encrypted and we cannot decrypt it.</p>
+            <p>We can delete accounts if they are not verified and inactive for at least 3 days.</p>
+            <p>We can delete accounts for violation of our Terms of Service</p>
+            <p>
+                Every account deletion that is performed by service administrators always have a reason which is known to the owner of the deleted account after or few days before
+                deletion.
+            </p>
+            <p>If a user lost access to their account, they can request password reset or account deletion through the mail their provided to us</p>
+            <p>We keep user account data as long as they have account in our ecosystem.</p>
+            <p>
+                If you opt-out from features like &quot;Your devices&quot; in &quot;Security&quot; tab, data collected through this feature is automatically deleted with no going
+                back. We can collect it again if you opt-in back.
+            </p>
         </article>
     );
 }
