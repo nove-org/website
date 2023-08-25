@@ -128,7 +128,7 @@ export default async function Overview() {
                     </li>
                 </div>
             </ul>
-            <h1 className={o.title}>App connections</h1>
+            <h1 className={o.title}>App connections (showcase, it doesn&apos;t work yet)</h1>
             <ul className={o.connections}>
                 <li className={o.card}>
                     <header>
