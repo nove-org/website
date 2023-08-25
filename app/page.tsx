@@ -49,7 +49,7 @@ export default async function Home() {
                 </h1>
                 <p>
                     Ditch Google, Facebook and other companies that sell data, profile and track you. Take back control over this and start using our FOSS and privacy-respecting
-                    solutions
+                    solutions. Currently in beta stage (report any bugs through GitHub or mail).
                 </p>
                 <ul>
                     <li>
