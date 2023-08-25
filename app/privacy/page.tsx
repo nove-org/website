@@ -23,7 +23,7 @@ export default function Terms() {
             </p>
             <p>
                 We use Contabo as our main infrastructure. They provide servers for us so we can keep our services running. You can read Contabo privacy policy on their{' '}
-                <a href="https://contabo.com" target="_blank">
+                <a href="https://contabo.com" rel="noopener noreferrer" target="_blank">
                     website
                 </a>
             </p>

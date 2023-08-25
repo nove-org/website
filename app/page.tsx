@@ -64,7 +64,7 @@ export default async function Home() {
                     </li>
                     <li>
                         Don&apos;t take our word for this. View the{' '}
-                        <a className={o.link} target="_blank" href={REPOSITORY}>
+                        <a className={o.link} target="_blank" rel="noopener noreferrer" href={REPOSITORY}>
                             code
                         </a>{' '}
                         yourself
@@ -130,7 +130,7 @@ export default async function Home() {
                 </ul>
                 <p>
                     All of this is easily verifiable, check out our source code. It is open to everyone, view it on{' '}
-                    <a className={o.link} target="_blank" href={REPOSITORY}>
+                    <a className={o.link} target="_blank" rel="noopener noreferrer" href={REPOSITORY}>
                         GitHub
                     </a>
                     .

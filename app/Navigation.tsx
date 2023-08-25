@@ -34,7 +34,7 @@ export default async function Navigation() {
                             <a href={REPOSITORY + '/wiki'}>Docs</a>
                         </li>
                         <li>
-                            <a target="_blank" href={DONATE_LINK}>
+                            <a target="_blank" rel="noopener noreferrer" href={DONATE_LINK}>
                                 Donate
                             </a>
                         </li>
