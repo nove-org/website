@@ -101,7 +101,7 @@ export default async function Home() {
                                     fill="currentColor"
                                     d="M 6 2 C 4.895 2 4 2.895 4 4 L 4 6 C 4 6.552 4.448 7 5 7 L 19 7 C 19.552 7 20 6.552 20 6 L 20 4 C 20 2.895 19.105 2 18 2 L 6 2 z M 5 9 C 4.448 9 4 9.448 4 10 L 4 14 C 4 14.552 4.448 15 5 15 L 12.605469 15 C 13.516469 13.22 15.364 12 17.5 12 C 18.401 12 19.249 12.221469 20 12.605469 L 20 10 C 20 9.448 19.552 9 19 9 L 5 9 z M 17.5 14 C 15.567 14 14 15.567 14 17.5 C 14 19.433 15.567 21 17.5 21 C 17.965 21 18.4065 20.905234 18.8125 20.740234 L 22.072266 24 L 24 24 L 24 22.072266 L 20.740234 18.8125 C 20.904234 18.4065 21 17.965 21 17.5 C 21 15.567 19.433 14 17.5 14 z M 17 16 C 17.552 16 18 16.448 18 17 C 18 17.552 17.552 18 17 18 C 16.448 18 16 17.552 16 17 C 16 16.448 16.448 16 17 16 z M 5 17 C 4.448 17 4 17.448 4 18 L 4 20 C 4 21.105 4.895 22 6 22 L 14.34375 22 C 12.92775 21.005 12 19.362 12 17.5 C 12 17.331 12.010391 17.165 12.025391 17 L 5 17 z"></path>
                             </svg>
-                            Stored securely
+                            Stored securely on our servers
                         </h1>
                         <p>We encrypt your data whenever possible to protect it from governments, hackers and tech companies including us.</p>
                     </li>
@@ -155,7 +155,7 @@ export default async function Home() {
             <svg className={o.line} width="114" height="21" viewBox="0 0 114 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M1 14.9935C22 5.4935 31.5 3.4935 37.5 3.4935C43.5 3.4935 43 6.9935 47 11.4935C54.9451 20.4317 69.5 -2.60486 82 1.49349C106.4 9.49349 112.5 17.1602 112.5 19.9935"
-                    stroke="black"
+                    stroke="currentColor"
                     strokeWidth="2"
                 />
             </svg>
