@@ -25,7 +25,46 @@ export default async function Navigation() {
                     </a>
                     <ul>
                         <li>
-                            <a href="/">Products</a>
+                            <details className={o.projects}>
+                                <summary>
+                                    <a>Products</a>
+                                </summary>
+                                <div className={o.menu}>
+                                    <a href="https://files.nove.team">
+                                        <h1>
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
+                                                <path
+                                                    fill="currentColor"
+                                                    d="M 12 4 A 7.5 7.5 0 0 0 5.3515625 8.0429688 A 6 6 0 0 0 0 14 A 6 6 0 0 0 6 20 L 19 20 A 5 5 0 0 0 24 15 A 5 5 0 0 0 19.34375 10.017578 A 7.5 7.5 0 0 0 12 4 z"></path>
+                                            </svg>
+                                            Files
+                                        </h1>
+                                        <p>Store your data securely in the cloud</p>
+                                    </a>
+                                    <a href="https://github.com/nove-org/NAPI">
+                                        <h1>
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
+                                                <path
+                                                    fill="currentColor"
+                                                    d="M 5 3 C 3.9069372 3 3 3.9069372 3 5 L 3 19 C 3 20.093063 3.9069372 21 5 21 L 19 21 C 20.093063 21 21 20.093063 21 19 L 21 5 C 21 3.9069372 20.093063 3 19 3 L 5 3 z M 6 5 C 6.552 5 7 5.448 7 6 C 7 6.552 6.552 7 6 7 C 5.448 7 5 6.552 5 6 C 5 5.448 5.448 5 6 5 z M 9 5 L 13 5 L 13 19 L 9 19 L 9 5 z M 15 5 L 19 5 L 19 19 L 15 19 L 15 5 z M 11 7 A 1 1 0 0 0 10 8 A 1 1 0 0 0 11 9 A 1 1 0 0 0 12 8 A 1 1 0 0 0 11 7 z M 17 7 A 1 1 0 0 0 16 8 A 1 1 0 0 0 17 9 A 1 1 0 0 0 18 8 A 1 1 0 0 0 17 7 z M 6 8 C 6.552 8 7 8.448 7 9 C 7 9.552 6.552 10 6 10 C 5.448 10 5 9.552 5 9 C 5 8.448 5.448 8 6 8 z M 6 17 C 6.552 17 7 17.448 7 18 C 7 18.552 6.552 19 6 19 C 5.448 19 5 18.552 5 18 C 5 17.448 5.448 17 6 17 z"></path>
+                                            </svg>
+                                            NAPI
+                                        </h1>
+                                        <p>Let your users authorize with Nove account</p>
+                                    </a>
+                                    <a>
+                                        <h1>
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
+                                                <path
+                                                    fill="currentColor"
+                                                    d="M 3 3 C 1.895 3 1 3.895 1 5 L 1 17 C 1 18.105 1.895 19 3 19 L 4.6523438 19 C 5.1993437 18.197 6.073875 17.514 7.171875 17 L 3 17 L 3 5 L 21 5 L 21 17 L 16.828125 17 C 17.926125 17.514 18.800656 18.197 19.347656 19 L 21 19 C 22.105 19 23 18.105 23 17 L 23 5 C 23 3.895 22.105 3 21 3 L 3 3 z M 12 10 C 10.3 10 9 11.3 9 13 C 9 14.7 10.3 16 12 16 C 13.7 16 15 14.7 15 13 C 15 11.3 13.7 10 12 10 z M 12 18 C 8.722 18 6 19.429 6 21 L 6 22 L 18 22 L 18 21 C 18 19.429 15.278 18 12 18 z"></path>
+                                            </svg>
+                                            CRM
+                                        </h1>
+                                        <p>Manage your customers quick and with ease</p>
+                                    </a>
+                                </div>
+                            </details>
                         </li>
                         <li>
                             <a href="/about">About</a>
