@@ -6,6 +6,7 @@ import { Device, Response, User } from '@util/schema';
 import Opt from './Opt';
 import Password from './Password';
 import Email from './Email';
+import Delete from './Delete';
 
 export default async function Overview() {
     const user: Response<User> = (
@@ -101,6 +102,16 @@ export default async function Overview() {
                         </h1>
                     </li>
                 </ul>
+            </div>
+            <div className={o.deactivate}>
+                <h2>Delete your Nove account</h2>
+                <p>
+                    To delete your account we need you to provide your account password to confirm your actions. This process is irreversible and all your data associated with this
+                    account will be deleted from our servers instantly and forever! You can delete your account anytime and you always have the right to do it on your own without
+                    the need to contact us. Please, make sure that you have deleted all third-party accounts you registered using your Nove account. Otherwise, you won&apos;t be
+                    able to log in to them.
+                </p>
+                <Delete />
             </div>
         </div>
     ) : (
