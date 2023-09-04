@@ -74,19 +74,13 @@ export default function Campaign() {
                     <a href="https://yt.szwajn.net">Invidious</a> (replacement for YouTube)
                 </li>
                 <li>
-                    <a href="https://matrix.org">Matrix</a> (replacement for Discord)
+                    <a href="https://matrix.org">Matrix</a>, <a href="https://mumble.info">Mumble</a> (replacement for Discord)
                 </li>
                 <li>
-                    <a href="https://mumble.info">Mumble</a> (replacement for Discord)
+                    <a href="https://librewolf.net">LibreWolf</a> (replacement for Firefox, Google Chrome)
                 </li>
                 <li>
-                    <a href="https://mumble.info">LibreWolf</a> (replacement for Firefox, Google Chrome)
-                </li>
-                <li>
-                    <a href="https://svmetasearch.eu.org">SVMetaSearch</a> (replacement for Google Search, Microsoft Bing)
-                </li>
-                <li>
-                    <a href="https://searxng.nove.team">SearxNG</a> (replacement for Google Search, Microsoft Bing)
+                    <a href="https://svmetasearch.eu.org">SVMetaSearch</a>, <a href="https://searxng.nove.team">SearxNG</a> (replacement for Google Search, Microsoft Bing)
                 </li>
             </ul>
             <p>
