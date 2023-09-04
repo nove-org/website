@@ -38,18 +38,19 @@ export const metadata = {
         locale: 'en_US',
         url: 'https://nove.team/',
         siteName: 'nove.team',
-        title: 'Live. Laugh. Nove.',
-        description:
-            'An unexpected focus on privacy with all standard features or even more. Surprising emphasis on data security. Enjoy everything for free and open-source to everyone.',
-        authors: ['Nove Group'],
+        title: 'Meet the world where your privacy matters',
+        description: 'Ditch Google, Facebook and other companies that sell data, profile and track you.',
+        authors: ['Nove Group', 'Contributors'],
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Live. Laugh. Nove.',
-        description:
-            'An unexpected focus on privacy with all standard features or even more. Surprising emphasis on data security. Enjoy everything for free and open-source to everyone.',
+        title: 'Meet the world where your privacy matters',
+        description: 'Ditch Google, Facebook and other companies that sell data, profile and track you.',
     },
-    authors: { name: 'Nove Group', url: 'https://nove.team' },
+    authors: [
+        { name: 'Nove Group', url: 'https://nove.team' },
+        { name: 'Contributors', url: 'https://github.com/nove-org/website' },
+    ],
     keywords: ['nove', 'vave', 'vave bot', 'nove team', 'nove group'],
     robots: {
         index: true,
