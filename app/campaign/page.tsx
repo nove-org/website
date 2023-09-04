@@ -83,15 +83,15 @@ export default function Campaign() {
                     <a href="https://mumble.info">LibreWolf</a> (replacement for Firefox, Google Chrome)
                 </li>
                 <li>
-                    <a href="https://duckduckgo.com">DuckDuckGo</a> (replacement for Google Search, Microsoft Bing)
+                    <a href="https://svmetasearch.eu.org">SVMetaSearch</a> (replacement for Google Search, Microsoft Bing)
                 </li>
                 <li>
                     <a href="https://searxng.nove.team">SearxNG</a> (replacement for Google Search, Microsoft Bing)
                 </li>
             </ul>
             <p>
-                Or, you can give us a try. For that you can <a href="https://nove.team/register">register</a> now and stay tuned for releases. We are going to release Nove Files
-                really soon so you should keep with us. Everything is and will be free and open-source.
+                Or, you can give us a try. For that you can <a href="https://nove.team/register">register</a> now and stay tuned for product releases. We are going to release Files
+                soon for public beta. Everything is and will be free and open-source.
             </p>
         </article>
     );
