@@ -2,7 +2,7 @@ import { axiosClient } from '@util/axios';
 import a from '@sass/account/part.module.sass';
 import o from '@sass/account/language/page.module.sass';
 import { cookies } from 'next/headers';
-import { Response, User } from '@util/schema';
+import { Response, User, Languages } from '@util/schema';
 import Form from './Form';
 
 export default async function Overview() {
@@ -13,6 +13,7 @@ export default async function Overview() {
             })
             .catch((e) => e.response)
     ).data;
+    const languages: Response<Languages> = (await axiosClient.get('/v1/languages').catch((e) => e.response)).data;
 
     return user?.body?.data?.username ? (
         <div className={a.content}>
@@ -21,7 +22,7 @@ export default async function Overview() {
                 Select your preferred language. This setting will be used to display content in your language on all Nove websites and your connected apps might use it.
             </p>
             <p className={a.desc}>Not fully supported by us yet. You might want to set it for OAuth2 apps to use.</p>
-            <Form user={user.body.data} />
+            <Form user={user.body.data} code={languages.body.data} />
         </div>
     ) : (
         <div className={o.content}>

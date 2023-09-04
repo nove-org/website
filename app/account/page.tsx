@@ -22,7 +22,7 @@ export default async function Overview() {
             .catch((e) => e.response)
     ).data;
 
-    const lang = new Intl.DisplayNames(['en'], { type: 'language' });
+    const lang = new Intl.DisplayNames([user.body.data.language], { type: 'language' });
 
     return user?.body?.data?.username ? (
         <div className={o.content}>

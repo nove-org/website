@@ -50,3 +50,7 @@ export interface Device {
     createdAt: string;
     updatedAt: string;
 }
+
+export interface Languages {
+    AVAILABLE_LANGUAGES: string[];
+}
