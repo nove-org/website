@@ -42,7 +42,7 @@ export default function Delete() {
                         <h1>Delete your account</h1>
                         <p>
                             Provide your password so we can verify that it&apos;s you. Remember to delete all accounts that you registered using this Nove account. Otherwise, they
-                            might be unaccessible. This action is performed instantly and it&apos;s irreversible and permanent.
+                            might be unaccessible. This action is performed instantly - it&apos;s irreversible.
                         </p>
                         <form onSubmit={handleSubmit}>
                             <label>
