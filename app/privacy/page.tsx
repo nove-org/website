@@ -6,7 +6,7 @@ export default function Terms() {
             <title>Privacy Policy — Nove</title>
             <h1>Privacy Policy</h1>
             <h2>
-                Last modified: <time>25th of August 2023</time>
+                Last modified: <time>4th of September 2023</time>
             </h2>
             <p>
                 We serve (mostly) free and open-source services. We do not track nor sell user&apos;s data to third-parties. We keep our services simple, without requests to Google
@@ -18,7 +18,7 @@ export default function Terms() {
                 protect privacy of our users.
             </p>
             <p>
-                We are currently in the beta stage, so if you want to delete your account data please reach out to us through mail. All your data will be deleted as fast as
+                To delete your account go to Security section in the Account page, then scroll down to &quot;Delete Nove account&quot;. All your data will be deleted as fast as
                 possible and as smooth as possible. This will change in the future.
             </p>
             <p>
