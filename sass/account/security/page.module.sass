@@ -109,6 +109,37 @@ div.content
                         margin: 0
                         margin-left: 10px
                         width: 100%
+    & div.deactivate
+        margin: 80px 0
+        & h2
+            margin: 0
+            font-size: 24px
+            font-weight: 500
+        & p
+            font-size: 16px
+            font-weight: 400
+            margin: 0
+        & button
+            display: flex
+            align-items: center
+            gap: 7px
+            padding: 5px 10px
+            border-radius: 50px
+            font-size: 14px
+            font-weight: 500
+            color: var(--primary)
+            background: var(--font-st)
+            outline: 0
+            border: 0
+            cursor: pointer
+            transition-duration: .2s
+            margin-top: 10px
+            @media screen and (max-width: 950px)
+                font-size: 14px
+                margin: 3px 0
+                padding: 2px 4px
+            &:hover
+                background: var(--font-nd)
 
 div.popup
     position: fixed
@@ -197,7 +228,7 @@ div.popup
                 background: var(--tertiary)
                 color: var(--font-st)
                 font-weight: 500
-                font-size: 16px
+                font-size: 14px
                 padding: 9px 12px
                 outline: 0
                 border: 0

@@ -1,14 +1,14 @@
 'use client';
 
 import { axiosClient } from '@util/axios';
-import { User } from '@util/schema';
+import { Languages, User } from '@util/schema';
 import { getCookie } from 'cookies-next';
 import ReactCountryFlag from 'react-country-flag';
 import o from '@sass/account/language/page.module.sass';
 import { useState } from 'react';
 import Loader from '@app/Loader';
 
-export default function Form({ user }: { user: User }) {
+export default function Form({ user, code }: { user: User; code: Languages }) {
     const [loading, setLoading] = useState<boolean>(false);
 
     const handleLanguage = async (e: any) => (
@@ -19,22 +19,19 @@ export default function Form({ user }: { user: User }) {
             .then(() => window.location.reload())
     );
 
+    const lang = new Intl.DisplayNames([user.language], { type: 'language' });
+
     return (
         <form className={o.box} id="languageForm" onSubmit={handleLanguage}>
-            <label className={o.card}>
-                <header>
-                    <ReactCountryFlag countryCode="us" svg />
-                    English, US
-                </header>
-                <input defaultChecked={user.language === 'en-US'} type="radio" name="language" value="en-US" />
-            </label>
-            <label className={o.card}>
-                <header>
-                    <ReactCountryFlag countryCode="pl" svg />
-                    Polish
-                </header>
-                <input defaultChecked={user.language === 'pl-PL'} type="radio" name="language" value="pl-PL" />
-            </label>
+            {code.AVAILABLE_LANGUAGES.map((code) => (
+                <label key={code} className={o.card}>
+                    <header>
+                        <ReactCountryFlag countryCode={code.split('-')[1]} svg />
+                        {lang.of(code)}
+                    </header>
+                    <input defaultChecked={user.language === code} type="radio" name="language" value={code} />
+                </label>
+            ))}
             <button type="submit">
                 {loading ? <Loader type="button" /> : null}
                 Save changes
