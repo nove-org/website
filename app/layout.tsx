@@ -23,7 +23,7 @@ import Footer from '@app/Footer';
 export const metadata = {
     metadataBase: new URL('https://nove.team'),
     title: 'Meet the world where your privacy matters',
-    description: 'Ditch Google, Facebook and other companies that sell data, profile and track you.',
+    description: 'Ditch government, Google, Facebook and others that share data, profile and track you. Take back control over this.',
     viewport: {
         width: 'device-width',
         initialScale: 1,
@@ -38,18 +38,35 @@ export const metadata = {
         locale: 'en_US',
         url: 'https://nove.team/',
         siteName: 'nove.team',
-        title: 'Live. Laugh. Nove.',
-        description:
-            'An unexpected focus on privacy with all standard features or even more. Surprising emphasis on data security. Enjoy everything for free and open-source to everyone.',
-        authors: ['Nove Group'],
+        title: 'Meet the world where your privacy matters',
+        description: 'Ditch government, Google, Facebook and others that share data, profile and track you. Take back control over this.',
+        authors: ['Nove Group', 'Contributors'],
+        images: [
+            {
+                url: '/banner.png',
+                alt: 'Campaign banner filled with text from title and description. "your privacy" highlighted in brand color (gradient pink-red).',
+                width: 860,
+                height: 470,
+            },
+        ],
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Live. Laugh. Nove.',
-        description:
-            'An unexpected focus on privacy with all standard features or even more. Surprising emphasis on data security. Enjoy everything for free and open-source to everyone.',
+        title: 'Meet the world where your privacy matters',
+        description: 'Ditch government, Google, Facebook and others that share data, profile and track you. Take back control over this.',
+        images: [
+            {
+                url: '/banner.png',
+                alt: 'Campaign banner filled with text from title and description. "your privacy" highlighted in brand color (gradient pink-red).',
+                width: 860,
+                height: 470,
+            },
+        ],
     },
-    authors: { name: 'Nove Group', url: 'https://nove.team' },
+    authors: [
+        { name: 'Nove Group', url: 'https://nove.team' },
+        { name: 'Contributors', url: 'https://github.com/nove-org/website' },
+    ],
     keywords: ['nove', 'vave', 'vave bot', 'nove team', 'nove group'],
     robots: {
         index: true,
@@ -57,7 +74,7 @@ export const metadata = {
     },
     icons: {
         icon: '/logo.png',
-        shortcut: '/logo.png',
+        shortcut: '/banner.png',
         apple: '/logo.png',
     },
 };
