@@ -23,7 +23,7 @@ import Footer from '@app/Footer';
 export const metadata = {
     metadataBase: new URL('https://nove.team'),
     title: 'Meet the world where your privacy matters',
-    description: 'Ditch Google, Facebook and other companies that sell data, profile and track you.',
+    description: 'Ditch government, Google, Facebook and others that share data, profile and track you. Take back control over this.',
     viewport: {
         width: 'device-width',
         initialScale: 1,
@@ -39,13 +39,29 @@ export const metadata = {
         url: 'https://nove.team/',
         siteName: 'nove.team',
         title: 'Meet the world where your privacy matters',
-        description: 'Ditch Google, Facebook and other companies that sell data, profile and track you.',
+        description: 'Ditch government, Google, Facebook and others that share data, profile and track you. Take back control over this.',
         authors: ['Nove Group', 'Contributors'],
+        images: [
+            {
+                url: '/banner.png',
+                alt: 'Campaign banner filled with text from title and description. "your privacy" highlighted in brand color (gradient pink-red).',
+                width: 860,
+                height: 470,
+            },
+        ],
     },
     twitter: {
         card: 'summary_large_image',
         title: 'Meet the world where your privacy matters',
-        description: 'Ditch Google, Facebook and other companies that sell data, profile and track you.',
+        description: 'Ditch government, Google, Facebook and others that share data, profile and track you. Take back control over this.',
+        images: [
+            {
+                url: '/banner.png',
+                alt: 'Campaign banner filled with text from title and description. "your privacy" highlighted in brand color (gradient pink-red).',
+                width: 860,
+                height: 470,
+            },
+        ],
     },
     authors: [
         { name: 'Nove Group', url: 'https://nove.team' },
@@ -58,7 +74,7 @@ export const metadata = {
     },
     icons: {
         icon: '/logo.png',
-        shortcut: '/logo.png',
+        shortcut: '/banner.png',
         apple: '/logo.png',
     },
 };
