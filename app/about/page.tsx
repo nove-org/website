@@ -28,7 +28,7 @@ export default function About() {
                 <li>
                     <Image src="https://api.nove.team/v1/users/b9dk4Pdm/avatar.webp" width="64" height="64" alt="Avatar" />
                     <h1>JuzioMiecio520</h1>
-                    <p>Retired back-end developer, sometimes contributes</p>
+                    <p>Retired back-end developer</p>
                 </li>
             </ul>
         </section>
