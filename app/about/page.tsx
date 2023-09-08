@@ -11,11 +11,6 @@ export default function About() {
             <p className={o.desc}>We provide tools free from bloatware, trackers, and annoying advertisements. With free &amp; open-source policy.</p>
             <ul>
                 <li>
-                    <Image src="https://api.nove.team/v1/users/b9dk4Pdm/avatar.webp" width="64" height="64" alt="Avatar" />
-                    <h1>JuzioMiecio520</h1>
-                    <p>Retired back-end developer</p>
-                </li>
-                <li>
                     <Image src="https://api.nove.team/v1/users/00000000/avatar.webp" width="64" height="64" alt="Avatar" />
                     <h1>wnm210</h1>
                     <p>CEO, front-end developer and UI/UX designer</p>
@@ -29,6 +24,11 @@ export default function About() {
                     <Image src="https://api.nove.team/v1/users/00000002/avatar.webp" width="64" height="64" alt="Avatar" />
                     <h1>ArsBeneMoriendi</h1>
                     <p>UI/UX designer and project manager</p>
+                </li>
+                <li>
+                    <Image src="https://api.nove.team/v1/users/b9dk4Pdm/avatar.webp" width="64" height="64" alt="Avatar" />
+                    <h1>JuzioMiecio520</h1>
+                    <p>Retired back-end developer, sometimes contributes</p>
                 </li>
             </ul>
         </section>
