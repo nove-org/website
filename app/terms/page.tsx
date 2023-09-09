@@ -33,7 +33,7 @@ export default function Terms() {
                     <ul>
                         <li>Sending too many requests for the same thing to the API is API abuse</li>
                         <li>Sending prepared exploits to the API is API abuse</li>
-                        <li>Any discovered bugs in the API have to be imminently reported through email or GitHub Issues</li>
+                        <li>Any discovered bugs in the API have to be imminently reported through email or Gitea Issues</li>
                     </ul>
                 </li>
                 <li>We cannot decrypt encrypted/password-encrypted content even for law enforcements.</li>

@@ -49,7 +49,7 @@ export default async function Home() {
                 </h1>
                 <p>
                     Ditch Google, Facebook and other companies that sell data, profile and track you. Take back control over this and start using our FOSS and privacy-respecting
-                    solutions. Currently in beta stage (report any bugs through GitHub or mail).
+                    solutions. Currently in beta stage (report any bugs through Gitea or email).
                 </p>
                 <ul>
                     <li>
@@ -131,7 +131,7 @@ export default async function Home() {
                 <p>
                     All of this is easily verifiable, check out our source code. It is open to everyone, view it on{' '}
                     <a className={o.link} target="_blank" rel="noopener noreferrer" href={REPOSITORY}>
-                        GitHub
+                        Gitea
                     </a>
                     .
                 </p>
@@ -145,7 +145,7 @@ export default async function Home() {
                         <b>open-source and auditable</b>.
                     </p>
                     <ul>
-                        <li>Easily accessible projects through GitHub</li>
+                        <li>Easily accessible projects through Gitea</li>
                         <li>Contribute by catching bugs, improving the code or suggesting some changes</li>
                         <li>Host your own fork of our software directly on your hardware</li>
                     </ul>

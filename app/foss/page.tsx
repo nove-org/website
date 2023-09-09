@@ -12,19 +12,19 @@ export default function FOSS() {
             </p>
             <ul>
                 <li>
-                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/nove-org/NAPI">
+                    <a target="_blank" rel="noopener noreferrer" href="https://git.nove.team/nove-org/NAPI">
                         <h1>NAPI</h1>
                         <p>Create your desired applications with use of NAPI OAuth2 system which provides access to signing in with Nove.</p>
                     </a>
                 </li>
                 <li>
-                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/nove-org/website">
+                    <a target="_blank" rel="noopener noreferrer" href="https://git.nove.team/nove-org/website">
                         <h1>Manager</h1>
                         <p>Official website that is used by Nove on their main domain to serve graphical access to the NAPI.</p>
                     </a>
                 </li>
                 <li>
-                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/nove-org/files.backend">
+                    <a target="_blank" rel="noopener noreferrer" href="https://git.nove.team/nove-org/files.backend">
                         <h1>Files</h1>
                         <p>General purpose private cloud with password encrypted uploads available to everyone with just one click.</p>
                     </a>

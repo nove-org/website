@@ -19,5 +19,5 @@
 export const NAPI_URL: string = 'https://api.nove.team';
 export const COOKIE_HOSTNAME: string = 'localhost';
 export const SUPPORT_MAIL: string = 'reply@nove.team';
-export const REPOSITORY: string = 'https://github.com/nove-org/website';
+export const REPOSITORY: string = 'https://git.nove.team/nove-org/website';
 export const DONATE_LINK: string = 'https://github.com/sponsors/nove-org';

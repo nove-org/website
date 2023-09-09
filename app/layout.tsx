@@ -65,7 +65,7 @@ export const metadata = {
     },
     authors: [
         { name: 'Nove Group', url: 'https://nove.team' },
-        { name: 'Contributors', url: 'https://github.com/nove-org/website' },
+        { name: 'Contributors', url: 'https://git.nove.team/nove-org/website' },
     ],
     keywords: ['nove', 'vave', 'vave bot', 'nove team', 'nove group'],
     robots: {
