@@ -16,8 +16,8 @@
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-export const NAPI_URL: string = '';
-export const COOKIE_HOSTNAME: string = '';
-export const SUPPORT_MAIL: string = '';
-export const REPOSITORY: string = '';
-export const DONATE_LINK: string = '';
+export const NAPI_URL: string = 'https://api.nove.team';
+export const COOKIE_HOSTNAME: string = 'localhost';
+export const SUPPORT_MAIL: string = 'reply@example.com';
+export const REPOSITORY: string = 'https://git.nove.team/nove-org/website';
+export const DONATE_LINK: string = 'https://github.com/sponsors/nove-org';
