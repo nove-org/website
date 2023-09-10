@@ -41,7 +41,7 @@ export default async function Navigation() {
                                         </h1>
                                         <p>Store your data securely in the cloud</p>
                                     </a>
-                                    <a href="https://github.com/nove-org/NAPI">
+                                    <a href="https://git.nove.team/nove-org/NAPI">
                                         <h1>
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
                                                 <path
