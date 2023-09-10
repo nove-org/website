@@ -50,7 +50,7 @@ export default function Footer() {
                     <ul>
                         <li>
                             <a target="_blank" rel="noopener noreferrer" href={REPOSITORY}>
-                                Git repository
+                                Source code
                             </a>
                         </li>
                         <li>
