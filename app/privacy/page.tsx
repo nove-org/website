@@ -1,9 +1,25 @@
 import o from '@sass/article.module.sass';
 
+export const metadata = {
+    title: 'Nove | Privacy Policy',
+    description: 'Learn how we process information about you and what we are allowed to know.',
+    openGraph: {
+        title: 'Nove | Privacy Policy',
+        description: 'Learn how we process information about you and what we are allowed to know.',
+        images: [],
+    },
+    twitter: {
+        title: 'Nove | Privacy Policy',
+        description: `Learn how we process information about you and what we are allowed to know.`,
+        images: [],
+    },
+    keywords: ['nove', 'privacy', 'privacy policy'],
+};
+
 export default function Terms() {
     return (
         <article className={o.content}>
-            <title>Privacy Policy — Nove</title>
+            <title>Nove | Privacy Policy</title>
             <h1>Privacy Policy</h1>
             <h2>
                 Last modified: <time>4th of September 2023</time>

@@ -6,6 +6,22 @@ import { cookies, headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { Response, User } from '@util/schema';
 
+export const metadata = {
+    title: 'Nove | Account',
+    description: "Log in to gain access to the dashboard. Register today if you haven't already.",
+    openGraph: {
+        title: 'Nove | Account',
+        description: "Log in to gain access to the dashboard. Register today if you haven't already.",
+        images: [],
+    },
+    twitter: {
+        title: 'Nove | Account',
+        description: "Log in to gain access to the dashboard. Register today if you haven't already.",
+        images: [],
+    },
+    keywords: ['nove', 'nove account', 'account'],
+};
+
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
     const sidebar = [
         { label: 'Overview', path: '/account/', target: null },
@@ -28,7 +44,6 @@ export default async function DashboardLayout({ children }: { children: React.Re
 
     return user.body.data ? (
         <section className={o.box}>
-            <title>Account — Nove</title>
             <aside>
                 <h1>Settings</h1>
                 <ul>
@@ -70,7 +85,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
         </section>
     ) : (
         <section className={o.box}>
-            <title>Dashboard — Nove</title>
+            <title>Nove | Dashboard</title>
             <Loader
                 type="hidden"
                 text={

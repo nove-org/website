@@ -1,9 +1,25 @@
 import o from '@sass/foss.module.sass';
 
+export const metadata = {
+    title: 'Nove | Free and open-source software (FOSS)',
+    description: 'List of our projects that are FOSS. Learn about our free and open-source software nature.',
+    openGraph: {
+        title: 'Nove | Free and open-source software (FOSS)',
+        description: 'List of our projects that are FOSS. Learn about our free and open-source software nature.',
+        images: [],
+    },
+    twitter: {
+        title: 'Nove | Free and open-source software (FOSS)',
+        description: `List of our projects that are FOSS. Learn about our free and open-source software nature.`,
+        images: [],
+    },
+    keywords: ['nove', 'foss', 'open source'],
+};
+
 export default function FOSS() {
     return (
         <section className={o.hero}>
-            <title>FOSS projects — Nove</title>
+            <title>Nove | FOSS projects</title>
             <h1 className={o.title}>
                 We love <span>free</span> and <span>open source</span>.
             </h1>

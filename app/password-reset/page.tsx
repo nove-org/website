@@ -42,13 +42,13 @@ export default function PasswordReset() {
 
     return loading ? (
         <section className={o.box}>
-            <title>Reset your password — Nove</title>
+            <title>Nove | Reset your password</title>
             <Loader type="window" text="Please standby while we fetch the data..." />
             <Lines />
         </section>
     ) : (
         <section className={o.box}>
-            <title>Reset your password — Nove</title>
+            <title>Nove | Reset your password</title>
             <Logo size={48} />
             <h1>Password reset</h1>
             <p>Enter your email and new password to continue</p>
