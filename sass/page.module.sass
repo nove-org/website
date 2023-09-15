@@ -47,6 +47,7 @@ section.hero
                 text-decoration-line: underline
                 text-decoration-style: wavy
                 text-decoration-thickness: 1px
+                font-weight: 500
             & a.button
                 display: flex
                 align-items: center
@@ -129,7 +130,7 @@ section.word
             min-height: 190px
             max-height: 190px
             max-width: 260px
-            border: 1px solid var(--border-st)
+            background: var(--primary-rd)
             backdrop-filter: blur(100px)
             position: relative
             @media screen and (max-width: 997px)
@@ -152,6 +153,7 @@ section.word
         text-decoration-line: underline
         text-decoration-style: wavy
         text-decoration-thickness: 1px
+        font-weight: 500
 
 section.breakup
     width: 100%
@@ -189,6 +191,17 @@ section.breakup
             & li
                 font-size: 18px
                 margin: 5px 0
+    & img
+        margin-bottom: 0
+        @media screen and (max-width: 1380px)
+            margin-bottom: 20px
+    .dark
+        display: none
+    @media (prefers-color-scheme: dark)
+        .light
+            display: none
+        .dark
+            display: block
 
 svg.line
     display: block

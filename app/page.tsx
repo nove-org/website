@@ -19,6 +19,7 @@
 import o from '@sass/page.module.sass';
 import Link from 'next/link';
 import { REPOSITORY } from '@util/config';
+import Image from 'next/image';
 
 export default async function Home() {
     return (
@@ -150,6 +151,8 @@ export default async function Home() {
                         <li>Host your own fork of our software directly on your hardware</li>
                     </ul>
                 </aside>
+                <Image src="/contributing_light.png" width={530} height={560} alt="How contributing works" className={o.light} />
+                <Image src="/contributing_dark.png" width={530} height={560} alt="How contributing works" className={o.dark} />
             </section>
 
             <svg className={o.line} width="114" height="21" viewBox="0 0 114 21" fill="none" xmlns="http://www.w3.org/2000/svg">

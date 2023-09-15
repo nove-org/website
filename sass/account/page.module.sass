@@ -18,12 +18,16 @@ div.content
         gap: 2rem
         height: 100%
         @media screen and (max-width: 1810px)
+            gap: 1.5rem
+        @media screen and (max-width: 1660px)
             flex-wrap: wrap
         & div.flex
             display: flex
             justify-content: space-between
             gap: 2rem
             width: 100%
+            @media screen and (max-width: 1810px)
+                gap: 1.5rem
             @media screen and (max-width: 1215px)
                 flex-direction: column
             & li.card
@@ -40,7 +44,7 @@ div.content
                     position: relative
                     transition-duration: .2s
                     z-index: 1
-                    @media screen and (max-width: 1810px)
+                    @media screen and (max-width: 1660px)
                         min-height: calc( 250px - 25px * 2 )
                     @media screen and (max-width: 1450px)
                         min-height: calc( 270px - 25px * 2 )
@@ -54,11 +58,15 @@ div.content
                         margin: 5px 0
                         font-size: 30px
                         font-weight: 600
+                        @media screen and (max-width: 1810px)
+                            font-size: 28px
                         @media screen and (max-width: 950px)
                             font-size: 24px
                     & p
                         font-size: 20px
                         margin: 0
+                        @media screen and (max-width: 1810px)
+                            font-size: 18px
                         @media screen and (max-width: 950px)
                             font-size: 18px
                     & span
@@ -79,7 +87,9 @@ div.content
             padding: 30px
             border-radius: 30px
             background: var(--secondary)
-            @media screen and (max-width: 1810px)
+            @media screen and (max-width: 1750px)
+                max-width: 400px
+            @media screen and (max-width: 1660px)
                 max-width: 100%
                 width: calc( 100% - 30px * 2 )
             @media screen and (max-width: 950px)
@@ -126,6 +136,9 @@ div.content
                     max-width: 200px
                     display: flex
                     align-items: center
+                    @media screen and (max-width: 1750px)
+                        font-size: 14px
+                        max-width: 180px
                     & svg
                         margin-right: 10px
                         min-width: 16px
