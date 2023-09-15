@@ -1,10 +1,26 @@
 import o from '@sass/about.module.sass';
 import Image from 'next/image';
 
+export const metadata = {
+    title: 'Nove | About',
+    description: 'Our goal is to make the Internet more private and safer. Meet our team and learn more about us.',
+    openGraph: {
+        title: 'Nove | Free and open-source software (FOSS)',
+        description: 'Our goal is to make the Internet more private and safer. Meet our team and learn more about us.',
+        images: [],
+    },
+    twitter: {
+        title: 'Nove | Free and open-source software (FOSS)',
+        description: 'Our goal is to make the Internet more private and safer. Meet our team and learn more about us.',
+        images: [],
+    },
+    keywords: ['nove', 'about nove', 'about'],
+};
+
 export default function About() {
     return (
         <section className={o.hero}>
-            <title>About — Nove</title>
+            <title>Nove | About</title>
             <h1 className={o.title}>
                 Our <b>goal</b> is to make the Internet <span>more private</span> and <span>safer</span>.
             </h1>

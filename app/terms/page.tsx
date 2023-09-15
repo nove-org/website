@@ -1,9 +1,24 @@
 import o from '@sass/article.module.sass';
 
+export const metadata = {
+    title: 'Nove | Terms of Service',
+    description: 'Read about our Terms of Service and learn what we can do with your account and what you are allowed to do.',
+    openGraph: {
+        title: 'Nove | Terms of Service',
+        description: 'Read about our Terms of Service and learn what we can do with your account and what you are allowed to do.',
+        images: [],
+    },
+    twitter: {
+        title: 'Nove | Terms of Service',
+        description: `Read about our Terms of Service and learn what we can do with your account and what you are allowed to do.`,
+        images: [],
+    },
+    keywords: ['nove', 'terms', 'tos', 'terms of service'],
+};
+
 export default function Terms() {
     return (
         <article className={o.content}>
-            <title>Terms of Service — Nove</title>
             <h1>Terms of Service</h1>
             <h2>
                 Last modified: <time>12th of August 2023</time>

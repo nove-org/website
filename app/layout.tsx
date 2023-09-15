@@ -22,7 +22,7 @@ import Footer from '@app/Footer';
 
 export const metadata = {
     metadataBase: new URL('https://nove.team'),
-    title: 'Meet the world where your privacy matters',
+    title: 'Nove | Meet the world where your privacy matters',
     description: 'Ditch government, Google, Facebook and others that share data, profile and track you. Take back control over this.',
     viewport: {
         width: 'device-width',
@@ -38,7 +38,7 @@ export const metadata = {
         locale: 'en_US',
         url: 'https://nove.team/',
         siteName: 'nove.team',
-        title: 'Meet the world where your privacy matters',
+        title: 'Nove | Meet the world where your privacy matters',
         description: 'Ditch government, Google, Facebook and others that share data, profile and track you. Take back control over this.',
         authors: ['Nove Group', 'Contributors'],
         images: [
@@ -52,7 +52,7 @@ export const metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Meet the world where your privacy matters',
+        title: 'Nove | Meet the world where your privacy matters',
         description: 'Ditch government, Google, Facebook and others that share data, profile and track you. Take back control over this.',
         images: [
             {

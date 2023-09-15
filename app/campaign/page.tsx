@@ -1,16 +1,35 @@
 import o from '@sass/article.module.sass';
 
+export const metadata = {
+    title: 'Nove | In the world of GAFAM',
+    description:
+        "GAFAM (Google, Apple, Facebook, Amazon, Microsoft) is known by their top-tier services, and they are mostly free. So, you may think that they profit from ads or paid products. And that's partially true. In the real world they profile you and share your data with other companies in exchange for money, or they use it to keep you in their information bubble.",
+    openGraph: {
+        title: 'Nove | In the world of GAFAM',
+        description:
+            "GAFAM (Google, Apple, Facebook, Amazon, Microsoft) is known by their top-tier services, and they are mostly free. So, you may think that they profit from ads or paid products. And that's partially true. In the real world they profile you and share your data with other companies in exchange for money, or they use it to keep you in their information bubble.",
+        images: [],
+    },
+    twitter: {
+        title: 'Nove | In the world of GAFAM',
+        description:
+            "GAFAM (Google, Apple, Facebook, Amazon, Microsoft) is known by their top-tier services, and they are mostly free. So, you may think that they profit from ads or paid products. And that's partially true. In the real world they profile you and share your data with other companies in exchange for money, or they use it to keep you in their information bubble.",
+        images: [],
+    },
+    keywords: ['nove', 'campaign', 'gafam'],
+};
+
 export default function Campaign() {
     console.log('gafam');
     return (
         <article className={o.content}>
-            <title>In the world of GAFAM — Nove</title>
+            <title>Nove | In the world of GAFAM</title>
             <h1>In the world of GAFAM</h1>
             <time>August 13, 2023</time>
             <p>
-                GAFAM (Google, Apple, Facebook, Amazon, Microsoft) is known by their top-tier services, and they are mostly free. So, you may think that they make income from ads
-                or paid products. And that&apos;s partially true. In the real world they profile you and they share that data with other companies in exchange for, as you might
-                think, money.
+                GAFAM (Google, Apple, Facebook, Amazon, Microsoft) is known by their top-tier services, and they are mostly free. So, you may think that they profit from ads or
+                paid products. And that&apos;s partially true. In the real world they profile you and share your data with other companies in exchange for money, or they use it to
+                keep you in their information bubble so they can get even more.
             </p>
             <p>
                 Google filters your search results and YouTube recommendations to analyze your reaction and confine you to it&apos;s filter bubble. That allow them to show you
@@ -80,7 +99,7 @@ export default function Campaign() {
                     <a href="https://librewolf.net">LibreWolf</a> (replacement for Firefox, Google Chrome)
                 </li>
                 <li>
-                    <a href="https://svmetasearch.eu.org">SVMetaSearch</a>, <a href="https://searxng.nove.team">SearxNG</a> (replacement for Google Search, Microsoft Bing)
+                    <a href="https://peekr.org">Peekr</a>, <a href="https://searxng.nove.team">SearxNG</a> (replacement for Google Search, Microsoft Bing)
                 </li>
             </ul>
             <p>
