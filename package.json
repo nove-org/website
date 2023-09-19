@@ -9,7 +9,7 @@
     "scripts": {
         "dev": "next dev",
         "build": "next build",
-        "start": "PORT=6000 next start",
+        "start": "next start",
         "lint": "next lint",
         "test": "jest",
         "prepare": "husky install",
