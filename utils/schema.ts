@@ -37,7 +37,6 @@ export interface User {
     trackActivity: boolean;
     mfaEnabled: boolean;
     createdAt: string;
-    updatedAt: string;
 }
 
 export interface Device {

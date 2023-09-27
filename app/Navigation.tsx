@@ -83,7 +83,7 @@ export default async function Navigation() {
                     <details open={false} id="navbarMenu" className={o.user}>
                         <summary>
                             <header>
-                                <Image src={user.data.body.data.avatar + '?u=' + user.data.body.data.updatedAt} width="28" height="28" alt="Avatar" />
+                                <Image src={user.data.body.data.avatar} width="28" height="28" alt="Avatar" />
                                 {user.data.body.data.username}
                             </header>
                         </summary>
