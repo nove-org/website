@@ -30,6 +30,7 @@ export default function Terms() {
             </p>
             <p>We keep the right to update this Privacy Policy without notifying users about the change.</p>
             <p>By using our services you agree to this document.</p>
+
             <h2>Infrastructure</h2>
             <p>
                 We host our services on the infrastructure provided by FTDL (
