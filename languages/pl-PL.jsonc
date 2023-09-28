@@ -77,6 +77,55 @@
             "ready-h1": "Jestes gotowy na zanurzenie sie w swiecie prywatnosci?",
             "ready-p": "Rozpocznij swoja przygode i zarejestruj sie teraz, bez zwloki.",
             "ready-btn": "Zacznij juz dzis"
+        },
+        "about": {
+            "title": "O nas",
+            //* Hero section
+            //- p
+            "hero-h1": "Naszym",
+            "hero-h1-span1": "celem",
+            "hero-h1-next1": "jest uczynienie Internetu",
+            "hero-h1-span2": "bardziej prywatnym",
+            "hero-h1-next2": "i",
+            "hero-h1-span3": "bezpiecznym",
+            //- p
+            "hero-p": "Dostarczamy narzedzia wolne od zbednych funkcji, sledzenia a przede wszystkim z darmowym planem i otwartozrodlowa polityka.",
+            //- members, translate positions
+            "pos1": "Wlasciciel, programista stron i designer UI/UX",
+            "pos2": "Glowny programista API oraz opiekun kodu",
+            "pos3": "Designer UI/UX i menadżer projektow",
+            "pos4": "Programista stron i wlasciciel Peekr",
+            "pos5": "Emerytowany programista API"
+        },
+        "foss": {
+            "title": "Projekty FOSS",
+            //* Hero section
+            //- h1
+            "hero-h1": "Kochamy",
+            "hero-h1-span1": "darmowe",
+            "hero-h1-next": "i",
+            "hero-h1-span2": "otwartozrodlowe",
+            //- p
+            "hero-p": "Poniewaz",
+            "hero-p-bold": "otwartozrodlowe",
+            "hero-p-next": "oprogramowanie to wazna rola w pracy w grupie, ochronie prywatnosci uzytkownikow i niezawodności systemu.",
+            //- projects
+            "ul-napi": "Twórz aplikacje, korzystając z NAPI OAuth2, który zapewnia możliwość logowania się za pomocą Nove.",
+            "ul-manager": "Oficjalna strona internetowa używana przez Nove w celu zapewnienia graficznego dostępu do NAPI.",
+            "ul-files": "Chmura ogólnego przeznaczenia z szyfrowaniem plikow, dostępna dla każdego przez jedno klikniecie."
+        },
+        "login": {
+            "title": "Login",
+            "loader": "Please standby while we fetch the data...",
+            //* Hero
+            "hero-h1": "Welcome back",
+            "hero-p": "Provide your credentials to access your Nove account",
+            //- inputs
+            "input-login": "Login",
+            "input-password": "Password",
+            "input-btn": "Proceed",
+            //- password reset button
+            "password-reset": "Forgot your password?"
         }
     }
 }

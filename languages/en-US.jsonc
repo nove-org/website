@@ -77,6 +77,55 @@
             "ready-h1": "Are you ready to dive into the world of privacy?",
             "ready-p": "Start your journey, sign up for free today.",
             "ready-btn": "Sign up with just few clicks"
+        },
+        "about": {
+            "title": "About",
+            //* Hero section
+            //- p
+            "hero-h1": "Our",
+            "hero-h1-span1": "goal",
+            "hero-h1-next1": "is to make the Internet",
+            "hero-h1-span2": "more private",
+            "hero-h1-next2": "and",
+            "hero-h1-span3": "safer",
+            //- p
+            "hero-p": "We provide tools free from bloatware, trackers and annoying advertisements. With free & open-source policy.",
+            //- members, translate positions
+            "pos1": "CEO, front-end developer and UI/UX designer",
+            "pos2": "Main back-end developer, code maintainer",
+            "pos3": "UI/UX designer and project manager",
+            "pos4": "Front-end developer and CEO of Peekr",
+            "pos5": "Retired back-end developer"
+        },
+        "foss": {
+            "title": "FOSS projects",
+            //* Hero section
+            //- h1
+            "hero-h1": "We love",
+            "hero-h1-span1": "free",
+            "hero-h1-next": "and",
+            "hero-h1-span2": "open-source",
+            //- p
+            "hero-p": "Because",
+            "hero-p-bold": "open-source",
+            "hero-p-next": "software takes essential part in working together, protecting users privacy, and ensuring app reliability.",
+            //- projects
+            "ul-napi": "Create your desired applications with use of NAPI OAuth2 system which provides access to signing in with Nove.",
+            "ul-manager": "Official website that is used by Nove on their main domain to serve graphical access to the NAPI.",
+            "ul-files": "General purpose private cloud with password encrypted uploads available to everyone with just one click."
+        },
+        "login": {
+            "title": "Login",
+            "loader": "Please standby while we fetch the data...",
+            //* Hero
+            "hero-h1": "Welcome back",
+            "hero-p": "Provide your credentials to access your Nove account",
+            //- inputs
+            "input-login": "Login",
+            "input-password": "Password",
+            "input-btn": "Proceed",
+            //- password reset button
+            "password-reset": "Forgot your password?"
         }
     }
 }
