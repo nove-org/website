@@ -5,12 +5,12 @@ export const metadata = {
     title: 'Nove | About',
     description: 'Our goal is to make the Internet more private and safer. Meet our team and learn more about us.',
     openGraph: {
-        title: 'Nove | Free and open-source software (FOSS)',
+        title: 'Nove | About',
         description: 'Our goal is to make the Internet more private and safer. Meet our team and learn more about us.',
         images: [],
     },
     twitter: {
-        title: 'Nove | Free and open-source software (FOSS)',
+        title: 'Nove | About',
         description: 'Our goal is to make the Internet more private and safer. Meet our team and learn more about us.',
         images: [],
     },
