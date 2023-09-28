@@ -33,7 +33,7 @@ export default function Terms() {
 
             <h2>Infrastructure</h2>
             <p>
-                We host our services on the infrastructure provided by FTDL (
+                We host our services on the infrastructure provided by FTdL (
                 <a href="https://ftdl.pl/services/" rel="noopener noreferrer" target="_blank">
                     website
                 </a>
