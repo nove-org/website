@@ -1,4 +1,7 @@
 import o from '@sass/foss.module.sass';
+import LanguageHandler from '@util/handlers/LanguageHandler';
+import { axiosClient } from '@util/axios';
+import { cookies } from 'next/headers';
 
 export const metadata = {
     title: 'Nove | Free and open-source software (FOSS)',
@@ -16,33 +19,41 @@ export const metadata = {
     keywords: ['nove', 'foss', 'open source'],
 };
 
-export default function FOSS() {
+export default async function FOSS() {
+    const user = await axiosClient
+        .get('/v1/users/me', {
+            headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
+        })
+        .catch((e) => e.response);
+
+    const lang = await new LanguageHandler('main/foss', user.data.body.data).init();
+
     return (
         <section className={o.hero}>
-            <title>Nove | FOSS projects</title>
+            <title>{`Nove | ${lang.getProp('title')}`}</title>
             <h1 className={o.title}>
-                We love <span>free</span> and <span>open source</span>.
+                {lang.getProp('hero-h1')} <span>{lang.getProp('hero-h1-span1')}</span> {lang.getProp('hero-h1-next')} <span>{lang.getProp('hero-h1-span2')}</span>.
             </h1>
             <p className={o.desc}>
-                Because <b>open-source</b> software takes essential part in working together, protecting users privacy, and ensuring app reliability.
+                {lang.getProp('hero-p')} <b>{lang.getProp('hero-p-bold')}</b> {lang.getProp('hero-p-next')}
             </p>
             <ul>
                 <li>
                     <a target="_blank" rel="noopener noreferrer" href="https://git.nove.team/nove-org/NAPI">
                         <h1>NAPI</h1>
-                        <p>Create your desired applications with use of NAPI OAuth2 system which provides access to signing in with Nove.</p>
+                        <p>{lang.getProp('ul-napi')}</p>
                     </a>
                 </li>
                 <li>
                     <a target="_blank" rel="noopener noreferrer" href="https://git.nove.team/nove-org/website">
                         <h1>Manager</h1>
-                        <p>Official website that is used by Nove on their main domain to serve graphical access to the NAPI.</p>
+                        <p>{lang.getProp('ul-manager')}</p>
                     </a>
                 </li>
                 <li>
                     <a target="_blank" rel="noopener noreferrer" href="https://git.nove.team/nove-org/files.backend">
                         <h1>Files</h1>
-                        <p>General purpose private cloud with password encrypted uploads available to everyone with just one click.</p>
+                        <p>{lang.getProp('ul-files')}</p>
                     </a>
                 </li>
             </ul>
