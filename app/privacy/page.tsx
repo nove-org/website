@@ -22,7 +22,7 @@ export default function Terms() {
             <title>Nove | Privacy Policy</title>
             <h1>Privacy Policy</h1>
             <h2>
-                Last modified: <time>19th of September 2023</time>
+                Last modified: <time>28th of September 2023</time>
             </h2>
             <p>
                 We serve (mostly) free and open-source services. We do not track nor sell user&apos;s data to third-parties. We do not use any forms of tracking pixels or generate
@@ -54,6 +54,11 @@ export default function Terms() {
                 <li>account avatar (shown)</li>
             </ul>
             <p>
+                We have additional features that collect data and are disabled by default: device logger. When enabled it collects device IP and platform (OS, type). It displays
+                that information in the account security tab. That data is stored for 30 days on our servers and later is deleted. When you log in from new IP we send you an email
+                about that. If you opt-out again from this feature data is immediately deleted.
+            </p>
+            <p>
                 Some of this info is accessible publicly and we provide you a tool that allows you to change the state of your profile. Sensitive data like language, account about
                 me is not displayed if you change your profile to private.
             </p>
@@ -77,6 +82,9 @@ export default function Terms() {
                 If you opt-out from features like &quot;Your devices&quot; in &quot;Security&quot; tab, everything collected through this feature is automatically deleted with no
                 going back. We can collect it if you opt-in again.
             </p>
+
+            <h2>OAuth2 applications</h2>
+            <p>This section is in progress...</p>
         </article>
     );
 }
