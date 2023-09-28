@@ -1,0 +1,82 @@
+{
+    "modules": {
+        "navigation": {
+            //- links section
+            "ul-products": "Produkty",
+            "ul-about": "O nas",
+            "ul-docs": "Dokumentacja",
+            "ul-donate": "Dotacje",
+            //- login section
+            "login-btn": "Zaloguj",
+            "register-btn": "Zarejestruj sie",
+            //- account switcher
+            "switcher-profile": "Moj profil",
+            "switcher-security": "Bezpieczenstwo",
+            "switcher-logout": "Wyloguj sie",
+            //- products popup
+            "products-files": "Przechowuj dane bezpiecznie w chmurze",
+            "products-napi": "Pozwol swoim klienta logowac sie przez Nove",
+            "products-crm": "Zarzadzaj rekordami szybko i z latwoscia"
+        },
+        "footer": {
+            "license": "Na licencji",
+            "made-with-love": "Stworzone z ❤️ przez",
+            "contributors": "spolecznosc",
+            //- links section
+            "ul-about": "O nas",
+            "ul-docs": "Dokumentacja",
+            "ul-donate": "Dotacje",
+            "ul-login": "Zaloguj",
+            "ul-register": "Zarejestruj sie",
+            "ul-support": "Pomoc",
+            "ul-src": "Kod zrodlowy",
+            "ul-privacy": "Polityka Prywatnosci",
+            "ul-terms": "Regulamin",
+            "ul-developers": "Dla deweloperow"
+        }
+    },
+    "main": {
+        "landing": {
+            //* Site description
+            "title": "Wejdz do swiata gdzie Twoja prywatnosc ma znaczenie",
+
+            //* Hero section
+            //- h1
+            "hero-h1": "Wejdz do swiata gdzie",
+            "hero-h1-span": "Twoja prywatnosc",
+            "hero-h1-next": "ma znaczenie.",
+            //- trust note
+            "hero-note-trust": "Nie bierz nas za slowo. Przejrzyj",
+            "hero-note-trust-link": "kod",
+            "hero-note-trust-next": "samodzielnie",
+            //- misc
+            "hero-description": "Porzuc Google, Facebooka i innych ktorzy sprzedaja Twoje dane, profiluja i sledza. Odzyskaj kontrole i zacznij uzywac otwartozrodlowych, darmowych i respektujacych prywatnosc rozwiazan Nove.",
+            "hero-btn": "Zacznij juz dzis",
+
+            //* Word section (features)
+            "word-h1": "W naszym ekosystemie Twoje dane to Twoja sprawa.",
+            //- feature ul
+            "word-card1-title": "Przechowywane bezpiecznie",
+            "word-card1-description": "Szyfrujemy Twoje dane zawsze gdy to mozliwe by zabezpieczyc je przed zlodziejami, agencjami rzadowymi i przed nami.",
+            "word-card2-title": "Bez sledzenia i sprzedazy",
+            "word-card2-description": "Nigdy Cie nie sledzimy, gdy tego nie włączysz. Nie sprzedajemy Twoich danych poniewaz naleza do Ciebie, nie do nas czy ich.",
+            "word-card3-title": "Darmowy plan na zawsze",
+            "word-card3-description": "Wiekszosc naszych uslug zawiera darmowy plan wiec nie musisz nam ufac na pierwszym miejscu. Rozpocznij przygode juz teraz!",
+            //- trust note
+            "word-trust": "Wszystko to mozna latwo zweryfikowac przez otwarty kod zrodlowy. Sprawdz go na",
+
+            //* Breakup section
+            "breakup-h1": "Tworzone przez aktywistow prywatnosci oraz spolecznosc",
+            "breakup-description": "W Nove tworzymy otwartozrodlowo i liczymy na kazda pomoc w rozwoju. Poniewaz prywatnosc i bezpieczenstwo idzie z otwartozrodlowoscia i audytowalnoscia.",
+            //- breakup ul
+            "breakup-li-1": "Latwo dostepne projekty na Gitea",
+            "breakup-li-2": "Rozwijaj przez lapanie bledow, poprawianie kodu czy sugestie zmian",
+            "breakup-li-3": "Hostuj swoja wlasna wersje bezposrednio na Twoim sprzecie",
+
+            //* Ready section
+            "ready-h1": "Jestes gotowy na zanurzenie sie w swiecie prywatnosci?",
+            "ready-p": "Rozpocznij swoja przygode i zarejestruj sie teraz, bez zwloki.",
+            "ready-btn": "Zacznij juz dzis"
+        }
+    }
+}

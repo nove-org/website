@@ -1,0 +1,82 @@
+{
+    "modules": {
+        "navigation": {
+            //- links section
+            "ul-products": "Products",
+            "ul-about": "About",
+            "ul-docs": "Docs",
+            "ul-donate": "Donate",
+            //- login section
+            "login-btn": "Login",
+            "register-btn": "Sign up",
+            //- account switcher
+            "switcher-profile": "My profile",
+            "switcher-security": "Security",
+            "switcher-logout": "Log out",
+            //- products popup
+            "products-files": "Store your data securely in the cloud",
+            "products-napi": "Let your users authorize with Nove account",
+            "products-crm": "Manage your customers quick and with ease"
+        },
+        "footer": {
+            "license": "Licensed under",
+            "made-with-love": "Made with ❤️ by",
+            "contributors": "contributors",
+            //- links section
+            "ul-about": "About",
+            "ul-docs": "Docs",
+            "ul-donate": "Donate",
+            "ul-login": "Login",
+            "ul-register": "Sign up",
+            "ul-support": "Support",
+            "ul-src": "Source code",
+            "ul-privacy": "Privacy Policy",
+            "ul-terms": "Terms of Service",
+            "ul-developers": "Developers"
+        }
+    },
+    "main": {
+        "landing": {
+            //* Site description
+            "title": "Meet the world where your privacy matters",
+
+            //* Hero section
+            //- h1
+            "hero-h1": "Meet the world where",
+            "hero-h1-span": "your privacy",
+            "hero-h1-next": "matters.",
+            //- trust note
+            "hero-note-trust": "Don't take our word for this. View the",
+            "hero-note-trust-link": "code",
+            "hero-note-trust-next": "yourself",
+            //- misc
+            "hero-description": "Ditch Google, Facebook and other companies that sell data, profile and track you. Take back control and start using free, open-source and privacy-respecting solutions.",
+            "hero-btn": "Sign up today",
+
+            //* Word section (features)
+            "word-h1": "In our ecosystem, your data belongs to you, and only you.",
+            //- feature ul
+            "word-card1-title": "Stored securely on our servers",
+            "word-card1-description": "We encrypt your data whenever possible to protect it from governments, hackers and tech companies including us.",
+            "word-card2-title": "No tracking nor selling",
+            "word-card2-description": "We never track you by default. And, we never sell your data to third-parties. It belongs to you, not to us or them.",
+            "word-card3-title": "Free forever no matter what",
+            "word-card3-description": "Most of our services include free forever plan so you don't have to trust us on the first place. Start your journey today!",
+            //- trust note
+            "word-trust": "All of this is easily verifiable, check out our source code. It is open to everyone, view it on",
+
+            //* Breakup section
+            "breakup-h1": "Built by privacy enthusiasts and the community",
+            "breakup-description": "At Nove, we create open-source and we appreciate any support from the community to our projects. Because privacy and safety goes with open-source and auditable.",
+            //- breakup ul
+            "breakup-li-1": "Easily accessible projects through Gitea",
+            "breakup-li-2": "Contribute by catching bugs, improving the code or suggesting some changes",
+            "breakup-li-3": "Host your own fork of our software directly on your hardware",
+
+            //* Ready section
+            "ready-h1": "Are you ready to dive into the world of privacy?",
+            "ready-p": "Start your journey, sign up for free today.",
+            "ready-btn": "Sign up with just few clicks"
+        }
+    }
+}
