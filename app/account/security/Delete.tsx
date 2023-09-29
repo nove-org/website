@@ -45,7 +45,7 @@ export default function Delete({
 
     return (
         <>
-            <button onClick={() => setPopup((p) => !p)}>Delete my account</button>
+            <button onClick={() => setPopup((p) => !p)}>{lang.btn}</button>
             {postError ? <p className="error">{postError}</p> : null}
             {popup ? (
                 <div className={o.popup}>

@@ -41,7 +41,7 @@ export default async function Privacy() {
             <p>{lang.getProp('p2')}</p>
             <p>{lang.getProp('p3')}</p>
 
-            <h2>Infrastructure</h2>
+            <h2>{lang.getProp('inf-header')}</h2>
             <p dangerouslySetInnerHTML={{ __html: lang.getProp('inf-p1') }} />
             <p>{lang.getProp('inf-p2')}</p>
             <ul>
@@ -69,7 +69,6 @@ export default async function Privacy() {
             <p>{lang.getProp('drp-p5')}</p>
             <p>{lang.getProp('drp-p6')}</p>
             <p>{lang.getProp('drp-p7')}</p>
-            <p>{lang.getProp('drp-p8')}</p>
         </article>
     );
 }

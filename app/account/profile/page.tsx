@@ -56,6 +56,7 @@ export default async function Overview() {
             <ul className={o.options}>
                 <Bio
                     lang={{
+                        header: lang.getProp('input-bio'),
                         save: lang.getProp('input-btn-save'),
                     }}
                     user={user.body.data}

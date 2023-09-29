@@ -194,7 +194,7 @@
             "devices-p": "List of most recent devices that logged in to your account this month",
             //- no data error
             "devices-no-data-h1": "No device data found",
-            "devices-no-data-p": "You hav opted-out from activity or we did not record any yet",
+            "devices-no-data-p": "You have opted-out from activity or we did not record any yet",
             //- misc
             "devices-privacy-notice": "We store information about devices that logged in to your account in the last month on our servers.",
             //- opt-in/out button
@@ -304,14 +304,13 @@
             "inf-p5": "Provided email is not used for marketing purposes, we only use it to confirm your identity, notify you about new login or to confirm email change",
             //* Data retention policy
             "drp-header": "Data retention policy",
-            "drp-p1": "To delete your account go to Security section on the Account page, then scroll down to 'Delete Nove account'. All your data will be deleted as fast as possible and as smooth as possible.",
+            "drp-p1": "To delete your account go to Security section on the Account page, then scroll down to 'Delete Nove account'.",
             "drp-p2": "Data you have encrypted in our services using your password is truly encrypted and we cannot decrypt it.",
             "drp-p3": "We can delete accounts if they are not verified and inactive for at least 3 days.",
             "drp-p4": "We can delete accounts for violation of our Terms of Service.",
             "drp-p5": "Every account deletion that is performed by a service administrator always have a reason which is known to the owner of the deleted account after or few days before deletion.",
             "drp-p6": "If a user lost access to their account, they can request password reset or account deletion through the mail they provided to us",
             "drp-p7": "We keep user account data as long as they have account in NAPI, which can be deleted through the Security tab on the Account page.",
-            "drp-p8": "If you opt-out from features like 'Your devices' in 'Security' tab, everything collected through this feature is automatically deleted with no going back. We can collect it if you opt-in again.",
             //* OAuth2 applications
             "oa2-header": "OAuth2 applications",
             "oa2-p1": "This section is not ready yet."

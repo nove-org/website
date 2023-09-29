@@ -151,177 +151,176 @@
     },
     "dashboard": {
         "layout": {
-            "title": "Dashboard",
+            "title": "Ustawienia",
             //* Hero section
             //- text that displays above the list of elements on sidebar
-            "header": "Settings",
+            "header": "Ustawienia",
             //- errors
-            "verify-email": "Please verify your e-mail to gain access to the account",
-            "api-down": "Something went wrong and we can't reach the API",
+            "verify-email": "Zweryfikuj swój adres e-mail aby moć używać konta Nove",
+            "api-down": "Coś jest nie tak i nie możemy porozumieć się z API",
             //* List of elements to select on sidebar
-            "ul-overview": "Overview",
-            "ul-security": "Security",
-            "ul-profile": "My profile",
-            "ul-language": "Language"
+            "ul-overview": "Przegląd",
+            "ul-security": "Bezpieczeństwo",
+            "ul-profile": "Mój profil",
+            "ul-language": "Język"
         },
         "main": {
-            "title": "Overview",
+            "title": "Przegląd",
             //* Your profile section on /account
-            "tips-header": "Tips to improve your security and privacy",
-            "tips-1": "Use free and open-source software",
-            "tips-2": "Try to use MFA whenever possible",
-            "tips-3": "Create as less accounts as you can",
+            "tips-header": "Jak poprawić bezpieczeństwo i prywatność",
+            "tips-1": "Używaj darmowego i otwartoźródłowego",
+            "tips-2": "Włącz weryfikacje dwuskładnikową",
+            "tips-3": "Nie twórz za dużo kont w sieci",
             //* Cards that are listed next to your profile on /account
-            "card-1-h1": "Language",
-            "card-1-p": "Change your preferred language across all Nove products",
-            "card-2-h1": "Activity",
-            "card-2-p": "Manage recent activity on your account with ease using activity logs",
-            "card-2-action": "{number} active sessions",
+            "card-1-h1": "Język",
+            "card-1-p": "Zmień język wyświetlania na wszystkich usługach Nove",
+            "card-2-h1": "Aktywność",
+            "card-2-p": "Zarządzaj ostatnią aktywnością na twoim koncie z łatwością",
+            "card-2-action": "{number} aktywne sesje",
             //- reminder      ^^^^^^^^ do not translate it, leave as it is
-            "card-3-h1": "Logging in",
-            "card-3-p": "Change your account credentials or add security layers with ease",
-            "card-3-action": "Go",
-            "card-4-h1": "Recovery",
-            "card-4-p": "Set up two factor authentication and download backup codes",
+            "card-3-h1": "Logowanie",
+            "card-3-p": "Zmień swoje hasło lub dodaj dodatkowe zabezpieczenia",
+            "card-3-action": "Idź",
+            "card-4-h1": "Przywr.",
+            "card-4-p": "Pobierz kody zapasowe po włączeniu weryfikacji dwuetapowej",
             //* Error displayed when we cannot communicate with the API properly
-            "error-h1": "Something is wrong with the API",
-            "error-p": "We cannot sign your session which leads to data retrieval failure"
+            "error-h1": "Coś jest nie tak i nie możemy porozumieć się z API",
+            "error-p": "Nie możemy podpisać twojej sesji co prowadzi do błędu wczytywania danych"
         },
         "security": {
-            "title": "Security",
+            "title": "Bezpieczeństwo",
             //* Your devices section
-            "devices-h1": "Your devices",
-            "devices-p": "List of most recent devices that logged in to your account this month",
+            "devices-h1": "Twoje urządzenia",
+            "devices-p": "Lista najnowszych urządzeń logujących się w tym miesiącu na Twoje konto",
             //- no data error
-            "devices-no-data-h1": "No device data found",
-            "devices-no-data-p": "You hav opted-out from activity or we did not record any yet",
+            "devices-no-data-h1": "Brak danych",
+            "devices-no-data-p": "Wyłączyłeś zbieranie aktywności lub nic jeszcze nie zapisaliśmy",
             //- misc
-            "devices-privacy-notice": "We store information about devices that logged in to your account in the last month on our servers.",
+            "devices-privacy-notice": "Przechowujemy informacje o urządzeniach które logowały się na twoje konto w ostatnich 30 dniach.",
             //- opt-in/out button
-            "devices-opt-btn-1": "Opt-out",
-            "devices-opt-btn-2": "Enable",
+            "devices-opt-btn-1": "Wyłącz",
+            "devices-opt-btn-2": "Włącz",
             //* "How do you sign in" section
-            "hds-h1": "How do you sign in",
-            "hds-p": "Add or modify ways of signing in and confirming your identity",
+            "hds-h1": "Jak się logujesz",
+            "hds-p": "Dodaj lub modyfikuj metody potwierdzania twojej tożsamości",
             //- buttons on the right side, keep the text short
             //- password button
-            "hds-password-btn": "Password",
+            "hds-password-btn": "Hasło",
             //? password change popup
-            "hds-password-h1": "Change your password",
-            "hds-password-p": "Choose a strong password and do not reuse it for other accounts. Changing your password will sign you out on your devices.",
-            "hds-password-label-1": "Old password",
-            "hds-password-placeholder-1": "Verify your old password",
-            "hds-password-label-2": "New password",
-            "hds-password-placeholder-2": "Provide your new password",
+            "hds-password-h1": "Zmień hasło",
+            "hds-password-p": "Wybierz silne hasło którego nigdzie nie używasz. Zmiana hasła wyloguje cię ze wszystkich urządzeń.",
+            "hds-password-label-1": "Stare hasło",
+            "hds-password-placeholder-1": "Zweryfikuj stare hasło",
+            "hds-password-label-2": "Nowe hasło",
+            "hds-password-placeholder-2": "Podaj Twoje nowe hasło",
             //- email button
             "hds-email-btn": "E-mail",
             //? email change popup
-            "hds-email-h1": "Change your email",
-            "hds-email-p": "The address where we can contact you if there is an unusual activity in your account or if you get locked out. You can also use it to log in to your account.",
-            "hds-email-label-1": "New e-mail",
-            "hds-email-placeholder-1": "Provide your new e-mail",
+            "hds-email-h1": "Zmień adres email",
+            "hds-email-p": "Adres e-mail gdzie możemy się z tobą skontaktować w celach bezpieczeństwa. Możesz też go używać aby logować się do konta.",
+            "hds-email-label-1": "Nowy e-mail",
+            "hds-email-placeholder-1": "Podaj nowy e-mail",
             //- 2fa button
             "hds-two-factor-authentication": "2FA",
             //- recovery button
-            "hds-recovery": "Recovery",
+            "hds-recovery": "Przywr.",
             //- popup actions
-            "hds-btn-cancel": "Cancel",
-            "hds-btn-save": "Save changes",
+            "hds-btn-cancel": "Anuluj",
+            "hds-btn-save": "Zapisz zmiany",
             //* Delete your account section
-            "delete-h1": "Delete your Nove account",
-            "delete-p": "To delete your account we need you to provide your account password to confirm your actions. This process is irreversible and all your data associated with this account will be deleted from our servers instantly! You can delete your account anytime and you always have the right to do it on your own without the need to contact us. Please, make sure that you have deleted all third-party accounts you registered using your Nove account. Otherwise, you won't be able to log in to them.",
-            "delete-p2": "Provide your password so we can verify that it's you. Remember to delete all accounts that you registered using this Nove account. Otherwise, they might be unaccessible. This action is performed instantly - it's irreversible.",
-            "delete-label": "Your password",
-            "delete-placeholder": "Password",
-            "delete-btn": "Delete my account",
+            "delete-h1": "Usuń moje konto Nove",
+            "delete-p": "Aby usunąć konto musisz podać swoje hasło w celach bezpieczeństwa. Ten proces jest nieodwracalny a my niezwłocznie usuniemy dane z naszych serwerów! Możesz usunąć swoje konto kiedy tylko chcesz i nie musisz się z nami w tej sprawie kontaktować. Pamiętaj aby usunąć wszystkie konta zarejestrowane przez OAuth2. W innym wypadku mogą być niedostępne.",
+            "delete-p2": "Podaj Twoje hasło abyśmy mogli zweryfikować twoją tożsamość. Pamiętaj aby usunąć wszystkie konta zarejestrowane przez OAuth2. W innym wypadku mogą być niedostępne. Ta akcja jest wykonywana od razu i nie ma odwrotu.",
+            "delete-label": "Twoje hasło",
+            "delete-placeholder": "Hasło",
+            "delete-btn": "Usuń moje konto",
             //* Error displayed when we cannot communicate with the API properly
-            "error-h1": "Something is wrong with the API",
-            "error-p": "We cannot sign your session which leads to data retrieval failure"
+            "error-h1": "Coś jest nie tak i nie możemy porozumieć się z API",
+            "error-p": "Nie możemy podpisać twojej sesji co prowadzi do błędu wczytywania danych"
         },
         "profile": {
-            "title": "My profile",
-            "description": "Manage your personal info that is displayed on your Nove account profile. You can change display method of your profile to private and public. While on private we will share only basic information about your account like username and avatar.",
-            "hero-ul-1": "Basic account info",
-            "hero-ul-2": "Details",
+            "title": "Mój profil",
+            "description": "Zarządzaj informacjami które są wyświetlane na twoim profilu Nove. Możesz ustawić profil na publiczny lub prywatny. Gdy ustawiony jest prywatny, udostępnimy tylko nazwę konta i ikonę.",
+            "hero-ul-1": "Podstawowe informacje o koncie",
+            "hero-ul-2": "Szczegóły",
             //* Inputs
             //- username input
-            "input-username": "Username",
-            "input-username-placeholder": "{username} (new username here)",
+            "input-username": "Nazwa użytkownika",
+            "input-username-placeholder": "{username} (nowa nazwa tutaj)",
             //- avatar input
-            "input-avatar": "Avatar",
-            "input-avatar-btn": "Select file",
-            "input-avatar-filename": "Nothing is selected",
-            "input-avatar-too-big": "The file type you are trying to upload is too big",
-            "input-avatar-not-allowed": "The file type you are trying to upload is not allowed",
+            "input-avatar": "Zdjęcie profilowe",
+            "input-avatar-btn": "Wybierz plik",
+            "input-avatar-filename": "Nic nie jest wybrane",
+            "input-avatar-too-big": "Plik który próbujesz przesłać jest za duży",
+            "input-avatar-not-allowed": "Plik który próbujesz przesłać nie jest dozwolony",
             //- about me input
-            "input-bio": "About me",
+            "input-bio": "O mnie",
             //- public/private profile switch
-            "input-profile-state-label": "Display more details on your public profile",
+            "input-profile-state-label": "Wyświetlaj więcej informacji na publicznym profilu",
             //- misc buttons
-            "input-btn-edit": "Edit",
-            "input-btn-save": "Save",
+            "input-btn-edit": "Edytuj",
+            "input-btn-save": "Zapisz",
             //* Error displayed when we cannot communicate with the API properly
-            "error-h1": "Something is wrong with the API",
-            "error-p": "We cannot sign your session which leads to data retrieval failure"
+            "error-h1": "Coś jest nie tak i nie możemy porozumieć się z API",
+            "error-p": "Nie możemy podpisać twojej sesji co prowadzi do błędu wczytywania danych"
         },
         "language": {
             //* Hero section
-            "hero-h1": "Language",
-            "hero-p1": "Select your preferred language. This setting will be used to display content in your language on all Nove websites and your connected apps might use it.",
-            "hero-p2": "Not fully supported by us yet. You might want to set it for OAuth2 apps to use.",
+            "hero-h1": "Język",
+            "hero-p1": "Wybierz preferowany język. To ustawienie będzie używane aby wyświetlić treści w wybranym języku we wszystkich produktach Nove na których jesteś zalogowany. Połączone aplikacje OAuth2 też mogą go używać.",
+            "hero-p2": "Nie jest to jeszcze oficjalnie wspierane rozwiązanie lecz aplikacje OAuth2 mogą już je w pełni wdrażać.",
             //* Error displayed when we cannot communicate with the API properly
-            "error-h1": "Something is wrong with the API",
-            "error-p": "We cannot sign your session which leads to data retrieval failure"
+            "error-h1": "Coś jest nie tak i nie możemy porozumieć się z API",
+            "error-p": "Nie możemy podpisać twojej sesji co prowadzi do błędu wczytywania danych"
         }
     },
     "documents": {
         "privacy-policy": {
-            "title": "Privacy Policy",
-            "last-modified": "Last modified: <time>28th of September 2023</time>",
+            "title": "Polityka Prywatności",
+            "last-modified": "Ostatnio zmodyfikowane: <time>28 września 2023</time>",
             //* Introduction
-            "p1": "We serve (mostly) free and open-source services. We do not track nor sell user's data to third-parties. We do not use any forms of tracking pixels or generate a unique fingerprint about you.",
-            "p2": "We keep the right to update this Privacy Policy without notifying users about the change.",
-            "p3": "By using our services you agree to this document.",
+            "p1": "Dostarczamy (w większości) darmowe i otwartoźródłowe rozwiązania. Nie śledzimy ani nie sprzedajemy danych do firm trzecich. Nie używamy śledzących pikseli ani innych form ujawniania tożsamości użytkownika",
+            "p2": "Zastrzegamy sobie prawo do aktualizacji tego dokumentu bez powiadomienia użytkowników.",
+            "p3": "Używając naszych usług zgadzasz się przestrzegać tego dokumentu.",
             //* Infrastructure
-            "inf-header": "Infrastructure",
-            "inf-p1": "We host our services on the infrastructure provided by FTdL (<a href=\"https://ftdl.pl/services/\" rel=\"noopener noreferrer\" target=\"_blank\">website</a>) which is located in Krakow, Poland. Your data administrator is Nove (nove.team; <a href=\"mailto:reply@nove.team\">reply@nove.team</a>)",
-            "inf-p2": "In our database, we only store necessary info you provided us through NAPI. Detailing",
+            "inf-header": "Infrastruktura",
+            "inf-p1": "Używamy serwerów dostarczanych przez FTdL (<a href=\"https://ftdl.pl/services/\" rel=\"noopener noreferrer\" target=\"_blank\">strona internetowa</a>) które znajdują się w Krakowie. Administratorem danych osobowych jest Nove (nove.team; <a href=\"mailto:reply@nove.team\">reply@nove.team</a>)",
+            "inf-p2": "W naszej bazie danych przetwarzamy tylko dane które zostały podane do NAPI. Czyli",
             //- list of items
-            "inf-li-1": "username (shown always)",
-            "inf-li-2": "email (not shown)",
-            "inf-li-3": "account about me (not shown on private profile)",
-            "inf-li-4": "account language (not shown on private profile)",
-            "inf-li-5": "account creation date (not shown on private profile)",
-            "inf-li-6": "account updated date (not shown)",
-            "inf-li-7": "account verified state (not shown)",
-            "inf-li-8": "account profile public state (shown)",
-            "inf-li-9": "MFA credentials (not shown)",
-            "inf-li-10": "your encrypted password (not shown)",
-            "inf-li-11": "account avatar (shown)",
+            "inf-li-1": "nazwa użytkownika (zawsze pokazana)",
+            "inf-li-2": "email (nigdy nie pokazany)",
+            "inf-li-3": "sekcja o mnie (nie pokazana na prywatnym profilu)",
+            "inf-li-4": "język konta (nie pokazana na prywatnym profilu)",
+            "inf-li-5": "data stworzenia konta (nie pokazana na prywatnym profilu)",
+            "inf-li-6": "data aktualizacji danych konta (nigdy nie pokazana)",
+            "inf-li-7": "stan weryfikacji konta (nigdy nie pokazany)",
+            "inf-li-8": "tryb konta publiczny lub prywatny (nigdy nie pokazana)",
+            "inf-li-9": "hasła MFA (nigdy nie pokazane)",
+            "inf-li-10": "zaszyfrowane hasło (nigdy nie pokazane)",
+            "inf-li-11": "zdjęcie profilowe konta (zawsze pokazane)",
             //- continuation
-            "inf-p3": "We have additional features that collect data and are disabled by default: device logger. When enabled it collects device IP and platform (OS, type). It displays that information in the account security tab. That data is stored for 30 days on our servers and later is deleted. When you log in from new IP we send you an email about that. If you opt-out again from this feature data is immediately deleted.",
-            "inf-p4": "Some of this info is accessible publicly and we provide you a tool that allows you to change the state of your profile. Sensitive data like language, account about me is not displayed if you change your profile to private.",
-            "inf-p5": "Provided email is not used for marketing purposes, we only use it to confirm your identity, notify you about new login or to confirm email change",
+            "inf-p3": "Posiadamy dodatkowe funkcje które zbierają twoje dane i są wyłączone domyślnie: zapisywanie aktywności. Gdy włączone zbiera IP urządzenia oraz platformę (OS, type). Wyświetla te informacje w zakładce bezpieczeństwa w ustawieniach. Dane przechowywane są przez 30 dni a następnie są usuwane. Jeśli logujesz się z nowego urządzenia powiadomimy Cię o tym drogą mailową. Kiedy wyłączysz tą funkcje zebrane dane zostają automatycznie usunięte.",
+            "inf-p4": "Niektóre z tych informacji zostały oznaczone jako publicznie dostępne. Udostępniamy narzędzie pozwalające na zmiane stanu profilu na publiczny/prywatny aby ukryć wrażliwe dane.",
+            "inf-p5": "Podany e-mail nie jest używany w celach marketingowych. Używamy go aby zweryfikować tworzenie konta, podnieść bezpieczeństwo oraz aby powiadamiać cię o ważnych zmianach w serwisie",
             //* Data retention policy
-            "drp-header": "Data retention policy",
-            "drp-p1": "To delete your account go to Security section on the Account page, then scroll down to 'Delete Nove account'. All your data will be deleted as fast as possible and as smooth as possible.",
-            "drp-p2": "Data you have encrypted in our services using your password is truly encrypted and we cannot decrypt it.",
-            "drp-p3": "We can delete accounts if they are not verified and inactive for at least 3 days.",
-            "drp-p4": "We can delete accounts for violation of our Terms of Service.",
-            "drp-p5": "Every account deletion that is performed by a service administrator always have a reason which is known to the owner of the deleted account after or few days before deletion.",
-            "drp-p6": "If a user lost access to their account, they can request password reset or account deletion through the mail they provided to us",
-            "drp-p7": "We keep user account data as long as they have account in NAPI, which can be deleted through the Security tab on the Account page.",
-            "drp-p8": "If you opt-out from features like 'Your devices' in 'Security' tab, everything collected through this feature is automatically deleted with no going back. We can collect it if you opt-in again.",
+            "drp-header": "Polityka przechowywania danych",
+            "drp-p1": "Aby usunąć swoje konto, przejdź do ustawień, wejdź w zakładkę 'Bezpieczeństwo' a potem naciśnij 'Usuń moje konto' na samym dole strony.",
+            "drp-p2": "Dane które zostały zaszyfrowane hasłem są faktycznie zaszyfrowane i nie możemy ich podejrzeć.",
+            "drp-p3": "Mamy prawo do usunięcia kont które nie są aktywowane przez 3 dni lub dłużej.",
+            "drp-p4": "Mamy prawo do usunięcia kont które naruszają nasz regulamin",
+            "drp-p5": "Każde usunięcie konta przez administratora jest uzasadnione a powód jest znany do właściciela danego konta przed lub kilka dni po usunięciu.",
+            "drp-p6": "Jeśli użytkownik stracił dostęp do swojego konta, mogą zgłosić się po resetowanie hasła lub usunięcie konta poprzez adres e-mail na który się zarejestrowali",
+            "drp-p7": "Przetwarzamy dane użytkownika tak długo jak użytkownik posiada konto w NAPI które może usunąć w ustawieniach.",
             //* OAuth2 applications
-            "oa2-header": "OAuth2 applications",
+            "oa2-header": "Aplikacje OAuth2",
             "oa2-p1": "This section is not ready yet."
         },
         "terms-of-service": {
-            "title": "Terms of Service",
-            "last-modified": "Last modified: <time>12th of August 2023</time>",
+            "title": "Warunki usługi (regulamin)",
+            "last-modified": "Ostatnio zmodyfikowane: <time>12 sierpnia 2023</time>",
             "p1": "By using services hosted by us (Nove) you agree to our Terms of Service and Privacy Policy. If you do not accept these, you are not allowed to use our services. All users have to follow Terms of Service, with no exceptions. As reminder, this document applies for all our services.",
-            "p2": "We are not responsible for any content that is posted on user's account",
-            "p3": "List of actions that we do not tolerate",
+            "p2": "Nie jesteśmy odpowiedzialni za treści na koncie użytkownika",
+            "p3": "Lista działań których nie popieramy",
             //* List
             "li-1": "NSFW and NSFL content is strictly forbidden. This includes violence, “gore” movies, and terrorist materials. NSFL stands for “Not Safe for Life”, which means everything that can endanger human life.",
             "li-2": "Any pornographic material involving minors will be removed if noticed, and the associated account will be banned entirely, which will cause the removal of all the data associated with it.",
@@ -333,8 +332,8 @@
             "li-5-li-3": "Any discovered bugs in the API have to be imminently reported through email or Gitea Issues",
             "li-6": "We cannot decrypt encrypted/password-encrypted content even for law enforcements.",
             "li-7": "If we will be forced by law enforcements to show everything we got on user, we will share it with them.",
-            "p4": "Please do not create multiple accounts. Keep things simple.",
-            "p5": "We have the right to update this document without notifying our users."
+            "p4": "Proszę nie twórz dodatkowych kont. Zostawmy rzeczy prostymi.",
+            "p5": "Zastrzegamy sobie prawo do aktualizacji tego dokumentu bez powiadomienia użytkowników."
         }
     }
 }

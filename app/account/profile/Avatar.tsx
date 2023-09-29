@@ -68,7 +68,7 @@ export default function Avatar({
 
     return (
         <>
-            <header>Avatar</header>
+            <header>{lang.header}</header>
             <li>
                 {!edit ? (
                     <>

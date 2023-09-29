@@ -5,7 +5,7 @@ import { User } from '@util/schema';
 import { useState } from 'react';
 import o from '@sass/account/profile/page.module.sass';
 
-export default function Bio({ user, cookie, lang }: { user: User; cookie?: string; lang: { save: string } }) {
+export default function Bio({ user, cookie, lang }: { user: User; cookie?: string; lang: { header: string; save: string } }) {
     const [postError, setPostError] = useState<string>();
 
     const throwError = (message?: string, bool?: boolean) => {
@@ -28,7 +28,7 @@ export default function Bio({ user, cookie, lang }: { user: User; cookie?: strin
 
     return (
         <>
-            <header>About me</header>
+            <header>{lang.header}</header>
             <li>
                 <form onSubmit={handleSubmit}>
                     <textarea spellCheck={false} name="bio" defaultValue={user.bio} />
