@@ -2,7 +2,7 @@ import o from '@sass/about.module.sass';
 import Image from 'next/image';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import { axiosClient } from '@util/axios';
-import { cookies } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 
 export const metadata = {
     title: 'Nove | About',
@@ -27,15 +27,13 @@ export default async function About() {
         })
         .catch((e) => e.response);
 
-    const lang = await new LanguageHandler('main/about', user.data.body.data).init();
+    const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
+    const lang = await new LanguageHandler('main/about', user.data.body.data).init(browserLanguage);
 
     return (
         <section className={o.hero}>
             <title>{`Nove | ${lang.getProp('title')}`}</title>
-            <h1 className={o.title}>
-                {lang.getProp('hero-h1')} <b>{lang.getProp('hero-h1-span1')}</b> {lang.getProp('hero-h1-next1')} <span>{lang.getProp('hero-h1-span2')}</span>{' '}
-                {lang.getProp('hero-h1-next2')} <span>{lang.getProp('hero-h1-span3')}</span>.
-            </h1>
+            <h1 className={o.title} dangerouslySetInnerHTML={{ __html: lang.getProp('hero-h1') }} />
             <p className={o.desc}>{lang.getProp('hero-p')}</p>
             <ul>
                 <li>

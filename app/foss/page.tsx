@@ -1,18 +1,18 @@
 import o from '@sass/foss.module.sass';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import { axiosClient } from '@util/axios';
-import { cookies } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 
 export const metadata = {
-    title: 'Nove | Free and open-source software (FOSS)',
+    title: 'Nove | FOSS projects',
     description: 'List of our projects that are FOSS. Learn about our free and open-source software nature.',
     openGraph: {
-        title: 'Nove | Free and open-source software (FOSS)',
+        title: 'Nove | Free and open-source projects',
         description: 'List of our projects that are FOSS. Learn about our free and open-source software nature.',
         images: [],
     },
     twitter: {
-        title: 'Nove | Free and open-source software (FOSS)',
+        title: 'Nove | Free and open-source projects',
         description: `List of our projects that are FOSS. Learn about our free and open-source software nature.`,
         images: [],
     },
@@ -26,17 +26,14 @@ export default async function FOSS() {
         })
         .catch((e) => e.response);
 
-    const lang = await new LanguageHandler('main/foss', user.data.body.data).init();
+    const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
+    const lang = await new LanguageHandler('main/foss', user.data.body.data).init(browserLanguage);
 
     return (
         <section className={o.hero}>
             <title>{`Nove | ${lang.getProp('title')}`}</title>
-            <h1 className={o.title}>
-                {lang.getProp('hero-h1')} <span>{lang.getProp('hero-h1-span1')}</span> {lang.getProp('hero-h1-next')} <span>{lang.getProp('hero-h1-span2')}</span>.
-            </h1>
-            <p className={o.desc}>
-                {lang.getProp('hero-p')} <b>{lang.getProp('hero-p-bold')}</b> {lang.getProp('hero-p-next')}
-            </p>
+            <h1 className={o.title} dangerouslySetInnerHTML={{ __html: lang.getProp('hero-h1') }} />{' '}
+            <p className={o.desc} dangerouslySetInnerHTML={{ __html: lang.getProp('hero-p') }} />
             <ul>
                 <li>
                     <a target="_blank" rel="noopener noreferrer" href="https://git.nove.team/nove-org/NAPI">
