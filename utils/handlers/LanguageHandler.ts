@@ -22,10 +22,11 @@ export default class LanguageHandler {
         if (!browserLanguage.split('-')[1] && !this.language) this.language = `${browserLanguage}-${browserLanguage.toUpperCase()}`;
         else if (!this.language) this.language = browserLanguage;
 
-        const file = jsonc.parse(readFileSync(`./languages/${this.language}.jsonc`).toString());
-
-        if (!file) throw new ReferenceError(`LanguageHandler: Error while parsing ${this.language}.jsonc`);
-        else this.file = file;
+        try {
+            this.file = jsonc.parse(readFileSync(`./languages/${this.language}.jsonc`).toString());
+        } catch {
+            this.file = jsonc.parse(readFileSync(`./languages/en-US.jsonc`).toString());
+        }
 
         if (!this.file.hasOwnProperty(this.category))
             throw new ReferenceError(`LanguageHandler: Error while parsing ${this.language}.jsonc: category "${this.category}" was not found`);
