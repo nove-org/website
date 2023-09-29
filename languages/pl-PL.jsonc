@@ -8,75 +8,75 @@
             "ul-donate": "Dotacje",
             //- login section
             "login-btn": "Zaloguj",
-            "register-btn": "Zarejestruj sie",
+            "register-btn": "Zarejestruj się",
             //- account switcher
-            "switcher-profile": "Moj profil",
-            "switcher-security": "Bezpieczenstwo",
-            "switcher-logout": "Wyloguj sie",
+            "switcher-profile": "Mój profil",
+            "switcher-security": "Bezpieczeństwo",
+            "switcher-logout": "Wyloguj się",
             //- products popup
             "products-files": "Przechowuj dane bezpiecznie w chmurze",
-            "products-napi": "Pozwol swoim klienta logowac sie przez Nove",
-            "products-crm": "Zarzadzaj rekordami szybko i z latwoscia"
+            "products-napi": "Pozwol swoim klientom logować się przez Nove",
+            "products-crm": "Zarządzaj rekordami szybko i z łatwością"
         },
         "footer": {
             "license": "Na licencji",
             "made-with-love": "Stworzone z ❤️ przez",
-            "contributors": "spolecznosc",
+            "contributors": "społeczność",
             //- links section
             "ul-about": "O nas",
             "ul-docs": "Dokumentacja",
             "ul-donate": "Dotacje",
             "ul-login": "Zaloguj",
-            "ul-register": "Zarejestruj sie",
+            "ul-register": "Zarejestruj się",
             "ul-support": "Pomoc",
-            "ul-src": "Kod zrodlowy",
-            "ul-privacy": "Polityka Prywatnosci",
+            "ul-src": "Kod źródłowy",
+            "ul-privacy": "Polityka Prywatności",
             "ul-terms": "Regulamin",
-            "ul-developers": "Dla deweloperow"
+            "ul-developers": "Dla programistów"
         }
     },
     "main": {
         "landing": {
             //* Site description
-            "title": "Wejdz do swiata gdzie Twoja prywatnosc ma znaczenie",
+            "title": "Wejdź do świata gdzie Twoja prywatność ma znaczenie",
 
             //* Hero section
             //- h1
-            "hero-h1": "Wejdz do swiata gdzie",
-            "hero-h1-span": "Twoja prywatnosc",
+            "hero-h1": "Wejdź do świata gdzie",
+            "hero-h1-span": "Twoja prywatność",
             "hero-h1-next": "ma znaczenie.",
             //- trust note
-            "hero-note-trust": "Nie bierz nas za slowo. Przejrzyj",
+            "hero-note-trust": "Nie bierz nas za słowo. Przejrzyj",
             "hero-note-trust-link": "kod",
             "hero-note-trust-next": "samodzielnie",
             //- misc
-            "hero-description": "Porzuc Google, Facebooka i innych ktorzy sprzedaja Twoje dane, profiluja i sledza. Odzyskaj kontrole i zacznij uzywac otwartozrodlowych, darmowych i respektujacych prywatnosc rozwiazan Nove.",
-            "hero-btn": "Zacznij juz dzis",
+            "hero-description": "Porzuć Google, Facebooka i innych którzy sprzedają Twoje dane, profilują i śledzą. Odzyskaj kontrolę i zacznij uzywac otwartoźródłowych, darmowych i respektujących prywatność rozwiązań Nove.",
+            "hero-btn": "Zacznij juz dziś",
 
             //* Word section (features)
             "word-h1": "W naszym ekosystemie Twoje dane to Twoja sprawa.",
             //- feature ul
             "word-card1-title": "Przechowywane bezpiecznie",
-            "word-card1-description": "Szyfrujemy Twoje dane zawsze gdy to mozliwe by zabezpieczyc je przed zlodziejami, agencjami rzadowymi i przed nami.",
-            "word-card2-title": "Bez sledzenia i sprzedazy",
-            "word-card2-description": "Nigdy Cie nie sledzimy, gdy tego nie włączysz. Nie sprzedajemy Twoich danych poniewaz naleza do Ciebie, nie do nas czy ich.",
+            "word-card1-description": "Szyfrujemy Twoje dane zawsze gdy to możliwe by zabezpieczyc je przed złodziejami, agencjami rządowymi i przed nami.",
+            "word-card2-title": "Bez śledzenia i sprzedaży",
+            "word-card2-description": "Nigdy Cie nie śledzimy, gdy tego nie włączysz. Nie sprzedajemy Twoich danych ponieważ nalezą do Ciebie, nie do nas czy ich.",
             "word-card3-title": "Darmowy plan na zawsze",
-            "word-card3-description": "Wiekszosc naszych uslug zawiera darmowy plan wiec nie musisz nam ufac na pierwszym miejscu. Rozpocznij przygode juz teraz!",
+            "word-card3-description": "Większość naszych usług zawiera darmowy plan więc nie musisz nam ufać na pierwszym miejscu. Rozpocznij przygodę już teraz!",
             //- trust note
-            "word-trust": "Wszystko to mozna latwo zweryfikowac przez otwarty kod zrodlowy. Sprawdz go na",
+            "word-trust": "Wszystko to można łatwo zweryfikować przez otwarty kod źródłowy. Sprawdź go na",
 
             //* Breakup section
-            "breakup-h1": "Tworzone przez aktywistow prywatnosci oraz spolecznosc",
-            "breakup-description": "W Nove tworzymy otwartozrodlowo i liczymy na kazda pomoc w rozwoju. Poniewaz prywatnosc i bezpieczenstwo idzie z otwartozrodlowoscia i audytowalnoscia.",
+            "breakup-h1": "Tworzone przez aktywistów prywatności oraz społeczność",
+            "breakup-description": "W Nove tworzymy otwartoźródłowo i liczymy na każdą pomoc w rozwoju. Ponieważ prywatność i bezpieczeństwo idzie w parze z otwartoźródłowością i audytowalnością.",
             //- breakup ul
-            "breakup-li-1": "Latwo dostepne projekty na Gitea",
-            "breakup-li-2": "Rozwijaj przez lapanie bledow, poprawianie kodu czy sugestie zmian",
-            "breakup-li-3": "Hostuj swoja wlasna wersje bezposrednio na Twoim sprzecie",
+            "breakup-li-1": "Łatwo dostepne projekty na Gitea",
+            "breakup-li-2": "Rozwijaj przez łapanie błędów, poprawianie kodu czy sugestie zmian",
+            "breakup-li-3": "Hostuj swoją własną wersję bezpośrednio na Twoim sprzęcie",
 
             //* Ready section
-            "ready-h1": "Jestes gotowy na zanurzenie sie w swiecie prywatnosci?",
-            "ready-p": "Rozpocznij swoja przygode i zarejestruj sie teraz, bez zwloki.",
-            "ready-btn": "Zacznij juz dzis"
+            "ready-h1": "Jesteś gotowy na zanurzenie się w świecie prywatności?",
+            "ready-p": "Rozpocznij swoją przygodę i zarejestruj się teraz, bez zwłoki.",
+            "ready-btn": "Zacznij juz dziś"
         },
         "about": {
             "title": "O nas",
@@ -89,12 +89,12 @@
             "hero-h1-next2": "i",
             "hero-h1-span3": "bezpiecznym",
             //- p
-            "hero-p": "Dostarczamy narzedzia wolne od zbednych funkcji, sledzenia a przede wszystkim z darmowym planem i otwartozrodlowa polityka.",
+            "hero-p": "Dostarczamy narzędzia wolne od zbędnych funkcji, śledzenia a przede wszystkim z darmowym planem i otwartoźródłową polityka.",
             //- members, translate positions
-            "pos1": "Wlasciciel, programista stron i designer UI/UX",
-            "pos2": "Glowny programista API oraz opiekun kodu",
+            "pos1": "Właściciel, programista stron i designer UI/UX",
+            "pos2": "Główny programista API oraz opiekun kodu",
             "pos3": "Designer UI/UX i menadżer projektow",
-            "pos4": "Programista stron i wlasciciel Peekr",
+            "pos4": "Programista stron i własciciel Peekr",
             "pos5": "Emerytowany programista API"
         },
         "foss": {
@@ -104,28 +104,28 @@
             "hero-h1": "Kochamy",
             "hero-h1-span1": "darmowe",
             "hero-h1-next": "i",
-            "hero-h1-span2": "otwartozrodlowe",
+            "hero-h1-span2": "otwartoźródłowe",
             //- p
-            "hero-p": "Poniewaz",
-            "hero-p-bold": "otwartozrodlowe",
-            "hero-p-next": "oprogramowanie to wazna rola w pracy w grupie, ochronie prywatnosci uzytkownikow i niezawodności systemu.",
+            "hero-p": "Ponieważ",
+            "hero-p-bold": "otwartoźródłowe",
+            "hero-p-next": "oprogramowanie to ważna rola w pracy w grupie, ochronie prywatności użytkowników i niezawodności systemu.",
             //- projects
-            "ul-napi": "Twórz aplikacje, korzystając z NAPI OAuth2, który zapewnia możliwość logowania się za pomocą Nove.",
-            "ul-manager": "Oficjalna strona internetowa używana przez Nove w celu zapewnienia graficznego dostępu do NAPI.",
-            "ul-files": "Chmura ogólnego przeznaczenia z szyfrowaniem plikow, dostępna dla każdego przez jedno klikniecie."
+            "ul-napi": "Twórz aplikacje, korzystając z NAPI OAuth2, które zapewnia możliwość logowania się za pomocą Nove.",
+            "ul-manager": "Oficjalna strona internetowa używana przez Nove w celu zapewnienia graficznego dostępu do konta.",
+            "ul-files": "Chmura ogólnego przeznaczenia z szyfrowaniem plików, dostępna dla każdego przez jedno kliknięcie."
         },
         "login": {
-            "title": "Login",
-            "loader": "Please standby while we fetch the data...",
+            "title": "Zaloguj",
+            "loader": "Proszę czekać kiedy pobieramy informacje...",
             //* Hero
-            "hero-h1": "Welcome back",
-            "hero-p": "Provide your credentials to access your Nove account",
+            "hero-h1": "Witaj ponownie",
+            "hero-p": "Zaloguj się aby uzyskać dostęp do swojego konta",
             //- inputs
             "input-login": "Login",
-            "input-password": "Password",
-            "input-btn": "Proceed",
+            "input-password": "Hasło",
+            "input-btn": "Dalej",
             //- password reset button
-            "password-reset": "Forgot your password?"
+            "password-reset": "Resetuj swoje hasło"
         }
     }
 }
