@@ -12,13 +12,14 @@ import { NextPage } from 'next';
 interface Props {
     searchParam: string | undefined;
     lang: {
-        inputLogin: string;
+        inputEmail: string;
+        inputUsername: string;
         inputPassword: string;
         inputBtn: string;
     };
 }
 
-const LoginForm: NextPage<Props> = ({ searchParam, lang }) => {
+const RegisterForm: NextPage<Props> = ({ searchParam, lang }) => {
     const [postError, setPostError] = useState<string>();
 
     const throwError = (message?: string, bool?: boolean) => {
@@ -31,9 +32,9 @@ const LoginForm: NextPage<Props> = ({ searchParam, lang }) => {
         }
     };
 
-    const handleLogin = async (form: FormData) => {
+    const handleRegister = async (form: FormData) => {
         await axiosClient
-            .post('/v1/users/login', { username: form.get('username'), password: form.get('password') })
+            .post('/v1/users/register', document.querySelector('#loginForm'), { headers: { 'Content-Type': 'application/json' } })
             .then((user) => {
                 setCookie('napiAuthorizationToken', user.data.body.data.token, {
                     maxAge: 3 * 30 * 24 * 60 * 60,
@@ -47,12 +48,18 @@ const LoginForm: NextPage<Props> = ({ searchParam, lang }) => {
                 if (uri == '__CLOSE__') window.close();
                 else window.location.replace(uri);
             })
-            .catch((err) => (err?.response?.data?.body?.error ? throwError(err.response.data.body.error.message) : console.error(err)));
+            .catch((err) =>
+                err?.response?.data?.body?.error
+                    ? throwError(err.response.data.body.error.details ? err.response.data.body.error.details[0].message : err.response.data.body.error.message)
+                    : console.error(err)
+            );
     };
 
     return (
-        <form id="loginForm" action={handleLogin}>
-            <label htmlFor="username">{lang.inputLogin}</label>
+        <form id="loginForm" action={handleRegister}>
+            <label htmlFor="email">{lang.inputEmail}</label>
+            <input type="text" id="email" name="email" />
+            <label htmlFor="username">{lang.inputUsername}</label>
             <input type="text" id="username" name="username" />
             <label htmlFor="password">{lang.inputPassword}</label>
             <input type="password" id="password" name="password" />
@@ -71,4 +78,4 @@ const LoginForm: NextPage<Props> = ({ searchParam, lang }) => {
     );
 };
 
-export default LoginForm;
+export default RegisterForm;

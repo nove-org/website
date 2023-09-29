@@ -46,7 +46,6 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
                     inputPassword: lang.getProp('input-password'),
                     inputBtn: lang.getProp('input-btn'),
                 }}
-                user={user?.data?.body?.data}
                 searchParam={redirectBack}
             />
             <a className={o.passwordReset} href="/password-reset">

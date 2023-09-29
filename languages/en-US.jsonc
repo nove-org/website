@@ -107,6 +107,17 @@
             "input-btn": "Proceed",
             //- password reset button
             "password-reset": "Forgot your password?"
+        },
+        "register": {
+            "title": "Register",
+            //* Hero
+            "hero-h1": "New Nove account",
+            "hero-p": "Complete the form and create brand new account",
+            //- inputs
+            "input-email": "E-mail",
+            "input-username": "Username",
+            "input-password": "Password",
+            "input-btn": "Proceed"
         }
     }
 }

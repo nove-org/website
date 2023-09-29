@@ -107,6 +107,17 @@
             "input-btn": "Dalej",
             //- password reset button
             "password-reset": "Resetuj swoje hasło"
+        },
+        "register": {
+            "title": "Zarejestruj się",
+            //* Hero
+            "hero-h1": "Nowe konto Nove",
+            "hero-p": "Uzupełnij formularz i stwórz swoje całkiem nowe konto",
+            //- inputs
+            "input-email": "E-mail",
+            "input-username": "Nazwa użytkownika",
+            "input-password": "Hasło",
+            "input-btn": "Dalej"
         }
     }
 }
