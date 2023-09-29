@@ -39,20 +39,14 @@
         "landing": {
             //* Site description
             "title": "Meet the world where your privacy matters",
-
             //* Hero section
             //- h1
-            "hero-h1": "Meet the world where",
-            "hero-h1-span": "your privacy",
-            "hero-h1-next": "matters.",
+            "hero-h1": "Meet the world where <span>your privacy</span> matters.",
             //- trust note
-            "hero-note-trust": "Don't take our word for this. View the",
-            "hero-note-trust-link": "code",
-            "hero-note-trust-next": "yourself",
+            "hero-note-trust": "Don't take our word for this. View the <a class={style} target=\"_blank\" rel=\"noopener noreferrer\" href={repository}>code</a> yourself",
             //- misc
             "hero-description": "Ditch Google, Facebook and other companies that sell data, profile and track you. Take back control and start using free, open-source and privacy-respecting solutions by Nove.",
             "hero-btn": "Sign up today",
-
             //* Word section (features)
             "word-h1": "In our ecosystem, your data belongs to you, and only you.",
             //- feature ul
@@ -64,15 +58,13 @@
             "word-card3-description": "Most of our services include free forever plan so you don't have to trust us on the first place. Start your journey today!",
             //- trust note
             "word-trust": "All of this is easily verifiable, check out our source code. It is open to everyone, view it on",
-
             //* Breakup section
             "breakup-h1": "Built by privacy enthusiasts and the community",
-            "breakup-description": "At Nove, we create open-source and we appreciate any support from the community to our projects. Because privacy and safety goes with open-source and auditable.",
+            "breakup-description": "At Nove, we create open-source and we appreciate any support from the community to our projects. Because <b>privacy and safety</b> goes with <b>open-source and auditable</b>.",
             //- breakup ul
             "breakup-li-1": "Easily accessible projects through Gitea",
             "breakup-li-2": "Contribute by catching bugs, improving the code or suggesting some changes",
             "breakup-li-3": "Host your own fork of our software directly on your hardware",
-
             //* Ready section
             "ready-h1": "Are you ready to dive into the world of privacy?",
             "ready-p": "Start your journey, sign up for free today.",
@@ -82,12 +74,7 @@
             "title": "About",
             //* Hero section
             //- p
-            "hero-h1": "Our",
-            "hero-h1-span1": "goal",
-            "hero-h1-next1": "is to make the Internet",
-            "hero-h1-span2": "more private",
-            "hero-h1-next2": "and",
-            "hero-h1-span3": "safer",
+            "hero-h1": "Our <b>goal</b> is to make the Internet <span>more private</span> and <span>safer</span>",
             //- p
             "hero-p": "We provide tools free from bloatware, trackers and annoying advertisements. With free & open-source policy.",
             //- members, translate positions
@@ -101,14 +88,9 @@
             "title": "FOSS projects",
             //* Hero section
             //- h1
-            "hero-h1": "We love",
-            "hero-h1-span1": "free",
-            "hero-h1-next": "and",
-            "hero-h1-span2": "open-source",
+            "hero-h1": "We love <span>free</span> and <span>open-source</span>",
             //- p
-            "hero-p": "Because",
-            "hero-p-bold": "open-source",
-            "hero-p-next": "software takes essential part in working together, protecting users privacy, and ensuring app reliability.",
+            "hero-p": "Because <b>open-source</b> software takes essential part in working together, protecting users privacy, and ensuring app reliability.",
             //- projects
             "ul-napi": "Create your desired applications with use of NAPI OAuth2 system which provides access to signing in with Nove.",
             "ul-manager": "Official website that is used by Nove on their main domain to serve graphical access to the NAPI.",
@@ -116,7 +98,6 @@
         },
         "login": {
             "title": "Login",
-            "loader": "Please standby while we fetch the data...",
             //* Hero
             "hero-h1": "Welcome back",
             "hero-p": "Provide your credentials to access your Nove account",

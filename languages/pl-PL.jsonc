@@ -4,11 +4,11 @@
             //- links section
             "ul-products": "Produkty",
             "ul-about": "O nas",
-            "ul-docs": "Dokumentacja",
+            "ul-docs": "Wiki",
             "ul-donate": "Dotacje",
             //- login section
             "login-btn": "Zaloguj",
-            "register-btn": "Zarejestruj się",
+            "register-btn": "Utwórz konto",
             //- account switcher
             "switcher-profile": "Mój profil",
             "switcher-security": "Bezpieczeństwo",
@@ -39,20 +39,14 @@
         "landing": {
             //* Site description
             "title": "Wejdź do świata gdzie Twoja prywatność ma znaczenie",
-
             //* Hero section
             //- h1
-            "hero-h1": "Wejdź do świata gdzie",
-            "hero-h1-span": "Twoja prywatność",
-            "hero-h1-next": "ma znaczenie.",
+            "hero-h1": "Wejdź do świata gdzie <span>Twoja prywatność</span> ma znaczenie.",
             //- trust note
-            "hero-note-trust": "Nie bierz nas za słowo. Przejrzyj",
-            "hero-note-trust-link": "kod",
-            "hero-note-trust-next": "samodzielnie",
+            "hero-note-trust": "Nie wierz nam słowo w słowo. Przejrzyj nasz <a class={style} target=\"_blank\" rel=\"noopener noreferrer\" href={repository}>kod</a> samodzielnie",
             //- misc
             "hero-description": "Porzuć Google, Facebooka i innych którzy sprzedają Twoje dane, profilują i śledzą. Odzyskaj kontrolę i zacznij używać otwartoźródłowych, darmowych i respektujących prywatność rozwiązań Nove.",
             "hero-btn": "Zacznij juz dziś",
-
             //* Word section (features)
             "word-h1": "W naszym ekosystemie Twoje dane to Twoja sprawa.",
             //- feature ul
@@ -64,15 +58,13 @@
             "word-card3-description": "Większość naszych usług zawiera darmowy plan więc nie musisz nam ufać na pierwszym miejscu. Rozpocznij przygodę już teraz!",
             //- trust note
             "word-trust": "Wszystko to można łatwo zweryfikować przez otwarty kod źródłowy. Sprawdź go na",
-
             //* Breakup section
             "breakup-h1": "Tworzone przez aktywistów prywatności oraz społeczność",
-            "breakup-description": "W Nove tworzymy otwartoźródłowo i liczymy na każdą pomoc w rozwoju. Ponieważ prywatność i bezpieczeństwo idzie w parze z otwartoźródłowością i audytowalnością.",
+            "breakup-description": "W Nove tworzymy otwartoźródłowo i liczymy na każdą pomoc w rozwoju. Ponieważ <b>prywatność i bezpieczeństwo</b> idzie w parze z <b>otwartoźródłowością i audytowalnością</b>.",
             //- breakup ul
             "breakup-li-1": "Łatwo dostepne projekty na Gitea",
             "breakup-li-2": "Rozwijaj przez łapanie błędów, poprawianie kodu czy sugestie zmian",
             "breakup-li-3": "Hostuj swoją własną wersję bezpośrednio na Twoim sprzęcie",
-
             //* Ready section
             "ready-h1": "Jesteś gotowy na zanurzenie się w świecie prywatności?",
             "ready-p": "Rozpocznij swoją przygodę i zarejestruj się teraz, bez zwłoki.",
@@ -82,12 +74,7 @@
             "title": "O nas",
             //* Hero section
             //- p
-            "hero-h1": "Naszym",
-            "hero-h1-span1": "celem",
-            "hero-h1-next1": "jest uczynienie Internetu",
-            "hero-h1-span2": "bardziej prywatnym",
-            "hero-h1-next2": "i",
-            "hero-h1-span3": "bezpiecznym",
+            "hero-h1": "Naszym <b>celem</b> jest uczynienie Internetu <span>prywatnym</span> oraz <span>bezpiecznym</span>",
             //- p
             "hero-p": "Dostarczamy narzędzia wolne od zbędnych funkcji, śledzenia a przede wszystkim z darmowym planem i otwartoźródłową polityka.",
             //- members, translate positions
@@ -101,22 +88,16 @@
             "title": "Projekty FOSS",
             //* Hero section
             //- h1
-            "hero-h1": "Kochamy",
-            "hero-h1-span1": "darmowe",
-            "hero-h1-next": "i",
-            "hero-h1-span2": "otwartoźródłowe",
+            "hero-h1": "Kochamy <span>darmowe</span> i <span>otwartoźródłowe</span>",
             //- p
-            "hero-p": "Ponieważ",
-            "hero-p-bold": "otwartoźródłowe",
-            "hero-p-next": "oprogramowanie to ważna rola w pracy w grupie, ochronie prywatności użytkowników i niezawodności systemu.",
+            "hero-p": "Ponieważ <b>otwartoźródłowe</b> oprogramowanie to ważna rola w pracy w grupie, ochronie prywatności użytkowników i niezawodności systemu.",
             //- projects
             "ul-napi": "Twórz aplikacje, korzystając z NAPI OAuth2, które zapewnia możliwość logowania się za pomocą Nove.",
             "ul-manager": "Oficjalna strona internetowa używana przez Nove w celu zapewnienia graficznego dostępu do konta.",
             "ul-files": "Chmura ogólnego przeznaczenia z szyfrowaniem plików, dostępna dla każdego przez jedno kliknięcie."
         },
         "login": {
-            "title": "Zaloguj",
-            "loader": "Proszę czekać kiedy pobieramy informacje...",
+            "title": "Zaloguj się",
             //* Hero
             "hero-h1": "Witaj ponownie",
             "hero-p": "Zaloguj się aby uzyskać dostęp do swojego konta",
