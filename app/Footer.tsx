@@ -4,7 +4,7 @@ import o from '@sass/Footer.module.sass';
 import { SUPPORT_MAIL, REPOSITORY, DONATE_LINK } from '@util/config';
 import { axiosClient } from '@util/axios';
 import LanguageHandler from '@util/handlers/LanguageHandler';
-import { cookies } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 
 export default async function Footer() {
     const year = new Date().getFullYear();
@@ -14,7 +14,8 @@ export default async function Footer() {
         })
         .catch((e) => e.response);
 
-    const lang = await new LanguageHandler('modules/footer', user.data.body.data).init();
+    const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
+    const lang = await new LanguageHandler('modules/footer', user.data.body.data).init(browserLanguage);
 
     return (
         <footer className={o.box}>

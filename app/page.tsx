@@ -22,7 +22,7 @@ import { REPOSITORY } from '@util/config';
 import Image from 'next/image';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import { axiosClient } from '@util/axios';
-import { cookies } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 
 export default async function Home() {
     const user = await axiosClient
@@ -31,7 +31,8 @@ export default async function Home() {
         })
         .catch((e) => e.response);
 
-    const lang = await new LanguageHandler('main/landing', user.data.body.data).init();
+    const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
+    const lang = await new LanguageHandler('main/landing', user.data.body.data).init(browserLanguage);
 
     return (
         <>
@@ -56,9 +57,7 @@ export default async function Home() {
                     </defs>
                 </svg>
 
-                <h1>
-                    {lang.getProp('hero-h1')} <span>{lang.getProp('hero-h1-span')}</span> {lang.getProp('hero-h1-next')}
-                </h1>
+                <h1 dangerouslySetInnerHTML={{ __html: lang.getProp('hero-h1') }} />
                 <p>{lang.getProp('hero-description')}</p>
                 <ul>
                     <li>
@@ -71,13 +70,13 @@ export default async function Home() {
                             </svg>
                         </a>
                     </li>
-                    <li>
-                        {lang.getProp('hero-note-trust') + ' '}
-                        <a className={o.link} target="_blank" rel="noopener noreferrer" href={REPOSITORY}>
-                            {lang.getProp('hero-note-trust-link')}
-                        </a>
-                        {' ' + lang.getProp('hero-note-trust-next')}
-                    </li>
+                    <li
+                        dangerouslySetInnerHTML={{
+                            __html: lang.getProp('hero-note-trust', {
+                                style: o.link,
+                                repository: REPOSITORY,
+                            }),
+                        }}></li>
                 </ul>
             </section>
 
@@ -149,7 +148,7 @@ export default async function Home() {
             <section className={o.breakup}>
                 <aside>
                     <h1>{lang.getProp('breakup-h1')}</h1>
-                    <p>{lang.getProp('breakup-description')}</p>
+                    <p dangerouslySetInnerHTML={{ __html: lang.getProp('breakup-description') }}></p>
                     <ul>
                         <li>{lang.getProp('breakup-li-1')}</li>
                         <li>{lang.getProp('breakup-li-2')}</li>

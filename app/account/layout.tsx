@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Loader from '@app/Loader';
 import o from '@sass/account/layout.module.sass';
 import { axiosClient } from '@util/axios';
-import { cookies, headers } from 'next/headers';
+import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { Response, User } from '@util/schema';
 

@@ -3,7 +3,7 @@ import Logo from '@app/Logo';
 import Image from 'next/image';
 import o from '@sass/Navigation.module.sass';
 import { axiosClient } from '@util/axios';
-import { cookies } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 import { DONATE_LINK, REPOSITORY } from '@util/config';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 
@@ -14,7 +14,8 @@ export default async function Navigation() {
         })
         .catch((e) => e.response);
 
-    const lang = await new LanguageHandler('modules/navigation', user.data.body.data).init();
+    const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
+    const lang = await new LanguageHandler('modules/navigation', user.data.body.data).init(browserLanguage);
 
     return (
         <nav className={o.box}>
