@@ -5,7 +5,18 @@ import o from '@sass/account/security/page.module.sass';
 import { axiosClient } from '@util/axios';
 import { getCookie } from 'cookies-next';
 
-export default function Delete() {
+export default function Delete({
+    lang,
+}: {
+    lang: {
+        btn: string;
+        h1: string;
+        p: string;
+        label: string;
+        pc: string;
+        cancel: string;
+    };
+}) {
     const [popup, setPopup] = useState<boolean>(false);
     const [postError, setPostError] = useState<string>();
 
@@ -39,14 +50,11 @@ export default function Delete() {
             {popup ? (
                 <div className={o.popup}>
                     <div className={o.container}>
-                        <h1>Delete your account</h1>
-                        <p>
-                            Provide your password so we can verify that it&apos;s you. Remember to delete all accounts that you registered using this Nove account. Otherwise, they
-                            might be unaccessible. This action is performed instantly - it&apos;s irreversible.
-                        </p>
+                        <h1>{lang.h1}</h1>
+                        <p>{lang.p}</p>
                         <form onSubmit={handleSubmit}>
                             <label>
-                                Your password
+                                {lang.label}
                                 <input
                                     required
                                     minLength={2}
@@ -55,16 +63,16 @@ export default function Delete() {
                                     autoFocus={false}
                                     autoCorrect="off"
                                     type="password"
-                                    placeholder="Password"
+                                    placeholder={lang.pc}
                                     id="password"
                                     name="password"
                                 />
                             </label>
                             <div className={o.footer}>
                                 <button onClick={() => setPopup(false)} type="reset">
-                                    Cancel
+                                    {lang.cancel}
                                 </button>
-                                <button type="submit">Delete my account</button>
+                                <button type="submit">{lang.btn}</button>
                             </div>
                         </form>
                     </div>

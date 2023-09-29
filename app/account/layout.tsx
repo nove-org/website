@@ -2,9 +2,10 @@ import Link from 'next/link';
 import Loader from '@app/Loader';
 import o from '@sass/account/layout.module.sass';
 import { axiosClient } from '@util/axios';
-import { cookies } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { Response, User } from '@util/schema';
+import LanguageHandler from '@util/handlers/LanguageHandler';
 
 export const metadata = {
     title: 'Nove | Account',
@@ -23,15 +24,6 @@ export const metadata = {
 };
 
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
-    const sidebar = [
-        { label: 'Overview', path: '/account/', target: null },
-        { label: 'Security', path: '/account/security', target: 'security' },
-        { label: 'My profile', path: '/account/profile', target: 'profile' },
-        { label: 'Language', path: '/account/language', target: 'language' },
-    ];
-
-    if (!cookies().get('napiAuthorizationToken')?.value) return redirect(`/login?redirectBack=/account`);
-
     const user: Response<User> = (
         await axiosClient
             .get('/v1/users/me', {
@@ -39,13 +31,23 @@ export default async function DashboardLayout({ children }: { children: React.Re
             })
             .catch((e) => e.response)
     ).data;
+    const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
+    const lang = await new LanguageHandler('dashboard/layout', user.body.data).init(browserLanguage);
+    const sidebar = [
+        { label: lang.getProp('ul-overview'), path: '/account/', target: null },
+        { label: lang.getProp('ul-security'), path: '/account/security', target: 'security' },
+        { label: lang.getProp('ul-profile'), path: '/account/profile', target: 'profile' },
+        { label: lang.getProp('ul-language'), path: '/account/language', target: 'language' },
+    ];
+
+    if (!cookies().get('napiAuthorizationToken')?.value) return redirect(`/login?redirectBack=/account`);
 
     if (!user || user.body.error?.code === 'invalid_authorization_token') return redirect('/login?redirectBack=/account');
 
     return user.body.data ? (
         <section className={o.box}>
             <aside>
-                <h1>Settings</h1>
+                <h1>{lang.getProp('header')}</h1>
                 <ul>
                     {sidebar.map((list) => (
                         <li key={list.target}>
@@ -85,15 +87,8 @@ export default async function DashboardLayout({ children }: { children: React.Re
         </section>
     ) : (
         <section className={o.box}>
-            <title>Nove | Dashboard</title>
-            <Loader
-                type="hidden"
-                text={
-                    user.body.error?.code === 'verify_email'
-                        ? 'Please verify your e-mail to gain access to the account'
-                        : user.body.error?.message || "Something went wrong and we can't reach the API"
-                }
-            />
+            <title>{`Nove | ${lang.getProp('title')}`}</title>
+            <Loader type="hidden" text={user.body.error?.code === 'verify_email' ? lang.getProp('verify-email') : user.body.error?.message || lang.getProp('api-down')} />
         </section>
     );
 }

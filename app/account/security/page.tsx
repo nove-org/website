@@ -1,12 +1,13 @@
 import { axiosClient } from '@util/axios';
 import o from '@sass/account/security/page.module.sass';
-import { cookies } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 import Card from './Device';
 import { Device, Response, User } from '@util/schema';
 import Opt from './Opt';
 import Password from './Password';
 import Email from './Email';
 import Delete from './Delete';
+import LanguageHandler from '@util/handlers/LanguageHandler';
 
 export default async function Overview() {
     const user: Response<User> = (
@@ -25,12 +26,15 @@ export default async function Overview() {
             .catch((e) => e.response)
     ).data;
 
+    const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
+    const lang = await new LanguageHandler('dashboard/security', user.body.data).init(browserLanguage);
+
     return user?.body?.data?.username && device?.body ? (
         <div className={o.content}>
-            <h1 className={o.title}>Security</h1>
+            <h1 className={o.title}>{lang.getProp('title')}</h1>
             <div className={o.devices}>
-                <h2>Your devices</h2>
-                <p>List of most recent devices that logged in to your account this month</p>
+                <h2>{lang.getProp('devices-h1')}</h2>
+                <p>{lang.getProp('devices-p')}</p>
                 <ul className={o.devices}>
                     {device.body?.data?.length >= 1 ? (
                         device.body.data.map((item) => {
@@ -50,25 +54,47 @@ export default async function Overview() {
                         <li>
                             <header>
                                 <div className={o.align}>
-                                    No device data found
-                                    <span>You have opted-out from activity or we did not record any yet</span>
+                                    {lang.getProp('devices-no-data-h1')}
+                                    <span>{lang.getProp('devices-no-data-p')}</span>
                                 </div>
                             </header>
                         </li>
                     )}
                 </ul>
                 <p>
-                    We store information about devices that logged in to your account in the last month on our servers. <Opt data={device.body.data} />
+                    {lang.getProp('devices-privacy-notice')} <Opt optOut={lang.getProp('devices-opt-btn-1')} enable={lang.getProp('devices-opt-btn-2')} data={device.body.data} />
                 </p>
             </div>
             <div className={o.hds}>
                 <aside>
-                    <h2>How do you sign in</h2>
-                    <p>Add or modify ways of signing in and confirming your identity</p>
+                    <h2>{lang.getProp('hds-h1')}</h2>
+                    <p>{lang.getProp('hds-p')}</p>
                 </aside>
                 <ul className={o.buttons}>
-                    <Password />
-                    <Email />
+                    <Password
+                        lang={{
+                            btn: lang.getProp('hds-password-btn'),
+                            h1: lang.getProp('hds-password-h1'),
+                            p: lang.getProp('hds-password-p'),
+                            label1: lang.getProp('hds-password-label-1'),
+                            label2: lang.getProp('hds-password-label-2'),
+                            pc1: lang.getProp('hds-password-placeholder-1'),
+                            pc2: lang.getProp('hds-password-placeholder-2'),
+                            cancel: lang.getProp('hds-btn-cancel'),
+                            save: lang.getProp('hds-btn-save'),
+                        }}
+                    />
+                    <Email
+                        lang={{
+                            btn: lang.getProp('hds-email-btn'),
+                            h1: lang.getProp('hds-email-h1'),
+                            p: lang.getProp('hds-email-p'),
+                            label1: lang.getProp('hds-email-label-1'),
+                            pc1: lang.getProp('hds-email-placeholder-1'),
+                            cancel: lang.getProp('hds-btn-cancel'),
+                            save: lang.getProp('hds-btn-save'),
+                        }}
+                    />
                     <li className="disabled">
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 24 24">
                             <path
@@ -77,7 +103,7 @@ export default async function Overview() {
                         </svg>
 
                         <h1>
-                            2FA
+                            {lang.getProp('hds-two-factor-authentication')}
                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="14" height="14" viewBox="0 0 30 30">
                                 <path
                                     fill="currentColor"
@@ -93,7 +119,7 @@ export default async function Overview() {
                         </svg>
 
                         <h1>
-                            Recovery
+                            {lang.getProp('hds-recovery')}
                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="14" height="14" viewBox="0 0 30 30">
                                 <path
                                     fill="currentColor"
@@ -104,20 +130,24 @@ export default async function Overview() {
                 </ul>
             </div>
             <div className={o.deactivate}>
-                <h2>Delete your Nove account</h2>
-                <p>
-                    To delete your account we need you to provide your account password to confirm your actions. This process is irreversible and all your data associated with this
-                    account will be deleted from our servers instantly! You can delete your account anytime and you always have the right to do it on your own without the need to
-                    contact us. Please, make sure that you have deleted all third-party accounts you registered using your Nove account. Otherwise, you won&apos;t be able to log in
-                    to them.
-                </p>
-                <Delete />
+                <h2>{lang.getProp('delete-h1')}</h2>
+                <p>{lang.getProp('delete-p')}</p>
+                <Delete
+                    lang={{
+                        btn: lang.getProp('delete-btn'),
+                        h1: lang.getProp('delete-h1'),
+                        p: lang.getProp('delete-p2'),
+                        label: lang.getProp('delete-label'),
+                        pc: lang.getProp('delete-placeholder'),
+                        cancel: lang.getProp('hds-btn-cancel'),
+                    }}
+                />
             </div>
         </div>
     ) : (
         <div className={o.content}>
-            <h1 className={o.title}>Something is wrong with the API</h1>
-            <p>We cannot sign your session which leads to data retrieval failure</p>
+            <h1 className={o.title}>{lang.getProp('error-h1')}</h1>
+            <p>{lang.getProp('error-p')}</p>
         </div>
     );
 }

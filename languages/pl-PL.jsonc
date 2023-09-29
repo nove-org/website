@@ -1,4 +1,33 @@
 {
+    /*
+     ! IMPORTANT. Read before translating the file.
+     ! Do not translate {objects in brackets} <-- like this one, it's a variable.
+     ! Do not translate the key:
+        ...
+                    translate this    do not translate this
+                    vvvvvvvvvvvvvvvvv vvvvvvvvvv 
+            "key": "Text to translate {variable}" <-- this whole line, we call it prop
+            ^^^^^
+            this is the key, do not translate it
+        ...
+     ! Leave HTML tags as they are and do not add any new tags to the text. Only change the text inside of it.
+
+     * Some of the props that are listed here have an explanation comment. Do not translate it.
+     * After translating this file, create a pull request on Gitea with "translations" label. Remember to fork this repository.
+
+     * If a key ends with "h1", "p", "btn":
+     * - "h1", means title
+     * - "p", means description
+     * - "btn", means button
+     * or if it starts with "ul" or "title":
+     * - "ul", means that is a list of elements
+     * - "title", means that the browser would read that text and display it as tab title
+     * otherwise it's just a group of elements/category
+
+     ? WARNING: The text shouldn't extend the original English version by much. It will wrap weirdly on the page.
+
+     Translated by Nove Group "https://nove.team" <reply@nove.team>
+    */
     "modules": {
         "navigation": {
             //- links section
@@ -118,6 +147,131 @@
             "input-username": "Nazwa użytkownika",
             "input-password": "Hasło",
             "input-btn": "Dalej"
+        }
+    },
+    "dashboard": {
+        "layout": {
+            "title": "Dashboard",
+            //* Hero section
+            //- text that displays above the list of elements on sidebar
+            "header": "Settings",
+            //- errors
+            "verify-email": "Please verify your e-mail to gain access to the account",
+            "api-down": "Something went wrong and we can't reach the API",
+            //* List of elements to select on sidebar
+            "ul-overview": "Overview",
+            "ul-security": "Security",
+            "ul-profile": "My profile",
+            "ul-language": "Language"
+        },
+        "main": {
+            "title": "Overview",
+            //* Your profile section on /account
+            "tips-header": "Tips to improve your security and privacy",
+            "tips-1": "Use free and open-source software",
+            "tips-2": "Try to use MFA whenever possible",
+            "tips-3": "Create as less accounts as you can",
+            //* Cards that are listed next to your profile on /account
+            "card-1-h1": "Language",
+            "card-1-p": "Change your preferred language across all Nove products",
+            "card-2-h1": "Activity",
+            "card-2-p": "Manage recent activity on your account with ease using activity logs",
+            "card-2-action": "{number} active sessions",
+            //- reminder      ^^^^^^^^ do not translate it, leave as it is
+            "card-3-h1": "Logging in",
+            "card-3-p": "Change your account credentials or add security layers with ease",
+            "card-3-action": "Go",
+            "card-4-h1": "Recovery",
+            "card-4-p": "Set up two factor authentication and download backup codes",
+            //* Error displayed when we cannot communicate with the API properly
+            "error-h1": "Something is wrong with the API",
+            "error-p": "We cannot sign your session which leads to data retrieval failure"
+        },
+        "security": {
+            "title": "Security",
+            //* Your devices section
+            "devices-h1": "Your devices",
+            "devices-p": "List of most recent devices that logged in to your account this month",
+            //- no data error
+            "devices-no-data-h1": "No device data found",
+            "devices-no-data-p": "You hav opted-out from activity or we did not record any yet",
+            //- misc
+            "devices-privacy-notice": "We store information about devices that logged in to your account in the last month on our servers.",
+            //- opt-in/out button
+            "devices-opt-btn-1": "Opt-out",
+            "devices-opt-btn-2": "Enable",
+            //* "How do you sign in" section
+            "hds-h1": "How do you sign in",
+            "hds-p": "Add or modify ways of signing in and confirming your identity",
+            //- buttons on the right side, keep the text short
+            //- password button
+            "hds-password-btn": "Password",
+            //? password change popup
+            "hds-password-h1": "Change your password",
+            "hds-password-p": "Choose a strong password and do not reuse it for other accounts. Changing your password will sign you out on your devices.",
+            "hds-password-label-1": "Old password",
+            "hds-password-placeholder-1": "Verify your old password",
+            "hds-password-label-2": "New password",
+            "hds-password-placeholder-2": "Provide your new password",
+            //- email button
+            "hds-email-btn": "E-mail",
+            //? email change popup
+            "hds-email-h1": "Change your email",
+            "hds-email-p": "The address where we can contact you if there is an unusual activity in your account or if you get locked out. You can also use it to log in to your account.",
+            "hds-email-label-1": "New e-mail",
+            "hds-email-placeholder-1": "Provide your new e-mail",
+            //- 2fa button
+            "hds-two-factor-authentication": "2FA",
+            //- recovery button
+            "hds-recovery": "Recovery",
+            //- popup actions
+            "hds-btn-cancel": "Cancel",
+            "hds-btn-save": "Save changes",
+            //* Delete your account section
+            "delete-h1": "Delete your Nove account",
+            "delete-p": "To delete your account we need you to provide your account password to confirm your actions. This process is irreversible and all your data associated with this account will be deleted from our servers instantly! You can delete your account anytime and you always have the right to do it on your own without the need to contact us. Please, make sure that you have deleted all third-party accounts you registered using your Nove account. Otherwise, you won't be able to log in to them.",
+            "delete-p2": "Provide your password so we can verify that it's you. Remember to delete all accounts that you registered using this Nove account. Otherwise, they might be unaccessible. This action is performed instantly - it's irreversible.",
+            "delete-label": "Your password",
+            "delete-placeholder": "Password",
+            "delete-btn": "Delete my account",
+            //* Error displayed when we cannot communicate with the API properly
+            "error-h1": "Something is wrong with the API",
+            "error-p": "We cannot sign your session which leads to data retrieval failure"
+        },
+        "profile": {
+            "title": "My profile",
+            "description": "Manage your personal info that is displayed on your Nove account profile. You can change display method of your profile to private and public. While on private we will share only basic information about your account like username and avatar.",
+            "hero-ul-1": "Basic account info",
+            "hero-ul-2": "Details",
+            //* Inputs
+            //- username input
+            "input-username": "Username",
+            "input-username-placeholder": "{username} (new username here)",
+            //- avatar input
+            "input-avatar": "Avatar",
+            "input-avatar-btn": "Select file",
+            "input-avatar-filename": "Nothing is selected",
+            "input-avatar-too-big": "The file type you are trying to upload is too big",
+            "input-avatar-not-allowed": "The file type you are trying to upload is not allowed",
+            //- about me input
+            "input-bio": "About me",
+            //- public/private profile switch
+            "input-profile-state-label": "Display more details on your public profile",
+            //- misc buttons
+            "input-btn-edit": "Edit",
+            "input-btn-save": "Save",
+            //* Error displayed when we cannot communicate with the API properly
+            "error-h1": "Something is wrong with the API",
+            "error-p": "We cannot sign your session which leads to data retrieval failure"
+        },
+        "language": {
+            //* Hero section
+            "hero-h1": "Language",
+            "hero-p1": "Select your preferred language. This setting will be used to display content in your language on all Nove websites and your connected apps might use it.",
+            "hero-p2": "Not fully supported by us yet. You might want to set it for OAuth2 apps to use.",
+            //* Error displayed when we cannot communicate with the API properly
+            "error-h1": "Something is wrong with the API",
+            "error-p": "We cannot sign your session which leads to data retrieval failure"
         }
     }
 }

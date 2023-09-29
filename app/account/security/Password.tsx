@@ -6,7 +6,21 @@ import { getCookie, setCookie } from 'cookies-next';
 import { axiosClient } from '@util/axios';
 import { COOKIE_HOSTNAME } from '@util/config';
 
-export default function Password() {
+export default function Password({
+    lang,
+}: {
+    lang: {
+        btn: string;
+        h1: string;
+        p: string;
+        label1: string;
+        label2: string;
+        pc1: string;
+        pc2: string;
+        cancel: string;
+        save: string;
+    };
+}) {
     const [popup, setPopup] = useState<boolean>(false);
     const [postError, setPostError] = useState<string>();
 
@@ -58,7 +72,7 @@ export default function Password() {
                 </svg>
 
                 <h1>
-                    Password
+                    {lang.btn}
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="14" height="14" viewBox="0 0 30 30">
                         <path
                             fill="currentColor"
@@ -70,11 +84,11 @@ export default function Password() {
             {popup ? (
                 <div className={o.popup}>
                     <div className={o.container}>
-                        <h1>Change your password</h1>
-                        <p>Choose a strong password and do not reuse it for other accounts. Changing your password will sign you out on your devices.</p>
+                        <h1>{lang.h1}</h1>
+                        <p>{lang.p}</p>
                         <form onSubmit={handleSubmit}>
                             <label>
-                                Old password
+                                {lang.label1}
                                 <input
                                     required
                                     minLength={1}
@@ -83,13 +97,13 @@ export default function Password() {
                                     autoFocus={true}
                                     autoCorrect="off"
                                     type="password"
-                                    placeholder="Verify your old password"
+                                    placeholder={lang.pc1}
                                     id="oldPassword"
                                     name="oldPassword"
                                 />
                             </label>
                             <label>
-                                New password
+                                {lang.label2}
                                 <input
                                     required
                                     minLength={8}
@@ -98,16 +112,16 @@ export default function Password() {
                                     autoFocus={false}
                                     autoCorrect="off"
                                     type="password"
-                                    placeholder="New password"
+                                    placeholder={lang.pc2}
                                     id="newPassword"
                                     name="newPassword"
                                 />
                             </label>
                             <div className={o.footer}>
                                 <button onClick={() => setPopup(false)} type="reset">
-                                    Cancel
+                                    {lang.cancel}
                                 </button>
-                                <button type="submit">Save changes</button>
+                                <button type="submit">{lang.save}</button>
                             </div>
                         </form>
                     </div>

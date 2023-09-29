@@ -5,7 +5,7 @@ import { User } from '@util/schema';
 import { useState } from 'react';
 import o from '@sass/account/profile/page.module.sass';
 
-export default function Username({ user, cookie }: { user: User; cookie?: string }) {
+export default function Username({ user, cookie, lang }: { user: User; cookie?: string; lang: { header: string; save: string; edit: string; placeholder: string } }) {
     const [edit, setEdit] = useState<boolean>(false);
     const [postError, setPostError] = useState<string>();
 
@@ -29,19 +29,19 @@ export default function Username({ user, cookie }: { user: User; cookie?: string
 
     return (
         <>
-            <header>Username</header>
+            <header>{lang.header}</header>
             <li>
                 {!edit ? (
                     <>
                         <p>
                             {user.username} <span>{user.id}</span>
                         </p>
-                        <button onClick={() => setEdit((e) => !e)}>Edit</button>
+                        <button onClick={() => setEdit((e) => !e)}>{lang.edit}</button>
                     </>
                 ) : (
                     <form onSubmit={handleSubmit}>
-                        <input type="text" placeholder={user.username + ' (new username here)'} name="username" required />
-                        <button type="submit">Save</button>
+                        <input type="text" placeholder={lang.placeholder} name="username" required />
+                        <button type="submit">{lang.save}</button>
                         {postError ? <p className="error">{postError}</p> : null}
                     </form>
                 )}

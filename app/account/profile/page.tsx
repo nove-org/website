@@ -1,11 +1,12 @@
 import { axiosClient } from '@util/axios';
 import o from '@sass/account/profile/page.module.sass';
-import { cookies } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 import { Response, User } from '@util/schema';
 import Username from './Username';
 import Bio from './Bio';
 import ProfilePublic from './ProfilePublic';
 import Avatar from './Avatar';
+import LanguageHandler from '@util/handlers/LanguageHandler';
 
 export default async function Overview() {
     const user: Response<User> = (
@@ -18,28 +19,61 @@ export default async function Overview() {
 
     const cookie = cookies().get('napiAuthorizationToken')?.value;
 
+    const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
+    const lang = await new LanguageHandler('dashboard/profile', user.body.data).init(browserLanguage);
+
     return user?.body?.data?.username ? (
         <div className={o.content}>
-            <h1 className={o.title}>My profile</h1>
-            <p className={o.desc}>
-                Manage your personal info that is displayed on your Nove account profile. You can change display method of your profile to private and public. While on private we
-                will share only basic information about your account like username and avatar.
-            </p>
-            <h2>Basic account info</h2>
+            <h1 className={o.title}>{lang.getProp('title')}</h1>
+            <p className={o.desc}>{lang.getProp('description')}</p>
+            <h2>{lang.getProp('hero-ul-1')}</h2>
             <ul className={o.options}>
-                <Avatar user={user.body.data} cookie={cookie} />
-                <Username user={user.body.data} cookie={cookie} />
+                <Avatar
+                    lang={{
+                        header: lang.getProp('input-avatar'),
+                        edit: lang.getProp('input-btn-edit'),
+                        save: lang.getProp('input-btn-save'),
+                        select: lang.getProp('input-avatar-btn'),
+                        filename: lang.getProp('input-avatar-filename'),
+                        tooBig: lang.getProp('input-avatar-too-big'),
+                        notAllowed: lang.getProp('input-avatar-not-allowed'),
+                    }}
+                    user={user.body.data}
+                    cookie={cookie}
+                />
+                <Username
+                    lang={{
+                        header: lang.getProp('input-username'),
+                        edit: lang.getProp('input-btn-edit'),
+                        save: lang.getProp('input-btn-save'),
+                        placeholder: lang.getProp('input-username-placeholder', { username: user?.body?.data?.username }),
+                    }}
+                    user={user.body.data}
+                    cookie={cookie}
+                />
             </ul>
-            <h2>Details</h2>
+            <h2>{lang.getProp('hero-ul-2')}</h2>
             <ul className={o.options}>
-                <Bio user={user.body.data} cookie={cookie} />
-                <ProfilePublic user={user.body.data} cookie={cookie} />
+                <Bio
+                    lang={{
+                        save: lang.getProp('input-btn-save'),
+                    }}
+                    user={user.body.data}
+                    cookie={cookie}
+                />
+                <ProfilePublic
+                    lang={{
+                        label: lang.getProp('input-profile-state-label'),
+                    }}
+                    user={user.body.data}
+                    cookie={cookie}
+                />
             </ul>
         </div>
     ) : (
         <div className={o.content}>
-            <h1 className={o.title}>Something is wrong with the API</h1>
-            <p>We cannot sign your session which leads to data retrieval failure</p>
+            <h1 className={o.title}>{lang.getProp('error-h1')}</h1>
+            <p>{lang.getProp('error-p')}</p>
         </div>
     );
 }
