@@ -8,7 +8,7 @@ import o from '@sass/account/language/page.module.sass';
 import { useState } from 'react';
 import Loader from '@app/Loader';
 
-export default function Form({ user, code }: { user: User; code: Languages }) {
+export default function Form({ user, code, saveChanges }: { user: User; code: Languages; saveChanges: string }) {
     const [loading, setLoading] = useState<boolean>(false);
 
     const handleLanguage = async (e: any) => (
@@ -34,7 +34,7 @@ export default function Form({ user, code }: { user: User; code: Languages }) {
             ))}
             <button type="submit">
                 {loading ? <Loader type="button" /> : null}
-                Save changes
+                {saveChanges}
             </button>
         </form>
     );

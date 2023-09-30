@@ -23,7 +23,7 @@ export default async function Overview() {
             <h1 className={a.title}>{lang.getProp('hero-h1')}</h1>
             <p className={a.desc}>{lang.getProp('hero-p1')}</p>
             <p className={a.desc}>{lang.getProp('hero-p2')}</p>
-            <Form user={user.body.data} code={languages.body.data} />
+            <Form saveChanges={lang.getProp('input-btn')} user={user.body.data} code={languages.body.data} />
         </div>
     ) : (
         <div className={o.content}>
