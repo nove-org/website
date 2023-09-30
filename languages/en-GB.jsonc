@@ -29,7 +29,7 @@
 
      ? WARNING: The text shouldn't extend the original English version by much. It will wrap weirdly on the page.
 
-     Translated by Nove Group "https://nove.team" <reply@nove.team>
+     Translated by Oliwier Jaszczyszyn <slavistapl@nove.team>
     */
     "modules": {
         "navigation": {
@@ -47,11 +47,11 @@
             "switcher-logout": "Log out",
             //- products popup
             "products-files": "Store your data securely in the cloud",
-            "products-napi": "Let your users authorize with Nove account",
+            "products-napi": "Let your users authorise with Nove account",
             "products-crm": "Manage your customers quickly with ease"
         },
         "footer": {
-            "license": "Licensed under",
+            "license": "Licenced under",
             "made-with-love": "Made with ❤️ by",
             "contributors": "contributors",
             //- links section
@@ -290,14 +290,14 @@
     "documents": {
         "privacy-policy": {
             "title": "Privacy Policy",
-            "last-modified": "Last modified: <time>30th of September 2023</time>",
+            "last-modified": "Last modified: <time>30 September 2023</time>",
             //* Introduction
             "p1": "We serve (mostly) free and open-source services. We do not track nor sell user's data to third-parties. Neither we use any form of tracking pixels or unique fingerprinting.",
             "p2": "We keep the right to update this document without notifying our users about the change.",
             "p3": "By using our services you agree to our Privacy Policy and Terms of Service.",
             //* Infrastructure
             "inf-header": "Infrastructure",
-            "inf-p1": "We host our services on the infrastructure provided by FTdL (<a href=\"https://ftdl.pl/services/\" rel=\"noopener noreferrer\" target=\"_blank\">website</a>) which is located in Krakow, Poland. Your data administrator is Nove (nove.team; <a href=\"mailto:reply@nove.team\">reply@nove.team</a>)",
+            "inf-p1": "We host our services on the infrastructure provided by FTdL (<a href=\"https://ftdl.pl/services/\" rel=\"noopener noreferrer\" target=\"_blank\">website</a>) which is located in Krakow, Poland. Your data manager is Nove (nove.team; <a href=\"mailto:reply@nove.team\">reply@nove.team</a>)",
             "inf-p2": "In our database, we only store necessary info you provided us through NAPI. Detailing",
             //- list of items
             "inf-li-1": "username (shown always)",
@@ -330,7 +330,7 @@
         },
         "terms-of-service": {
             "title": "Terms of Service",
-            "last-modified": "Last modified: <time>12th of August 2023</time>",
+            "last-modified": "Last modified: <time>12 August 2023</time>",
             "p1": "By using services hosted by us (Nove) you agree to our Terms of Service and Privacy Policy. If you do not accept these, you are not allowed to use our services. As a reminder, this document applies for all our products.",
             "p2": "We are not responsible for any content that is posted on user's account",
             "p3": "Actions we do not tolerate",
