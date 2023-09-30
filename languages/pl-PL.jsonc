@@ -292,7 +292,7 @@
             "title": "Polityka Prywatności",
             "last-modified": "Ostatnio zmodyfikowane: <time>28 września 2023</time>",
             //* Introduction
-            "p1": "Dostarczamy (w większości) darmowe i otwartoźródłowe rozwiązania. Nie śledzimy ani nie sprzedajemy danych do firm trzecich. Nie używamy śledzących pikseli ani innych form ujawniania tożsamości użytkownika",
+            "p1": "Dostarczamy (w większości) darmowe i otwartoźródłowe rozwiązania. Nie śledzimy ani nie sprzedajemy danych do firm trzecich. Nie używamy śledzących pikseli ani innych form ujawniania tożsamości użytkownika.",
             "p2": "Zastrzegamy sobie prawo do aktualizacji tego dokumentu bez powiadomienia użytkowników.",
             "p3": "Używając naszych usług zgadzasz się przestrzegać tego dokumentu.",
             //* Infrastructure
@@ -312,8 +312,8 @@
             "inf-li-10": "zaszyfrowane hasło (nigdy nie pokazane)",
             "inf-li-11": "zdjęcie profilowe konta (zawsze pokazane)",
             //- continuation
-            "inf-p3": "Posiadamy dodatkowe funkcje które zbierają twoje dane i są wyłączone domyślnie: zapisywanie aktywności. Gdy włączone zbiera IP urządzenia oraz platformę (OS, type). Wyświetla te informacje w zakładce bezpieczeństwa w ustawieniach. Dane przechowywane są przez 30 dni a następnie są usuwane. Jeśli logujesz się z nowego urządzenia powiadomimy Cię o tym drogą mailową. Kiedy wyłączysz tą funkcje zebrane dane zostają automatycznie usunięte.",
-            "inf-p4": "Niektóre z tych informacji zostały oznaczone jako publicznie dostępne. Udostępniamy narzędzie pozwalające na zmiane stanu profilu na publiczny/prywatny aby ukryć wrażliwe dane.",
+            "inf-p3": "Niektóre z tych informacji zostały oznaczone jako publicznie dostępne. Udostępniamy narzędzie pozwalające na zmiane stanu profilu na publiczny/prywatny aby ukryć wrażliwe dane.",
+            "inf-p4": "Posiadamy dodatkowe funkcje które zbierają twoje dane i są wyłączone domyślnie: zapisywanie aktywności. Gdy włączone zbiera IP urządzenia oraz platformę (OS, type). Wyświetla te informacje w zakładce bezpieczeństwa w ustawieniach. Dane przechowywane są przez 30 dni a następnie są usuwane. Jeśli logujesz się z nowego urządzenia powiadomimy Cię o tym drogą mailową. Kiedy wyłączysz tą funkcje zebrane dane zostają automatycznie usunięte.",
             "inf-p5": "Podany e-mail nie jest używany w celach marketingowych. Używamy go aby zweryfikować tworzenie konta, podnieść bezpieczeństwo oraz aby powiadamiać cię o ważnych zmianach w serwisie",
             //* Data retention policy
             "drp-header": "Polityka przechowywania danych",
@@ -344,7 +344,6 @@
             "li-5-li-2": "Wysyłanie przygotowanych podatności do API jest nadużyciem API",
             "li-5-li-3": "Wszelkie wykryte błędy w API należy natychmiast zgłaszać e-mailem lub w dziale Gitea Issues",
             "li-6": "Nie możemy odszyfrować treści zaszyfrowanych/zaszyfrowanych hasłem nawet na potrzeby organów ścigania.",
-            "li-7": "Jeśli organy ścigania zmuszą nas do udostępnienia danych, pokażemy co mamy na temat danego użytkownika.",
             "p4": "Proszę nie twórz dodatkowych kont. Zostawmy rzeczy prostymi.",
             "p5": "Zastrzegamy sobie prawo do aktualizacji tego dokumentu bez powiadomienia użytkowników."
         }

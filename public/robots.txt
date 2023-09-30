@@ -1,5 +1,26 @@
+User-agent: CCBot
+Disallow: /
+Disallow: *
+
+User-agent: ChatGPT-User
+Disallow: /
+Disallow: *
+
 User-agent: GPTBot
 Disallow: /
+Disallow: *
+
+User-agent: Google-Extended
+Disallow: /
+Disallow: *
+
+User-agent: Omgilibot
+Disallow: /
+Disallow: *
+
+User-Agent: FacebookBot
+Disallow: /
+Disallow: *
 
 User-agent: *
 Disallow: /account
