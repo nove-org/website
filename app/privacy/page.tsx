@@ -1,4 +1,8 @@
 import o from '@sass/article.module.sass';
+import { axiosClient } from '@util/axios';
+import LanguageHandler from '@util/handlers/LanguageHandler';
+import { Response, User } from '@util/schema';
+import { cookies, headers } from 'next/headers';
 
 export const metadata = {
     title: 'Nove | Privacy Policy',
@@ -16,67 +20,55 @@ export const metadata = {
     keywords: ['nove', 'privacy', 'privacy policy'],
 };
 
-export default function Terms() {
+export default async function Privacy() {
+    const user: Response<User> = (
+        await axiosClient
+            .get('/v1/users/me', {
+                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
+            })
+            .catch((e) => e.response)
+    ).data;
+
+    const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
+    const lang = await new LanguageHandler('documents/privacy-policy', user.body.data).init(browserLanguage);
+
     return (
         <article className={o.content}>
-            <title>Nove | Privacy Policy</title>
-            <h1>Privacy Policy</h1>
-            <h2>
-                Last modified: <time>19th of September 2023</time>
-            </h2>
-            <p>
-                We serve (mostly) free and open-source services. We do not track nor sell user&apos;s data to third-parties. We do not use any forms of tracking pixels or generate
-                a unique fingerprint about you.
-            </p>
-            <p>We keep the right to update this Privacy Policy without notifying users about the change.</p>
-            <p>By using our services you agree to this document.</p>
+            <title>{`Nove | ${lang.getProp('title')}`}</title>
+            <h1>{lang.getProp('title')}</h1>
+            <h2 dangerouslySetInnerHTML={{ __html: lang.getProp('last-modified') }}></h2>
+            <p>{lang.getProp('p1')}</p>
+            <p>{lang.getProp('p2')}</p>
+            <p>{lang.getProp('p3')}</p>
 
-            <h2>Infrastructure</h2>
-            <p>
-                We host our services on the infrastructure provided by FTDL (
-                <a href="https://ftdl.pl/services/" rel="noopener noreferrer" target="_blank">
-                    website
-                </a>
-                ) which is located in Krakow, Poland. Your data administrator is Nove (nove.team; <a href="mailto:reply@nove.team">reply@nove.team</a>)
-            </p>
-            <p>In our database, we only store necessary info you provided us through NAPI. Detailing</p>
+            <h2>{lang.getProp('inf-header')}</h2>
+            <p dangerouslySetInnerHTML={{ __html: lang.getProp('inf-p1') }} />
+            <p>{lang.getProp('inf-p2')}</p>
             <ul>
-                <li>username (shown always)</li>
-                <li>email (not shown)</li>
-                <li>account about me (not shown on private profile)</li>
-                <li>account language (not shown on private profile)</li>
-                <li>account creation date (not shown on private profile)</li>
-                <li>account updated date (not shown)</li>
-                <li>account verified state (not shown)</li>
-                <li>account profile public state (shown)</li>
-                <li>MFA credentials (not shown)</li>
-                <li>your encrypted password (not shown)</li>
-                <li>account avatar (shown)</li>
+                <li>{lang.getProp('inf-li-1')}</li>
+                <li>{lang.getProp('inf-li-2')}</li>
+                <li>{lang.getProp('inf-li-3')}</li>
+                <li>{lang.getProp('inf-li-4')}</li>
+                <li>{lang.getProp('inf-li-5')}</li>
+                <li>{lang.getProp('inf-li-6')}</li>
+                <li>{lang.getProp('inf-li-7')}</li>
+                <li>{lang.getProp('inf-li-8')}</li>
+                <li>{lang.getProp('inf-li-9')}</li>
+                <li>{lang.getProp('inf-li-10')}</li>
+                <li>{lang.getProp('inf-li-11')}</li>
             </ul>
-            <p>
-                Some of this info is accessible publicly and we provide you a tool that allows you to change the state of your profile. Sensitive data like language, account about
-                me is not displayed if you change your profile to private.
-            </p>
-            <p>Provided email is not used for marketing purposes, we only use it to confirm your identity, notify you about new login or to confirm email change</p>
+            <p>{lang.getProp('inf-p3')}</p>
+            <p>{lang.getProp('inf-p4')}</p>
+            <p>{lang.getProp('inf-p5')}</p>
 
-            <h2>Data retention policy</h2>
-            <p>
-                To delete your account go to Security section on the Account page, then scroll down to &quot;Delete Nove account&quot;. All your data will be deleted as fast as
-                possible and as smooth as possible.
-            </p>
-            <p>Data you have encrypted in our services using your password is truly encrypted and we cannot decrypt it.</p>
-            <p>We can delete accounts if they are not verified and inactive for at least 3 days.</p>
-            <p>We can delete accounts for violation of our Terms of Service</p>
-            <p>
-                Every account deletion that is performed by a service administrator always have a reason which is known to the owner of the deleted account after or few days before
-                deletion.
-            </p>
-            <p>If a user lost access to their account, they can request password reset or account deletion through the mail their provided to us</p>
-            <p>We keep user account data as long as they have account in NAPI, which can be deleted through the Security tab on the Account page.</p>
-            <p>
-                If you opt-out from features like &quot;Your devices&quot; in &quot;Security&quot; tab, everything collected through this feature is automatically deleted with no
-                going back. We can collect it if you opt-in again.
-            </p>
+            <h2>{lang.getProp('drp-header')}</h2>
+            <p>{lang.getProp('drp-p1')}</p>
+            <p>{lang.getProp('drp-p2')}</p>
+            <p>{lang.getProp('drp-p3')}</p>
+            <p>{lang.getProp('drp-p4')}</p>
+            <p>{lang.getProp('drp-p5')}</p>
+            <p>{lang.getProp('drp-p6')}</p>
+            <p>{lang.getProp('drp-p7')}</p>
         </article>
     );
 }

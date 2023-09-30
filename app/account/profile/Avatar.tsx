@@ -7,7 +7,15 @@ import { useState } from 'react';
 import o from '@sass/account/profile/page.module.sass';
 import mime from 'mime-types';
 
-export default function Avatar({ user, cookie }: { user: User; cookie?: string }) {
+export default function Avatar({
+    user,
+    cookie,
+    lang,
+}: {
+    user: User;
+    cookie?: string;
+    lang: { header: string; save: string; edit: string; filename: string; select: string; notAllowed: string; tooBig: string };
+}) {
     const [edit, setEdit] = useState<boolean>(false);
     const [postError, setPostError] = useState<string>();
     const [fileName, setFileName] = useState<string>();
@@ -60,21 +68,21 @@ export default function Avatar({ user, cookie }: { user: User; cookie?: string }
 
     return (
         <>
-            <header>Avatar</header>
+            <header>{lang.header}</header>
             <li>
                 {!edit ? (
                     <>
                         <Image src={user.avatar} alt="Avatar" width="36" height="36" />
-                        <button onClick={() => setEdit((e) => !e)}>Edit</button>
+                        <button onClick={() => setEdit((e) => !e)}>{lang.edit}</button>
                     </>
                 ) : (
                     <form onSubmit={handleSubmit}>
                         <label>
                             <input onChange={handleFileUpload} id="accountAvatarUpdate" name="accountAvatarUpdate" type="file" accept="image/*" required />
-                            <a>Select file</a>
-                            <p>{selected ? fileName : 'Nothing is selected'}</p>
+                            <a>{lang.select}</a>
+                            <p>{selected ? fileName : lang.filename}</p>
                         </label>
-                        <button type="submit">Save</button>
+                        <button type="submit">{lang.save}</button>
                         {postError ? <p className="error">{postError}</p> : null}
                     </form>
                 )}

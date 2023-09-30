@@ -2,9 +2,20 @@ import Link from 'next/link';
 import Logo from '@app/Logo';
 import o from '@sass/Footer.module.sass';
 import { SUPPORT_MAIL, REPOSITORY, DONATE_LINK } from '@util/config';
+import { axiosClient } from '@util/axios';
+import LanguageHandler from '@util/handlers/LanguageHandler';
+import { cookies, headers } from 'next/headers';
 
-export default function Footer() {
+export default async function Footer() {
     const year = new Date().getFullYear();
+    const user = await axiosClient
+        .get('/v1/users/me', {
+            headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
+        })
+        .catch((e) => e.response);
+
+    const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
+    const lang = await new LanguageHandler('modules/footer', user.data.body.data).init(browserLanguage);
 
     return (
         <footer className={o.box}>
@@ -15,52 +26,53 @@ export default function Footer() {
                         Nove
                     </div>
                     <div className={o.copyright}>
-                        &copy; 2019-{year} Licensed under{' '}
+                        &copy; 2019-{year} {lang.getProp('license') + ' '}
                         <a href="https://www.gnu.org/licenses/agpl-3.0.en.html" rel="noopener noreferrer" target="_blank">
                             AGPL-3.0
                         </a>
                     </div>
                     <div className={o.copyright}>
-                        Made with ❤️ by <a href={REPOSITORY}>contributors</a>
+                        {lang.getProp('made-with-love') + ' '}
+                        <a href={REPOSITORY}>{lang.getProp('contributors')}</a>
                     </div>
                 </header>
                 <div className={o.links}>
                     <ul>
                         <li>
-                            <Link href="/about">About</Link>
+                            <Link href="/about">{lang.getProp('ul-about')}</Link>
                         </li>
                         <li>
-                            <a href={REPOSITORY + '/wiki'}>Docs</a>
+                            <a href={REPOSITORY + '/wiki'}>{lang.getProp('ul-docs')}</a>
                         </li>
                         <li>
                             <a target="_blank" rel="noopener noreferrer" href={DONATE_LINK}>
-                                Donate
+                                {lang.getProp('ul-donate')}
                             </a>
                         </li>
                         <li>
-                            <Link href="/login">Login</Link>
+                            <Link href="/login">{lang.getProp('ul-login')}</Link>
                         </li>
                         <li>
-                            <Link href="/register">Sign up</Link>
+                            <Link href="/register">{lang.getProp('ul-register')}</Link>
                         </li>
                         <li>
-                            <a href={'mailto:' + SUPPORT_MAIL}>Support</a>
+                            <a href={'mailto:' + SUPPORT_MAIL}>{lang.getProp('ul-support')}</a>
                         </li>
                     </ul>
                     <ul>
                         <li>
                             <a target="_blank" rel="noopener noreferrer" href={REPOSITORY}>
-                                Source code
+                                {lang.getProp('ul-src')}
                             </a>
                         </li>
                         <li>
-                            <Link href="/privacy">Privacy Policy</Link>
+                            <Link href="/privacy">{lang.getProp('ul-privacy')}</Link>
                         </li>
                         <li>
-                            <Link href="/terms">Terms of Service</Link>
+                            <Link href="/terms">{lang.getProp('ul-terms')}</Link>
                         </li>
                         <li>
-                            <Link href="/account/developers">Developers</Link>
+                            <Link href="/account/developers">{lang.getProp('ul-developers')}</Link>
                         </li>
                         <li>
                             <Link href="/foss">FOSS</Link>
