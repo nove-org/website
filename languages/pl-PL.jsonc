@@ -2,14 +2,17 @@
     /*
      ! IMPORTANT. Read before translating the file.
      ! Do not translate {objects in brackets} <-- like this one, it's a variable.
-     ! Do not translate the key:
-        ...
-                    translate this    do not translate this
-                    vvvvvvvvvvvvvvvvv vvvvvvvvvv 
-            "key": "Text to translate {variable}" <-- this whole line, we call it prop
-            ^^^^^
-            this is the key, do not translate it
-        ...
+     ! Do not translate the key.
+     ! File syntax:
+        "category": {
+            "page-name": {
+                        translate this    do not translate this
+                        vvvvvvvvvvvvvvvvv vvvvvvvvvv 
+                "key": "Text to translate {variable}" <-- this whole line, we call it prop
+                ^^^^^
+                this is the key, do not translate it
+            }
+        }
      ! Leave HTML tags as they are and do not add any new tags to the text. Only change the text inside of it.
 
      * Some of the props that are listed here have an explanation comment. Do not translate it.
@@ -147,6 +150,15 @@
             "input-username": "Nazwa użytkownika",
             "input-password": "Hasło",
             "input-btn": "Dalej"
+        },
+        "password-reset": {
+            "title": "Resetuj hasło",
+            "hero-h1": "Reset hasła",
+            "hero-p": "Podaj twój e-mail i nowe hasło aby kontynuować",
+            "input-email": "E-mail",
+            "input-new-password": "Nowe hasło",
+            "input-btn-submit": "Dalej",
+            "request-success": "Wiadomość z potwierdzeniem została wysłana na podany adres"
         }
     },
     "dashboard": {
@@ -313,25 +325,25 @@
             "drp-p7": "Przetwarzamy dane użytkownika tak długo jak użytkownik posiada konto w NAPI które może usunąć w ustawieniach.",
             //* OAuth2 applications
             "oa2-header": "Aplikacje OAuth2",
-            "oa2-p1": "This section is not ready yet."
+            "oa2-p1": "Ta sekcja nie jest jeszcze gotowa."
         },
         "terms-of-service": {
             "title": "Warunki usługi (regulamin)",
             "last-modified": "Ostatnio zmodyfikowane: <time>12 sierpnia 2023</time>",
-            "p1": "By using services hosted by us (Nove) you agree to our Terms of Service and Privacy Policy. If you do not accept these, you are not allowed to use our services. All users have to follow Terms of Service, with no exceptions. As reminder, this document applies for all our services.",
+            "p1": "Używając usług osadzonych na naszych serwerach (Nove) zgadzasz się na naszą Politykę Prywatności oraz akceptujesz Regulamin. Jeśli się z nimi nie zgadzasz nie możesz korzystać z naszych serwisów. Jako przypomnienie, ten dokument i Polityka Prywatności aplikuje się do wszystkich naszych usług i serwisów.",
             "p2": "Nie jesteśmy odpowiedzialni za treści na koncie użytkownika",
             "p3": "Lista działań których nie popieramy",
             //* List
-            "li-1": "NSFW and NSFL content is strictly forbidden. This includes violence, “gore” movies, and terrorist materials. NSFL stands for “Not Safe for Life”, which means everything that can endanger human life.",
-            "li-2": "Any pornographic material involving minors will be removed if noticed, and the associated account will be banned entirely, which will cause the removal of all the data associated with it.",
-            "li-3": "Any material intended to destroy (directly or indirectly) a computer or any other device is strictly prohibited. This also includes grabbers, phishing programs, and account data loggers.",
-            "li-4": "Content depicting activities prohibited by local (and/or Polish) law, including federal law, is strictly forbidden.",
-            "li-5": "By abusing our API you expose your account for possible suspension by administrators.",
-            "li-5-li-1": "Sending too many requests for the same thing to the API is API abuse",
-            "li-5-li-2": "Sending prepared exploits to the API is API abuse",
-            "li-5-li-3": "Any discovered bugs in the API have to be imminently reported through email or Gitea Issues",
-            "li-6": "We cannot decrypt encrypted/password-encrypted content even for law enforcements.",
-            "li-7": "If we will be forced by law enforcements to show everything we got on user, we will share it with them.",
+            "li-1": "Treści NSFW oraz NSFL są zabronione. Obejmuje to przemoc, filmy gore i materiały o charakterze terrorystycznym. NSFL to treści „Not Safe for Life”, co oznacza wszystko, co może zagrozić życiu ludzkiemu.",
+            "li-2": "Wszelkie materiały pornograficzne z udziałem nieletnich zostaną usunięte, jeśli zostaną zauważone, a powiązane konto zostanie całkowicie zablokowane, co spowoduje usunięcie wszystkich powiązanych z nim danych.",
+            "li-3": "Wszelkie materiały mające na celu zniszczenie (bezpośrednie lub pośrednie) komputera lub innego urządzenia są surowo zabronione. Dotyczy to również programów typu zbieraczy danych.",
+            "li-4": "Treści przedstawiające działania zabronione przez prawo lokalne (i/lub polskie), w tym prawo federalne, są surowo zabronione.",
+            "li-5": "Nadużywając naszego API narażasz swoje konto na ewentualne zawieszenie przez administratorów.",
+            "li-5-li-1": "Wysyłanie zbyt wielu żądań o to samo do interfejsu API jest nadużyciem interfejsu API",
+            "li-5-li-2": "Wysyłanie przygotowanych podatności do API jest nadużyciem API",
+            "li-5-li-3": "Wszelkie wykryte błędy w API należy natychmiast zgłaszać e-mailem lub w dziale Gitea Issues",
+            "li-6": "Nie możemy odszyfrować treści zaszyfrowanych/zaszyfrowanych hasłem nawet na potrzeby organów ścigania.",
+            "li-7": "Jeśli organy ścigania zmuszą nas do udostępnienia danych, pokażemy co mamy na temat danego użytkownika.",
             "p4": "Proszę nie twórz dodatkowych kont. Zostawmy rzeczy prostymi.",
             "p5": "Zastrzegamy sobie prawo do aktualizacji tego dokumentu bez powiadomienia użytkowników."
         }

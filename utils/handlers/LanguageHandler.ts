@@ -2,7 +2,6 @@ import { readFileSync } from 'fs';
 import { jsonc } from 'jsonc';
 import { User } from '@util/schema';
 import ObjectHelper from '@util/helpers/Object';
-import { browser } from 'process';
 
 export default class LanguageHandler {
     private name: string;
