@@ -34,65 +34,65 @@
     "modules": {
         "navigation": {
             //- links section
-            "ul-products": "Products",
-            "ul-about": "About",
+            "ul-products": "Продукти",
+            "ul-about": "За нас",
             "ul-docs": "Docs",
-            "ul-donate": "Donate",
+            "ul-donate": "Дарения",
             //- login section
-            "login-btn": "Login",
-            "register-btn": "Sign up",
+            "login-btn": "Влез",
+            "register-btn": "Регистрирай се",
             //- account switcher
-            "switcher-profile": "My profile",
-            "switcher-security": "Security",
-            "switcher-logout": "Log out",
+            "switcher-profile": "Моят профил",
+            "switcher-security": "Поверителост",
+            "switcher-logout": "Изход",
             //- products popup
-            "products-files": "Store your data securely in the cloud",
-            "products-napi": "Let your users authorize with Nove account",
-            "products-crm": "Manage your customers quickly with ease"
+            "products-files": "Съхранявайте данните си сигурно в облака",
+            "products-napi": "Позволете на вашите потребители да се оторизират с Nove акаунт",
+            "products-crm": "Управлявай клиентите си бързо и лесно"
         },
         "footer": {
             "license": "Licensed under",
             "made-with-love": "Made with ❤️ by",
             "contributors": "contributors",
             //- links section
-            "ul-about": "About",
+            "ul-about": "За нас",
             "ul-docs": "Docs",
-            "ul-donate": "Donate",
-            "ul-login": "Login",
-            "ul-register": "Sign up",
-            "ul-support": "Help",
-            "ul-src": "Source code",
-            "ul-privacy": "Privacy Policy",
-            "ul-terms": "Terms of Service",
-            "ul-developers": "Developers"
+            "ul-donate": "Дарения",
+            "ul-login": "Влез",
+            "ul-register": "Регистрирай се",
+            "ul-support": "Помощ",
+            "ul-src": "Програмен код",
+            "ul-privacy": "Поверителност и политика",
+            "ul-terms": "Условия за ползване",
+            "ul-developers": "Разработчици"
         }
     },
     "main": {
         "landing": {
             //* Site description
-            "title": "Meet the world where your privacy matters",
+            "title": "Запознайте се със света, в който поверителността ви има значение",
             //* Hero section
             //- h1
-            "hero-h1": "Meet the world where <span>your privacy</span> matters.",
+            "hero-h1": "Запознайте се със света, <span>в който поверителността ви</span> има значение.",
             //- trust note
-            "hero-note-trust": "Don't take our word for this. View the <a class={style} target=\"_blank\" rel=\"noopener noreferrer\" href={repository}>code</a> yourself",
+            "hero-note-trust": "Не вярвайте на нашата дума за това. Вижте <a class={style} target=\"_blank\" rel=\"noopener noreferrer\" href={repository}>кодът</a> сами",
             //- misc
-            "hero-description": "Ditch Google, Facebook and other companies that sell data, profile and track you. Take back control and start using free, open-source and privacy-respecting solutions by Nove.",
+            "hero-description": "Зарежете Google, Facebook и други компании, които продават вашите данни, профили и ви проследяват. Вземете обратно контрола и започнете да използвате безплатниte, с отворен код и уважаващи поверителността решения от Nove..",
             "hero-btn": "Sign up today",
             //* Word section (features)
-            "word-h1": "In our ecosystem, your data belongs to you, and only you.",
+            "word-h1": "В нашата екосистема вашите данни принадлежат на вас и само на вас.",
             //- feature ul
-            "word-card1-title": "Stored securely on our servers",
-            "word-card1-description": "We encrypt your data whenever possible to protect it from governments, hackers and tech companies including us.",
-            "word-card2-title": "No tracking nor selling",
-            "word-card2-description": "We never track you by default. And, we never sell your data to third-parties. It belongs to you, not to us or them.",
-            "word-card3-title": "Free forever no matter what",
-            "word-card3-description": "Most of our services include free forever plan so you don't have to trust us in the first place. Start your journey today!",
+            "word-card1-title": "Съхранява се сигурно на нашите сървъри",
+            "word-card1-description": "Ние шифроваме вашите данни, когато е възможно, за да ги защитим от правителства, хакери и технологични компании, включително и нас.",
+            "word-card2-title": "Без проследяване и продажба",
+            "word-card2-description": "Ние никога не ви проследяваме и ние никога не продаваме вашите данни на трети лица. Принадлежат на вас, не на нас или тях.",
+            "word-card3-title": "Свободни завинаги, независимо от каквото и да е",
+            "word-card3-description": "Повечето от нашите услуги включват безплатен план завинаги, така че не е нужно да ни се доверявате на първо място. Започнете вашето пътуване днес!",
             //- trust note
-            "word-trust": "All of this is easily verifiable, check out our source code. It is open to everyone, view it on",
+            "word-trust": "Всичко това може лесно да се провери, вижте нашия отворен код. Отворено е за всички",
             //* Breakup section
-            "breakup-h1": "Built by privacy enthusiasts and the community",
-            "breakup-description": "At Nove, we create open-source and we appreciate any support from the community to our projects. Because <b>privacy and safety</b> goes with <b>open-source and auditable</b>.",
+            "breakup-h1": "Създаден от ентусиасти на поверителността и общността ни",
+            "breakup-description": "В Nove създаваме с отворен код и оценяваме всяка подкрепа от общността за нашите проекти. Защото <b>Поверителност и безопасност</b> goes with <b>open-source and auditable</b>.",
             //- breakup ul
             "breakup-li-1": "Easily accessible projects through Gitea",
             "breakup-li-2": "Contribute by catching bugs, improving the code or suggesting changes",
