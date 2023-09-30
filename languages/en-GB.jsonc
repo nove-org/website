@@ -281,6 +281,7 @@
             "hero-h1": "Language",
             "hero-p1": "Select your preferred language. This setting will be used to display content in your language on all Nove websites and your connected apps might use it.",
             "hero-p2": "Not fully supported by us yet. You might want to set it for OAuth2 apps to use.",
+            "input-btn": "Save changes",
             //* Error displayed when we cannot communicate with the API properly
             "error-h1": "Something is wrong with the API",
             "error-p": "We cannot sign your session which leads to data retrieval failure"
