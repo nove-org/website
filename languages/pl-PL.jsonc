@@ -180,7 +180,7 @@
             "title": "Przegląd",
             //* Your profile section on /account
             "tips-header": "Jak poprawić bezpieczeństwo i prywatność",
-            "tips-1": "Używaj darmowego i otwartoźródłowego",
+            "tips-1": "Używaj oprogramowania <span title=\"Darmowe i otwartoźródłowe oprogramowanie\">FOSS</span>",
             "tips-2": "Włącz weryfikacje dwuskładnikową",
             "tips-3": "Nie twórz za dużo kont w sieci",
             //* Cards that are listed next to your profile on /account
@@ -280,7 +280,7 @@
             //* Hero section
             "hero-h1": "Język",
             "hero-p1": "Wybierz preferowany język. To ustawienie będzie używane aby wyświetlić treści w wybranym języku we wszystkich produktach Nove na których jesteś zalogowany. Połączone aplikacje OAuth2 też mogą go używać.",
-            "hero-p2": "Nie jest to jeszcze oficjalnie wspierane rozwiązanie lecz aplikacje OAuth2 mogą już je w pełni wdrażać.",
+            "hero-p2": "Nie jest to jeszcze oficjalnie wspierane rozwiązanie lecz aplikacje zewnętrzne mogą już je w pełni wdrażać.",
             "input-btn": "Zapisz",
             //* Error displayed when we cannot communicate with the API properly
             "error-h1": "Coś jest nie tak i nie możemy porozumieć się z API",
@@ -290,7 +290,7 @@
     "documents": {
         "privacy-policy": {
             "title": "Polityka Prywatności",
-            "last-modified": "Ostatnio zmodyfikowane: <time>28 września 2023</time>",
+            "last-modified": "Ostatnio zmodyfikowane: <time>30 września 2023</time>",
             //* Introduction
             "p1": "Dostarczamy (w większości) darmowe i otwartoźródłowe rozwiązania. Nie śledzimy ani nie sprzedajemy danych do firm trzecich. Nie używamy śledzących pikseli ani innych form ujawniania tożsamości użytkownika.",
             "p2": "Zastrzegamy sobie prawo do aktualizacji tego dokumentu bez powiadomienia użytkowników.",
@@ -313,17 +313,17 @@
             "inf-li-11": "zdjęcie profilowe konta (zawsze pokazane)",
             //- continuation
             "inf-p3": "Niektóre z tych informacji zostały oznaczone jako publicznie dostępne. Udostępniamy narzędzie pozwalające na zmiane stanu profilu na publiczny/prywatny aby ukryć wrażliwe dane.",
-            "inf-p4": "Posiadamy dodatkowe funkcje które zbierają twoje dane i są wyłączone domyślnie: zapisywanie aktywności. Gdy włączone zbiera IP urządzenia oraz platformę (OS, type). Wyświetla te informacje w zakładce bezpieczeństwa w ustawieniach. Dane przechowywane są przez 30 dni a następnie są usuwane. Jeśli logujesz się z nowego urządzenia powiadomimy Cię o tym drogą mailową. Kiedy wyłączysz tą funkcje zebrane dane zostają automatycznie usunięte.",
+            "inf-p4": "Posiadamy dodatkowe funkcje które zbierają twoje dane i są wyłączone domyślnie: zapisywanie aktywności. Gdy włączone zbiera IP urządzenia oraz platformę (system, typ). Wyświetla te informacje w zakładce bezpieczeństwa w ustawieniach. Dane przechowywane są przez 30 dni a następnie są usuwane. Jeśli logujesz się z nowego urządzenia powiadomimy Cię o tym drogą mailową. Kiedy wyłączysz tą funkcje zebrane dane zostają automatycznie usunięte.",
             "inf-p5": "Podany e-mail nie jest używany w celach marketingowych. Używamy go aby zweryfikować tworzenie konta, podnieść bezpieczeństwo oraz aby powiadamiać cię o ważnych zmianach w serwisie",
             //* Data retention policy
             "drp-header": "Polityka przechowywania danych",
-            "drp-p1": "Aby usunąć swoje konto, przejdź do ustawień, wejdź w zakładkę 'Bezpieczeństwo' a potem naciśnij 'Usuń moje konto' na samym dole strony.",
+            "drp-p1": "Aby usunąć swoje konto, przejdź do ustawień, wejdź w zakładkę 'Bezpieczeństwo' a następnie naciśnij 'Usuń moje konto' na samym dole strony.",
             "drp-p2": "Dane które zostały zaszyfrowane hasłem są faktycznie zaszyfrowane i nie możemy ich podejrzeć.",
             "drp-p3": "Mamy prawo do usunięcia kont które nie są aktywowane przez 3 dni lub dłużej.",
             "drp-p4": "Mamy prawo do usunięcia kont które naruszają nasz regulamin",
-            "drp-p5": "Każde usunięcie konta przez administratora jest uzasadnione a powód jest znany do właściciela danego konta przed lub kilka dni po usunięciu.",
-            "drp-p6": "Jeśli użytkownik stracił dostęp do swojego konta, mogą zgłosić się po resetowanie hasła lub usunięcie konta poprzez adres e-mail na który się zarejestrowali",
-            "drp-p7": "Przetwarzamy dane użytkownika tak długo jak użytkownik posiada konto w NAPI które może usunąć w ustawieniach.",
+            "drp-p5": "Każde usunięcie konta przez administratora jest uzasadnione a powód jest znany właścicielowi konta przed lub kilka dni po usunięciu.",
+            "drp-p6": "Jeśli użytkownik stracił dostęp do swojego konta, może zgłosić się po resetowanie hasła lub usunięcie konta poprzez adres e-mail na który się zarejestrował",
+            "drp-p7": "Przetwarzamy dane użytkownika tak długo jak posiada konto w NAPI.",
             //* OAuth2 applications
             "oa2-header": "Aplikacje OAuth2",
             "oa2-p1": "Ta sekcja nie jest jeszcze gotowa."
@@ -337,12 +337,12 @@
             //* List
             "li-1": "Treści NSFW oraz NSFL są zabronione. Obejmuje to przemoc, filmy gore i materiały o charakterze terrorystycznym. NSFL to treści „Not Safe for Life”, co oznacza wszystko, co może zagrozić życiu ludzkiemu.",
             "li-2": "Wszelkie materiały pornograficzne z udziałem nieletnich zostaną usunięte, jeśli zostaną zauważone, a powiązane konto zostanie całkowicie zablokowane, co spowoduje usunięcie wszystkich powiązanych z nim danych.",
-            "li-3": "Wszelkie materiały mające na celu zniszczenie (bezpośrednie lub pośrednie) komputera lub innego urządzenia są surowo zabronione. Dotyczy to również programów typu zbieraczy danych.",
+            "li-3": "Wszelkie materiały mające na celu zniszczenie (bezpośrednie lub pośrednie) komputera lub innego urządzenia są surowo zabronione.",
             "li-4": "Treści przedstawiające działania zabronione przez prawo lokalne (i/lub polskie), w tym prawo federalne, są surowo zabronione.",
             "li-5": "Nadużywając naszego API narażasz swoje konto na ewentualne zawieszenie przez administratorów.",
-            "li-5-li-1": "Wysyłanie zbyt wielu żądań o to samo do interfejsu API jest nadużyciem interfejsu API",
-            "li-5-li-2": "Wysyłanie przygotowanych podatności do API jest nadużyciem API",
-            "li-5-li-3": "Wszelkie wykryte błędy w API należy natychmiast zgłaszać e-mailem lub w dziale Gitea Issues",
+            "li-5-li-1": "Wysyłanie zbyt wielu żądań o to samo do interfejsu API jest nadużyciem",
+            "li-5-li-2": "Wysyłanie przygotowanych podatności do API jest nadużyciem",
+            "li-5-li-3": "Wszelkie wykryte błędy należy natychmiast zgłaszać e-mailem lub w dziale Gitea Issues",
             "li-6": "Nie możemy odszyfrować treści zaszyfrowanych/zaszyfrowanych hasłem nawet na potrzeby organów ścigania.",
             "p4": "Proszę nie twórz dodatkowych kont. Zostawmy rzeczy prostymi.",
             "p5": "Zastrzegamy sobie prawo do aktualizacji tego dokumentu bez powiadomienia użytkowników."
