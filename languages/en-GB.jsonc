@@ -92,7 +92,7 @@
             "word-trust": "All of this is easily verifiable, check out our source code. It is open to everyone, view it on",
             //* Breakup section
             "breakup-h1": "Built by privacy enthusiasts and the community",
-            "breakup-description": "At Nove, we create open-source and we appreciate any support from the community to our projects. Because <b>privacy and safety</b> goes with <b>open-source and auditable</b>.",
+            "breakup-description": "At Nove, we create open-source and we appreciate any support from the community. Because <b>privacy and safety</b> goes with <b>open-source and auditable</b>.",
             //- breakup ul
             "breakup-li-1": "Easily accessible projects through Gitea",
             "breakup-li-2": "Contribute by catching bugs, improving the code or suggesting changes",
@@ -125,7 +125,7 @@
             "hero-p": "Because <b>open-source</b> software takes essential part in working together, protecting users privacy, and ensuring app reliability.",
             //- projects
             "ul-napi": "Create your desired applications with use of NAPI OAuth2 system which provides access to signing in with Nove.",
-            "ul-manager": "Official website that is used by Nove on their main domain to serve graphical access to the NAPI.",
+            "ul-manager": "Official website that is used by us on our main domain to serve graphical access to the NAPI.",
             "ul-files": "General purpose cloud hosting with password encrypted uploads available to everyone with just one click."
         },
         "login": {
@@ -228,7 +228,7 @@
             //- email button
             "hds-email-btn": "E-mail",
             //? email change popup
-            "hds-email-h1": "Change your email",
+            "hds-email-h1": "Change your e-mail",
             "hds-email-p": "The address where we can contact you if there is an unusual activity on your account or if you'll get locked out. You can also use it to log in.",
             "hds-email-label-1": "New e-mail",
             "hds-email-placeholder-1": "Provide your new e-mail",
@@ -241,7 +241,7 @@
             "hds-btn-save": "Save changes",
             //* Delete your account section
             "delete-h1": "Delete your Nove account",
-            "delete-p": "To delete your account we need you to provide your account password to confirm your actions. This process is irreversible and all your data associated with this account will be deleted from our servers instantly! You can delete your account anytime you want. Please, make sure that you have deleted all third-party accounts you registered using your Nove account. Otherwise - you won't be able to log in to them.",
+            "delete-p": "To delete your account we need you to provide your account password to confirm your actions. This process is irreversible and all your data associated with this account will be deleted from our servers instantly! You can delete your account anytime you want. Please, make sure that you have removed all third-party accounts you registered using your Nove account. Otherwise - you won't be able to log in to them.",
             "delete-p2": "Provide your password so we can verify that it's you. Remember to delete all accounts that you registered using this Nove account. Otherwise, they might be unaccessible. This action is performed instantly - it's irreversible.",
             "delete-label": "Your password",
             "delete-placeholder": "Password",
@@ -252,7 +252,7 @@
         },
         "profile": {
             "title": "My profile",
-            "description": "Manage your personal info that is displayed on your account profile. You can change the display method of your profile to private and public. While on private we will share only basic information about your account, detailing: username, avatar.",
+            "description": "Manage your personal info that is displayed on your profile. You can change the display method of your profile to private and public. While on private we will share only basic information about your account, detailing: username, avatar.",
             "hero-ul-1": "Basic account info",
             "hero-ul-2": "Details",
             //* Inputs
@@ -297,11 +297,11 @@
             "p3": "By using our services you agree to our Privacy Policy and Terms of Service.",
             //* Infrastructure
             "inf-header": "Infrastructure",
-            "inf-p1": "We host our services on the infrastructure provided by FTdL (<a href=\"https://ftdl.pl/services/\" rel=\"noopener noreferrer\" target=\"_blank\">website</a>) which is located in Krakow, Poland. Your data manager is Nove (nove.team; <a href=\"mailto:reply@nove.team\">reply@nove.team</a>)",
+            "inf-p1": "We host our projects on the infrastructure provided by FTdL (<a href=\"https://ftdl.pl/services/\" rel=\"noopener noreferrer\" target=\"_blank\">website</a>) which is located in Krakow, Poland. Your data manager is Nove (nove.team; <a href=\"mailto:reply@nove.team\">reply@nove.team</a>)",
             "inf-p2": "In our database, we only store necessary info you provided us through NAPI. Detailing",
             //- list of items
             "inf-li-1": "username (shown always)",
-            "inf-li-2": "email (not shown)",
+            "inf-li-2": "e-mail (not shown)",
             "inf-li-3": "account about me (not shown on private profile)",
             "inf-li-4": "account language (not shown on private profile)",
             "inf-li-5": "account creation date (not shown on private profile)",
@@ -312,18 +312,18 @@
             "inf-li-10": "your encrypted password (not shown)",
             "inf-li-11": "account avatar (shown)",
             //- continuation
-            "inf-p3": "Some of this info is accessible publicly and we provide a tool that allows you to change the state of your profile. Sensitive data like language, account about me is not displayed if you change your profile to private.",
-            "inf-p4": "We have additional features that collect data and are disabled by default: device logger. When enabled it collects device IP and platform (OS, type). It displays that information in the account security tab. That data is stored for 30 days on our servers and later is deleted. When you log in from new IP we send you an email about that. If you opt-out from this feature the data is immediately deleted.",
-            "inf-p5": "Provided email is not used for marketing purposes, we only use it to confirm your identity and we use it for security purposes of your account.",
+            "inf-p3": "Some of this info is accessible publicly and we provide a tool that allows you to change the state of your profile. Sensitive data like language, account about me is not displayed if you change it to private.",
+            "inf-p4": "We have additional features that collect data and are disabled by default: device logger. When enabled it collects device IP and platform (OS, type). It displays that information in the account security tab. That data is stored for 30 days on our servers and later is deleted. If you opt-out from this feature the data is immediately deleted.",
+            "inf-p5": "Provided e-mail is not used for marketing purposes.",
             //* Data retention policy
             "drp-header": "Data retention policy",
             "drp-p1": "To delete your account go to Security section on the Account page, then scroll down to 'Delete Nove account'.",
             "drp-p2": "Data you have encrypted in our services using your password is truly encrypted and we cannot decrypt it.",
             "drp-p3": "We can delete accounts if they are not verified for at least 3 days.",
             "drp-p4": "We can delete accounts for violation of our Terms of Service.",
-            "drp-p5": "Every account deletion that is performed by a service administrator always have a reason which is known to the owner of the deleted or disabled account after or few days before deletion.",
+            "drp-p5": "Every account deletion that is performed by a service manager always have a reason which is known to the owner of the deleted or disabled account after or few days before deletion.",
             "drp-p6": "If a user lost access to their account, they can request password reset or account deletion through the mail they provided to us during registration.",
-            "drp-p7": "We keep user account data as long as they have account in NAPI.",
+            "drp-p7": "We keep user data as long as they have account in NAPI.",
             //* OAuth2 applications
             "oa2-header": "OAuth2 applications",
             "oa2-p1": "This section is not ready yet."
@@ -337,12 +337,12 @@
             //* List
             "li-1": "NSFW and NSFL content is strictly forbidden. This includes violence, “gore” movies, and terrorist materials. NSFL stands for “Not Safe for Life”, which means everything that can endanger human life.",
             "li-2": "Any pornographic material involving minors will be removed if noticed, and the associated account will be banned entirely, which will cause the removal of all the data associated with it.",
-            "li-3": "Any material intended to destroy (directly or indirectly) a computer or any other device is strictly prohibited. This also includes grabbers, phishing programs, and account data loggers.",
+            "li-3": "Any material intended to destroy (directly or indirectly) a computer or any other device is strictly prohibited.",
             "li-4": "Content depicting activities prohibited by local (and/or Polish) law, including federal law, is strictly forbidden.",
-            "li-5": "By abusing our API you expose your account for possible suspension by administrators.",
-            "li-5-li-1": "Sending too many requests for the same thing to the API is API abuse",
-            "li-5-li-2": "Sending prepared exploits to the API is API abuse",
-            "li-5-li-3": "Any discovered bugs in the API have to be imminently reported through e-mail or Gitea Issues",
+            "li-5": "By abusing our API you expose your account for possible suspension by managers.",
+            "li-5-li-1": "Sending too many requests for the same thing to the API is abuse",
+            "li-5-li-2": "Sending prepared exploits to the API is abuse",
+            "li-5-li-3": "Any discovered bugs have to be imminently reported through e-mail or Gitea Issues",
             "li-6": "If we will be forced by law enforcement to show everything we got on a user, we will share it with them.",
             "p4": "Please do not create multiple accounts. Keep things simple.",
             "p5": "We have the right to update Privacy Policy and Terms of Service without notifying our users."
