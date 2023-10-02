@@ -29,7 +29,7 @@
 
      ? WARNING: The text shouldn't extend the original English version by much. It will wrap weirdly on the page.
 
-     Translated by Nove Group "https://nove.team" <reply@nove.team>
+     Translated by wnm210 "https://matt.nove.team" <matt@nove.team>
     */
     "modules": {
         "navigation": {
@@ -125,7 +125,7 @@
             "hero-p": "Ponieważ <b>otwartoźródłowe</b> oprogramowanie to ważna rola w pracy w grupie, ochronie prywatności użytkowników i niezawodności systemu.",
             //- projects
             "ul-napi": "Twórz aplikacje, korzystając z NAPI OAuth2, które zapewnia możliwość logowania się za pomocą Nove.",
-            "ul-manager": "Oficjalna strona internetowa używana przez Nove w celu zapewnienia graficznego dostępu do konta.",
+            "ul-manager": "Oficjalna strona internetowa używana przez nas w celu zapewnienia graficznego dostępu do konta.",
             "ul-files": "Chmura ogólnego przeznaczenia z szyfrowaniem plików, dostępna dla każdego przez jedno kliknięcie."
         },
         "login": {
@@ -228,7 +228,7 @@
             //- email button
             "hds-email-btn": "E-mail",
             //? email change popup
-            "hds-email-h1": "Zmień adres email",
+            "hds-email-h1": "Zmień adres e-mail",
             "hds-email-p": "Adres e-mail gdzie możemy się z tobą skontaktować w celach bezpieczeństwa. Możesz też go używać aby logować się do konta.",
             "hds-email-label-1": "Nowy e-mail",
             "hds-email-placeholder-1": "Podaj nowy e-mail",
@@ -294,14 +294,14 @@
             //* Introduction
             "p1": "Dostarczamy (w większości) darmowe i otwartoźródłowe rozwiązania. Nie śledzimy ani nie sprzedajemy danych do firm trzecich. Nie używamy śledzących pikseli ani innych form ujawniania tożsamości użytkownika.",
             "p2": "Zastrzegamy sobie prawo do aktualizacji tego dokumentu bez powiadomienia użytkowników.",
-            "p3": "Używając naszych usług zgadzasz się przestrzegać tego dokumentu.",
+            "p3": "Używając naszych usług zgadzasz się przestrzegać naszej Polityki Prywatności oraz Regulaminu.",
             //* Infrastructure
             "inf-header": "Infrastruktura",
-            "inf-p1": "Używamy serwerów dostarczanych przez FTdL (<a href=\"https://ftdl.pl/services/\" rel=\"noopener noreferrer\" target=\"_blank\">strona internetowa</a>) które znajdują się w Krakowie. Administratorem danych osobowych jest Nove (nove.team; <a href=\"mailto:reply@nove.team\">reply@nove.team</a>)",
-            "inf-p2": "W naszej bazie danych przetwarzamy tylko dane które zostały podane do NAPI. Czyli",
+            "inf-p1": "Używamy serwerów dostarczanych przez FTdL (<a href=\"https://ftdl.pl/services/\" rel=\"noopener noreferrer\" target=\"_blank\">strona internetowa</a>) które zlokalizowane są w Krakowie, w Polsce. Administratorem danych osobowych jest Nove (nove.team; <a href=\"mailto:reply@nove.team\">reply@nove.team</a>)",
+            "inf-p2": "W naszej bazie danych przetwarzamy dane które zostały podane do NAPI. Czyli",
             //- list of items
             "inf-li-1": "nazwa użytkownika (zawsze pokazana)",
-            "inf-li-2": "email (nigdy nie pokazany)",
+            "inf-li-2": "e-mail (nigdy nie pokazany)",
             "inf-li-3": "sekcja o mnie (nie pokazana na prywatnym profilu)",
             "inf-li-4": "język konta (nie pokazana na prywatnym profilu)",
             "inf-li-5": "data stworzenia konta (nie pokazana na prywatnym profilu)",
@@ -313,8 +313,8 @@
             "inf-li-11": "zdjęcie profilowe konta (zawsze pokazane)",
             //- continuation
             "inf-p3": "Niektóre z tych informacji zostały oznaczone jako publicznie dostępne. Udostępniamy narzędzie pozwalające na zmiane stanu profilu na publiczny/prywatny aby ukryć wrażliwe dane.",
-            "inf-p4": "Posiadamy dodatkowe funkcje które zbierają twoje dane i są wyłączone domyślnie: zapisywanie aktywności. Gdy włączone zbiera IP urządzenia oraz platformę (system, typ). Wyświetla te informacje w zakładce bezpieczeństwa w ustawieniach. Dane przechowywane są przez 30 dni a następnie są usuwane. Jeśli logujesz się z nowego urządzenia powiadomimy Cię o tym drogą mailową. Kiedy wyłączysz tą funkcje zebrane dane zostają automatycznie usunięte.",
-            "inf-p5": "Podany e-mail nie jest używany w celach marketingowych. Używamy go aby zweryfikować tworzenie konta, podnieść bezpieczeństwo oraz aby powiadamiać cię o ważnych zmianach w serwisie",
+            "inf-p4": "Posiadamy dodatkowe funkcje które zbierają dane i są wyłączone domyślnie: zapisywanie aktywności. Gdy włączone zbiera IP urządzenia oraz platformę (system, typ). Wyświetla te informacje w zakładce bezpieczeństwa w ustawieniach. Dane przechowywane są przez 30 dni a następnie są usuwane. Kiedy wyłączysz tą funkcje zebrane dane zostają automatycznie usunięte.",
+            "inf-p5": "Podany e-mail nie jest używany w celach marketingowych.",
             //* Data retention policy
             "drp-header": "Polityka przechowywania danych",
             "drp-p1": "Aby usunąć swoje konto, przejdź do ustawień, wejdź w zakładkę 'Bezpieczeństwo' a następnie naciśnij 'Usuń moje konto' na samym dole strony.",
@@ -331,9 +331,9 @@
         "terms-of-service": {
             "title": "Warunki usługi (regulamin)",
             "last-modified": "Ostatnio zmodyfikowane: <time>12 sierpnia 2023</time>",
-            "p1": "Używając usług osadzonych na naszych serwerach (Nove) zgadzasz się na naszą Politykę Prywatności oraz akceptujesz Regulamin. Jeśli się z nimi nie zgadzasz nie możesz korzystać z naszych serwisów. Jako przypomnienie, ten dokument i Polityka Prywatności aplikuje się do wszystkich naszych usług i serwisów.",
+            "p1": "Używając usług osadzonych na naszych serwerach (Nove) zgadzasz się na naszą Politykę Prywatności oraz akceptujesz Regulamin. Jeśli się z nimi nie zgadzasz nie możesz korzystać z naszych serwisów. Jako przypomnienie, ten dokument jak i Polityka Prywatności aplikuje się do wszystkich naszych usług i serwisów.",
             "p2": "Nie jesteśmy odpowiedzialni za treści na koncie użytkownika",
-            "p3": "Lista działań których nie popieramy",
+            "p3": "Niedozwolone działania w naszych serwisach",
             //* List
             "li-1": "Treści NSFW oraz NSFL są zabronione. Obejmuje to przemoc, filmy gore i materiały o charakterze terrorystycznym. NSFL to treści „Not Safe for Life”, co oznacza wszystko, co może zagrozić życiu ludzkiemu.",
             "li-2": "Wszelkie materiały pornograficzne z udziałem nieletnich zostaną usunięte, jeśli zostaną zauważone, a powiązane konto zostanie całkowicie zablokowane, co spowoduje usunięcie wszystkich powiązanych z nim danych.",
