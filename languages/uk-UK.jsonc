@@ -13,7 +13,7 @@
                 this is the key, do not translate it
             }
         }
-     ! Leave HTML tags as they areіdo not add any new tags to the text. Only change the text inside of it.
+     ! Leave HTML tags as they are and do not add any new tags to the text. Only change the text inside of it.
 
      * Some of the props that are listed here have an explanation comment. Do not translate it.
      * After translating this file, create a pull request on Gitea with "translations" label. Remember to fork this repository.
@@ -24,7 +24,7 @@
      * - "btn", means button
      * or if it starts with "ul" or "title":
      * - "ul", means that is a list of elements
-     * - "title", means that the browser would read that textіdisplay it as tab title
+     * - "title", means that the browser would read that text and display it as tab title
      * otherwise it's just a group of elements/category
 
      ? WARNING: The text shouldn't extend the original English version by much. It will wrap weirdly on the page.
@@ -39,21 +39,21 @@
             "ul-docs": "Док.",
             "ul-donate": "Пожертвувати",
             //- login section
-            "login-btn": "Увійти в систему",
+            "login-btn": "Увійти",
             "register-btn": "Зареєструватися",
             //- account switcher
             "switcher-profile": "Мій профіль",
             "switcher-security": "Безпека",
             "switcher-logout": "Вийти з системи",
             //- products popup
-            "products-files": "Безпечно зберігайте свої дані в хмарі",
-            "products-napi": "Дозвольте вашим користувачам авторизуватися за допомогою облікового запису Nove",
-            "products-crm": "Керуйте клієнтами швидко та легко"
+            "products-files": "Зберігайте свої дані в нашій хмарі у безпеці",
+            "products-napi": "Дозвольте клієнтам входити в систему за допомогою Nove",
+            "products-crm": "Легко та швидко адмініструйте своїми клієнтами"
         },
         "footer": {
             "license": "Ліцензовано за ліцензією",
             "made-with-love": "Зроблено з ❤️",
-            "дописувачі": "контриб'ютерами",
+            "contributors": "контриб'ютерами",
             //- links section
             "ul-about": "Про",
             "ul-docs": "Док.",
@@ -82,12 +82,12 @@
             //* Word section (features)
             "word-h1": "У нашій екосистемі ваші дані належать вам і тільки вам.",
             //- feature ul
-            "word-card1-title": "Безпечно зберігається на наших серверах",
+            "word-card1-title": "Безпечно зберігається на серверах",
             "word-card1-description": "Ми шифруємо ваші дані, коли це можливо, щоб захистити їх від урядів, хакерів і тех-компаній, включаючи нас.",
             "word-card2-title": "Не відстежується та не продається",
-            "word-card2-description": "Ми ніколи не відстежуємо вас за замовчуванням. І ми ніколи не продаємо ваші дані третім особам. Вони належать вам, а не нам чи їм.",
+            "word-card2-description": "Ми ніколи не відстежуємо вас і ніколи не продаємо ваші дані третім особам. Вони належать тільки вам, а не нам чи їм.",
             "word-card3-title": "Вільні назавжди, незважаючи ні на що",
-            "word-card3-description": "Більшість наших послуг включають безкоштовний безстроковий тарифний план, тому вам не обов'язково довіряти нам з самого початку. Розпочніть свою подорож вже сьогодні!",
+            "word-card3-description": "Наші послуги включають безкоштовний план, тому вам не обов'язково довіряти нам одразу. Почніть свою подорож вже сьогодні!",
             //- trust note
             "word-trust": "Все це легко перевірити, подивіться наш вихідний код. Він відкритий для всіх, переглянути його можна на",
             //* Breakup section
@@ -112,9 +112,9 @@
             //- members, translate positions
             "pos1": "Генеральний директор, фронтенд-розробник та UI/UX дизайнер",
             "pos2": "Основний бекенд-розробник, супровід коду",
-            "pos3": "UI/UX дизайнер та менеджер проектів",
+            "pos3": "Дизайнер користувацького інтерфейсу та менеджер проектів",
             "pos4": "Фронтенд-розробник і генеральний директор Peekr",
-            "pos5": "Бекенд-розробник на пенсії"
+            "pos5": "Провідний бекенд-розробник у відставці"
         },
         "foss": {
             "title": "Проекти FOSS",
@@ -126,7 +126,7 @@
             //- projects
             "ul-napi": "Створюйте бажані додатки за допомогою системи NAPI OAuth2, яка надає доступ до входу в Nove.",
             "ul-manager": "Офіційний веб-сайт, який ми використовуємо на нашому основному домені для графічного доступу до NAPI.",
-            "ul-files": "Хмарний хостинг загального призначення із зашифрованими паролем завантаженнями, доступними кожному за допомогою одного кліку."
+            "ul-files": "Хмарний хостинг загального призначення із захищеними паролем завантаженнями, доступними в один клік."
         },
         "login": {
             "title": "Вхід в систему",
@@ -180,14 +180,14 @@
             "title": "Огляд",
             //* Your profile section on /account
             "tips-header": "Поради щодо покращення безпеки та конфіденційності",
-            "tips-1": "Використовуйте безкоштовне програмне забезпечення з відкритим кодом",
-            "tips-2": "Намагайтеся використовувати MFA, коли це можливо",
+            "tips-1": "Користуйтеся ПЗ з відкритим вихідним кодом",
+            "tips-2": "Використовуйте MFA, коли це є можливим",
             "tips-3": "Створюйте якомога менше облікових записів",
             //* Cards that are listed next to your profile on /account
             "card-1-h1": "Мова",
             "card-1-p": "Змініть мову для всіх продуктів Nove",
             "card-2-h1": "Діяльність",
-            "card-2-p": "Легко керуйте нещодавніми діями у своєму акаунті за допомогою журналів активності",
+            "card-2-p": "Слідкуйте за нещодавніми діями в акаунті за допомогою журналів активності",
             "card-2-action": "Активні сесії: {number}",
             //- reminder      ^^^^^^^^ do not translate it, leave as it is
             "card-3-h1": "Вхід в систему",
@@ -201,7 +201,7 @@
         },
         "security": {
             "title": "Безпека",
-            //* Ваші пристрої section
+            //* Your devices section
             "devices-h1": "Ваші пристрої",
             "devices-p": "Список останніх пристроїв, які входили до вашого облікового запису",
             //- no data error
@@ -212,8 +212,8 @@
             //- opt-in/out button
             "devices-opt-btn-1": "Відмовитися",
             "devices-opt-btn-2": "Увімкнути",
-            //* "Як увійти в систему" section
-            "hds-h1": "How do you sign in",
+            //* "How do you sign in" section
+            "hds-h1": "Як увійти в систему",
             "hds-p": "Додайте або змініть способи входу та підтвердження особи",
             //- buttons on the right side, keep the text short
             //- password button
@@ -226,7 +226,7 @@
             "hds-password-label-2": "Новий пароль",
             "hds-password-placeholder-2": "Вкажіть новий пароль",
             //- email button
-            "hds-email-btn": "Електронна пошта",
+            "hds-email-btn": "E-mail",
             //? email change popup
             "hds-email-h1": "Змінити електронну пошту",
             "hds-email-p": "Адреса, за якою ми можемо зв'язатися з вами, якщо у вашому обліковому записі буде незвична активність або якщо вас заблокують. Ви також можете використовувати його для входу в систему.",
