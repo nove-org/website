@@ -182,7 +182,7 @@
             "tips-header": "Tips to improve your security and privacy",
             "tips-1": "Use free and open-source software",
             "tips-2": "Try to use MFA whenever possible",
-            "tips-3": "Create as few accounts as you can",
+            "tips-3": "Maintain as few accounts as you can",
             //* Cards that are listed next to your profile on /account
             "card-1-h1": "Language",
             "card-1-p": "Change your preferred language across all Nove products",
@@ -332,7 +332,7 @@
             "title": "Terms of Service",
             "last-modified": "Last modified: <time>12nd of August 2023</time>",
             "p1": "By using services hosted by us (Nove) you agree to our Terms of Service and Privacy Policy. If you do not accept these, you are not allowed to use our services. As a reminder, this document applies for all our products.",
-            "p2": "We are not responsible for any content that is posted on user's account",
+            "p2": "We are not responsible for any content posted by users",
             "p3": "Actions we do not tolerate",
             //* List
             "li-1": "NSFW and NSFL content is strictly forbidden. This includes violence, 'gore' movies, and terrorist materials. NSFL stands for 'Not Safe for Life', which means everything that can endanger human life.",
