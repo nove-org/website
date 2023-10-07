@@ -182,7 +182,7 @@
             "tips-header": "Tips to improve your security and privacy",
             "tips-1": "Use free and open-source software",
             "tips-2": "Try to use MFA whenever possible",
-            "tips-3": "Create as less accounts as you can",
+            "tips-3": "Maintain as few accounts as you can",
             //* Cards that are listed next to your profile on /account
             "card-1-h1": "Language",
             "card-1-p": "Change your preferred language across all Nove products",
@@ -321,7 +321,7 @@
             "drp-p2": "Data you have encrypted in our services using your password is truly encrypted and we cannot decrypt it.",
             "drp-p3": "We can delete accounts if they are not verified for at least 3 days.",
             "drp-p4": "We can delete accounts for violation of our Terms of Service.",
-            "drp-p5": "Every account deletion that is performed by a service manager always have a reason which is known to the owner of the deleted or disabled account after or few days before deletion.",
+            "drp-p5": "Every account deletion performed by a service manager has a cause that the owner of the deleted or disabled account is aware of after or a few days before the deletion.",
             "drp-p6": "If a user lost access to their account, they can request password reset or account deletion through the mail they provided to us during registration.",
             "drp-p7": "We keep user data as long as they have account in NAPI.",
             //* OAuth2 applications
@@ -332,10 +332,10 @@
             "title": "Terms of Service",
             "last-modified": "Last modified: <time>12 August 2023</time>",
             "p1": "By using services hosted by us (Nove) you agree to our Terms of Service and Privacy Policy. If you do not accept these, you are not allowed to use our services. As a reminder, this document applies for all our products.",
-            "p2": "We are not responsible for any content that is posted on user's account",
+            "p2": "We are not responsible for any content posted by users",
             "p3": "Actions we do not tolerate",
             //* List
-            "li-1": "NSFW and NSFL content is strictly forbidden. This includes violence, “gore” movies, and terrorist materials. NSFL stands for “Not Safe for Life”, which means everything that can endanger human life.",
+            "li-1": "NSFW and NSFL content is strictly forbidden. This includes violence, 'gore' movies, and terrorist materials. NSFL stands for 'Not Safe for Life', which means everything that can endanger human life.",
             "li-2": "Any pornographic material involving minors will be removed if noticed, and the associated account will be banned entirely, which will cause the removal of all the data associated with it.",
             "li-3": "Any material intended to destroy (directly or indirectly) a computer or any other device is strictly prohibited.",
             "li-4": "Content depicting activities prohibited by local (and/or Polish) law, including federal law, is strictly forbidden.",
