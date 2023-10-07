@@ -27,7 +27,7 @@ section.hero
         list-style: none
         display: flex
         gap: 2rem
-        align-items: center
+        align-items: normal
         @media screen and (max-width: 1170px)
             flex-direction: column
             gap: 1rem
@@ -41,7 +41,7 @@ section.hero
                 background: var(--secondary)
                 max-width: 200px
                 width: 100%
-                height: fit-content
+                flex: max-content
                 transition-duration: .2s
                 &:hover
                     background: var(--border-st)
