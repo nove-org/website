@@ -15,8 +15,7 @@ export default async function Overview() {
             .catch((e) => e.response)
     )?.data;
     const languages: Response<Languages> = (await axiosClient.get('/v1/languages').catch((e) => e.response))?.data;
-    const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
-    const lang = await new LanguageHandler('dashboard/language', user?.body?.data).init(browserLanguage);
+    const lang = await new LanguageHandler('dashboard/language', user?.body?.data).init(headers());
 
     return user?.body?.data?.username && languages?.body?.data ? (
         <div className={a.content}>

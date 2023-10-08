@@ -17,8 +17,7 @@ export default async function Footer() {
             .catch((e) => e.response)
     )?.data;
 
-    const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
-    const lang = await new LanguageHandler('modules/footer', user?.body?.data).init(browserLanguage);
+    const lang = await new LanguageHandler('modules/footer', user?.body?.data).init(headers());
 
     return (
         <footer className={o.box}>

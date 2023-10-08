@@ -34,8 +34,7 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
 
     if (user?.body?.data?.username) return redirect(redirectBack ? redirectBack : '/account');
 
-    const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
-    const lang = await new LanguageHandler('main/login', user?.body?.data).init(browserLanguage);
+    const lang = await new LanguageHandler('main/login', user?.body?.data).init(headers());
 
     return (
         <section className={o.box}>

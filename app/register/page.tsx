@@ -33,8 +33,7 @@ export default async function Register({ searchParams }: { searchParams: { [key:
 
     if (user?.body?.data?.username) return redirect(redirectBack ? redirectBack : '/account');
 
-    const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
-    const lang = await new LanguageHandler('main/register', user?.body?.data).init(browserLanguage);
+    const lang = await new LanguageHandler('main/register', user?.body?.data).init(headers());
 
     return (
         <section className={o.box}>

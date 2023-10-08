@@ -2,6 +2,7 @@ import { readFileSync } from 'fs';
 import { jsonc } from 'jsonc';
 import { User } from '@util/schema';
 import ObjectHelper from '@util/helpers/Object';
+import { ReadonlyHeaders } from 'next/dist/server/web/spec-extension/adapters/headers';
 
 export default class LanguageHandler {
     private name: string;
@@ -16,8 +17,8 @@ export default class LanguageHandler {
         this.language = user?.language;
     }
 
-    public async init(browserLanguage?: string | undefined) {
-        if (!browserLanguage) browserLanguage = 'en-US';
+    public async init(headers?: ReadonlyHeaders) {
+        const browserLanguage: string = headers?.get('Accept-Language')?.split(',')[0] || 'en-US';
         if (!browserLanguage.split('-')[1] && !this.language) this.language = `${browserLanguage}-${browserLanguage.toUpperCase()}`;
         else if (!this.language) this.language = browserLanguage;
 

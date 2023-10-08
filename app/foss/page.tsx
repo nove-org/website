@@ -29,8 +29,7 @@ export default async function FOSS() {
             .catch((e) => e.response)
     )?.data;
 
-    const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
-    const lang = await new LanguageHandler('main/foss', user?.body?.data).init(browserLanguage);
+    const lang = await new LanguageHandler('main/foss', user?.body?.data).init(headers());
 
     return (
         <section className={o.hero}>

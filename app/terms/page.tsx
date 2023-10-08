@@ -29,8 +29,7 @@ export default async function Terms() {
             .catch((e) => e.response)
     )?.data;
 
-    const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
-    const lang = await new LanguageHandler('documents/terms-of-service', user?.body?.data).init(browserLanguage);
+    const lang = await new LanguageHandler('documents/terms-of-service', user?.body?.data).init(headers());
 
     return (
         <article className={o.content}>

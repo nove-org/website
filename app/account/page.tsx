@@ -23,8 +23,7 @@ export default async function Overview() {
     )?.data;
 
     const languageTranslate = new Intl.DisplayNames([user?.body?.data?.language], { type: 'language' });
-    const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
-    const lang = await new LanguageHandler('dashboard/main', user?.body?.data).init(browserLanguage);
+    const lang = await new LanguageHandler('dashboard/main', user?.body?.data).init(headers());
 
     return user?.body?.data?.username ? (
         <div className={o.content}>

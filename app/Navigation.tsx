@@ -17,8 +17,7 @@ export default async function Navigation() {
             .catch((e) => e.response)
     )?.data;
 
-    const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
-    const lang = await new LanguageHandler('modules/navigation', user?.body?.data).init(browserLanguage);
+    const lang = await new LanguageHandler('modules/navigation', user?.body?.data).init(headers());
 
     return (
         <nav className={o.box}>

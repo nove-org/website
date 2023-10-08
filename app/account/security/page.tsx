@@ -26,8 +26,7 @@ export default async function Overview() {
             .catch((e) => e.response)
     )?.data;
 
-    const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
-    const lang = await new LanguageHandler('dashboard/security', user?.body?.data).init(browserLanguage);
+    const lang = await new LanguageHandler('dashboard/security', user?.body?.data).init(headers());
 
     return user?.body?.data?.username && device?.body ? (
         <div className={o.content}>
