@@ -36,6 +36,7 @@ export interface User {
     profilePublic: boolean;
     trackActivity: boolean;
     mfaEnabled: boolean;
+    permissionLevel?: number;
     createdAt: string;
 }
 
