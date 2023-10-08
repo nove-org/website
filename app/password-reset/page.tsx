@@ -28,7 +28,7 @@ export default async function PasswordReset() {
                 headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
             })
             .catch((e) => e.response)
-    ).data;
+    )?.data;
 
     if (user?.body?.data?.username) return redirect('/account');
 

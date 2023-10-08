@@ -138,7 +138,9 @@
             "input-password": "Hasło",
             "input-btn": "Dalej",
             //- password reset button
-            "password-reset": "Resetuj swoje hasło"
+            "password-reset": "Resetuj swoje hasło",
+            //- misc
+            "servers-down": "Przepraszamy ale nasze serwery są chwilowo niedostępne"
         },
         "register": {
             "title": "Zarejestruj się",
@@ -149,7 +151,9 @@
             "input-email": "E-mail",
             "input-username": "Nazwa użytkownika",
             "input-password": "Hasło",
-            "input-btn": "Dalej"
+            "input-btn": "Dalej",
+            //- misc
+            "servers-down": "Przepraszamy ale nasze serwery są chwilowo niedostępne"
         },
         "password-reset": {
             "title": "Resetuj hasło",

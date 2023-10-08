@@ -27,10 +27,10 @@ export default async function Privacy() {
                 headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
             })
             .catch((e) => e.response)
-    ).data;
+    )?.data;
 
     const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
-    const lang = await new LanguageHandler('documents/privacy-policy', user.body.data).init(browserLanguage);
+    const lang = await new LanguageHandler('documents/privacy-policy', user?.body?.data).init(browserLanguage);
 
     return (
         <article className={o.content}>

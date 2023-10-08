@@ -2,6 +2,7 @@ import o from '@sass/foss.module.sass';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import { axiosClient } from '@util/axios';
 import { cookies, headers } from 'next/headers';
+import { Response, User } from '@util/schema';
 
 export const metadata = {
     title: 'Nove | FOSS projects',
@@ -20,14 +21,16 @@ export const metadata = {
 };
 
 export default async function FOSS() {
-    const user = await axiosClient
-        .get('/v1/users/me', {
-            headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-        })
-        .catch((e) => e.response);
+    const user: Response<User> = (
+        await axiosClient
+            .get('/v1/users/me', {
+                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
+            })
+            .catch((e) => e.response)
+    )?.data;
 
     const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
-    const lang = await new LanguageHandler('main/foss', user.data.body.data).init(browserLanguage);
+    const lang = await new LanguageHandler('main/foss', user?.body?.data).init(browserLanguage);
 
     return (
         <section className={o.hero}>

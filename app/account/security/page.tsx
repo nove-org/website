@@ -16,7 +16,7 @@ export default async function Overview() {
                 headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
             })
             .catch((e) => e.response)
-    ).data;
+    )?.data;
 
     const device: Response<Device[]> = (
         await axiosClient
@@ -24,10 +24,10 @@ export default async function Overview() {
                 headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
             })
             .catch((e) => e.response)
-    ).data;
+    )?.data;
 
     const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
-    const lang = await new LanguageHandler('dashboard/security', user.body.data).init(browserLanguage);
+    const lang = await new LanguageHandler('dashboard/security', user?.body?.data).init(browserLanguage);
 
     return user?.body?.data?.username && device?.body ? (
         <div className={o.content}>

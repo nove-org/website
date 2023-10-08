@@ -13,18 +13,18 @@ export default async function Overview() {
                 headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
             })
             .catch((e) => e.response)
-    ).data;
+    )?.data;
     const device: Response<Device[]> = (
         await axiosClient
             .get('/v1/users/me/activity', {
                 headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
             })
             .catch((e) => e.response)
-    ).data;
+    )?.data;
 
-    const languageTranslate = new Intl.DisplayNames([user.body.data.language], { type: 'language' });
+    const languageTranslate = new Intl.DisplayNames([user?.body?.data?.language], { type: 'language' });
     const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
-    const lang = await new LanguageHandler('dashboard/main', user.body.data).init(browserLanguage);
+    const lang = await new LanguageHandler('dashboard/main', user?.body?.data).init(browserLanguage);
 
     return user?.body?.data?.username ? (
         <div className={o.content}>

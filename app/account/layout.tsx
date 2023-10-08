@@ -30,9 +30,9 @@ export default async function DashboardLayout({ children }: { children: React.Re
                 headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
             })
             .catch((e) => e.response)
-    ).data;
+    )?.data;
     const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
-    const lang = await new LanguageHandler('dashboard/layout', user.body.data).init(browserLanguage);
+    const lang = await new LanguageHandler('dashboard/layout', user?.body?.data).init(browserLanguage);
     const sidebar = [
         { label: lang.getProp('ul-overview'), path: '/account/', target: null },
         { label: lang.getProp('ul-security'), path: '/account/security', target: 'security' },

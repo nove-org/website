@@ -3,6 +3,7 @@ import Image from 'next/image';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import { axiosClient } from '@util/axios';
 import { cookies, headers } from 'next/headers';
+import { Response, User } from '@util/schema';
 
 export const metadata = {
     title: 'Nove | About',
@@ -21,14 +22,16 @@ export const metadata = {
 };
 
 export default async function About() {
-    const user = await axiosClient
-        .get('/v1/users/me', {
-            headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-        })
-        .catch((e) => e.response);
+    const user: Response<User> = (
+        await axiosClient
+            .get('/v1/users/me', {
+                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
+            })
+            .catch((e) => e.response)
+    )?.data;
 
     const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
-    const lang = await new LanguageHandler('main/about', user.data.body.data).init(browserLanguage);
+    const lang = await new LanguageHandler('main/about', user?.body?.data).init(browserLanguage);
 
     return (
         <section className={o.hero}>
