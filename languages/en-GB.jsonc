@@ -128,6 +128,13 @@
             "ul-manager": "Official website that is used by us on our main domain to serve graphical access to the NAPI.",
             "ul-files": "General purpose cloud hosting with password encrypted uploads available to everyone with just one click."
         },
+        //- app connections
+        "connections-title": "App connections",
+        "connections-btn-privacy": "Privacy Policy",
+        "connections-btn-tos": "Terms of Service",
+        "connections-permissions": "Permissions",
+        "connections-last-access": "Last accessed on",
+        "connections-expire": "Expires on",
         "login": {
             "title": "Login",
             //* Hero
@@ -199,6 +206,13 @@
             "card-3-action": "Go",
             "card-4-h1": "Recovery",
             "card-4-p": "Set up two factor authentication and download backup codes",
+            //- app connections
+            "connections-title": "App connections",
+            "connections-btn-privacy": "Privacy Policy",
+            "connections-btn-tos": "Terms of Service",
+            "connections-permissions": "Permissions",
+            "connections-last-access": "Last accessed on",
+            "connections-expire": "Expires on",
             //* Error displayed when we cannot communicate with the API properly
             "error-h1": "Something is wrong with the API",
             "error-p": "We cannot sign your session which leads to data retrieval failure"

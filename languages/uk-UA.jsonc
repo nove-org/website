@@ -195,6 +195,13 @@
             "card-3-action": "Уперед",
             "card-4-h1": "Відновлення",
             "card-4-p": "Налаштуйте двофакторну автентифікацію та завантажте резервні коди",
+            //- app connections
+            "connections-title": "App connections",
+            "connections-btn-privacy": "Privacy Policy",
+            "connections-btn-tos": "Terms of Service",
+            "connections-permissions": "Permissions",
+            "connections-last-access": "Last accessed on",
+            "connections-expire": "Expires on",
             //* Error displayed when we cannot communicate with the API properly
             "error-h1": "Щось не так з API",
             "error-p": "Ми не можемо підписати вашу сесію, що призводить до збою при отриманні даних"

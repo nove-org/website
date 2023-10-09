@@ -186,7 +186,7 @@
             "tips-header": "Jak poprawić bezpieczeństwo i prywatność",
             "tips-1": "Używaj oprogramowania FOSS",
             "tips-2": "Włącz weryfikacje dwuskładnikową",
-            "tips-3": "Nie twórz za dużo kont w sieci",
+            "tips-3": "Nie twórz zbyt dużej ilości kont",
             //* Cards that are listed next to your profile on /account
             "card-1-h1": "Język",
             "card-1-p": "Zmień język wyświetlania na wszystkich usługach Nove",
@@ -199,6 +199,13 @@
             "card-3-action": "Idź",
             "card-4-h1": "Przywr.",
             "card-4-p": "Pobierz kody zapasowe po włączeniu weryfikacji dwuetapowej",
+            //- app connections
+            "connections-title": "Połączone aplikacje",
+            "connections-btn-privacy": "Polityka Prywatności",
+            "connections-btn-tos": "Regulamin",
+            "connections-permissions": "Uprawnienia",
+            "connections-last-access": "Ostatni dostęp",
+            "connections-expire": "Wygasa",
             //* Error displayed when we cannot communicate with the API properly
             "error-h1": "Coś jest nie tak i nie możemy porozumieć się z API",
             "error-p": "Nie możemy podpisać twojej sesji co prowadzi do błędu wczytywania danych"
