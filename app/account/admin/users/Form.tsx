@@ -59,7 +59,7 @@ export default function Form({
         </div>
     ) : (
         <div className={o.content}>
-            <h1 className={o.title}>User list ({users.length} users)</h1>
+            <h1 className={o.title}>{users.length} users</h1>
             <ul className={o.users}>
                 {users.map((user) => (
                     <li key={user.id}>

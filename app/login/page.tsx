@@ -48,6 +48,11 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
                     inputLogin: lang.getProp('input-login'),
                     inputPassword: lang.getProp('input-password'),
                     inputBtn: lang.getProp('input-btn'),
+                    mfaTitle: lang.getProp('mfa-h1'),
+                    mfaDescription: lang.getProp('mfa-p'),
+                    mfaLabel: lang.getProp('mfa-label'),
+                    mfaCancel: lang.getProp('mfa-cancel'),
+                    mfaSubmit: lang.getProp('mfa-submit'),
                 }}
                 searchParam={redirectBack}
             />
