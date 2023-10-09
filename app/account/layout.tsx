@@ -41,9 +41,9 @@ export default async function DashboardLayout({ children }: { children: React.Re
 
     if (!cookies().get('napiAuthorizationToken')?.value) return redirect(`/login?redirectBack=/account`);
 
-    if (!user || user.body.error?.code === 'invalid_authorization_token') return redirect('/login?redirectBack=/account');
+    if (!user || user?.body?.error?.code === 'invalid_authorization_token') return redirect('/login?redirectBack=/account');
 
-    return user.body.data ? (
+    return user?.body?.data ? (
         <section className={o.box}>
             <aside>
                 <h1>{lang.getProp('header')}</h1>
@@ -124,7 +124,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
     ) : (
         <section className={o.box}>
             <title>{`Nove | ${lang.getProp('title')}`}</title>
-            <Loader type="hidden" text={user.body.error?.code === 'verify_email' ? lang.getProp('verify-email') : user.body.error?.message || lang.getProp('api-down')} />
+            <Loader type="hidden" text={user?.body?.error?.code === 'verify_email' ? lang.getProp('verify-email') : user?.body?.error?.message || lang.getProp('api-down')} />
         </section>
     );
 }

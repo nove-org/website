@@ -186,8 +186,8 @@ export default async function Overview() {
             </ul>
         </div>
     ) : (
-        <div className={o.content}>
-            <h1 className={o.title}>{lang.getProp('error-h1')}</h1>
+        <div className={a.content}>
+            <h1 className={a.title}>{lang.getProp('error-h1')}</h1>
             <p>{lang.getProp('error-p')}</p>
         </div>
     );
