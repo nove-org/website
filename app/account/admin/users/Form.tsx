@@ -6,6 +6,8 @@ import { axiosClient } from '@util/axios';
 import { getCookie } from 'cookies-next';
 import { Response, User } from '@util/schema';
 import Image from 'next/image';
+import Disable from './Disable';
+import Delete from './Delete';
 
 export default function Form({
     lang,
@@ -13,10 +15,14 @@ export default function Form({
 }: {
     lang: {
         btn: string;
+        btnEnable: string;
+        btnDisable: string;
+        btnDelete: string;
         btnCancel: string;
         h1: string;
         p: string;
         label: string;
+        labelReason: string;
     };
     u: User;
 }) {
@@ -65,14 +71,38 @@ export default function Form({
                             <p>Created at {new Date(user.createdAt).toLocaleString(u.language, { day: 'numeric', month: 'short', year: 'numeric' })}</p>
                         </div>
                         <div className={o.buttons}>
-                            {user.permissionLevel < 1 ? (
-                                <>
-                                    <button>Disable</button>
-                                    <button>Delete</button>
-                                </>
-                            ) : (
-                                <p>{user.permissionLevel === 1 ? 'Moderator' : 'Administrator'}</p>
-                            )}
+                            {u.permissionLevel === 2 ? (
+                                user.permissionLevel < 2 ? (
+                                    <>
+                                        {user.permissionLevel === 1 ? <p> Moderator</p> : null}
+                                        <Disable
+                                            u={u}
+                                            lang={{
+                                                btnConfirm: user.disabled ? lang.btnEnable : lang.btnDisable,
+                                                btnCancel: lang.btnCancel,
+                                                h1: lang.h1,
+                                                p: lang.p,
+                                                label: lang.label,
+                                                labelReason: lang.labelReason,
+                                            }}
+                                            target={user}
+                                        />
+                                        <Delete
+                                            lang={{
+                                                btnConfirm: lang.btnDelete,
+                                                btnCancel: lang.btnCancel,
+                                                h1: lang.h1,
+                                                p: lang.p,
+                                                label: lang.label,
+                                                labelReason: lang.labelReason,
+                                            }}
+                                            target={user}
+                                        />
+                                    </>
+                                ) : (
+                                    <p>Administrator</p>
+                                )
+                            ) : null}
                         </div>
                     </li>
                 ))}

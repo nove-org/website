@@ -185,7 +185,11 @@
             "ul-overview": "Overview",
             "ul-security": "Security",
             "ul-profile": "My profile",
-            "ul-language": "Language"
+            "ul-language": "Language",
+            "header-admin": "Moderation",
+            "ul-users": "Users",
+            "ul-posts": "Posts",
+            "ul-logs": "Audit log"
         },
         "main": {
             "title": "Overview",
@@ -310,9 +314,13 @@
             "hero-h1": "User list",
             "popup-btn": "Authorize your action",
             "popup-btn-cancel": "Cancel",
+            "popup-btn-disable": "Disable",
+            "popup-btn-enable": "Enable",
+            "popup-btn-delete": "Delete",
             "popup-h1": "We need to verify it's you",
             "popup-p": "Please provide your MFA code from TOTP app on your phone. You can use your backup code.",
             "popup-label": "MFA code",
+            "popup-reason": "Reason",
             //* Error displayed when we cannot communicate with the API properly
             "error-h1": "Something is wrong with the API",
             "error-p": "We cannot sign your session which leads to data retrieval failure"

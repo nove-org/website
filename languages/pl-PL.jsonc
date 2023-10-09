@@ -178,7 +178,11 @@
             "ul-overview": "Przegląd",
             "ul-security": "Bezpieczeństwo",
             "ul-profile": "Mój profil",
-            "ul-language": "Język"
+            "ul-language": "Język",
+            "header-admin": "Moderacja",
+            "ul-users": "Użytkownicy",
+            "ul-posts": "Posty",
+            "ul-logs": "Logi aktywności"
         },
         "main": {
             "title": "Przegląd",
@@ -300,15 +304,19 @@
     },
     "admin": {
         "users": {
-            "hero-h1": "User list",
-            "popup-btn": "Authorize your action",
-            "popup-btn-cancel": "Cancel",
-            "popup-h1": "We need to verify it's you",
-            "popup-p": "Please provide your MFA code from TOTP app on your phone. You can use your backup code.",
-            "popup-label": "MFA code",
+            "hero-h1": "Lista użytkowników",
+            "popup-btn": "Autoryzuj akcje",
+            "popup-btn-cancel": "Anuluj",
+            "popup-btn-disable": "Wyłącz",
+            "popup-btn-enable": "Włącz",
+            "popup-btn-delete": "Usuń",
+            "popup-h1": "Musimy zweryfikować, że to na prawdę ty",
+            "popup-p": "Podaj kod MFA z aplikacji TOTP na Twoim telefonie. Możesz użyć kodu zapasowego.",
+            "popup-label": "Kod MFA",
+            "popup-reason": "Powód",
             //* Error displayed when we cannot communicate with the API properly
-            "error-h1": "Something is wrong with the API",
-            "error-p": "We cannot sign your session which leads to data retrieval failure"
+            "error-h1": "Coś jest nie tak i nie możemy porozumieć się z API",
+            "error-p": "Nie możemy podpisać twojej sesji co prowadzi do błędu wczytywania danych"
         }
     },
     "documents": {

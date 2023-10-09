@@ -26,11 +26,15 @@ export default async function Users() {
             <Form
                 u={user.body.data}
                 lang={{
-                    btn: lang.getProp('popup-btn'),
+                    btnDelete: lang.getProp('popup-btn-delete'),
+                    btnDisable: lang.getProp('popup-btn-disable'),
+                    btnEnable: lang.getProp('popup-btn-enable'),
                     btnCancel: lang.getProp('popup-btn-cancel'),
+                    btn: lang.getProp('popup-btn'),
                     h1: lang.getProp('popup-h1'),
-                    label: lang.getProp('popup-label'),
                     p: lang.getProp('popup-p'),
+                    label: lang.getProp('popup-label'),
+                    labelReason: lang.getProp('popup-reason'),
                 }}
             />
         </div>

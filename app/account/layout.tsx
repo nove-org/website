@@ -83,7 +83,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
                 </ul>
                 {user.body.data?.permissionLevel ? (
                     <>
-                        <h1>Moderation</h1>
+                        <h1>{lang.getProp('header-admin')}</h1>
                         <ul>
                             <li>
                                 <Link href="/account/admin/users">
@@ -92,7 +92,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
                                             fill="currentColor"
                                             d="M 4 4 C 2.9 4 2 4.9 2 6 L 2 18 C 2 19.1 2.9 20 4 20 L 11.294922 20 C 11.105922 19.366 11 18.695 11 18 C 11 14.134 14.134 11 18 11 C 19.488 11 20.866 11.467766 22 12.259766 L 22 8 C 22 6.9 21.1 6 20 6 L 12 6 L 10 4 L 4 4 z M 18 13 C 15.2 13 13 15.2 13 18 C 13 20.8 15.2 23 18 23 C 19 23 20.000781 22.699219 20.800781 22.199219 L 22.599609 24 L 24 22.599609 L 22.199219 20.800781 C 22.699219 20.000781 23 19 23 18 C 23 15.2 20.8 13 18 13 z M 18 15 C 19.7 15 21 16.3 21 18 C 21 19.7 19.7 21 18 21 C 16.3 21 15 19.7 15 18 C 15 16.3 16.3 15 18 15 z"></path>
                                     </svg>
-                                    Users
+                                    {lang.getProp('ul-users')}
                                 </Link>
                             </li>
                             <li>
@@ -102,7 +102,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
                                             fill="currentColor"
                                             d="M 4 4 C 3.07 4 2.2923125 4.6429063 2.0703125 5.5039062 L 12 11.726562 L 21.935547 5.5214844 C 21.719547 4.6504844 20.937 4 20 4 L 4 4 z M 2 7.734375 L 2 18 C 2 19.103 2.897 20 4 20 L 20 20 C 21.103 20 22 19.103 22 18 L 22 7.7558594 L 12 14 L 2 7.734375 z"></path>
                                     </svg>
-                                    Posts
+                                    {lang.getProp('ul-posts')}
                                 </Link>
                             </li>
                             <li>
@@ -112,7 +112,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
                                             fill="currentColor"
                                             d="M 6 3 C 3.8027056 3 2 4.8027056 2 7 C 2 8.8503017 3.2842135 10.405592 5 10.855469 L 5 21 L 10 21 L 10 19 L 7 19 L 7 17 L 9 17 L 9 15 L 7 15 L 7 10.855469 C 8.7157865 10.405592 10 8.8503017 10 7 C 10 4.8027056 8.1972944 3 6 3 z M 6 5 C 7.1164141 5 8 5.8835859 8 7 C 8 8.1164141 7.1164141 9 6 9 C 4.8835859 9 4 8.1164141 4 7 C 4 5.8835859 4.8835859 5 6 5 z M 12 6 L 12 11 L 22 11 L 22 6 L 12 6 z M 12 13 L 12 18 L 22 18 L 22 13 L 12 13 z"></path>
                                     </svg>
-                                    Audit log
+                                    {lang.getProp('ul-logs')}
                                 </Link>
                             </li>
                         </ul>
