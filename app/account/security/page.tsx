@@ -105,6 +105,7 @@ export default async function Overview() {
                             cancel: lang.getProp('hds-btn-cancel'),
                             change: user.body.data.mfaEnabled ? lang.getProp('hds-mfa-disable') : lang.getProp('hds-mfa-enable'),
                             gotIt: lang.getProp('hds-mfa-btn-ok'),
+                            recoveryCodes: lang.getProp('hds-mfa-recovery-codes'),
                         }}
                     />
                     <li className="disabled">

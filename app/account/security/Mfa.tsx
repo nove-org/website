@@ -19,6 +19,7 @@ export default function Mfa({
         change: string;
         labelCode: string;
         gotIt: string;
+        recoveryCodes: string;
     };
     u: User;
 }) {
@@ -116,7 +117,7 @@ export default function Mfa({
                             <Image src={mfaData.secret.qr} alt="MFA QR code" width="166" height="166" />
                             <p>{mfaData.secret.secret}</p>
                         </div>
-                        <h1>Recovery codes</h1>
+                        <h1>{lang.recoveryCodes}</h1>
                         <div className={o.codes}>
                             {mfaData.codes.map((code) => (
                                 <p key={code}>{code}</p>

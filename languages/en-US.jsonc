@@ -262,6 +262,7 @@
             "hds-mfa-enable": "Enable",
             "hds-mfa-label-code": "Code",
             "hds-mfa-btn-ok": "Got it",
+            "hds-mfa-recovery-codes": "Recovery codes",
             //- recovery button
             "hds-recovery": "Recovery",
             //- popup actions

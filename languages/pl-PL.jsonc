@@ -256,12 +256,13 @@
             //- 2fa button
             "hds-mfa-btn": "MFA",
             //? 2fa popup
-            "hds-mfa-h1": "Multi-factor authentication",
-            "hds-mfa-p": "A better way to secure your account from hackers. You can toggle MFA on or off here.",
-            "hds-mfa-disable": "Disable",
-            "hds-mfa-enable": "Enable",
-            "hds-mfa-label-code": "Code",
-            "hds-mfa-btn-ok": "Got it",
+            "hds-mfa-h1": "Weryfikacja dwuetapowa",
+            "hds-mfa-p": "Zabezpiecz swoje konto przed osobami które chcą je ukraść. Możesz tu włączyć lub wyłączyć MFA.",
+            "hds-mfa-disable": "Wyłącz",
+            "hds-mfa-enable": "Włącz",
+            "hds-mfa-label-code": "Kod",
+            "hds-mfa-btn-ok": "Okej",
+            "hds-mfa-recovery-codes": "Kody zapasowe",
             //- recovery button
             "hds-recovery": "Przywr.",
             //- popup actions
