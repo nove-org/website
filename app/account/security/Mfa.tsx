@@ -5,6 +5,7 @@ import o from '@sass/account/security/page.module.sass';
 import { axiosClient } from '@util/axios';
 import { getCookie } from 'cookies-next';
 import { Mfa, User } from '@util/schema';
+import { QRCodeSVG } from 'qrcode.react';
 import Image from 'next/image';
 
 export default function Mfa({
@@ -114,7 +115,7 @@ export default function Mfa({
                         <h1>{lang.h1}</h1>
                         <p>{lang.p}</p>
                         <div className={o.image}>
-                            <Image src={mfaData.secret.qr} alt="MFA QR code" width="166" height="166" />
+                            <QRCodeSVG value={mfaData.secret.uri} size={166} bgColor={'#ffffff'} fgColor={'#000000'} includeMargin={true} />
                             <p>{mfaData.secret.secret}</p>
                         </div>
                         <h1>{lang.recoveryCodes}</h1>

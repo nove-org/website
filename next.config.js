@@ -7,7 +7,7 @@ const nextConfig = {
         includePaths: ['./app', './sass'],
     },
     images: {
-        domains: ['api.nove.team', 'chart.googleapis.com'],
+        domains: ['api.nove.team'],
     },
 };
 
