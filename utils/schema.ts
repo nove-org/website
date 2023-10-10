@@ -76,6 +76,15 @@ export interface Connection {
     };
 }
 
+export interface Mfa {
+    secret: {
+        secret: string;
+        uri: string;
+        qr: string;
+    };
+    codes: string[];
+}
+
 export interface Languages {
     AVAILABLE_LANGUAGES: string[];
 }

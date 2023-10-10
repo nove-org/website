@@ -7,8 +7,8 @@ const nextConfig = {
         includePaths: ['./app', './sass'],
     },
     images: {
-        domains: ['api.nove.team'],
-    }
+        domains: ['api.nove.team', 'chart.googleapis.com'],
+    },
 };
 
 module.exports = nextConfig;

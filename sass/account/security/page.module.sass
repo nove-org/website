@@ -190,6 +190,25 @@ div.popup
             font-size: 16px
             font-weight: 400
             margin: 10px 0
+        & div.image
+            & img
+                border-radius: 20px
+                background: #ffffff
+                padding: 10px
+                margin: 5px 0
+            & p
+                font-size: 14px
+                opacity: .8
+                margin: 0
+                margin-bottom: 20px
+        & div.codes
+            display: grid
+            grid-template-columns: repeat(2, 1fr)
+            margin: 10px 0
+            & p
+                margin: 5px 0
+                user-select: text
+                font-family: monospace
         & form
             display: flex
             flex-direction: column

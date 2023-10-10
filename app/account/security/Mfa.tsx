@@ -4,7 +4,8 @@ import { useState } from 'react';
 import o from '@sass/account/security/page.module.sass';
 import { axiosClient } from '@util/axios';
 import { getCookie } from 'cookies-next';
-import { User } from '@util/schema';
+import { Mfa, User } from '@util/schema';
+import Image from 'next/image';
 
 export default function Mfa({
     lang,
@@ -17,10 +18,13 @@ export default function Mfa({
         cancel: string;
         change: string;
         labelCode: string;
+        gotIt: string;
     };
     u: User;
 }) {
     const [popup, setPopup] = useState<boolean>(false);
+    const [dataPopup, setDataPopup] = useState<boolean>(true);
+    const [mfaData, setMfaData] = useState<Mfa>();
     const [postError, setPostError] = useState<string>();
 
     const throwError = (message?: string, bool?: boolean) => {
@@ -33,10 +37,38 @@ export default function Mfa({
         }
     };
 
-    const handleSubmit = async (form: FormData) => {};
+    const handleSubmit = async (form: FormData) => {
+        await axiosClient
+            .patch('/v1/users/me/mfa', { enabled: true }, { headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } })
+            .then((r) => {
+                setPopup(false);
+                setDataPopup(true);
+                setMfaData(r?.data?.body?.data);
+            })
+            .catch((e) => (e?.response?.data?.body?.error ? throwError(e.response.data.body.error.message) : console.error(e)));
+    };
+
+    const handleDelete = async (form: FormData) => {
+        await axiosClient
+            .patch(
+                '/v1/users/me/mfa',
+                {
+                    enabled: false,
+                },
+                {
+                    headers: {
+                        Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
+                        'x-mfa': (form.get('mfa') as string) || '',
+                    },
+                }
+            )
+            .then((r) => window.location.reload())
+            .catch((e) => (e?.response?.data?.body?.error ? throwError(e.response.data.body.error.message) : console.error(e)));
+    };
 
     return (
         <>
+            {postError ? <p className="error">{postError}</p> : null}
             <li onClick={() => setPopup((p) => !p)}>
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 24 24">
                     <path
@@ -54,43 +86,51 @@ export default function Mfa({
                 </h1>
             </li>
             {popup ? (
-                !u.mfaEnabled ? (
-                    <div className={o.popup}>
-                        <div className={o.container}>
-                            <h1>{lang.h1}</h1>
-                            <p>{lang.p}</p>
-                            <form action={handleSubmit}>
-                                <div className={o.footer}>
-                                    <button onClick={() => setPopup(false)} type="reset">
-                                        {lang.cancel}
-                                    </button>
-                                    <button type="submit">{lang.change}</button>
-                                </div>
-                            </form>
-                        </div>
+                <div className={o.popup}>
+                    <div className={o.container}>
+                        <h1>{lang.h1}</h1>
+                        <p>{lang.p}</p>
+                        <form action={u.mfaEnabled ? handleDelete : handleSubmit}>
+                            {u.mfaEnabled ? (
+                                <label>
+                                    {lang.labelCode}
+                                    <input type="text" required autoComplete="off" autoFocus={true} autoCorrect="off" id="mfa" name="mfa" placeholder="000000" />
+                                </label>
+                            ) : null}
+                            <div className={o.footer}>
+                                <button onClick={() => setPopup(false)} type="reset">
+                                    {lang.cancel}
+                                </button>
+                                <button type="submit">{lang.change}</button>
+                            </div>
+                        </form>
                     </div>
-                ) : (
-                    <div className={o.popup}>
-                        <div className={o.container}>
-                            <h1>{lang.h1}</h1>
-                            <p>{lang.p}</p>
-                            <form action={handleSubmit}>
-                                {u.mfaEnabled ? (
-                                    <label>
-                                        {lang.labelCode}
-                                        <input type="text" required autoComplete="off" autoFocus={true} autoCorrect="off" id="reason" name="reason" placeholder="000000" />
-                                    </label>
-                                ) : null}
-                                <div className={o.footer}>
-                                    <button onClick={() => setPopup(false)} type="reset">
-                                        {lang.cancel}
-                                    </button>
-                                    <button type="submit">{lang.change}</button>
-                                </div>
-                            </form>
+                </div>
+            ) : null}
+            {dataPopup && mfaData ? (
+                <div className={o.popup}>
+                    <div className={o.container}>
+                        <h1>{lang.h1}</h1>
+                        <p>{lang.p}</p>
+                        <div className={o.image}>
+                            <Image src={mfaData.secret.qr} alt="MFA QR code" width="166" height="166" />
+                            <p>{mfaData.secret.secret}</p>
                         </div>
+                        <h1>Recovery codes</h1>
+                        <div className={o.codes}>
+                            {mfaData.codes.map((code) => (
+                                <p key={code}>{code}</p>
+                            ))}
+                        </div>
+                        <form>
+                            <div className={o.footer}>
+                                <button onClick={() => setDataPopup(false)} type="reset">
+                                    {lang.gotIt}
+                                </button>
+                            </div>
+                        </form>
                     </div>
-                )
+                </div>
             ) : null}
         </>
     );

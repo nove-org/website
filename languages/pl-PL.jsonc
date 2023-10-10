@@ -261,6 +261,7 @@
             "hds-mfa-disable": "Disable",
             "hds-mfa-enable": "Enable",
             "hds-mfa-label-code": "Code",
+            "hds-mfa-btn-ok": "Got it",
             //- recovery button
             "hds-recovery": "Przywr.",
             //- popup actions
