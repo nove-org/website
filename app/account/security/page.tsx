@@ -9,6 +9,7 @@ import Email from './Email';
 import Delete from './Delete';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import Mfa from './Mfa';
+import Recovery from './Recovery';
 
 export default async function Overview() {
     const user: Response<User> = (
@@ -108,22 +109,18 @@ export default async function Overview() {
                             recoveryCodes: lang.getProp('hds-mfa-recovery-codes'),
                         }}
                     />
-                    <li className="disabled">
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 24 24">
-                            <path
-                                fill="currentColor"
-                                d="M 22 2 L 19.058594 4.9414062 C 16.865786 2.7436807 13.666769 1.5536385 10.212891 2.15625 C 6.1828906 2.86025 2.9227344 6.0746563 2.1777344 10.097656 C 1.0007344 16.443656 5.864 22 12 22 C 17.134 22 21.3785 18.109094 21.9375 13.121094 C 22.0045 12.525094 21.5375 12 20.9375 12 C 20.4375 12 20.007125 12.368234 19.953125 12.865234 C 19.520125 16.870234 16.119 20 12 20 C 7.059 20 3.1501562 15.498859 4.1601562 10.380859 C 4.7681562 7.3008594 7.2335937 4.8107812 10.308594 4.1757812 C 13.170804 3.5850239 15.832013 4.545023 17.642578 6.3574219 L 15 9 L 22 9 L 22 2 z"></path>
-                        </svg>
-
-                        <h1>
-                            {lang.getProp('hds-recovery')}
-                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="14" height="14" viewBox="0 0 30 30">
-                                <path
-                                    fill="currentColor"
-                                    d="M 9.9902344 3.9902344 A 1.0001 1.0001 0 0 0 9.2929688 5.7070312 L 18.585938 15 L 9.2929688 24.292969 A 1.0001 1.0001 0 1 0 10.707031 25.707031 L 20.707031 15.707031 A 1.0001 1.0001 0 0 0 20.707031 14.292969 L 10.707031 4.2929688 A 1.0001 1.0001 0 0 0 9.9902344 3.9902344 z"></path>
-                            </svg>
-                        </h1>
-                    </li>
+                    <Recovery
+                        u={user.body.data}
+                        lang={{
+                            btn: lang.getProp('hds-recovery'),
+                            h1: lang.getProp('hds-recovery-h1'),
+                            p: lang.getProp('hds-recovery-p'),
+                            cancel: lang.getProp('hds-btn-cancel'),
+                            gotIt: lang.getProp('hds-recovery-got-it'),
+                            labelCode: lang.getProp('hds-recovery-label'),
+                            submit: lang.getProp('hds-recovery-submit'),
+                        }}
+                    />
                 </ul>
             </div>
             <div className={o.deactivate}>

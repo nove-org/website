@@ -272,6 +272,12 @@
             "hds-mfa-recovery-codes": "Recovery codes",
             //- recovery button
             "hds-recovery": "Recovery",
+            //? recovery popup
+            "hds-recovery-h1": "Recovery codes",
+            "hds-recovery-p": "Copy your account backup codes in case you will lose your phone with TOTP application on it.",
+            "hds-recovery-got-it": "Got it",
+            "hds-recovery-label": "MFA code",
+            "hds-recovery-submit": "Next",
             //- popup actions
             "hds-btn-cancel": "Cancel",
             "hds-btn-save": "Save changes",
@@ -335,6 +341,23 @@
             "popup-p": "Please provide your MFA code from TOTP app on your phone. You can use your backup code.",
             "popup-label": "MFA code",
             "popup-reason": "Reason",
+            //* Error displayed when we cannot communicate with the API properly
+            "error-h1": "Something is wrong with the API",
+            "error-p": "We cannot sign your session which leads to data retrieval failure"
+        },
+        "posts": {
+            "header": "{number} posts",
+            //- popup
+            "new-btn": "Create new post",
+            "new-btn-cancel": "Cancel",
+            "new-btn-submit": "Create",
+            "new-h1": "Create new post",
+            "new-label": "Title",
+            "new-label-content": "Content",
+            "edit-h1": "Edit your post",
+            "edit-btn": "Edit",
+            "back-btn": "Go back",
+            "delete-btn": "Delete",
             //* Error displayed when we cannot communicate with the API properly
             "error-h1": "Something is wrong with the API",
             "error-p": "We cannot sign your session which leads to data retrieval failure"

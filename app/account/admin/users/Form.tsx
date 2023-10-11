@@ -8,6 +8,7 @@ import { Response, User } from '@util/schema';
 import Image from 'next/image';
 import Disable from './Disable';
 import Delete from './Delete';
+import { useRouter } from 'next/navigation';
 
 export default function Form({
     lang,
@@ -26,6 +27,7 @@ export default function Form({
     };
     u: User;
 }) {
+    const router = useRouter();
     const [popup, setPopup] = useState<boolean>(true);
     const [users, setUsers] = useState<User[]>();
 
@@ -49,7 +51,7 @@ export default function Form({
                         <input required minLength={6} maxLength={10} autoComplete="off" autoFocus={true} autoCorrect="off" type="text" placeholder={'000000'} id="mfa" name="mfa" />
                     </label>
                     <div className={o.footer}>
-                        <button onClick={() => window.location.replace('/account')} type="reset">
+                        <button onClick={() => router.replace('/account')} type="reset">
                             {lang.btnCancel}
                         </button>
                         <button type="submit">{lang.btn}</button>

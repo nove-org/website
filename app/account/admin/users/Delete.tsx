@@ -4,7 +4,8 @@ import { useState } from 'react';
 import o from '@sass/account/admin/page.module.sass';
 import { axiosClient } from '@util/axios';
 import { getCookie } from 'cookies-next';
-import { Response, User } from '@util/schema';
+import { User } from '@util/schema';
+import { useRouter } from 'next/navigation';
 
 export default function Delete({
     lang,
@@ -20,6 +21,7 @@ export default function Delete({
     };
     target: User;
 }) {
+    const router = useRouter();
     const [popup, setPopup] = useState<boolean>(false);
     const [postError, setPostError] = useState<string>();
 
@@ -44,7 +46,7 @@ export default function Delete({
                     headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}`, 'x-mfa': (form.get('mfa') as string) || '' },
                 }
             )
-            .then((r) => window.location.reload())
+            .then((r) => (setPopup(false), router.refresh()))
             .catch((e) => (e?.response?.data?.body?.error ? throwError(e.response.data.body.error.message) : console.error(e)));
 
     return (

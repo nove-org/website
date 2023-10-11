@@ -85,6 +85,17 @@ export interface Mfa {
     codes: string[];
 }
 
+export interface Post {
+    id: string;
+    authorId: string;
+    author: User;
+    text: string;
+    title: string;
+    commentsAllowed: boolean;
+    createdAt: string;
+    updatedAt: string;
+}
+
 export interface Languages {
     AVAILABLE_LANGUAGES: string[];
 }

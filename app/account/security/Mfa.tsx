@@ -7,6 +7,7 @@ import { getCookie } from 'cookies-next';
 import { Mfa, User } from '@util/schema';
 import { QRCodeSVG } from 'qrcode.react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 export default function Mfa({
     lang,
@@ -24,6 +25,7 @@ export default function Mfa({
     };
     u: User;
 }) {
+    const router = useRouter();
     const [popup, setPopup] = useState<boolean>(false);
     const [dataPopup, setDataPopup] = useState<boolean>(true);
     const [mfaData, setMfaData] = useState<Mfa>();
@@ -64,7 +66,7 @@ export default function Mfa({
                     },
                 }
             )
-            .then((r) => window.location.reload())
+            .then((r) => router.refresh())
             .catch((e) => (e?.response?.data?.body?.error ? throwError(e.response.data.body.error.message) : console.error(e)));
     };
 

@@ -265,6 +265,12 @@
             "hds-mfa-recovery-codes": "Kody zapasowe",
             //- recovery button
             "hds-recovery": "Przywr.",
+            //? recovery popup
+            "hds-recovery-h1": "Kody zapasowe",
+            "hds-recovery-p": "Kopiuj kody zapasowe twojego konta jako awaryjna metoda logowania gdy zgubisz swój telefon z aplikacją TOTP.",
+            "hds-recovery-got-it": "Okej",
+            "hds-recovery-label": "Kod MFA",
+            "hds-recovery-submit": "Dalej",
             //- popup actions
             "hds-btn-cancel": "Anuluj",
             "hds-btn-save": "Zapisz zmiany",
@@ -331,6 +337,23 @@
             //* Error displayed when we cannot communicate with the API properly
             "error-h1": "Coś jest nie tak i nie możemy porozumieć się z API",
             "error-p": "Nie możemy podpisać twojej sesji co prowadzi do błędu wczytywania danych"
+        },
+        "posts": {
+            "header": "{number} posts",
+            //- popup
+            "new-btn": "Create new post",
+            "new-btn-cancel": "Cancel",
+            "new-btn-submit": "Create",
+            "new-h1": "Create new post",
+            "new-label": "Title",
+            "new-label-content": "Content",
+            "edit-h1": "Edit your post",
+            "edit-btn": "Edit",
+            "back-btn": "Go back",
+            "delete-btn": "Delete",
+            //* Error displayed when we cannot communicate with the API properly
+            "error-h1": "Something is wrong with the API",
+            "error-p": "We cannot sign your session which leads to data retrieval failure"
         }
     },
     "documents": {

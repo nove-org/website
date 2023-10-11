@@ -5,6 +5,7 @@ import o from '@sass/account/admin/page.module.sass';
 import { axiosClient } from '@util/axios';
 import { getCookie } from 'cookies-next';
 import { Response, User } from '@util/schema';
+import { useRouter } from 'next/navigation';
 
 export default function Disable({
     lang,
@@ -22,6 +23,7 @@ export default function Disable({
     u: User;
     target: User;
 }) {
+    const router = useRouter();
     const [popup, setPopup] = useState<boolean>(false);
     const [postError, setPostError] = useState<string>();
 
@@ -47,14 +49,14 @@ export default function Disable({
                         headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}`, 'x-mfa': (form.get('mfa') as string) || '' },
                     }
                 )
-                .then((r) => window.location.reload())
+                .then((r) => (setPopup(false), router.refresh()))
                 .catch((e) => (e?.response?.data?.body?.error ? throwError(e.response.data.body.error.message) : console.error(e)));
         } else {
             return await axiosClient
                 .delete(`/v1/admin/users/${target.id}/disable`, {
                     headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}`, 'x-mfa': (form.get('mfa') as string) || '' },
                 })
-                .then((r) => window.location.reload())
+                .then((r) => (setPopup(false), router.refresh()))
                 .catch((e) => (e?.response?.data?.body?.error ? throwError(e.response.data.body.error.message) : console.error(e)));
         }
     };
