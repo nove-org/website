@@ -170,6 +170,11 @@
             "input-new-password": "Nowe hasło",
             "input-btn-submit": "Dalej",
             "request-success": "Wiadomość z potwierdzeniem została wysłana na podany adres"
+        },
+        "blog": {
+            "back-btn": "Go back",
+            "warn-h1": "Warning",
+            "warn-p": "Right now, we only share posts in English but it will change in the future as we evolve."
         }
     },
     "dashboard": {
