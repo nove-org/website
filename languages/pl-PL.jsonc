@@ -36,7 +36,7 @@
             //- links section
             "ul-products": "Produkty",
             "ul-about": "O nas",
-            "ul-docs": "Wiki",
+            "ul-blog": "Blog",
             "ul-donate": "Dotacje",
             //- login section
             "login-btn": "Zaloguj",
@@ -57,6 +57,7 @@
             //- links section
             "ul-about": "O nas",
             "ul-docs": "Dokumentacja",
+            "ul-blog": "Blog",
             "ul-donate": "Dotacje",
             "ul-login": "Zaloguj",
             "ul-register": "Zarejestruj się",

@@ -10,7 +10,7 @@ import Edit from './Edit';
 import Back from './Back';
 import Delete from './Delete';
 
-export default async function Users({ params }: { params: { id: string } }) {
+export default async function Blog({ params }: { params: { id: string } }) {
     const user: Response<User> = (
         await axiosClient
             .get('/v1/users/me', {

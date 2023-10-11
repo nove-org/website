@@ -9,7 +9,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import NewPost from './NewPost';
 
-export default async function Users() {
+export default async function BlogList() {
     const user: Response<User> = (
         await axiosClient
             .get('/v1/users/me', {

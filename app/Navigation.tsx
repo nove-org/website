@@ -76,7 +76,7 @@ export default async function Navigation() {
                             <a href="/about">{lang.getProp('ul-about')}</a>
                         </li>
                         <li>
-                            <a href={REPOSITORY + '/wiki'}>{lang.getProp('ul-docs')}</a>
+                            <a href="/blog">{lang.getProp('ul-blog')}</a>
                         </li>
                         <li>
                             <a target="_blank" rel="noopener noreferrer" href={DONATE_LINK}>

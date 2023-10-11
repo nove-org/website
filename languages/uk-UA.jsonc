@@ -36,7 +36,7 @@
             //- links section
             "ul-products": "Продукти",
             "ul-about": "Про",
-            "ul-docs": "Документація",
+            "ul-blog": "Blog",
             "ul-donate": "Пожертвувати",
             //- login section
             "login-btn": "Увійти",
@@ -57,6 +57,7 @@
             //- links section
             "ul-about": "Про",
             "ul-docs": "Док.",
+            "ul-blog": "Blog",
             "ul-donate": "Пожертвувати",
             "ul-login": "Увійти в систему",
             "ul-register": "Зареєструватися",

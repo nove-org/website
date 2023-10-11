@@ -36,7 +36,7 @@
             //- links section
             "ul-products": "Products",
             "ul-about": "About",
-            "ul-docs": "Docs",
+            "ul-blog": "Blog",
             "ul-donate": "Donate",
             //- login section
             "login-btn": "Login",
@@ -57,6 +57,7 @@
             //- links section
             "ul-about": "About",
             "ul-docs": "Docs",
+            "ul-blog": "Blog",
             "ul-donate": "Donate",
             "ul-login": "Login",
             "ul-register": "Sign up",

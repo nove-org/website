@@ -44,6 +44,9 @@ export default async function Footer() {
                             <Link href="/about">{lang.getProp('ul-about')}</Link>
                         </li>
                         <li>
+                            <Link href="/blog">{lang.getProp('ul-blog')}</Link>
+                        </li>
+                        <li>
                             <a href={REPOSITORY + '/wiki'}>{lang.getProp('ul-docs')}</a>
                         </li>
                         <li>
