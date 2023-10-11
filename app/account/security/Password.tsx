@@ -5,6 +5,7 @@ import o from '@sass/account/security/page.module.sass';
 import { getCookie, setCookie } from 'cookies-next';
 import { axiosClient } from '@util/axios';
 import { COOKIE_HOSTNAME } from '@util/config';
+import { useRouter } from 'next/navigation';
 
 export default function Password({
     lang,
@@ -21,6 +22,7 @@ export default function Password({
         save: string;
     };
 }) {
+    const router = useRouter();
     const [popup, setPopup] = useState<boolean>(false);
     const [postError, setPostError] = useState<string>();
 
@@ -53,7 +55,7 @@ export default function Password({
                     secure: true,
                 });
 
-                window.location.reload();
+                router.refresh();
             })
             .catch((err) =>
                 err.response.data.body.error

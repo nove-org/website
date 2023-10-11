@@ -32,10 +32,9 @@ export default async function Home() {
                 headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
             })
             .catch((e) => e.response)
-    ).data;
+    )?.data;
 
-    const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
-    const lang = await new LanguageHandler('main/landing', user.body.data).init(browserLanguage);
+    const lang = await new LanguageHandler('main/landing', user?.body?.data).init(headers());
 
     return (
         <>

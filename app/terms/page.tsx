@@ -27,10 +27,9 @@ export default async function Terms() {
                 headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
             })
             .catch((e) => e.response)
-    ).data;
+    )?.data;
 
-    const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
-    const lang = await new LanguageHandler('documents/terms-of-service', user.body.data).init(browserLanguage);
+    const lang = await new LanguageHandler('documents/terms-of-service', user?.body?.data).init(headers());
 
     return (
         <article className={o.content}>

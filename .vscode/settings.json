@@ -1,5 +1,21 @@
 {
     "typescript.tsdk": "node_modules/typescript/lib",
     "typescript.enablePromptUseWorkspaceTsdk": true,
-    "cSpell.words": ["erms", "napi", "Peekr", "pevs", "rivacy"]
+    "cSpell.words": [
+        "erms",
+        "Gitea",
+        "Jaszczyszyn",
+        "napi",
+        "noopener",
+        "noreferrer",
+        "NSFL",
+        "otwartoźródłową",
+        "otwartoźródłowe",
+        "otwartoźródłowo",
+        "otwartoźródłowych",
+        "Peekr",
+        "pevs",
+        "rivacy"
+    ],
+    "cSpell.ignoreWords": ["TOTP", "dompurify", "qrcode"]
 }

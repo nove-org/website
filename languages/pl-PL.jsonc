@@ -36,7 +36,7 @@
             //- links section
             "ul-products": "Produkty",
             "ul-about": "O nas",
-            "ul-docs": "Wiki",
+            "ul-blog": "Blog",
             "ul-donate": "Dotacje",
             //- login section
             "login-btn": "Zaloguj",
@@ -57,6 +57,7 @@
             //- links section
             "ul-about": "O nas",
             "ul-docs": "Dokumentacja",
+            "ul-blog": "Blog",
             "ul-donate": "Dotacje",
             "ul-login": "Zaloguj",
             "ul-register": "Zarejestruj się",
@@ -137,8 +138,16 @@
             "input-login": "Login",
             "input-password": "Hasło",
             "input-btn": "Dalej",
+            //- multi-factor authentication popup
+            "mfa-h1": "Kod weryfikacyjny jest wymagany",
+            "mfa-p": "Podaj kod wygenerowany przez aplikacje TOTP na Twoim telefonie lub użyj kodu zapasowego.",
+            "mfa-label": "Kod",
+            "mfa-cancel": "Anuluj",
+            "mfa-submit": "Zaloguj",
             //- password reset button
-            "password-reset": "Resetuj swoje hasło"
+            "password-reset": "Resetuj swoje hasło",
+            //- misc
+            "servers-down": "Przepraszamy ale nasze serwery są chwilowo niedostępne"
         },
         "register": {
             "title": "Zarejestruj się",
@@ -149,7 +158,9 @@
             "input-email": "E-mail",
             "input-username": "Nazwa użytkownika",
             "input-password": "Hasło",
-            "input-btn": "Dalej"
+            "input-btn": "Dalej",
+            //- misc
+            "servers-down": "Przepraszamy ale nasze serwery są chwilowo niedostępne"
         },
         "password-reset": {
             "title": "Resetuj hasło",
@@ -174,7 +185,11 @@
             "ul-overview": "Przegląd",
             "ul-security": "Bezpieczeństwo",
             "ul-profile": "Mój profil",
-            "ul-language": "Język"
+            "ul-language": "Język",
+            "header-admin": "Moderacja",
+            "ul-users": "Użytkownicy",
+            "ul-posts": "Posty",
+            "ul-logs": "Logi aktywności"
         },
         "main": {
             "title": "Przegląd",
@@ -182,7 +197,7 @@
             "tips-header": "Jak poprawić bezpieczeństwo i prywatność",
             "tips-1": "Używaj oprogramowania FOSS",
             "tips-2": "Włącz weryfikacje dwuskładnikową",
-            "tips-3": "Nie twórz za dużo kont w sieci",
+            "tips-3": "Nie twórz zbyt dużej ilości kont",
             //* Cards that are listed next to your profile on /account
             "card-1-h1": "Język",
             "card-1-p": "Zmień język wyświetlania na wszystkich usługach Nove",
@@ -195,6 +210,13 @@
             "card-3-action": "Idź",
             "card-4-h1": "Przywr.",
             "card-4-p": "Pobierz kody zapasowe po włączeniu weryfikacji dwuetapowej",
+            //- app connections
+            "connections-title": "Połączone aplikacje",
+            "connections-btn-privacy": "Polityka Prywatności",
+            "connections-btn-tos": "Regulamin",
+            "connections-permissions": "Uprawnienia",
+            "connections-last-access": "Ostatni dostęp",
+            "connections-expire": "Wygasa",
             //* Error displayed when we cannot communicate with the API properly
             "error-h1": "Coś jest nie tak i nie możemy porozumieć się z API",
             "error-p": "Nie możemy podpisać twojej sesji co prowadzi do błędu wczytywania danych"
@@ -233,9 +255,23 @@
             "hds-email-label-1": "Nowy e-mail",
             "hds-email-placeholder-1": "Podaj nowy e-mail",
             //- 2fa button
-            "hds-two-factor-authentication": "2FA",
+            "hds-mfa-btn": "MFA",
+            //? 2fa popup
+            "hds-mfa-h1": "Weryfikacja dwuetapowa",
+            "hds-mfa-p": "Zabezpiecz swoje konto przed osobami które chcą je ukraść. Możesz tu włączyć lub wyłączyć MFA.",
+            "hds-mfa-disable": "Wyłącz",
+            "hds-mfa-enable": "Włącz",
+            "hds-mfa-label-code": "Kod",
+            "hds-mfa-btn-ok": "Okej",
+            "hds-mfa-recovery-codes": "Kody zapasowe",
             //- recovery button
             "hds-recovery": "Przywr.",
+            //? recovery popup
+            "hds-recovery-h1": "Kody zapasowe",
+            "hds-recovery-p": "Kopiuj kody zapasowe twojego konta jako awaryjna metoda logowania gdy zgubisz swój telefon z aplikacją TOTP.",
+            "hds-recovery-got-it": "Okej",
+            "hds-recovery-label": "Kod MFA",
+            "hds-recovery-submit": "Dalej",
             //- popup actions
             "hds-btn-cancel": "Anuluj",
             "hds-btn-save": "Zapisz zmiany",
@@ -285,6 +321,40 @@
             //* Error displayed when we cannot communicate with the API properly
             "error-h1": "Coś jest nie tak i nie możemy porozumieć się z API",
             "error-p": "Nie możemy podpisać twojej sesji co prowadzi do błędu wczytywania danych"
+        }
+    },
+    "admin": {
+        "users": {
+            "hero-h1": "Lista użytkowników",
+            "popup-btn": "Autoryzuj akcje",
+            "popup-btn-cancel": "Anuluj",
+            "popup-btn-disable": "Wyłącz",
+            "popup-btn-enable": "Włącz",
+            "popup-btn-delete": "Usuń",
+            "popup-h1": "Musimy zweryfikować, że to na prawdę ty",
+            "popup-p": "Podaj kod MFA z aplikacji TOTP na Twoim telefonie. Możesz użyć kodu zapasowego.",
+            "popup-label": "Kod MFA",
+            "popup-reason": "Powód",
+            //* Error displayed when we cannot communicate with the API properly
+            "error-h1": "Coś jest nie tak i nie możemy porozumieć się z API",
+            "error-p": "Nie możemy podpisać twojej sesji co prowadzi do błędu wczytywania danych"
+        },
+        "posts": {
+            "header": "{number} posts",
+            //- popup
+            "new-btn": "Create new post",
+            "new-btn-cancel": "Cancel",
+            "new-btn-submit": "Create",
+            "new-h1": "Create new post",
+            "new-label": "Title",
+            "new-label-content": "Content",
+            "edit-h1": "Edit your post",
+            "edit-btn": "Edit",
+            "back-btn": "Go back",
+            "delete-btn": "Delete",
+            //* Error displayed when we cannot communicate with the API properly
+            "error-h1": "Something is wrong with the API",
+            "error-p": "We cannot sign your session which leads to data retrieval failure"
         }
     },
     "documents": {

@@ -2,10 +2,11 @@
 
 import { axiosClient } from '@util/axios';
 import { User } from '@util/schema';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import o from '@sass/account/profile/page.module.sass';
 
 export default function Username({ user, cookie, lang }: { user: User; cookie?: string; lang: { header: string; save: string; edit: string; placeholder: string } }) {
+    const router = useRouter();
     const [edit, setEdit] = useState<boolean>(false);
     const [postError, setPostError] = useState<string>();
 
@@ -23,7 +24,7 @@ export default function Username({ user, cookie, lang }: { user: User; cookie?: 
         e.preventDefault(),
         await axiosClient
             .patch('/v1/users/me', { username: e.target.username.value }, { headers: { Authorization: `Owner ${cookie}` } })
-            .then(() => (setEdit(false), window.location.reload()))
+            .then(() => (setEdit(false), router.refresh()))
             .catch((e) => throwError(e.response?.data.body?.error.message ? e.response.data.body.error.message : 'Something went wrong and we cannot explain it.'))
     );
 

@@ -7,8 +7,10 @@ import ReactCountryFlag from 'react-country-flag';
 import o from '@sass/account/language/page.module.sass';
 import { useState } from 'react';
 import Loader from '@app/Loader';
+import { useRouter } from 'next/navigation';
 
 export default function Form({ user, code, saveChanges }: { user: User; code: Languages; saveChanges: string }) {
+    const router = useRouter();
     const [loading, setLoading] = useState<boolean>(false);
 
     const handleLanguage = async (e: any) => (
@@ -16,7 +18,7 @@ export default function Form({ user, code, saveChanges }: { user: User; code: La
         setLoading(true),
         await axiosClient
             .patch('/v1/users/me', { language: e.target.language.value }, { headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } })
-            .then(() => window.location.reload())
+            .then((r) => router.refresh())
     );
 
     const lang = new Intl.DisplayNames([user.language], { type: 'language' });

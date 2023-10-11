@@ -28,12 +28,11 @@ export default async function PasswordReset() {
                 headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
             })
             .catch((e) => e.response)
-    ).data;
+    )?.data;
 
     if (user?.body?.data?.username) return redirect('/account');
 
-    const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
-    const lang = await new LanguageHandler('main/password-reset', user?.body?.data).init(browserLanguage);
+    const lang = await new LanguageHandler('main/password-reset', user?.body?.data).init(headers());
 
     return (
         <section className={o.box}>

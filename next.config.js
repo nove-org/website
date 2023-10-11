@@ -8,7 +8,7 @@ const nextConfig = {
     },
     images: {
         domains: ['api.nove.team'],
-    }
+    },
 };
 
 module.exports = nextConfig;

@@ -3,7 +3,7 @@ import { axiosClient } from '@util/axios';
 import o from '@sass/account/page.module.sass';
 import { cookies, headers } from 'next/headers';
 import Link from 'next/link';
-import { Response, Device, User } from '@util/schema';
+import { Response, Device, User, Connection } from '@util/schema';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 
 export default async function Overview() {
@@ -13,18 +13,25 @@ export default async function Overview() {
                 headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
             })
             .catch((e) => e.response)
-    ).data;
+    )?.data;
     const device: Response<Device[]> = (
         await axiosClient
             .get('/v1/users/me/activity', {
                 headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
             })
             .catch((e) => e.response)
-    ).data;
+    )?.data;
+    const connections: Response<Connection[]> = (
+        await axiosClient
+            .get('/v1/users/me/connections', {
+                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
+            })
+            .catch((e) => e.response)
+    )?.data;
 
-    const languageTranslate = new Intl.DisplayNames([user.body.data.language], { type: 'language' });
-    const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
-    const lang = await new LanguageHandler('dashboard/main', user.body.data).init(browserLanguage);
+    const languageTranslate = new Intl.DisplayNames([user?.body?.data?.language], { type: 'language' });
+    const lang = await new LanguageHandler('dashboard/main', user?.body?.data).init(headers());
+    let connNames: string[] = [];
 
     return user?.body?.data?.username ? (
         <div className={o.content}>
@@ -126,69 +133,57 @@ export default async function Overview() {
                     </li>
                 </div>
             </ul>
-            {/* <h1 className={o.title}>App connections (showcase, it doesn&apos;t work yet)</h1>
+            <h1 className={o.title}>{lang.getProp('connections-title')}</h1>
             <ul className={o.connections}>
-                <li className={o.card}>
-                    <header>
-                        <div className={o.name}>
-                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
-                                <path
-                                    fill="currentColor"
-                                    d="M 12 4 A 7.5 7.5 0 0 0 5.3515625 8.0429688 A 6 6 0 0 0 0 14 A 6 6 0 0 0 6 20 L 19 20 A 5 5 0 0 0 24 15 A 5 5 0 0 0 19.34375 10.017578 A 7.5 7.5 0 0 0 12 4 z"></path>
-                            </svg>
-                            <h1>Files</h1>
-                            <span>Last accessed on August 2nd</span>
-                        </div>
-                        <button>Revoke</button>
-                    </header>
-                    <p>Basic level of account access</p>
-                    <ul>
-                        <li>read account username</li>
-                        <li>read account avatar</li>
-                        <li>read account public info</li>
-                    </ul>
-                </li>
-                <li className={o.card}>
-                    <header>
-                        <div className={o.name}>
-                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
-                                <path
-                                    fill="currentColor"
-                                    d="M 12 4 A 7.5 7.5 0 0 0 5.3515625 8.0429688 A 6 6 0 0 0 0 14 A 6 6 0 0 0 6 20 L 19 20 A 5 5 0 0 0 24 15 A 5 5 0 0 0 19.34375 10.017578 A 7.5 7.5 0 0 0 12 4 z"></path>
-                            </svg>
-                            <h1>Files</h1>
-                            <span>Last accessed on August 2nd</span>
-                        </div>
-                        <button>Revoke</button>
-                    </header>
-                    <p>Basic level of account access</p>
-                    <ul>
-                        <li>read account username</li>
-                        <li>read account avatar</li>
-                        <li>read account public info</li>
-                    </ul>
-                </li>
-                <li className={o.card}>
-                    <header>
-                        <div className={o.name}>
-                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
-                                <path
-                                    fill="currentColor"
-                                    d="M 12 4 A 7.5 7.5 0 0 0 5.3515625 8.0429688 A 6 6 0 0 0 0 14 A 6 6 0 0 0 6 20 L 19 20 A 5 5 0 0 0 24 15 A 5 5 0 0 0 19.34375 10.017578 A 7.5 7.5 0 0 0 12 4 z"></path>
-                            </svg>
-                            <h1>Files</h1>
-                            <span>Last accessed on August 2nd</span>
-                        </div>
-                        <button>Revoke</button>
-                    </header>
-                    <p>Basic level of account access</p>
-                    <ul>
-                        <li>read account username</li>
-                        <li>read account avatar</li>
-                        <li>read account public info</li>
-                    </ul>
-                </li>
-            </ul> */}
+                {connections.body.data
+                    .slice(0)
+                    .reverse()
+                    .map((connection) => {
+                        if (connNames.includes(connection.app.name)) return;
+                        connNames.push(connection.app.name);
+
+                        return (
+                            <li key={connection.id} className={o.card}>
+                                <header>
+                                    <div className={o.name}>
+                                        {connection.app.isVerified ? (
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
+                                                <path
+                                                    fill="currentColor"
+                                                    d="M21.228,12l0.622-1.92c0.465-1.437-0.182-3-1.527-3.687l-1.797-0.918l-0.918-1.797c-0.687-1.345-2.25-1.993-3.687-1.527 L12,2.772L10.08,2.15c-1.437-0.465-3,0.182-3.687,1.527L5.474,5.474L3.677,6.393C2.332,7.08,1.685,8.643,2.15,10.08L2.772,12 L2.15,13.92c-0.465,1.437,0.182,3,1.527,3.687l1.797,0.918l0.918,1.797c0.687,1.345,2.25,1.993,3.687,1.527L12,21.228l1.92,0.622 c1.437,0.465,3-0.182,3.687-1.527l0.918-1.797l1.797-0.918c1.345-0.687,1.993-2.25,1.527-3.687L21.228,12z M11,16.414l-3.707-3.707 l1.414-1.414L11,13.586l5.293-5.293l1.414,1.414L11,16.414z"></path>
+                                            </svg>
+                                        ) : null}
+                                        <div>
+                                            <h1>
+                                                <a href={connection.app.link_homepage}>{connection.app.name}</a>
+                                            </h1>
+                                            <p>{connection.app.description}</p>
+                                        </div>
+                                        <span>
+                                            {lang.getProp('connections-last-access') +
+                                                ' ' +
+                                                new Date(connection.updatedAt).toLocaleString(user.body.data.language, { day: 'numeric', month: 'short' })}
+                                            <br />
+                                            {lang.getProp('connections-expire') +
+                                                ' ' +
+                                                new Date(connection.token_expires).toLocaleString(user.body.data.language, { day: 'numeric', month: 'short' })}
+                                        </span>
+                                    </div>
+                                    <div className={o.buttons}>
+                                        <a href={connection.app.link_privacy_policy}>{lang.getProp('connections-btn-privacy')}</a>
+                                        <a href={connection.app.link_tos}>{lang.getProp('connections-btn-tos')}</a>
+                                    </div>
+                                </header>
+                                <p className={o.title}>{lang.getProp('connections-permissions')}</p>
+                                <ul>
+                                    {connection.scopes.map((scope) => (
+                                        <li key={scope}>{scope}</li>
+                                    ))}
+                                </ul>
+                            </li>
+                        );
+                    })}
+            </ul>
         </div>
     ) : (
         <div className={o.content}>

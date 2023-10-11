@@ -7,6 +7,7 @@ import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { headers } from 'next/headers';
 import LoginForm from './Form';
+import { Response, User } from '@util/schema';
 
 export const metadata = {
     title: 'Nove | Login',
@@ -23,19 +24,21 @@ export const metadata = {
 
 export default async function Login({ searchParams }: { searchParams: { [key: string]: string | undefined } }) {
     const redirectBack: string | undefined = searchParams['redirectBack'];
-    const user = await axiosClient
-        .get('/v1/users/me', {
-            headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-        })
-        .catch((e) => e.response);
+    const user: Response<User> = (
+        await axiosClient
+            .get('/v1/users/me', {
+                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
+            })
+            .catch((e) => e.response)
+    )?.data;
 
-    if (user?.data?.body?.data?.username) return redirect(redirectBack ? redirectBack : '/account');
+    if (user?.body?.data?.username) return redirect(redirectBack ? redirectBack : '/account');
 
-    const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
-    const lang = await new LanguageHandler('main/login', user.data.body.data).init(browserLanguage);
+    const lang = await new LanguageHandler('main/login', user?.body?.data).init(headers());
 
     return (
         <section className={o.box}>
+            {!user ? <p className="error">{lang.getProp('servers-down')}</p> : null}
             <title>{`Nove | ${lang.getProp('title')}`}</title>
             <Logo size={48} />
             <h1>{lang.getProp('hero-h1')}</h1>
@@ -45,6 +48,11 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
                     inputLogin: lang.getProp('input-login'),
                     inputPassword: lang.getProp('input-password'),
                     inputBtn: lang.getProp('input-btn'),
+                    mfaTitle: lang.getProp('mfa-h1'),
+                    mfaDescription: lang.getProp('mfa-p'),
+                    mfaLabel: lang.getProp('mfa-label'),
+                    mfaCancel: lang.getProp('mfa-cancel'),
+                    mfaSubmit: lang.getProp('mfa-submit'),
                 }}
                 searchParam={redirectBack}
             />

@@ -4,8 +4,8 @@ import { axiosClient } from '@util/axios';
 import Image from 'next/image';
 import { User } from '@util/schema';
 import { useState } from 'react';
-import o from '@sass/account/profile/page.module.sass';
 import mime from 'mime-types';
+import { useRouter } from 'next/navigation';
 
 export default function Avatar({
     user,
@@ -16,6 +16,7 @@ export default function Avatar({
     cookie?: string;
     lang: { header: string; save: string; edit: string; filename: string; select: string; notAllowed: string; tooBig: string };
 }) {
+    const router = useRouter();
     const [edit, setEdit] = useState<boolean>(false);
     const [postError, setPostError] = useState<string>();
     const [fileName, setFileName] = useState<string>();
@@ -39,7 +40,7 @@ export default function Avatar({
 
         await axiosClient
             .patch('/v1/users/avatar', { file: elm.files[0] }, { headers: { 'Content-Type': 'multipart/form-data', Authorization: `Owner ${cookie}` } })
-            .then(() => (setEdit(false), window.location.reload()))
+            .then(() => (setEdit(false), router.refresh()))
             .catch((err) => {
                 throwError(err.response?.data.body?.error.message ? err.response.data.body.error.message : 'Something went wrong and we cannot explain it.');
             });

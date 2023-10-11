@@ -6,16 +6,18 @@ import { axiosClient } from '@util/axios';
 import { cookies, headers } from 'next/headers';
 import { DONATE_LINK, REPOSITORY } from '@util/config';
 import LanguageHandler from '@util/handlers/LanguageHandler';
+import { Response, User } from '@util/schema';
 
 export default async function Navigation() {
-    const user = await axiosClient
-        .get('/v1/users/me', {
-            headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-        })
-        .catch((e) => e.response);
+    const user: Response<User> = (
+        await axiosClient
+            .get('/v1/users/me', {
+                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
+            })
+            .catch((e) => e.response)
+    )?.data;
 
-    const browserLanguage: string | undefined = headers().get('Accept-Language')?.split(',')[0];
-    const lang = await new LanguageHandler('modules/navigation', user.data.body.data).init(browserLanguage);
+    const lang = await new LanguageHandler('modules/navigation', user?.body?.data).init(headers());
 
     return (
         <nav className={o.box}>
@@ -74,7 +76,7 @@ export default async function Navigation() {
                             <a href="/about">{lang.getProp('ul-about')}</a>
                         </li>
                         <li>
-                            <a href={REPOSITORY + '/wiki'}>{lang.getProp('ul-docs')}</a>
+                            <a href="/blog">{lang.getProp('ul-blog')}</a>
                         </li>
                         <li>
                             <a target="_blank" rel="noopener noreferrer" href={DONATE_LINK}>
@@ -83,12 +85,12 @@ export default async function Navigation() {
                         </li>
                     </ul>
                 </div>
-                {user?.data?.body?.data ? (
+                {user?.body?.data ? (
                     <details open={false} id="navbarMenu" className={o.user}>
                         <summary>
                             <header>
-                                <Image src={user.data.body.data.avatar} width="28" height="28" alt="Avatar" />
-                                {user.data.body.data.username}
+                                <Image src={user.body.data.avatar} width="28" height="28" alt="Avatar" />
+                                {user.body.data.username}
                             </header>
                         </summary>
                         <div className={o.module}>
