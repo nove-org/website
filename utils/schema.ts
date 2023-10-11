@@ -88,7 +88,8 @@ export interface Mfa {
 export interface Post {
     id: string;
     authorId: string;
-    author: User;
+    authorAvatar: string;
+    authorUsername: string;
     text: string;
     title: string;
     commentsAllowed: boolean;

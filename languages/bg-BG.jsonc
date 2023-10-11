@@ -170,6 +170,11 @@
             "input-new-password": "New password",
             "input-btn-submit": "Proceed",
             "request-success": "Confirmation e-mail was sent to that address if this account exists"
+        },
+        "blog": {
+            "back-btn": "Go back",
+            "warn-h1": "Warning",
+            "warn-p": "Right now, we only share posts in English but it will change in the future as we evolve."
         }
     },
     "dashboard": {

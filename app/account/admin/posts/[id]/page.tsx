@@ -28,29 +28,31 @@ export default async function Blog({ params }: { params: { id: string } }) {
 
     return user?.body?.data?.username && languages?.body?.data ? (
         <article className={b.blog}>
-            <div className={b.flex}>
-                <Back
-                    lang={{
-                        btn: lang.getProp('back-btn'),
-                    }}
-                />
-                <Edit
-                    id={post.body.data.id}
-                    title={post.body.data.title}
-                    content={post.body.data.text}
-                    lang={{
-                        btn: lang.getProp('edit-btn'),
-                        btnCancel: lang.getProp('new-btn-cancel'),
-                        btnSubmit: lang.getProp('new-btn-submit'),
-                        h1: lang.getProp('edit-h1'),
-                        label: lang.getProp('new-label'),
-                        labelContent: lang.getProp('new-label-content'),
-                    }}
-                />
-                <Delete id={post.body.data.id} lang={{ btn: lang.getProp('delete-btn') }} />
+            <div className={b.content}>
+                <div className={b.flex}>
+                    <Back
+                        lang={{
+                            btn: lang.getProp('back-btn'),
+                        }}
+                    />
+                    <Edit
+                        id={post.body.data.id}
+                        title={post.body.data.title}
+                        content={post.body.data.text}
+                        lang={{
+                            btn: lang.getProp('edit-btn'),
+                            btnCancel: lang.getProp('new-btn-cancel'),
+                            btnSubmit: lang.getProp('new-btn-submit'),
+                            h1: lang.getProp('edit-h1'),
+                            label: lang.getProp('new-label'),
+                            labelContent: lang.getProp('new-label-content'),
+                        }}
+                    />
+                    <Delete id={post.body.data.id} lang={{ btn: lang.getProp('delete-btn') }} />
+                </div>
+                <h1>{post.body.data.title}</h1>
+                <div dangerouslySetInnerHTML={{ __html: sanitize(post.body.data.text) }} />
             </div>
-            <h1>{post.body.data.title}</h1>
-            <p dangerouslySetInnerHTML={{ __html: sanitize(post.body.data.text) }} />
         </article>
     ) : (
         <div className={a.content}>

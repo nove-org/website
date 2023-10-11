@@ -166,6 +166,11 @@
             "input-new-password": "Новий пароль",
             "input-btn-submit": "Продовжити",
             "request-success": "На цю адресу було надіслано підтвердження, якщо такий обліковий запис існує"
+        },
+        "blog": {
+            "back-btn": "Go back",
+            "warn-h1": "Warning",
+            "warn-p": "Right now, we only share posts in English but it will change in the future as we evolve."
         }
     },
     "dashboard": {

@@ -1,8 +1,10 @@
-import { axiosClient } from '@util/axios';
 import o from '@sass/blog.module.sass';
-import { Response, Post } from '@util/schema';
 import Image from 'next/image';
 import Link from 'next/link';
+import { axiosClient } from '@util/axios';
+import { Response, Post, User } from '@util/schema';
+import { cookies, headers } from 'next/headers';
+import LanguageHandler from '@util/handlers/LanguageHandler';
 
 export const metadata = {
     title: 'Nove | Blog',
@@ -18,6 +20,15 @@ export const metadata = {
 };
 
 export default async function BlogList() {
+    const user: Response<User> = (
+        await axiosClient
+            .get('/v1/users/me', {
+                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
+            })
+            .catch((e) => e.response)
+    )?.data;
+
+    const lang = await new LanguageHandler('main/blog', user?.body?.data).init(headers());
     const posts: Response<Post[]> = (await axiosClient.get('/v1/blog').catch((e) => e.response))?.data;
 
     return (
@@ -27,9 +38,9 @@ export default async function BlogList() {
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
                         <path d="M17.196,3H6.804l-5.195,9l5.195,9h10.393l5.195-9L17.196,3z M13,17h-2v-2h2V17z M13,13h-2V7h2V13z"></path>
                     </svg>
-                    Warning
+                    {lang.getProp('warn-h1')}
                 </h1>
-                <p className={o.description}>Right now, we only share posts in English but it will change in the future as we evolve.</p>
+                <p className={o.description}>{lang.getProp('warn-p')}</p>
             </header>
             <ul className={o.posts}>
                 {posts?.body?.data.map((post) => (
@@ -44,7 +55,7 @@ export default async function BlogList() {
                                 </svg>
                             </h1>
                             <p>
-                                by <Image src={`https://api.nove.team/v1/users/${post.authorId}/avatar.webp`} alt="avatar" width="18" height="18" /> wnm210
+                                by <Image src={post.authorAvatar} alt="avatar" width="18" height="18" /> {post.authorUsername}
                             </p>
                         </Link>
                     </li>
