@@ -1,5 +1,7 @@
 div.posts
     margin-top: 50px
+    max-width: 1000px
+    margin: 0 auto
     display: flex
     flex-direction: column
     gap: 20px
@@ -61,9 +63,11 @@ header.warning
 
 article.blog
     width: 100%
+    max-width: 1000px
     height: 100%
     min-height: calc( 100vh - 68px )
-    margin-top: 50px
+    margin: 0 auto
+    margin-top: 40px
     display: flex
     flex-direction: column
     gap: 20px
@@ -89,7 +93,6 @@ article.blog
         & button
             display: flex
             align-items: center
-            gap: 7px
             padding: 5px 10px
             border-radius: 50px
             font-size: 14px
@@ -101,11 +104,14 @@ article.blog
             cursor: pointer
             transition-duration: .2s
             margin-top: 5px
+            gap: 5px
             @media screen and (max-width: 950px)
                 font-size: 14px
                 margin: 3px 0
             &:hover
                 background: var(--font-nd)
+            & svg
+                rotate: 180deg
         & a
 
             font-size: 20px
@@ -119,3 +125,69 @@ article.blog
             display: flex
             align-items: center
             gap: 5px
+
+div.comments
+    width: 100%
+    max-width: 1000px
+    height: 100%
+    margin: 0 auto
+    margin-bottom: 50px
+    display: flex
+    flex-direction: column
+    & h1
+        font-size: 26px
+        font-weight: 500
+        margin: 10px 0
+    & ul
+        margin: 0
+        padding: 0
+        list-style: none
+        & li
+            margin: 20px 0
+            display: flex
+            justify-content: space-between
+            & div.container
+                font-size: 16px
+                & span
+                    font-size: 12px
+                    opacity: .7
+                & header
+                    display: flex
+                    gap: 5px
+                    align-items: center
+                    font-size: 18px
+                    font-weight: 500
+                    & img
+                        border-radius: 50%
+            & aside
+                display: flex
+                align-items: center
+                gap: 3px
+                & svg
+                    cursor: pointer
+                    transition-duration: .1s
+                    &:hover
+                        opacity: .7
+                & time
+                    font-size: 14px
+                    opacity: .7
+    & form
+        display: flex
+        gap: 15px
+        margin: 10px 0
+        & img
+            border-radius: 50%
+        & div.content
+            width: 100%
+            margin-bottom: 0
+            & textarea
+                color: var(--font-st)
+                border-radius: 20px
+                padding: 10px 12px
+                border: 0
+                background: var(--border-st)
+                outline: 0
+                font-size: 16px
+                width: calc(100% - 24px)
+                resize: none
+                font-family: 'Inter', sans-serif

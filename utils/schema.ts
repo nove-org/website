@@ -95,6 +95,27 @@ export interface Post {
     commentsAllowed: boolean;
     createdAt: string;
     updatedAt: string;
+    post: {
+        id: string;
+        authorId: string;
+        authorAvatar: string;
+        authorUsername: string;
+        text: string;
+        title: string;
+        commentsAllowed: boolean;
+        createdAt: string;
+        updatedAt: string;
+    };
+    comments: {
+        id: string;
+        authorId: string;
+        authorUsername: string;
+        authorAvatar: string;
+        text: string;
+        blogPostId: string;
+        createdAt: string;
+        updatedAt: string;
+    }[];
 }
 
 export interface Languages {

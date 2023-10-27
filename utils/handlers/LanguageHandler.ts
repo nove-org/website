@@ -37,8 +37,6 @@ export default class LanguageHandler {
 
         this.props = this.file[this.category][this.name];
 
-        console.log(`this.language: ${this.language}\nthis.file: ${this.file}\nbrowser language: ${browserLanguage}`);
-
         return this;
     }
 

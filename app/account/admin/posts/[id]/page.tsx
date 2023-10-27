@@ -19,12 +19,15 @@ export default async function Blog({ params }: { params: { id: string } }) {
             .catch((e) => e.response)
     )?.data;
 
+    console.log(user);
+
     if (user.body.data.permissionLevel < 1) return redirect('/account');
 
     const languages: Response<Languages> = (await axiosClient.get('/v1/languages').catch((e) => e.response))?.data;
     const lang = await new LanguageHandler('admin/posts', user?.body?.data).init(headers());
 
     const post: Response<Post> = (await axiosClient.get('/v1/blog/' + params.id).catch((e) => e.response))?.data;
+    console.log(post);
 
     return user?.body?.data?.username && languages?.body?.data ? (
         <article className={b.blog}>
@@ -36,9 +39,9 @@ export default async function Blog({ params }: { params: { id: string } }) {
                         }}
                     />
                     <Edit
-                        id={post.body.data.id}
-                        title={post.body.data.title}
-                        content={post.body.data.text}
+                        id={post.body.data.post.id}
+                        title={post.body.data.post.title}
+                        content={post.body.data.post.text}
                         lang={{
                             btn: lang.getProp('edit-btn'),
                             btnCancel: lang.getProp('new-btn-cancel'),
@@ -48,10 +51,10 @@ export default async function Blog({ params }: { params: { id: string } }) {
                             labelContent: lang.getProp('new-label-content'),
                         }}
                     />
-                    <Delete id={post.body.data.id} lang={{ btn: lang.getProp('delete-btn') }} />
+                    <Delete id={post.body.data.post.id} lang={{ btn: lang.getProp('delete-btn') }} />
                 </div>
-                <h1>{post.body.data.title}</h1>
-                <div dangerouslySetInnerHTML={{ __html: sanitize(post.body.data.text) }} />
+                <h1>{post.body.data.post.title}</h1>
+                <div dangerouslySetInnerHTML={{ __html: sanitize(post.body.data.post.text) }} />
             </div>
         </article>
     ) : (
