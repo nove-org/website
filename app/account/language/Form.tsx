@@ -18,7 +18,7 @@ export default function Form({ user, code, saveChanges }: { user: User; code: La
         setLoading(true),
         await axiosClient
             .patch('/v1/users/me', { language: e.target.language.value }, { headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } })
-            .then((r) => router.refresh())
+            .then((r) => (setLoading(false), router.refresh()))
     );
 
     const lang = new Intl.DisplayNames([user.language], { type: 'language' });

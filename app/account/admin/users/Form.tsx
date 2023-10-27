@@ -30,6 +30,17 @@ export default function Form({
     const router = useRouter();
     const [popup, setPopup] = useState<boolean>(true);
     const [users, setUsers] = useState<User[]>();
+    const [postError, setPostError] = useState<string>();
+
+    const throwError = (message?: string, bool?: boolean) => {
+        if (bool === false) return setPostError('');
+
+        if (message) {
+            setPostError(message.charAt(0).toUpperCase() + message.slice(1).toLowerCase());
+
+            setTimeout(() => setPostError(''), 5000);
+        }
+    };
 
     const getUsers = async (form: FormData) => {
         await axiosClient
@@ -37,11 +48,12 @@ export default function Form({
                 headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}`, 'x-mfa': (form.get('mfa') as string) || '' },
             })
             .then((r) => (setUsers(r.data.body.data), setPopup(false)))
-            .catch((e) => e.response);
+            .catch((err) => (err?.response?.data?.body?.error ? throwError(err.response.data.body.error.message) : console.error(err)));
     };
 
     return !users ? (
         <div className={o.popup}>
+            {postError ? <p className="error">{postError}</p> : null}
             <div className={o.container}>
                 <h1>{lang.h1}</h1>
                 <p>{lang.p}</p>

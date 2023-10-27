@@ -5,6 +5,9 @@ import { sanitize } from 'isomorphic-dompurify';
 import { cookies, headers } from 'next/headers';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import Back from './Back';
+import Comment from './Comment';
+import Image from 'next/image';
+import Delete from './Delete';
 
 export const metadata = {
     title: 'Nove | Blog',
@@ -44,8 +47,36 @@ export default async function Blog({ params }: { params: { id: string } }) {
             </header>
             <div className={b.content}>
                 <Back lang={{ btn: lang.getProp('back-btn') }} />
-                <h1>{post?.body?.data?.title}</h1>
-                <div dangerouslySetInnerHTML={{ __html: sanitize(post?.body?.data?.text) }} />
+                <h1>{post?.body?.data?.post?.title}</h1>
+                <div dangerouslySetInnerHTML={{ __html: sanitize(post?.body?.data?.post?.text) }} />
+            </div>
+            <div className={b.comments}>
+                <h1>Comments ({post?.body?.data?.comments?.length})</h1>
+                <Comment post={post?.body?.data} user={user?.body?.data} />
+                <ul>
+                    {post?.body?.data?.comments?.map((comment) => {
+                        const date = new Date(comment.createdAt);
+                        return (
+                            <li key={comment.id}>
+                                <div className={b.container}>
+                                    <header>
+                                        <Image src={comment.authorAvatar} alt={comment.authorUsername + ' avatar'} width={18} height={18} />
+                                        {comment.authorUsername}
+                                    </header>
+                                    {comment.text} {comment.createdAt !== comment.updatedAt ? <span>(edited)</span> : null}
+                                </div>
+                                <aside>
+                                    {comment.authorId === user?.body?.data?.id || user?.body?.data?.permissionLevel === 2 ? (
+                                        <>
+                                            <Delete post={post.body.data} id={comment.id} />
+                                        </>
+                                    ) : null}
+                                    <time>{date.toLocaleString('en-US', { day: 'numeric', month: 'short', year: 'numeric' })}</time>
+                                </aside>
+                            </li>
+                        );
+                    })}
+                </ul>
             </div>
         </article>
     );

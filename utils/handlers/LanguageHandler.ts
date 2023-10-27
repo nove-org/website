@@ -26,6 +26,7 @@ export default class LanguageHandler {
             this.file = jsonc.parse(readFileSync(`./languages/${this.language}.jsonc`).toString());
         } catch {
             this.file = jsonc.parse(readFileSync(`./languages/en-US.jsonc`).toString());
+            console.log(`Error: couldn't read ${this.language} language file properly!`);
         }
 
         if (!this.file.hasOwnProperty(this.category))

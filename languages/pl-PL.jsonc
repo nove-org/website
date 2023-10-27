@@ -358,7 +358,7 @@
             "back-btn": "Wróć",
             "delete-btn": "Usuń",
             //* Error displayed when we cannot communicate with the API properly
-            "error-h1": ""Coś jest nie tak i nie możemy porozumieć się z API",
+            "error-h1": "Coś jest nie tak i nie możemy porozumieć się z API",
             "error-p": "Nie możemy podpisać twojej sesji, co prowadzi do błędu wczytywania danych"
         }
     },
