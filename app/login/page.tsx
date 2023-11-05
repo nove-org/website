@@ -8,6 +8,7 @@ import { redirect } from 'next/navigation';
 import { headers } from 'next/headers';
 import LoginForm from './Form';
 import { Response, User } from '@util/schema';
+import { DOMAIN_REGEX } from '@util/config';
 
 export const metadata = {
     title: 'Nove | Login',
@@ -23,7 +24,8 @@ export const metadata = {
 };
 
 export default async function Login({ searchParams }: { searchParams: { [key: string]: string | undefined } }) {
-    const redirectBack: string | undefined = searchParams['redirectBack'];
+    let redirectBack: string | undefined = searchParams['redirectBack'];
+    if (!redirectBack?.match(DOMAIN_REGEX)) redirectBack = '/account';
     const user: Response<User> = (
         await axiosClient
             .get('/v1/users/me', {

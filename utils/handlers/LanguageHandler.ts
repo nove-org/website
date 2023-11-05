@@ -52,4 +52,29 @@ export default class LanguageHandler {
 
         return propValue;
     }
+
+    public getCustomProp(path: string, vars?: object) {
+        const element = {
+            category: path.split('.')[0],
+            name: path.split('.')[1],
+            prop: path.split('.')[2],
+        };
+
+        if (!this.file.hasOwnProperty(element.category))
+            throw new ReferenceError(`LanguageHandler: Error while parsing ${this.language}.jsonc: category "${element.category}" (in ${path}) was not found`);
+
+        if (!this.file[element.category].hasOwnProperty(element.name))
+            throw new ReferenceError(`LanguageHandler: Error while parsing ${this.language}.jsonc: file reference "${element.name}" (in ${path}) was not found`);
+
+        let propValue = ObjectHelper.getValueByStringPath(this.file[element.category][element.name], element.prop);
+
+        if (!propValue) throw new ReferenceError(`LanguageHandler: Error while parsing ${this.language}.jsonc: prop "${element.prop}" (in ${path}) does not exist`);
+
+        if (vars)
+            for (const [key, value] of Object.entries(vars)) {
+                propValue = propValue.replaceAll('{' + key + '}', value);
+            }
+
+        return propValue;
+    }
 }

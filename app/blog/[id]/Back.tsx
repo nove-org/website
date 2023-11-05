@@ -12,7 +12,7 @@ export default function Back({
     const router = useRouter();
 
     return (
-        <button onClick={() => router.back()}>
+        <button onClick={() => router.replace('/blog')}>
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="14" height="14" viewBox="0 0 30 30">
                 <path
                     fill="currentColor"

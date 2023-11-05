@@ -64,7 +64,7 @@ export default async function Home() {
                 <ul>
                     <li>
                         <a href="/register" className={o.button}>
-                            {lang.getProp('hero-btn')}
+                            {!user?.body?.data?.username ? lang.getProp('hero-btn') : lang.getCustomProp('dashboard.layout.ul-profile')}
                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 30 30">
                                 <path
                                     fill="currentColor"
@@ -173,7 +173,7 @@ export default async function Home() {
                 <h1>{lang.getProp('ready-h1')}</h1>
                 <p>{lang.getProp('ready-p')}</p>
                 <Link href="/register">
-                    {lang.getProp('ready-btn')}
+                    {!user?.body?.data?.username ? lang.getProp('ready-btn') : lang.getCustomProp('dashboard.layout.ul-profile')}
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 30 30">
                         <path
                             fill="currentColor"
