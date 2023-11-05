@@ -40,7 +40,7 @@ export default async function About() {
             <ul>
                 <li>
                     <Image src="https://api.nove.team/v1/users/00000000/avatar.webp" width="64" height="64" alt="Avatar" />
-                    <h1>wnm210</h1>
+                    <h1>Mateusz</h1>
                     <p>{lang.getProp('pos1')}</p>
                 </li>
                 <li>
@@ -50,17 +50,17 @@ export default async function About() {
                 </li>
                 <li>
                     <Image src="https://api.nove.team/v1/users/00000002/avatar.webp" width="64" height="64" alt="Avatar" />
-                    <h1>ArsBeneMoriendi</h1>
+                    <h1>Zuzia</h1>
                     <p>{lang.getProp('pos3')}</p>
                 </li>
                 <li>
                     <Image src="https://api.nove.team/v1/users/OzcH9li3/avatar.webp" width="64" height="64" alt="Avatar" />
-                    <h1>SlavistaPL</h1>
+                    <h1>Oliwier</h1>
                     <p>{lang.getProp('pos4')}</p>
                 </li>
                 <li>
                     <Image src="https://api.nove.team/v1/users/b9dk4Pdm/avatar.webp" width="64" height="64" alt="Avatar" />
-                    <h1>JuzioMiecio520</h1>
+                    <h1>Mikołaj</h1>
                     <p>{lang.getProp('pos5')}</p>
                 </li>
             </ul>
