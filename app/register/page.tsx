@@ -24,7 +24,7 @@ export const metadata = {
 
 export default async function Register({ searchParams }: { searchParams: { [key: string]: string | undefined } }) {
     let redirectBack: string | undefined = searchParams['redirectBack'];
-    if (!redirectBack?.match(DOMAIN_REGEX)) redirectBack = '/account';
+    if (!redirectBack?.match(/^(?!(\/\/)).*$/g) || !redirectBack?.match(DOMAIN_REGEX)) redirectBack = '/account';
     const user: Response<User> = (
         await axiosClient
             .get('/v1/users/me', {
