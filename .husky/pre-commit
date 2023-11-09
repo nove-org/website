@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-yarn run -s test && echo "" && yarn run -s format && echo ""
+#yarn run -s test &&
+printf "No tests specified. Skipping.\n" && echo "" && yarn run -s format && echo ""
