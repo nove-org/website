@@ -23,15 +23,15 @@ export default async function Overview() {
 
     return user?.body?.data?.username ? (
         <div className={o.content}>
-            <h1 className={o.title}>{lang.getProp('title')}</h1>
+            <h1 className={o.title}>{lang.getCustomProp('dashboard.layout.ul-profile')}</h1>
             <p className={o.desc}>{lang.getProp('description')}</p>
             <h2>{lang.getProp('hero-ul-1')}</h2>
             <ul className={o.options}>
                 <Avatar
                     lang={{
                         header: lang.getProp('input-avatar'),
-                        edit: lang.getProp('input-btn-edit'),
-                        save: lang.getProp('input-btn-save'),
+                        edit: lang.getCustomProp('modules.actions.edit'),
+                        save: lang.getCustomProp('modules.actions.save'),
                         select: lang.getProp('input-avatar-btn'),
                         filename: lang.getProp('input-avatar-filename'),
                         tooBig: lang.getProp('input-avatar-too-big'),
@@ -43,8 +43,8 @@ export default async function Overview() {
                 <Username
                     lang={{
                         header: lang.getProp('input-username'),
-                        edit: lang.getProp('input-btn-edit'),
-                        save: lang.getProp('input-btn-save'),
+                        edit: lang.getCustomProp('modules.actions.edit'),
+                        save: lang.getCustomProp('modules.actions.save'),
                         placeholder: lang.getProp('input-username-placeholder', { username: user?.body?.data?.username }),
                     }}
                     user={user.body.data}
@@ -56,7 +56,7 @@ export default async function Overview() {
                 <Bio
                     lang={{
                         header: lang.getProp('input-bio'),
-                        save: lang.getProp('input-btn-save'),
+                        save: lang.getCustomProp('modules.actions.save'),
                     }}
                     user={user.body.data}
                     cookie={cookie}
@@ -72,8 +72,8 @@ export default async function Overview() {
         </div>
     ) : (
         <div className={o.content}>
-            <h1 className={o.title}>{lang.getProp('error-h1')}</h1>
-            <p>{lang.getProp('error-p')}</p>
+            <h1 className={o.title}>{lang.getCustomProp('modules.errors.header')}</h1>
+            <p>{lang.getCustomProp('modules.errors.session')}</p>
         </div>
     );
 }

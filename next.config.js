@@ -1,13 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    experimental: {
-        serverActions: true,
-    },
     sassOptions: {
         includePaths: ['./app', './sass'],
     },
     images: {
-        domains: ['api.nove.team'],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'api.nove.team',
+                pathname: '**',
+            },
+        ],
     },
 };
 

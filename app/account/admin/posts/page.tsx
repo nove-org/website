@@ -31,8 +31,8 @@ export default async function BlogList() {
             <NewPost
                 lang={{
                     btn: lang.getProp('new-btn'),
-                    btnCancel: lang.getProp('new-btn-cancel'),
-                    btnSubmit: lang.getProp('new-btn-submit'),
+                    btnCancel: lang.getCustomProp('modules.actions.cancel'),
+                    btnSubmit: lang.getCustomProp('modules.actions.create'),
                     h1: lang.getProp('new-h1'),
                     label: lang.getProp('new-label'),
                     labelContent: lang.getProp('new-label-content'),
@@ -61,8 +61,8 @@ export default async function BlogList() {
         </div>
     ) : (
         <div className={a.content}>
-            <h1 className={a.title}>{lang.getProp('error-h1')}</h1>
-            <p>{lang.getProp('error-p')}</p>
+            <h1 className={a.title}>{lang.getCustomProp('modules.errors.header')}</h1>
+            <p>{lang.getCustomProp('modules.errors.session')}</p>
         </div>
     );
 }

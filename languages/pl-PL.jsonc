@@ -33,19 +33,15 @@
     */
     "modules": {
         "navigation": {
-            //- links section
             "ul-products": "Produkty",
             "ul-about": "O nas",
             "ul-blog": "Blog",
             "ul-donate": "Dotacje",
-            //- login section
             "login-btn": "Zaloguj",
             "register-btn": "Utwórz konto",
-            //- account switcher
             "switcher-profile": "Mój profil",
             "switcher-security": "Bezpieczeństwo",
             "switcher-logout": "Wyloguj się",
-            //- products popup
             "products-files": "Przechowuj dane bezpiecznie w chmurze",
             "products-napi": "Pozwol swoim klientom logować się przez Nove",
             "products-crm": "Zarządzaj rekordami szybko i z łatwością"
@@ -54,8 +50,8 @@
             "license": "Na licencji",
             "made-with-love": "Stworzone z ❤️ przez",
             "contributors": "społeczność",
-            //- links section
             "ul-about": "O nas",
+            "ul-foss": "Projekty",
             "ul-docs": "Dokumentacja",
             "ul-blog": "Blog",
             "ul-donate": "Dotacje",
@@ -66,51 +62,57 @@
             "ul-privacy": "Polityka Prywatności",
             "ul-terms": "Regulamin",
             "ul-developers": "Dla programistów"
+        },
+        "actions": {
+            "back": "Powrót",
+            "proceed": "Dalej",
+            "go": "Idź",
+            "cancel": "Anuluj",
+            "enable": "Włącz",
+            "disable": "Wyłącz",
+            "ok": "Okej",
+            "next": "Następna",
+            "previous": "Poprzednia",
+            "save-changes": "Zapisz zmiany",
+            "save": "Zapisz",
+            "edit": "Edytuj",
+            "delete": "Usuń",
+            "create": "Stwórz"
+        },
+        "errors": {
+            "header": "Coś poszło bardzo nie tak",
+            "p-offline": "Przepraszamy ale nasze serwery są obecnie niedostępne",
+            "p-session": "Nie możemy podpisać Twojej sesji co prowadzi do błędu pobrania informacji",
+            "p-verifyEmail": "Zweryfikuj swój adres e-mail aby moć używać tego konta"
         }
     },
     "main": {
         "landing": {
-            //* Site description
             "title": "Wejdź do świata gdzie, Twoja prywatność ma znaczenie",
-            //* Hero section
-            //- h1
             "hero-h1": "Wejdź do świata, gdzie <span>Twoja prywatność</span> ma znaczenie.",
-            //- trust note
             "hero-note-trust": "Nie wierz nam na słowo. Przejrzyj nasz <a class={style} target=\"_blank\" rel=\"noopener noreferrer\" href={repository}>kod</a> samodzielnie",
-            //- misc
             "hero-description": "Porzuć Google, Facebooka i innych sprzedających Twoje dane, profilujących Cię i śledzących. Odzyskaj kontrolę i zacznij używać otwartoźródłowych, darmowych i respektujących prywatność rozwiązań Nove.",
             "hero-btn": "Zacznij juz dziś",
-            //* Word section (features)
             "word-h1": "W naszym ekosystemie Twoje dane to Twoja sprawa.",
-            //- feature ul
             "word-card1-title": "Przechowywane bezpiecznie",
             "word-card1-description": "Szyfrujemy Twoje dane zawsze, gdy to możliwe, by zabezpieczyć je przed złodziejami, agencjami rządowymi oraz przed nami.",
             "word-card2-title": "Bez śledzenia i sprzedaży",
             "word-card2-description": "Nigdy Cię domyślnie nie śledzimy. Nie sprzedajemy też Twoich danych, ponieważ należą do Ciebie, nie do nas czy do nich.",
             "word-card3-title": "Darmowy plan na zawsze",
             "word-card3-description": "Większość naszych usług zawiera darmowy plan, więc nie musisz nam bezwzględnie ufać. Rozpocznij swoją przygodę już teraz!",
-            //- trust note
             "word-trust": "Wszystko to można łatwo zweryfikować przez otwarty kod źródłowy. Sprawdź go na",
-            //* Breakup section
             "breakup-h1": "Tworzone przez aktywistów prywatności oraz społeczność",
             "breakup-description": "W Nove tworzymy otwartoźródłowo i doceniamy każdą pomoc w rozwoju. Ponieważ <b>prywatność i bezpieczeństwo</b> idzie w parze z <b>otwartoźródłowością i audytowalnością</b>.",
-            //- breakup ul
             "breakup-li-1": "Projekty łatwo dostepne na Gitea",
             "breakup-li-2": "Wnieś wkład własny poprzez łapanie błędów, poprawianie kodu czy propozycje zmian",
             "breakup-li-3": "Hostuj własną wersję naszego oprogramowania bezpośrednio na swoim sprzęcie",
-            //* Ready section
             "ready-h1": "Jesteś gotowy na zanurzenie się w świecie prywatności?",
             "ready-p": "Rozpocznij swoją przygodę i zarejestruj się już teraz.",
             "ready-btn": "Zacznij już dziś"
         },
         "about": {
-            "title": "O nas",
-            //* Hero section
-            //- p
             "hero-h1": "Naszym <b>celem</b> jest uczynienie Internetu <span>prywatnym</span> oraz <span>bezpiecznym</span>",
-            //- p
             "hero-p": "Dostarczamy narzędzia wolne od zbędnych funkcji, śledzenia, a przede wszystkim z darmowym planem i otwartoźródłową polityką.",
-            //- members, translate positions
             "pos1": "Właściciel, programista stron i designer UI/UX",
             "pos2": "Główny programista API oraz opiekun kodu",
             "pos3": "Designer UI/UX i menadżer projektów",
@@ -118,61 +120,38 @@
             "pos5": "Emerytowany programista API"
         },
         "foss": {
-            "title": "Projekty FOSS",
-            //* Hero section
-            //- h1
             "hero-h1": "Kochamy <span>darmowe</span> i <span>otwartoźródłowe</span>",
-            //- p
             "hero-p": "Ponieważ <b>otwartoźródłowe</b> oprogramowanie to ważna rola w pracy w grupie, ochronie prywatności użytkowników i niezawodności systemu.",
-            //- projects
             "ul-napi": "Twórz aplikacje, korzystając z systemu NAPI OAuth2, dającego możliwość logowania się za pomocą Nove.",
             "ul-manager": "Oficjalna strona internetowa używana przez nas, w celu zapewnienia graficznego dostępu do konta.",
             "ul-files": "Chmura ogólnego przeznaczenia z szyfrowaniem wgrywanych plików, dostępna dla każdego przez jedno kliknięcie."
         },
         "login": {
-            "title": "Zaloguj się",
-            //* Hero
             "hero-h1": "Witaj ponownie",
             "hero-p": "Zaloguj się, aby uzyskać dostęp do swojego konta",
-            //- inputs
             "input-login": "Login",
             "input-password": "Hasło",
-            "input-btn": "Dalej",
-            //- multi-factor authentication popup
             "mfa-h1": "Kod weryfikacyjny jest wymagany",
             "mfa-p": "Podaj kod wygenerowany przez aplikację TOTP na Twoim telefonie lub użyj kodu zapasowego.",
             "mfa-label": "Kod",
-            "mfa-cancel": "Anuluj",
             "mfa-submit": "Zaloguj",
-            //- password reset button
-            "password-reset": "Resetuj swoje hasło",
-            //- misc
-            "servers-down": "Przepraszamy, ale nasze serwery są chwilowo niedostępne"
+            "password-reset": "Resetuj swoje hasło"
         },
         "register": {
-            "title": "Zarejestruj się",
-            //* Hero
             "hero-h1": "Nowe konto Nove",
             "hero-p": "Uzupełnij formularz i stwórz swoje całkiem nowe konto",
-            //- inputs
             "input-email": "E-mail",
             "input-username": "Nazwa użytkownika",
-            "input-password": "Hasło",
-            "input-btn": "Dalej",
-            //- misc
-            "servers-down": "Przepraszamy, ale nasze serwery są chwilowo niedostępne"
+            "input-password": "Hasło"
         },
         "password-reset": {
-            "title": "Resetuj hasło",
             "hero-h1": "Reset hasła",
             "hero-p": "Aby kontynuować, podaj swój e-mail i nowe hasło",
             "input-email": "E-mail",
             "input-new-password": "Nowe hasło",
-            "input-btn-submit": "Dalej",
             "request-success": "Wiadomość potwierdzająca została wysłana na podany adres"
         },
         "blog": {
-            "back-btn": "Go back",
             "warn-h1": "Warning",
             "warn-p": "Right now, we only share posts in English but it will change in the future as we evolve."
         }
@@ -180,13 +159,7 @@
     "dashboard": {
         "layout": {
             "title": "Ustawienia",
-            //* Hero section
-            //- text that displays above the list of elements on sidebar
             "header": "Ustawienia",
-            //- errors
-            "verify-email": "Zweryfikuj swój adres e-mail, aby moć używać konta Nove",
-            "api-down": "Coś jest nie tak i nie możemy porozumieć się z API",
-            //* List of elements to select on sidebar
             "ul-overview": "Przegląd",
             "ul-security": "Bezpieczeństwo",
             "ul-profile": "Mój profil",
@@ -197,184 +170,111 @@
             "ul-logs": "Logi aktywności"
         },
         "main": {
-            "title": "Przegląd",
-            //* Your profile section on /account
             "tips-header": "Jak poprawić bezpieczeństwo i prywatność",
             "tips-1": "Używaj oprogramowania FOSS",
             "tips-2": "Włącz weryfikacje dwuetapową",
             "tips-3": "Nie twórz zbyt dużej ilości kont",
-            //* Cards that are listed next to your profile on /account
             "card-1-h1": "Język",
             "card-1-p": "Zmień język wyświetlany we wszystkich usługach Nove",
             "card-2-h1": "Aktywność",
             "card-2-p": "Z łatwością zarządzaj ostatnią aktywnością na twoim koncie",
             "card-2-action": "{number} aktywne sesje",
-            //- reminder      ^^^^^^^^ do not translate it, leave as it is
             "card-3-h1": "Logowanie",
             "card-3-p": "Zmień swoje hasło lub dodaj dodatkowe zabezpieczenia",
             "card-3-action": "Idź",
             "card-4-h1": "Przywr.",
             "card-4-p": "Pobierz kody zapasowe po włączeniu weryfikacji dwuetapowej",
-            //- app connections
             "connections-title": "Połączone aplikacje",
             "connections-btn-privacy": "Polityka Prywatności",
             "connections-btn-tos": "Regulamin",
             "connections-permissions": "Uprawnienia",
             "connections-last-access": "Ostatni dostęp",
-            "connections-expire": "Wygasa",
-            //* Error displayed when we cannot communicate with the API properly
-            "error-h1": "Coś jest nie tak i nie możemy porozumieć się z API",
-            "error-p": "Nie możemy podpisać twojej sesji, co prowadzi do błędu wczytywania danych"
+            "connections-expire": "Wygasa"
         },
         "security": {
-            "title": "Bezpieczeństwo",
-            //* Your devices section
             "devices-h1": "Twoje urządzenia",
             "devices-p": "Lista najnowszych urządzeń, logujących się w tym miesiącu na Twoje konto",
-            //- no data error
             "devices-no-data-h1": "Brak danych",
             "devices-no-data-p": "Wyłączyłeś zbieranie aktywności lub niczego jeszcze nie zapisaliśmy",
-            //- misc
             "devices-privacy-notice": "Przechowujemy informacje o urządzeniach, które logowały się na twoje konto przez ostatnie 30 dni.",
-            //- opt-in/out button
-            "devices-opt-btn-1": "Wyłącz",
-            "devices-opt-btn-2": "Włącz",
-            //* "How do you sign in" section
             "hds-h1": "Jak się logujesz",
             "hds-p": "Dodaj lub modyfikuj metody potwierdzania twojej tożsamości",
-            //- buttons on the right side, keep the text short
-            //- password button
             "hds-password-btn": "Hasło",
-            //? password change popup
             "hds-password-h1": "Zmień hasło",
             "hds-password-p": "Utwórz silne hasło, którego nigdzie jeszcze nie używasz. Zmiana hasła wyloguje cię ze wszystkich urządzeń.",
             "hds-password-label-1": "Stare hasło",
             "hds-password-placeholder-1": "Zweryfikuj stare hasło",
             "hds-password-label-2": "Nowe hasło",
             "hds-password-placeholder-2": "Podaj Twoje nowe hasło",
-            //- email button
             "hds-email-btn": "E-mail",
-            //? email change popup
             "hds-email-h1": "Zmień adres e-mail",
             "hds-email-p": "Adres e-mail, poprzez który możemy się z tobą skontaktować w celach bezpieczeństwa. Możesz go też używać przy logowaniu się do konta.",
             "hds-email-label-1": "Nowy e-mail",
             "hds-email-placeholder-1": "Podaj nowy e-mail",
-            //- 2fa button
             "hds-mfa-btn": "MFA",
-            //? 2fa popup
             "hds-mfa-h1": "Weryfikacja dwuetapowa",
             "hds-mfa-p": "Zabezpiecz swoje konto przed osobami, które chcą je ukraść. Możesz tu włączyć lub wyłączyć MFA.",
-            "hds-mfa-disable": "Wyłącz",
-            "hds-mfa-enable": "Włącz",
             "hds-mfa-label-code": "Kod",
-            "hds-mfa-btn-ok": "Okej",
             "hds-mfa-recovery-codes": "Kody zapasowe",
-            //- recovery button
             "hds-recovery": "Przywr.",
-            //? recovery popup
             "hds-recovery-h1": "Kody zapasowe",
             "hds-recovery-p": "Kopiuj kody zapasowe twojego konta, jako awaryjna metoda logowania, gdy zgubisz swój telefon z aplikacją TOTP.",
-            "hds-recovery-got-it": "Okej",
             "hds-recovery-label": "Kod MFA",
-            "hds-recovery-submit": "Dalej",
-            //- popup actions
-            "hds-btn-cancel": "Anuluj",
-            "hds-btn-save": "Zapisz zmiany",
-            //* Delete your account section
             "delete-h1": "Usuń moje konto Nove",
             "delete-p": "Aby usunąć konto, musisz podać swoje hasło w celach bezpieczeństwa. Ten proces jest nieodwracalny, a my niezwłocznie usuniemy dane z naszych serwerów! Możesz usunąć swoje konto kiedy tylko zechcesz i nie musisz się z nami w tej sprawie kontaktować. Pamiętaj, aby usunąć wszystkie konta zarejestrowane przez OAuth2. W innym wypadku mogą być niedostępne.",
             "delete-p2": "Podaj Twoje hasło abyśmy mogli zweryfikować twoją tożsamość. Pamiętaj aby usunąć wszystkie konta zarejestrowane przez OAuth2. W innym wypadku mogą być niedostępne. Ta akcja jest wykonywana od razu i nie ma odwrotu.",
             "delete-label": "Twoje hasło",
             "delete-placeholder": "Hasło",
-            "delete-btn": "Usuń moje konto",
-            //* Error displayed when we cannot communicate with the API properly
-            "error-h1": "Coś jest nie tak i nie możemy porozumieć się z API",
-            "error-p": "Nie możemy podpisać twojej sesji, co prowadzi do błędu wczytywania danych"
+            "delete-btn": "Usuń moje konto"
         },
         "profile": {
-            "title": "Mój profil",
             "description": "Zarządzaj informacjami, które są wyświetlane na twoim profilu Nove. Możesz ustawić profil na publiczny lub prywatny. Gdy ustawiony jest prywatny, udostępnimy tylko nazwę konta i ikonę.",
             "hero-ul-1": "Podstawowe informacje o koncie",
             "hero-ul-2": "Szczegóły",
-            //* Inputs
-            //- username input
             "input-username": "Nazwa użytkownika",
             "input-username-placeholder": "{username} (nowa nazwa tutaj)",
-            //- avatar input
             "input-avatar": "Zdjęcie profilowe",
             "input-avatar-btn": "Wybierz plik",
             "input-avatar-filename": "Nic nie jest wybrane",
             "input-avatar-too-big": "Plik, który próbujesz przesłać, jest za duży",
             "input-avatar-not-allowed": "Plik, który próbujesz przesłać, nie jest dozwolony",
-            //- about me input
             "input-bio": "O mnie",
-            //- public/private profile switch
-            "input-profile-state-label": "Wyświetlaj więcej informacji na publicznym profilu",
-            //- misc buttons
-            "input-btn-edit": "Edytuj",
-            "input-btn-save": "Zapisz",
-            //* Error displayed when we cannot communicate with the API properly
-            "error-h1": "Coś jest nie tak i nie możemy porozumieć się z API",
-            "error-p": "Nie możemy podpisać twojej sesji, co prowadzi do błędu wczytywania danych"
+            "input-profile-state-label": "Wyświetlaj więcej informacji na publicznym profilu"
         },
         "language": {
-            //* Hero section
             "hero-h1": "Język",
             "hero-p1": "Wybierz preferowany język. To ustawienie będzie używane, by wyświetlić treści w wybranym języku we wszystkich produktach Nove, na których jesteś zalogowany. Połączone aplikacje OAuth2 też mogą go używać.",
-            "hero-p2": "Nie jest to jeszcze oficjalnie wspierane rozwiązanie, lecz aplikacje zewnętrzne mogą już je w pełni wdrażać.",
-            "input-btn": "Zapisz",
-            //* Error displayed when we cannot communicate with the API properly
-            "error-h1": "Coś jest nie tak i nie możemy porozumieć się z API",
-            "error-p": "Nie możemy podpisać twojej sesji, co prowadzi do błędu wczytywania danych"
+            "hero-p2": "Nie jest to jeszcze oficjalnie wspierane rozwiązanie, lecz aplikacje zewnętrzne mogą już je w pełni wdrażać."
         }
     },
     "admin": {
         "users": {
             "hero-h1": "Lista użytkowników",
             "popup-btn": "Autoryzuj akcje",
-            "popup-btn-cancel": "Anuluj",
-            "popup-btn-disable": "Wyłącz",
-            "popup-btn-enable": "Włącz",
-            "popup-btn-delete": "Usuń",
             "popup-h1": "Musimy zweryfikować, że to na prawdę ty",
             "popup-p": "Podaj kod MFA z aplikacji TOTP na Twoim telefonie. Możesz użyć kodu zapasowego.",
             "popup-label": "Kod MFA",
-            "popup-reason": "Powód",
-            //* Error displayed when we cannot communicate with the API properly
-            "error-h1": "Coś jest nie tak i nie możemy porozumieć się z API",
-            "error-p": "Nie możemy podpisać twojej sesji, co prowadzi do błędu wczytywania danych"
+            "popup-reason": "Powód"
         },
         "posts": {
             "header": "Ilość postów: {number}",
-            //- popup
             "new-btn": "Utwórz nowy post",
-            "new-btn-cancel": "Anuluj",
-            "new-btn-submit": "Utwórz",
             "new-h1": "Utwórz nowy post",
             "new-label": "Tytuł",
             "new-label-content": "Treść",
-            "edit-h1": "Edytuj post",
-            "edit-btn": "Edytuj",
-            "back-btn": "Wróć",
-            "delete-btn": "Usuń",
-            //* Error displayed when we cannot communicate with the API properly
-            "error-h1": "Coś jest nie tak i nie możemy porozumieć się z API",
-            "error-p": "Nie możemy podpisać twojej sesji, co prowadzi do błędu wczytywania danych"
+            "edit-h1": "Edytuj post"
         }
     },
     "documents": {
         "privacy-policy": {
             "title": "Polityka Prywatności",
             "last-modified": "Ostatnio zmodyfikowane: <time>30 września 2023</time>",
-            //* Introduction
             "p1": "Dostarczamy (w większości) darmowe i otwartoźródłowe rozwiązania. Nie śledzimy ani nie sprzedajemy danych do firm trzecich. Nie używamy śledzących pikseli ani innych form ujawniania tożsamości użytkownika.",
             "p2": "Zastrzegamy sobie prawo do aktualizacji tego dokumentu bez powiadomienia użytkowników.",
             "p3": "Używając naszych usług zgadzasz się przestrzegać naszej Polityki Prywatności oraz Regulaminu.",
-            //* Infrastructure
             "inf-header": "Infrastruktura",
             "inf-p1": "Używamy serwerów dostarczanych przez FTdL (<a href=\"https://ftdl.pl/services/\" rel=\"noopener noreferrer\" target=\"_blank\">strona internetowa</a>) które zlokalizowane są w Krakowie, w Polsce. Administratorem danych osobowych jest Nove (nove.team; <a href=\"mailto:reply@nove.team\">reply@nove.team</a>)",
             "inf-p2": "W naszej bazie danych przetwarzamy dane które zostały podane do NAPI. Czyli",
-            //- list of items
             "inf-li-1": "nazwa użytkownika (zawsze pokazana)",
             "inf-li-2": "e-mail (nigdy nie pokazany)",
             "inf-li-3": "sekcja o mnie (nie pokazana na prywatnym profilu)",
@@ -386,11 +286,9 @@
             "inf-li-9": "hasła MFA (nigdy nie pokazane)",
             "inf-li-10": "zaszyfrowane hasło (nigdy nie pokazane)",
             "inf-li-11": "zdjęcie profilowe konta (zawsze pokazane)",
-            //- continuation
             "inf-p3": "Niektóre z tych informacji zostały oznaczone jako publicznie dostępne. Udostępniamy narzędzie pozwalające na zmiane stanu profilu na publiczny/prywatny aby ukryć wrażliwe dane.",
             "inf-p4": "Posiadamy dodatkowe funkcje które zbierają dane i są wyłączone domyślnie: zapisywanie aktywności. Gdy włączone zbiera IP urządzenia oraz platformę (system, typ). Wyświetla te informacje w zakładce bezpieczeństwa w ustawieniach. Dane przechowywane są przez 30 dni a następnie są usuwane. Kiedy wyłączysz tą funkcje zebrane dane zostają automatycznie usunięte.",
             "inf-p5": "Podany e-mail nie jest używany w celach marketingowych.",
-            //* Data retention policy
             "drp-header": "Polityka przechowywania danych",
             "drp-p1": "Aby usunąć swoje konto, przejdź do ustawień, wejdź w zakładkę 'Bezpieczeństwo' a następnie naciśnij 'Usuń moje konto' na samym dole strony.",
             "drp-p2": "Dane które zostały zaszyfrowane hasłem są faktycznie zaszyfrowane i nie możemy ich podejrzeć.",
@@ -399,7 +297,6 @@
             "drp-p5": "Każde usunięcie konta przez administratora jest uzasadnione a powód jest znany właścicielowi konta przed lub kilka dni po usunięciu.",
             "drp-p6": "Jeśli użytkownik stracił dostęp do swojego konta, może zgłosić się po resetowanie hasła lub usunięcie konta poprzez adres e-mail na który się zarejestrował",
             "drp-p7": "Przetwarzamy dane użytkownika tak długo jak posiada konto w NAPI.",
-            //* OAuth2 applications
             "oa2-header": "Aplikacje OAuth2",
             "oa2-p1": "Ta sekcja nie jest jeszcze gotowa."
         },
@@ -409,7 +306,6 @@
             "p1": "Używając usług osadzonych na naszych serwerach (Nove) zgadzasz się na naszą Politykę Prywatności oraz akceptujesz Regulamin. Jeśli się z nimi nie zgadzasz nie możesz korzystać z naszych serwisów. Jako przypomnienie, ten dokument jak i Polityka Prywatności aplikuje się do wszystkich naszych usług i serwisów.",
             "p2": "Nie jesteśmy odpowiedzialni za treści na koncie użytkownika",
             "p3": "Niedozwolone działania w naszych serwisach",
-            //* List
             "li-1": "Treści NSFW oraz NSFL są zabronione. Obejmuje to przemoc, filmy gore i materiały o charakterze terrorystycznym. NSFL to treści „Not Safe for Life”, co oznacza wszystko, co może zagrozić życiu ludzkiemu.",
             "li-2": "Wszelkie materiały pornograficzne z udziałem nieletnich zostaną usunięte, jeśli zostaną zauważone, a powiązane konto zostanie całkowicie zablokowane, co spowoduje usunięcie wszystkich powiązanych z nim danych.",
             "li-3": "Wszelkie materiały mające na celu zniszczenie (bezpośrednie lub pośrednie) komputera lub innego urządzenia są surowo zabronione.",

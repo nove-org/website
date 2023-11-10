@@ -7,7 +7,7 @@ import { cookies, headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 import RegisterForm from './Form';
 import { Response, User } from '@util/schema';
-import { DOMAIN_REGEX } from '@util/config';
+import { DOMAIN_REGEX } from '@util/CONSTS';
 
 export const metadata = {
     title: 'Nove | Register',
@@ -39,8 +39,8 @@ export default async function Register({ searchParams }: { searchParams: { [key:
 
     return (
         <section className={o.box}>
-            {!user ? <p className="error">{lang.getProp('servers-down')}</p> : null}
-            <title>{`Nove | ${lang.getProp('title')}`}</title>
+            {!user ? <p className="error">{lang.getCustomProp('modules.errors.p-offline')}</p> : null}
+            <title>{`Nove | ${lang.getCustomProp('modules.navigation.register-btn')}`}</title>
             <Logo size={48} />
             <h1>{lang.getProp('hero-h1')}</h1>
             <p>{lang.getProp('hero-p')}</p>
@@ -49,7 +49,7 @@ export default async function Register({ searchParams }: { searchParams: { [key:
                     inputEmail: lang.getProp('input-email'),
                     inputUsername: lang.getProp('input-username'),
                     inputPassword: lang.getProp('input-password'),
-                    inputBtn: lang.getProp('input-btn'),
+                    inputBtn: lang.getCustomProp('modules.actions.proceed'),
                 }}
                 searchParam={redirectBack}
             />

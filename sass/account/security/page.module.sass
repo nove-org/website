@@ -4,8 +4,9 @@ div.content
     min-height: calc( 100vh - 68px )
     & h1.title
         font-size: 32px
-        font-weight: 600
+        font-weight: 500
         margin-bottom: 10px
+        opacity: .9
     & div.devices
         & h2
             margin: 10px 0 5px 0
@@ -103,6 +104,8 @@ div.content
                     align-items: center
                     justify-content: space-between
                     margin: 25px 0 0 0
+                    font-weight: 500
+                    font-size: 26px
                     @media screen and (max-width: 1350px)
                         margin: 0
                         margin-left: 10px
@@ -161,7 +164,8 @@ div.popup
     & div.container
         padding: 15px 20px
         border-radius: 25px
-        background: var(--secondary)
+        background: var(--popup-rd)
+        backdrop-filter: blur(10px)
         color: var(--font-st)
         max-width: 350px
         height: fit-content
@@ -182,8 +186,8 @@ div.popup
                 transform: scale(1)
         & h1
             margin: 10px 0
-            font-size: 24px
-            font-weight: 600
+            font-size: 26px
+            font-weight: 500
         & p
             font-size: 16px
             font-weight: 400

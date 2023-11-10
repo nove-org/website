@@ -8,7 +8,7 @@ import { redirect } from 'next/navigation';
 import { headers } from 'next/headers';
 import LoginForm from './Form';
 import { Response, User } from '@util/schema';
-import { DOMAIN_REGEX } from '@util/config';
+import { DOMAIN_REGEX } from '@util/CONSTS';
 
 export const metadata = {
     title: 'Nove | Login',
@@ -40,8 +40,8 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
 
     return (
         <section className={o.box}>
-            {!user ? <p className="error">{lang.getProp('servers-down')}</p> : null}
-            <title>{`Nove | ${lang.getProp('title')}`}</title>
+            {!user ? <p className="error">{lang.getCustomProp('modules.errors.p-offline')}</p> : null}
+            <title>{`Nove | ${lang.getCustomProp('modules.navigation.login-btn')}`}</title>
             <Logo size={48} />
             <h1>{lang.getProp('hero-h1')}</h1>
             <p>{lang.getProp('hero-p')}</p>
@@ -49,12 +49,12 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
                 lang={{
                     inputLogin: lang.getProp('input-login'),
                     inputPassword: lang.getProp('input-password'),
-                    inputBtn: lang.getProp('input-btn'),
+                    inputBtn: lang.getCustomProp('modules.actions.proceed'),
                     mfaTitle: lang.getProp('mfa-h1'),
                     mfaDescription: lang.getProp('mfa-p'),
                     mfaLabel: lang.getProp('mfa-label'),
-                    mfaCancel: lang.getProp('mfa-cancel'),
-                    mfaSubmit: lang.getProp('mfa-submit'),
+                    mfaCancel: lang.getCustomProp('modules.actions.cancel'),
+                    mfaSubmit: lang.getCustomProp('modules.navigation.login-btn'),
                 }}
                 searchParam={redirectBack}
             />

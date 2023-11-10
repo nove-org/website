@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Logo from '@app/Logo';
 import o from '@sass/Footer.module.sass';
-import { SUPPORT_MAIL, REPOSITORY, DONATE_LINK } from '@util/config';
+import { SUPPORT_MAIL, REPOSITORY, DONATE_LINK } from '@util/CONSTS';
 import { axiosClient } from '@util/axios';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import { cookies, headers } from 'next/headers';
@@ -47,7 +47,7 @@ export default async function Footer() {
                             <Link href="/blog">{lang.getProp('ul-blog')}</Link>
                         </li>
                         <li>
-                            <a href={REPOSITORY + '/wiki'}>{lang.getProp('ul-docs')}</a>
+                            <a href="https://git.nove.team/nove-org/NAPI/wiki">{lang.getProp('ul-docs')}</a>
                         </li>
                         <li>
                             <a target="_blank" rel="noopener noreferrer" href={DONATE_LINK}>

@@ -34,7 +34,7 @@ export default async function About() {
 
     return (
         <section className={o.hero}>
-            <title>{`Nove | ${lang.getProp('title')}`}</title>
+            <title>{`Nove | ${lang.getCustomProp('modules.navigation.ul-about')}`}</title>
             <h1 className={o.title} dangerouslySetInnerHTML={{ __html: lang.getProp('hero-h1') }} />
             <p className={o.desc}>{lang.getProp('hero-p')}</p>
             <ul>

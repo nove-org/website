@@ -38,9 +38,11 @@ section.hero
                 border-radius: 20px
                 background: var(--secondary)
                 max-width: 200px
+                min-height: 100px
+                height: calc( 100% - 20px * 2 )
                 width: 100%
-                flex: max-content
                 transition-duration: .2s
+                flex: max-content
                 &:hover
                     background: var(--border-st)
                 @media screen and (max-width: 1170px)
@@ -50,8 +52,8 @@ section.hero
                 & h1
                     margin: 7px 0
                     margin-top: 0
-                    font-size: 20px
-                    font-weight: 600
+                    font-size: 22px
+                    font-weight: 500
                     color: var(--accent-rd)
                 & p
                     margin: 5px 0

@@ -32,7 +32,7 @@ export default async function Overview() {
 
     return user?.body?.data?.username && device?.body ? (
         <div className={o.content}>
-            <h1 className={o.title}>{lang.getProp('title')}</h1>
+            <h1 className={o.title}>{lang.getCustomProp('dashboard.layout.ul-security')}</h1>
             <div className={o.devices}>
                 <h2>{lang.getProp('devices-h1')}</h2>
                 <p>{lang.getProp('devices-p')}</p>
@@ -63,7 +63,8 @@ export default async function Overview() {
                     )}
                 </ul>
                 <p>
-                    {lang.getProp('devices-privacy-notice')} <Opt optOut={lang.getProp('devices-opt-btn-1')} enable={lang.getProp('devices-opt-btn-2')} data={device.body.data} />
+                    {lang.getProp('devices-privacy-notice')}{' '}
+                    <Opt optOut={lang.getCustomProp('modules.actions.disable')} enable={lang.getCustomProp('modules.actions.enable')} data={device.body.data} />
                 </p>
             </div>
             <div className={o.hds}>
@@ -81,8 +82,8 @@ export default async function Overview() {
                             label2: lang.getProp('hds-password-label-2'),
                             pc1: lang.getProp('hds-password-placeholder-1'),
                             pc2: lang.getProp('hds-password-placeholder-2'),
-                            cancel: lang.getProp('hds-btn-cancel'),
-                            save: lang.getProp('hds-btn-save'),
+                            cancel: lang.getCustomProp('modules.actions.cancel'),
+                            save: lang.getCustomProp('modules.actions.save-changes'),
                         }}
                     />
                     <Email
@@ -92,8 +93,8 @@ export default async function Overview() {
                             p: lang.getProp('hds-email-p'),
                             label1: lang.getProp('hds-email-label-1'),
                             pc1: lang.getProp('hds-email-placeholder-1'),
-                            cancel: lang.getProp('hds-btn-cancel'),
-                            save: lang.getProp('hds-btn-save'),
+                            cancel: lang.getCustomProp('modules.actions.cancel'),
+                            save: lang.getCustomProp('modules.actions.save-changes'),
                         }}
                     />
                     <Mfa
@@ -103,9 +104,9 @@ export default async function Overview() {
                             h1: lang.getProp('hds-mfa-h1'),
                             p: lang.getProp('hds-mfa-p'),
                             labelCode: lang.getProp('hds-mfa-label-code'),
-                            cancel: lang.getProp('hds-btn-cancel'),
-                            change: user.body.data.mfaEnabled ? lang.getProp('hds-mfa-disable') : lang.getProp('hds-mfa-enable'),
-                            gotIt: lang.getProp('hds-mfa-btn-ok'),
+                            cancel: lang.getCustomProp('modules.actions.cancel'),
+                            change: user.body.data.mfaEnabled ? lang.getCustomProp('modules.actions.disable') : lang.getCustomProp('modules.actions.enable'),
+                            gotIt: lang.getCustomProp('modules.actions.ok'),
                             recoveryCodes: lang.getProp('hds-mfa-recovery-codes'),
                         }}
                     />
@@ -115,10 +116,10 @@ export default async function Overview() {
                             btn: lang.getProp('hds-recovery'),
                             h1: lang.getProp('hds-recovery-h1'),
                             p: lang.getProp('hds-recovery-p'),
-                            cancel: lang.getProp('hds-btn-cancel'),
-                            gotIt: lang.getProp('hds-recovery-got-it'),
+                            cancel: lang.getCustomProp('modules.actions.cancel'),
+                            gotIt: lang.getCustomProp('modules.actions.ok'),
                             labelCode: lang.getProp('hds-recovery-label'),
-                            submit: lang.getProp('hds-recovery-submit'),
+                            submit: lang.getCustomProp('modules.actions.next'),
                         }}
                     />
                 </ul>
@@ -133,15 +134,15 @@ export default async function Overview() {
                         p: lang.getProp('delete-p2'),
                         label: lang.getProp('delete-label'),
                         pc: lang.getProp('delete-placeholder'),
-                        cancel: lang.getProp('hds-btn-cancel'),
+                        cancel: lang.getCustomProp('modules.actions.cancel'),
                     }}
                 />
             </div>
         </div>
     ) : (
         <div className={o.content}>
-            <h1 className={o.title}>{lang.getProp('error-h1')}</h1>
-            <p>{lang.getProp('error-p')}</p>
+            <h1 className={o.title}>{lang.getCustomProp('modules.errors.header')}</h1>
+            <p>{lang.getCustomProp('modules.errors.p-session')}</p>
         </div>
     );
 }

@@ -33,7 +33,7 @@ export default async function FOSS() {
 
     return (
         <section className={o.hero}>
-            <title>{`Nove | ${lang.getProp('title')}`}</title>
+            <title>{`Nove | ${lang.getCustomProp('modules.footer.ul-foss')}`}</title>
             <h1 className={o.title} dangerouslySetInnerHTML={{ __html: lang.getProp('hero-h1') }} />{' '}
             <p className={o.desc} dangerouslySetInnerHTML={{ __html: lang.getProp('hero-p') }} />
             <ul>

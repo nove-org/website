@@ -34,7 +34,7 @@ section.box
             @media screen and (max-width: 900px)
                 margin-bottom: -150px
             @media screen and (max-width: 780px)
-                opacity: 0
+                display: none
         &.right
             margin-top: 0
             position: absolute
@@ -48,7 +48,7 @@ section.box
             @media screen and (max-width: 900px)
                 margin-top: -200px
             @media screen and (max-width: 780px)
-                opacity: 0
+                display: none
         &.button
             margin-top: 0
             margin-left: 5px
@@ -56,12 +56,13 @@ section.box
         margin: 5px 0
         margin-top: 15px
         font-size: 32px
-        font-weight: 600
+        font-weight: 500
         text-align: center
     & p
         margin: 15px 0
         margin-top: -5px
-        font-size: 23px
+        font-size: 20px
+        font-weight: 400
         text-align: center
     & form
         width: 100%
@@ -123,7 +124,8 @@ div.popup
     & div.container
         padding: 15px 20px
         border-radius: 25px
-        background: var(--secondary)
+        background: var(--popup-rd)
+        backdrop-filter: blur(10px)
         color: var(--font-st)
         max-width: 350px
         height: fit-content
@@ -144,8 +146,8 @@ div.popup
                 transform: scale(1)
         & h1
             margin: 10px 0
-            font-size: 24px
-            font-weight: 600
+            font-size: 26px
+            font-weight: 500
         & p
             font-size: 16px
             font-weight: 400

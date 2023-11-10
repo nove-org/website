@@ -2,9 +2,12 @@
     "typescript.tsdk": "node_modules/typescript/lib",
     "typescript.enablePromptUseWorkspaceTsdk": true,
     "cSpell.words": [
+        "authorise",
+        "commitlint",
         "erms",
         "Gitea",
         "Jaszczyszyn",
+        "Licenced",
         "napi",
         "noopener",
         "noreferrer",

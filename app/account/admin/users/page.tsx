@@ -24,10 +24,10 @@ export default async function Users() {
         <Form
             u={user.body.data}
             lang={{
-                btnDelete: lang.getProp('popup-btn-delete'),
-                btnDisable: lang.getProp('popup-btn-disable'),
-                btnEnable: lang.getProp('popup-btn-enable'),
-                btnCancel: lang.getProp('popup-btn-cancel'),
+                btnDelete: lang.getCustomProp('modules.actions.delete'),
+                btnDisable: lang.getCustomProp('modules.actions.disable'),
+                btnEnable: lang.getCustomProp('modules.actions.enable'),
+                btnCancel: lang.getCustomProp('modules.actions.cancel'),
                 btn: lang.getProp('popup-btn'),
                 h1: lang.getProp('popup-h1'),
                 p: lang.getProp('popup-p'),
@@ -37,8 +37,8 @@ export default async function Users() {
         />
     ) : (
         <div className={a.content}>
-            <h1 className={a.title}>{lang.getProp('error-h1')}</h1>
-            <p>{lang.getProp('error-p')}</p>
+            <h1 className={a.title}>{lang.getCustomProp('modules.errors.header')}</h1>
+            <p>{lang.getCustomProp('modules.errors.session')}</p>
         </div>
     );
 }
