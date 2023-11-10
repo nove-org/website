@@ -36,13 +36,13 @@ export default async function PasswordReset() {
 
     return (
         <section className={o.box}>
-            <title>{`Nove | ${lang.getProp('title')}`}</title>
+            <title>{`Nove | ${lang.getProp('hero-h1')}`}</title>
             <Logo size={48} />
             <h1>{lang.getProp('hero-h1')}</h1>
             <p>{lang.getProp('hero-p')}</p>
             <ResetForm
                 lang={{
-                    inputBtn: lang.getProp('input-btn-submit'),
+                    inputBtn: lang.getCustomProp('modules.actions.proceed'),
                     inputEmail: lang.getProp('input-email'),
                     inputNewPassword: lang.getProp('input-new-password'),
                     success: lang.getProp('request-success'),

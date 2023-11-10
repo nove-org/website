@@ -18,7 +18,7 @@
 
 import o from '@sass/page.module.sass';
 import Link from 'next/link';
-import { REPOSITORY } from '@util/config';
+import { REPOSITORY } from '@util/CONSTS';
 import Image from 'next/image';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import { axiosClient } from '@util/axios';

@@ -20,16 +20,18 @@ import '@sass/globals.sass';
 import localFont from 'next/font/local';
 import Navigation from '@app/Navigation';
 import Footer from '@app/Footer';
+import type { Metadata, Viewport } from 'next';
 
-export const metadata = {
+export const viewport: Viewport = {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+};
+
+export const metadata: Metadata = {
     metadataBase: new URL('https://nove.team'),
     title: 'Nove | Meet the world where your privacy matters',
-    description: 'Ditch government, Google, Facebook and others that share data, profile and track you. Take back control over this.',
-    viewport: {
-        width: 'device-width',
-        initialScale: 1,
-        maximumScale: 1,
-    },
+    description: 'Ditch the government, Google, Facebook and others that share data, profile and track you. Take back control over this.',
     category: 'technology',
     publisher: 'Nove Group',
     alternates: {
@@ -40,7 +42,7 @@ export const metadata = {
         url: 'https://nove.team/',
         siteName: 'nove.team',
         title: 'Nove | Meet the world where your privacy matters',
-        description: 'Ditch government, Google, Facebook and others that share data, profile and track you. Take back control over this.',
+        description: 'Ditch the government, Google, Facebook and others that share data, profile and track you. Take back control over this.',
         authors: ['Nove Group', 'Contributors'],
         images: [
             {
@@ -54,7 +56,7 @@ export const metadata = {
     twitter: {
         card: 'summary_large_image',
         title: 'Nove | Meet the world where your privacy matters',
-        description: 'Ditch government, Google, Facebook and others that share data, profile and track you. Take back control over this.',
+        description: 'Ditch the government, Google, Facebook and others that share data, profile and track you. Take back control over this.',
         images: [
             {
                 url: '/banner.png',
@@ -64,10 +66,7 @@ export const metadata = {
             },
         ],
     },
-    authors: [
-        { name: 'Nove Group', url: 'https://nove.team' },
-        { name: 'Contributors', url: 'https://git.nove.team/nove-org/website' },
-    ],
+    authors: [{ name: 'Nove Group', url: 'https://nove.team' }],
     keywords: ['nove', 'vave', 'vave bot', 'nove team', 'nove group'],
     robots: {
         index: true,

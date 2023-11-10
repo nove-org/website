@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Logo from '@app/Logo';
 import o from '@sass/Footer.module.sass';
-import { SUPPORT_MAIL, REPOSITORY, DONATE_LINK } from '@util/config';
+import { SUPPORT_MAIL, REPOSITORY, DONATE_LINK } from '@util/CONSTS';
 import { axiosClient } from '@util/axios';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import { cookies, headers } from 'next/headers';

@@ -35,7 +35,7 @@ export default async function Blog({ params }: { params: { id: string } }) {
                 <div className={b.flex}>
                     <Back
                         lang={{
-                            btn: lang.getProp('back-btn'),
+                            btn: lang.getCustomProp('modules.actions.back'),
                         }}
                     />
                     <Edit
@@ -43,15 +43,15 @@ export default async function Blog({ params }: { params: { id: string } }) {
                         title={post.body.data.post.title}
                         content={post.body.data.post.text}
                         lang={{
-                            btn: lang.getProp('edit-btn'),
-                            btnCancel: lang.getProp('new-btn-cancel'),
-                            btnSubmit: lang.getProp('new-btn-submit'),
+                            btn: lang.getCustomProp('modules.actions.edit'),
+                            btnCancel: lang.getCustomProp('modules.actions.cancel'),
+                            btnSubmit: lang.getCustomProp('modules.actions.save-changes'),
                             h1: lang.getProp('edit-h1'),
                             label: lang.getProp('new-label'),
                             labelContent: lang.getProp('new-label-content'),
                         }}
                     />
-                    <Delete id={post.body.data.post.id} lang={{ btn: lang.getProp('delete-btn') }} />
+                    <Delete id={post.body.data.post.id} lang={{ btn: lang.getCustomProp('modules.actions.delete') }} />
                 </div>
                 <h1>{post.body.data.post.title}</h1>
                 <div dangerouslySetInnerHTML={{ __html: sanitize(post.body.data.post.text) }} />
@@ -59,8 +59,8 @@ export default async function Blog({ params }: { params: { id: string } }) {
         </article>
     ) : (
         <div className={a.content}>
-            <h1 className={a.title}>{lang.getProp('error-h1')}</h1>
-            <p>{lang.getProp('error-p')}</p>
+            <h1 className={a.title}>{lang.getCustomProp('modules.errors.header')}</h1>
+            <p>{lang.getCustomProp('modules.errors.session')}</p>
         </div>
     );
 }

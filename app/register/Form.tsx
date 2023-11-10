@@ -3,10 +3,8 @@
 import { axiosClient } from '@util/axios';
 import { setCookie } from 'cookies-next';
 import { useState } from 'react';
-import { COOKIE_HOSTNAME } from '@util/config';
+import { COOKIE_HOSTNAME } from '@util/CONSTS';
 import o from '@sass/login.module.sass';
-import { User } from '@util/schema';
-import LanguageHandler from '@util/handlers/LanguageHandler';
 import { NextPage } from 'next';
 
 interface Props {

@@ -35,7 +35,7 @@ export default async function Overview() {
 
     return user?.body?.data?.username ? (
         <div className={o.content}>
-            <h1 className={o.title}>{lang.getProp('title')}</h1>
+            <h1 className={o.title}>{lang.getCustomProp('dashboard.layout.ul-overview')}</h1>
             <ul className={o.overview}>
                 <li className={o.profile}>
                     <header>
@@ -187,8 +187,8 @@ export default async function Overview() {
         </div>
     ) : (
         <div className={o.content}>
-            <h1 className={o.title}>{lang.getProp('error-h1')}</h1>
-            <p>{lang.getProp('error-p')}</p>
+            <h1 className={o.title}>{lang.getCustomProp('modules.errors.header')}</h1>
+            <p>{lang.getCustomProp('modules.errors.session')}</p>
         </div>
     );
 }

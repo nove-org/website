@@ -46,7 +46,7 @@ export default async function Blog({ params }: { params: { id: string } }) {
                 <p className={b.description}>{lang.getProp('warn-p')}</p>
             </header>
             <div className={b.content}>
-                <Back lang={{ btn: lang.getProp('back-btn') }} />
+                <Back lang={{ btn: lang.getCustomProp('modules.actions.back') }} />
                 <h1>{post?.body?.data?.post?.title}</h1>
                 <div dangerouslySetInnerHTML={{ __html: sanitize(post?.body?.data?.post?.text) }} />
             </div>

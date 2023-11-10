@@ -124,7 +124,14 @@ export default async function DashboardLayout({ children }: { children: React.Re
     ) : (
         <section className={o.box}>
             <title>{`Nove | ${lang.getProp('title')}`}</title>
-            <Loader type="hidden" text={user?.body?.error?.code === 'verify_email' ? lang.getProp('verify-email') : user?.body?.error?.message || lang.getProp('api-down')} />
+            <Loader
+                type="hidden"
+                text={
+                    user?.body?.error?.code === 'verify_email'
+                        ? lang.getCustomProp('modules.errors.p-verifyEmail')
+                        : user?.body?.error?.message || lang.getCustomProp('modules.errors.p-offline')
+                }
+            />
         </section>
     );
 }
