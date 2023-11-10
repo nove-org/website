@@ -47,7 +47,7 @@ export default async function Footer() {
                             <Link href="/blog">{lang.getProp('ul-blog')}</Link>
                         </li>
                         <li>
-                            <a href={REPOSITORY + '/wiki'}>{lang.getProp('ul-docs')}</a>
+                            <a href="https://git.nove.team/nove-org/NAPI/wiki">{lang.getProp('ul-docs')}</a>
                         </li>
                         <li>
                             <a target="_blank" rel="noopener noreferrer" href={DONATE_LINK}>
