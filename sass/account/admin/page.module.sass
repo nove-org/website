@@ -88,7 +88,6 @@ div.popup
     align-items: center
     justify-content: center
     background: var(--popup-bg)
-    backdrop-filter: blur(15px)
     width: 100%
     height: 100vh
     z-index: 99999
@@ -101,7 +100,8 @@ div.popup
     & div.container
         padding: 15px 20px
         border-radius: 25px
-        background: var(--secondary)
+        background: var(--popup-rd)
+        backdrop-filter: blur(10px)
         color: var(--font-st)
         max-width: 350px
         height: fit-content
@@ -122,8 +122,8 @@ div.popup
                 transform: scale(1)
         & h1
             margin: 10px 0
-            font-size: 24px
-            font-weight: 600
+            font-size: 26px
+            font-weight: 500
         & p
             font-size: 16px
             font-weight: 400
