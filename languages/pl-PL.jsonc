@@ -51,7 +51,7 @@
             "made-with-love": "Stworzone z ❤️ przez",
             "contributors": "społeczność",
             "ul-about": "O nas",
-            "ul-foss": "Projects",
+            "ul-foss": "Projekty",
             "ul-docs": "Dokumentacja",
             "ul-blog": "Blog",
             "ul-donate": "Dotacje",
@@ -64,26 +64,26 @@
             "ul-developers": "Dla programistów"
         },
         "actions": {
-            "back": "Go back",
-            "proceed": "Proceed",
-            "go": "Go",
-            "cancel": "Cancel",
-            "enable": "Enable",
-            "disable": "Disable",
-            "ok": "Got it",
-            "next": "Next",
-            "previous": "Previous",
-            "save-changes": "Save changes",
-            "save": "Save",
-            "edit": "Edit",
-            "delete": "Delete",
-            "create": "Create"
+            "back": "Powrót",
+            "proceed": "Dalej",
+            "go": "Idź",
+            "cancel": "Anuluj",
+            "enable": "Włącz",
+            "disable": "Wyłącz",
+            "ok": "Okej",
+            "next": "Następna",
+            "previous": "Poprzednia",
+            "save-changes": "Zapisz zmiany",
+            "save": "Zapisz",
+            "edit": "Edytuj",
+            "delete": "Usuń",
+            "create": "Stwórz"
         },
         "errors": {
-            "header": "Something went horribly wrong",
-            "p-offline": "Sorry but our servers are currently offline",
-            "p-session": "We cannot sign your session which leads to data retrieval failure",
-            "p-verifyEmail": "Please verify your e-mail to gain access to the account"
+            "header": "Coś poszło bardzo nie tak",
+            "p-offline": "Przepraszamy ale nasze serwery są obecnie niedostępne",
+            "p-session": "Nie możemy podpisać Twojej sesji co prowadzi do błędu pobrania informacji",
+            "p-verifyEmail": "Zweryfikuj swój adres e-mail aby moć używać tego konta"
         }
     },
     "main": {
