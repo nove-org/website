@@ -119,7 +119,7 @@ export default async function Overview() {
                             cancel: lang.getCustomProp('modules.actions.cancel'),
                             gotIt: lang.getCustomProp('modules.actions.ok'),
                             labelCode: lang.getProp('hds-recovery-label'),
-                            submit: lang.getProp('hds-recovery-submit'),
+                            submit: lang.getCustomProp('modules.actions.next'),
                         }}
                     />
                 </ul>

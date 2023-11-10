@@ -188,7 +188,7 @@ export default async function Overview() {
     ) : (
         <div className={o.content}>
             <h1 className={o.title}>{lang.getCustomProp('modules.errors.header')}</h1>
-            <p>{lang.getCustomProp('modules.errors.session')}</p>
+            <p>{lang.getCustomProp('modules.errors.p-session')}</p>
         </div>
     );
 }
