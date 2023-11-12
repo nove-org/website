@@ -28,7 +28,7 @@ export default function Comment({ user, post }: { user: User; post: Post }) {
         setLoading(true);
         await axiosClient
             .post(
-                '/v1/blog/' + post.post.id + '/comment',
+                '/v1/blog/' + post.id + '/comment',
                 { text: form.get('text') },
                 {
                     headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}` },
@@ -38,7 +38,7 @@ export default function Comment({ user, post }: { user: User; post: Post }) {
             .catch((err) => (setLoading(false), err?.response?.data?.body?.error ? throwError(err.response.data.body.error.message) : console.error(err)));
     };
 
-    return user?.username && post.post.commentsAllowed ? (
+    return user?.username && post.commentsAllowed ? (
         <form action={handlePost}>
             <Image src={user.avatar} alt="User avatar" width={48} height={48} />
             <div className={b.content}>
