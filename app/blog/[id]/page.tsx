@@ -47,8 +47,8 @@ export default async function Blog({ params }: { params: { id: string } }) {
             </header>
             <div className={b.content}>
                 <Back lang={{ btn: lang.getCustomProp('modules.actions.back') }} />
-                <h1>{post?.body?.data?.post?.title}</h1>
-                <div dangerouslySetInnerHTML={{ __html: sanitize(post?.body?.data?.post?.text) }} />
+                <h1>{post?.body?.data?.title}</h1>
+                <div dangerouslySetInnerHTML={{ __html: sanitize(post?.body?.data?.text) }} />
             </div>
             <div className={b.comments}>
                 <h1>Comments ({post?.body?.data?.comments?.length})</h1>

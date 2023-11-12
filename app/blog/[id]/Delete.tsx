@@ -26,7 +26,7 @@ export default function Delete({ post, id }: { post: Post; id: string }) {
     const handleDelete = async () => {
         setLoading(true);
         await axiosClient
-            .delete('/v1/blog/' + post.post.id + '/comment/' + id, {
+            .delete('/v1/blog/' + post.id + '/comment/' + id, {
                 headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}` },
             })
             .then((r) => (setLoading(false), router.refresh()))
