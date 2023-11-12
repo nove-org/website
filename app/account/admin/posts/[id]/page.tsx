@@ -39,9 +39,9 @@ export default async function Blog({ params }: { params: { id: string } }) {
                         }}
                     />
                     <Edit
-                        id={post.body.data.post.id}
-                        title={post.body.data.post.title}
-                        content={post.body.data.post.text}
+                        id={post.body.data.id}
+                        title={post.body.data.title}
+                        content={post.body.data.text}
                         lang={{
                             btn: lang.getCustomProp('modules.actions.edit'),
                             btnCancel: lang.getCustomProp('modules.actions.cancel'),
@@ -51,10 +51,10 @@ export default async function Blog({ params }: { params: { id: string } }) {
                             labelContent: lang.getProp('new-label-content'),
                         }}
                     />
-                    <Delete id={post.body.data.post.id} lang={{ btn: lang.getCustomProp('modules.actions.delete') }} />
+                    <Delete id={post.body.data.id} lang={{ btn: lang.getCustomProp('modules.actions.delete') }} />
                 </div>
-                <h1>{post.body.data.post.title}</h1>
-                <div dangerouslySetInnerHTML={{ __html: sanitize(post.body.data.post.text) }} />
+                <h1>{post.body.data.title}</h1>
+                <div dangerouslySetInnerHTML={{ __html: sanitize(post.body.data.text) }} />
             </div>
         </article>
     ) : (
