@@ -82,7 +82,7 @@
         "errors": {
             "header": "Something went horribly wrong",
             "p-offline": "Sorry but our servers are currently offline",
-            "p-session": "We cannot sign your session which leads to data retrieval failure",
+            "p-session": "We could not sign your session which has lead to data retrieval failure",
             "p-verifyEmail": "Please verify your e-mail to gain access to the account"
         }
     },
