@@ -7,15 +7,12 @@ section.box
     justify-content: center
     min-height: calc( 100vh - 68px )
     & a.passwordReset
-        position: absolute
-        bottom: 20px
-        left: 20px
-        text-decoration-line: underline
-        text-decoration-style: wavy
-        text-decoration-thickness: 1px
+        text-decoration: none
         color: var(--font-st)
         opacity: .7
         font-size: 14px
+        font-weight: 400
+        text-transform: none
         &:hover
             opacity: 1
     & svg
@@ -68,11 +65,14 @@ section.box
         width: 100%
         & label
             font-size: 14px
-            font-weight: 700
+            font-weight: 600
             text-transform: uppercase
             margin: 0
             margin-bottom: 3px
-        & input[type=text], input[type=password]
+            display: flex
+            align-items: center
+            justify-content: space-between
+        & input[type=text], input[type=password], input[type=email]
             color: var(--font-st)
             border-radius: 50px
             width: calc( 100% - 12px * 2 )

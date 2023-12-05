@@ -38,7 +38,7 @@ const ResetForm: NextPage<Props> = ({ lang }) => {
             <label htmlFor="email">{lang.inputEmail}</label>
             <input type="text" id="email" name="email" />
             <label htmlFor="password">{lang.inputNewPassword}</label>
-            <input type="password" id="password" name="password" />
+            <input type="password" id="password" name="password" required />
             <div className={o.flex}>
                 <button type="submit">
                     {lang.inputBtn}
