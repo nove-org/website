@@ -25,7 +25,9 @@ export default function Comment({ user, post }: { user: User; post: Post }) {
     };
 
     const handlePost = async (form: FormData) => {
-        setLoading(true);
+        if (loading) return;
+        else setLoading(true);
+
         await axiosClient
             .post(
                 '/v1/blog/' + post.id + '/comment',
@@ -39,10 +41,10 @@ export default function Comment({ user, post }: { user: User; post: Post }) {
     };
 
     return user?.username && post.commentsAllowed ? (
-        <form action={handlePost}>
+        <form action={handlePost} id="comment">
             <Image src={user.avatar} alt="User avatar" width={48} height={48} />
             <div className={b.content}>
-                <textarea name="text" id="text" placeholder="Content..." rows={5} />
+                <textarea name="text" id="text" placeholder="Content..." required rows={5} />
                 <button type="submit">{loading ? <Loader type="button" /> : null}Post</button>
             </div>
             {postError ? <p className="error">{postError}</p> : null}

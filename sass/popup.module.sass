@@ -1,0 +1,132 @@
+div.popup
+    position: fixed
+    top: 0
+    left: 0
+    padding: 0
+    margin: 0
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    background: var(--popup-bg)
+    width: 100%
+    height: 100vh
+    z-index: 99999
+    animation: opacityin 370ms ease-in-out
+    @keyframes opacityin
+        0%
+            opacity: 0
+        100%
+            opacity: 1
+    & div.container
+        padding: 15px 20px
+        border-radius: 25px
+        background: var(--popup-rd)
+        backdrop-filter: blur(10px)
+        color: var(--font-st)
+        width: calc( 100% - 20px * 2 )
+        max-width: 350px
+        height: fit-content
+        text-align: center
+        border: 1px solid var(--tertiary)
+        box-shadow: 0 0 25px 0 rgba(0,0,0,.1)
+        margin: 10px
+        animation: bouncein 350ms ease-in-out
+        @keyframes bouncein
+            0%
+                transform: scale(0.2)
+                opacity: 0
+            40%
+                opacity: 1
+            60%
+                transform: scale(0.96)
+            100%
+                transform: scale(1)
+        & h1
+            margin: 10px 0
+            font-size: 28px !important
+            font-weight: 500
+        & p
+            font-size: 16px
+            font-weight: 400
+            margin: 10px 0
+        & div.image
+            & svg
+                border-radius: 20px
+                background: #ffffff
+                margin: 5px 0
+            & p
+                font-size: 14px
+                opacity: .8
+                margin: 0
+                margin-bottom: 20px
+        & div.codes
+            display: grid
+            grid-template-columns: repeat(2, 1fr)
+            margin: 10px 0
+            & p
+                margin: 5px 0
+                user-select: text
+                font-family: monospace
+        & form
+            display: flex
+            flex-direction: column
+            gap: 10px
+            margin-top: 10px
+            & label
+                display: flex
+                flex-direction: column
+                gap: 2px
+                text-align: left
+                font-size: 14px
+                font-weight: 600
+                text-transform: uppercase
+                & input
+                    color: var(--font-st)
+                    border-radius: 50px
+                    width: calc( 100% - 12px * 2 )
+                    padding: 10px 12px
+                    margin: 5px 0 10px 0
+                    border: 0
+                    background: var(--border-st)
+                    outline: 0
+                    font-size: 16px
+                & textarea
+                    color: var(--font-st)
+                    border-radius: 20px
+                    width: calc( 100% - 12px * 2 )
+                    padding: 10px 12px
+                    margin: 5px 0 10px 0
+                    border: 0
+                    background: var(--border-st)
+                    outline: 0
+                    font-size: 16px
+                    resize: none
+            & div.footer
+                display: flex
+                align-items: center
+                gap: 10px
+                justify-content: center
+                margin-bottom: 10px
+            & button
+                border-radius: 50px
+                width: fit-content
+                display: flex
+                align-items: center
+                margin: 0
+                background: var(--tertiary)
+                color: var(--font-st)
+                font-weight: 500
+                font-size: 14px
+                padding: 9px 12px
+                outline: 0
+                border: 0
+                cursor: pointer
+                transition-duration: .2s
+                &:not(:first-child)
+                    background: var(--font-nd)
+                    color: var(--primary)
+                    &:hover
+                        background: var(--font-st)
+                &:hover
+                    background: var(--border-st)

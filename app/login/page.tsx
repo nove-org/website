@@ -55,12 +55,10 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
                     mfaLabel: lang.getProp('mfa-label'),
                     mfaCancel: lang.getCustomProp('modules.actions.cancel'),
                     mfaSubmit: lang.getCustomProp('modules.navigation.login-btn'),
+                    forgor: lang.getProp('password-reset'),
                 }}
                 searchParam={redirectBack}
             />
-            <a className={o.passwordReset} href="/password-reset">
-                {lang.getProp('password-reset')}
-            </a>
             <Lines />
         </section>
     );

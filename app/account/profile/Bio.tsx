@@ -5,10 +5,12 @@ import { User } from '@util/schema';
 import { useState } from 'react';
 import o from '@sass/account/profile/page.module.sass';
 import { useRouter } from 'next/navigation';
+import Loader from '@app/Loader';
 
 export default function Bio({ user, cookie, lang }: { user: User; cookie?: string; lang: { header: string; save: string } }) {
     const router = useRouter();
     const [postError, setPostError] = useState<string>();
+    const [loading, setLoading] = useState<boolean>(false);
 
     const throwError = (message?: string, bool?: boolean) => {
         if (bool === false) return setPostError('');
@@ -22,9 +24,10 @@ export default function Bio({ user, cookie, lang }: { user: User; cookie?: strin
 
     const handleSubmit = async (e: any) => (
         e.preventDefault(),
+        setLoading(true),
         await axiosClient
             .patch('/v1/users/me', { bio: e.target.bio.value }, { headers: { Authorization: `Owner ${cookie}` } })
-            .then(() => router.refresh())
+            .then(() => (setTimeout(() => setLoading(false), 1500), router.refresh()))
             .catch((e) => throwError(e.response?.data.body?.error.message ? e.response.data.body.error.message : 'Something went wrong and we cannot explain it.'))
     );
 
@@ -34,7 +37,10 @@ export default function Bio({ user, cookie, lang }: { user: User; cookie?: strin
             <li>
                 <form onSubmit={handleSubmit}>
                     <textarea spellCheck={false} name="bio" defaultValue={user.bio} />
-                    <button type="submit">{lang.save}</button>
+                    <button type="submit">
+                        {lang.save}
+                        {loading ? <Loader type="button" /> : null}
+                    </button>
                     {postError ? <p className="error">{postError}</p> : null}
                 </form>
             </li>

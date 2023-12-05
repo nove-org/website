@@ -33,6 +33,12 @@ div.content
             display: flex
             align-items: center
             justify-content: space-between
+            & div.flex
+                display: flex
+                align-items: center
+                gap: 7px
+                & div
+                    border-color: var(--font-st) transparent transparent transparent !important
             & form
                 display: flex
                 align-items: center
@@ -105,6 +111,11 @@ div.content
                 opacity: .7
                 transition-duration: .1s
                 cursor: pointer
+                display: flex
+                align-items: center
+                gap: 5px
+                & div
+                    border-color: var(--font-st) transparent transparent transparent !important
                 &:hover
                     opacity: 1
             & textarea
