@@ -4,7 +4,7 @@ import { axiosClient } from '@util/axios';
 import { setCookie } from 'cookies-next';
 import { useState } from 'react';
 import { COOKIE_HOSTNAME } from '@util/CONSTS';
-import o from '@sass/login.module.sass';
+import o from '@sass/popup.module.sass';
 import { NextPage } from 'next';
 
 interface Props {

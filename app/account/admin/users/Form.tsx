@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import o from '@sass/account/admin/page.module.sass';
+import o from '@sass/popup.module.sass';
 import { axiosClient } from '@util/axios';
 import { getCookie } from 'cookies-next';
 import { Response, User } from '@util/schema';

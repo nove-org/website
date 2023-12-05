@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import o from '@sass/account/security/page.module.sass';
+import o from '@sass/popup.module.sass';
 import { getCookie, setCookie } from 'cookies-next';
 import { axiosClient } from '@util/axios';
 import { COOKIE_HOSTNAME } from '@util/CONSTS';
