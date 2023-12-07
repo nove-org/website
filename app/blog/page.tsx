@@ -36,7 +36,7 @@ export default async function BlogList() {
             <header className={o.warning}>
                 <h1 className={o.header}>
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
-                        <path d="M17.196,3H6.804l-5.195,9l5.195,9h10.393l5.195-9L17.196,3z M13,17h-2v-2h2V17z M13,13h-2V7h2V13z"></path>
+                        <path fill="currentColor" d="M17.196,3H6.804l-5.195,9l5.195,9h10.393l5.195-9L17.196,3z M13,17h-2v-2h2V17z M13,13h-2V7h2V13z"></path>
                     </svg>
                     {lang.getProp('warn-h1')}
                 </h1>
