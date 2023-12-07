@@ -12,7 +12,7 @@ section.hero
         margin: 5px 0
         text-align: center
         & span
-            color: var(--accent-st)
+            color: var(--font-nd)
     & p.desc
         font-size: 24px
         max-width: 900px
@@ -35,7 +35,7 @@ section.hero
                 color: black
                 text-decoration: none
                 padding: 20px
-                border-radius: 20px
+                border-radius: var(--box-roundness)
                 background: var(--secondary)
                 max-width: 200px
                 min-height: 100px
@@ -44,7 +44,7 @@ section.hero
                 transition-duration: .2s
                 flex: max-content
                 &:hover
-                    background: var(--border-st)
+                    background: var(--tertiary)
                 @media screen and (max-width: 1170px)
                     max-width: 100%
                     width: calc(100% - 20px * 2)
@@ -54,10 +54,8 @@ section.hero
                     margin-top: 0
                     font-size: 22px
                     font-weight: 500
-                    color: var(--accent-rd)
                 & p
                     margin: 5px 0
                     margin-bottom: 0
                     font-size: 16px
                     font-weight: 400
-                    color: var(--font-nd)

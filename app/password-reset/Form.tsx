@@ -34,7 +34,7 @@ const ResetForm: NextPage<Props> = ({ lang }) => {
             .catch((err) => alert(lang.success));
 
     return (
-        <form id="loginForm" action={handleResetForm}>
+        <form id="loginForm" action={handleResetForm} className={o.login}>
             <label htmlFor="email">{lang.inputEmail}</label>
             <input type="text" id="email" name="email" />
             <label htmlFor="password">{lang.inputNewPassword}</label>

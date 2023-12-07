@@ -5,6 +5,7 @@ import { setCookie } from 'cookies-next';
 import { useState } from 'react';
 import { COOKIE_HOSTNAME } from '@util/CONSTS';
 import o from '@sass/popup.module.sass';
+import u from '@sass/login.module.sass';
 import { NextPage } from 'next';
 
 interface Props {
@@ -114,14 +115,12 @@ const LoginForm: NextPage<Props> = ({ searchParam, lang }) => {
                     </div>
                 </div>
             ) : null}
-            <form id="loginForm" action={handleLogin}>
+            <form id="loginForm" action={handleLogin} className={u.login}>
                 <label htmlFor="username">{lang.inputLogin}</label>
                 <input type="text" id="username" name="username" required />
                 <label htmlFor="password">
                     {lang.inputPassword}
-                    <a className={o.passwordReset} href="/password-reset">
-                        {lang.forgor}
-                    </a>
+                    <a href="/password-reset">{lang.forgor}</a>
                 </label>
                 <input type="password" id="password" name="password" required />
                 <div className={o.flex}>

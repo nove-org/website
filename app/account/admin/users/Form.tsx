@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import o from '@sass/popup.module.sass';
+import o from '@sass/account/admin/page.module.sass';
+import p from '@sass/popup.module.sass';
 import { axiosClient } from '@util/axios';
 import { getCookie } from 'cookies-next';
 import { Response, User } from '@util/schema';
@@ -52,9 +53,9 @@ export default function Form({
     };
 
     return !users ? (
-        <div className={o.popup}>
+        <div className={p.popup}>
             {postError ? <p className="error">{postError}</p> : null}
-            <div className={o.container}>
+            <div className={p.container}>
                 <h1>{lang.h1}</h1>
                 <p>{lang.p}</p>
                 <form action={getUsers}>
@@ -62,7 +63,7 @@ export default function Form({
                         {lang.label}
                         <input required minLength={6} maxLength={10} autoComplete="off" autoFocus={true} autoCorrect="off" type="text" placeholder={'000000'} id="mfa" name="mfa" />
                     </label>
-                    <div className={o.footer}>
+                    <div className={p.footer}>
                         <button onClick={() => router.replace('/account')} type="reset">
                             {lang.btnCancel}
                         </button>
