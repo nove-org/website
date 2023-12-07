@@ -29,7 +29,7 @@ div.content
             justify-content: space-between
             transition-duration: .2s
             &:hover
-                background: var(--border-st)
+                background: var(--tertiary)
             @media screen and (max-width: 400px)
                 justify-content: center
                 align-items: flex-start
@@ -54,11 +54,11 @@ div.content
             & div.buttons
                 display: flex
                 align-items: center
-                gap: 5px
+                gap: 8px
                 & p
                     font-size: 16px
                     margin: 2px 0
-                & button
+                & button.ac
                     display: block
                     padding: 5px 7px
                     border-radius: 50px
@@ -75,4 +75,4 @@ div.content
                         font-size: 14px
                         margin: 3px 0
                     &:hover
-                        background: var(--font-nd)
+                        opacity: .8

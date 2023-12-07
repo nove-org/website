@@ -54,7 +54,7 @@ const RegisterForm: NextPage<Props> = ({ searchParam, lang }) => {
     };
 
     return (
-        <form id="loginForm" action={handleRegister}>
+        <form id="loginForm" action={handleRegister} className={o.login}>
             <label htmlFor="email">{lang.inputEmail}</label>
             <input type="email" id="email" name="email" required />
             <label htmlFor="username">{lang.inputUsername}</label>

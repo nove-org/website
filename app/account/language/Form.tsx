@@ -4,6 +4,7 @@ import { axiosClient } from '@util/axios';
 import { Languages, User } from '@util/schema';
 import { getCookie } from 'cookies-next';
 import ReactCountryFlag from 'react-country-flag';
+import Image from 'next/image';
 import o from '@sass/account/language/page.module.sass';
 import { useState } from 'react';
 import Loader from '@app/Loader';
@@ -28,8 +29,8 @@ export default function Form({ user, code, saveChanges }: { user: User; code: La
             {code.AVAILABLE_LANGUAGES.map((code) => (
                 <label key={code} className={o.card}>
                     <header>
-                        <ReactCountryFlag countryCode={code.split('-')[1]} svg />
-                        {lang.of(code)}
+                        {code === 'pl-SW' ? <Image src="/pl-SW.png" width="16" height="12" alt="pl-SW flag" /> : <ReactCountryFlag countryCode={code.split('-')[1]} />}
+                        {code === 'pl-SW' ? 'Szwajnish (Poland)' : lang.of(code)}
                     </header>
                     <input defaultChecked={user.language === code} type="radio" name="language" value={code} />
                 </label>
