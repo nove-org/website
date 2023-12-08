@@ -52,7 +52,7 @@ nav.box
                         position: absolute
                         top: 40px
                         left: 0
-                        background: var(--secondary)
+                        background: var(--secondary-nd)
                         border-radius: var(--box-roundness)
                         display: flex
                         gap: 8px
@@ -62,7 +62,7 @@ nav.box
                         width: max-content
                         animation: fade .2s ease-in-out
                         z-index: 99999
-                        padding: 12px
+                        padding: 8px
                         & a
                             display: flex
                             flex-direction: column
@@ -136,8 +136,8 @@ nav.box
             position: absolute
             top: 40px
             right: 0
-            background: var(--secondary)
-            border-radius: 15px
+            background: var(--secondary-nd)
+            border-radius: var(--box-roundness)
             display: flex
             flex-direction: column
             align-items: flex-start
@@ -147,6 +147,7 @@ nav.box
             width: 100%
             animation: fade .2s ease-in-out
             z-index: 99999
+            padding: 5px
             @keyframes fade
                 0%
                     opacity: 0
@@ -163,16 +164,11 @@ nav.box
                 text-decoration: none
                 transition-duration: .1s
                 width: calc( 100% - 12px * 2 )
+                border-radius: 50px
+                gap: 7px
                 &:hover
                     background: var(--tertiary)
-                    &:first-child
-                        border-top-left-radius: 15px
-                        border-top-right-radius: 15px
-                    &:last-child
-                        border-bottom-right-radius: 15px
-                        border-bottom-left-radius: 15px
-                & svg
-                    margin-right: 7px
+                    color: var(--font-rd)
     & div.buttons
         display: flex
         align-items: center
