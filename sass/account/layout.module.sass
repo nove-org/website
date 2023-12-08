@@ -7,41 +7,44 @@ section.box
     @media screen and (max-width: 950px)
         flex-direction: column
     & aside
-        max-width: 290px
+        max-width: 270px
         width: 100%
         margin-top: 30px
         margin-right: 50px
         transition-duration: .2s
+        display: flex
+        flex-direction: column
+        gap: 15px
         @media screen and (max-width: 1450px)
             max-width: 250px
         @media screen and (max-width: 950px)
             max-width: 100%
         & h1
-            margin: 0
-            margin-bottom: 10px
-            font-size: 24px
+            margin: 0 12px
+            margin-bottom: -10px
+            font-size: 20px
             font-weight: 500
+            &:last-child
         & ul
             width: 100%
             list-style: none
             padding: 0
             margin: 0
             & li
-                margin: 10px 0
                 & a
                     text-decoration: none
                     color: var(--font-st)
                     font-size: 15px
                     display: block
                     border-radius: 50px
-                    background: var(--secondary)
                     display: flex
                     align-items: center
-                    padding: 11px
-                    transition-duration: .2s
+                    padding: 14px 12px
+                    font-weight: 500
+                    transition-duration: .1s
+                    gap: 5px
                     &.active
                         background: var(--tertiary)
+                        color: var(--font-rd)
                     &:hover
-                        background: var(--tertiary)
-                    & svg
-                        margin-right: 5px
+                        color: var(--font-rd)

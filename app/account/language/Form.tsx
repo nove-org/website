@@ -30,7 +30,7 @@ export default function Form({ user, code, saveChanges }: { user: User; code: La
                 <label key={code} className={o.card}>
                     <header>
                         {code === 'pl-SW' ? <Image src="/pl-SW.png" width="16" height="12" alt="pl-SW flag" /> : <ReactCountryFlag countryCode={code.split('-')[1]} />}
-                        {code === 'pl-SW' ? 'Szwajnish (Poland)' : lang.of(code)}
+                        {code === 'pl-SW' ? 'Szwajnisch (Poland)' : lang.of(code)}
                     </header>
                     <input defaultChecked={user.language === code} type="radio" name="language" value={code} />
                 </label>
