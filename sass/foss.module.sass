@@ -34,28 +34,35 @@ section.hero
                 display: block
                 color: black
                 text-decoration: none
-                padding: 20px
                 border-radius: var(--box-roundness)
-                background: var(--secondary)
+                background: var(--secondary-nd)
                 max-width: 200px
                 min-height: 100px
-                height: calc( 100% - 20px * 2 )
+                height: 100%
                 width: 100%
                 transition-duration: .2s
                 flex: max-content
                 &:hover
-                    background: var(--tertiary)
+                    background: var(--secondary)
                 @media screen and (max-width: 1170px)
                     max-width: 100%
                     width: calc(100% - 20px * 2)
                     min-height: fit-content
                 & h1
-                    margin: 7px 0
-                    margin-top: 0
+                    margin: 0
                     font-size: 22px
                     font-weight: 500
+                    width: 100%
+                    min-height: 80px
+                    display: flex
+                    align-items: center
+                    flex-direction: column
+                    justify-content: center
+                    background: var(--tertiary)
+                    border-radius: var(--box-roundness)
                 & p
-                    margin: 5px 0
-                    margin-bottom: 0
+                    margin: 0
                     font-size: 16px
                     font-weight: 400
+                    padding: 15px 20px
+                    padding-top: 10px
