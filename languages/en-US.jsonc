@@ -195,7 +195,7 @@
             "devices-p": "List of most recent devices that logged in to your account",
             "devices-no-data-h1": "No device data found",
             "devices-no-data-p": "You have opted-out from activity or we did not record any yet",
-            "devices-privacy-notice": "We store information about devices that logged in to your account in the last month on our servers.",
+            "devices-privacy-notice": "We store information about devices that logged in to your account in the last month on our servers. We use ifconfig.net to get location information during login.",
             "hds-h1": "How do you sign in",
             "hds-p": "Add or modify ways of signing in and confirming your identity",
             "hds-password-btn": "Password",
