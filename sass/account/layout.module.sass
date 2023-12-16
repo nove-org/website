@@ -19,17 +19,33 @@ section.box
             max-width: 250px
         @media screen and (max-width: 950px)
             max-width: 100%
+            margin: 0
         & h1
             margin: 0 12px
             margin-bottom: -10px
             font-size: 20px
             font-weight: 500
-            &:last-child
+            @media screen and (max-width: 950px)
+                display: none
         & ul
             width: 100%
             list-style: none
             padding: 0
             margin: 0
+            @media screen and (max-width: 950px)
+                &.admin
+                    display: none
+                &.normal
+                    position: fixed
+                    z-index: 999
+                    padding: 12px 5px
+                    width: calc( 100% - 5px * 2 )
+                    bottom: 0
+                    left: 0
+                    display: flex
+                    align-items: center
+                    justify-content: space-around
+                    background: var(--secondary)
             & li
                 & a
                     text-decoration: none
@@ -43,8 +59,22 @@ section.box
                     font-weight: 500
                     transition-duration: .1s
                     gap: 5px
+                    @media screen and (max-width: 950px)
+                        gap: 2px
+                        padding: 0
+                        flex-direction: column
+                        font-weight: 400
+                        font-size: 12px
+                        text-align: center
+                        & svg
+                            padding: 6px 14px
+                            border-radius: 50px
                     &.active
                         background: var(--tertiary)
-                        color: var(--font-rd)
+                        color: var(--font-nd)
+                        @media screen and (max-width: 950px)
+                            background: 0
+                            & svg
+                                background: var(--quaternary)
                     &:hover
                         color: var(--font-rd)

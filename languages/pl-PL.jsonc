@@ -196,7 +196,7 @@
             "devices-p": "Lista najnowszych urządzeń, logujących się w tym miesiącu na Twoje konto",
             "devices-no-data-h1": "Brak danych",
             "devices-no-data-p": "Wyłączyłeś zbieranie aktywności lub niczego jeszcze nie zapisaliśmy",
-            "devices-privacy-notice": "Przechowujemy informacje o urządzeniach, które logowały się na twoje konto przez ostatnie 30 dni.",
+            "devices-privacy-notice": "Przechowujemy informacje o urządzeniach, które logowały się na twoje konto przez ostatnie 30 dni. Używamy ifconfig.net, aby uzyskać informacje o lokalizacji podczas logowania.",
             "hds-h1": "Jak się logujesz",
             "hds-p": "Dodaj lub modyfikuj metody potwierdzania twojej tożsamości",
             "hds-password-btn": "Hasło",

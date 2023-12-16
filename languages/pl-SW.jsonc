@@ -196,7 +196,7 @@
             "devices-p": "Lista najnowszych urządzeń, logujących siem w tym miesiuncu na Twoje kunto",
             "devices-no-data-h1": "Brak danych",
             "devices-no-data-p": "Wyłunczyłeś zbieranie aktywności lub niczego jeszcza ni zapisalimy",
-            "devices-privacy-notice": "Przechowójemy informacje o urządzeniach, które logowały siem na twoje kunto przez łostatnie 30 dni.",
+            "devices-privacy-notice": "Przechowójemy informacje o urządzeniach, które logowały siem na twoje kunto przez łostatnie 30 dni. Używamy ifconfig.net, aby uzyskać informacje o lokalizacji podczas logowania.",
             "hds-h1": "Jak siem logujesz",
             "hds-p": "Dodej lub modyfikój metody potwierdzania twujego tożsamościa",
             "hds-password-btn": "Chasło",
