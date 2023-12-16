@@ -26,7 +26,7 @@ export default async function Navigation() {
                     <a href="/">
                         <header>
                             <Logo size={20} />
-                            Nove
+                            <p>Nove</p>
                         </header>
                     </a>
                     <ul>
@@ -90,7 +90,7 @@ export default async function Navigation() {
                         <summary>
                             <header>
                                 <Image src={user.body.data.avatar} width="28" height="28" alt="Avatar" />
-                                {user.body.data.username}
+                                <p>{user.body.data.username}</p>
                             </header>
                         </summary>
                         <div className={o.module}>
