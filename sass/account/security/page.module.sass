@@ -7,6 +7,8 @@ div.content
         font-weight: 500
         margin-bottom: 10px
         opacity: .9
+        @media screen and (max-width: 950px)
+            margin-top: 10px
     & div.devices
         & h2
             margin: 10px 0 5px 0
@@ -15,7 +17,7 @@ div.content
         & p
             font-size: 16px
             font-weight: 400
-            margin: 0
+            margin: 5px 0
             & a
                 cursor: pointer
                 font-weight: 600
@@ -26,20 +28,25 @@ div.content
             margin: 0
             list-style: none
             & li
-                margin: 10px 0
-                padding: 12px 14px
+                padding: 10px 0
                 border-radius: 15px
-                background: var(--secondary)
                 color: var(--font-st)
                 display: flex
                 align-items: center
                 justify-content: space-between
+                & p
+                    font-size: 14px
+                    opacity: .7
                 & header
                     display: flex
-                    align-items: flex-start
+                    align-items: center
+                    gap: 8px
                     & svg
                         margin-top: 2px
-                        margin-right: 8px
+                        padding: 10px
+                        background: var(--font-nd)
+                        color: var(--primary)
+                        border-radius: 50%
                 & div.align
                     display: flex
                     flex-direction: column
@@ -89,7 +96,7 @@ div.content
                 width: 100%
                 padding: 18px
                 border-radius: 20px
-                background: var(--secondary)
+                background: var(--secondary-nd)
                 cursor: pointer
                 transition-duration: .2s
                 @media screen and (max-width: 1350px)
@@ -98,7 +105,7 @@ div.content
                     display: flex
                     align-items: center
                 &:hover
-                    background: var(--border-nd)
+                    background: var(--tertiary)
                 & h1
                     display: flex
                     align-items: center
@@ -139,124 +146,4 @@ div.content
                 font-size: 14px
                 margin: 3px 0
             &:hover
-                background: var(--font-nd)
-
-div.popup
-    position: fixed
-    top: 0
-    left: 0
-    padding: 0
-    margin: 0
-    display: flex
-    flex-direction: column
-    align-items: center
-    justify-content: center
-    background: var(--popup-bg)
-    width: 100%
-    height: 100vh
-    z-index: 99999
-    animation: opacityin 370ms ease-in-out
-    @keyframes opacityin
-        0%
-            opacity: 0
-        100%
-            opacity: 1
-    & div.container
-        padding: 15px 20px
-        border-radius: 25px
-        background: var(--popup-rd)
-        backdrop-filter: blur(10px)
-        color: var(--font-st)
-        max-width: 350px
-        height: fit-content
-        text-align: center
-        border: 1px solid var(--tertiary)
-        box-shadow: 0 0 25px 0 rgba(0,0,0,.1)
-        margin: 10px
-        animation: bouncein 350ms ease-in-out
-        @keyframes bouncein
-            0%
-                transform: scale(0.2)
-                opacity: 0
-            40%
-                opacity: 1
-            60%
-                transform: scale(0.96)
-            100%
-                transform: scale(1)
-        & h1
-            margin: 10px 0
-            font-size: 26px
-            font-weight: 500
-        & p
-            font-size: 16px
-            font-weight: 400
-            margin: 10px 0
-        & div.image
-            & svg
-                border-radius: 20px
-                background: #ffffff
-                margin: 5px 0
-            & p
-                font-size: 14px
                 opacity: .8
-                margin: 0
-                margin-bottom: 20px
-        & div.codes
-            display: grid
-            grid-template-columns: repeat(2, 1fr)
-            margin: 10px 0
-            & p
-                margin: 5px 0
-                user-select: text
-                font-family: monospace
-        & form
-            display: flex
-            flex-direction: column
-            gap: 15px
-            & label
-                display: flex
-                flex-direction: column
-                gap: 2px
-                text-align: left
-                font-size: 12px
-                font-weight: 700
-                text-transform: uppercase
-                & input
-                    color: var(--font-st)
-                    border-radius: 50px
-                    width: calc( 100% - 12px * 2 )
-                    padding: 10px 12px
-                    margin: 5px 0 10px 0
-                    border: 0
-                    background: var(--border-st)
-                    outline: 0
-                    font-size: 16px
-            & div.footer
-                display: flex
-                align-items: center
-                gap: 10px
-                justify-content: center
-                margin-bottom: 10px
-            & button
-                border-radius: 50px
-                width: fit-content
-                display: flex
-                align-items: center
-                margin: 0
-                background: var(--tertiary)
-                color: var(--font-st)
-                font-weight: 500
-                font-size: 14px
-                padding: 9px 12px
-                outline: 0
-                border: 0
-                cursor: pointer
-                transition-duration: .2s
-                &:not(:first-child)
-                    background: var(--font-nd)
-                    color: var(--primary)
-                    &:hover
-                        background: var(--font-st)
-                &:hover
-                    background: var(--border-st)

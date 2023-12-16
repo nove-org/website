@@ -54,13 +54,13 @@ const RegisterForm: NextPage<Props> = ({ searchParam, lang }) => {
     };
 
     return (
-        <form id="loginForm" action={handleRegister}>
+        <form id="loginForm" action={handleRegister} className={o.login}>
             <label htmlFor="email">{lang.inputEmail}</label>
-            <input type="text" id="email" name="email" />
+            <input type="email" id="email" name="email" required />
             <label htmlFor="username">{lang.inputUsername}</label>
-            <input type="text" id="username" name="username" />
+            <input type="text" id="username" name="username" required />
             <label htmlFor="password">{lang.inputPassword}</label>
-            <input type="password" id="password" name="password" />
+            <input type="password" id="password" name="password" required />
             <div className={o.flex}>
                 <button type="submit">
                     {lang.inputBtn + ' '}

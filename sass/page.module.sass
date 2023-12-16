@@ -5,47 +5,38 @@ section.hero
     flex-direction: column
     margin: 25px 0
     justify-content: center
+    gap: 15px
     & h1
         font-size: 64px
-        font-weight: 800
-        margin: 5px 0
-        background: linear-gradient(0deg, var(--font-st), var(--font-rd))
-        -webkit-background-clip: text
-        -webkit-text-fill-color: transparent
+        font-weight: 700
+        margin: 0
+        color: var(--font-st)
         max-width: 950px
+        line-height: 1.15
         @media screen and (max-width: 650px)
             font-size: 48px
         & span
-            animation: animateBg 8s linear infinite
-            background-image: linear-gradient(35deg,#f31a5b,#f31a78,#f10d87,#f10da1,#f10d87,#f31a78,#f31a5b)
-            background-size: 100% 1100%
-            font-smooth: always
-            -webkit-background-clip: text
-            -webkit-text-fill-color: transparent
+            color: var(--font-nd)
     & p
         font-size: 22px
         font-weight: 400
-        margin: 5px 0
+        margin: 0
+        line-height: 1.4
         max-width: 1000px
     & ul
         display: flex
         align-items: center
         list-style: none
+        gap: 12px
         margin: 0
-        margin-top: 15px
         padding: 0
-        @media screen and (max-width: 650px)
-            flex-direction: column-reverse
+        @media screen and (max-width: 300px)
+            flex-direction: column
             align-items: flex-start
+            gap: 0
         & li
-            &:not(:last-child)
-                margin-right: 15px
-            & a.link
-                color: var(--accent-st)
-                text-decoration-line: underline
-                text-decoration-style: wavy
-                text-decoration-thickness: 1px
-                font-weight: 500
+            @media screen and (max-width: 300px)
+                width: 100%
             & a.button
                 display: flex
                 align-items: center
@@ -54,39 +45,17 @@ section.hero
                 background: var(--secondary)
                 transition-duration: .2s
                 cursor: pointer
-                color: var(--font-st)
+                color: var(--font-rd)
                 text-decoration: none
-                & div.stargazers
-                    display: flex
-                    align-items: center
-                    font-weight: 600
-                    margin-right: 8px
-                    & svg
-                        margin-left: 0
-                        margin-right: 3px
-                @media screen and (max-width: 650px)
-                    margin-top: 20px
+                gap: 5px
+                font-weight: 500
+                @media screen and (max-width: 300px)
+                    margin-top: 15px
+                    width: calc( 100% - 15px * 2 )
+                    max-width: 100%
+                    justify-content: space-between
                 &:hover
-                    background: var(--border-st)
-                & svg
-                    margin-left: 5px
-
-    & svg.top
-        position: absolute
-        top: 0
-        right: 0
-        z-index: -99999
-        transition-duration: .2s
-        @media screen and (max-width: 1300px)
-            top: -180px
-            right: 0
-            transform: rotate(-20deg)
-        @media screen and (max-width: 935px)
-            right: -50px
-            top: -250px
-            transform: rotate(-10deg)
-        @media screen and (max-width: 700px)
-            display: none
+                    background: var(--tertiary)
 
 section.word
     width: 100%
@@ -94,27 +63,17 @@ section.word
     flex-direction: column
     align-items: flex-end
     position: relative
+    @media screen and (max-width: 997px)
+        align-items: center
     @media screen and (max-width: 600px)
         margin-top: 50px
-    & svg.top
-        position: absolute
-        top: 50%
-        left: -100px
-        z-index: -99999
-        transform: translateY(-50%)
-        transition-duration: .2s
-        @media screen and (max-width: 1530px)
-            left: -200px
-        @media screen and (max-width: 975px)
-            transform: translateY(0)
-            top: 30%
     & h1
         font-size: 32px
         font-weight: 500
         margin: 5px 0
     & ul
         display: flex
-        align-items: center
+        align-items: normal
         gap: 25px
         margin: 20px 0
         list-style: none
@@ -122,30 +81,40 @@ section.word
         @media screen and (max-width: 997px)
             flex-direction: column
         & li
-            padding: 20px 25px
-            border-radius: 20px
+            border-radius: var(--box-roundness)
             min-height: 190px
-            max-height: 190px
-            max-width: 260px
-            background: var(--primary-rd)
+            flex: max-content
+            max-width: 285px
+            background: var(--secondary)
             backdrop-filter: blur(100px)
             position: relative
+            color: var(--font-st)
             @media screen and (max-width: 997px)
-                max-width: calc( 100% - 25px * 2 )
                 min-height: fit-content
                 max-height: fit-content
-
-            & h1
-                font-size: 24px
-                font-weight: 600
-                display: flex
-                flex-direction: column
-                align-items: flex-start
-                & svg
-                    margin: 0 0 10px 0
-            & p
-                margin: 0
-                font-size: 16px
+                max-width: 320px
+            & img
+                border-radius: var(--box-roundness)
+                max-width: 285px
+                max-height: auto
+                height: auto
+                width: 100%
+                @media screen and (max-width: 997px)
+                    max-width: 320px
+            & div.content
+                padding: 20px 25px
+                padding-top: 15px
+                & h1
+                    font-size: 24px
+                    font-weight: 500
+                    margin: 10px 0
+                    margin-top: 0
+                    & svg
+                        margin: 0 0 10px 0
+                & p
+                    margin: 0
+                    font-size: 16px
+                    opacity: .9
     & a
         color: var(--accent-st)
         text-decoration-line: underline
@@ -159,7 +128,7 @@ section.breakup
     align-items: center
     justify-content: space-between
     position: relative
-    margin: 100px 0
+    margin: 200px 0
     position: relative
     min-height: calc( 100vh - 25rem )
     @media screen and (max-width: 1380px)
@@ -213,13 +182,14 @@ section.ready
     flex-direction: column
     align-items: center
     margin: 25px 0
+    gap: 10px
     justify-content: center
     margin-bottom: 100px
     & h1
-        font-size: 36px
-        margin: 5px 0
-        font-weight: 500
-        background: linear-gradient(0deg, var(--font-st), var(--font-rd))
+        font-size: 42px
+        margin: 0
+        font-weight: 600
+        background: var(--font-st)
         text-align: center
         -webkit-background-clip: text
         -webkit-text-fill-color: transparent
@@ -227,7 +197,7 @@ section.ready
         font-size: 24px
         font-weight: 400
         opacity: .8
-        margin: 5px 0
+        margin: 0
         text-align: center
     & a
         display: flex
@@ -240,16 +210,8 @@ section.ready
         color: var(--font-st)
         text-decoration: none
         text-align: center
-        margin-top: 20px
+        margin-top: 10px
         @media screen and (max-width: 650px)
             margin-top: 20px
         &:hover
-            background: var(--border-st)
-        & svg
-            margin-left: 5px
-
-@keyframes animateBg
-    0%
-        background-position: 0% 0%
-    100%
-        background-position: 0% 100%
+            background: var(--tertiary)

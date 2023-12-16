@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import o from '@sass/account/admin/page.module.sass';
+import o from '@sass/popup.module.sass';
+import uc from '@sass/account/admin/page.module.sass';
 import { axiosClient } from '@util/axios';
 import { getCookie } from 'cookies-next';
 import { User } from '@util/schema';
@@ -52,7 +53,9 @@ export default function Delete({
     return (
         <>
             {postError ? <p className="error">{postError}</p> : null}
-            <button onClick={() => setPopup(true)}>{lang.btnConfirm}</button>
+            <button className={uc.ac} onClick={() => setPopup(true)}>
+                {lang.btnConfirm}
+            </button>
             {popup ? (
                 <div className={o.popup}>
                     <div className={o.container}>

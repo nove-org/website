@@ -14,21 +14,33 @@ nav.box
             width: calc(100% - 70px * 2)
         @media screen and (max-width: 1100px)
             width: calc(100% - 40px * 2)
+        @media screen and (max-width: 950px)
+            justify-content: flex-end
+            flex-direction: row-reverse
+            gap: 12px
         @media screen and (max-width: 500px)
             width: calc(100% - 20px * 2)
     & div.flex
         display: flex
         align-items: center
+        @media screen and (max-width: 950px)
+            width: 100%
+            justify-content: space-between
         & a
             text-decoration: none
         & header
             display: flex
             align-items: center
+            gap: 8px
             font-size: 20px
             font-weight: 600
             color: var(--font-st)
-            & svg
-                margin-right: 10px
+            @media screen and (max-width: 950px)
+                & svg
+                    display: none
+            & p
+                margin: 0
+                font-size: 20px
         & ul
             display: flex
             align-items: center
@@ -36,10 +48,10 @@ nav.box
             padding: 0
             margin: 0
             margin-left: 25px
-            @media screen and (max-width: 600px)
+            gap: 8px
+            @media screen and (max-width: 540px)
                 display: none
             & li
-                margin-right: 25px
                 & details.projects
                     position: relative
                     & summary
@@ -50,10 +62,10 @@ nav.box
                         justify-content: flex-end
                     & div.menu
                         position: absolute
-                        top: 30px
+                        top: 40px
                         left: 0
-                        background: var(--secondary)
-                        border-radius: 14px
+                        background: var(--secondary-nd)
+                        border-radius: var(--box-roundness)
                         display: flex
                         gap: 8px
                         align-items: flex-start
@@ -62,18 +74,21 @@ nav.box
                         width: max-content
                         animation: fade .2s ease-in-out
                         z-index: 99999
-                        padding: 12px
+                        padding: 8px
+                        @media screen and (max-width: 950px)
+                            left: 50%
+                            transform: translateX(-50%)
                         & a
                             display: flex
                             flex-direction: column
                             align-items: flex-start
                             justify-content: center
                             gap: 5px
-                            padding: 12px
+                            padding: 12px 14px
                             width: 100%
-                            border-radius: 10px
+                            border-radius: var(--box-roundness)
                             &:hover
-                                background: var(--border-st)
+                                background: var(--tertiary)
                             & h1
                                 display: flex
                                 align-items: center
@@ -99,11 +114,14 @@ nav.box
                     font-size: 14px
                     font-weight: 300
                     text-decoration: none
-                    color: var(--font-rd)
+                    color: var(--font-st)
                     transition-duration: .2s
                     cursor: pointer
+                    padding: 5px 10px
+                    border-radius: 50px
                     &:hover
-                        color: var(--font-st)
+                        background: var(--secondary)
+                        color: var(--font-rd)
     & details.user
         position: relative
         & summary
@@ -116,7 +134,7 @@ nav.box
                 display: flex
                 align-items: center
                 margin: 0
-                padding: 0
+                padding: 1px
                 background: var(--secondary)
                 border-radius: 50px
                 text-decoration: none
@@ -126,15 +144,24 @@ nav.box
                 font-weight: 500
                 cursor: pointer
                 width: fit-content
+                gap: 5px
+                @media screen and (max-width: 950px)
+                    padding: 0
+                    & p
+                        display: none
+                    & img
+                        min-width: 26px
+                        min-height: 26px
+                & p
+                    margin: 0
                 & img
                     border-radius: 50%
-                    margin-right: 5px
         & div.module
             position: absolute
             top: 40px
             right: 0
-            background: var(--secondary)
-            border-radius: 15px
+            background: var(--secondary-nd)
+            border-radius: var(--box-roundness)
             display: flex
             flex-direction: column
             align-items: flex-start
@@ -144,6 +171,10 @@ nav.box
             width: 100%
             animation: fade .2s ease-in-out
             z-index: 99999
+            padding: 5px
+            @media screen and (max-width: 950px)
+                left: 0
+                top: 35px
             @keyframes fade
                 0%
                     opacity: 0
@@ -160,28 +191,27 @@ nav.box
                 text-decoration: none
                 transition-duration: .1s
                 width: calc( 100% - 12px * 2 )
+                border-radius: 50px
+                gap: 7px
                 &:hover
-                    background: var(--border-st)
-                    &:first-child
-                        border-top-left-radius: 15px
-                        border-top-right-radius: 15px
-                    &:last-child
-                        border-bottom-right-radius: 15px
-                        border-bottom-left-radius: 15px
-                & svg
-                    margin-right: 7px
+                    background: var(--tertiary)
+                    color: var(--font-rd)
     & div.buttons
         display: flex
         align-items: center
+        gap: 10px
         & a
-            margin-left: 15px
             font-size: 14px
             font-weight: 300
-            border: 0
-            background: 0
-            padding: 0
             text-decoration: none
             color: var(--font-st)
+            transition-duration: .2s
+            cursor: pointer
+            padding: 5px 10px
+            border-radius: 50px
+            &:hover
+                background: var(--secondary)
+                color: var(--font-rd)
             &:last-child
                 padding: 5px 10px
                 border-radius: 50px
@@ -189,4 +219,4 @@ nav.box
                 transition-duration: .1s
                 font-weight: 500
                 &:hover
-                    background: var(--border-st)
+                    background: var(--tertiary)

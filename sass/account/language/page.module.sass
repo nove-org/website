@@ -7,7 +7,7 @@ form.box
         width: calc( 100% - 15px * 2 )
         padding: 10px 15px
         border-radius: 50px
-        background: var(--secondary)
+        background: var(--secondary-nd)
         display: flex
         align-items: center
         justify-content: space-between
@@ -19,7 +19,8 @@ form.box
             gap: 10px
             font-weight: 500
             & img
-                border-radius: 50%
+                border-radius: 2px
+                outline: 1px solid black
         & input[type=radio]
             -webkit-appearance: none
             appearance: none
@@ -27,7 +28,6 @@ form.box
             color: var(--font-st)
             width: 15px
             height: 15px
-            border: 2px solid var(--border)
             background: var(--tertiary)
             border-radius: 50px
             &:checked
@@ -52,4 +52,4 @@ form.box
             font-size: 14px
             margin: 3px 0
         &:hover
-            background: var(--font-nd)
+            opacity: .8

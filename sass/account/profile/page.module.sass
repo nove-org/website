@@ -7,6 +7,8 @@ div.content
         font-weight: 500
         margin-bottom: 10px
         opacity: .9
+        @media screen and (max-width: 950px)
+            margin-top: 10px
     & p.desc
         font-size: 20px
         margin: 0
@@ -29,10 +31,16 @@ div.content
             margin: 5px 0 15px 0
             padding: 20px
             border-radius: 20px
-            background: var(--secondary)
+            background: var(--secondary-nd)
             display: flex
             align-items: center
             justify-content: space-between
+            & div.flex
+                display: flex
+                align-items: center
+                gap: 7px
+                & div
+                    border-color: var(--font-st) transparent transparent transparent !important
             & form
                 display: flex
                 align-items: center
@@ -66,7 +74,7 @@ div.content
                             font-size: 14px
                             margin: 3px 0
                         &:hover
-                            background: var(--font-nd)
+                            opacity: .8
             & input
                 background: 0
                 border: 0
@@ -88,7 +96,7 @@ div.content
                 & span
                     font-size: 14px
                     font-family: monospace
-                    background: var(--primary-rd)
+                    background: var(--tertiary)
                     color: var(--font-st)
                     padding: 3px
                     user-select: text
@@ -105,6 +113,11 @@ div.content
                 opacity: .7
                 transition-duration: .1s
                 cursor: pointer
+                display: flex
+                align-items: center
+                gap: 5px
+                & div
+                    border-color: var(--font-st) transparent transparent transparent !important
                 &:hover
                     opacity: 1
             & textarea

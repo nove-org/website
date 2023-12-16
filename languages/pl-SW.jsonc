@@ -1,0 +1,322 @@
+{
+    /*
+     ! IMPORTANT. Read before translating the file.
+     ! Do not translate {objects in brackets} <-- like this one, it's a variable.
+     ! Do not translate the key.
+     ! File syntax:
+        "category": {
+            "page-name": {
+                        translate this    do not translate this
+                        vvvvvvvvvvvvvvvvv vvvvvvvvvv 
+                "key": "Text to translate {variable}" <-- this whole line, we call it prop
+                ^^^^^
+                this is the key, do not translate it
+            }
+        }
+     ! Leave HTML tags as they are and do not add any new tags to the text. Only change the text inside of it.
+
+     * Some of the props that are listed here have an explanation comment. Do not translate it.
+     * After translating this file, create a pull request on Gitea with "translations" label. Remember to fork this repository.
+
+     * If a key ends with "h1", "p", "btn":
+     * - "h1", means title
+     * - "p", means description
+     * - "btn", means button
+     * or if it starts with "ul" or "title":
+     * - "ul", means that is a list of elements
+     * - "title", means that the browser would read that text and display it as tab title
+     * otherwise it's just a group of elements/category
+
+     ? WARNING: The text shouldn't extend the original English version by much. It will wrap weirdly on the page.
+
+     Nonsensical translation by pl "https://szwajn.net" <pufferix@szwajn.net>. Versionen zwei
+    */
+    "modules": {
+        "navigation": {
+            "ul-products": "Produktarze",
+            "ul-about": "O nas",
+            "ul-blog": "Prasa",
+            "ul-donate": "Dotacjaże",
+            "login-btn": "Zalogój",
+            "register-btn": "Ótwórz konto",
+            "switcher-profile": "Mój prufil",
+            "switcher-security": "Sekjóriti",
+            "switcher-logout": "Wyloguj siem",
+            "products-files": "Przechowuj dane bezpiecznie w buncloku",
+            "products-napi": "Pozwól swoim klientom logować siem przez Nove",
+            "products-crm": "Zarzundzaj rekurdami szybko i z łatwościo"
+        },
+        "footer": {
+            "license": "Potraktowane",
+            "made-with-love": "Stworzone z pompo krwi przez",
+            "contributors": "spułeczność",
+            "ul-about": "O nas",
+            "ul-foss": "Projektarze",
+            "ul-docs": "Dokómentacjarz",
+            "ul-blog": "Prasa",
+            "ul-donate": "Dotacjarze",
+            "ul-login": "Zalogój",
+            "ul-register": "Załap siem do kartotek InterNove",
+            "ul-support": "Pomoc",
+            "ul-src": "Kud źródłowy",
+            "ul-privacy": "Politykarz Prywatności",
+            "ul-terms": "Rególamin",
+            "ul-developers": "Dla programistuf"
+        },
+        "actions": {
+            "back": "Powrót",
+            "proceed": "Dalyj",
+            "go": "Idi",
+            "cancel": "Anóluj",
+            "enable": "Włuncz",
+            "disable": "Wyłuncz",
+            "ok": "gud",
+            "next": "Następna",
+            "previous": "Poprzednia",
+            "save-changes": "Zapisz zmiany",
+            "save": "Zapisz",
+            "edit": "Edytój",
+            "delete": "ósóń",
+            "create": "Stwurz"
+        },
+        "errors": {
+            "header": "Cuś siem zj- znaczy ni powiodło",
+            "p-offline": "Serwer uderzył w skalisko dolne",
+            "p-session": "Ni możem pudpisać Twojej sesji co prowadzi do błęda pobrażu informacji",
+            "p-verifyEmail": "Zweryfikujta swój e-mejlaż aby moć utylizować toż kunto"
+        }
+    },
+    "main": {
+        "landing": {
+            "title": "Wejdź do świata gdzie, Twoja prywatność istyje",
+            "hero-h1": "Wejdź do świata, gdzie <span>Twoja prywatność</span> istyje.",
+            "hero-note-trust": "Nie wierzta nam na słowo - przejrzyjta nasz <a class={style} target=\"_blank\" rel=\"noopener noreferrer\" href={repository}>kodaż</a> samemó!",
+            "hero-description": "Zostaw Gugiela i reszte spółki infiltracyjno-marketingowej w cholere. Odzyskaj kontrole i zacznijta używać wolnych, darmowych i szanujących óżytkownika rozwiunzań Nove.",
+            "hero-btn": "Zacznij już teruz!",
+            "word-h1": "W naszym ekosystemarzó Twoje dane to Twoja sprawa.",
+            "word-card1-title": "Przechowywane bezpiecznie (w buncloku)",
+            "word-card1-description": "Szyfrujemy Twoje dane zawsze, gdy to mużliwe, by zabezpieczyć je przed infiltratorami, agencjami rządowymi ora przed nami.",
+            "word-card2-title": "Bez infiltracji i demencji",
+            "word-card2-description": "Nigdy Cię domyślnie nie infiltrujemy. Ni sprzedajemy tyż Twoich danych, ponieważ należo do Ciebie, nie do nas czy do nich.",
+            "word-card3-title": "Darmowy plan na wieki wiekuf",
+            "word-card3-description": "Winkszość naszych ósług zawiera darmowy plan, więc nie musita winc nam bezwzględnie ufać. Rozpocznij swojo przygodie teruz!",
+            "word-trust": "Wszystko to możeta łatwo zweryfikować przez otwartego koda źródłowego. Sprawdź go na",
+            "breakup-h1": "Tworzone przez profesjonalistuf ze standardami",
+            "breakup-description": "W Nove tworzymy otwartoźródłowce i doceniamy każdą pomoc w rozwoju. Ponieważ <b>prywatność i bezpieczeństwo</b> idzie w parze z <b>wolnościo i audytowalnością</b>.",
+            "breakup-li-1": "Projekty łatwo dostynpne na Gitea",
+            "breakup-li-2": "Wnieś wkład własny poprzez łapanie błęduf, poprawianie koda czy propozycje zmian",
+            "breakup-li-3": "Chostuj własny wariant naszego oprogramowania bezpośrednio na swoim metalu",
+            "ready-h1": "Jesteś gotowy na zanurzenie siem w świecie wolności?",
+            "ready-p": "Rozpocznijta swojo przygodie i zarejestrój siem już teruz!",
+            "ready-btn": "Zacznij już teruz!"
+        },
+        "about": {
+            "hero-h1": "Naszym <b>celem</b> jest uczynienie Internetu <span>prywatnym</span> oraz <span>bezpiecznym</span>",
+            "hero-p": "Dostarczamy narzędzia wolne od zbędnego gówna, infiltracji, a przeda wszystkim z darmowym planem i otwartoźródłową polityko.",
+            "pos1": "Autokrata, programista stron i dizajnyr ÓI/ÓX",
+            "pos2": "Główny programista API ora opiekón koda",
+            "pos3": "Dizajner ÓI/UX i menadżyr projektuf",
+            "pos4": "Programista stron i dyktatur Peekr",
+            "pos5": "Emeryt, zjadacz podwawelskiej"
+        },
+        "foss": {
+            "hero-h1": "Kochamy <span>darmowe</span> i <span>otwartoźródłowe</span> (nie seks)",
+            "hero-p": "Poniważ <b>otwartoźródłowe</b> oprogramowanie to ważna rola w pracy w grópie, ochronie prywatności użytkowników i niezawodności systema.",
+            "ul-napi": "Twórz programy, korzystajunc z systema NAPI OAuth2, dającego możliwościa logowania siem za pomocą Nove.",
+            "ul-manager": "Oficjalna strona internetowa óżywana przez nas, w celu zapewnienia graficznego dostępa do kunta.",
+            "ul-files": "Bunclok ogólnego przeznaczenia z szyfrowaniem wgrywanych plików, dostępny dla każdego przez jedno kliknięcie."
+        },
+        "login": {
+            "hero-h1": "Witej ponownie",
+            "hero-p": "Zaloguj siem, aby uzyskać dostępa do swojego konta",
+            "input-login": "Login",
+            "input-password": "Masło",
+            "mfa-h1": "Bez koda do ni chóchó",
+            "mfa-p": "Podej kod wygenerowany przez aplikacjarz TOTP na Twoim teflonie lub óżyj koda zapasowego.",
+            "mfa-label": "Kod",
+            "mfa-submit": "Zakłodój",
+            "password-reset": "Resetój swoje masło"
+        },
+        "register": {
+            "hero-h1": "Nowe kunto Nove",
+            "hero-p": "Ózupełnij formulaż i stwórz swoje nowe (leżak magazynowy) kunto",
+            "input-email": "mejlarz",
+            "input-username": "Nazwa debila",
+            "input-password": "Chasło"
+        },
+        "password-reset": {
+            "hero-h1": "Resetarz hasła",
+            "hero-p": "Aby kontynuować, podej swój mejl i nowe masło",
+            "input-email": "mejlarz",
+            "input-new-password": "Nuwe hasło",
+            "request-success": "Wiadomość potwierdzajunca została wysłana na podany adres"
+        },
+        "blog": {
+            "warn-h1": "Achtóng!",
+            "warn-p": "Rajt noł, łi onli szer posts in Englisz but it wył czejndż in de fjóczur as łi ewolf."
+        }
+    },
+    "dashboard": {
+        "layout": {
+            "title": "Óstawienia",
+            "header": "Óstawienia",
+            "ul-overview": "Przeglund",
+            "ul-security": "Bezpieczeństwo",
+            "ul-profile": "Mein profil",
+            "ul-language": "Junzyk",
+            "header-admin": "Moderacjaż",
+            "ul-users": "Debile",
+            "ul-posts": "Posty",
+            "ul-logs": "Kłody aktywnościa"
+        },
+        "main": {
+            "tips-header": "Jak poprawić bezpieczeństwo i prywatność",
+            "tips-1": "Używaj oprogramowania FOSS",
+            "tips-2": "Włuncz weryfikacje dwuetapowo",
+            "tips-3": "Nie twórz zbyt dużej ilości kunt",
+            "card-1-h1": "Junzyk",
+            "card-1-p": "Zmień junzyk wyświetlany we wszystkich ósługach Nove",
+            "card-2-h1": "Aktywność",
+            "card-2-p": "Z łatwościo zarzundzaj ostatnią aktywnością na twoim koncie",
+            "card-2-action": "{number} aktywne sesjarze",
+            "card-3-h1": "Kłodowanie",
+            "card-3-p": "Zmiuń swoje hasło lub dodaj dodatkowe zabezpieczenia",
+            "card-3-action": "Idi (w cholere)",
+            "card-4-h1": "Przywr.",
+            "card-4-p": "Pobier kody zapasowe po włączenió weryfikacji dwuetapowej",
+            "connections-title": "Połączone programaże",
+            "connections-btn-privacy": "Politykarz Prywatnościa",
+            "connections-btn-tos": "Rególamin",
+            "connections-permissions": "Przywileje",
+            "connections-last-access": "Ostatni dostynp",
+            "connections-expire": "Zdycha"
+        },
+        "security": {
+            "devices-h1": "Twoje órządzenia",
+            "devices-p": "Lista najnowszych urządzeń, logujących siem w tym miesiuncu na Twoje kunto",
+            "devices-no-data-h1": "Brak danych",
+            "devices-no-data-p": "Wyłunczyłeś zbieranie aktywności lub niczego jeszcza ni zapisalimy",
+            "devices-privacy-notice": "Przechowójemy informacje o urządzeniach, które logowały siem na twoje kunto przez łostatnie 30 dni. Używamy ifconfig.net, aby uzyskać informacje o lokalizacji podczas logowania.",
+            "hds-h1": "Jak siem logujesz",
+            "hds-p": "Dodej lub modyfikój metody potwierdzania twujego tożsamościa",
+            "hds-password-btn": "Chasło",
+            "hds-password-h1": "Zmiuń hasło",
+            "hds-password-p": "Utwórz silne hasło, którego nigdzie jeszcze nie używasz. Zmiana hasła odegzystuje cie ze wszystkich urządzeń.",
+            "hds-password-label-1": "Zagnite hasło",
+            "hds-password-placeholder-1": "Wierpordl tó stare masło",
+            "hds-password-label-2": "Nuwe chasło",
+            "hds-password-placeholder-2": "Podej Twoje nowe masło",
+            "hds-email-btn": "mejl",
+            "hds-email-h1": "Zmień adres mejl",
+            "hds-email-p": "Adres mejl, poprzez który możemy siem z tobo skuntaktować w celach bezpieczeństwa. Możesz go też używać przy logowaniu siem do kunta.",
+            "hds-email-label-1": "Nowy mejl",
+            "hds-email-placeholder-1": "Podaj nowy mejl",
+            "hds-mfa-btn": "MFA",
+            "hds-mfa-h1": "Weryfikacja dwóetapowa",
+            "hds-mfa-p": "Zabezpiecz swoje konto przed rumunami - Możesz tu włunczyć lub wyłunczyć MFA.",
+            "hds-mfa-label-code": "Kodaż",
+            "hds-mfa-recovery-codes": "Kodaż zapasowy",
+            "hds-recovery": "Przywr.",
+            "hds-recovery-h1": "Kodaż zapasowy",
+            "hds-recovery-p": "Kopiój kodaż zapasowy twujego kunta, jako awaryjna metoda logowania, gdy zgubisz swój teflon z klyjentem TOTP.",
+            "hds-recovery-label": "Kod MFA",
+            "delete-h1": "Wybuchnij moje konto Nove",
+            "delete-p": "Aby zebić konto, musisz podeć swoje hasło w celach bezpieczeństwa. Ten proces je nieodwracalny, a my niezwłocznie usuniemy dane z naszych serwerów! Możesz usunąć swoje konto kiedy tylko zechcesz i nie musisz siem z nami w tej sprawie kontaktować. Pamintoj aby usunąć wszystkie konta zarejestrowane przez OAuth2. W innym wypadku mogą być niedostępne.",
+            "delete-p2": "Podej Twoje chasło abyśmy mogli zweryfikować twojego tużsamościa. Pamiętuj aby usónąć wszystkie konta zarejestrowane prze OAuth2. W innym wypadkó mogą być nidostynpne. Ta akcja je wykonywana od raza i nie ma odwrota.",
+            "delete-label": "Tfoje hasło",
+            "delete-placeholder": "Chasło",
+            "delete-btn": "Wybuchnij kunto"
+        },
+        "profile": {
+            "description": "Zarzundzaj informacjażem, które so wyświetlane na twoim profilu Nove. Możeta ustawić profil na publiczny lub prywatny. Gdy ustawiony jest prywatny, udostępnimy tylko nazwę kunta i ikone.",
+            "hero-ul-1": "Podstawowe infurmacje o kuncie",
+            "hero-ul-2": "Szczegóły",
+            "input-username": "Nazwa debla",
+            "input-username-placeholder": "{username} (nowa nazwa tutej)",
+            "input-avatar": "Zdjęcie prufilowe",
+            "input-avatar-btn": "Wybier plik",
+            "input-avatar-filename": "Niczego ni wybralita w morde jeża",
+            "input-avatar-too-big": "Plik, który próbujeta przesłać zbyt jebitny",
+            "input-avatar-not-allowed": "Plik, który próbujeta przesłać je niedozwolony",
+            "input-bio": "O mie",
+            "input-profile-state-label": "Wyświetlaj wincyj informacji na póblicznym profilarzu"
+        },
+        "language": {
+            "hero-h1": "Junzyk",
+            "hero-p1": "Wybier preferowany język. To ustawienie byndzie używane, by wyświetlić treścia w wybranym językó we wszystkich towarach Nove, na których jesteśta zalogowani. Połączone aplikacje OAuth2 też mogo go óżywać.",
+            "hero-p2": "Ni jest to jeszcze oficjalnie wspierane rozwiązanie, lecz aplikacje zewnętrzne mogo już je w pełni wdrażać."
+        }
+    },
+    "admin": {
+        "users": {
+            "hero-h1": "Lista debiluf",
+            "popup-btn": "Autoryzuj akcje",
+            "popup-h1": "Musim zweryfikować, że to na prawdie ty",
+            "popup-p": "Podaj kod MFA z aplikacji TOTP na Twoim teflonie. Możeta użyć koda zapasowego.",
+            "popup-label": "Kod MFA",
+            "popup-reason": "Powud"
+        },
+        "posts": {
+            "header": "Ilość postuf: {number}",
+            "new-btn": "Popełnij nowy postaż",
+            "new-h1": "Popełnij nowy postaż",
+            "new-label": "Tytół",
+            "new-label-content": "Treść",
+            "edit-h1": "Edytuj postarz"
+        }
+    },
+    "documents": {
+        "privacy-policy": {
+            "title": "Politykarz Prywatnościa",
+            "last-modified": "Ostatnio zmodyfikowane: <time>30 września 2023</time>",
+            "p1": "Dostarczamy (w winkszości) darmuwe i otwartoźródłażowe rozwiunzania. Nie śledzim ni sprzedajemy danych do firm trzecich. Ni używamy śledzących pikseluf ani innego gówna od infiltracji użytkownika.",
+            "p2": "Zastrzegamy se prawo do aktualizacja tego dokumenta bez powiadomienia órzytkownikuf.",
+            "p3": "Używając naszych usług zgadzasz siem przestrzegać naszej Polityki Prywatnościa oraz Rególamina.",
+            "inf-header": "Infrastrukturaż",
+            "inf-p1": "Używamy metaló gospodarowanego prze FTdL (<a href=\"https://ftdl.pl/services/\" rel=\"noopener noreferrer\" target=\"_blank\">strona internetowa</a>) które zlokalizowane są w Krakowie, w Polsce. Administraturem danych osobowych jest Nove (nove.team; <a href=\"mailto:reply@nove.team\">reply@nove.team</a>)",
+            "inf-p2": "W naszej bazie danych przetwarzamy dane które zostały podane do NAPI. Czyli",
+            "inf-li-1": "nazwa maupy (zawsze pokazana)",
+            "inf-li-2": "mejl (nigdy nie pokazany)",
+            "inf-li-3": "sekcja o mie (nie pokazana na prywatnym profilu)",
+            "inf-li-4": "język kunta (nie pokazana na prywatnym profilu)",
+            "inf-li-5": "data stworzenia kunta (nie pokazana na prywatnym profilu)",
+            "inf-li-6": "data aktualizacji danych konta (nigdy nie pokazana)",
+            "inf-li-7": "stan weryfikacji kunta (nigdy nie pokazany)",
+            "inf-li-8": "tryb konta publiczny lub prywatny (nigdy nie pokazana)",
+            "inf-li-9": "chasłaż MFA (nigdy nie pokazane)",
+            "inf-li-10": "zaszyfrowane hasło (nigdy nie pokazane)",
+            "inf-li-11": "zdjęciaż profilowy kunta (zawsze pokazane)",
+            "inf-p3": "Niktóre z tych informacjarzy zostały oznaczone kako publicznie dostynpne. Udostępniamy narzędzia pozwalajunce na zmiane stanu profila na póbliczny/prywatny aby ukryć wrażliwe dane.",
+            "inf-p4": "Posiadamy dodatkowe fónkcje które zbierajo dane i so wyłuczone domyślnie: zapisywanie aktywności. Gdy włączone zbiera IP urządzenia oraz platformę (system, typ). Wyświetla te informacje w zakładce bezpieczeństwa w ustawieniach. Dane przechowywane są przez 30 dni a następnie są usówane. Kiedy wyłunczyta to funkcje zebrane dane zostają automatycznie potraktowane 16-funtówo.",
+            "inf-p5": "Podany w koncie mejlurz nie jest infiltrowany.",
+            "drp-header": "Polityka przechowywania danych",
+            "drp-p1": "Aby wybóchnąć (zabić (ósunąć)) swoje kunto, przejdźta do ustawień, wejdź w zakładkie 'Sekjóriti' a nastynpnie naciśnij 'Wybóchnij moje konto Nove' na samym dule strony.",
+            "drp-p2": "Dane które zostały zaszyfrowane hasłem są faktycznie zaszyfrowane i nie możemy ich podejrzeć.",
+            "drp-p3": "Mamy prawo do usunięcia kont które nie są aktywowane przez 3 dni lub dłużej.",
+            "drp-p4": "Mamy prawo do usunięcia kont które naruszają nasz regulamin",
+            "drp-p5": "Każde usunięcie konta przez administratora jest uzasadnione a powód jest znany właścicielowi konta przed lub kilka dni po usunięciu.",
+            "drp-p6": "Jeśli użytkownik stracił dostęp do swojego konta, może zgłosić siem po resetaż hasła lub wybóhnięcie kunta poprzez mejlarz na który siem zarejestrował do interpola",
+            "drp-p7": "Przetwarzamy dane użytkownika tak długo jak posiada konto w NAPI.",
+            "oa2-header": "Aplikacje OAuth2",
+            "oa2-p1": "Ta sekcja jeszcza ni istyje panie medyk"
+        },
+        "terms-of-service": {
+            "title": "Warunki ósługarzu (rególamin)",
+            "last-modified": "Ostatnio zmodyfikowane: <time>12 sierpnia 2023</time>",
+            "p1": "Używając usług osadzonych na naszych serwerach (Nove) zgadzasz siem na naszą Politykę Prywatności oraz akceptujesz Regulamin. Jeśli siem z nimi nie zgadzasz nie możeta korzystać z naszych serwisuf i ez. Jako przypomnienie, ten dokumentarz jak i Politykarz Prywatnoźci aplikóje siem do wszystkich naszych ósług i serwisuf.",
+            "p2": "Nie jesteśmy odpowiedzialni za treści na kuncie małpiszona",
+            "p3": "Niedozwolone operacje w naszych serwisach",
+            "li-1": "Treści NSFW oraz NSFL so zabrunione. Obejmóje to przemoc, filmy gore i materiały o charakterze akbarystycznym. NSFL to treści „Not Safe for Life”, co oznacza wszystko, co może zagrozić życiu ludzkiemu.",
+            "li-2": "Wszelkie materiały demencjogenne (pornograficzne) z ódziałem niletnich zostano potraktowane 16-funtówo, a powiązane konto zostanie całkowicie zablokowane, co spowoduje usunięcie wszystkich powiązanych z nim danych.",
+            "li-3": "Wszelkie materiałaże majunce na celu zkapimażowanie (bezpośrednie lub pośrednie) komputra lub innego óżądzenia są surowo zabronione.",
+            "li-4": "Treści przedstawiajunce działania zabronione przez prawo lokalne (i/lub polskie), w tym prawo federalne, so surowo zabronione.",
+            "li-5": "Nadużywając naszego API narażasz swoje konto na ewentualne potraktowanie 16-funtówą przez administratoruf.",
+            "li-5-li-1": "Sranie zbyt wieloma żądaniami o to samo do interfejsu API je nadużyciem",
+            "li-5-li-2": "Wysyłanie przygotowanych podatności do API je nadużyciem",
+            "li-5-li-3": "Wszelkie wykryte błędy należy natychmiast zgłaszać mejlem lub w dziale Gitea Issues",
+            "li-6": "Ni możem odszyfrować treści zaszyfrowanych/zaszyfrowanych hasłem nawet na potrzeby organów ścigania.",
+            "p4": "Prosim, ni twórz dodatkowych kont. Zostawmy rzeczy prostymi.",
+            "p5": "Zastrzegamy sobie prawo do aktualizacja tego dokumenta bez powiadomienia debiluf."
+        }
+    }
+}

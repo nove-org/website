@@ -1,12 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import o from '@sass/account/security/page.module.sass';
+import o from '@sass/popup.module.sass';
 import { axiosClient } from '@util/axios';
 import { getCookie } from 'cookies-next';
 import { Mfa, User } from '@util/schema';
 import { QRCodeSVG } from 'qrcode.react';
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 export default function Mfa({

@@ -1,7 +1,6 @@
 import { axiosClient } from '@util/axios';
 import Logo from '../Logo';
 import o from '@sass/login.module.sass';
-import Lines from '@app/login/Lines';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import { cookies, headers } from 'next/headers';
 import { redirect } from 'next/navigation';
@@ -39,21 +38,22 @@ export default async function Register({ searchParams }: { searchParams: { [key:
 
     return (
         <section className={o.box}>
-            {!user ? <p className="error">{lang.getCustomProp('modules.errors.p-offline')}</p> : null}
             <title>{`Nove | ${lang.getCustomProp('modules.navigation.register-btn')}`}</title>
-            <Logo size={48} />
-            <h1>{lang.getProp('hero-h1')}</h1>
-            <p>{lang.getProp('hero-p')}</p>
-            <RegisterForm
-                lang={{
-                    inputEmail: lang.getProp('input-email'),
-                    inputUsername: lang.getProp('input-username'),
-                    inputPassword: lang.getProp('input-password'),
-                    inputBtn: lang.getCustomProp('modules.actions.proceed'),
-                }}
-                searchParam={redirectBack}
-            />
-            <Lines />
+            <div className={o.content}>
+                {!user ? <p className="error">{lang.getCustomProp('modules.errors.p-offline')}</p> : null}
+                <Logo size={48} />
+                <h1>{lang.getProp('hero-h1')}</h1>
+                <p>{lang.getProp('hero-p')}</p>
+                <RegisterForm
+                    lang={{
+                        inputEmail: lang.getProp('input-email'),
+                        inputUsername: lang.getProp('input-username'),
+                        inputPassword: lang.getProp('input-password'),
+                        inputBtn: lang.getCustomProp('modules.actions.proceed'),
+                    }}
+                    searchParam={redirectBack}
+                />
+            </div>
         </section>
     );
 }

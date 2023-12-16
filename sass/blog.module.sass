@@ -27,7 +27,7 @@ div.posts
                 text-decoration: none
                 transition-duration: .2s
                 &:hover
-                    background: var(--border-st)
+                    background: var(--tertiary)
                 & h1
                     margin: 5px 0
                     margin-top: 0
@@ -48,7 +48,7 @@ div.posts
 
 header.warning
     padding: 15px
-    background: #f3bb4272
+    background: #f0c56972
     border-radius: 20px
     & h1.header
         display: flex
@@ -88,6 +88,12 @@ article.blog
             font-size: 20px
             margin: 0
             margin: 10px 0
+        & a
+            color: var(--accent-st)
+            font-size: 20px
+            text-decoration: none
+            &:hover
+                text-decoration: underline
         & code
             font-family: monospace
             font-size: 20px
@@ -95,7 +101,7 @@ article.blog
         & button
             display: flex
             align-items: center
-            padding: 5px 10px
+            padding: 8px 12px
             border-radius: 50px
             font-size: 14px
             font-weight: 500
@@ -111,7 +117,7 @@ article.blog
                 font-size: 14px
                 margin: 3px 0
             &:hover
-                background: var(--font-nd)
+                opacity: .8
             & svg
                 rotate: 180deg
         & a
@@ -187,7 +193,7 @@ div.comments
                 border-radius: 20px
                 padding: 10px 12px
                 border: 0
-                background: var(--border-st)
+                background: var(--secondary)
                 outline: 0
                 font-size: 16px
                 width: calc(100% - 24px)

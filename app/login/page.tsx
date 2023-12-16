@@ -1,7 +1,6 @@
 import { axiosClient } from '@util/axios';
 import Logo from '../Logo';
 import o from '@sass/login.module.sass';
-import Lines from './Lines';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
@@ -40,28 +39,27 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
 
     return (
         <section className={o.box}>
-            {!user ? <p className="error">{lang.getCustomProp('modules.errors.p-offline')}</p> : null}
             <title>{`Nove | ${lang.getCustomProp('modules.navigation.login-btn')}`}</title>
-            <Logo size={48} />
-            <h1>{lang.getProp('hero-h1')}</h1>
-            <p>{lang.getProp('hero-p')}</p>
-            <LoginForm
-                lang={{
-                    inputLogin: lang.getProp('input-login'),
-                    inputPassword: lang.getProp('input-password'),
-                    inputBtn: lang.getCustomProp('modules.actions.proceed'),
-                    mfaTitle: lang.getProp('mfa-h1'),
-                    mfaDescription: lang.getProp('mfa-p'),
-                    mfaLabel: lang.getProp('mfa-label'),
-                    mfaCancel: lang.getCustomProp('modules.actions.cancel'),
-                    mfaSubmit: lang.getCustomProp('modules.navigation.login-btn'),
-                }}
-                searchParam={redirectBack}
-            />
-            <a className={o.passwordReset} href="/password-reset">
-                {lang.getProp('password-reset')}
-            </a>
-            <Lines />
+            <div className={o.content}>
+                {!user ? <p className="error">{lang.getCustomProp('modules.errors.p-offline')}</p> : null}
+                <Logo size={48} />
+                <h1>{lang.getProp('hero-h1')}</h1>
+                <p>{lang.getProp('hero-p')}</p>
+                <LoginForm
+                    lang={{
+                        inputLogin: lang.getProp('input-login'),
+                        inputPassword: lang.getProp('input-password'),
+                        inputBtn: lang.getCustomProp('modules.actions.proceed'),
+                        mfaTitle: lang.getProp('mfa-h1'),
+                        mfaDescription: lang.getProp('mfa-p'),
+                        mfaLabel: lang.getProp('mfa-label'),
+                        mfaCancel: lang.getCustomProp('modules.actions.cancel'),
+                        mfaSubmit: lang.getCustomProp('modules.navigation.login-btn'),
+                        forgor: lang.getProp('password-reset'),
+                    }}
+                    searchParam={redirectBack}
+                />
+            </div>
         </section>
     );
 }

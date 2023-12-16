@@ -1,204 +1,76 @@
 section.box
-    max-width: 350px
-    margin: 0 auto
     display: flex
     flex-direction: column
     align-items: center
     justify-content: center
     min-height: calc( 100vh - 68px )
-    & a.passwordReset
-        position: absolute
-        bottom: 20px
-        left: 20px
-        text-decoration-line: underline
-        text-decoration-style: wavy
-        text-decoration-thickness: 1px
-        color: var(--font-st)
-        opacity: .7
-        font-size: 14px
-        &:hover
-            opacity: 1
-    & svg
-        margin-top: -30px
-        &.left
-            margin-top: 0
-            position: absolute
-            bottom: 0
-            left: 0
-            z-index: -99999
-            transition-duration: .2s
-            @media screen and (max-width: 1100px)
-                margin-left: -100px
-                margin-bottom: -100px
-                transform: rotate(-20deg)
-            @media screen and (max-width: 900px)
-                margin-bottom: -150px
-            @media screen and (max-width: 780px)
-                display: none
-        &.right
-            margin-top: 0
-            position: absolute
-            top: 0
-            right: 0
-            z-index: -99999
-            transition-duration: .2s
-            @media screen and (max-width: 1100px)
-                margin-top: -100px
-                transform: rotate(-10deg)
-            @media screen and (max-width: 900px)
-                margin-top: -200px
-            @media screen and (max-width: 780px)
-                display: none
-        &.button
-            margin-top: 0
-            margin-left: 5px
-    & h1
-        margin: 5px 0
-        margin-top: 15px
-        font-size: 32px
-        font-weight: 500
-        text-align: center
-    & p
-        margin: 15px 0
-        margin-top: -5px
-        font-size: 20px
-        font-weight: 400
-        text-align: center
-    & form
-        width: 100%
-        & label
-            font-size: 14px
-            font-weight: 700
-            text-transform: uppercase
-            margin: 0
-            margin-bottom: 3px
-        & input[type=text], input[type=password]
+    & div.content
+        max-width: 330px
+        padding: 35px
+        border: 1px solid var(--secondary)
+        border-radius: var(--box-roundness)
+        margin: auto
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        & a
+            text-decoration: none
             color: var(--font-st)
-            border-radius: 50px
-            width: calc( 100% - 12px * 2 )
-            padding: 10px 12px
-            margin: 5px 0 10px 0
-            border: 0
-            background: var(--secondary)
-            outline: 0
+            opacity: .7
             font-size: 14px
-        & button[type=submit]
-            border-radius: 50px
-            width: fit-content
-            display: flex
-            align-items: center
-            margin: 0
-            background: var(--tertiary)
-            color: var(--font-st)
-            font-weight: 500
-            font-size: 14px
-            padding: 9px 12px
-            outline: 0
-            border: 0
-            cursor: pointer
-            transition-duration: .2s
-            margin-top: 10px
-            &:hover
-                background: var(--border-st)
-
-div.popup
-    position: fixed
-    top: 0
-    left: 0
-    padding: 0
-    margin: 0
-    display: flex
-    flex-direction: column
-    align-items: center
-    justify-content: center
-    background: var(--popup-bg)
-    width: 100%
-    height: 100vh
-    z-index: 99999
-    animation: opacityin 370ms ease-in-out
-    @keyframes opacityin
-        0%
-            opacity: 0
-        100%
-            opacity: 1
-    & div.container
-        padding: 15px 20px
-        border-radius: 25px
-        background: var(--popup-rd)
-        backdrop-filter: blur(10px)
-        color: var(--font-st)
-        max-width: 350px
-        height: fit-content
-        text-align: center
-        border: 1px solid var(--tertiary)
-        box-shadow: 0 0 25px 0 rgba(0,0,0,.1)
-        margin: 10px
-        animation: bouncein 350ms ease-in-out
-        @keyframes bouncein
-            0%
-                transform: scale(0.2)
-                opacity: 0
-            40%
-                opacity: 1
-            60%
-                transform: scale(0.96)
-            100%
-                transform: scale(1)
-        & h1
-            margin: 10px 0
-            font-size: 26px
-            font-weight: 500
-        & p
-            font-size: 16px
             font-weight: 400
-            margin: 10px 0
-        & form
-            display: flex
-            flex-direction: column
-            gap: 15px
+            text-transform: none
+            &:hover
+                opacity: 1
+        & h1
+            margin: 5px 0
+            margin-top: 15px
+            font-size: 32px
+            font-weight: 500
+            text-align: center
+        & p
+            margin: 15px 0
+            margin-top: -5px
+            font-size: 20px
+            font-weight: 400
+            text-align: center
+        & form.login
+            width: 100%
             & label
-                display: flex
-                flex-direction: column
-                gap: 2px
-                text-align: left
-                font-size: 12px
-                font-weight: 700
+                font-size: 14px
+                font-weight: 600
                 text-transform: uppercase
-                & input
-                    color: var(--font-st)
-                    border-radius: 50px
-                    width: calc( 100% - 12px * 2 )
-                    padding: 10px 12px
-                    margin: 5px 0 10px 0
-                    border: 0
-                    background: var(--border-st)
-                    outline: 0
-                    font-size: 16px
-            & div.footer
+                margin: 0
+                margin-bottom: 3px
                 display: flex
                 align-items: center
-                gap: 10px
-                justify-content: center
-                margin-bottom: 10px
-                & button
-                    border-radius: 50px
-                    width: fit-content
-                    display: flex
-                    align-items: center
-                    margin: 0
-                    background: var(--tertiary)
-                    color: var(--font-st)
-                    font-weight: 500
-                    font-size: 14px
-                    padding: 9px 12px
-                    outline: 0
-                    border: 0
-                    cursor: pointer
-                    transition-duration: .2s
-                    &:not(:first-child)
-                        background: var(--font-nd)
-                        color: var(--primary)
-                        &:hover
-                            background: var(--font-st)
-                    &:hover
-                        background: var(--border-st)
+                justify-content: space-between
+            & input[type=text], input[type=password], input[type=email]
+                color: var(--font-st)
+                border-radius: 50px
+                width: calc( 100% - 12px * 2 )
+                padding: 10px 12px
+                margin: 5px 0 10px 0
+                border: 0
+                background: var(--secondary)
+                outline: 0
+                font-size: 14px
+            & button[type=submit]
+                border-radius: 50px
+                width: fit-content
+                display: flex
+                align-items: center
+                margin: 0
+                background: var(--secondary)
+                color: var(--font-st)
+                font-weight: 500
+                font-size: 14px
+                padding: 9px 12px
+                outline: 0
+                border: 0
+                cursor: pointer
+                transition-duration: .2s
+                margin-top: 10px
+                &:hover
+                    background: var(--quaternary)

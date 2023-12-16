@@ -1,7 +1,6 @@
 import { axiosClient } from '@util/axios';
 import Logo from '../Logo';
 import o from '@sass/login.module.sass';
-import Lines from '@app/login/Lines';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import { cookies, headers } from 'next/headers';
 import { redirect } from 'next/navigation';
@@ -37,18 +36,19 @@ export default async function PasswordReset() {
     return (
         <section className={o.box}>
             <title>{`Nove | ${lang.getProp('hero-h1')}`}</title>
-            <Logo size={48} />
-            <h1>{lang.getProp('hero-h1')}</h1>
-            <p>{lang.getProp('hero-p')}</p>
-            <ResetForm
-                lang={{
-                    inputBtn: lang.getCustomProp('modules.actions.proceed'),
-                    inputEmail: lang.getProp('input-email'),
-                    inputNewPassword: lang.getProp('input-new-password'),
-                    success: lang.getProp('request-success'),
-                }}
-            />
-            <Lines />
+            <div className={o.content}>
+                <Logo size={48} />
+                <h1>{lang.getProp('hero-h1')}</h1>
+                <p>{lang.getProp('hero-p')}</p>
+                <ResetForm
+                    lang={{
+                        inputBtn: lang.getCustomProp('modules.actions.proceed'),
+                        inputEmail: lang.getProp('input-email'),
+                        inputNewPassword: lang.getProp('input-new-password'),
+                        success: lang.getProp('request-success'),
+                    }}
+                />
+            </div>
         </section>
     );
 }
