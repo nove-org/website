@@ -20,11 +20,11 @@ export default async function Navigation() {
     const lang = await new LanguageHandler('modules/navigation', user?.body?.data).init(headers());
 
     return (
-        <nav className={o.box}>
+        <nav className={o.box + ' ' + o.account}>
             <div className={o.padding}>
                 <div className={o.flex}>
                     <a href="/">
-                        <header>
+                        <header className={o.logo}>
                             <Logo size={20} />
                             <p>Nove</p>
                         </header>
@@ -122,7 +122,9 @@ export default async function Navigation() {
                     </details>
                 ) : (
                     <div className={o.buttons}>
-                        <Link href="/login">{lang.getProp('login-btn')}</Link>
+                        <Link className={o.login} href="/login">
+                            {lang.getProp('login-btn')}
+                        </Link>
                         <Link href="/register">{lang.getProp('register-btn')}</Link>
                     </div>
                 )}

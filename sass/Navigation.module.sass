@@ -1,5 +1,17 @@
 nav.box
     width: 100%
+    @media screen and (max-width: 950px)
+        &.account
+            & div.padding
+                justify-content: flex-end
+                flex-direction: row-reverse
+                gap: 12px
+            & div.flex
+                width: 100%
+                justify-content: space-between
+                & header
+                    & img
+                        display: none
     & div.padding
         padding: 20px 0
         display: flex
@@ -14,18 +26,11 @@ nav.box
             width: calc(100% - 70px * 2)
         @media screen and (max-width: 1100px)
             width: calc(100% - 40px * 2)
-        @media screen and (max-width: 950px)
-            justify-content: flex-end
-            flex-direction: row-reverse
-            gap: 12px
         @media screen and (max-width: 500px)
             width: calc(100% - 20px * 2)
     & div.flex
         display: flex
         align-items: center
-        @media screen and (max-width: 950px)
-            width: 100%
-            justify-content: space-between
         & a
             text-decoration: none
         & header
@@ -35,9 +40,6 @@ nav.box
             font-size: 20px
             font-weight: 600
             color: var(--font-st)
-            @media screen and (max-width: 950px)
-                & svg
-                    display: none
             & p
                 margin: 0
                 font-size: 20px
@@ -64,7 +66,7 @@ nav.box
                         position: absolute
                         top: 40px
                         left: 0
-                        background: var(--secondary-nd)
+                        background: var(--secondary)
                         border-radius: var(--box-roundness)
                         display: flex
                         gap: 8px
@@ -88,7 +90,7 @@ nav.box
                             width: 100%
                             border-radius: var(--box-roundness)
                             &:hover
-                                background: var(--tertiary)
+                                background: var(--quaternary)
                             & h1
                                 display: flex
                                 align-items: center
@@ -160,7 +162,7 @@ nav.box
             position: absolute
             top: 40px
             right: 0
-            background: var(--secondary-nd)
+            background: var(--secondary)
             border-radius: var(--box-roundness)
             display: flex
             flex-direction: column
@@ -194,7 +196,7 @@ nav.box
                 border-radius: 50px
                 gap: 7px
                 &:hover
-                    background: var(--tertiary)
+                    background: var(--quaternary)
                     color: var(--font-rd)
     & div.buttons
         display: flex
@@ -209,9 +211,14 @@ nav.box
             cursor: pointer
             padding: 5px 10px
             border-radius: 50px
+            &.login
+                outline: 1px solid var(--primary)
             &:hover
-                background: var(--secondary)
                 color: var(--font-rd)
+                &:not(.login)
+                    background: var(--secondary)
+                &.login
+                    outline: 1px solid var(--quaternary)
             &:last-child
                 padding: 5px 10px
                 border-radius: 50px
