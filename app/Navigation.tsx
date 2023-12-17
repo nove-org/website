@@ -20,7 +20,7 @@ export default async function Navigation() {
     const lang = await new LanguageHandler('modules/navigation', user?.body?.data).init(headers());
 
     return (
-        <nav className={o.box + ' ' + user?.body?.data ? o.account : undefined}>
+        <nav className={o.box + ` ${user?.body?.data ? o.account : ''}`}>
             <div className={o.padding}>
                 <div className={o.flex}>
                     <a href="/">
