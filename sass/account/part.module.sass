@@ -6,16 +6,34 @@ div.content
         font-size: 32px
         font-weight: 500
         margin-bottom: 10px
-        opacity: .9
         @media screen and (max-width: 950px)
             margin-top: 10px
     & p.desc
-        font-size: 20px
+        font-size: 16px
+        font-weight: 400
         margin: 0
         margin-bottom: 10px
-        opacity: .8
     & h2
         font-size: 26px
-        opacity: .8
         font-weight: 400
         margin-bottom: 10px
+    & button
+        display: flex
+        align-items: center
+        gap: 7px
+        padding: 5px 10px
+        border-radius: 50px
+        font-size: 14px
+        font-weight: 500
+        color: var(--primary)
+        background: var(--font-st)
+        outline: 0
+        border: 0
+        cursor: pointer
+        transition-duration: .2s
+        margin-top: 5px
+        @media screen and (max-width: 950px)
+            font-size: 14px
+            margin: 3px 0
+        &:hover
+            opacity: .8
