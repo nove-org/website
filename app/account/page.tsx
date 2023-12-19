@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { axiosClient } from '@util/axios';
+import a from '@sass/account/part.module.sass';
 import o from '@sass/account/page.module.sass';
 import { cookies, headers } from 'next/headers';
 import Link from 'next/link';
@@ -34,8 +35,8 @@ export default async function Overview() {
     let connNames: string[] = [];
 
     return user?.body?.data?.username ? (
-        <div className={o.content}>
-            <h1 className={o.title}>{lang.getCustomProp('dashboard.layout.ul-overview')}</h1>
+        <div className={a.content}>
+            <h1 className={a.title}>{lang.getCustomProp('dashboard.layout.ul-overview')}</h1>
             <ul className={o.overview}>
                 <li className={o.profile}>
                     <header>
@@ -186,9 +187,9 @@ export default async function Overview() {
             </ul>
         </div>
     ) : (
-        <div className={o.content}>
-            <h1 className={o.title}>{lang.getCustomProp('modules.errors.header')}</h1>
-            <p>{lang.getCustomProp('modules.errors.p-session')}</p>
+        <div className={a.content}>
+            <h1 className={a.title}>{lang.getCustomProp('modules.errors.header')}</h1>
+            <p className={a.desc}>{lang.getCustomProp('modules.errors.p-session')}</p>
         </div>
     );
 }

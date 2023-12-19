@@ -59,11 +59,13 @@ export default async function Blog({ params }: { params: { id: string } }) {
                         return (
                             <li key={comment.id}>
                                 <div className={b.container}>
+                                    <Image src={comment.authorAvatar} alt={comment.authorUsername + ' avatar'} width={32} height={32} />
                                     <header>
-                                        <Image src={comment.authorAvatar} alt={comment.authorUsername + ' avatar'} width={18} height={18} />
-                                        {comment.authorUsername}
+                                        <h1>{comment.authorUsername}</h1>
+                                        <p>
+                                            {comment.text} {comment.createdAt !== comment.updatedAt ? <span>(edited)</span> : null}
+                                        </p>
                                     </header>
-                                    {comment.text} {comment.createdAt !== comment.updatedAt ? <span>(edited)</span> : null}
                                 </div>
                                 <aside>
                                     {comment.authorId === user?.body?.data?.id || user?.body?.data?.permissionLevel === 2 ? (

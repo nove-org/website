@@ -1,4 +1,5 @@
 import { axiosClient } from '@util/axios';
+import a from '@sass/account/part.module.sass';
 import o from '@sass/account/security/page.module.sass';
 import { cookies, headers } from 'next/headers';
 import Card from './Device';
@@ -31,8 +32,8 @@ export default async function Overview() {
     const lang = await new LanguageHandler('dashboard/security', user?.body?.data).init(headers());
 
     return user?.body?.data?.username && device?.body ? (
-        <div className={o.content}>
-            <h1 className={o.title}>{lang.getCustomProp('dashboard.layout.ul-security')}</h1>
+        <div className={a.content}>
+            <h1 className={a.title}>{lang.getCustomProp('dashboard.layout.ul-security')}</h1>
             <div className={o.devices}>
                 <h2>{lang.getProp('devices-h1')}</h2>
                 <p>{lang.getProp('devices-p')}</p>
@@ -140,9 +141,9 @@ export default async function Overview() {
             </div>
         </div>
     ) : (
-        <div className={o.content}>
-            <h1 className={o.title}>{lang.getCustomProp('modules.errors.header')}</h1>
-            <p>{lang.getCustomProp('modules.errors.p-session')}</p>
+        <div className={a.content}>
+            <h1 className={a.title}>{lang.getCustomProp('modules.errors.header')}</h1>
+            <p className={a.desc}>{lang.getCustomProp('modules.errors.p-session')}</p>
         </div>
     );
 }

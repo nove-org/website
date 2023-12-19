@@ -43,7 +43,7 @@ export default async function BlogList() {
                 <p className={o.description}>{lang.getProp('warn-p')}</p>
             </header>
             <ul className={o.posts}>
-                {posts?.body?.data.map((post) => {
+                {posts?.body?.data.reverse().map((post) => {
                     const date = new Date(post.createdAt);
                     return (
                         <li key={post.id}>
