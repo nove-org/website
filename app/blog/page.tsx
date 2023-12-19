@@ -7,13 +7,13 @@ import { cookies, headers } from 'next/headers';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 
 export const metadata = {
-    title: 'Nove | Blog',
+    title: 'Homepage | Nove Blog',
     openGraph: {
-        title: 'Nove | Blog',
+        title: 'Homepage | Nove Blog',
         images: [],
     },
     twitter: {
-        title: 'Nove | Blog',
+        title: 'Homepage | Nove Blog',
         images: [],
     },
     keywords: ['nove', 'nove blog', 'about'],

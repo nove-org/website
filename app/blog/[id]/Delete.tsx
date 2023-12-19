@@ -9,7 +9,6 @@ import { useState } from 'react';
 import { Post } from '@util/schema';
 
 export default function Delete({ post, id }: { post: Post; id: string }) {
-    const [loading, setLoading] = useState<boolean>(false);
     const router = useRouter();
     const [postError, setPostError] = useState<string>();
 
@@ -24,13 +23,12 @@ export default function Delete({ post, id }: { post: Post; id: string }) {
     };
 
     const handleDelete = async () => {
-        setLoading(true);
         await axiosClient
             .delete('/v1/blog/' + post.id + '/comment/' + id, {
                 headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}` },
             })
-            .then((r) => (setLoading(false), router.refresh()))
-            .catch((err) => (setLoading(false), err?.response?.data?.body?.error ? throwError(err.response.data.body.error.message) : console.error(err)));
+            .then((r) => router.refresh())
+            .catch((err) => (err?.response?.data?.body?.error ? throwError(err.response.data.body.error.message) : console.error(err)));
     };
 
     return (
