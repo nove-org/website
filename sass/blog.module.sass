@@ -19,7 +19,7 @@ div.posts
         & li
             & a
                 display: block
-                background: var(--secondary)
+                background: var(--secondary-nd)
                 padding: 20px 0
                 padding: 20px
                 border-radius: 20px
@@ -151,22 +151,34 @@ div.comments
         padding: 0
         list-style: none
         & li
-            margin: 20px 0
+            margin: 15px 0
             display: flex
             justify-content: space-between
+            background: var(--secondary-nd)
+            padding: 10px 12px
+            border-radius: 20px
             & div.container
-                font-size: 16px
+                display: flex
+                align-items: center
+                gap: 8px
+                & img
+                    border-radius: 50%
                 & span
                     font-size: 12px
                     opacity: .7
                 & header
                     display: flex
-                    gap: 5px
-                    align-items: center
-                    font-size: 18px
+                    flex-direction: column
+                    gap: 1px
                     font-weight: 500
-                    & img
-                        border-radius: 50%
+                    & h1
+                        font-size: 18px
+                        margin: 0
+                        font-weight: 500
+                    & p
+                        font-size: 16px
+                        margin: 0
+                        font-weight: 400
             & aside
                 display: flex
                 align-items: center
@@ -191,9 +203,9 @@ div.comments
             & textarea
                 color: var(--font-st)
                 border-radius: 20px
-                padding: 10px 12px
+                padding: 12px 14px
                 border: 0
-                background: var(--secondary)
+                background: var(--secondary-nd)
                 outline: 0
                 font-size: 16px
                 width: calc(100% - 24px)

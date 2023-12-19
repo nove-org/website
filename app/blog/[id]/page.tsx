@@ -9,18 +9,29 @@ import Comment from './Comment';
 import Image from 'next/image';
 import Delete from './Delete';
 
-export const metadata = {
-    title: 'Nove | Blog',
-    openGraph: {
-        title: 'Nove | Blog',
-        images: [],
-    },
-    twitter: {
-        title: 'Nove | Blog',
-        images: [],
-    },
-    keywords: ['nove', 'nove blog', 'about'],
-};
+async function getPostData(id: string) {
+    const post: Response<Post> = (await axiosClient.get('/v1/blog/' + id).catch((e) => e.response))?.data;
+
+    return post;
+}
+
+export async function generateMetadata({ params }: { params: { id: string } }) {
+    const post = await getPostData(params.id);
+    const title = post?.body?.data ? post.body.data.title + ' | Nove Blog' : '404 | Nove Blog';
+
+    return {
+        title,
+        openGraph: {
+            title,
+            images: [],
+        },
+        twitter: {
+            title,
+            images: [],
+        },
+        keywords: ['nove', 'nove blog', 'about'],
+    };
+}
 
 export default async function Blog({ params }: { params: { id: string } }) {
     const user: Response<User> = (
@@ -32,7 +43,7 @@ export default async function Blog({ params }: { params: { id: string } }) {
     )?.data;
 
     const lang = await new LanguageHandler('main/blog', user?.body?.data).init(headers());
-    const post: Response<Post> = (await axiosClient.get('/v1/blog/' + params.id).catch((e) => e.response))?.data;
+    const post = await getPostData(params.id);
 
     return (
         <article className={b.blog}>
@@ -59,11 +70,13 @@ export default async function Blog({ params }: { params: { id: string } }) {
                         return (
                             <li key={comment.id}>
                                 <div className={b.container}>
+                                    <Image src={comment.authorAvatar} alt={comment.authorUsername + ' avatar'} width={32} height={32} />
                                     <header>
-                                        <Image src={comment.authorAvatar} alt={comment.authorUsername + ' avatar'} width={18} height={18} />
-                                        {comment.authorUsername}
+                                        <h1>{comment.authorUsername}</h1>
+                                        <p>
+                                            {comment.text} {comment.createdAt !== comment.updatedAt ? <span>(edited)</span> : null}
+                                        </p>
                                     </header>
-                                    {comment.text} {comment.createdAt !== comment.updatedAt ? <span>(edited)</span> : null}
                                 </div>
                                 <aside>
                                     {comment.authorId === user?.body?.data?.id || user?.body?.data?.permissionLevel === 2 ? (

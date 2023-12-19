@@ -26,8 +26,8 @@ export default async function BlogList() {
     const posts: Response<Post[]> = (await axiosClient.get('/v1/blog').catch((e) => e.response))?.data;
 
     return user?.body?.data?.username && languages?.body?.data ? (
-        <div className={o.content}>
-            <h1 className={o.title}>{lang.getProp('header', { number: posts.body.data.length })}</h1>
+        <div className={a.content}>
+            <h1 className={a.title}>{lang.getProp('header', { number: posts.body.data.length })}</h1>
             <NewPost
                 lang={{
                     btn: lang.getProp('new-btn'),
@@ -62,7 +62,7 @@ export default async function BlogList() {
     ) : (
         <div className={a.content}>
             <h1 className={a.title}>{lang.getCustomProp('modules.errors.header')}</h1>
-            <p>{lang.getCustomProp('modules.errors.session')}</p>
+            <p className={a.desc}>{lang.getCustomProp('modules.errors.p-session')}</p>
         </div>
     );
 }

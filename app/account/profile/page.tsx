@@ -1,4 +1,5 @@
 import { axiosClient } from '@util/axios';
+import a from '@sass/account/part.module.sass';
 import o from '@sass/account/profile/page.module.sass';
 import { cookies, headers } from 'next/headers';
 import { Response, User } from '@util/schema';
@@ -22,9 +23,9 @@ export default async function Overview() {
     const lang = await new LanguageHandler('dashboard/profile', user?.body?.data).init(headers());
 
     return user?.body?.data?.username ? (
-        <div className={o.content}>
-            <h1 className={o.title}>{lang.getCustomProp('dashboard.layout.ul-profile')}</h1>
-            <p className={o.desc}>{lang.getProp('description')}</p>
+        <div className={a.content}>
+            <h1 className={a.title}>{lang.getCustomProp('dashboard.layout.ul-profile')}</h1>
+            <p className={a.desc}>{lang.getProp('description')}</p>
             <h2>{lang.getProp('hero-ul-1')}</h2>
             <ul className={o.options}>
                 <Avatar
@@ -71,9 +72,9 @@ export default async function Overview() {
             </ul>
         </div>
     ) : (
-        <div className={o.content}>
-            <h1 className={o.title}>{lang.getCustomProp('modules.errors.header')}</h1>
-            <p>{lang.getCustomProp('modules.errors.session')}</p>
+        <div className={a.content}>
+            <h1 className={a.title}>{lang.getCustomProp('modules.errors.header')}</h1>
+            <p className={a.desc}>{lang.getCustomProp('modules.errors.p-session')}</p>
         </div>
     );
 }

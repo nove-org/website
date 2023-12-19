@@ -7,13 +7,13 @@ import { cookies, headers } from 'next/headers';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 
 export const metadata = {
-    title: 'Nove | Blog',
+    title: 'Homepage | Nove Blog',
     openGraph: {
-        title: 'Nove | Blog',
+        title: 'Homepage | Nove Blog',
         images: [],
     },
     twitter: {
-        title: 'Nove | Blog',
+        title: 'Homepage | Nove Blog',
         images: [],
     },
     keywords: ['nove', 'nove blog', 'about'],
@@ -43,7 +43,7 @@ export default async function BlogList() {
                 <p className={o.description}>{lang.getProp('warn-p')}</p>
             </header>
             <ul className={o.posts}>
-                {posts?.body?.data.map((post) => {
+                {posts?.body?.data.reverse().map((post) => {
                     const date = new Date(post.createdAt);
                     return (
                         <li key={post.id}>
