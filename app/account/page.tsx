@@ -134,7 +134,7 @@ export default async function Overview() {
                     </li>
                 </div>
             </ul>
-            <h1 className={o.title}>{lang.getProp('connections-title')}</h1>
+            <h1 className={a.title}>{lang.getProp('connections-title')}</h1>
             <ul className={o.connections}>
                 {connections.body.data
                     .slice(0)
@@ -147,19 +147,17 @@ export default async function Overview() {
                             <li key={connection.id} className={o.card}>
                                 <header>
                                     <div className={o.name}>
-                                        {connection.app.isVerified ? (
-                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
-                                                <path
-                                                    fill="currentColor"
-                                                    d="M21.228,12l0.622-1.92c0.465-1.437-0.182-3-1.527-3.687l-1.797-0.918l-0.918-1.797c-0.687-1.345-2.25-1.993-3.687-1.527 L12,2.772L10.08,2.15c-1.437-0.465-3,0.182-3.687,1.527L5.474,5.474L3.677,6.393C2.332,7.08,1.685,8.643,2.15,10.08L2.772,12 L2.15,13.92c-0.465,1.437,0.182,3,1.527,3.687l1.797,0.918l0.918,1.797c0.687,1.345,2.25,1.993,3.687,1.527L12,21.228l1.92,0.622 c1.437,0.465,3-0.182,3.687-1.527l0.918-1.797l1.797-0.918c1.345-0.687,1.993-2.25,1.527-3.687L21.228,12z M11,16.414l-3.707-3.707 l1.414-1.414L11,13.586l5.293-5.293l1.414,1.414L11,16.414z"></path>
-                                            </svg>
-                                        ) : null}
-                                        <div>
-                                            <h1>
-                                                <a href={connection.app.link_homepage}>{connection.app.name}</a>
-                                            </h1>
-                                            <p>{connection.app.description}</p>
-                                        </div>
+                                        <h1>
+                                            {connection.app.isVerified ? (
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
+                                                    <path
+                                                        fill="currentColor"
+                                                        d="M21.228,12l0.622-1.92c0.465-1.437-0.182-3-1.527-3.687l-1.797-0.918l-0.918-1.797c-0.687-1.345-2.25-1.993-3.687-1.527 L12,2.772L10.08,2.15c-1.437-0.465-3,0.182-3.687,1.527L5.474,5.474L3.677,6.393C2.332,7.08,1.685,8.643,2.15,10.08L2.772,12 L2.15,13.92c-0.465,1.437,0.182,3,1.527,3.687l1.797,0.918l0.918,1.797c0.687,1.345,2.25,1.993,3.687,1.527L12,21.228l1.92,0.622 c1.437,0.465,3-0.182,3.687-1.527l0.918-1.797l1.797-0.918c1.345-0.687,1.993-2.25,1.527-3.687L21.228,12z M11,16.414l-3.707-3.707 l1.414-1.414L11,13.586l5.293-5.293l1.414,1.414L11,16.414z"></path>
+                                                </svg>
+                                            ) : null}
+                                            <a href={connection.app.link_homepage}>{connection.app.name}</a>
+                                        </h1>
+                                        <p>{connection.app.description}</p>
                                         <span>
                                             {lang.getProp('connections-last-access') +
                                                 ' ' +
