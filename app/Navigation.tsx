@@ -4,7 +4,7 @@ import Image from 'next/image';
 import o from '@sass/Navigation.module.sass';
 import { axiosClient } from '@util/axios';
 import { cookies, headers } from 'next/headers';
-import { DONATE_LINK, REPOSITORY } from '@util/CONSTS';
+import { DONATE_LINK } from '@util/CONSTS';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import { Response, User } from '@util/schema';
 
