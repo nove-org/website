@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import Loader from '@app/Loader';
 import o from '@sass/account/layout.module.sass';
 import { axiosClient } from '@util/axios';
