@@ -88,10 +88,7 @@ export default async function Navigation() {
                 {user?.body?.data ? (
                     <details open={false} id="navbarMenu" className={o.user}>
                         <summary>
-                            <header>
-                                <Image src={user.body.data.avatar} width="28" height="28" alt="Avatar" />
-                                <p>{user.body.data.username}</p>
-                            </header>
+                            <Image src={user.body.data.avatar} width="28" height="28" alt="Avatar" />
                         </summary>
                         <div className={o.module}>
                             <a href="/account">
