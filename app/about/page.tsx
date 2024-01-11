@@ -1,40 +1,34 @@
+export const dynamic = 'force-dynamic';
 import o from '@sass/about.module.sass';
 import Image from 'next/image';
 import LanguageHandler from '@util/handlers/LanguageHandler';
-import { axiosClient } from '@util/axios';
-import { cookies, headers } from 'next/headers';
-import { Response, User } from '@util/schema';
+import { headers } from 'next/headers';
+import { getUser } from '@util/helpers/User';
 
-export const metadata = {
-    title: 'Nove | About',
-    description: 'Our goal is to make the Internet more private and safer. Meet our team and learn more about us.',
-    openGraph: {
-        title: 'Nove | About',
+export async function generateMetadata() {
+    const user = await getUser();
+    const lang = await new LanguageHandler('main/foss', user).init(headers());
+
+    return {
+        title: `${lang.getCustomProp('modules.navigation.ul-about')} | Nove`,
         description: 'Our goal is to make the Internet more private and safer. Meet our team and learn more about us.',
-        images: [],
-    },
-    twitter: {
-        title: 'Nove | About',
-        description: 'Our goal is to make the Internet more private and safer. Meet our team and learn more about us.',
-        images: [],
-    },
-    keywords: ['nove', 'about nove', 'about'],
-};
+        openGraph: {
+            title: `${lang.getCustomProp('modules.navigation.ul-about')} | Nove`,
+            description: 'Our goal is to make the Internet more private and safer. Meet our team and learn more about us.',
+        },
+        twitter: {
+            title: `${lang.getCustomProp('modules.navigation.ul-about')} | Nove`,
+            description: 'Our goal is to make the Internet more private and safer. Meet our team and learn more about us.',
+        },
+    };
+}
 
 export default async function About() {
-    const user: Response<User> = (
-        await axiosClient
-            .get('/v1/users/me', {
-                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-            })
-            .catch((e) => e.response)
-    )?.data;
-
-    const lang = await new LanguageHandler('main/about', user?.body?.data).init(headers());
+    const user = await getUser();
+    const lang = await new LanguageHandler('main/about', user).init(headers());
 
     return (
         <section className={o.hero}>
-            <title>{`Nove | ${lang.getCustomProp('modules.navigation.ul-about')}`}</title>
             <h1 className={o.title} dangerouslySetInnerHTML={{ __html: lang.getProp('hero-h1') }} />
             <p className={o.desc}>{lang.getProp('hero-p')}</p>
             <ul>

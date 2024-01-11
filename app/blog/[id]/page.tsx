@@ -1,13 +1,15 @@
+export const dynamic = 'force-dynamic';
 import { axiosClient } from '@util/axios';
 import b from '@sass/blog.module.sass';
 import { Response, Post, User } from '@util/schema';
 import { sanitize } from 'isomorphic-dompurify';
-import { cookies, headers } from 'next/headers';
+import { headers } from 'next/headers';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import Back from './Back';
 import Comment from './Comment';
 import Image from 'next/image';
 import Delete from './Delete';
+import { getUser } from '@util/helpers/User';
 
 async function getPostData(id: string) {
     const post: Response<Post> = (await axiosClient.get('/v1/blog/' + id).catch((e) => e.response))?.data;
@@ -23,26 +25,16 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
         title,
         openGraph: {
             title,
-            images: [],
         },
         twitter: {
             title,
-            images: [],
         },
-        keywords: ['nove', 'nove blog', 'about'],
     };
 }
 
 export default async function Blog({ params }: { params: { id: string } }) {
-    const user: Response<User> = (
-        await axiosClient
-            .get('/v1/users/me', {
-                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-            })
-            .catch((e) => e.response)
-    )?.data;
-
-    const lang = await new LanguageHandler('main/blog', user?.body?.data).init(headers());
+    const user = await getUser();
+    const lang = await new LanguageHandler('main/blog', user).init(headers());
     const post = await getPostData(params.id);
 
     return (
@@ -63,7 +55,7 @@ export default async function Blog({ params }: { params: { id: string } }) {
             </div>
             <div className={b.comments}>
                 <h1>Comments ({post?.body?.data?.comments?.length})</h1>
-                <Comment post={post?.body?.data} user={user?.body?.data} />
+                {user ? <Comment post={post?.body?.data} user={user} /> : null}
                 <ul>
                     {post?.body?.data?.comments?.map((comment) => {
                         const date = new Date(comment.createdAt);
@@ -79,7 +71,7 @@ export default async function Blog({ params }: { params: { id: string } }) {
                                     </header>
                                 </div>
                                 <aside>
-                                    {comment.authorId === user?.body?.data?.id || user?.body?.data?.permissionLevel === 2 ? (
+                                    {comment.authorId === user?.id || user?.permissionLevel === 2 ? (
                                         <>
                                             <Delete post={post.body.data} id={comment.id} />
                                         </>

@@ -20,31 +20,40 @@ div.posts
             & a
                 display: block
                 background: var(--secondary-nd)
-                padding: 20px 0
-                padding: 20px
+                padding: 0
                 border-radius: 20px
                 color: var(--font-st)
                 text-decoration: none
                 transition-duration: .2s
                 &:hover
                     background: var(--tertiary)
-                & h1
-                    margin: 5px 0
-                    margin-top: 0
-                    font-size: 28px
-                    font-weight: 500
-                    display: flex
-                    align-items: center
-                    justify-content: space-between
-                & p
-                    margin: 5px 0
-                    margin-bottom: 0
-                    display: flex
-                    align-items: center
-                    gap: 5px
-                    font-size: 18px
-                    & img
-                        border-radius: 50%
+                & img.banner
+                    border-top-left-radius: 20px
+                    border-top-right-radius: 20px
+                    max-width: 100%
+                    width: 100%
+                    margin: 0 auto
+                    height: auto
+                & div.info
+                    padding: 20px
+                    padding-top: 10px
+                    & h1
+                        margin: 5px 0
+                        margin-top: 0
+                        font-size: 28px
+                        font-weight: 500
+                        display: flex
+                        align-items: center
+                        justify-content: space-between
+                    & p
+                        margin: 5px 0
+                        margin-bottom: 0
+                        display: flex
+                        align-items: center
+                        gap: 5px
+                        font-size: 18px
+                        & img
+                            border-radius: 50%
 
 header.warning
     padding: 15px
@@ -79,24 +88,29 @@ article.blog
             font-size: 36px
             font-weight: 500
             margin: 10px 0
+            user-select: text
         & h2
             font-size: 26px
             font-weight: 500
             margin: 5px 0
             margin-top: 20px
+            user-select: text
         & p
             font-size: 20px
             margin: 0
             margin: 10px 0
+            user-select: text
         & a
             color: var(--accent-st)
             font-size: 20px
             text-decoration: none
+            user-select: text
             &:hover
                 text-decoration: underline
         & code
             font-family: monospace
             font-size: 20px
+            user-select: text
             user-select: text
         & button
             display: flex
@@ -121,7 +135,6 @@ article.blog
             & svg
                 rotate: 180deg
         & a
-
             font-size: 20px
             margin: 0
             margin-bottom: 10px
@@ -175,10 +188,12 @@ div.comments
                         font-size: 18px
                         margin: 0
                         font-weight: 500
+                        user-select: text
                     & p
                         font-size: 16px
                         margin: 0
                         font-weight: 400
+                        user-select: text
             & aside
                 display: flex
                 align-items: center

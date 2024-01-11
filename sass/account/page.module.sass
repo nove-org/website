@@ -157,7 +157,7 @@ ul.connections
         z-index: 1
         & header
             display: flex
-            align-items: center
+            align-items: flex-start
             justify-content: space-between
             margin-bottom: 5px
             @media screen and (max-width: 950px)
@@ -165,18 +165,17 @@ ul.connections
                 align-items: flex-start
                 gap: 5px
             & div.name
-                display: flex
-                align-items: center
-                gap: 5px
                 & h1
                     margin: 0
-                    font-size: 26px
+                    font-size: 24px
                     font-weight: 500
+                    display: flex
+                    align-items: center
                     & a
                         text-decoration: none
                         color: var(--font-st)
                 & p
-                    font-size: 18px
+                    font-size: 16px
                     margin: 0
                 & svg
                     margin-right: 5px
@@ -185,26 +184,19 @@ ul.connections
             & div.buttons
                 display: flex
                 align-items: center
-                gap: 5px
+                gap: 15px
                 & a
-                    display: block
-                    padding: 5px 7px
-                    border-radius: 50px
                     font-size: 14px
                     font-weight: 500
-                    color: var(--primary)
-                    background: var(--font-st)
-                    outline: 0
-                    border: 0
+                    color: var(--font-nd)
                     cursor: pointer
-                    transition-duration: .2s
                     text-decoration: none
                     text-align: center
                     @media screen and (max-width: 950px)
                         font-size: 14px
                         margin: 3px 0
                     &:hover
-                        opacity: .8
+                        text-decoration: underline
         & p.title
             font-size: 20px
             margin: 0

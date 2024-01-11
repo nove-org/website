@@ -16,8 +16,8 @@
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+export const dynamic = 'force-dynamic';
 import '@sass/globals.sass';
-import localFont from 'next/font/local';
 import Navigation from '@app/Navigation';
 import Footer from '@app/Footer';
 import type { Metadata, Viewport } from 'next';
@@ -31,8 +31,6 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://nove.team'),
-    title: 'Nove | Meet the world where your privacy matters',
-    description: 'Ditch the government, Google, Facebook and others that share data, profile and track you. Take back control over this.',
     category: 'technology',
     publisher: 'Nove Group',
     alternates: {
@@ -42,30 +40,7 @@ export const metadata: Metadata = {
         locale: 'en_US',
         url: 'https://nove.team/',
         siteName: 'nove.team',
-        title: 'Nove | Meet the world where your privacy matters',
-        description: 'Ditch the government, Google, Facebook and others that share data, profile and track you. Take back control over this.',
         authors: ['Nove Group', 'Contributors'],
-        images: [
-            {
-                url: '/banner.png',
-                alt: 'Campaign banner filled with text from title and description. "your privacy" highlighted in brand color (gradient pink-red).',
-                width: 860,
-                height: 470,
-            },
-        ],
-    },
-    twitter: {
-        card: 'summary_large_image',
-        title: 'Nove | Meet the world where your privacy matters',
-        description: 'Ditch the government, Google, Facebook and others that share data, profile and track you. Take back control over this.',
-        images: [
-            {
-                url: '/banner.png',
-                alt: 'Campaign banner filled with text from title and description. "your privacy" highlighted in brand color (gradient pink-red).',
-                width: 860,
-                height: 470,
-            },
-        ],
     },
     authors: [{ name: 'Nove Group', url: 'https://nove.team' }],
     keywords: ['nove', 'vave', 'vave bot', 'nove team', 'nove group'],

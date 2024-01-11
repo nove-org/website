@@ -1,39 +1,33 @@
+export const dynamic = 'force-dynamic';
 import o from '@sass/article.module.sass';
-import { axiosClient } from '@util/axios';
 import LanguageHandler from '@util/handlers/LanguageHandler';
-import { Response, User } from '@util/schema';
-import { cookies, headers } from 'next/headers';
+import { getUser } from '@util/helpers/User';
+import { headers } from 'next/headers';
 
-export const metadata = {
-    title: 'Nove | Privacy Policy',
-    description: 'Learn how we process information about you and what we are allowed to know.',
-    openGraph: {
-        title: 'Nove | Privacy Policy',
+export async function generateMetadata() {
+    const user = await getUser();
+    const lang = await new LanguageHandler('documents/privacy-policy', user).init(headers());
+
+    return {
+        title: `${lang.getProp('title')} | Nove`,
         description: 'Learn how we process information about you and what we are allowed to know.',
-        images: [],
-    },
-    twitter: {
-        title: 'Nove | Privacy Policy',
-        description: `Learn how we process information about you and what we are allowed to know.`,
-        images: [],
-    },
-    keywords: ['nove', 'privacy', 'privacy policy'],
-};
+        openGraph: {
+            title: `${lang.getProp('title')} | Nove`,
+            description: 'Learn how we process information about you and what we are allowed to know.',
+        },
+        twitter: {
+            title: `${lang.getProp('title')} | Nove`,
+            description: `Learn how we process information about you and what we are allowed to know.`,
+        },
+    };
+}
 
 export default async function Privacy() {
-    const user: Response<User> = (
-        await axiosClient
-            .get('/v1/users/me', {
-                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-            })
-            .catch((e) => e.response)
-    )?.data;
-
-    const lang = await new LanguageHandler('documents/privacy-policy', user?.body?.data).init(headers());
+    const user = await getUser();
+    const lang = await new LanguageHandler('documents/privacy-policy', user).init(headers());
 
     return (
         <article className={o.content}>
-            <title>{`Nove | ${lang.getProp('title')}`}</title>
             <h1>{lang.getProp('title')}</h1>
             <h2 dangerouslySetInnerHTML={{ __html: lang.getProp('last-modified') }}></h2>
             <p>{lang.getProp('p1')}</p>

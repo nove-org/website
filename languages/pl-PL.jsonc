@@ -81,14 +81,14 @@
         },
         "errors": {
             "header": "Coś poszło bardzo nie tak",
-            "p-offline": "Przepraszamy ale nasze serwery są obecnie niedostępne",
-            "p-session": "Nie możemy podpisać Twojej sesji co prowadzi do błędu pobrania informacji",
-            "p-verifyEmail": "Zweryfikuj swój adres e-mail aby moć używać tego konta"
+            "offline": "Przepraszamy ale nasze serwery są obecnie niedostępne",
+            "session": "Nie możemy podpisać Twojej sesji co prowadzi do błędu pobrania informacji",
+            "verify-email": "Zweryfikuj swój adres e-mail aby móc używać tego konta"
         }
     },
     "main": {
         "landing": {
-            "title": "Wejdź do świata gdzie, Twoja prywatność ma znaczenie",
+            "title": "Wejdź do świata, gdzie Twoja prywatność ma znaczenie",
             "hero-h1": "Wejdź do świata, gdzie <span>Twoja prywatność</span> ma znaczenie.",
             "hero-note-trust": "Nie wierz nam na słowo. Przejrzyj nasz <a class={style} target=\"_blank\" rel=\"noopener noreferrer\" href={repository}>kod</a> samodzielnie",
             "hero-description": "Porzuć Google, Facebooka i innych sprzedających Twoje dane, profilujących Cię i śledzących. Odzyskaj kontrolę i zacznij używać otwartoźródłowych, darmowych i respektujących prywatność rozwiązań Nove.",

@@ -1,5 +1,4 @@
 import { NextPage } from 'next';
-
 import o from '@sass/Loader.module.sass';
 
 interface Props {

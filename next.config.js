@@ -10,6 +10,11 @@ const nextConfig = {
                 hostname: 'api.nove.team',
                 pathname: '**',
             },
+            {
+                protocol: 'https',
+                hostname: 'files-api.nove.team',
+                pathname: '**',
+            },
         ],
     },
 };

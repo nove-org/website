@@ -89,6 +89,7 @@ nav.box
                             padding: 12px 14px
                             width: 100%
                             border-radius: var(--box-roundness)
+                            opacity: 1
                             &:hover
                                 background: var(--quaternary)
                             & h1
@@ -114,14 +115,16 @@ nav.box
                                 transform: translateY(0)
                 & a
                     font-size: 14px
-                    font-weight: 300
+                    font-weight: 400
                     text-decoration: none
                     color: var(--font-st)
                     transition-duration: .2s
                     cursor: pointer
                     padding: 5px 10px
+                    opacity: .8
                     border-radius: 50px
                     &:hover
+                        opacity: 1
                         background: var(--secondary)
                         color: var(--font-rd)
     & details.user
@@ -132,32 +135,9 @@ nav.box
             display: flex
             align-items: flex-start
             justify-content: flex-end
-            & header
-                display: flex
-                align-items: center
-                margin: 0
-                padding: 1px
-                background: var(--secondary)
-                border-radius: 50px
-                text-decoration: none
-                color: var(--font-st)
-                padding-right: 8px
-                font-size: 14px
-                font-weight: 500
-                cursor: pointer
-                width: fit-content
-                gap: 5px
-                @media screen and (max-width: 950px)
-                    padding: 0
-                    & p
-                        display: none
-                    & img
-                        min-width: 26px
-                        min-height: 26px
-                & p
-                    margin: 0
-                & img
-                    border-radius: 50%
+            cursor: pointer
+            & img
+                border-radius: 50%
         & div.module
             position: absolute
             top: 40px

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import o from '@sass/account/admin/page.module.sass';
+import e from '@sass/account/part.module.sass';
 import p from '@sass/popup.module.sass';
 import { axiosClient } from '@util/axios';
 import { getCookie } from 'cookies-next';
@@ -73,8 +74,8 @@ export default function Form({
             </div>
         </div>
     ) : (
-        <div className={o.content}>
-            <h1 className={o.title}>{users.length} users</h1>
+        <div className={e.content}>
+            <h1 className={e.title}>{users.length} users</h1>
             <ul className={o.users}>
                 {users.map((user) => (
                     <li key={user.id}>

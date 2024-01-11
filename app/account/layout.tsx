@@ -1,4 +1,4 @@
-import Link from 'next/link';
+export const dynamic = 'force-dynamic';
 import Loader from '@app/Loader';
 import o from '@sass/account/layout.module.sass';
 import { axiosClient } from '@util/axios';
@@ -7,22 +7,25 @@ import { redirect } from 'next/navigation';
 import { Response, User } from '@util/schema';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import Sidebar from './Sidebar';
+import { getUser } from '@util/helpers/User';
 
-export const metadata = {
-    title: 'Nove | Account',
-    description: "Log in to gain access to the dashboard. Register today if you haven't already.",
-    openGraph: {
-        title: 'Nove | Account',
+export async function generateMetadata() {
+    const user = await getUser();
+    const lang = await new LanguageHandler('dashboard/layout', user).init(headers());
+
+    return {
+        title: `${lang.getProp('ul-profile')} | Nove`,
         description: "Log in to gain access to the dashboard. Register today if you haven't already.",
-        images: [],
-    },
-    twitter: {
-        title: 'Nove | Account',
-        description: "Log in to gain access to the dashboard. Register today if you haven't already.",
-        images: [],
-    },
-    keywords: ['nove', 'nove account', 'account'],
-};
+        openGraph: {
+            title: `${lang.getProp('ul-profile')} | Nove`,
+            description: "Log in to gain access to the dashboard. Register today if you haven't already.",
+        },
+        twitter: {
+            title: `${lang.getProp('ul-profile')} | Nove`,
+            description: "Log in to gain access to the dashboard. Register today if you haven't already.",
+        },
+    };
+}
 
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
     const user: Response<User> = (
@@ -74,8 +77,8 @@ export default async function DashboardLayout({ children }: { children: React.Re
                 type="hidden"
                 text={
                     user?.body?.error?.code === 'verify_email'
-                        ? lang.getCustomProp('modules.errors.p-verifyEmail')
-                        : user?.body?.error?.message || lang.getCustomProp('modules.errors.p-offline')
+                        ? lang.getCustomProp('modules.errors.verify-email')
+                        : user?.body?.error?.message || lang.getCustomProp('modules.errors.offline')
                 }
             />
         </section>
