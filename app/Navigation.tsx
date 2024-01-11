@@ -1,26 +1,19 @@
+export const dynamic = 'force-dynamic';
 import Link from 'next/link';
 import Logo from '@app/Logo';
 import Image from 'next/image';
 import o from '@sass/Navigation.module.sass';
-import { axiosClient } from '@util/axios';
-import { cookies, headers } from 'next/headers';
+import { headers } from 'next/headers';
 import { DONATE_LINK } from '@util/CONSTS';
 import LanguageHandler from '@util/handlers/LanguageHandler';
-import { Response, User } from '@util/schema';
+import { getUser } from '@util/helpers/User';
 
 export default async function Navigation() {
-    const user: Response<User> = (
-        await axiosClient
-            .get('/v1/users/me', {
-                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-            })
-            .catch((e) => e.response)
-    )?.data;
-
-    const lang = await new LanguageHandler('modules/navigation', user?.body?.data).init(headers());
+    const user = await getUser();
+    const lang = await new LanguageHandler('modules/navigation', user).init(headers());
 
     return (
-        <nav className={o.box + ` ${user?.body?.data ? o.account : ''}`}>
+        <nav className={o.box + ` ${user ? o.account : ''}`}>
             <div className={o.padding}>
                 <div className={o.flex}>
                     <a href="/">
@@ -85,10 +78,10 @@ export default async function Navigation() {
                         </li>
                     </ul>
                 </div>
-                {user?.body?.data ? (
+                {user ? (
                     <details open={false} id="navbarMenu" className={o.user}>
                         <summary>
-                            <Image src={user.body.data.avatar} width="28" height="28" alt="Avatar" />
+                            <Image src={user.avatar} width="28" height="28" alt="Avatar" />
                         </summary>
                         <div className={o.module}>
                             <a href="/account">

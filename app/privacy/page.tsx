@@ -1,8 +1,8 @@
+export const dynamic = 'force-dynamic';
 import o from '@sass/article.module.sass';
-import { axiosClient } from '@util/axios';
 import LanguageHandler from '@util/handlers/LanguageHandler';
-import { Response, User } from '@util/schema';
-import { cookies, headers } from 'next/headers';
+import { getUser } from '@util/helpers/User';
+import { headers } from 'next/headers';
 
 export const metadata = {
     title: 'Nove | Privacy Policy',
@@ -21,15 +21,8 @@ export const metadata = {
 };
 
 export default async function Privacy() {
-    const user: Response<User> = (
-        await axiosClient
-            .get('/v1/users/me', {
-                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-            })
-            .catch((e) => e.response)
-    )?.data;
-
-    const lang = await new LanguageHandler('documents/privacy-policy', user?.body?.data).init(headers());
+    const user = await getUser();
+    const lang = await new LanguageHandler('documents/privacy-policy', user).init(headers());
 
     return (
         <article className={o.content}>

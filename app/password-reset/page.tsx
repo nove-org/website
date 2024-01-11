@@ -1,11 +1,11 @@
-import { axiosClient } from '@util/axios';
+export const dynamic = 'force-dynamic';
 import Logo from '../Logo';
 import o from '@sass/login.module.sass';
 import LanguageHandler from '@util/handlers/LanguageHandler';
-import { cookies, headers } from 'next/headers';
+import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
-import { User, Response } from '@util/schema';
 import ResetForm from './Form';
+import { getUser } from '@util/helpers/User';
 
 export const metadata = {
     title: 'Nove | Reset your password',
@@ -21,17 +21,9 @@ export const metadata = {
 };
 
 export default async function PasswordReset() {
-    const user: Response<User> = (
-        await axiosClient
-            .get('/v1/users/me', {
-                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-            })
-            .catch((e) => e.response)
-    )?.data;
-
-    if (user?.body?.data?.username) return redirect('/account');
-
-    const lang = await new LanguageHandler('main/password-reset', user?.body?.data).init(headers());
+    const user = await getUser();
+    if (user?.username) return redirect('/account');
+    const lang = await new LanguageHandler('main/password-reset', user).init(headers());
 
     return (
         <section className={o.box}>

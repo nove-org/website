@@ -38,7 +38,7 @@ export default async function Users() {
     ) : (
         <div className={a.content}>
             <h1 className={a.title}>{lang.getCustomProp('modules.errors.header')}</h1>
-            <p className={a.desc}>{lang.getCustomProp('modules.errors.p-session')}</p>
+            <p className={a.desc}>{lang.getCustomProp('modules.errors.session')}</p>
         </div>
     );
 }

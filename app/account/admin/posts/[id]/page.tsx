@@ -60,7 +60,7 @@ export default async function Blog({ params }: { params: { id: string } }) {
     ) : (
         <div className={a.content}>
             <h1 className={a.title}>{lang.getCustomProp('modules.errors.header')}</h1>
-            <p>{lang.getCustomProp('modules.errors.p-session')}</p>
+            <p>{lang.getCustomProp('modules.errors.session')}</p>
         </div>
     );
 }

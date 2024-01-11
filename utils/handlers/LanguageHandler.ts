@@ -11,7 +11,7 @@ export default class LanguageHandler {
     private file: any;
     private props: string | undefined;
 
-    constructor(path: string, user: User) {
+    constructor(path: string, user: User | undefined) {
         this.category = path.split('/')[0];
         this.name = path.split('/')[1];
         this.language = user?.language;

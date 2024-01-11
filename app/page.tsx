@@ -16,25 +16,53 @@
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+export const dynamic = 'force-dynamic';
 import o from '@sass/page.module.sass';
 import Link from 'next/link';
 import { DONATE_LINK, REPOSITORY } from '@util/CONSTS';
 import Image from 'next/image';
 import LanguageHandler from '@util/handlers/LanguageHandler';
-import { axiosClient } from '@util/axios';
-import { cookies, headers } from 'next/headers';
-import { Response, User } from '@util/schema';
+import { headers } from 'next/headers';
+import { getUser } from '@util/helpers/User';
+
+export async function generateMetadata() {
+    const user = await getUser();
+    const lang = await new LanguageHandler('main/landing', user).init(headers());
+
+    return {
+        title: `${lang.getProp('title')} | Nove`,
+        description: 'Ditch the government, Google, Facebook and others that share data, profile and track you. Take back control over this.',
+        openGraph: {
+            title: `${lang.getProp('title')} | Nove`,
+            description: 'Ditch the government, Google, Facebook and others that share data, profile and track you. Take back control over this.',
+            images: [
+                {
+                    url: '/banner.png',
+                    alt: 'Campaign banner filled with text from the title and description. "your privacy" highlighted in brand color (gradient pink-red).',
+                    width: 860,
+                    height: 470,
+                },
+            ],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: `${lang.getProp('title')} | Nove`,
+            description: 'Ditch the government, Google, Facebook and others that share data, profile and track you. Take back control over this.',
+            images: [
+                {
+                    url: '/banner.png',
+                    alt: 'Campaign banner filled with text from the title and description. "your privacy" highlighted in brand color (gradient pink-red).',
+                    width: 860,
+                    height: 470,
+                },
+            ],
+        },
+    };
+}
 
 export default async function Home() {
-    const user: Response<User> = (
-        await axiosClient
-            .get('/v1/users/me', {
-                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-            })
-            .catch((e) => e.response)
-    )?.data;
-
-    const lang = await new LanguageHandler('main/landing', user?.body?.data).init(headers());
+    const user = await getUser();
+    const lang = await new LanguageHandler('main/landing', user).init(headers());
 
     return (
         <>
@@ -44,7 +72,7 @@ export default async function Home() {
                 <ul>
                     <li>
                         <a href="/register" className={o.button}>
-                            {!user?.body?.data?.username ? lang.getProp('hero-btn') : lang.getCustomProp('dashboard.layout.ul-profile')}
+                            {!user?.username ? lang.getProp('hero-btn') : lang.getCustomProp('dashboard.layout.ul-profile')}
                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 30 30">
                                 <path
                                     fill="currentColor"
@@ -136,7 +164,7 @@ export default async function Home() {
                 <h1>{lang.getProp('ready-h1')}</h1>
                 <p>{lang.getProp('ready-p')}</p>
                 <Link href="/register">
-                    {!user?.body?.data?.username ? lang.getProp('ready-btn') : lang.getCustomProp('dashboard.layout.ul-profile')}
+                    {!user?.username ? lang.getProp('ready-btn') : lang.getCustomProp('dashboard.layout.ul-profile')}
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 30 30">
                         <path
                             fill="currentColor"

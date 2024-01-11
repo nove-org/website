@@ -1,9 +1,11 @@
+export const dynamic = 'force-dynamic';
 import o from '@sass/blog.module.sass';
 import { axiosClient } from '@util/axios';
 import { Response, Post, User } from '@util/schema';
-import { cookies, headers } from 'next/headers';
+import { headers } from 'next/headers';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import BlogCard from './BlogCard';
+import { getUser } from '@util/helpers/User';
 
 export const metadata = {
     title: 'Homepage | Nove Blog',
@@ -19,15 +21,8 @@ export const metadata = {
 };
 
 export default async function BlogList() {
-    const user: Response<User> = (
-        await axiosClient
-            .get('/v1/users/me', {
-                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-            })
-            .catch((e) => e.response)
-    )?.data;
-
-    const lang = await new LanguageHandler('main/blog', user?.body?.data).init(headers());
+    const user = await getUser();
+    const lang = await new LanguageHandler('main/blog', user).init(headers());
     const posts: Response<Post[]> = (await axiosClient.get('/v1/blog').catch((e) => e.response))?.data;
 
     return (

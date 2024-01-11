@@ -1,23 +1,16 @@
+export const dynamic = 'force-dynamic';
 import Link from 'next/link';
 import Logo from '@app/Logo';
 import o from '@sass/Footer.module.sass';
 import { SUPPORT_MAIL, REPOSITORY, DONATE_LINK } from '@util/CONSTS';
-import { axiosClient } from '@util/axios';
 import LanguageHandler from '@util/handlers/LanguageHandler';
-import { cookies, headers } from 'next/headers';
-import { Response, User } from '@util/schema';
+import { headers } from 'next/headers';
+import { getUser } from '@util/helpers/User';
 
 export default async function Footer() {
+    const user = await getUser();
     const year = new Date().getFullYear();
-    const user: Response<User> = (
-        await axiosClient
-            .get('/v1/users/me', {
-                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-            })
-            .catch((e) => e.response)
-    )?.data;
-
-    const lang = await new LanguageHandler('modules/footer', user?.body?.data).init(headers());
+    const lang = await new LanguageHandler('modules/footer', user).init(headers());
 
     return (
         <footer className={o.box}>

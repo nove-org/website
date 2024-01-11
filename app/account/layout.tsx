@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Loader from '@app/Loader';
 import o from '@sass/account/layout.module.sass';
 import { axiosClient } from '@util/axios';
@@ -74,8 +73,8 @@ export default async function DashboardLayout({ children }: { children: React.Re
                 type="hidden"
                 text={
                     user?.body?.error?.code === 'verify_email'
-                        ? lang.getCustomProp('modules.errors.p-verifyEmail')
-                        : user?.body?.error?.message || lang.getCustomProp('modules.errors.p-offline')
+                        ? lang.getCustomProp('modules.errors.verify-email')
+                        : user?.body?.error?.message || lang.getCustomProp('modules.errors.offline')
                 }
             />
         </section>

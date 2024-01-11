@@ -81,9 +81,9 @@
         },
         "errors": {
             "header": "Cuś siem zj- znaczy ni powiodło",
-            "p-offline": "Serwer uderzył w skalisko dolne",
-            "p-session": "Ni możem pudpisać Twojej sesji co prowadzi do błęda pobrażu informacji",
-            "p-verifyEmail": "Zweryfikujta swój e-mejlaż aby moć utylizować toż kunto"
+            "offline": "Serwer uderzył w skalisko dolne",
+            "session": "Ni możem pudpisać Twojej sesji co prowadzi do błęda pobrażu informacji",
+            "verify-email": "Zweryfikujta swój e-mejlaż aby moć utylizować toż kunto"
         }
     },
     "main": {

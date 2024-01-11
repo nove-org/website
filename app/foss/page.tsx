@@ -1,8 +1,8 @@
+export const dynamic = 'force-dynamic';
 import o from '@sass/foss.module.sass';
 import LanguageHandler from '@util/handlers/LanguageHandler';
-import { axiosClient } from '@util/axios';
-import { cookies, headers } from 'next/headers';
-import { Response, User } from '@util/schema';
+import { headers } from 'next/headers';
+import { getUser } from '@util/helpers/User';
 
 export const metadata = {
     title: 'Nove | FOSS projects',
@@ -21,15 +21,8 @@ export const metadata = {
 };
 
 export default async function FOSS() {
-    const user: Response<User> = (
-        await axiosClient
-            .get('/v1/users/me', {
-                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-            })
-            .catch((e) => e.response)
-    )?.data;
-
-    const lang = await new LanguageHandler('main/foss', user?.body?.data).init(headers());
+    const user = await getUser();
+    const lang = await new LanguageHandler('main/foss', user).init(headers());
 
     return (
         <section className={o.hero}>
