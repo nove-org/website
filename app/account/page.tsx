@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import Image from 'next/image';
 import { axiosClient } from '@util/axios';
 import a from '@sass/account/part.module.sass';

@@ -1,6 +1,6 @@
+export const dynamic = 'force-dynamic';
 import { axiosClient } from '@util/axios';
 import a from '@sass/account/part.module.sass';
-import o from '@sass/account/language/page.module.sass';
 import { cookies, headers } from 'next/headers';
 import { Response, User, Languages } from '@util/schema';
 import Form from './Form';

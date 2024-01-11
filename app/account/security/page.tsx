@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { axiosClient } from '@util/axios';
 import a from '@sass/account/part.module.sass';
 import o from '@sass/account/security/page.module.sass';
