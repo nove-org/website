@@ -7,18 +7,20 @@ import LanguageHandler from '@util/handlers/LanguageHandler';
 import BlogCard from './BlogCard';
 import { getUser } from '@util/helpers/User';
 
-export const metadata = {
-    title: 'Homepage | Nove Blog',
-    openGraph: {
+export async function generateMetadata() {
+    const user = await getUser();
+    const lang = await new LanguageHandler('main/blog', user).init(headers());
+
+    return {
         title: 'Homepage | Nove Blog',
-        images: [],
-    },
-    twitter: {
-        title: 'Homepage | Nove Blog',
-        images: [],
-    },
-    keywords: ['nove', 'nove blog', 'about'],
-};
+        openGraph: {
+            title: 'Homepage | Nove Blog',
+        },
+        twitter: {
+            title: 'Homepage | Nove Blog',
+        },
+    };
+}
 
 export default async function BlogList() {
     const user = await getUser();

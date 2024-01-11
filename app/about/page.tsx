@@ -5,21 +5,23 @@ import LanguageHandler from '@util/handlers/LanguageHandler';
 import { headers } from 'next/headers';
 import { getUser } from '@util/helpers/User';
 
-export const metadata = {
-    title: 'Nove | About',
-    description: 'Our goal is to make the Internet more private and safer. Meet our team and learn more about us.',
-    openGraph: {
-        title: 'Nove | About',
+export async function generateMetadata() {
+    const user = await getUser();
+    const lang = await new LanguageHandler('main/foss', user).init(headers());
+
+    return {
+        title: `${lang.getCustomProp('modules.navigation.ul-about')} | Nove`,
         description: 'Our goal is to make the Internet more private and safer. Meet our team and learn more about us.',
-        images: [],
-    },
-    twitter: {
-        title: 'Nove | About',
-        description: 'Our goal is to make the Internet more private and safer. Meet our team and learn more about us.',
-        images: [],
-    },
-    keywords: ['nove', 'about nove', 'about'],
-};
+        openGraph: {
+            title: `${lang.getCustomProp('modules.navigation.ul-about')} | Nove`,
+            description: 'Our goal is to make the Internet more private and safer. Meet our team and learn more about us.',
+        },
+        twitter: {
+            title: `${lang.getCustomProp('modules.navigation.ul-about')} | Nove`,
+            description: 'Our goal is to make the Internet more private and safer. Meet our team and learn more about us.',
+        },
+    };
+}
 
 export default async function About() {
     const user = await getUser();
@@ -27,7 +29,6 @@ export default async function About() {
 
     return (
         <section className={o.hero}>
-            <title>{`Nove | ${lang.getCustomProp('modules.navigation.ul-about')}`}</title>
             <h1 className={o.title} dangerouslySetInnerHTML={{ __html: lang.getProp('hero-h1') }} />
             <p className={o.desc}>{lang.getProp('hero-p')}</p>
             <ul>

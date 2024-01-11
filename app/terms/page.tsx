@@ -4,21 +4,23 @@ import LanguageHandler from '@util/handlers/LanguageHandler';
 import { getUser } from '@util/helpers/User';
 import { headers } from 'next/headers';
 
-export const metadata = {
-    title: 'Nove | Terms of Service',
-    description: 'Read about our Terms of Service and learn what we can do with your account and what you are allowed to do.',
-    openGraph: {
-        title: 'Nove | Terms of Service',
+export async function generateMetadata() {
+    const user = await getUser();
+    const lang = await new LanguageHandler('documents/terms-of-service', user).init(headers());
+
+    return {
+        title: `${lang.getProp('title')} | Nove`,
         description: 'Read about our Terms of Service and learn what we can do with your account and what you are allowed to do.',
-        images: [],
-    },
-    twitter: {
-        title: 'Nove | Terms of Service',
-        description: `Read about our Terms of Service and learn what we can do with your account and what you are allowed to do.`,
-        images: [],
-    },
-    keywords: ['nove', 'terms', 'tos', 'terms of service'],
-};
+        openGraph: {
+            title: `${lang.getProp('title')} | Nove`,
+            description: 'Read about our Terms of Service and learn what we can do with your account and what you are allowed to do.',
+        },
+        twitter: {
+            title: `${lang.getProp('title')} | Nove`,
+            description: `Read about our Terms of Service and learn what we can do with your account and what you are allowed to do.`,
+        },
+    };
+}
 
 export default async function Terms() {
     const user = await getUser();
@@ -26,7 +28,6 @@ export default async function Terms() {
 
     return (
         <article className={o.content}>
-            <title>{`Nove | ${lang.getProp('title')}`}</title>
             <h1>{lang.getProp('title')}</h1>
             <h2 dangerouslySetInnerHTML={{ __html: lang.getProp('last-modified') }} />
             <p>{lang.getProp('p1')}</p>

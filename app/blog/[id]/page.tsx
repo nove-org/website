@@ -25,13 +25,10 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
         title,
         openGraph: {
             title,
-            images: [],
         },
         twitter: {
             title,
-            images: [],
         },
-        keywords: ['nove', 'nove blog', 'about'],
     };
 }
 

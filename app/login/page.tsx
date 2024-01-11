@@ -8,30 +8,30 @@ import LoginForm from './Form';
 import { DOMAIN_REGEX } from '@util/CONSTS';
 import { getUser } from '@util/helpers/User';
 
-export const metadata = {
-    title: 'Nove | Login',
-    openGraph: {
-        title: 'Nove | Login',
-        images: [],
-    },
-    twitter: {
-        title: 'Nove | Login',
-        images: [],
-    },
-    keywords: ['nove', 'nove login', 'about'],
-};
+export async function generateMetadata() {
+    const user = await getUser();
+    const lang = await new LanguageHandler('main/login', user).init(headers());
+
+    return {
+        title: `${lang.getCustomProp('modules.navigation.login-btn')} | Nove`,
+        openGraph: {
+            title: `${lang.getCustomProp('modules.navigation.login-btn')} | Nove`,
+        },
+        twitter: {
+            title: `${lang.getCustomProp('modules.navigation.login-btn')} | Nove`,
+        },
+    };
+}
 
 export default async function Login({ searchParams }: { searchParams: { [key: string]: string | undefined } }) {
     let redirectBack: string | undefined = searchParams['redirectBack'];
     if (!redirectBack?.match(/^(?!(\/\/)).*$/g) || !redirectBack?.match(DOMAIN_REGEX)) redirectBack = '/account';
     const user = await getUser();
     if (user?.username) return redirect(redirectBack ? redirectBack : '/account');
-
     const lang = await new LanguageHandler('main/login', user).init(headers());
 
     return (
         <section className={o.box}>
-            <title>{`Nove | ${lang.getCustomProp('modules.navigation.login-btn')}`}</title>
             <div className={o.content}>
                 {!user ? <p className="error">{lang.getCustomProp('modules.errors.offline')}</p> : null}
                 <Logo size={48} />

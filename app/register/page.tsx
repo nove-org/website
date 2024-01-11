@@ -8,18 +8,20 @@ import RegisterForm from './Form';
 import { DOMAIN_REGEX } from '@util/CONSTS';
 import { getUser } from '@util/helpers/User';
 
-export const metadata = {
-    title: 'Nove | Register',
-    openGraph: {
-        title: 'Nove | Register',
-        images: [],
-    },
-    twitter: {
-        title: 'Nove | Register',
-        images: [],
-    },
-    keywords: ['nove', 'nove register', 'about'],
-};
+export async function generateMetadata() {
+    const user = await getUser();
+    const lang = await new LanguageHandler('main/register', user).init(headers());
+
+    return {
+        title: `${lang.getCustomProp('modules.navigation.register-btn')} | Nove`,
+        openGraph: {
+            title: `${lang.getCustomProp('modules.navigation.register-btn')} | Nove`,
+        },
+        twitter: {
+            title: `${lang.getCustomProp('modules.navigation.register-btn')} | Nove`,
+        },
+    };
+}
 
 export default async function Register({ searchParams }: { searchParams: { [key: string]: string | undefined } }) {
     let redirectBack: string | undefined = searchParams['redirectBack'];
@@ -30,7 +32,6 @@ export default async function Register({ searchParams }: { searchParams: { [key:
 
     return (
         <section className={o.box}>
-            <title>{`Nove | ${lang.getCustomProp('modules.navigation.register-btn')}`}</title>
             <div className={o.content}>
                 {!user ? <p className="error">{lang.getCustomProp('modules.errors.offline')}</p> : null}
                 <Logo size={48} />

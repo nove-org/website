@@ -7,18 +7,20 @@ import { redirect } from 'next/navigation';
 import ResetForm from './Form';
 import { getUser } from '@util/helpers/User';
 
-export const metadata = {
-    title: 'Nove | Reset your password',
-    openGraph: {
-        title: 'Nove | Reset your password',
-        images: [],
-    },
-    twitter: {
-        title: 'Nove | Reset your password',
-        images: [],
-    },
-    keywords: ['nove', 'nove password reset', 'about'],
-};
+export async function generateMetadata() {
+    const user = await getUser();
+    const lang = await new LanguageHandler('main/password-reset', user).init(headers());
+
+    return {
+        title: `${lang.getProp('hero-h1')} | Nove`,
+        openGraph: {
+            title: `${lang.getProp('hero-h1')} | Nove`,
+        },
+        twitter: {
+            title: `${lang.getProp('hero-h1')} | Nove`,
+        },
+    };
+}
 
 export default async function PasswordReset() {
     const user = await getUser();
@@ -27,7 +29,6 @@ export default async function PasswordReset() {
 
     return (
         <section className={o.box}>
-            <title>{`Nove | ${lang.getProp('hero-h1')}`}</title>
             <div className={o.content}>
                 <Logo size={48} />
                 <h1>{lang.getProp('hero-h1')}</h1>

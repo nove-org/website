@@ -4,21 +4,23 @@ import LanguageHandler from '@util/handlers/LanguageHandler';
 import { headers } from 'next/headers';
 import { getUser } from '@util/helpers/User';
 
-export const metadata = {
-    title: 'Nove | FOSS projects',
-    description: 'List of our projects that are FOSS. Learn about our free and open-source software nature.',
-    openGraph: {
-        title: 'Nove | Free and open-source projects',
+export async function generateMetadata() {
+    const user = await getUser();
+    const lang = await new LanguageHandler('main/foss', user).init(headers());
+
+    return {
+        title: `${lang.getCustomProp('modules.footer.ul-foss')} | Nove`,
         description: 'List of our projects that are FOSS. Learn about our free and open-source software nature.',
-        images: [],
-    },
-    twitter: {
-        title: 'Nove | Free and open-source projects',
-        description: `List of our projects that are FOSS. Learn about our free and open-source software nature.`,
-        images: [],
-    },
-    keywords: ['nove', 'foss', 'open source'],
-};
+        openGraph: {
+            title: `${lang.getCustomProp('modules.footer.ul-foss')} | Nove`,
+            description: 'List of our projects that are FOSS. Learn about our free and open-source software nature.',
+        },
+        twitter: {
+            title: `${lang.getCustomProp('modules.footer.ul-foss')} | Nove`,
+            description: `List of our projects that are FOSS. Learn about our free and open-source software nature.`,
+        },
+    };
+}
 
 export default async function FOSS() {
     const user = await getUser();
@@ -26,7 +28,6 @@ export default async function FOSS() {
 
     return (
         <section className={o.hero}>
-            <title>{`Nove | ${lang.getCustomProp('modules.footer.ul-foss')}`}</title>
             <h1 className={o.title} dangerouslySetInnerHTML={{ __html: lang.getProp('hero-h1') }} />{' '}
             <p className={o.desc} dangerouslySetInnerHTML={{ __html: lang.getProp('hero-p') }} />
             <ul>
