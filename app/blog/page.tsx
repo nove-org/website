@@ -39,7 +39,7 @@ export default async function BlogList() {
                 <p className={o.description}>{lang.getProp('warn-p')}</p>
             </header>
             <ul className={o.posts}>
-                {posts?.body?.data.reverse().map((post) => {
+                {posts?.body?.data.map((post) => {
                     return <BlogCard key={post.id} post={post} />;
                 })}
             </ul>
