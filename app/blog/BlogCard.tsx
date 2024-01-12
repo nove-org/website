@@ -14,7 +14,7 @@ export default function BlogCard({ post }: { post: Post }) {
     const postBackground = postDOM.getElementsByTagName('img')[0];
 
     return (
-        <li key={post.id}>
+        <li title={post.title} key={post.id}>
             <Link href={`/blog/${post.id}`}>
                 <Image className={o.banner} src={postBackground.src} alt={postBackground.alt} width="500" height="222" />
                 <div className={o.info}>
