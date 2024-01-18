@@ -91,7 +91,7 @@ nav.box
                             border-radius: var(--box-roundness)
                             opacity: 1
                             &:hover
-                                background: var(--quaternary)
+                                background: var(--tertiary)
                             & h1
                                 display: flex
                                 align-items: center
@@ -118,15 +118,15 @@ nav.box
                     font-weight: 400
                     text-decoration: none
                     color: var(--font-st)
+                    opacity: .8
                     transition-duration: .2s
                     cursor: pointer
                     padding: 5px 10px
-                    opacity: .8
                     border-radius: 50px
                     &:hover
                         opacity: 1
                         background: var(--secondary)
-                        color: var(--font-rd)
+                        color: var(--font-nd)
     & details.user
         position: relative
         & summary
@@ -134,9 +134,11 @@ nav.box
             padding: 0
             display: flex
             align-items: flex-start
-            justify-content: flex-end
             cursor: pointer
+            justify-content: flex-end
             & img
+                min-width: 26px
+                min-height: 26px
                 border-radius: 50%
         & div.module
             position: absolute
@@ -176,34 +178,34 @@ nav.box
                 border-radius: 50px
                 gap: 7px
                 &:hover
-                    background: var(--quaternary)
-                    color: var(--font-rd)
+                    background: var(--tertiary)
+                    color: var(--font-nd)
     & div.buttons
         display: flex
         align-items: center
         gap: 10px
         & a
             font-size: 14px
-            font-weight: 300
+            font-weight: 400
             text-decoration: none
             color: var(--font-st)
             transition-duration: .2s
             cursor: pointer
             padding: 5px 10px
+            opacity: .8
             border-radius: 50px
             &.login
                 outline: 1px solid var(--primary)
             &:hover
-                color: var(--font-rd)
-                &:not(.login)
-                    background: var(--secondary)
-                &.login
-                    outline: 1px solid var(--quaternary)
+                opacity: 1
+                color: var(--font-nd)
             &:last-child
                 padding: 5px 10px
                 border-radius: 50px
-                background: var(--secondary)
+                background: var(--tertiary)
                 transition-duration: .1s
                 font-weight: 500
+                opacity: 1
+                color: var(--font-nd)
                 &:hover
-                    background: var(--tertiary)
+                    background: var(--secondary)
