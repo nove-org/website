@@ -7,6 +7,7 @@ import { redirect } from 'next/navigation';
 import RegisterForm from './Form';
 import { DOMAIN_REGEX } from '@util/CONSTS';
 import { getUser } from '@util/helpers/User';
+import { axiosClient } from '@util/axios';
 
 export async function generateMetadata() {
     const user = await getUser();
@@ -28,12 +29,13 @@ export default async function Register({ searchParams }: { searchParams: { [key:
     if (!redirectBack?.match(/^(?!(\/\/)).*$/g) || !redirectBack?.match(DOMAIN_REGEX)) redirectBack = '/account';
     const user = await getUser();
     if (user?.username) return redirect(redirectBack ? redirectBack : '/account');
+    const status = await (await axiosClient.get('/'))?.data;
     const lang = await new LanguageHandler('main/register', user).init(headers());
 
     return (
         <section className={o.box}>
             <div className={o.content}>
-                {!user ? <p className="error">{lang.getCustomProp('modules.errors.offline')}</p> : null}
+                {!status ? <p className="error">{lang.getCustomProp('modules.errors.offline')}</p> : null}
                 <Logo size={48} />
                 <h1>{lang.getProp('hero-h1')}</h1>
                 <p>{lang.getProp('hero-p')}</p>
