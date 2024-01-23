@@ -4,6 +4,15 @@ import LanguageHandler from '@util/handlers/LanguageHandler';
 import { headers } from 'next/headers';
 import { getUser } from '@util/helpers/User';
 
+export async function generateMetadata() {
+    const user = await getUser();
+    const lang = await new LanguageHandler('modules/errors', user).init(headers());
+
+    return {
+        title: `${lang.getProp('not-found')} | Nove`,
+    };
+}
+
 export default async function NotFound() {
     const user = await getUser();
     const lang = await new LanguageHandler('modules/errors', user).init(headers());
