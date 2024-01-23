@@ -83,7 +83,8 @@
             "header": "Coś poszło bardzo nie tak",
             "offline": "Przepraszamy ale nasze serwery są obecnie niedostępne",
             "session": "Nie możemy podpisać Twojej sesji co prowadzi do błędu pobrania informacji",
-            "verify-email": "Zweryfikuj swój adres e-mail aby móc używać tego konta"
+            "verify-email": "Zweryfikuj swój adres e-mail aby móc używać tego konta",
+            "not-found": "Strona której szukasz nie istnieje"
         }
     },
     "main": {
@@ -134,7 +135,6 @@
             "mfa-h1": "Kod weryfikacyjny jest wymagany",
             "mfa-p": "Podaj kod wygenerowany przez aplikację TOTP na Twoim telefonie lub użyj kodu zapasowego.",
             "mfa-label": "Kod",
-            "mfa-submit": "Zaloguj",
             "password-reset": "Resetuj swoje hasło"
         },
         "register": {

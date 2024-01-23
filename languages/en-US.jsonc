@@ -83,7 +83,8 @@
             "header": "Something went horribly wrong",
             "offline": "Sorry but our servers are currently offline",
             "session": "We could not sign your session which has lead to data retrieval failure",
-            "verify-email": "Please verify your e-mail to gain access to the account"
+            "verify-email": "Please verify your e-mail to gain access to the account",
+            "not-found": "We couldn't find the page you were looking for"
         }
     },
     "main": {

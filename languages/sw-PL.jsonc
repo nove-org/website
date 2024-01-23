@@ -83,7 +83,8 @@
             "header": "Cuś siem zj- znaczy ni powiodło",
             "offline": "Serwer uderzył w skalisko dolne",
             "session": "Ni możem pudpisać Twojej sesji co prowadzi do błęda pobrażu informacji",
-            "verify-email": "Zweryfikujta swój e-mejlaż aby moć utylizować toż kunto"
+            "verify-email": "Zweryfikujta swój e-mejlaż aby moć utylizować toż kunto",
+            "not-found": "Nie moglimy lukać w ta strona bo jej ni mo"
         }
     },
     "main": {

@@ -20,17 +20,20 @@ export default function Form({ user, code, saveChanges }: { user: User; code: La
         await axiosClient
             .patch('/v1/users/me', { language: e.target.language.value }, { headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } })
             .then((r) => (setLoading(false), router.refresh()))
+            .catch((e) => alert(e))
     );
 
-    const lang = new Intl.DisplayNames([user.language], { type: 'language' });
+    const lang = new Intl.DisplayNames([user.language === 'sw-PL' ? 'pl-PL' : user.language], { type: 'language' });
 
     return (
         <form className={o.box} id="languageForm" onSubmit={handleLanguage}>
             {code.AVAILABLE_LANGUAGES.map((code) => (
                 <label key={code} className={o.card}>
                     <header>
-                        {code === 'pl-SW' ? <Image src="/pl-SW.png" width="16" height="12" alt="pl-SW flag" /> : <ReactCountryFlag countryCode={code.split('-')[1]} />}
-                        {code === 'pl-SW' ? 'Szwajnisch (Poland)' : lang.of(code)}
+                        {code === 'sw-PL' ? <Image src="/sw-PL.png" width="16" height="12" alt="pl-SW flag" /> : <ReactCountryFlag countryCode={code.split('-')[1]} />}
+                        {code === 'sw-PL'
+                            ? (lang.of('pl-PL')?.charAt(0) === lang.of('pl-PL')?.charAt(0).toUpperCase() ? 'Szwajnisch' : 'szwajnisch') + ` ${lang.of('pl-PL')?.split(/\s+/)[1]}`
+                            : lang.of(code)}
                     </header>
                     <input defaultChecked={user.language === code} type="radio" name="language" value={code} />
                 </label>
