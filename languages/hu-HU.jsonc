@@ -29,7 +29,7 @@
 
      ? WARNING: The text shouldn't extend the original English version by much. It will wrap weirdly on the page.
 
-     Translated by Oliwier Jaszczyszyn "https://oliwierjaszczyszyn.com" <oliwier.jaszczyszyn at proton.me>
+     Translated by Oliwier Jaszczyszyn "https://oliwierjaszczyszyn.com" <oliwier.jaszczyszyn@proton.me>
      (I used machine translation in most cases but when I learn Hungarian good enough I'll make corrections wherever necessary)
     */
     "modules": {
@@ -85,7 +85,7 @@
             "offline": "Elnézést, de szervereink jelenleg nem elérhetőek",
             "session": "Nem találjuk a munkamenetét, ami letöltési hibához vezet.",
             "verify-email": "Ellenőrizze e-mail címét, hogy használni tudja ezt a fiókot",
-            "not-found": "We couldn't find the page you were looking for"
+            "not-found": "Nem találtuk a keresett oldalt"
         }
     },
     "main": {
