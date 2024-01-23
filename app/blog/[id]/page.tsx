@@ -12,14 +12,19 @@ import Delete from './Delete';
 import { getUser } from '@util/helpers/User';
 
 async function getPostData(id: string) {
-    const post: Response<Post> = (await axiosClient.get('/v1/blog/' + id).catch((e) => e.response))?.data;
+    const posts: Response<Post[]> = (await axiosClient.get('/v1/blog').catch((e) => e.response))?.data;
+    const searchParam: string = id.toLowerCase();
 
-    return post;
+    let postId: Post = posts?.body?.data?.filter(
+        (post) => post.title.toLowerCase().split(' ').join('-') + '-' + post.id.split('-')[post.id.split('-').length - 1] === searchParam
+    )[0];
+
+    return ((await axiosClient.get(`/v1/blog/${postId ? postId.id : id}`).catch((e) => e.response))?.data as Response<Post>)?.body?.data;
 }
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
     const post = await getPostData(params.id);
-    const title = post?.body?.data ? post.body.data.title + ' | Nove Blog' : '404 | Nove Blog';
+    const title = post ? post.title + ' | Nove Blog' : '404 | Nove Blog';
 
     return {
         title,
@@ -37,7 +42,7 @@ export default async function Blog({ params }: { params: { id: string } }) {
     const lang = await new LanguageHandler('main/blog', user).init(headers());
     const post = await getPostData(params.id);
 
-    return (
+    return post ? (
         <article className={b.blog}>
             <header className={b.warning}>
                 <h1 className={b.header}>
@@ -50,14 +55,14 @@ export default async function Blog({ params }: { params: { id: string } }) {
             </header>
             <div className={b.content}>
                 <Back lang={{ btn: lang.getCustomProp('modules.actions.back') }} />
-                <h1>{post?.body?.data?.title}</h1>
-                <div dangerouslySetInnerHTML={{ __html: sanitize(post?.body?.data?.text) }} />
+                <h1>{post.title}</h1>
+                <div dangerouslySetInnerHTML={{ __html: sanitize(post.text) }} />
             </div>
             <div className={b.comments}>
-                <h1>Comments ({post?.body?.data?.comments?.length})</h1>
-                {user ? <Comment post={post?.body?.data} user={user} /> : null}
+                <h1>Comments ({post?.comments?.length || 0})</h1>
+                {user ? <Comment post={post} user={user} /> : null}
                 <ul>
-                    {post?.body?.data?.comments?.map((comment) => {
+                    {post?.comments?.map((comment) => {
                         const date = new Date(comment.createdAt);
                         return (
                             <li key={comment.id}>
@@ -73,7 +78,7 @@ export default async function Blog({ params }: { params: { id: string } }) {
                                 <aside>
                                     {comment.authorId === user?.id || user?.permissionLevel === 2 ? (
                                         <>
-                                            <Delete post={post.body.data} id={comment.id} />
+                                            <Delete post={post} id={comment.id} />
                                         </>
                                     ) : null}
                                     <time>{date.toLocaleString('en-US', { day: 'numeric', month: 'short', year: 'numeric' })}</time>
@@ -82,6 +87,22 @@ export default async function Blog({ params }: { params: { id: string } }) {
                         );
                     })}
                 </ul>
+            </div>
+        </article>
+    ) : (
+        <article className={b.blog}>
+            <header className={b.warning}>
+                <h1 className={b.header}>
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M17.196,3H6.804l-5.195,9l5.195,9h10.393l5.195-9L17.196,3z M13,17h-2v-2h2V17z M13,13h-2V7h2V13z"></path>
+                    </svg>
+                    {lang.getProp('warn-h1')}
+                </h1>
+                <p className={b.description}>{lang.getProp('warn-p')}</p>
+            </header>
+            <div className={b.content}>
+                <Back lang={{ btn: lang.getCustomProp('modules.actions.back') }} />
+                <p>{lang.getCustomProp('modules.errors.not-found')}</p>
             </div>
         </article>
     );
