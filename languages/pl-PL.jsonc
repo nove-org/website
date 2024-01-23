@@ -134,7 +134,6 @@
             "mfa-h1": "Kod weryfikacyjny jest wymagany",
             "mfa-p": "Podaj kod wygenerowany przez aplikację TOTP na Twoim telefonie lub użyj kodu zapasowego.",
             "mfa-label": "Kod",
-            "mfa-submit": "Zaloguj",
             "password-reset": "Resetuj swoje hasło"
         },
         "register": {
