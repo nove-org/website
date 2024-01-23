@@ -84,7 +84,8 @@
             "header": "Valami nagyon rosszul sült el",
             "offline": "Elnézést, de szervereink jelenleg nem elérhetőek",
             "session": "Nem találjuk a munkamenetét, ami letöltési hibához vezet.",
-            "verify-email": "Ellenőrizze e-mail címét, hogy használni tudja ezt a fiókot"
+            "verify-email": "Ellenőrizze e-mail címét, hogy használni tudja ezt a fiókot",
+            "not-found": "We couldn't find the page you were looking for"
         }
     },
     "main": {
