@@ -81,9 +81,10 @@
         },
         "errors": {
             "header": "Er is iets erg fout gegaan!",
-            "p-offline": "Sorry maar onze servers zijn offline",
-            "p-session": "We kunnen je gegevens niet ophalen",
-            "p-verifyEmail": "Verifieer je email om toegang tot je account te verkrijgen"
+            "offline": "Sorry maar onze servers zijn offline",
+            "session": "We kunnen je gegevens niet ophalen",
+            "verify-email": "Verifieer je email om toegang tot je account te verkrijgen",
+            "not-found": "We konden de pagina die u zocht niet vinden"
         }
     },
     "main": {
