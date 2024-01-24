@@ -138,14 +138,6 @@ export default async function Home() {
                 <Image src="/contributing_dark.png" width={530} height={560} alt="How contributing works" className={o.dark} />
             </section>
 
-            <svg className={o.line} width="114" height="21" viewBox="0 0 114 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M1 14.9935C22 5.4935 31.5 3.4935 37.5 3.4935C43.5 3.4935 43 6.9935 47 11.4935C54.9451 20.4317 69.5 -2.60486 82 1.49349C106.4 9.49349 112.5 17.1602 112.5 19.9935"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                />
-            </svg>
-
             <section className={o.ready}>
                 <h1>{lang.getProp('ready-h1')}</h1>
                 <p>{lang.getProp('ready-p')}</p>
