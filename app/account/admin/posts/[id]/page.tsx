@@ -7,6 +7,7 @@ import { Response, User, Languages, Post } from '@util/schema';
 import { redirect } from 'next/navigation';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import { sanitize } from 'isomorphic-dompurify';
+import Image from 'next/image';
 import Edit from './Edit';
 import Back from './Back';
 import Delete from './Delete';
@@ -20,15 +21,12 @@ export default async function Blog({ params }: { params: { id: string } }) {
             .catch((e) => e.response)
     )?.data;
 
-    console.log(user);
-
     if (user.body.data.permissionLevel < 1) return redirect('/account');
 
     const languages: Response<Languages> = (await axiosClient.get('/v1/languages').catch((e) => e.response))?.data;
     const lang = await new LanguageHandler('admin/posts', user?.body?.data).init(headers());
 
     const post: Response<Post> = (await axiosClient.get('/v1/blog/' + params.id).catch((e) => e.response))?.data;
-    console.log(post);
 
     return user?.body?.data?.username && languages?.body?.data ? (
         <article className={b.blog}>

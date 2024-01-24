@@ -18,7 +18,7 @@ export default async function NotFound() {
 
     return (
         <section className={o.information}>
-            <h1>{lang.getProp('header')}</h1>
+            <h1>404</h1>
             <p>{lang.getProp('not-found')}</p>
         </section>
     );
