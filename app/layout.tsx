@@ -22,6 +22,7 @@ import Navigation from '@app/Navigation';
 import Footer from '@app/Footer';
 import type { Metadata, Viewport } from 'next';
 import { inter } from '@util/fonts';
+import { getUser } from '@util/helpers/User';
 
 export const viewport: Viewport = {
     width: 'device-width',
@@ -55,15 +56,17 @@ export const metadata: Metadata = {
     },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+    const user = await getUser();
+
     return (
         <html lang="en">
             <body className={inter.className} style={inter.style}>
-                <Navigation />
+                <Navigation user={user} />
 
                 <main style={inter.style}>{children}</main>
 
-                <Footer />
+                <Footer user={user} />
             </body>
         </html>
     );

@@ -5,10 +5,9 @@ import o from '@sass/Footer.module.sass';
 import { SUPPORT_MAIL, REPOSITORY, DONATE_LINK } from '@util/CONSTS';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import { headers } from 'next/headers';
-import { getUser } from '@util/helpers/User';
+import { User } from '@util/schema';
 
-export default async function Footer() {
-    const user = await getUser();
+export default async function Footer({ user }: { user?: User }) {
     const year = new Date().getFullYear();
     const lang = await new LanguageHandler('modules/footer', user).init(headers());
 

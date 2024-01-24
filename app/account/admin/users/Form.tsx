@@ -6,7 +6,7 @@ import e from '@sass/account/part.module.sass';
 import p from '@sass/popup.module.sass';
 import { axiosClient } from '@util/axios';
 import { getCookie } from 'cookies-next';
-import { Response, User } from '@util/schema';
+import { User } from '@util/schema';
 import Image from 'next/image';
 import Disable from './Disable';
 import Delete from './Delete';

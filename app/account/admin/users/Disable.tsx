@@ -5,7 +5,7 @@ import o from '@sass/popup.module.sass';
 import uc from '@sass/account/admin/page.module.sass';
 import { axiosClient } from '@util/axios';
 import { getCookie } from 'cookies-next';
-import { Response, User } from '@util/schema';
+import { User } from '@util/schema';
 import { useRouter } from 'next/navigation';
 
 export default function Disable({

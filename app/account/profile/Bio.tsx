@@ -3,7 +3,6 @@
 import { axiosClient } from '@util/axios';
 import { User } from '@util/schema';
 import { useState } from 'react';
-import o from '@sass/account/profile/page.module.sass';
 import { useRouter } from 'next/navigation';
 import Loader from '@app/Loader';
 
