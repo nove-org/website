@@ -1,50 +1,31 @@
 export const dynamic = 'force-dynamic';
 import Image from 'next/image';
-import { axiosClient } from '@util/axios';
 import a from '@sass/account/part.module.sass';
 import o from '@sass/account/page.module.sass';
-import { cookies, headers } from 'next/headers';
+import { headers } from 'next/headers';
 import Link from 'next/link';
-import { Response, Device, User, Connection } from '@util/schema';
 import LanguageHandler from '@util/handlers/LanguageHandler';
+import { getUserDevices, getUser, getUserConnections } from '@util/helpers/User';
 
 export default async function Overview() {
-    const user: Response<User> = (
-        await axiosClient
-            .get('/v1/users/me', {
-                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-            })
-            .catch((e) => e.response)
-    )?.data;
-    const device: Response<Device[]> = (
-        await axiosClient
-            .get('/v1/users/me/activity', {
-                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-            })
-            .catch((e) => e.response)
-    )?.data;
-    const connections: Response<Connection[]> = (
-        await axiosClient
-            .get('/v1/users/me/connections', {
-                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-            })
-            .catch((e) => e.response)
-    )?.data;
+    const user = await getUser();
+    const devices = await getUserDevices();
+    const connections = await getUserConnections();
 
-    const languageTranslate = new Intl.DisplayNames([user?.body?.data?.language], { type: 'language' });
-    const lang = await new LanguageHandler('dashboard/main', user?.body?.data).init(headers());
+    const languageTranslate = new Intl.DisplayNames([user!.language], { type: 'language' });
+    const lang = await new LanguageHandler('dashboard/main', user).init(headers());
     let connNames: string[] = [];
 
-    return user?.body?.data?.username ? (
+    return user?.username ? (
         <div className={a.content}>
             <h1 className={a.title}>{lang.getCustomProp('dashboard.layout.ul-overview')}</h1>
             <ul className={o.overview}>
                 <li className={o.profile}>
                     <header>
-                        <Image src={user.body.data.avatar} width="72" height="72" alt="Avatar" />
+                        <Image src={user.avatar} width="72" height="72" alt="Avatar" />
                         <div className={o.data}>
-                            <h1>{user.body.data.username}</h1>
-                            <p>{user.body.data.email}</p>
+                            <h1>{user.username}</h1>
+                            <p>{user.email}</p>
                         </div>
                     </header>
                     <h2>{lang.getProp('tips-header')}</h2>
@@ -86,7 +67,7 @@ export default async function Overview() {
                             <h1>{lang.getProp('card-1-h1')}</h1>
                             <p>{lang.getProp('card-1-p')}</p>
                             <span>
-                                {languageTranslate.of(user.body.data.language)}
+                                {languageTranslate.of(user.language)}
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="14" height="14" viewBox="0 0 30 30">
                                     <path
                                         fill="currentColor"
@@ -102,10 +83,10 @@ export default async function Overview() {
                                     fill="currentColor"
                                     d="M16.256,3.005C13.515,3.117,12,5.09,12,5.09S10.377,2.976,7.451,3C6.338,3.009,5.278,3.476,4.403,4.164 C2.019,6.038,1.702,8.067,2.203,10h3.464L7.4,8.7c0.459-0.344,1.114-0.232,1.432,0.245l1.414,2.12l0.888-0.666 c0.346-0.26,0.767-0.4,1.2-0.4h0.944c0.423-0.727,1.28-1.169,2.224-0.938c0.72,0.176,1.301,0.781,1.453,1.506 C17.226,11.861,16.246,13,15,13c-0.738,0-1.376-0.405-1.723-1h-0.944L10.6,13.3c-0.459,0.344-1.114,0.232-1.432-0.245l-1.414-2.12 L6.867,11.6C6.521,11.86,6.1,12,5.667,12H3.024c1.514,2.764,4.282,5.08,5.257,5.99c1.033,0.962,2.307,2.105,3.064,2.779 c0.375,0.334,0.934,0.334,1.309,0c0.757-0.674,2.032-1.817,3.064-2.779c1.72-1.603,9.032-7.574,5.17-12.678 C19.779,3.845,18.094,2.93,16.256,3.005z"></path>
                             </svg>
-                            <h1>{device.body.data ? lang.getProp('card-2-h1') : lang.getProp('card-3-h1')}</h1>
-                            <p>{device.body.data ? lang.getProp('card-2-p') : lang.getProp('card-3-p')}</p>
+                            <h1>{devices ? lang.getProp('card-2-h1') : lang.getProp('card-3-h1')}</h1>
+                            <p>{devices ? lang.getProp('card-2-p') : lang.getProp('card-3-p')}</p>
                             <span>
-                                {device.body.data ? lang.getProp('card-2-action', { number: device.body.data.length }) : lang.getProp('card-3-action')}
+                                {devices ? lang.getProp('card-2-action', { number: devices.length }) : lang.getProp('card-3-action')}
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="14" height="14" viewBox="0 0 30 30">
                                     <path
                                         fill="currentColor"
@@ -137,52 +118,49 @@ export default async function Overview() {
             </ul>
             <h1 className={a.title}>{lang.getProp('connections-title')}</h1>
             <ul className={o.connections}>
-                {connections.body.data
-                    .slice(0)
-                    .reverse()
-                    .map((connection) => {
-                        if (connNames.includes(connection.app.name)) return;
-                        connNames.push(connection.app.name);
+                {connections?.reverse().map((connection) => {
+                    if (connNames.includes(connection.app.name)) return;
+                    connNames.push(connection.app.name);
 
-                        return (
-                            <li key={connection.id} className={o.card}>
-                                <header>
-                                    <div className={o.name}>
-                                        <h1>
-                                            {connection.app.isVerified ? (
-                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
-                                                    <path
-                                                        fill="currentColor"
-                                                        d="M21.228,12l0.622-1.92c0.465-1.437-0.182-3-1.527-3.687l-1.797-0.918l-0.918-1.797c-0.687-1.345-2.25-1.993-3.687-1.527 L12,2.772L10.08,2.15c-1.437-0.465-3,0.182-3.687,1.527L5.474,5.474L3.677,6.393C2.332,7.08,1.685,8.643,2.15,10.08L2.772,12 L2.15,13.92c-0.465,1.437,0.182,3,1.527,3.687l1.797,0.918l0.918,1.797c0.687,1.345,2.25,1.993,3.687,1.527L12,21.228l1.92,0.622 c1.437,0.465,3-0.182,3.687-1.527l0.918-1.797l1.797-0.918c1.345-0.687,1.993-2.25,1.527-3.687L21.228,12z M11,16.414l-3.707-3.707 l1.414-1.414L11,13.586l5.293-5.293l1.414,1.414L11,16.414z"></path>
-                                                </svg>
-                                            ) : null}
-                                            <a href={connection.app.link_homepage}>{connection.app.name}</a>
-                                        </h1>
-                                        <p>{connection.app.description}</p>
-                                        <span>
-                                            {lang.getProp('connections-last-access') +
-                                                ' ' +
-                                                new Date(connection.updatedAt).toLocaleString(user.body.data.language, { day: 'numeric', month: 'short' })}
-                                            <br />
-                                            {lang.getProp('connections-expire') +
-                                                ' ' +
-                                                new Date(connection.token_expires).toLocaleString(user.body.data.language, { day: 'numeric', month: 'short' })}
-                                        </span>
-                                    </div>
-                                    <div className={o.buttons}>
-                                        <a href={connection.app.link_privacy_policy}>{lang.getProp('connections-btn-privacy')}</a>
-                                        <a href={connection.app.link_tos}>{lang.getProp('connections-btn-tos')}</a>
-                                    </div>
-                                </header>
-                                <p className={o.title}>{lang.getProp('connections-permissions')}</p>
-                                <ul>
-                                    {connection.scopes.map((scope) => (
-                                        <li key={scope}>{scope}</li>
-                                    ))}
-                                </ul>
-                            </li>
-                        );
-                    })}
+                    return (
+                        <li key={connection.id} className={o.card}>
+                            <header>
+                                <div className={o.name}>
+                                    <h1>
+                                        {connection.app.isVerified ? (
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
+                                                <path
+                                                    fill="currentColor"
+                                                    d="M21.228,12l0.622-1.92c0.465-1.437-0.182-3-1.527-3.687l-1.797-0.918l-0.918-1.797c-0.687-1.345-2.25-1.993-3.687-1.527 L12,2.772L10.08,2.15c-1.437-0.465-3,0.182-3.687,1.527L5.474,5.474L3.677,6.393C2.332,7.08,1.685,8.643,2.15,10.08L2.772,12 L2.15,13.92c-0.465,1.437,0.182,3,1.527,3.687l1.797,0.918l0.918,1.797c0.687,1.345,2.25,1.993,3.687,1.527L12,21.228l1.92,0.622 c1.437,0.465,3-0.182,3.687-1.527l0.918-1.797l1.797-0.918c1.345-0.687,1.993-2.25,1.527-3.687L21.228,12z M11,16.414l-3.707-3.707 l1.414-1.414L11,13.586l5.293-5.293l1.414,1.414L11,16.414z"></path>
+                                            </svg>
+                                        ) : null}
+                                        <a href={connection.app.link_homepage}>{connection.app.name}</a>
+                                    </h1>
+                                    <p>{connection.app.description}</p>
+                                    <span>
+                                        {lang.getProp('connections-last-access') +
+                                            ' ' +
+                                            new Date(connection.updatedAt).toLocaleString(user.language, { day: 'numeric', month: 'short' })}
+                                        <br />
+                                        {lang.getProp('connections-expire') +
+                                            ' ' +
+                                            new Date(connection.token_expires).toLocaleString(user.language, { day: 'numeric', month: 'short' })}
+                                    </span>
+                                </div>
+                                <div className={o.buttons}>
+                                    <a href={connection.app.link_privacy_policy}>{lang.getProp('connections-btn-privacy')}</a>
+                                    <a href={connection.app.link_tos}>{lang.getProp('connections-btn-tos')}</a>
+                                </div>
+                            </header>
+                            <p className={o.title}>{lang.getProp('connections-permissions')}</p>
+                            <ul>
+                                {connection.scopes.map((scope) => (
+                                    <li key={scope}>{scope}</li>
+                                ))}
+                            </ul>
+                        </li>
+                    );
+                })}
             </ul>
         </div>
     ) : (

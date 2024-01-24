@@ -1,6 +1,6 @@
 import { axiosClient } from '@util/axios';
 import { cookies } from 'next/headers';
-import { Response, User } from '@util/schema';
+import { Device, Response, User, Connection } from '@util/schema';
 
 export function getUser(): Promise<User | undefined> {
     return new Promise(async (resolve) => {
@@ -13,5 +13,33 @@ export function getUser(): Promise<User | undefined> {
         )?.data;
 
         resolve(user?.body?.data);
+    });
+}
+
+export function getUserDevices(): Promise<Device[] | undefined> {
+    return new Promise(async (resolve) => {
+        const devices: Response<Device[]> = (
+            await axiosClient
+                .get('/v1/users/me/activity', {
+                    headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
+                })
+                .catch((e) => e.response)
+        )?.data;
+
+        resolve(devices?.body?.data);
+    });
+}
+
+export function getUserConnections(): Promise<Connection[] | undefined> {
+    return new Promise(async (resolve) => {
+        const devices: Response<Connection[]> = (
+            await axiosClient
+                .get('/v1/users/me/connections', {
+                    headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
+                })
+                .catch((e) => e.response)
+        )?.data;
+
+        resolve(devices?.body?.data);
     });
 }
