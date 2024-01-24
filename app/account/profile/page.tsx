@@ -31,7 +31,6 @@ export default async function Overview() {
                         notAllowed: lang.getProp('input-avatar-not-allowed'),
                     }}
                     user={user}
-                    cookie={cookie}
                 />
                 <Username
                     lang={{
@@ -41,7 +40,6 @@ export default async function Overview() {
                         placeholder: lang.getProp('input-username-placeholder', { username: user.username }),
                     }}
                     user={user}
-                    cookie={cookie}
                 />
             </ul>
             <h2>{lang.getProp('hero-ul-2')}</h2>
@@ -52,14 +50,12 @@ export default async function Overview() {
                         save: lang.getCustomProp('modules.actions.save'),
                     }}
                     user={user}
-                    cookie={cookie}
                 />
                 <ProfilePublic
                     lang={{
                         label: lang.getProp('input-profile-state-label'),
                     }}
                     user={user}
-                    cookie={cookie}
                 />
             </ul>
         </div>

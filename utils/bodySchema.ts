@@ -18,6 +18,10 @@ export interface UserPatch {
     profilePublic?: boolean;
 }
 
+export interface AvatarPatch {
+    file?: File;
+}
+
 export interface MfaPatch {
     enabled?: boolean;
     code?: string;

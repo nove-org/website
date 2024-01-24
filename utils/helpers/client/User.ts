@@ -1,6 +1,6 @@
 import { axiosClient } from '@util/axios';
 import { Mfa, Response, Success, User } from '@util/schema';
-import { EmailPatch, MfaPatch, PasswordPatch, RecoveryGet, UserDelete, UserPatch } from '@util/bodySchema';
+import { AvatarPatch, EmailPatch, MfaPatch, PasswordPatch, RecoveryGet, UserDelete, UserPatch } from '@util/bodySchema';
 import { getCookie } from 'cookies-next';
 
 export async function getRecoveryCodes({ mfa }: RecoveryGet): Promise<string[] | undefined> {
@@ -86,6 +86,27 @@ export async function patchUser({ username, bio, language, trackActivity, profil
         )?.data;
 
         resolve(user?.body?.data);
+    });
+}
+
+export async function patchAvatar({ file }: AvatarPatch): Promise<User | undefined> {
+    return new Promise(async (resolve, reject) => {
+        const avatar: Response<User> = (
+            await axiosClient
+                .patch(
+                    '/v1/users/avatar',
+                    { file },
+                    {
+                        headers: {
+                            Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
+                            'Content-Type': 'multipart/form-data',
+                        },
+                    }
+                )
+                .catch((e) => reject(e))
+        )?.data;
+
+        resolve(avatar?.body?.data);
     });
 }
 

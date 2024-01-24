@@ -1,23 +1,22 @@
 'use client';
 
-import { axiosClient } from '@util/axios';
-import { User } from '@util/schema';
+import { Response, User } from '@util/schema';
 import o from '@sass/account/profile/page.module.sass';
 import { useRouter } from 'next/navigation';
 import Loader from '@app/Loader';
 import { useState } from 'react';
+import { errorHandler } from '@util/helpers/Main';
+import { patchUser } from '@util/helpers/client/User';
+import { AxiosError } from 'axios';
 
-export default function ProfilePublic({ user, cookie, lang }: { user: User; cookie?: string; lang: { label: string } }) {
+export default function ProfilePublic({ user, lang }: { user: User; lang: { label: string } }) {
     const router = useRouter();
     const [loading, setLoading] = useState<boolean>(false);
 
-    const handleSubmit = async (e: any) => (
-        setLoading(true),
-        await axiosClient
-            .patch('/v1/users/me', { profilePublic: e.target.checked }, { headers: { Authorization: `Owner ${cookie}` } })
+    const handleSubmit = async (e: any) =>
+        await patchUser({ profilePublic: e.target.checked })
             .then(() => (setTimeout(() => setLoading(false), 1500), router.refresh()))
-            .catch((e) => e)
-    );
+            .catch((err: AxiosError) => alert(errorHandler(err.response?.data as Response<null>)));
 
     return (
         <label className={o.li} htmlFor="switch">
