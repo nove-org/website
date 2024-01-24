@@ -1,32 +1,28 @@
 'use client';
 
-import { axiosClient } from '@util/axios';
-import { Languages, User } from '@util/schema';
-import { getCookie } from 'cookies-next';
+import { Response, Languages, User } from '@util/schema';
 import ReactCountryFlag from 'react-country-flag';
 import Image from 'next/image';
 import o from '@sass/account/language/page.module.sass';
 import { useState } from 'react';
 import Loader from '@app/Loader';
 import { useRouter } from 'next/navigation';
+import { patchUser } from '@util/helpers/client/User';
+import { errorHandler } from '@util/helpers/Main';
+import { AxiosError } from 'axios';
 
 export default function Form({ user, code, saveChanges }: { user: User; code: Languages; saveChanges: string }) {
     const router = useRouter();
+    const lang = new Intl.DisplayNames([user.language === 'sw-PL' ? 'pl-PL' : user.language], { type: 'language' });
     const [loading, setLoading] = useState<boolean>(false);
 
-    const handleLanguage = async (e: any) => (
-        e.preventDefault(),
-        setLoading(true),
-        await axiosClient
-            .patch('/v1/users/me', { language: e.target.language.value }, { headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } })
+    const handleLanguage = async (e: FormData) =>
+        await patchUser({ language: e.get('language')?.toString() })
             .then((r) => (setLoading(false), router.refresh()))
-            .catch((e) => alert(e))
-    );
-
-    const lang = new Intl.DisplayNames([user.language === 'sw-PL' ? 'pl-PL' : user.language], { type: 'language' });
+            .catch((err: AxiosError) => alert(errorHandler(err.response?.data as Response<null>)));
 
     return (
-        <form className={o.box} id="languageForm" onSubmit={handleLanguage}>
+        <form className={o.box} id="languageForm" action={handleLanguage}>
             {code.AVAILABLE_LANGUAGES.map((code) => (
                 <label key={code} className={o.card}>
                     <header>
