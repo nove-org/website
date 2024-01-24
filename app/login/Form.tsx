@@ -5,7 +5,8 @@ import { useState } from 'react';
 import { COOKIE_HOSTNAME } from '@util/CONSTS';
 import o from '@sass/popup.module.sass';
 import u from '@sass/login.module.sass';
-import { errorHandler, loginCall } from '@util/helpers/client/Account';
+import { loginCall } from '@util/helpers/client/Account';
+import { errorHandler } from '@util/helpers/Main';
 import { AxiosError } from 'axios';
 import { Response } from '@util/schema';
 

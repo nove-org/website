@@ -16,11 +16,11 @@ export function getUser(): Promise<User | undefined> {
     });
 }
 
-export function getUserDevices(): Promise<Device[] | undefined> {
+export function getUserDevices({ perPage }: { perPage?: number }): Promise<Device[] | undefined> {
     return new Promise(async (resolve) => {
         const devices: Response<Device[]> = (
             await axiosClient
-                .get('/v1/users/me/activity', {
+                .get('/v1/users/me/activity' + (perPage ? `?perPage=${perPage}` : ''), {
                     headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
                 })
                 .catch((e) => e.response)

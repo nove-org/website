@@ -2,8 +2,10 @@
 
 import { useState } from 'react';
 import o from '@sass/popup.module.sass';
-import { axiosClient } from '@util/axios';
-import { getCookie } from 'cookies-next';
+import { deleteUser } from '@util/helpers/client/User';
+import { errorHandler } from '@util/helpers/Main';
+import { AxiosError } from 'axios';
+import { Response } from '@util/schema';
 
 export default function Delete({
     lang,
@@ -18,41 +20,21 @@ export default function Delete({
     };
 }) {
     const [popup, setPopup] = useState<boolean>(false);
-    const [postError, setPostError] = useState<string>();
 
-    const throwError = (message?: string, bool?: boolean) => {
-        if (bool === false) return setPostError('');
-
-        if (message) {
-            setPostError(message.charAt(0).toUpperCase() + message.slice(1).toLowerCase());
-
-            setTimeout(() => setPostError(''), 4000);
-        }
-    };
-
-    const handleSubmit = async (e: any) => {
-        e.preventDefault();
-
-        await axiosClient
-            .post('/v1/users/me/delete', { password: e.target.password.value }, { headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } })
+    const handleSubmit = async (e: FormData) =>
+        await deleteUser({ password: e.get('password')?.toString() })
             .then(() => window.location.replace('/logout'))
-            .catch((err) =>
-                err.response.data.body.error
-                    ? throwError(err.response.data.body.error?.details ? err.response.data.body.error.details[0].message : err.response.data.body.error.message)
-                    : null
-            );
-    };
+            .catch((err: AxiosError) => alert(errorHandler(err.response?.data as Response<null>)));
 
     return (
         <>
             <button onClick={() => setPopup((p) => !p)}>{lang.btn}</button>
-            {postError ? <p className="error">{postError}</p> : null}
             {popup ? (
                 <div className={o.popup}>
                     <div className={o.container}>
                         <h1>{lang.h1}</h1>
                         <p>{lang.p}</p>
-                        <form onSubmit={handleSubmit}>
+                        <form action={handleSubmit}>
                             <label>
                                 {lang.label}
                                 <input

@@ -1,7 +1,8 @@
 'use client';
 
 import o from '@sass/login.module.sass';
-import { errorHandler, resetPasswordCall } from '@util/helpers/client/Account';
+import { resetPasswordCall } from '@util/helpers/client/Account';
+import { errorHandler } from '@util/helpers/Main';
 import { AxiosError } from 'axios';
 import { Response } from '@util/schema';
 

@@ -9,7 +9,7 @@ import { getUserDevices, getUser, getUserConnections } from '@util/helpers/User'
 
 export default async function Overview() {
     const user = await getUser();
-    const devices = await getUserDevices();
+    const devices = await getUserDevices({});
     const connections = await getUserConnections();
 
     const languageTranslate = new Intl.DisplayNames([user!.language], { type: 'language' });

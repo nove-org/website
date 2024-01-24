@@ -3,7 +3,8 @@
 import { setCookie } from 'cookies-next';
 import { COOKIE_HOSTNAME } from '@util/CONSTS';
 import o from '@sass/login.module.sass';
-import { errorHandler, registerCall } from '@util/helpers/client/Account';
+import { registerCall } from '@util/helpers/client/Account';
+import { errorHandler } from '@util/helpers/Main';
 import { AxiosError } from 'axios';
 import { Response } from '@util/schema';
 

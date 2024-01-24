@@ -14,7 +14,7 @@ import { getUser, getUserDevices } from '@util/helpers/User';
 
 export default async function Overview() {
     const user = await getUser();
-    const devices = await getUserDevices();
+    const devices = await getUserDevices({ perPage: 3 });
     const lang = await new LanguageHandler('dashboard/security', user).init(headers());
 
     return user?.username && devices ? (
