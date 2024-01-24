@@ -38,6 +38,7 @@ export interface User {
     mfaEnabled: boolean;
     disabled: boolean;
     permissionLevel: number;
+    token: string;
     createdAt: string;
 }
 

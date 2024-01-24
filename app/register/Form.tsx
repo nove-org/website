@@ -1,10 +1,11 @@
 'use client';
 
-import { axiosClient } from '@util/axios';
 import { setCookie } from 'cookies-next';
-import { useState } from 'react';
 import { COOKIE_HOSTNAME } from '@util/CONSTS';
 import o from '@sass/login.module.sass';
+import { registerCall } from '@util/helpers/client/Account';
+import { AxiosError } from 'axios';
+import { Response } from '@util/schema';
 
 export default function RegisterForm({
     searchParam,
@@ -18,23 +19,10 @@ export default function RegisterForm({
         inputBtn: string;
     };
 }) {
-    const [postError, setPostError] = useState<string>();
-
-    const throwError = (message?: string, bool?: boolean) => {
-        if (bool === false) return setPostError('');
-
-        if (message) {
-            setPostError(message.charAt(0).toUpperCase() + message.slice(1).toLowerCase());
-
-            setTimeout(() => setPostError(''), 5000);
-        }
-    };
-
-    const handleRegister = async (form: FormData) => {
-        await axiosClient
-            .post('/v1/users/register', document.querySelector('#loginForm'), { headers: { 'Content-Type': 'application/json' } })
+    const handleRegister = async (e: FormData) =>
+        await registerCall({ email: e.get('email')?.toString(), username: e.get('username')?.toString(), password: e.get('password')?.toString() })
             .then((user) => {
-                setCookie('napiAuthorizationToken', user.data.body.data.token, {
+                setCookie('napiAuthorizationToken', user?.token, {
                     maxAge: 3 * 30 * 24 * 60 * 60,
                     domain: COOKIE_HOSTNAME,
                     sameSite: 'strict',
@@ -42,16 +30,16 @@ export default function RegisterForm({
                 });
 
                 const uri = searchParam || '/account';
-
                 if (uri == '__CLOSE__') window.close();
                 else window.location.replace(uri);
             })
-            .catch((err) =>
-                err?.response?.data?.body?.error
-                    ? throwError(err.response.data.body.error.details ? err.response.data.body.error.details[0].message : err.response.data.body.error.message)
-                    : console.error(err)
-            );
-    };
+            .catch((err: AxiosError) => {
+                const napiErr = err.response?.data as Response<null>;
+
+                if (napiErr?.body?.error?.details) napiErr.body.error.details.map((detail) => alert(`${detail.path}: ${detail.message} [${detail?.type || 'unknown'}]`));
+                else if (napiErr.body.error) alert(`${napiErr.body.error?.param.split(':')[1]}: ${napiErr.body.error?.message || 'No message'}`);
+                else alert(`error: Unknown error occurred (are servers offline?)`);
+            });
 
     return (
         <form id="loginForm" action={handleRegister} className={o.login}>
@@ -70,7 +58,6 @@ export default function RegisterForm({
                             d="M 14.988281 3.992188 C 14.582031 3.992188 14.21875 4.238281 14.0625 4.613281 C 13.910156 4.992188 14 5.421875 14.292969 5.707031 L 33.585938 25 L 14.292969 44.292969 C 14.03125 44.542969 13.925781 44.917969 14.019531 45.265625 C 14.109375 45.617188 14.382813 45.890625 14.734375 45.980469 C 15.082031 46.074219 15.457031 45.96875 15.707031 45.707031 L 35.707031 25.707031 C 36.097656 25.316406 36.097656 24.683594 35.707031 24.292969 L 15.707031 4.292969 C 15.519531 4.097656 15.261719 3.992188 14.988281 3.992188 Z"></path>
                     </svg>
                 </button>
-                {postError ? <p className="error">{postError}</p> : null}
             </div>
         </form>
     );

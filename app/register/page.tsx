@@ -25,7 +25,7 @@ export default async function Register({ searchParams }: { searchParams: { [key:
     if (!redirectBack?.match(/^(?!(\/\/)).*$/g) || !redirectBack?.match(DOMAIN_REGEX)) redirectBack = '/account';
     const user = await getUser();
     if (user?.username) return redirect(redirectBack ? redirectBack : '/account');
-    const status = await (await axiosClient.get('/'))?.data;
+    const status = await (await axiosClient.get('/').catch((e) => e))?.data;
     const lang = await new LanguageHandler('main/register', user).init(headers());
 
     return (
