@@ -26,37 +26,23 @@ import { headers } from 'next/headers';
 import { getUser } from '@util/helpers/User';
 
 export async function generateMetadata() {
-    const user = await getUser();
-    const lang = await new LanguageHandler('main/landing', user).init(headers());
+    const lang = await new LanguageHandler('main/landing', await getUser()).init(headers());
+    const title: string = `${lang.getProp('title')} | Nove`;
+    const description: string = 'Ditch the government, Google, Facebook and others that share data, profile and track you. Take back control over this.';
+    const images: { url: string; alt: string; width: number; height: number }[] = [
+        {
+            url: '/banner.png',
+            alt: 'Campaign banner filled with text from the title and description. "your privacy" highlighted in brand color (gradient pink-red).',
+            width: 860,
+            height: 470,
+        },
+    ];
 
     return {
-        title: `${lang.getProp('title')} | Nove`,
-        description: 'Ditch the government, Google, Facebook and others that share data, profile and track you. Take back control over this.',
-        openGraph: {
-            title: `${lang.getProp('title')} | Nove`,
-            description: 'Ditch the government, Google, Facebook and others that share data, profile and track you. Take back control over this.',
-            images: [
-                {
-                    url: '/banner.png',
-                    alt: 'Campaign banner filled with text from the title and description. "your privacy" highlighted in brand color (gradient pink-red).',
-                    width: 860,
-                    height: 470,
-                },
-            ],
-        },
-        twitter: {
-            card: 'summary_large_image',
-            title: `${lang.getProp('title')} | Nove`,
-            description: 'Ditch the government, Google, Facebook and others that share data, profile and track you. Take back control over this.',
-            images: [
-                {
-                    url: '/banner.png',
-                    alt: 'Campaign banner filled with text from the title and description. "your privacy" highlighted in brand color (gradient pink-red).',
-                    width: 860,
-                    height: 470,
-                },
-            ],
-        },
+        title,
+        description,
+        openGraph: { title, description, images },
+        twitter: { card: 'summary_large_image', title, description, images },
     };
 }
 

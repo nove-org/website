@@ -1,7 +1,7 @@
 export const dynamic = 'force-dynamic';
 import { axiosClient } from '@util/axios';
 import b from '@sass/blog.module.sass';
-import { Response, Post, User } from '@util/schema';
+import { Response, Post } from '@util/schema';
 import { sanitize } from 'isomorphic-dompurify';
 import { headers } from 'next/headers';
 import LanguageHandler from '@util/handlers/LanguageHandler';
@@ -24,16 +24,12 @@ async function getPostData(id: string) {
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
     const post = await getPostData(params.id);
-    const title = post ? post.title + ' | Nove Blog' : '404 | Nove Blog';
+    const title: string = post ? post.title + ' | Nove Blog' : '404 | Nove Blog';
 
     return {
         title,
-        openGraph: {
-            title,
-        },
-        twitter: {
-            title,
-        },
+        openGraph: { title },
+        twitter: { title },
     };
 }
 

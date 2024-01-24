@@ -1,24 +1,19 @@
 export const dynamic = 'force-dynamic';
 import o from '@sass/blog.module.sass';
 import { axiosClient } from '@util/axios';
-import { Response, Post, User } from '@util/schema';
+import { Response, Post } from '@util/schema';
 import { headers } from 'next/headers';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import BlogCard from './BlogCard';
 import { getUser } from '@util/helpers/User';
 
 export async function generateMetadata() {
-    const user = await getUser();
-    const lang = await new LanguageHandler('main/blog', user).init(headers());
+    const title: string = 'Homepage | Nove Blog';
 
     return {
-        title: 'Homepage | Nove Blog',
-        openGraph: {
-            title: 'Homepage | Nove Blog',
-        },
-        twitter: {
-            title: 'Homepage | Nove Blog',
-        },
+        title,
+        openGraph: { title },
+        twitter: { title },
     };
 }
 

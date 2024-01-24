@@ -5,26 +5,20 @@ import { getUser } from '@util/helpers/User';
 import { headers } from 'next/headers';
 
 export async function generateMetadata() {
-    const user = await getUser();
-    const lang = await new LanguageHandler('documents/terms-of-service', user).init(headers());
+    const lang = await new LanguageHandler('documents/terms-of-service', await getUser()).init(headers());
+    const title: string = `${lang.getProp('title')} | Nove`;
+    const description: string = 'Read about our Terms of Service and learn what we can do with your account and what you are allowed to do.';
 
     return {
-        title: `${lang.getProp('title')} | Nove`,
-        description: 'Read about our Terms of Service and learn what we can do with your account and what you are allowed to do.',
-        openGraph: {
-            title: `${lang.getProp('title')} | Nove`,
-            description: 'Read about our Terms of Service and learn what we can do with your account and what you are allowed to do.',
-        },
-        twitter: {
-            title: `${lang.getProp('title')} | Nove`,
-            description: `Read about our Terms of Service and learn what we can do with your account and what you are allowed to do.`,
-        },
+        title,
+        description,
+        openGraph: { title, description },
+        twitter: { title, description },
     };
 }
 
 export default async function Terms() {
-    const user = await getUser();
-    const lang = await new LanguageHandler('documents/terms-of-service', user).init(headers());
+    const lang = await new LanguageHandler('documents/terms-of-service', await getUser()).init(headers());
 
     return (
         <article className={o.content}>

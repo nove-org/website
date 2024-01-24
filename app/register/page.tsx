@@ -10,17 +10,13 @@ import { getUser } from '@util/helpers/User';
 import { axiosClient } from '@util/axios';
 
 export async function generateMetadata() {
-    const user = await getUser();
-    const lang = await new LanguageHandler('main/register', user).init(headers());
+    const lang = await new LanguageHandler('main/register', await getUser()).init(headers());
+    const title: string = `${lang.getCustomProp('modules.navigation.register-btn')} | Nove`;
 
     return {
-        title: `${lang.getCustomProp('modules.navigation.register-btn')} | Nove`,
-        openGraph: {
-            title: `${lang.getCustomProp('modules.navigation.register-btn')} | Nove`,
-        },
-        twitter: {
-            title: `${lang.getCustomProp('modules.navigation.register-btn')} | Nove`,
-        },
+        title,
+        openGraph: { title },
+        twitter: { title },
     };
 }
 

@@ -8,17 +8,13 @@ import ResetForm from './Form';
 import { getUser } from '@util/helpers/User';
 
 export async function generateMetadata() {
-    const user = await getUser();
-    const lang = await new LanguageHandler('main/password-reset', user).init(headers());
+    const lang = await new LanguageHandler('main/password-reset', await getUser()).init(headers());
+    const title: string = `${lang.getProp('hero-h1')} | Nove`;
 
     return {
-        title: `${lang.getProp('hero-h1')} | Nove`,
-        openGraph: {
-            title: `${lang.getProp('hero-h1')} | Nove`,
-        },
-        twitter: {
-            title: `${lang.getProp('hero-h1')} | Nove`,
-        },
+        title,
+        openGraph: { title },
+        twitter: { title },
     };
 }
 

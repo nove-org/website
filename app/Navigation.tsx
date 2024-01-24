@@ -6,10 +6,9 @@ import o from '@sass/Navigation.module.sass';
 import { headers } from 'next/headers';
 import { DONATE_LINK } from '@util/CONSTS';
 import LanguageHandler from '@util/handlers/LanguageHandler';
-import { getUser } from '@util/helpers/User';
+import { User } from '@util/schema';
 
-export default async function Navigation() {
-    const user = await getUser();
+export default async function Navigation({ user }: { user?: User }) {
     const lang = await new LanguageHandler('modules/navigation', user).init(headers());
 
     return (

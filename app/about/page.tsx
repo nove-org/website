@@ -6,26 +6,20 @@ import { headers } from 'next/headers';
 import { getUser } from '@util/helpers/User';
 
 export async function generateMetadata() {
-    const user = await getUser();
-    const lang = await new LanguageHandler('main/foss', user).init(headers());
+    const lang = await new LanguageHandler('main/foss', await getUser()).init(headers());
+    const title: string = `${lang.getCustomProp('modules.navigation.ul-about')} | Nove`;
+    const description: string = 'Our goal is to make the Internet more private and safer. Meet our team and learn more about us.';
 
     return {
-        title: `${lang.getCustomProp('modules.navigation.ul-about')} | Nove`,
-        description: 'Our goal is to make the Internet more private and safer. Meet our team and learn more about us.',
-        openGraph: {
-            title: `${lang.getCustomProp('modules.navigation.ul-about')} | Nove`,
-            description: 'Our goal is to make the Internet more private and safer. Meet our team and learn more about us.',
-        },
-        twitter: {
-            title: `${lang.getCustomProp('modules.navigation.ul-about')} | Nove`,
-            description: 'Our goal is to make the Internet more private and safer. Meet our team and learn more about us.',
-        },
+        title,
+        description,
+        openGraph: { title, description },
+        twitter: { title, description },
     };
 }
 
 export default async function About() {
-    const user = await getUser();
-    const lang = await new LanguageHandler('main/about', user).init(headers());
+    const lang = await new LanguageHandler('main/about', await getUser()).init(headers());
 
     return (
         <section className={o.hero}>

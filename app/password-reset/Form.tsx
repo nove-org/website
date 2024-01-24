@@ -1,20 +1,10 @@
 'use client';
 
 import { axiosClient } from '@util/axios';
-import { NextPage } from 'next';
 import { useState } from 'react';
 import o from '@sass/login.module.sass';
 
-interface Props {
-    lang: {
-        inputEmail: string;
-        inputNewPassword: string;
-        inputBtn: string;
-        success: string;
-    };
-}
-
-const ResetForm: NextPage<Props> = ({ lang }) => {
+export default function ResetForm({ lang }: { lang: { inputEmail: string; inputNewPassword: string; inputBtn: string; success: string } }) {
     const [postError, setPostError] = useState<string>();
 
     const throwError = (message?: string, bool?: boolean) => {
@@ -52,6 +42,4 @@ const ResetForm: NextPage<Props> = ({ lang }) => {
             </div>
         </form>
     );
-};
-
-export default ResetForm;
+}

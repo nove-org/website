@@ -10,20 +10,15 @@ import Sidebar from './Sidebar';
 import { getUser } from '@util/helpers/User';
 
 export async function generateMetadata() {
-    const user = await getUser();
-    const lang = await new LanguageHandler('dashboard/layout', user).init(headers());
+    const lang = await new LanguageHandler('dashboard/layout', await getUser()).init(headers());
+    const title: string = `${lang.getProp('ul-profile')} | Nove`;
+    const description: string = "Log in to gain access to the dashboard. Register today if you haven't already.";
 
     return {
-        title: `${lang.getProp('ul-profile')} | Nove`,
-        description: "Log in to gain access to the dashboard. Register today if you haven't already.",
-        openGraph: {
-            title: `${lang.getProp('ul-profile')} | Nove`,
-            description: "Log in to gain access to the dashboard. Register today if you haven't already.",
-        },
-        twitter: {
-            title: `${lang.getProp('ul-profile')} | Nove`,
-            description: "Log in to gain access to the dashboard. Register today if you haven't already.",
-        },
+        title,
+        description,
+        openGraph: { title, description },
+        twitter: { title, description },
     };
 }
 
