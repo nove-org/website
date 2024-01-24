@@ -1,29 +1,17 @@
 export const dynamic = 'force-dynamic';
-import { axiosClient } from '@util/axios';
 import a from '@sass/account/part.module.sass';
-import { cookies, headers } from 'next/headers';
-import { Response, User, Languages } from '@util/schema';
-import { redirect } from 'next/navigation';
+import { headers } from 'next/headers';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import Form from './Form';
+import { getUser } from '@util/helpers/User';
 
 export default async function Users() {
-    const user: Response<User> = (
-        await axiosClient
-            .get('/v1/users/me', {
-                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-            })
-            .catch((e) => e.response)
-    )?.data;
+    const user = await getUser();
+    const lang = await new LanguageHandler('admin/users', user).init(headers());
 
-    if (user.body.data.permissionLevel < 1) return redirect('/account');
-
-    const languages: Response<Languages> = (await axiosClient.get('/v1/languages').catch((e) => e.response))?.data;
-    const lang = await new LanguageHandler('admin/users', user?.body?.data).init(headers());
-
-    return user?.body?.data?.username && languages?.body?.data ? (
+    return user?.username ? (
         <Form
-            u={user.body.data}
+            u={user}
             lang={{
                 btnDelete: lang.getCustomProp('modules.actions.delete'),
                 btnDisable: lang.getCustomProp('modules.actions.disable'),

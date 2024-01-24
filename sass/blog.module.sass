@@ -83,7 +83,6 @@ article.blog
     flex-direction: column
     gap: 20px
     & div.content
-        margin-bottom: 30px
         & h1
             font-size: 36px
             font-weight: 500
@@ -174,14 +173,17 @@ div.comments
         width: 100%
         @media screen and (max-width: 1000px)
             flex-direction: column
-            gap: 0
+            gap: 15px
     & ul
         margin: 0
         padding: 0
         list-style: none
         width: 100%
+        & p
+            margin: 0
         & li
-            margin: 15px 0
+            margin: 0
+            margin-bottom: 15px
             display: flex
             justify-content: space-between
             background: var(--secondary-nd)
@@ -228,7 +230,7 @@ div.comments
     & form
         display: flex
         gap: 15px
-        margin: 10px 0
+        margin: 0
         width: 100%
         max-width: 360px
         @media screen and (max-width: 1000px)
@@ -259,12 +261,14 @@ div.author
     display: flex
     justify-content: space-between
     gap: 20px
+    border-top: 1px solid #888888
+    padding-top: 50px
     @media screen and (max-width: 750px)
         flex-direction: column
         gap: 10px
     & h1
-        font-size: 26px
-        font-weight: 500
+        font-size: 22px
+        font-weight: 400
         margin: 0
     & div.card
         display: flex

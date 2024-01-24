@@ -1,33 +1,22 @@
 export const dynamic = 'force-dynamic';
-import { axiosClient } from '@util/axios';
 import a from '@sass/account/part.module.sass';
 import o from '@sass/account/admin/blog.module.sass';
-import { cookies, headers } from 'next/headers';
-import { Response, User, Languages, Post } from '@util/schema';
-import { redirect } from 'next/navigation';
+import { headers } from 'next/headers';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import Image from 'next/image';
 import Link from 'next/link';
 import NewPost from './NewPost';
+import { getPosts } from '@util/helpers/Blog';
+import { getUser } from '@util/helpers/User';
 
 export default async function BlogList() {
-    const user: Response<User> = (
-        await axiosClient
-            .get('/v1/users/me', {
-                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-            })
-            .catch((e) => e.response)
-    )?.data;
+    const user = await getUser();
+    const lang = await new LanguageHandler('admin/posts', user).init(headers());
+    const posts = await getPosts();
 
-    if (user.body.data.permissionLevel < 1) return redirect('/account');
-
-    const languages: Response<Languages> = (await axiosClient.get('/v1/languages').catch((e) => e.response))?.data;
-    const lang = await new LanguageHandler('admin/posts', user?.body?.data).init(headers());
-    const posts: Response<Post[]> = (await axiosClient.get('/v1/blog').catch((e) => e.response))?.data;
-
-    return user?.body?.data?.username && languages?.body?.data ? (
+    return user?.username ? (
         <div className={a.content}>
-            <h1 className={a.title}>{lang.getProp('header', { number: posts.body.data.length })}</h1>
+            <h1 className={a.title}>{lang.getProp('header', { number: posts?.length })}</h1>
             <NewPost
                 lang={{
                     btn: lang.getProp('new-btn'),
@@ -39,7 +28,7 @@ export default async function BlogList() {
                 }}
             />
             <ul className={o.posts}>
-                {posts.body.data.map((post) => {
+                {posts?.map((post) => {
                     const created = new Date(post.createdAt);
                     const updated = new Date(post.updatedAt);
                     return (

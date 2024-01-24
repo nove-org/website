@@ -10,16 +10,16 @@ import Comment from './Comment';
 import Image from 'next/image';
 import Delete from './Delete';
 import { getUser } from '@util/helpers/User';
+import { getPost, getPosts } from '@util/helpers/Blog';
 
-async function getPostData(id: string) {
-    const posts: Response<Post[]> = (await axiosClient.get('/v1/blog').catch((e) => e.response))?.data;
-    const searchParam: string = id.toLowerCase();
+async function getPostData(id: string): Promise<Post | undefined> {
+    return new Promise(async (resolve, reject) => {
+        const posts = await getPosts();
+        const searchParam: string = id.toLowerCase();
+        let postId: string = posts?.filter((post) => post.title.toLowerCase().split(' ').join('-') + '-' + post.id.split('-')[post.id.split('-').length - 1] === searchParam)[0].id;
 
-    let postId: Post = posts?.body?.data?.filter(
-        (post) => post.title.toLowerCase().split(' ').join('-') + '-' + post.id.split('-')[post.id.split('-').length - 1] === searchParam
-    )[0];
-
-    return ((await axiosClient.get(`/v1/blog/${postId ? postId.id : id}`).catch((e) => e.response))?.data as Response<Post>)?.body?.data;
+        resolve(await getPost(postId || id));
+    });
 }
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
@@ -68,7 +68,8 @@ export default async function Blog({ params }: { params: { id: string } }) {
                 <div className={b.flex}>
                     {user ? <Comment post={post} user={user} /> : null}
                     <ul>
-                        {post?.comments?.map((comment) => {
+                        {post.comments.length < 1 ? <p>No one commented on this post yet</p> : null}
+                        {post.comments.map((comment) => {
                             const date = new Date(comment.createdAt);
                             return (
                                 <li key={comment.id}>
