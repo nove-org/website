@@ -49,8 +49,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ];
 
     for (const post of posts?.body?.data) {
+        const blogLink: string = post.title.toLowerCase().split(' ').join('-') + '-' + post.id.split('-')[post.id.split('-').length - 1];
+
         array.push({
-            url: 'https://nove.team/blog/' + post.id,
+            url: 'https://nove.team/blog/' + blogLink,
             lastModified: new Date(post.createdAt),
             changeFrequency: 'monthly',
             priority: 0.9,

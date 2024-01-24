@@ -1,7 +1,6 @@
 export const dynamic = 'force-dynamic';
-import { axiosClient } from '@util/axios';
 import b from '@sass/blog.module.sass';
-import { Response, Post } from '@util/schema';
+import { Post } from '@util/schema';
 import { sanitize } from 'isomorphic-dompurify';
 import { headers } from 'next/headers';
 import LanguageHandler from '@util/handlers/LanguageHandler';
