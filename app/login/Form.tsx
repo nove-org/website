@@ -6,9 +6,11 @@ import { useState } from 'react';
 import { COOKIE_HOSTNAME } from '@util/CONSTS';
 import o from '@sass/popup.module.sass';
 import u from '@sass/login.module.sass';
-import { NextPage } from 'next';
 
-interface Props {
+export default function LoginForm({
+    searchParam,
+    lang,
+}: {
     searchParam: string | undefined;
     lang: {
         inputLogin: string;
@@ -21,9 +23,7 @@ interface Props {
         mfaLabel: string;
         forgor: string;
     };
-}
-
-const LoginForm: NextPage<Props> = ({ searchParam, lang }) => {
+}) {
     const [postError, setPostError] = useState<string>();
     const [mfaPopup, setMfaPopup] = useState<boolean>(false);
     const [username, setUsername] = useState<string>();
@@ -137,6 +137,4 @@ const LoginForm: NextPage<Props> = ({ searchParam, lang }) => {
             </form>
         </>
     );
-};
-
-export default LoginForm;
+}

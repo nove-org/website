@@ -5,9 +5,11 @@ import { setCookie } from 'cookies-next';
 import { useState } from 'react';
 import { COOKIE_HOSTNAME } from '@util/CONSTS';
 import o from '@sass/login.module.sass';
-import { NextPage } from 'next';
 
-interface Props {
+export default function RegisterForm({
+    searchParam,
+    lang,
+}: {
     searchParam: string | undefined;
     lang: {
         inputEmail: string;
@@ -15,9 +17,7 @@ interface Props {
         inputPassword: string;
         inputBtn: string;
     };
-}
-
-const RegisterForm: NextPage<Props> = ({ searchParam, lang }) => {
+}) {
     const [postError, setPostError] = useState<string>();
 
     const throwError = (message?: string, bool?: boolean) => {
@@ -74,6 +74,4 @@ const RegisterForm: NextPage<Props> = ({ searchParam, lang }) => {
             </div>
         </form>
     );
-};
-
-export default RegisterForm;
+}
