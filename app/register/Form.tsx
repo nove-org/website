@@ -3,7 +3,7 @@
 import { setCookie } from 'cookies-next';
 import { COOKIE_HOSTNAME } from '@util/CONSTS';
 import o from '@sass/login.module.sass';
-import { registerCall } from '@util/helpers/client/Account';
+import { errorHandler, registerCall } from '@util/helpers/client/Account';
 import { AxiosError } from 'axios';
 import { Response } from '@util/schema';
 
@@ -33,13 +33,7 @@ export default function RegisterForm({
                 if (uri == '__CLOSE__') window.close();
                 else window.location.replace(uri);
             })
-            .catch((err: AxiosError) => {
-                const napiErr = err.response?.data as Response<null>;
-
-                if (napiErr?.body?.error?.details) napiErr.body.error.details.map((detail) => alert(`${detail.path}: ${detail.message} [${detail?.type || 'unknown'}]`));
-                else if (napiErr.body.error) alert(`${napiErr.body.error?.param.split(':')[1]}: ${napiErr.body.error?.message || 'No message'}`);
-                else alert(`error: Unknown error occurred (are servers offline?)`);
-            });
+            .catch((err: AxiosError) => alert(errorHandler(err.response?.data as Response<null>)));
 
     return (
         <form id="loginForm" action={handleRegister} className={o.login}>

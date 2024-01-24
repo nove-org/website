@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { COOKIE_HOSTNAME } from '@util/CONSTS';
 import o from '@sass/popup.module.sass';
 import u from '@sass/login.module.sass';
-import { loginCall } from '@util/helpers/client/Account';
+import { errorHandler, loginCall } from '@util/helpers/client/Account';
 import { AxiosError } from 'axios';
 import { Response } from '@util/schema';
 
@@ -47,9 +47,7 @@ export default function LoginForm({
         if (!mfaPopup && (napiErr?.body?.error?.code === 'invalid_mfa_token' || napiErr?.body?.error?.code === 'mfa_required'))
             return setUsername(username), setPassword(password), setMfaPopup(true);
 
-        if (napiErr?.body?.error?.details) napiErr.body.error.details.map((detail) => alert(`${detail.path}: ${detail.message} [${detail?.type || 'unknown'}]`));
-        else if (napiErr.body.error) alert(`${napiErr.body.error?.param.split(':')[1]}: ${napiErr.body.error?.message || 'No message'}`);
-        else alert(`error: Unknown error occurred (are servers offline?)`);
+        alert(errorHandler(napiErr));
     }
 
     const handleLogin = async (e: FormData) =>

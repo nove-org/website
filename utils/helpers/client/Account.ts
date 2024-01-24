@@ -1,10 +1,19 @@
 import { axiosClient } from '@util/axios';
-import { Response, User } from '@util/schema';
-import { LoginPost, RegisterPost } from '@util/bodySchema';
+import { Response, User, Success } from '@util/schema';
+import { LoginPost, RegisterPost, ResetPasswordPost } from '@util/bodySchema';
 
-const headers = {
-    'Content-Type': 'application/json',
-};
+export function errorHandler(err: Response<null>): string {
+    const text: string[] = [];
+
+    if (err?.body?.error?.details)
+        err.body.error.details.map((detail) =>
+            detail?.validation !== 'regex' ? text.push(`${detail.path}: ${detail.message} [${detail?.code || detail?.validation || 'unknown'}]`) : null
+        );
+    else if (err.body.error) text.push(`${err.body.error?.param.split(':')[1]}: ${err.body.error?.message || 'No message'}`);
+    else text.push(`error: Unknown error occurred (are servers offline?)`);
+
+    return text.join('\n');
+}
 
 export async function loginCall({ username, password, mfa }: LoginPost): Promise<User> {
     return new Promise(async (resolve, reject) => {
@@ -16,12 +25,7 @@ export async function loginCall({ username, password, mfa }: LoginPost): Promise
                         username,
                         password,
                     },
-                    {
-                        headers: {
-                            'x-mfa': mfa,
-                            ...headers,
-                        },
-                    }
+                    { headers: { 'x-mfa': mfa } }
                 )
                 .catch((e) => reject(e))
         )?.data;
@@ -30,19 +34,23 @@ export async function loginCall({ username, password, mfa }: LoginPost): Promise
     });
 }
 
+export async function resetPasswordCall({ email, newPassword }: ResetPasswordPost): Promise<Success> {
+    return new Promise(async (resolve, reject) => {
+        const success: Response<Success> = (await axiosClient.post('/v1/users/passwordRecovery', { email, newPassword }).catch((e) => reject(e)))?.data;
+
+        resolve(success?.body?.data);
+    });
+}
+
 export async function registerCall({ email, username, password }: RegisterPost): Promise<User | undefined> {
     return new Promise(async (resolve, reject) => {
         const user: Response<User> = (
             await axiosClient
-                .post(
-                    '/v1/users/register',
-                    {
-                        email,
-                        username,
-                        password,
-                    },
-                    { headers }
-                )
+                .post('/v1/users/register', {
+                    email,
+                    username,
+                    password,
+                })
                 .catch((e) => reject(e))
         )?.data;
 
