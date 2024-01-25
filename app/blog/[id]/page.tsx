@@ -15,9 +15,9 @@ async function getPostData(id: string): Promise<Post | undefined> {
     return new Promise(async (resolve, reject) => {
         const posts = await getPosts();
         const searchParam: string = id.toLowerCase();
-        let postId: string = posts?.filter((post) => post.title.toLowerCase().split(' ').join('-') + '-' + post.id.split('-')[post.id.split('-').length - 1] === searchParam)[0].id;
+        let pid: string = posts?.filter((post) => post.title.toLowerCase().split(' ').join('-') + '-' + post.id.split('-')[post.id.split('-').length - 1] === searchParam)[0]?.id;
 
-        resolve(await getPost(postId || id));
+        resolve(await getPost(pid || id));
     });
 }
 
