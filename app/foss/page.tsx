@@ -5,26 +5,20 @@ import { headers } from 'next/headers';
 import { getUser } from '@util/helpers/User';
 
 export async function generateMetadata() {
-    const user = await getUser();
-    const lang = await new LanguageHandler('main/foss', user).init(headers());
+    const lang = await new LanguageHandler('main/foss', await getUser()).init(headers());
+    const title: string = `${lang.getCustomProp('modules.footer.ul-foss')} | Nove`;
+    const description: string = 'List of our projects that are FOSS. Learn about our free and open-source software nature.';
 
     return {
-        title: `${lang.getCustomProp('modules.footer.ul-foss')} | Nove`,
-        description: 'List of our projects that are FOSS. Learn about our free and open-source software nature.',
-        openGraph: {
-            title: `${lang.getCustomProp('modules.footer.ul-foss')} | Nove`,
-            description: 'List of our projects that are FOSS. Learn about our free and open-source software nature.',
-        },
-        twitter: {
-            title: `${lang.getCustomProp('modules.footer.ul-foss')} | Nove`,
-            description: `List of our projects that are FOSS. Learn about our free and open-source software nature.`,
-        },
+        title,
+        description,
+        openGraph: { title, description },
+        twitter: { title, description },
     };
 }
 
 export default async function FOSS() {
-    const user = await getUser();
-    const lang = await new LanguageHandler('main/foss', user).init(headers());
+    const lang = await new LanguageHandler('main/foss', await getUser()).init(headers());
 
     return (
         <section className={o.hero}>

@@ -83,7 +83,6 @@ article.blog
     flex-direction: column
     gap: 20px
     & div.content
-        margin-bottom: 30px
         & h1
             font-size: 36px
             font-weight: 500
@@ -129,8 +128,7 @@ article.blog
             border-radius: 50px
             font-size: 14px
             font-weight: 500
-            color: var(--primary)
-            background: var(--font-st)
+            background: var(--tertiary)
             outline: 0
             border: 0
             cursor: pointer
@@ -141,7 +139,7 @@ article.blog
                 font-size: 14px
                 margin: 3px 0
             &:hover
-                opacity: .8
+                background: var(--quaternary)
             & svg
                 rotate: 180deg
         & a
@@ -169,12 +167,23 @@ div.comments
         font-size: 26px
         font-weight: 500
         margin: 10px 0
+    & div.flex
+        display: flex
+        gap: 40px
+        width: 100%
+        @media screen and (max-width: 1000px)
+            flex-direction: column
+            gap: 15px
     & ul
         margin: 0
         padding: 0
         list-style: none
+        width: 100%
+        & p
+            margin: 0
         & li
-            margin: 15px 0
+            margin: 0
+            margin-bottom: 15px
             display: flex
             justify-content: space-between
             background: var(--secondary-nd)
@@ -207,7 +216,9 @@ div.comments
             & aside
                 display: flex
                 align-items: center
+                justify-content: flex-end
                 gap: 3px
+                min-width: 120px
                 & svg
                     cursor: pointer
                     transition-duration: .1s
@@ -219,7 +230,11 @@ div.comments
     & form
         display: flex
         gap: 15px
-        margin: 10px 0
+        margin: 0
+        width: 100%
+        max-width: 360px
+        @media screen and (max-width: 1000px)
+            max-width: 100%
         & img
             border-radius: 50%
         & div.content
@@ -236,3 +251,61 @@ div.comments
                 width: calc(100% - 24px)
                 resize: none
                 font-family: 'Inter', sans-serif
+
+div.author
+    width: 100%
+    max-width: 1000px
+    height: 100%
+    margin: 0 auto
+    margin-bottom: 50px
+    display: flex
+    justify-content: space-between
+    gap: 20px
+    border-top: 1px solid #888888
+    padding-top: 50px
+    @media screen and (max-width: 750px)
+        flex-direction: column
+        gap: 10px
+    & h1
+        font-size: 22px
+        font-weight: 400
+        margin: 0
+    & div.card
+        display: flex
+        align-items: center
+        background: var(--secondary-nd)
+        padding: 15px
+        border-radius: 20px
+        gap: 10px
+        max-width: calc( 500px - 15px * 2 )
+        width: 100%
+        @media screen and (max-width: 750px)
+            max-width: calc( 100% - 15px * 2 )
+            flex-direction: column
+            align-items: flex-start
+        & img
+            border-radius: 50%
+        & div.id
+            width: 100%
+        & h1
+            margin: 0
+            font-size: 28px
+            font-weight: 500
+        & p
+            margin: 0
+            font-size: 16px
+            font-weight: 400
+        & a
+            padding: 5px 8px
+            margin-top: 5px
+            border-radius: 50px
+            background: var(--tertiary)
+            font-size: 14px
+            display: flex
+            align-items: center
+            gap: 4px
+            width: fit-content
+            transition-duration: .1s
+            cursor: pointer
+            &:hover
+                background: var(--quaternary)

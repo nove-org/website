@@ -26,37 +26,23 @@ import { headers } from 'next/headers';
 import { getUser } from '@util/helpers/User';
 
 export async function generateMetadata() {
-    const user = await getUser();
-    const lang = await new LanguageHandler('main/landing', user).init(headers());
+    const lang = await new LanguageHandler('main/landing', await getUser()).init(headers());
+    const title: string = `${lang.getProp('title')} | Nove`;
+    const description: string = 'Ditch the government, Google, Facebook and others that share data, profile and track you. Take back control over this.';
+    const images: { url: string; alt: string; width: number; height: number }[] = [
+        {
+            url: '/banner.png',
+            alt: 'Campaign banner filled with text from the title and description. "your privacy" highlighted in brand color (gradient pink-red).',
+            width: 860,
+            height: 470,
+        },
+    ];
 
     return {
-        title: `${lang.getProp('title')} | Nove`,
-        description: 'Ditch the government, Google, Facebook and others that share data, profile and track you. Take back control over this.',
-        openGraph: {
-            title: `${lang.getProp('title')} | Nove`,
-            description: 'Ditch the government, Google, Facebook and others that share data, profile and track you. Take back control over this.',
-            images: [
-                {
-                    url: '/banner.png',
-                    alt: 'Campaign banner filled with text from the title and description. "your privacy" highlighted in brand color (gradient pink-red).',
-                    width: 860,
-                    height: 470,
-                },
-            ],
-        },
-        twitter: {
-            card: 'summary_large_image',
-            title: `${lang.getProp('title')} | Nove`,
-            description: 'Ditch the government, Google, Facebook and others that share data, profile and track you. Take back control over this.',
-            images: [
-                {
-                    url: '/banner.png',
-                    alt: 'Campaign banner filled with text from the title and description. "your privacy" highlighted in brand color (gradient pink-red).',
-                    width: 860,
-                    height: 470,
-                },
-            ],
-        },
+        title,
+        description,
+        openGraph: { title, description, images },
+        twitter: { card: 'summary_large_image', title, description, images },
     };
 }
 
@@ -151,14 +137,6 @@ export default async function Home() {
                 <Image src="/contributing_light.png" width={530} height={560} alt="How contributing works" className={o.light} />
                 <Image src="/contributing_dark.png" width={530} height={560} alt="How contributing works" className={o.dark} />
             </section>
-
-            <svg className={o.line} width="114" height="21" viewBox="0 0 114 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M1 14.9935C22 5.4935 31.5 3.4935 37.5 3.4935C43.5 3.4935 43 6.9935 47 11.4935C54.9451 20.4317 69.5 -2.60486 82 1.49349C106.4 9.49349 112.5 17.1602 112.5 19.9935"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                />
-            </svg>
 
             <section className={o.ready}>
                 <h1>{lang.getProp('ready-h1')}</h1>

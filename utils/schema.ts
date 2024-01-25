@@ -10,6 +10,7 @@ export interface Response<T> {
             type: string;
             details?: {
                 code: string;
+                validation: string;
                 minimum: number;
                 maximum: number;
                 type: string;
@@ -38,6 +39,7 @@ export interface User {
     mfaEnabled: boolean;
     disabled: boolean;
     permissionLevel: number;
+    token: string;
     createdAt: string;
 }
 
@@ -105,6 +107,10 @@ export interface Post {
         createdAt: string;
         updatedAt: string;
     }[];
+}
+
+export interface Success {
+    success: boolean;
 }
 
 export interface Languages {

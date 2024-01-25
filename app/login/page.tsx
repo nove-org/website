@@ -10,17 +10,13 @@ import { getUser } from '@util/helpers/User';
 import { axiosClient } from '@util/axios';
 
 export async function generateMetadata() {
-    const user = await getUser();
-    const lang = await new LanguageHandler('main/login', user).init(headers());
+    const lang = await new LanguageHandler('main/login', await getUser()).init(headers());
+    const title: string = `${lang.getCustomProp('modules.navigation.login-btn')} | Nove`;
 
     return {
-        title: `${lang.getCustomProp('modules.navigation.login-btn')} | Nove`,
-        openGraph: {
-            title: `${lang.getCustomProp('modules.navigation.login-btn')} | Nove`,
-        },
-        twitter: {
-            title: `${lang.getCustomProp('modules.navigation.login-btn')} | Nove`,
-        },
+        title,
+        openGraph: { title },
+        twitter: { title },
     };
 }
 
@@ -29,7 +25,7 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
     if (!redirectBack?.match(/^(?!(\/\/)).*$/g) || !redirectBack?.match(DOMAIN_REGEX)) redirectBack = '/account';
     const user = await getUser();
     if (user?.username) return redirect(redirectBack ? redirectBack : '/account');
-    const status = await (await axiosClient.get('/'))?.data;
+    const status = await (await axiosClient.get('/').catch((e) => e))?.data;
     const lang = await new LanguageHandler('main/login', user).init(headers());
 
     return (

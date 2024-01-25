@@ -6,10 +6,11 @@ import BlogImage from './BlogImage';
 
 export default function BlogCard({ post }: { post: Post }) {
     const date = new Date(post.createdAt);
+    const blogLink: string = post.title.toLowerCase().split(' ').join('-') + '-' + post.id.split('-')[post.id.split('-').length - 1];
 
     return (
         <li title={post.title} key={post.id}>
-            <Link href={`/blog/${post.id}`}>
+            <Link href={`/blog/${blogLink}`}>
                 <BlogImage text={post.text} />
                 <div className={o.info}>
                     <h1>{post.title}</h1>

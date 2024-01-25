@@ -6,10 +6,9 @@ import o from '@sass/Navigation.module.sass';
 import { headers } from 'next/headers';
 import { DONATE_LINK } from '@util/CONSTS';
 import LanguageHandler from '@util/handlers/LanguageHandler';
-import { getUser } from '@util/helpers/User';
+import { User } from '@util/schema';
 
-export default async function Navigation() {
-    const user = await getUser();
+export default async function Navigation({ user }: { user?: User }) {
     const lang = await new LanguageHandler('modules/navigation', user).init(headers());
 
     return (
@@ -26,7 +25,7 @@ export default async function Navigation() {
                         <li>
                             <details className={o.projects}>
                                 <summary>
-                                    <a>{lang.getProp('ul-products')}</a>
+                                    <div className={o.button}>{lang.getProp('ul-products')}</div>
                                 </summary>
                                 <div className={o.menu}>
                                     <a href="https://files.nove.team">
@@ -51,7 +50,7 @@ export default async function Navigation() {
                                         </h1>
                                         <p>{lang.getProp('products-napi')}</p>
                                     </a>
-                                    <a>
+                                    <a href="https://procurel.nove.team">
                                         <h1>
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
                                                 <path

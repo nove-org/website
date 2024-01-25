@@ -1,7 +1,5 @@
 'use client';
 
-import Loader from '@app/Loader';
-import Image from 'next/image';
 import { axiosClient } from '@util/axios';
 import { getCookie } from 'cookies-next';
 import { useRouter } from 'next/navigation';

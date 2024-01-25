@@ -2,9 +2,10 @@
 
 import { useState } from 'react';
 import o from '@sass/popup.module.sass';
-import { axiosClient } from '@util/axios';
-import { getCookie } from 'cookies-next';
-import { User } from '@util/schema';
+import { Response, User } from '@util/schema';
+import { getRecoveryCodes } from '@util/helpers/client/User';
+import { errorHandler } from '@util/helpers/Main';
+import { AxiosError } from 'axios';
 
 export default function Recovery({
     lang,
@@ -24,37 +25,18 @@ export default function Recovery({
     const [popup, setPopup] = useState<boolean>(false);
     const [dataPopup, setDataPopup] = useState<boolean>(true);
     const [codes, setCodes] = useState<string[]>();
-    const [postError, setPostError] = useState<string>();
 
-    const throwError = (message?: string, bool?: boolean) => {
-        if (bool === false) return setPostError('');
-
-        if (message) {
-            setPostError(message.charAt(0).toUpperCase() + message.slice(1).toLowerCase());
-
-            setTimeout(() => setPostError(''), 4000);
-        }
-    };
-
-    const handleSubmit = async (form: FormData) => {
-        await axiosClient
-            .get('/v1/users/me/mfa/securityCodes', {
-                headers: {
-                    Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
-                    'x-mfa': (form.get('mfa') as string) || '',
-                },
-            })
-            .then((r) => {
+    const handleSubmit = async (e: FormData) =>
+        await getRecoveryCodes({ mfa: e.get('mfa')?.toString() })
+            .then((codes) => {
                 setPopup(false);
                 setDataPopup(true);
-                setCodes(r?.data?.body?.data);
+                setCodes(codes);
             })
-            .catch((e) => (e?.response?.data?.body?.error ? throwError(e.response.data.body.error.message) : console.error(e)));
-    };
+            .catch((err: AxiosError) => alert(errorHandler(err.response?.data as Response<null>)));
 
     return (
         <>
-            {postError ? <p className="error">{postError}</p> : null}
             <li className={u.mfaEnabled ? '' : 'disabled'} onClick={() => (u.mfaEnabled ? setPopup(true) : null)}>
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 24 24">
                     <path
