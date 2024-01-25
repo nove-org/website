@@ -1,4 +1,6 @@
-export interface RecoveryGet {
+import { User } from './schema';
+
+export interface MfaGet {
     mfa?: string;
 }
 
@@ -22,13 +24,37 @@ export interface AvatarPatch {
     file?: File;
 }
 
+export interface BlogPatch {
+    id?: string;
+    title?: string;
+    text?: string;
+}
+
 export interface MfaPatch {
     enabled?: boolean;
     code?: string;
 }
 
+export interface UserDisable {
+    id?: string;
+    data: User;
+    reason?: string;
+    code?: string;
+}
+
 export interface UserDelete {
+    id?: string;
+    reason?: string;
+    code?: string;
+}
+
+export interface MeDelete {
     password?: string;
+}
+
+export interface BlogPost {
+    title?: string;
+    text?: string;
 }
 
 export interface LoginPost {
@@ -46,4 +72,8 @@ export interface RegisterPost {
     email?: string;
     username?: string;
     password?: string;
+}
+
+export interface BlogDelete {
+    id?: string;
 }

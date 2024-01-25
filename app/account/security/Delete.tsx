@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import o from '@sass/popup.module.sass';
-import { deleteUser } from '@util/helpers/client/User';
+import { deleteMe } from '@util/helpers/client/User';
 import { errorHandler } from '@util/helpers/Main';
 import { AxiosError } from 'axios';
 import { Response } from '@util/schema';
@@ -22,7 +22,7 @@ export default function Delete({
     const [popup, setPopup] = useState<boolean>(false);
 
     const handleSubmit = async (e: FormData) =>
-        await deleteUser({ password: e.get('password')?.toString() })
+        await deleteMe({ password: e.get('password')?.toString() })
             .then(() => window.location.replace('/logout'))
             .catch((err: AxiosError) => alert(errorHandler(err.response?.data as Response<null>)));
 

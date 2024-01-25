@@ -3,10 +3,11 @@
 import { useState } from 'react';
 import o from '@sass/popup.module.sass';
 import uc from '@sass/account/admin/page.module.sass';
-import { axiosClient } from '@util/axios';
-import { getCookie } from 'cookies-next';
-import { User } from '@util/schema';
+import { Response, User } from '@util/schema';
 import { useRouter } from 'next/navigation';
+import { disableUser } from '@util/helpers/client/User';
+import { errorHandler } from '@util/helpers/Main';
+import { AxiosError } from 'axios';
 
 export default function Disable({
     lang,
@@ -26,45 +27,14 @@ export default function Disable({
 }) {
     const router = useRouter();
     const [popup, setPopup] = useState<boolean>(false);
-    const [postError, setPostError] = useState<string>();
 
-    const throwError = (message?: string, bool?: boolean) => {
-        if (bool === false) return setPostError('');
-
-        if (message) {
-            setPostError(message.charAt(0).toUpperCase() + message.slice(1).toLowerCase());
-
-            setTimeout(() => setPostError(''), 5000);
-        }
-    };
-
-    const handleAction = async (form: FormData) => {
-        if (!target.disabled) {
-            return await axiosClient
-                .post(
-                    `/v1/admin/users/${target.id}/disable`,
-                    {
-                        reason: form.get('reason'),
-                    },
-                    {
-                        headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}`, 'x-mfa': (form.get('mfa') as string) || '' },
-                    }
-                )
-                .then((r) => (setPopup(false), router.refresh()))
-                .catch((e) => (e?.response?.data?.body?.error ? throwError(e.response.data.body.error.message) : console.error(e)));
-        } else {
-            return await axiosClient
-                .delete(`/v1/admin/users/${target.id}/disable`, {
-                    headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}`, 'x-mfa': (form.get('mfa') as string) || '' },
-                })
-                .then((r) => (setPopup(false), router.refresh()))
-                .catch((e) => (e?.response?.data?.body?.error ? throwError(e.response.data.body.error.message) : console.error(e)));
-        }
-    };
+    const handleAction = async (e: FormData) =>
+        await disableUser({ id: target.id, data: target, code: e.get('mfa')?.toString(), reason: e.get('reason')?.toString() })
+            .then(() => (setPopup(false), router.refresh()))
+            .catch((err: AxiosError) => alert(errorHandler(err.response?.data as Response<null>)));
 
     return (
         <>
-            {postError ? <p className="error">{postError}</p> : null}
             <button className={uc.ac} onClick={() => setPopup(true)}>
                 {lang.btnConfirm}
             </button>
