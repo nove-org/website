@@ -69,7 +69,7 @@ export default async function Footer({ user }: { user?: User }) {
                             <Link href="/terms">{lang.getProp('ul-terms')}</Link>
                         </li>
                         <li>
-                            <Link href="/account/developers">{lang.getProp('ul-developers')}</Link>
+                            <Link href="/account">{lang.getProp('ul-developers')}</Link>
                         </li>
                         <li>
                             <Link href="/foss">FOSS</Link>

@@ -34,9 +34,6 @@ export const metadata: Metadata = {
     metadataBase: new URL('https://nove.team'),
     category: 'technology',
     publisher: 'Nove Group',
-    alternates: {
-        canonical: '/',
-    },
     openGraph: {
         locale: 'en_US',
         url: 'https://nove.team/',
