@@ -1,8 +1,8 @@
 div.devices
     & h2
         margin: 10px 0 5px 0
-        font-size: 24px
-        font-weight: 500
+        font-size: 26px
+        font-weight: 400
     & p
         font-size: 16px
         font-weight: 400
@@ -56,10 +56,12 @@ div.hds
     & aside
         max-width: 450px
         margin: 0
+        gap: 0
         & h2
+            font-size: 26px
+            font-weight: 400
             margin: 0
-            font-size: 24px
-            font-weight: 500
+            margin-bottom: 5px
         & p
             font-size: 16px
             font-weight: 400
@@ -87,7 +89,7 @@ div.hds
             border-radius: 20px
             background: var(--secondary-nd)
             cursor: pointer
-            transition-duration: .2s
+            transition: background-color .15s linear
             @media screen and (max-width: 1350px)
                 max-width: 100%
                 width: calc( 100% - 18px * 2 )
@@ -107,11 +109,12 @@ div.hds
                     margin-left: 10px
                     width: 100%
 div.deactivate
-    margin: 80px 0
+    margin: 80px 0 0 0
     & h2
+        font-size: 26px
+        font-weight: 400
         margin: 0
-        font-size: 24px
-        font-weight: 500
+        margin-bottom: 5px
     & p
         font-size: 16px
         font-weight: 400
@@ -129,7 +132,7 @@ div.deactivate
         outline: 0
         border: 0
         cursor: pointer
-        transition-duration: .2s
+        transition: background-color .15s linear
         margin-top: 10px
         @media screen and (max-width: 950px)
             font-size: 14px

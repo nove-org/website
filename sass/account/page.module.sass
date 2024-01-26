@@ -32,7 +32,7 @@ ul.overview
                 display: flex
                 flex-direction: column
                 position: relative
-                transition-duration: .2s
+                transition: background-color .15s linear
                 z-index: 1
                 @media screen and (max-width: 1660px)
                     min-height: calc( 250px - 25px * 2 )
@@ -141,7 +141,6 @@ ul.connections
     width: 100%
     gap: 1.5rem
     height: 100%
-    margin-bottom: 50px
     & li.card
         text-decoration: none
         color: var(--font-st)
@@ -153,7 +152,7 @@ ul.connections
         display: flex
         flex-direction: column
         position: relative
-        transition-duration: .2s
+        transition: background-color .15s linear
         z-index: 1
         & header
             display: flex

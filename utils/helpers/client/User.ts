@@ -7,7 +7,7 @@ export async function getUsers({ mfa }: MfaGet): Promise<User[] | undefined> {
     return new Promise(async (resolve, reject) => {
         const users: Response<User[]> = (
             await axiosClient
-                .post('/v1/admin/users', {
+                .get('/v1/admin/users', {
                     headers: {
                         Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
                         'x-mfa': mfa,

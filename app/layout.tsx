@@ -23,6 +23,9 @@ import Footer from '@app/Footer';
 import type { Metadata, Viewport } from 'next';
 import { inter } from '@util/fonts';
 import { getUser } from '@util/helpers/User';
+import { usePathname } from 'next/navigation';
+import LanguageHandler from '@util/handlers/LanguageHandler';
+import { headers } from 'next/headers';
 
 export const viewport: Viewport = {
     width: 'device-width',
@@ -55,6 +58,7 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
     const user = await getUser();
+    const lang = await new LanguageHandler('modules/footer', user).init(headers());
 
     return (
         <html lang="en">
@@ -63,7 +67,24 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
                 <main style={inter.style}>{children}</main>
 
-                <Footer user={user} />
+                <Footer
+                    lang={{
+                        license: lang.getProp('license'),
+                        made_with: lang.getProp('made-with-love'),
+                        contributors: lang.getProp('contributors'),
+                        about: lang.getProp('ul-about'),
+                        blog: lang.getProp('ul-blog'),
+                        docs: lang.getProp('ul-docs'),
+                        donate: lang.getProp('ul-donate'),
+                        login: lang.getProp('ul-login'),
+                        register: lang.getProp('ul-register'),
+                        support: lang.getProp('ul-support'),
+                        src: lang.getProp('ul-src'),
+                        privacy: lang.getProp('ul-privacy'),
+                        terms: lang.getProp('ul-terms'),
+                        developers: lang.getProp('ul-developers'),
+                    }}
+                />
             </body>
         </html>
     );
