@@ -24,7 +24,7 @@ div.posts
                 border-radius: 20px
                 color: var(--font-st)
                 text-decoration: none
-                transition-duration: .2s
+                transition: background-color .15s linear
                 &:hover
                     background: var(--tertiary)
                 & img.banner
@@ -132,7 +132,7 @@ article.blog
             outline: 0
             border: 0
             cursor: pointer
-            transition-duration: .2s
+            transition: background-color .15s linear
             margin-top: 5px
             gap: 5px
             @media screen and (max-width: 950px)
@@ -221,7 +221,7 @@ div.comments
                 min-width: 120px
                 & svg
                     cursor: pointer
-                    transition-duration: .1s
+                    transition: background-color .1s linear
                     &:hover
                         opacity: .7
                 & time
@@ -305,7 +305,7 @@ div.author
             align-items: center
             gap: 4px
             width: fit-content
-            transition-duration: .1s
+            transition: background-color .1s linear
             cursor: pointer
             &:hover
                 background: var(--quaternary)
