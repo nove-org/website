@@ -2,14 +2,16 @@ import { axiosClient } from '@util/axios';
 import { cookies } from 'next/headers';
 import { Device, Response, User, Connection } from '@util/schema';
 
-const napiToken: string = `Owner ${cookies()?.get('napiAuthorizationToken')?.value.split('%20')[0]} ${cookies()?.get('napiAuthorizationToken')?.value.split('%20')[1]}`;
-
 export function getUser(): Promise<User | undefined> {
     return new Promise(async (resolve) => {
         const user: Response<User> = (
             await axiosClient
                 .get('/v1/users/me', {
-                    headers: { Authorization: napiToken },
+                    headers: {
+                        Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value.split('%20')[0]} ${
+                            cookies()?.get('napiAuthorizationToken')?.value.split('%20')[1]
+                        }`,
+                    },
                 })
                 .catch((e) => e.response)
         )?.data;
@@ -23,7 +25,11 @@ export function getUserDevices({ perPage }: { perPage?: number }): Promise<Devic
         const devices: Response<Device[]> = (
             await axiosClient
                 .get('/v1/users/me/activity' + (perPage ? `?perPage=${perPage}` : ''), {
-                    headers: { Authorization: napiToken },
+                    headers: {
+                        Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value.split('%20')[0]} ${
+                            cookies()?.get('napiAuthorizationToken')?.value.split('%20')[1]
+                        }`,
+                    },
                 })
                 .catch((e) => e.response)
         )?.data;
@@ -37,7 +43,11 @@ export function getUserConnections(): Promise<Connection[] | undefined> {
         const devices: Response<Connection[]> = (
             await axiosClient
                 .get('/v1/users/me/connections', {
-                    headers: { Authorization: napiToken },
+                    headers: {
+                        Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value.split('%20')[0]} ${
+                            cookies()?.get('napiAuthorizationToken')?.value.split('%20')[1]
+                        }`,
+                    },
                 })
                 .catch((e) => e.response)
         )?.data;
