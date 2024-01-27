@@ -68,6 +68,11 @@ export interface ResetPasswordPost {
     newPassword?: string;
 }
 
+export interface ConfirmResetPasswordPost {
+    code?: string;
+    newPassword?: string;
+}
+
 export interface RegisterPost {
     email?: string;
     username?: string;

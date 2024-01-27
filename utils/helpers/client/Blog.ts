@@ -1,7 +1,7 @@
 import { axiosClient } from '@util/axios';
 import { Post, Response, Success } from '@util/schema';
 import { BlogDelete, BlogPatch, BlogPost } from '@util/bodySchema';
-import { getCookie } from 'cookies-next';
+import { napiToken } from './User';
 
 export async function createPost({ title, text }: BlogPost): Promise<Post | undefined> {
     return new Promise(async (resolve, reject) => {
@@ -15,7 +15,7 @@ export async function createPost({ title, text }: BlogPost): Promise<Post | unde
                     },
                     {
                         headers: {
-                            Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
+                            Authorization: napiToken,
                         },
                     }
                 )
@@ -38,7 +38,7 @@ export async function editPost({ id, title, text }: BlogPatch): Promise<Post | u
                     },
                     {
                         headers: {
-                            Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
+                            Authorization: napiToken,
                         },
                     }
                 )
@@ -55,7 +55,7 @@ export async function deletePost({ id }: BlogDelete): Promise<Success | undefine
             await axiosClient
                 .delete(`/v1/blog/${id}`, {
                     headers: {
-                        Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
+                        Authorization: napiToken,
                     },
                 })
                 .catch((e) => reject(e))

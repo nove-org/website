@@ -3,13 +3,15 @@ import { Mfa, Response, Success, User } from '@util/schema';
 import { AvatarPatch, EmailPatch, MeDelete, MfaGet, MfaPatch, PasswordPatch, UserDelete, UserDisable, UserPatch } from '@util/bodySchema';
 import { getCookie } from 'cookies-next';
 
+export const napiToken: string = `Owner ${getCookie('napiAuthorizationToken')?.split('%20')[0]} ${getCookie('napiAuthorizationToken')?.split('%20')[1]}`;
+
 export async function getUsers({ mfa }: MfaGet): Promise<User[] | undefined> {
     return new Promise(async (resolve, reject) => {
         const users: Response<User[]> = (
             await axiosClient
                 .get('/v1/admin/users', {
                     headers: {
-                        Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
+                        Authorization: napiToken,
                         'x-mfa': mfa,
                     },
                 })
@@ -26,7 +28,7 @@ export async function getRecoveryCodes({ mfa }: MfaGet): Promise<string[] | unde
             await axiosClient
                 .get('/v1/users/me/mfa/securityCodes', {
                     headers: {
-                        Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
+                        Authorization: napiToken,
                         'x-mfa': mfa,
                     },
                 })
@@ -46,7 +48,7 @@ export async function patchEmail({ newEmail }: EmailPatch): Promise<Success | un
                     { newEmail },
                     {
                         headers: {
-                            Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
+                            Authorization: napiToken,
                         },
                     }
                 )
@@ -69,7 +71,7 @@ export async function patchPassword({ oldPassword, newPassword }: PasswordPatch)
                     },
                     {
                         headers: {
-                            Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
+                            Authorization: napiToken,
                         },
                     }
                 )
@@ -95,7 +97,7 @@ export async function patchUser({ username, bio, language, trackActivity, profil
                     },
                     {
                         headers: {
-                            Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
+                            Authorization: napiToken,
                         },
                     }
                 )
@@ -115,7 +117,7 @@ export async function patchAvatar({ file }: AvatarPatch): Promise<User | undefin
                     { file },
                     {
                         headers: {
-                            Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
+                            Authorization: napiToken,
                             'Content-Type': 'multipart/form-data',
                         },
                     }
@@ -136,7 +138,7 @@ export async function patchMfa({ enabled, code }: MfaPatch): Promise<Mfa | undef
                     { enabled },
                     {
                         headers: {
-                            Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
+                            Authorization: napiToken,
                             'x-mfa': code,
                         },
                     }
@@ -158,7 +160,7 @@ export async function disableUser({ id, data, reason, code }: UserDisable): Prom
                           { reason },
                           {
                               headers: {
-                                  Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
+                                  Authorization: napiToken,
                                   'x-mfa': code,
                               },
                           }
@@ -169,7 +171,7 @@ export async function disableUser({ id, data, reason, code }: UserDisable): Prom
                   await axiosClient
                       .delete(`/v1/admin/users/${id}/disable`, {
                           headers: {
-                              Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
+                              Authorization: napiToken,
                               'x-mfa': code,
                           },
                       })
@@ -189,7 +191,7 @@ export async function deleteUser({ id, reason, code }: UserDelete): Promise<Succ
                     { reason },
                     {
                         headers: {
-                            Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
+                            Authorization: napiToken,
                             'x-mfa': code,
                         },
                     }
@@ -210,7 +212,7 @@ export async function deleteMe({ password }: MeDelete): Promise<Success | undefi
                     { password },
                     {
                         headers: {
-                            Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
+                            Authorization: napiToken,
                         },
                     }
                 )

@@ -1,27 +1,16 @@
 'use client';
 
-import { setCookie } from 'cookies-next';
-import { COOKIE_HOSTNAME } from '@util/CONSTS';
 import o from '@sass/login.module.sass';
-import { registerCall } from '@util/helpers/client/Account';
+import { confirmResetPasswordCall } from '@util/helpers/client/Account';
 import { errorHandler } from '@util/helpers/Main';
 import { AxiosError } from 'axios';
 import { Response } from '@util/schema';
+import { COOKIE_HOSTNAME } from '@util/CONSTS';
+import { setCookie } from 'cookies-next';
 
-export default function RegisterForm({
-    searchParam,
-    lang,
-}: {
-    searchParam: string | undefined;
-    lang: {
-        inputEmail: string;
-        inputUsername: string;
-        inputPassword: string;
-        inputBtn: string;
-    };
-}) {
-    const handleRegister = async (e: FormData) =>
-        await registerCall({ email: e.get('email')?.toString(), username: e.get('username')?.toString(), password: e.get('password')?.toString() })
+export default function ConfirmForm({ code, lang }: { code: string; lang: { inputNewPassword: string; inputBtn: string; success: string } }) {
+    const handleResetForm = async (e: FormData) =>
+        await confirmResetPasswordCall({ code, newPassword: e.get('password')?.toString() })
             .then((user) => {
                 setCookie('napiAuthorizationToken', `${user?.token} ${user?.id}`, {
                     maxAge: 3 * 30 * 24 * 60 * 60,
@@ -30,23 +19,17 @@ export default function RegisterForm({
                     secure: true,
                 });
 
-                const uri = searchParam || '/account';
-                if (uri == '__CLOSE__') window.close();
-                else window.location.replace(uri);
+                window.location.replace('/account');
             })
             .catch((err: AxiosError) => alert(errorHandler(err.response?.data as Response<null>)));
 
     return (
-        <form id="loginForm" action={handleRegister} className={o.login}>
-            <label htmlFor="email">{lang.inputEmail}</label>
-            <input type="email" id="email" name="email" required />
-            <label htmlFor="username">{lang.inputUsername}</label>
-            <input type="text" id="username" name="username" required />
-            <label htmlFor="password">{lang.inputPassword}</label>
+        <form id="loginForm" action={handleResetForm} className={o.login}>
+            <label htmlFor="password">{lang.inputNewPassword}</label>
             <input type="password" id="password" name="password" required />
             <div className={o.flex}>
                 <button type="submit">
-                    {lang.inputBtn + ' '}
+                    {lang.inputBtn}
                     <svg className={o.button} xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="12" height="12" viewBox="0 0 50 50">
                         <path
                             fill="currentColor"
