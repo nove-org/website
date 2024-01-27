@@ -24,7 +24,7 @@ export async function getRecoveryCodes({ mfa }: MfaGet): Promise<string[] | unde
     return new Promise(async (resolve, reject) => {
         const codes: Response<string[]> = (
             await axiosClient
-                .post('/v1/users/me/mfa/securityCodes', {
+                .get('/v1/users/me/mfa/securityCodes', {
                     headers: {
                         Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
                         'x-mfa': mfa,

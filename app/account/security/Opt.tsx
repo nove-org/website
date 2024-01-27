@@ -6,7 +6,7 @@ import { Response, Device } from '@util/schema';
 import { AxiosError } from 'axios';
 import { useRouter } from 'next/navigation';
 
-export default function Opt({ data, optOut, enable }: { data: Device[]; optOut: string; enable: string }) {
+export default function Opt({ data, optOut, enable }: { data: Device[] | undefined; optOut: string; enable: string }) {
     const router = useRouter();
 
     const handleOpt = async () =>
