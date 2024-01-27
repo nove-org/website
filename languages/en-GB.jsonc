@@ -236,7 +236,7 @@
             "input-avatar": "Avatar",
             "input-avatar-btn": "Select file",
             "input-avatar-filename": "Nothing is selected",
-            "input-avatar-too-big": "The file type you are trying to upload is too big",
+            "input-avatar-too-big": "The file you are trying to upload is too big",
             "input-avatar-not-allowed": "The file type you are trying to upload is not allowed",
             "input-bio": "About me",
             "input-profile-state-label": "Display more details on your public profile"
