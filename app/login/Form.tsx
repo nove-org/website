@@ -31,8 +31,8 @@ export default function LoginForm({
     const [username, setUsername] = useState<string>();
     const [password, setPassword] = useState<string>();
 
-    function setLogin(token: string) {
-        setCookie('napiAuthorizationToken', token, {
+    function setLogin(token: string, userId: string) {
+        setCookie('napiAuthorizationToken', `${token} ${userId}`, {
             maxAge: 3 * 30 * 24 * 60 * 60,
             domain: COOKIE_HOSTNAME,
             sameSite: 'strict',
@@ -53,12 +53,12 @@ export default function LoginForm({
 
     const handleLogin = async (e: FormData) =>
         await loginCall({ username: e.get('username')?.toString(), password: e.get('password')?.toString() })
-            .then((user) => setLogin(user?.token))
+            .then((user) => setLogin(user?.token, user?.id))
             .catch((err: AxiosError) => errorLogin(err.response?.data as Response<null>, e.get('username')?.toString(), e.get('password')?.toString()));
 
     const handleMfa = async (e: FormData) =>
         await loginCall({ username, password, mfa: e.get('mfa')?.toString() })
-            .then((user) => setLogin(user?.token))
+            .then((user) => setLogin(user?.token, user?.id))
             .catch((err: AxiosError) => errorLogin(err.response?.data as Response<null>));
 
     return (

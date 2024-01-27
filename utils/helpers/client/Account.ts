@@ -1,6 +1,6 @@
 import { axiosClient } from '@util/axios';
 import { Response, User, Success } from '@util/schema';
-import { LoginPost, RegisterPost, ResetPasswordPost } from '@util/bodySchema';
+import { ConfirmResetPasswordPost, LoginPost, RegisterPost, ResetPasswordPost } from '@util/bodySchema';
 
 export async function loginCall({ username, password, mfa }: LoginPost): Promise<User> {
     return new Promise(async (resolve, reject) => {
@@ -24,6 +24,14 @@ export async function loginCall({ username, password, mfa }: LoginPost): Promise
 export async function resetPasswordCall({ email, newPassword }: ResetPasswordPost): Promise<Success> {
     return new Promise(async (resolve, reject) => {
         const success: Response<Success> = (await axiosClient.post('/v1/users/passwordRecovery', { email, newPassword }).catch((e) => reject(e)))?.data;
+
+        resolve(success?.body?.data);
+    });
+}
+
+export async function confirmResetPasswordCall({ code, newPassword }: ConfirmResetPasswordPost): Promise<Success & User> {
+    return new Promise(async (resolve, reject) => {
+        const success: Response<Success & User> = (await axiosClient.post(`/v1/users/passwordKey?code=${code}`, { password: newPassword }).catch((e) => reject(e)))?.data;
 
         resolve(success?.body?.data);
     });
