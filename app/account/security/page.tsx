@@ -17,14 +17,14 @@ export default async function Overview() {
     const devices = await getUserDevices({ perPage: 3 });
     const lang = await new LanguageHandler('dashboard/security', user).init(headers());
 
-    return user?.username && devices ? (
+    return user?.username ? (
         <div className={a.content}>
             <h1 className={a.title}>{lang.getCustomProp('dashboard.layout.ul-security')}</h1>
             <div className={o.devices}>
                 <h2>{lang.getProp('devices-h1')}</h2>
                 <p>{lang.getProp('devices-p')}</p>
                 <ul className={o.devices}>
-                    {devices.length >= 1 ? (
+                    {devices && devices.length >= 1 ? (
                         devices.map((item) => {
                             const date = new Date(item.updatedAt);
 
