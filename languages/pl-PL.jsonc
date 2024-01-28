@@ -84,7 +84,7 @@
             "offline": "Przepraszamy ale nasze serwery są obecnie niedostępne",
             "session": "Nie możemy przechwycić Twojej sesji, przez co wystąpił błąd pobierania informacji",
             "verify-email": "Zweryfikuj swój adres e-mail aby móc używać tego konta",
-            "not-found": "Strona której szukasz nie istnieje"
+            "not-found": "Strona, której szukasz, nie istnieje"
         }
     },
     "main": {
