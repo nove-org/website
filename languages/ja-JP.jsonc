@@ -36,13 +36,13 @@
             "ul-products": "製品",
             "ul-about": "ついて",
             "ul-blog": "ブログ",
-            "ul-donate": "寄付する",
+            "ul-donate": "寄付",
             "login-btn": "ロゲイン",
-            "register-btn": "登録する",
+            "register-btn": "登録",
             "switcher-profile": "プロフィール",
             "switcher-security": "警備",
             "switcher-logout": "ログアウト",
-            "products-files": "データをクラウド安全に保存する",
+            "products-files": "データをクラウド安全に保存",
             "products-napi": "ユーザーに Nove アカウントで認証させます",
             "products-crm": "顧客を迅速かつ簡単に管理"
         },
@@ -54,9 +54,9 @@
             "ul-foss": "プロジェクト",
             "ul-docs": "文書",
             "ul-blog": "ブログ",
-            "ul-donate": "寄付する",
+            "ul-donate": "寄付",
             "ul-login": "ロゲイン",
-            "ul-register": "登録する",
+            "ul-register": "登録",
             "ul-support": "サポート",
             "ul-src": "ソースコード",
             "ul-privacy": "プライバシーポリシー",
@@ -92,11 +92,11 @@
             "hero-h1": "<span>あなたのプライバシー</span>が重要な世界に出会う。",
             "hero-note-trust": "我々の言葉を信用しないでください。ご自身で<a class={style} target=\"_blank\" rel=\"noopener noreferrer\" href={repository}>コード</a>をご覧ください",
             "hero-description": "Ditch Google, Facebook and other companies that sell data, profile and track you. Take back control and start using free, open-source and privacy-respecting solutions by Nove。",
-            "hero-btn": "Sign up today",
+            "hero-btn": "本日は登録",
             "word-h1": "In our ecosystem, your data belongs to you, and only you。",
             "word-card1-title": "Stored securely on our servers",
             "word-card1-description": "We encrypt your data whenever possible to protect it from governments, hackers and tech companies including us。",
-            "word-card2-title": "No tracking nor selling",
+            "word-card2-title": "追跡や販売はありません",
             "word-card2-description": "We never track you by default. And, we never sell your data to third-parties. It belongs to you, not to us or them。",
             "word-card3-title": "Free forever no matter what",
             "word-card3-description": "Most of our services include free forever plan so you don't have to trust us in the first place. Start your journey today!",
@@ -107,17 +107,17 @@
             "breakup-li-2": "Contribute by catching bugs, improving the code or suggesting changes",
             "breakup-li-3": "Host your own fork of our software directly on your hardware",
             "ready-h1": "Are you ready to dive into the world of privacy?",
-            "ready-p": "Start your journey, sign up for free today。",
-            "ready-btn": "Sign up with just few clicks"
+            "ready-p": "旅を始めましょう、今すぐ無料登録してください。",
+            "ready-btn": "数回クリックで登録"
         },
         "about": {
             "hero-h1": "私たち<b>目的</b>はインターネットをすべての人のために<span>プライベート</span>で<span>安全</span>なものにすることです",
-            "hero-p": "We provide tools free from bloatware, trackers and annoying advertisements. With free & open-source policy。",
-            "pos1": "CEO, front-end developer and UI/UX designer",
-            "pos2": "Main back-end developer, code maintainer",
-            "pos3": "UI/UX designer and project manager",
-            "pos4": "Front-end developer and CEO of Peekr",
-            "pos5": "Retired back-end developer"
+            "hero-p": "私たちは不要ソフトウェア、追跡プログラムとうるさい広告含まない製品を提供します。自由なおよびオープンソース方針を採用して。",
+            "pos1": "CEO、フロントエンド開発者と UI/UX デザイナー",
+            "pos2": "メインバックエンド開発者、コードメンテナー",
+            "pos3": "UI/UX デザイナーとプロジェクトマネージャー",
+            "pos4": "フロントエンド開発者と Peekr の CEO",
+            "pos5": "引退したバックエンド開発者"
         },
         "foss": {
             "hero-h1": "We love <span>free</span> and <span>open-source</span>",
@@ -139,15 +139,15 @@
         "register": {
             "hero-h1": "新しい Nove アカウント",
             "hero-p": "Complete the form and create brand new account",
-            "input-email": "E-mail",
+            "input-email": "Eメール",
             "input-username": "Username",
             "input-password": "Password"
         },
         "password-reset": {
             "hero-h1": "Password reset",
             "hero-p": "Enter your e-mail and new password to continue",
-            "input-email": "E-mail",
-            "input-new-password": "New password",
+            "input-email": "Eメール",
+            "input-new-password": "新しいパスワード",
             "request-success": "Confirmation e-mail was sent to that address if this account exists"
         },
         "blog": {
@@ -157,16 +157,16 @@
     },
     "dashboard": {
         "layout": {
-            "title": "Dashboard",
+            "title": "ダッシュボード",
             "header": "設定",
-            "ul-overview": "Overview",
+            "ul-overview": "概要",
             "ul-security": "警備",
             "ul-profile": "プロフィール",
             "ul-language": "言語",
-            "header-admin": "Moderation",
+            "header-admin": "モデレーション",
             "ul-users": "ユーザー",
             "ul-posts": "ポスト",
-            "ul-logs": "Audit log"
+            "ul-logs": "監査ログ"
         },
         "main": {
             "tips-header": "Tips to improve your security and privacy",
@@ -205,7 +205,7 @@
             "hds-password-placeholder-1": "Verify your old password",
             "hds-password-label-2": "新しいパスワード",
             "hds-password-placeholder-2": "Provide your new password",
-            "hds-email-btn": "E-mail",
+            "hds-email-btn": "Eメール",
             "hds-email-h1": "Change your e-mail",
             "hds-email-p": "The address where we can contact you if there is an unusual activity on your account or if you'll get locked out. You can also use it to log in。",
             "hds-email-label-1": "新しいEメール",
@@ -219,7 +219,7 @@
             "hds-recovery-h1": "Recovery codes",
             "hds-recovery-p": "Copy your account backup codes in case you will lose your phone with TOTP application on it。",
             "hds-recovery-label": "多要素認証コード",
-            "delete-h1": "Delete your Nove account",
+            "delete-h1": "あなたの Nove アカウントを削除",
             "delete-p": "To delete your account we need you to provide your account password to confirm your actions. This process is irreversible and all your data associated with this account will be deleted from our servers instantly! You can delete your account anytime you want. Please, make sure that you have removed all third-party accounts you registered using your Nove account. Otherwise - you won't be able to log in to them。",
             "delete-p2": "Provide your password so we can verify that it's you. Remember to delete all accounts that you registered using this Nove account. Otherwise, they might be unaccessible. This action is performed instantly - it's irreversible。",
             "delete-label": "あなたのパスワード",
@@ -228,40 +228,40 @@
         },
         "profile": {
             "description": "Manage your personal info that is displayed on your profile. You can change the display method of your profile to private and public. While on private we will share only basic information about your account, detailing: username, avatar。",
-            "hero-ul-1": "Basic account info",
-            "hero-ul-2": "Details",
+            "hero-ul-1": "基本的なアカウント情報",
+            "hero-ul-2": "具体情報",
             "input-username": "ユーザー名",
             "input-username-placeholder": "{username}　（ここにあたらしいユーザー名）",
             "input-avatar": "プロフィールの写真",
             "input-avatar-btn": "ファイルを選択してください",
             "input-avatar-filename": "何も選択されていません",
-            "input-avatar-too-big": "The file you are trying to upload is too big",
-            "input-avatar-not-allowed": "The file type you are trying to upload is not allowed",
+            "input-avatar-too-big": "アップロードしようとしているファイルは大きすぎます",
+            "input-avatar-not-allowed": "アップロードしようとしているファイルの種類は許可されていません",
             "input-bio": "自己紹介",
-            "input-profile-state-label": "Display more details on your public profile"
+            "input-profile-state-label": "あなたの公開プロフィールでさらに詳細を表示"
         },
         "language": {
             "hero-h1": "言語",
-            "hero-p1": "優先言語を選択してください。This setting will be used to display content in your language in all Nove products and your connected apps might use it。",
+            "hero-p1": "優先言語を選択してください。この設定は、すべての Nove 製品で内容をあなたの言語で表示するために使用され、接続されているアプリで使用される可能性があります。",
             "hero-p2": "警告：　まだ完全にサポートされていません。"
         }
     },
     "admin": {
         "users": {
             "hero-h1": "ユーザーのリスト",
-            "popup-btn": "あなたの行動を承認する",
+            "popup-btn": "あなたの行動を承認してください",
             "popup-h1": "あなたが本当にあなたであることを確認する必要があります",
-            "popup-p": "Please provide your MFA code from TOTP app on your phone。バックアップコードを使用できます。",
+            "popup-p": "携帯電話の TOTP アプリから多要素認証コードを入力してください。バックアップコードを使用できます。",
             "popup-label": "多要素認証コード",
             "popup-reason": "理由"
         },
         "posts": {
             "header": "{number} 件の投稿",
-            "new-btn": "新しい投稿を作成する",
-            "new-h1": "新しい投稿を作成する",
+            "new-btn": "新しい投稿を作成",
+            "new-h1": "新しい投稿を作成",
             "new-label": "タイトル",
             "new-label-content": "内容",
-            "edit-h1": "あなたの投稿を編集する"
+            "edit-h1": "あなたの投稿を編集"
         }
     },
     "documents": {
