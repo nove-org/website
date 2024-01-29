@@ -1,31 +1,25 @@
 export const dynamic = 'force-dynamic';
 import o from '@sass/blog.module.sass';
-import { axiosClient } from '@util/axios';
-import { Response, Post, User } from '@util/schema';
 import { headers } from 'next/headers';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import BlogCard from './BlogCard';
 import { getUser } from '@util/helpers/User';
+import { getPosts } from '@util/helpers/Blog';
 
 export async function generateMetadata() {
-    const user = await getUser();
-    const lang = await new LanguageHandler('main/blog', user).init(headers());
+    const title: string = 'Homepage | Nove Blog';
 
     return {
-        title: 'Homepage | Nove Blog',
-        openGraph: {
-            title: 'Homepage | Nove Blog',
-        },
-        twitter: {
-            title: 'Homepage | Nove Blog',
-        },
+        title,
+        openGraph: { title },
+        twitter: { title },
     };
 }
 
 export default async function BlogList() {
     const user = await getUser();
     const lang = await new LanguageHandler('main/blog', user).init(headers());
-    const posts: Response<Post[]> = (await axiosClient.get('/v1/blog').catch((e) => e.response))?.data;
+    const posts = await getPosts();
 
     return (
         <div className={o.posts}>
@@ -39,7 +33,7 @@ export default async function BlogList() {
                 <p className={o.description}>{lang.getProp('warn-p')}</p>
             </header>
             <ul className={o.posts}>
-                {posts?.body?.data.map((post) => {
+                {posts?.map((post) => {
                     return <BlogCard key={post.id} post={post} />;
                 })}
             </ul>

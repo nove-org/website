@@ -1,18 +1,18 @@
 'use client';
 
-import { axiosClient } from '@util/axios';
-import { Device } from '@util/schema';
-import { getCookie } from 'cookies-next';
+import { errorHandler } from '@util/helpers/Main';
+import { patchUser } from '@util/helpers/client/User';
+import { Response, Device } from '@util/schema';
+import { AxiosError } from 'axios';
 import { useRouter } from 'next/navigation';
 
-export default function Opt({ data, optOut, enable }: { data: Device[]; optOut: string; enable: string }) {
+export default function Opt({ data, optOut, enable }: { data: Device[] | undefined; optOut: string; enable: string }) {
     const router = useRouter();
 
     const handleOpt = async () =>
-        await axiosClient
-            .patch('/v1/users/me', { trackActivity: !data }, { headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } })
+        await patchUser({ trackActivity: !data })
             .then(() => router.refresh())
-            .catch((e) => alert('Something went wrong while changing your trackActivity state'));
+            .catch((err: AxiosError) => alert(errorHandler(err.response?.data as Response<null>)));
 
     return <a onClick={handleOpt}>{data ? optOut : enable}</a>;
 }

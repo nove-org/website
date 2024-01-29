@@ -1,36 +1,21 @@
 export const dynamic = 'force-dynamic';
-import { axiosClient } from '@util/axios';
 import a from '@sass/account/part.module.sass';
 import b from '@sass/blog.module.sass';
-import { cookies, headers } from 'next/headers';
-import { Response, User, Languages, Post } from '@util/schema';
-import { redirect } from 'next/navigation';
+import { headers } from 'next/headers';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import { sanitize } from 'isomorphic-dompurify';
 import Edit from './Edit';
 import Back from './Back';
 import Delete from './Delete';
+import { getUser } from '@util/helpers/User';
+import { getPost } from '@util/helpers/Blog';
 
 export default async function Blog({ params }: { params: { id: string } }) {
-    const user: Response<User> = (
-        await axiosClient
-            .get('/v1/users/me', {
-                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-            })
-            .catch((e) => e.response)
-    )?.data;
+    const user = await getUser();
+    const post = await getPost(params.id);
+    const lang = await new LanguageHandler('admin/posts', user).init(headers());
 
-    console.log(user);
-
-    if (user.body.data.permissionLevel < 1) return redirect('/account');
-
-    const languages: Response<Languages> = (await axiosClient.get('/v1/languages').catch((e) => e.response))?.data;
-    const lang = await new LanguageHandler('admin/posts', user?.body?.data).init(headers());
-
-    const post: Response<Post> = (await axiosClient.get('/v1/blog/' + params.id).catch((e) => e.response))?.data;
-    console.log(post);
-
-    return user?.body?.data?.username && languages?.body?.data ? (
+    return user?.username ? (
         <article className={b.blog}>
             <div className={b.content}>
                 <div className={b.flex}>
@@ -40,9 +25,9 @@ export default async function Blog({ params }: { params: { id: string } }) {
                         }}
                     />
                     <Edit
-                        id={post.body.data.id}
-                        title={post.body.data.title}
-                        content={post.body.data.text}
+                        id={post.id}
+                        title={post.title}
+                        content={post.text}
                         lang={{
                             btn: lang.getCustomProp('modules.actions.edit'),
                             btnCancel: lang.getCustomProp('modules.actions.cancel'),
@@ -52,10 +37,10 @@ export default async function Blog({ params }: { params: { id: string } }) {
                             labelContent: lang.getProp('new-label-content'),
                         }}
                     />
-                    <Delete id={post.body.data.id} lang={{ btn: lang.getCustomProp('modules.actions.delete') }} />
+                    <Delete id={post.id} lang={{ btn: lang.getCustomProp('modules.actions.delete') }} />
                 </div>
-                <h1>{post.body.data.title}</h1>
-                <div dangerouslySetInnerHTML={{ __html: sanitize(post.body.data.text) }} />
+                <h1>{post.title}</h1>
+                <div dangerouslySetInnerHTML={{ __html: sanitize(post.text) }} />
             </div>
         </article>
     ) : (

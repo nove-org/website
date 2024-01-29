@@ -2,9 +2,11 @@
 
 import { useState } from 'react';
 import o from '@sass/popup.module.sass';
-import { axiosClient } from '@util/axios';
-import { getCookie } from 'cookies-next';
 import { useRouter } from 'next/navigation';
+import { editPost } from '@util/helpers/client/Blog';
+import { errorHandler } from '@util/helpers/Main';
+import { AxiosError } from 'axios';
+import { Response } from '@util/schema';
 
 export default function Edit({
     lang,
@@ -27,12 +29,14 @@ export default function Edit({
     const router = useRouter();
     const [popup, setPopup] = useState<boolean>(false);
 
-    const editPost = async (form: FormData) => {
-        await axiosClient
-            .patch('/v1/blog/' + id, { title: form.get('title'), text: form.get('content') }, { headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } })
+    const handleEdit = async (e: FormData) =>
+        await editPost({
+            id,
+            title: e.get('title')?.toString(),
+            text: e.get('content')?.toString(),
+        })
             .then((r) => (setPopup(false), router.refresh()))
-            .catch((e) => e.response);
-    };
+            .catch((err: AxiosError) => alert(errorHandler(err.response?.data as Response<null>)));
 
     return (
         <>
@@ -41,7 +45,7 @@ export default function Edit({
                 <div className={o.popup}>
                     <div className={o.container}>
                         <h1>{lang.h1}</h1>
-                        <form action={editPost}>
+                        <form action={handleEdit}>
                             <label>
                                 {lang.label}
                                 <input

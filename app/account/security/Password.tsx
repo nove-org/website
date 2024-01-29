@@ -2,20 +2,26 @@
 
 import { useState } from 'react';
 import o from '@sass/popup.module.sass';
-import { getCookie, setCookie } from 'cookies-next';
-import { axiosClient } from '@util/axios';
+import { setCookie } from 'cookies-next';
 import { COOKIE_HOSTNAME } from '@util/CONSTS';
 import { useRouter } from 'next/navigation';
+import { patchPassword } from '@util/helpers/client/User';
+import { AxiosError } from 'axios';
+import { errorHandler } from '@util/helpers/Main';
+import { Response, User } from '@util/schema';
 
 export default function Password({
     lang,
+    user,
 }: {
+    user: User;
     lang: {
         btn: string;
         h1: string;
         p: string;
         label1: string;
         label2: string;
+        mfa: string;
         pc1: string;
         pc2: string;
         cancel: string;
@@ -24,31 +30,11 @@ export default function Password({
 }) {
     const router = useRouter();
     const [popup, setPopup] = useState<boolean>(false);
-    const [postError, setPostError] = useState<string>();
 
-    const throwError = (message?: string, bool?: boolean) => {
-        if (bool === false) return setPostError('');
-
-        if (message) {
-            setPostError(message.charAt(0).toUpperCase() + message.slice(1).toLowerCase());
-
-            setTimeout(() => setPostError(''), 4000);
-        }
-    };
-
-    const handleSubmit = async (e: any) => {
-        e.preventDefault();
-
-        await axiosClient
-            .patch(
-                '/v1/users/password',
-                { oldPassword: e.target.oldPassword.value, newPassword: e.target.newPassword.value },
-                { headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } }
-            )
-            .then((res) => {
-                const token = res.data.body.data.token;
-
-                setCookie('napiAuthorizationToken', token, {
+    const handleSubmit = async (e: FormData) =>
+        await patchPassword({ oldPassword: e.get('oldPassword')?.toString(), newPassword: e.get('newPassword')?.toString(), code: e.get('mfa')?.toString() })
+            .then((user) => {
+                setCookie('napiAuthorizationToken', `${user?.token} ${user?.id}`, {
                     maxAge: 3 * 30 * 24 * 60 * 60,
                     domain: COOKIE_HOSTNAME,
                     sameSite: 'strict',
@@ -57,12 +43,7 @@ export default function Password({
 
                 router.refresh();
             })
-            .catch((err) =>
-                err.response.data.body.error
-                    ? throwError(err.response.data.body.error?.details ? err.response.data.body.error.details[0].message : err.response.data.body.error.message)
-                    : null
-            );
-    };
+            .catch((err: AxiosError) => alert(errorHandler(err.response?.data as Response<null>)));
 
     return (
         <>
@@ -82,13 +63,12 @@ export default function Password({
                     </svg>
                 </h1>
             </li>
-            {postError ? <p className="error">{postError}</p> : null}
             {popup ? (
                 <div className={o.popup}>
                     <div className={o.container}>
                         <h1>{lang.h1}</h1>
                         <p>{lang.p}</p>
-                        <form onSubmit={handleSubmit}>
+                        <form action={handleSubmit}>
                             <label>
                                 {lang.label1}
                                 <input
@@ -119,6 +99,23 @@ export default function Password({
                                     name="newPassword"
                                 />
                             </label>
+                            {user.mfaEnabled ? (
+                                <label>
+                                    {lang.mfa}
+                                    <input
+                                        required
+                                        minLength={6}
+                                        maxLength={16}
+                                        autoComplete="off"
+                                        autoFocus={false}
+                                        autoCorrect="off"
+                                        type="text"
+                                        placeholder="123456"
+                                        id="mfa"
+                                        name="mfa"
+                                    />
+                                </label>
+                            ) : null}
                             <div className={o.footer}>
                                 <button onClick={() => setPopup(false)} type="reset">
                                     {lang.cancel}

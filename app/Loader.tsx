@@ -1,12 +1,6 @@
-import { NextPage } from 'next';
 import o from '@sass/Loader.module.sass';
 
-interface Props {
-    type?: 'classic' | 'window' | 'button' | 'hidden';
-    text?: string;
-}
-
-const Loader: NextPage<Props> = ({ type, text }) => {
+export default function Loader({ type, text }: { type?: 'classic' | 'window' | 'button' | 'hidden'; text?: string }) {
     return (
         <div className={type === 'button' ? o.loaderButton : type === 'window' || type === 'hidden' ? o.loaderWindow : o.loaderClassic}>
             {type === 'hidden' ? null : (
@@ -20,6 +14,4 @@ const Loader: NextPage<Props> = ({ type, text }) => {
             {text ? <p className={o.text}>{text}</p> : null}
         </div>
     );
-};
-
-export default Loader;
+}

@@ -22,20 +22,21 @@ import Navigation from '@app/Navigation';
 import Footer from '@app/Footer';
 import type { Metadata, Viewport } from 'next';
 import { inter } from '@util/fonts';
+import { getUser } from '@util/helpers/User';
+import { usePathname } from 'next/navigation';
+import LanguageHandler from '@util/handlers/LanguageHandler';
+import { headers } from 'next/headers';
 
 export const viewport: Viewport = {
     width: 'device-width',
     initialScale: 1,
-    maximumScale: 1,
+    maximumScale: 5,
 };
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://nove.team'),
     category: 'technology',
     publisher: 'Nove Group',
-    alternates: {
-        canonical: '/',
-    },
     openGraph: {
         locale: 'en_US',
         url: 'https://nove.team/',
@@ -55,15 +56,35 @@ export const metadata: Metadata = {
     },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+    const user = await getUser();
+    const lang = await new LanguageHandler('modules/footer', user).init(headers());
+
     return (
         <html lang="en">
             <body className={inter.className} style={inter.style}>
-                <Navigation />
+                <Navigation user={user} />
 
                 <main style={inter.style}>{children}</main>
 
-                <Footer />
+                <Footer
+                    lang={{
+                        license: lang.getProp('license'),
+                        made_with: lang.getProp('made-with-love'),
+                        contributors: lang.getProp('contributors'),
+                        about: lang.getProp('ul-about'),
+                        blog: lang.getProp('ul-blog'),
+                        docs: lang.getProp('ul-docs'),
+                        donate: lang.getProp('ul-donate'),
+                        login: lang.getProp('ul-login'),
+                        register: lang.getProp('ul-register'),
+                        support: lang.getProp('ul-support'),
+                        src: lang.getProp('ul-src'),
+                        privacy: lang.getProp('ul-privacy'),
+                        terms: lang.getProp('ul-terms'),
+                        developers: lang.getProp('ul-developers'),
+                    }}
+                />
             </body>
         </html>
     );

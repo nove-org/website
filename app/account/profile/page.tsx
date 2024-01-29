@@ -1,29 +1,20 @@
 export const dynamic = 'force-dynamic';
-import { axiosClient } from '@util/axios';
 import a from '@sass/account/part.module.sass';
 import o from '@sass/account/profile/page.module.sass';
 import { cookies, headers } from 'next/headers';
-import { Response, User } from '@util/schema';
 import Username from './Username';
 import Bio from './Bio';
 import ProfilePublic from './ProfilePublic';
 import Avatar from './Avatar';
 import LanguageHandler from '@util/handlers/LanguageHandler';
+import { getUser } from '@util/helpers/User';
 
 export default async function Overview() {
-    const user: Response<User> = (
-        await axiosClient
-            .get('/v1/users/me', {
-                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-            })
-            .catch((e) => e.response)
-    )?.data;
-
+    const user = await getUser();
     const cookie = cookies().get('napiAuthorizationToken')?.value;
+    const lang = await new LanguageHandler('dashboard/profile', user).init(headers());
 
-    const lang = await new LanguageHandler('dashboard/profile', user?.body?.data).init(headers());
-
-    return user?.body?.data?.username ? (
+    return user?.username ? (
         <div className={a.content}>
             <h1 className={a.title}>{lang.getCustomProp('dashboard.layout.ul-profile')}</h1>
             <p className={a.desc}>{lang.getProp('description')}</p>
@@ -39,18 +30,16 @@ export default async function Overview() {
                         tooBig: lang.getProp('input-avatar-too-big'),
                         notAllowed: lang.getProp('input-avatar-not-allowed'),
                     }}
-                    user={user.body.data}
-                    cookie={cookie}
+                    user={user}
                 />
                 <Username
                     lang={{
                         header: lang.getProp('input-username'),
                         edit: lang.getCustomProp('modules.actions.edit'),
                         save: lang.getCustomProp('modules.actions.save'),
-                        placeholder: lang.getProp('input-username-placeholder', { username: user?.body?.data?.username }),
+                        placeholder: lang.getProp('input-username-placeholder', { username: user.username }),
                     }}
-                    user={user.body.data}
-                    cookie={cookie}
+                    user={user}
                 />
             </ul>
             <h2>{lang.getProp('hero-ul-2')}</h2>
@@ -60,15 +49,13 @@ export default async function Overview() {
                         header: lang.getProp('input-bio'),
                         save: lang.getCustomProp('modules.actions.save'),
                     }}
-                    user={user.body.data}
-                    cookie={cookie}
+                    user={user}
                 />
                 <ProfilePublic
                     lang={{
                         label: lang.getProp('input-profile-state-label'),
                     }}
-                    user={user.body.data}
-                    cookie={cookie}
+                    user={user}
                 />
             </ul>
         </div>

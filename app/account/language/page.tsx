@@ -1,27 +1,21 @@
 export const dynamic = 'force-dynamic';
-import { axiosClient } from '@util/axios';
 import a from '@sass/account/part.module.sass';
-import { cookies, headers } from 'next/headers';
-import { Response, User, Languages } from '@util/schema';
+import { headers } from 'next/headers';
 import Form from './Form';
 import LanguageHandler from '@util/handlers/LanguageHandler';
+import { getUser } from '@util/helpers/User';
+import { getLanguages } from '@util/helpers/Main';
 
 export default async function Overview() {
-    const user: Response<User> = (
-        await axiosClient
-            .get('/v1/users/me', {
-                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-            })
-            .catch((e) => e.response)
-    )?.data;
-    const languages: Response<Languages> = (await axiosClient.get('/v1/languages').catch((e) => e.response))?.data;
-    const lang = await new LanguageHandler('dashboard/language', user?.body?.data).init(headers());
+    const user = await getUser();
+    const languages = await getLanguages();
+    const lang = await new LanguageHandler('dashboard/language', user).init(headers());
 
-    return user?.body?.data?.username && languages?.body?.data ? (
+    return user?.username && languages ? (
         <div className={a.content}>
             <h1 className={a.title}>{lang.getProp('hero-h1')}</h1>
             <p className={a.desc}>{lang.getProp('hero-p1')}</p>
-            <Form saveChanges={lang.getCustomProp('modules.actions.save-changes')} user={user.body.data} code={languages.body.data} />
+            <Form saveChanges={lang.getCustomProp('modules.actions.save-changes')} user={user} code={languages} />
         </div>
     ) : (
         <div className={a.content}>

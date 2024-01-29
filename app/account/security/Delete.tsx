@@ -2,57 +2,42 @@
 
 import { useState } from 'react';
 import o from '@sass/popup.module.sass';
-import { axiosClient } from '@util/axios';
-import { getCookie } from 'cookies-next';
+import { deleteMe } from '@util/helpers/client/User';
+import { errorHandler } from '@util/helpers/Main';
+import { AxiosError } from 'axios';
+import { Response, User } from '@util/schema';
 
 export default function Delete({
     lang,
+    user,
 }: {
+    user: User;
     lang: {
         btn: string;
         h1: string;
         p: string;
         label: string;
+        mfa: string;
         pc: string;
         cancel: string;
     };
 }) {
     const [popup, setPopup] = useState<boolean>(false);
-    const [postError, setPostError] = useState<string>();
 
-    const throwError = (message?: string, bool?: boolean) => {
-        if (bool === false) return setPostError('');
-
-        if (message) {
-            setPostError(message.charAt(0).toUpperCase() + message.slice(1).toLowerCase());
-
-            setTimeout(() => setPostError(''), 4000);
-        }
-    };
-
-    const handleSubmit = async (e: any) => {
-        e.preventDefault();
-
-        await axiosClient
-            .post('/v1/users/me/delete', { password: e.target.password.value }, { headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } })
+    const handleSubmit = async (e: FormData) =>
+        await deleteMe({ password: e.get('password')?.toString(), code: e.get('mfa')?.toString() })
             .then(() => window.location.replace('/logout'))
-            .catch((err) =>
-                err.response.data.body.error
-                    ? throwError(err.response.data.body.error?.details ? err.response.data.body.error.details[0].message : err.response.data.body.error.message)
-                    : null
-            );
-    };
+            .catch((err: AxiosError) => alert(errorHandler(err.response?.data as Response<null>)));
 
     return (
         <>
             <button onClick={() => setPopup((p) => !p)}>{lang.btn}</button>
-            {postError ? <p className="error">{postError}</p> : null}
             {popup ? (
                 <div className={o.popup}>
                     <div className={o.container}>
                         <h1>{lang.h1}</h1>
                         <p>{lang.p}</p>
-                        <form onSubmit={handleSubmit}>
+                        <form action={handleSubmit}>
                             <label>
                                 {lang.label}
                                 <input
@@ -68,6 +53,23 @@ export default function Delete({
                                     name="password"
                                 />
                             </label>
+                            {user.mfaEnabled ? (
+                                <label>
+                                    {lang.mfa}
+                                    <input
+                                        required
+                                        minLength={6}
+                                        maxLength={16}
+                                        autoComplete="off"
+                                        autoFocus={false}
+                                        autoCorrect="off"
+                                        type="text"
+                                        placeholder="123456"
+                                        id="mfa"
+                                        name="mfa"
+                                    />
+                                </label>
+                            ) : null}
                             <div className={o.footer}>
                                 <button onClick={() => setPopup(false)} type="reset">
                                     {lang.cancel}

@@ -5,26 +5,20 @@ import { getUser } from '@util/helpers/User';
 import { headers } from 'next/headers';
 
 export async function generateMetadata() {
-    const user = await getUser();
-    const lang = await new LanguageHandler('documents/privacy-policy', user).init(headers());
+    const lang = await new LanguageHandler('documents/privacy-policy', await getUser()).init(headers());
+    const title: string = `${lang.getProp('title')} | Nove`;
+    const description: string = 'Learn how we process information about you and what we are allowed to know.';
 
     return {
-        title: `${lang.getProp('title')} | Nove`,
-        description: 'Learn how we process information about you and what we are allowed to know.',
-        openGraph: {
-            title: `${lang.getProp('title')} | Nove`,
-            description: 'Learn how we process information about you and what we are allowed to know.',
-        },
-        twitter: {
-            title: `${lang.getProp('title')} | Nove`,
-            description: `Learn how we process information about you and what we are allowed to know.`,
-        },
+        title,
+        description,
+        openGraph: { title, description },
+        twitter: { title, description },
     };
 }
 
 export default async function Privacy() {
-    const user = await getUser();
-    const lang = await new LanguageHandler('documents/privacy-policy', user).init(headers());
+    const lang = await new LanguageHandler('documents/privacy-policy', await getUser()).init(headers());
 
     return (
         <article className={o.content}>

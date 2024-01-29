@@ -1,10 +1,8 @@
 export const dynamic = 'force-dynamic';
-import { axiosClient } from '@util/axios';
 import a from '@sass/account/part.module.sass';
 import o from '@sass/account/security/page.module.sass';
-import { cookies, headers } from 'next/headers';
+import { headers } from 'next/headers';
 import Card from './Device';
-import { Device, Response, User } from '@util/schema';
 import Opt from './Opt';
 import Password from './Password';
 import Email from './Email';
@@ -12,35 +10,22 @@ import Delete from './Delete';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import Mfa from './Mfa';
 import Recovery from './Recovery';
+import { getUser, getUserDevices } from '@util/helpers/User';
 
 export default async function Overview() {
-    const user: Response<User> = (
-        await axiosClient
-            .get('/v1/users/me', {
-                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-            })
-            .catch((e) => e.response)
-    )?.data;
+    const user = await getUser();
+    const devices = await getUserDevices({ perPage: 3 });
+    const lang = await new LanguageHandler('dashboard/security', user).init(headers());
 
-    const device: Response<Device[]> = (
-        await axiosClient
-            .get('/v1/users/me/activity?perPage=3', {
-                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-            })
-            .catch((e) => e.response)
-    )?.data;
-
-    const lang = await new LanguageHandler('dashboard/security', user?.body?.data).init(headers());
-
-    return user?.body?.data?.username && device?.body ? (
+    return user?.username ? (
         <div className={a.content}>
             <h1 className={a.title}>{lang.getCustomProp('dashboard.layout.ul-security')}</h1>
             <div className={o.devices}>
                 <h2>{lang.getProp('devices-h1')}</h2>
                 <p>{lang.getProp('devices-p')}</p>
                 <ul className={o.devices}>
-                    {device.body?.data?.length >= 1 ? (
-                        device.body.data.map((item) => {
+                    {devices && devices.length >= 1 ? (
+                        devices.map((item) => {
                             const date = new Date(item.updatedAt);
 
                             return (
@@ -49,7 +34,7 @@ export default async function Overview() {
                                     addr={item.ip}
                                     object={item.device}
                                     name={item.os_name + ' ' + item.os_version}
-                                    date={date.toLocaleString(user.body.data.language, { day: 'numeric', month: 'short' })}
+                                    date={date.toLocaleString(user.language, { day: 'numeric', month: 'short' })}
                                 />
                             );
                         })
@@ -66,7 +51,7 @@ export default async function Overview() {
                 </ul>
                 <p>
                     {lang.getProp('devices-privacy-notice')}{' '}
-                    <Opt optOut={lang.getCustomProp('modules.actions.disable')} enable={lang.getCustomProp('modules.actions.enable')} data={device.body.data} />
+                    <Opt optOut={lang.getCustomProp('modules.actions.disable')} enable={lang.getCustomProp('modules.actions.enable')} data={devices} />
                 </p>
             </div>
             <div className={o.hds}>
@@ -76,12 +61,14 @@ export default async function Overview() {
                 </aside>
                 <ul className={o.buttons}>
                     <Password
+                        user={user}
                         lang={{
                             btn: lang.getProp('hds-password-btn'),
                             h1: lang.getProp('hds-password-h1'),
                             p: lang.getProp('hds-password-p'),
                             label1: lang.getProp('hds-password-label-1'),
                             label2: lang.getProp('hds-password-label-2'),
+                            mfa: lang.getProp('hds-recovery-label'),
                             pc1: lang.getProp('hds-password-placeholder-1'),
                             pc2: lang.getProp('hds-password-placeholder-2'),
                             cancel: lang.getCustomProp('modules.actions.cancel'),
@@ -89,31 +76,33 @@ export default async function Overview() {
                         }}
                     />
                     <Email
+                        user={user}
                         lang={{
                             btn: lang.getProp('hds-email-btn'),
                             h1: lang.getProp('hds-email-h1'),
                             p: lang.getProp('hds-email-p'),
                             label1: lang.getProp('hds-email-label-1'),
+                            mfa: lang.getProp('hds-recovery-label'),
                             pc1: lang.getProp('hds-email-placeholder-1'),
                             cancel: lang.getCustomProp('modules.actions.cancel'),
                             save: lang.getCustomProp('modules.actions.save-changes'),
                         }}
                     />
                     <Mfa
-                        u={user.body.data}
+                        u={user}
                         lang={{
                             btn: lang.getProp('hds-mfa-btn'),
                             h1: lang.getProp('hds-mfa-h1'),
                             p: lang.getProp('hds-mfa-p'),
                             labelCode: lang.getProp('hds-mfa-label-code'),
                             cancel: lang.getCustomProp('modules.actions.cancel'),
-                            change: user.body.data.mfaEnabled ? lang.getCustomProp('modules.actions.disable') : lang.getCustomProp('modules.actions.enable'),
+                            change: user.mfaEnabled ? lang.getCustomProp('modules.actions.disable') : lang.getCustomProp('modules.actions.enable'),
                             gotIt: lang.getCustomProp('modules.actions.ok'),
                             recoveryCodes: lang.getProp('hds-mfa-recovery-codes'),
                         }}
                     />
                     <Recovery
-                        u={user.body.data}
+                        u={user}
                         lang={{
                             btn: lang.getProp('hds-recovery'),
                             h1: lang.getProp('hds-recovery-h1'),
@@ -130,11 +119,13 @@ export default async function Overview() {
                 <h2>{lang.getProp('delete-h1')}</h2>
                 <p>{lang.getProp('delete-p')}</p>
                 <Delete
+                    user={user}
                     lang={{
                         btn: lang.getProp('delete-btn'),
                         h1: lang.getProp('delete-h1'),
                         p: lang.getProp('delete-p2'),
                         label: lang.getProp('delete-label'),
+                        mfa: lang.getProp('hds-recovery-label'),
                         pc: lang.getProp('delete-placeholder'),
                         cancel: lang.getCustomProp('modules.actions.cancel'),
                     }}
