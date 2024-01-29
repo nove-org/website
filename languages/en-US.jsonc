@@ -122,7 +122,7 @@
         },
         "foss": {
             "hero-h1": "We love <span>free</span> and <span>open-source</span>",
-            "hero-p": "Because <b>open-source</b> software takes essential part in working together, protecting users privacy, and ensuring app reliability.",
+            "hero-p": "Because <b>open-source</b> software takes essential part in working together, protecting users' privacy, and ensuring app reliability.",
             "ul-napi": "Create your desired applications with use of NAPI OAuth2 system which provides access to signing in with Nove.",
             "ul-manager": "Official website that is used by us on our main domain to serve graphical access to the NAPI.",
             "ul-files": "General purpose cloud hosting with password encrypted uploads available to everyone with just one click."
@@ -222,7 +222,7 @@
             "hds-recovery-label": "MFA code",
             "delete-h1": "Delete your Nove account",
             "delete-p": "To delete your account we need you to provide your account password to confirm your actions. This process is irreversible and all your data associated with this account will be deleted from our servers instantly! You can delete your account anytime you want. Please, make sure that you have removed all third-party accounts you registered using your Nove account. Otherwise - you won't be able to log in to them.",
-            "delete-p2": "Provide your password so we can verify that it's you. Remember to delete all accounts that you registered using this Nove account. Otherwise, they might be unaccessible. This action is performed instantly - it's irreversible.",
+            "delete-p2": "Provide your password so we can verify that it's you. Remember to delete all accounts that you registered using this Nove account. Otherwise, they might be inaccessible. This action is performed instantly - it's irreversible.",
             "delete-label": "Your password",
             "delete-placeholder": "Password",
             "delete-btn": "Delete my account"
@@ -236,7 +236,7 @@
             "input-avatar": "Avatar",
             "input-avatar-btn": "Select file",
             "input-avatar-filename": "Nothing is selected",
-            "input-avatar-too-big": "The file type you are trying to upload is too big",
+            "input-avatar-too-big": "The file you are trying to upload is too big",
             "input-avatar-not-allowed": "The file type you are trying to upload is not allowed",
             "input-bio": "About me",
             "input-profile-state-label": "Display more details on your public profile"
@@ -302,7 +302,7 @@
         },
         "terms-of-service": {
             "title": "Terms of Service",
-            "last-modified": "Last modified: <time>12nd of August 2023</time>",
+            "last-modified": "Last modified: <time>12th of August 2023</time>",
             "p1": "By using services hosted by us (Nove) you agree to our Terms of Service and Privacy Policy. If you do not accept these, you are not allowed to use our services. As a reminder, this document applies for all our products.",
             "p2": "We are not responsible for any content posted by users",
             "p3": "Actions we do not tolerate",
