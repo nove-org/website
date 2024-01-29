@@ -1,0 +1,321 @@
+{
+    /*
+     ! IMPORTANT. Read before translating the file.
+     ! Do not translate {objects in brackets} <-- like this one, it's a variable.
+     ! Do not translate the key.
+     ! File syntax:
+        "category": {
+            "page-name": {
+                        translate this    do not translate this
+                        vvvvvvvvvvvvvvvvv vvvvvvvvvv 
+                "key": "Text to translate {variable}" <-- this whole line, we call it prop
+                ^^^^^
+                this is the key, do not translate it
+            }
+        }
+     ! Leave HTML tags as they are and do not add any new tags to the text. Only change the text inside of it.
+
+     * Some of the props that are listed here have an explanation comment. Do not translate it.
+     * After translating this file, create a pull request on Gitea with "translations" label. Remember to fork this repository.
+
+     * If a key ends with "h1", "p", "btn":
+     * - "h1", means title
+     * - "p", means description
+     * - "btn", means button
+     * or if it starts with "ul" or "title":
+     * - "ul", means that is a list of elements
+     * - "title", means that the browser would read that text and display it as tab title
+     * otherwise it's just a group of elements/category
+
+     ? WARNING: The text shouldn't extend the original English version by much. It will wrap weirdly on the page.
+
+     Base language file
+    */
+    "modules": {
+        "navigation": {
+            "ul-products": "製品",
+            "ul-about": "ついて",
+            "ul-blog": "ブログ",
+            "ul-donate": "寄付",
+            "login-btn": "ロゲイン",
+            "register-btn": "登録",
+            "switcher-profile": "プロフィール",
+            "switcher-security": "警備",
+            "switcher-logout": "ログアウト",
+            "products-files": "データをクラウド安全に保存",
+            "products-napi": "ユーザーに Nove アカウントで認証させます",
+            "products-crm": "顧客を迅速かつ簡単に管理"
+        },
+        "footer": {
+            "license": "免許：　",
+            "made-with-love": "私たちの最愛の",
+            "contributors": "寄稿者たち",
+            "ul-about": "ついて",
+            "ul-foss": "プロジェクト",
+            "ul-docs": "文書",
+            "ul-blog": "ブログ",
+            "ul-donate": "寄付",
+            "ul-login": "ロゲイン",
+            "ul-register": "登録",
+            "ul-support": "サポート",
+            "ul-src": "ソースコード",
+            "ul-privacy": "プライバシーポリシー",
+            "ul-terms": "利用規約",
+            "ul-developers": "開発者"
+        },
+        "actions": {
+            "back": "戻る",
+            "proceed": "進む",
+            "go": "行く",
+            "cancel": "キャンセル",
+            "enable": "有効",
+            "disable": "無効",
+            "ok": "分かりました",
+            "next": "次",
+            "previous": "前",
+            "save-changes": "変更内容を保存",
+            "save": "保存",
+            "edit": "編集",
+            "delete": "削除",
+            "create": "作成"
+        },
+        "errors": {
+            "header": "何かがひどく問題が発生しました",
+            "offline": "申し訳ありませんが、サーバーは現在オフラインです",
+            "session": "何か問題が発生し、データの取得中にエラーが発生しました",
+            "verify-email": "アカウントにアクセスするには、メールアドレスを確認してください"
+        }
+    },
+    "main": {
+        "landing": {
+            "title": "あなたのプライバシーが重要な世界に出会う",
+            "hero-h1": "<span>あなたのプライバシー</span>が重要な世界に出会う。",
+            "hero-note-trust": "我々の言葉を信用しないでください。ご自身で<a class={style} target=\"_blank\" rel=\"noopener noreferrer\" href={repository}>コード</a>をご覧ください",
+            "hero-description": "コントロールを取り戻し、Nove によって作成された無料、オープンソース、プライバシーを尊重したソリューションの使用を開始。",
+            "hero-btn": "本日は登録",
+            "word-h1": "当社のエコシステムにおいて、あなたのデータはあなただけのものです。",
+            "word-card1-title": "当社のサーバーに安全に保管されます",
+            "word-card1-description": "当社は、政府、ハッカー、および当社を含むテクノロジー企業からデータを保護するために、可能な限りお客様のデータを暗号化します。",
+            "word-card2-title": "追跡や販売はありません",
+            "word-card2-description": "デフォルトではお客様を追跡することはありません。あなたのデータを第三者に販売することはありません。それはあなたに属します。当社または彼らに属しません。",
+            "word-card3-title": "何があっても永遠に自由",
+            "word-card3-description": "当社のサービスのほとんどには永久無料プランが含まれているため、最初から当社を信頼する必要はありません。本日から旅を始めましょう！",
+            "word-trust": "これらはすべて簡単に検証できます。ソースコードはすべての人にでも開かれています。これを確認できます：xxxxx",
+            "breakup-h1": "プライバシー愛好者とコミュニティによって構築されました",
+            "breakup-description": "Nove ではオープンソースを作成しています。コミュニティからのあらゆるサポートを感謝しています。<b>プライバシーと安全</b>は<b>オープンソースと監査可能</b>から来ているため。",
+            "breakup-li-1": "Gitea を通じてプロジェクトに簡単にアクセスできます",
+            "breakup-li-2": "バグの発見、コードの改善、または変更の提案によって貢献してください",
+            "breakup-li-3": "あなたは弊社ソフトウェアの独自のフォークをハードウェア上で直接ホストできます",
+            "ready-h1": "プライバシーの世界に飛び込む準備はできていますか?",
+            "ready-p": "旅を始めましょう、今すぐ無料登録してください。",
+            "ready-btn": "数回クリックで登録"
+        },
+        "about": {
+            "hero-h1": "私たち<b>目的</b>はインターネットをすべての人のために<span>プライベート</span>で<span>安全</span>なものにすることです",
+            "hero-p": "私たちは不要ソフトウェア、追跡プログラムとうるさい広告含まない製品を提供します。自由なおよびオープンソース方針を採用して。",
+            "pos1": "CEO、フロントエンド開発者と UI/UX デザイナー",
+            "pos2": "メインバックエンド開発者、コードメンテナー",
+            "pos3": "UI/UX デザイナーとプロジェクトマネージャー",
+            "pos4": "フロントエンド開発者と Peekr の CEO",
+            "pos5": "引退したバックエンド開発者"
+        },
+        "foss": {
+            "hero-h1": "私たちは<span>無料</span>と<span>オープンソース</span>を愛しています",
+            "hero-p": "それは、共同作業、ユーザーのプライバシーの保護とアプリの信頼性の確保に不可欠な役割を担っているからです。",
+            "ul-napi": "Nove でサインインできるアクセスを提供する NAPI OAuth2 システムを使用して、希望のアプリケーションを作成。",
+            "ul-manager": "NAPI へのグラフィカル アクセスを提供するために当社のメイン ドメインで使用される公式 ウェブサイト。",
+            "ul-files": "汎用クラウドホスティングとパスワードで暗号化されたアップロードはたった一つのクリックですべての人でも利用できます。"
+        },
+        "login": {
+            "hero-h1": "お帰りなさいませ",
+            "hero-p": "あなたの Nove アカウントにアクセスするために資格情報を提供してください",
+            "input-login": "ロゲイン",
+            "input-password": "パスワード",
+            "mfa-h1": "認証コードが必要です",
+            "mfa-p": "ご希望の TOTP 認証アプリで生成されたコードを入力するか、バックアップコードを使用してください。",
+            "mfa-label": "コード",
+            "password-reset": "パスワードを忘れた？"
+        },
+        "register": {
+            "hero-h1": "新しい Nove アカウント",
+            "hero-p": "フォームに記入して、新規アカウントを作成する",
+            "input-email": "Eメール",
+            "input-username": "ユーザー名",
+            "input-password": "パスワード"
+        },
+        "password-reset": {
+            "hero-h1": "パスワードのリセット",
+            "hero-p": "続行するには、Eメールと新しいパスワードを入力してください",
+            "input-email": "Eメール",
+            "input-new-password": "新しいパスワード",
+            "request-success": "このアカウントが存在する場合、確認Eメールがそのアドレスに送信されました"
+        },
+        "blog": {
+            "warn-h1": "警告",
+            "warn-p": "現在投稿は英語のみです。将来的には変わるだろう。"
+        }
+    },
+    "dashboard": {
+        "layout": {
+            "title": "ダッシュボード",
+            "header": "設定",
+            "ul-overview": "概要",
+            "ul-security": "警備",
+            "ul-profile": "プロフィール",
+            "ul-language": "言語",
+            "header-admin": "モデレーション",
+            "ul-users": "ユーザー",
+            "ul-posts": "ポスト",
+            "ul-logs": "監査ログ"
+        },
+        "main": {
+            "tips-header": "安全とプライバシーを改善するための助言",
+            "tips-1": "無料とオープンソースソフトウェアの使用",
+            "tips-2": "可能な限り多要素認証を使用",
+            "tips-3": "できるだけ少ないアカウントを維持",
+            "card-1-h1": "言語",
+            "card-1-p": "すべての Nove 製品で優先言語を設定できます",
+            "card-2-h1": "活動",
+            "card-2-p": "アクティビティ ログを使用して、アカウントの最近のアクティビティを簡単に管理",
+            "card-2-action": "{number}個のアクティブなセッション",
+            "card-3-h1": "ログイン",
+            "card-3-p": "アカウントの資格情報を変更したり、セキュを簡単に追加",
+            "card-3-action": "行く",
+            "card-4-h1": "回復",
+            "card-4-p": "二要素認証を設定し、バックアップコードをダウンロード",
+            "connections-title": "アプリ接続",
+            "connections-btn-privacy": "プライバシーポリシー",
+            "connections-btn-tos": "利用規約",
+            "connections-permissions": "許可",
+            "connections-last-access": "最終アクセス日：",
+            "connections-expire": "有効期限："
+        },
+        "security": {
+            "devices-h1": "あなたのデバイス",
+            "devices-p": "あなたのアカウントにログインした最近のデバイスのリスト",
+            "devices-no-data-h1": "デバイスデータが見つかりませんでした",
+            "devices-no-data-p": "アクティビティにオプトアウトされているか、まだ記録がありません",
+            "devices-privacy-notice": "当社は、先月にお客様のアカウントにログインしたデバイスに関する情報を当社のサーバーに保存します。ログイン時に位置情報を取得するために ifconfig.net を使用します。",
+            "hds-h1": "サインイン方法",
+            "hds-p": "サインインの本人確認方法の追加または変更",
+            "hds-password-btn": "パスワード",
+            "hds-password-h1": "パスワードを編集",
+            "hds-password-p": "強力なパスワードを選択し、他のアカウントに再利用しないでください。パスワードを変更すると、すべてのデバイスからサインアウトされます。",
+            "hds-password-label-1": "古いパスワード",
+            "hds-password-placeholder-1": "古いパスワードを確認してください",
+            "hds-password-label-2": "新しいパスワード",
+            "hds-password-placeholder-2": "新しいパスワードを入力してください",
+            "hds-email-btn": "Eメール",
+            "hds-email-h1": "Eメールの変更",
+            "hds-email-p": "これは、アカウントに異常なアクティビティがあった場合、またはロックアウトされた場合に連絡するために使用されるアドレスです。ログインにも使用できます。",
+            "hds-email-label-1": "新しいEメール",
+            "hds-email-placeholder-1": "新しいEメールを入力してください",
+            "hds-mfa-btn": "多要素認証",
+            "hds-mfa-h1": "多要素認証",
+            "hds-mfa-p": "アカウントをハッカーから守るより良い方法。ここで多要素認証のオンとオフを切り替えることができます。",
+            "hds-mfa-label-code": "コード",
+            "hds-mfa-recovery-codes": "回復コード",
+            "hds-recovery": "回復",
+            "hds-recovery-h1": "回復コード",
+            "hds-recovery-p": "TOTP アプリケーションがインストールされた携帯電話を紛失した場合に備えて、アカウントのバックアップ コードをコピーしてください。",
+            "hds-recovery-label": "多要素認証コード",
+            "delete-h1": "あなたの Nove アカウントを削除",
+            "delete-p": "アカウントを削除するには、アクションを確認するためにアカウントのパスワードを入力する必要があります。このプロセスは元に戻すことができず、このアカウントに関連付けられたすべてのデータは当社のサーバーから即座に削除されます！アカウントはいつでも削除できます。Nove アカウントを使用して登録した第三者のアカウントをすべて削除していることを確認してください。 そうしないと、ログインできなくなります。",
+            "delete-p2": "本人確認のためパスワードを入力してください。この Nove アカウントを使用して登録したすべてのアカウントを忘れずに削除してください。それとなくすると、それらはアクセスできなくなる可能性があります。この作用は即座に実行され、元に戻すことはできません。",
+            "delete-label": "あなたのパスワード",
+            "delete-placeholder": "パスワード",
+            "delete-btn": "アカウントを削除"
+        },
+        "profile": {
+            "description": "プロフィールに表示される個人情報を管理する。あなたのプロフィールの表示方法を非公開と公開に変更できます。プライベート モードでは、ユーザー名やプロフィールの写真などのアカウントに関する基本情報のみが共有されます。",
+            "hero-ul-1": "基本的なアカウント情報",
+            "hero-ul-2": "具体情報",
+            "input-username": "ユーザー名",
+            "input-username-placeholder": "{username}　（ここにあたらしいユーザー名）",
+            "input-avatar": "プロフィールの写真",
+            "input-avatar-btn": "ファイルを選択してください",
+            "input-avatar-filename": "何も選択されていません",
+            "input-avatar-too-big": "アップロードしようとしているファイルは大きすぎます",
+            "input-avatar-not-allowed": "アップロードしようとしているファイルの種類は許可されていません",
+            "input-bio": "自己紹介",
+            "input-profile-state-label": "あなたの公開プロフィールでさらに詳細を表示"
+        },
+        "language": {
+            "hero-h1": "言語",
+            "hero-p1": "優先言語を選択してください。この設定は、すべての Nove 製品で内容をあなたの言語で表示するために使用され、接続されているアプリで使用される可能性があります。",
+            "hero-p2": "警告：　まだ完全にサポートされていません。"
+        }
+    },
+    "admin": {
+        "users": {
+            "hero-h1": "ユーザーのリスト",
+            "popup-btn": "あなたの行動を承認してください",
+            "popup-h1": "あなたが本当にあなたであることを確認する必要があります",
+            "popup-p": "携帯電話の TOTP アプリから多要素認証コードを入力してください。バックアップコードを使用できます。",
+            "popup-label": "多要素認証コード",
+            "popup-reason": "理由"
+        },
+        "posts": {
+            "header": "{number} 件の投稿",
+            "new-btn": "新しい投稿を作成",
+            "new-h1": "新しい投稿を作成",
+            "new-label": "タイトル",
+            "new-label-content": "内容",
+            "edit-h1": "あなたの投稿を編集"
+        }
+    },
+    "documents": {
+        "privacy-policy": {
+            "title": "プライバシーポリシー",
+            "last-modified": "最終更新日：<time>２０２３年９月３０日</time>",
+            "p1": "We serve (mostly) free and open-source services. We do not track nor sell user's data to third-parties. Neither we use any form of tracking pixels or unique fingerprinting。",
+            "p2": "We keep the right to update this document without notifying our users about the change。",
+            "p3": "By using our services you agree to our Privacy Policy and Terms of Service。",
+            "inf-header": "Infrastructure",
+            "inf-p1": "We host our projects on the infrastructure provided by FTdL (<a href=\"https://ftdl.pl/services/\" rel=\"noopener noreferrer\" target=\"_blank\">website</a>) which is located in Krakow, Poland. Your data administrator is Nove (nove.team; <a href=\"mailto:reply@nove.team\">reply@nove.team</a>)",
+            "inf-p2": "In our database, we only store necessary info you provided us through NAPI. Detailing",
+            "inf-li-1": "username (shown always)",
+            "inf-li-2": "e-mail (not shown)",
+            "inf-li-3": "account about me (not shown on private profile)",
+            "inf-li-4": "account language (not shown on private profile)",
+            "inf-li-5": "account creation date (not shown on private profile)",
+            "inf-li-6": "account updated date (not shown)",
+            "inf-li-7": "account verified state (not shown)",
+            "inf-li-8": "account profile public state (shown)",
+            "inf-li-9": "MFA credentials (not shown)",
+            "inf-li-10": "your encrypted password (not shown)",
+            "inf-li-11": "account avatar (shown)",
+            "inf-p3": "Some of this info is accessible publicly and we provide a tool that allows you to change the state of your profile. Sensitive data like language, account about me is not displayed if you change it to private。",
+            "inf-p4": "We have additional features that collect data and are disabled by default: device logger. When enabled it collects device IP and platform (OS, type). It displays that information in the account security tab. That data is stored for 30 days on our servers and later is deleted. If you opt-out from this feature the data is immediately deleted。",
+            "inf-p5": "Provided e-mail is not used for marketing purposes。",
+            "drp-header": "Data retention policy",
+            "drp-p1": "To delete your account go to Security section on the Account page, then scroll down to 'Delete Nove account'。",
+            "drp-p2": "Data you have encrypted in our services using your password is truly encrypted and we cannot decrypt it。",
+            "drp-p3": "We can delete accounts if they are not verified for at least 3 days。",
+            "drp-p4": "We can delete accounts for violation of our Terms of Service。",
+            "drp-p5": "Every account deletion performed by a service administrator has a cause that the owner of the deleted or disabled account is aware of after or a few days before the deletion。",
+            "drp-p6": "If a user lost access to their account, they can request password reset or account deletion through the mail they provided to us during registration。",
+            "drp-p7": "We keep user data as long as they have account in NAPI。",
+            "oa2-header": "OAuth2 applications",
+            "oa2-p1": "This section is not ready yet。"
+        },
+        "terms-of-service": {
+            "title": "利用規約",
+            "last-modified": "最終更新日：<time>２０２３年８月１２日</time>",
+            "p1": "By using services hosted by us (Nove) you agree to our Terms of Service and Privacy Policy. If you do not accept these, you are not allowed to use our services. As a reminder, this document applies for all our products。",
+            "p2": "We are not responsible for any content posted by users",
+            "p3": "Actions we do not tolerate",
+            "li-1": "NSFW and NSFL content is strictly forbidden. This includes violence, 'gore' movies, and terrorist materials. NSFL stands for 'Not Safe for Life', which means everything that can endanger human life。",
+            "li-2": "Any pornographic material involving minors will be removed if noticed, and the associated account will be banned entirely, which will cause the removal of all the data associated with it。",
+            "li-3": "Any material intended to destroy (directly or indirectly) a computer or any other device is strictly prohibited。",
+            "li-4": "Content depicting activities prohibited by local (and/or Polish) law, including federal law, is strictly forbidden。",
+            "li-5": "By abusing our API you expose your account for possible suspension by administrators。",
+            "li-5-li-1": "Sending too many requests for the same thing to the API is abuse",
+            "li-5-li-2": "Sending prepared exploits to the API is abuse",
+            "li-5-li-3": "Any discovered bugs have to be imminently reported through e-mail or Gitea Issues",
+            "li-6": "If we will be forced by law enforcement to show everything we got on a user, we will share it with them。",
+            "p4": "Please do not create multiple accounts. Keep things simple。",
+            "p5": "We have the right to update Privacy Policy and Terms of Service without notifying our users。"
+        }
+    }
+}
