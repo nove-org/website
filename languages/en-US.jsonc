@@ -121,7 +121,7 @@
         },
         "foss": {
             "hero-h1": "We love <span>free</span> and <span>open-source</span>",
-            "hero-p": "Because <b>open-source</b> software takes essential part in working together, protecting users privacy, and ensuring app reliability.",
+            "hero-p": "Because <b>open-source</b> software takes essential part in working together, protecting users' privacy, and ensuring app reliability.",
             "ul-napi": "Create your desired applications with use of NAPI OAuth2 system which provides access to signing in with Nove.",
             "ul-manager": "Official website that is used by us on our main domain to serve graphical access to the NAPI.",
             "ul-files": "General purpose cloud hosting with password encrypted uploads available to everyone with just one click."
