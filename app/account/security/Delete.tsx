@@ -5,16 +5,19 @@ import o from '@sass/popup.module.sass';
 import { deleteMe } from '@util/helpers/client/User';
 import { errorHandler } from '@util/helpers/Main';
 import { AxiosError } from 'axios';
-import { Response } from '@util/schema';
+import { Response, User } from '@util/schema';
 
 export default function Delete({
     lang,
+    user,
 }: {
+    user: User;
     lang: {
         btn: string;
         h1: string;
         p: string;
         label: string;
+        mfa: string;
         pc: string;
         cancel: string;
     };
@@ -22,7 +25,7 @@ export default function Delete({
     const [popup, setPopup] = useState<boolean>(false);
 
     const handleSubmit = async (e: FormData) =>
-        await deleteMe({ password: e.get('password')?.toString() })
+        await deleteMe({ password: e.get('password')?.toString(), code: e.get('mfa')?.toString() })
             .then(() => window.location.replace('/logout'))
             .catch((err: AxiosError) => alert(errorHandler(err.response?.data as Response<null>)));
 
@@ -50,6 +53,23 @@ export default function Delete({
                                     name="password"
                                 />
                             </label>
+                            {user.mfaEnabled ? (
+                                <label>
+                                    {lang.mfa}
+                                    <input
+                                        required
+                                        minLength={6}
+                                        maxLength={16}
+                                        autoComplete="off"
+                                        autoFocus={false}
+                                        autoCorrect="off"
+                                        type="text"
+                                        placeholder="123456"
+                                        id="mfa"
+                                        name="mfa"
+                                    />
+                                </label>
+                            ) : null}
                             <div className={o.footer}>
                                 <button onClick={() => setPopup(false)} type="reset">
                                     {lang.cancel}

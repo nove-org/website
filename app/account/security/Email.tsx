@@ -5,16 +5,19 @@ import o from '@sass/popup.module.sass';
 import { patchEmail } from '@util/helpers/client/User';
 import { errorHandler } from '@util/helpers/Main';
 import { AxiosError } from 'axios';
-import { Response } from '@util/schema';
+import { Response, User } from '@util/schema';
 
 export default function Email({
     lang,
+    user,
 }: {
+    user: User;
     lang: {
         btn: string;
         h1: string;
         p: string;
         label1: string;
+        mfa: string;
         pc1: string;
         cancel: string;
         save: string;
@@ -23,7 +26,7 @@ export default function Email({
     const [popup, setPopup] = useState<boolean>(false);
 
     const handleSubmit = async (e: FormData) =>
-        await patchEmail({ newEmail: e.get('newEmail')?.toString() })
+        await patchEmail({ newEmail: e.get('newEmail')?.toString(), code: e.get('mfa')?.toString() })
             .then(() => alert('Confirmation message was sent to your old and new email'))
             .catch((err: AxiosError) => alert(errorHandler(err.response?.data as Response<null>)));
 
@@ -65,6 +68,23 @@ export default function Email({
                                     name="newEmail"
                                 />
                             </label>
+                            {user.mfaEnabled ? (
+                                <label>
+                                    {lang.mfa}
+                                    <input
+                                        required
+                                        minLength={6}
+                                        maxLength={16}
+                                        autoComplete="off"
+                                        autoFocus={false}
+                                        autoCorrect="off"
+                                        type="text"
+                                        placeholder="123456"
+                                        id="mfa"
+                                        name="mfa"
+                                    />
+                                </label>
+                            ) : null}
                             <div className={o.footer}>
                                 <button onClick={() => setPopup(false)} type="reset">
                                     {lang.cancel}

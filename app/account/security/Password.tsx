@@ -8,17 +8,20 @@ import { useRouter } from 'next/navigation';
 import { patchPassword } from '@util/helpers/client/User';
 import { AxiosError } from 'axios';
 import { errorHandler } from '@util/helpers/Main';
-import { Response } from '@util/schema';
+import { Response, User } from '@util/schema';
 
 export default function Password({
     lang,
+    user,
 }: {
+    user: User;
     lang: {
         btn: string;
         h1: string;
         p: string;
         label1: string;
         label2: string;
+        mfa: string;
         pc1: string;
         pc2: string;
         cancel: string;
@@ -29,7 +32,7 @@ export default function Password({
     const [popup, setPopup] = useState<boolean>(false);
 
     const handleSubmit = async (e: FormData) =>
-        await patchPassword({ oldPassword: e.get('oldPassword')?.toString(), newPassword: e.get('newPassword')?.toString() })
+        await patchPassword({ oldPassword: e.get('oldPassword')?.toString(), newPassword: e.get('newPassword')?.toString(), code: e.get('mfa')?.toString() })
             .then((user) => {
                 setCookie('napiAuthorizationToken', `${user?.token} ${user?.id}`, {
                     maxAge: 3 * 30 * 24 * 60 * 60,
@@ -96,6 +99,23 @@ export default function Password({
                                     name="newPassword"
                                 />
                             </label>
+                            {user.mfaEnabled ? (
+                                <label>
+                                    {lang.mfa}
+                                    <input
+                                        required
+                                        minLength={6}
+                                        maxLength={16}
+                                        autoComplete="off"
+                                        autoFocus={false}
+                                        autoCorrect="off"
+                                        type="text"
+                                        placeholder="123456"
+                                        id="mfa"
+                                        name="mfa"
+                                    />
+                                </label>
+                            ) : null}
                             <div className={o.footer}>
                                 <button onClick={() => setPopup(false)} type="reset">
                                     {lang.cancel}

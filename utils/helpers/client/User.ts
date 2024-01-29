@@ -39,7 +39,7 @@ export async function getRecoveryCodes({ mfa }: MfaGet): Promise<string[] | unde
     });
 }
 
-export async function patchEmail({ newEmail }: EmailPatch): Promise<Success | undefined> {
+export async function patchEmail({ newEmail, code }: EmailPatch): Promise<Success | undefined> {
     return new Promise(async (resolve, reject) => {
         const email: Response<Success> = (
             await axiosClient
@@ -49,6 +49,7 @@ export async function patchEmail({ newEmail }: EmailPatch): Promise<Success | un
                     {
                         headers: {
                             Authorization: napiToken,
+                            'x-mfa': code,
                         },
                     }
                 )
@@ -59,7 +60,7 @@ export async function patchEmail({ newEmail }: EmailPatch): Promise<Success | un
     });
 }
 
-export async function patchPassword({ oldPassword, newPassword }: PasswordPatch): Promise<(Success & User) | undefined> {
+export async function patchPassword({ oldPassword, newPassword, code }: PasswordPatch): Promise<(Success & User) | undefined> {
     return new Promise(async (resolve, reject) => {
         const password: Response<Success & User> = (
             await axiosClient
@@ -72,6 +73,7 @@ export async function patchPassword({ oldPassword, newPassword }: PasswordPatch)
                     {
                         headers: {
                             Authorization: napiToken,
+                            'x-mfa': code,
                         },
                     }
                 )
@@ -113,7 +115,7 @@ export async function patchAvatar({ file }: AvatarPatch): Promise<User | undefin
         const avatar: Response<User> = (
             await axiosClient
                 .patch(
-                    '/v1/users/avatar',
+                    '/v1/users/me/avatar',
                     { file },
                     {
                         headers: {
@@ -129,13 +131,34 @@ export async function patchAvatar({ file }: AvatarPatch): Promise<User | undefin
     });
 }
 
-export async function patchMfa({ enabled, code }: MfaPatch): Promise<Mfa | undefined> {
+export async function patchMfa({ code }: MfaPatch): Promise<Mfa | undefined> {
     return new Promise(async (resolve, reject) => {
         const mfa: Response<Mfa> = (
             await axiosClient
                 .patch(
                     '/v1/users/me/mfa',
-                    { enabled },
+                    {},
+                    {
+                        headers: {
+                            Authorization: napiToken,
+                            'x-mfa': code,
+                        },
+                    }
+                )
+                .catch((e) => reject(e))
+        )?.data;
+
+        resolve(mfa?.body?.data);
+    });
+}
+
+export async function activateMfa({ code, cancel }: MfaPatch): Promise<Mfa | undefined> {
+    return new Promise(async (resolve, reject) => {
+        const mfa: Response<Mfa> = (
+            await axiosClient
+                .patch(
+                    '/v1/users/me/mfa/activate',
+                    { cancel },
                     {
                         headers: {
                             Authorization: napiToken,
@@ -203,7 +226,7 @@ export async function deleteUser({ id, reason, code }: UserDelete): Promise<Succ
     });
 }
 
-export async function deleteMe({ password }: MeDelete): Promise<Success | undefined> {
+export async function deleteMe({ password, code }: MeDelete): Promise<Success | undefined> {
     return new Promise(async (resolve, reject) => {
         const remove: Response<Success> = (
             await axiosClient
@@ -213,6 +236,7 @@ export async function deleteMe({ password }: MeDelete): Promise<Success | undefi
                     {
                         headers: {
                             Authorization: napiToken,
+                            'x-mfa': code,
                         },
                     }
                 )
