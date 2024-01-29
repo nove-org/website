@@ -8,6 +8,8 @@ import ProfilePublic from './ProfilePublic';
 import Avatar from './Avatar';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import { getUser } from '@util/helpers/User';
+import ActivityNotify from './ActivityNotify';
+import PGP from './PGP';
 
 export default async function Overview() {
     const user = await getUser();
@@ -51,6 +53,16 @@ export default async function Overview() {
                     }}
                     user={user}
                 />
+                <PGP
+                    lang={{
+                        header: 'Encrypt email messages with armored PGP key (optional)',
+                        save: lang.getCustomProp('modules.actions.save'),
+                        delete: lang.getCustomProp('modules.actions.delete'),
+                        placeholder: "Begins with '-----BEGIN PGP PUBLIC KEY BLOCK-----'...",
+                    }}
+                    user={user}
+                />
+                <ActivityNotify lang={{ label: 'Receive notification when a new device logs in to your account' }} user={user} />
                 <ProfilePublic
                     lang={{
                         label: lang.getProp('input-profile-state-label'),

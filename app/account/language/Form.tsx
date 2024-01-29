@@ -16,10 +16,12 @@ export default function Form({ user, code, saveChanges }: { user: User; code: La
     const lang = new Intl.DisplayNames([user.language === 'sw-PL' ? 'pl-PL' : user.language], { type: 'language' });
     const [loading, setLoading] = useState<boolean>(false);
 
-    const handleLanguage = async (e: FormData) =>
+    const handleLanguage = async (e: FormData) => (
+        setLoading(true),
         await patchUser({ language: e.get('language')?.toString() })
             .then((r) => (setLoading(false), router.refresh()))
-            .catch((err: AxiosError) => alert(errorHandler(err.response?.data as Response<null>)));
+            .catch((err: AxiosError) => (setLoading(false), alert(errorHandler(err.response?.data as Response<null>))))
+    );
 
     return (
         <form className={o.box} id="languageForm" action={handleLanguage}>
