@@ -13,10 +13,12 @@ export default function ProfilePublic({ user, lang }: { user: User; lang: { labe
     const router = useRouter();
     const [loading, setLoading] = useState<boolean>(false);
 
-    const handleSubmit = async (e: any) =>
+    const handleSubmit = async (e: any) => (
+        setLoading(true),
         await patchUser({ profilePublic: e.target.checked })
             .then(() => setTimeout(() => (setLoading(false), router.refresh()), 1500))
-            .catch((err: AxiosError) => alert(errorHandler(err.response?.data as Response<null>)));
+            .catch((err: AxiosError) => (setLoading(false), alert(errorHandler(err.response?.data as Response<null>))))
+    );
 
     return (
         <label className={o.li} htmlFor="switch">

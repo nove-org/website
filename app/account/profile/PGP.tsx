@@ -12,10 +12,12 @@ export default function PGP({ user, lang }: { user: User; lang: { header: string
     const router = useRouter();
     const [loading, setLoading] = useState<boolean>(false);
 
-    const handleSubmit = async (e: FormData) =>
+    const handleSubmit = async (e: FormData) => (
+        setLoading(true),
         await patchUser({ pubkey: !user.pubkey ? e.get('pubkey')?.toString() : 'false' })
             .then(() => setTimeout(() => (setLoading(false), router.refresh()), 1500))
-            .catch((err: AxiosError) => alert(errorHandler(err.response?.data as Response<null>)));
+            .catch((err: AxiosError) => (setLoading(false), alert(errorHandler(err.response?.data as Response<null>))))
+    );
 
     return (
         <>
