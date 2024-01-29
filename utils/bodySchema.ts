@@ -6,10 +6,12 @@ export interface MfaGet {
 
 export interface EmailPatch {
     newEmail?: string;
+    code?: string;
 }
 export interface PasswordPatch {
     oldPassword?: string;
     newPassword?: string;
+    code?: string;
 }
 
 export interface UserPatch {
@@ -31,7 +33,7 @@ export interface BlogPatch {
 }
 
 export interface MfaPatch {
-    enabled?: boolean;
+    cancel?: boolean;
     code?: string;
 }
 
@@ -50,6 +52,7 @@ export interface UserDelete {
 
 export interface MeDelete {
     password?: string;
+    code?: string;
 }
 
 export interface BlogPost {

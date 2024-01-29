@@ -61,12 +61,14 @@ export default async function Overview() {
                 </aside>
                 <ul className={o.buttons}>
                     <Password
+                        user={user}
                         lang={{
                             btn: lang.getProp('hds-password-btn'),
                             h1: lang.getProp('hds-password-h1'),
                             p: lang.getProp('hds-password-p'),
                             label1: lang.getProp('hds-password-label-1'),
                             label2: lang.getProp('hds-password-label-2'),
+                            mfa: lang.getProp('hds-recovery-label'),
                             pc1: lang.getProp('hds-password-placeholder-1'),
                             pc2: lang.getProp('hds-password-placeholder-2'),
                             cancel: lang.getCustomProp('modules.actions.cancel'),
@@ -74,11 +76,13 @@ export default async function Overview() {
                         }}
                     />
                     <Email
+                        user={user}
                         lang={{
                             btn: lang.getProp('hds-email-btn'),
                             h1: lang.getProp('hds-email-h1'),
                             p: lang.getProp('hds-email-p'),
                             label1: lang.getProp('hds-email-label-1'),
+                            mfa: lang.getProp('hds-recovery-label'),
                             pc1: lang.getProp('hds-email-placeholder-1'),
                             cancel: lang.getCustomProp('modules.actions.cancel'),
                             save: lang.getCustomProp('modules.actions.save-changes'),
@@ -115,11 +119,13 @@ export default async function Overview() {
                 <h2>{lang.getProp('delete-h1')}</h2>
                 <p>{lang.getProp('delete-p')}</p>
                 <Delete
+                    user={user}
                     lang={{
                         btn: lang.getProp('delete-btn'),
                         h1: lang.getProp('delete-h1'),
                         p: lang.getProp('delete-p2'),
                         label: lang.getProp('delete-label'),
+                        mfa: lang.getProp('hds-recovery-label'),
                         pc: lang.getProp('delete-placeholder'),
                         cancel: lang.getCustomProp('modules.actions.cancel'),
                     }}

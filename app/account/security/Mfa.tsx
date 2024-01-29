@@ -5,7 +5,7 @@ import o from '@sass/popup.module.sass';
 import { Mfa, User } from '@util/schema';
 import { QRCodeSVG } from 'qrcode.react';
 import { useRouter } from 'next/navigation';
-import { patchMfa } from '@util/helpers/client/User';
+import { activateMfa, patchMfa } from '@util/helpers/client/User';
 import { errorHandler } from '@util/helpers/Main';
 import { Response } from '@util/schema';
 import { AxiosError } from 'axios';
@@ -31,15 +31,23 @@ export default function Mfa({
     const [dataPopup, setDataPopup] = useState<boolean>(true);
     const [mfaData, setMfaData] = useState<Mfa>();
 
-    const handle = async (e: FormData, action: boolean) =>
-        await patchMfa({ enabled: action, code: !action ? e.get('mfa')?.toString() : undefined })
+    const handleMfa = async (e: FormData) =>
+        await patchMfa({ code: u.mfaEnabled ? e.get('mfa')?.toString() : undefined })
             .then((mfa) => {
-                if (action) {
+                if (!u.mfaEnabled) {
                     setPopup(false);
                     setDataPopup(true);
                     setMfaData(mfa);
-                } else router.refresh();
+                } else {
+                    setPopup(false);
+                    router.refresh();
+                }
             })
+            .catch((err: AxiosError) => alert(errorHandler(err.response?.data as Response<null>)));
+
+    const handleMfaActivate = async (e?: FormData, cancel?: boolean) =>
+        await activateMfa({ code: !cancel ? e?.get('mfaVerify')?.toString() : undefined, cancel })
+            .then(() => (setPopup(false), setDataPopup(false), router.refresh()))
             .catch((err: AxiosError) => alert(errorHandler(err.response?.data as Response<null>)));
 
     return (
@@ -65,11 +73,11 @@ export default function Mfa({
                     <div className={o.container}>
                         <h1>{lang.h1}</h1>
                         <p>{lang.p}</p>
-                        <form action={(e: FormData) => handle(e, !u.mfaEnabled)}>
+                        <form action={handleMfa}>
                             {u.mfaEnabled ? (
                                 <label>
                                     {lang.labelCode}
-                                    <input type="text" required autoComplete="off" autoFocus={true} autoCorrect="off" id="mfa" name="mfa" placeholder="000000" />
+                                    <input type="text" required autoComplete="off" autoFocus={true} autoCorrect="off" id="mfa" name="mfa" placeholder="123456" />
                                 </label>
                             ) : null}
                             <div className={o.footer}>
@@ -97,11 +105,16 @@ export default function Mfa({
                                 <p key={code}>{code}</p>
                             ))}
                         </div>
-                        <form>
+                        <form action={handleMfaActivate}>
+                            <label>
+                                {lang.labelCode}
+                                <input type="text" required autoComplete="off" autoFocus={true} autoCorrect="off" id="mfaVerify" name="mfaVerify" placeholder="123456" />
+                            </label>
                             <div className={o.footer}>
-                                <button onClick={() => setDataPopup(false)} type="reset">
-                                    {lang.gotIt}
+                                <button onClick={() => handleMfaActivate(undefined, true)} type="reset">
+                                    {lang.cancel}
                                 </button>
+                                <button type="submit">{lang.change}</button>
                             </div>
                         </form>
                     </div>
