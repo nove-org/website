@@ -17,8 +17,10 @@ export interface PasswordPatch {
 export interface UserPatch {
     username?: string;
     bio?: string;
+    pubkey?: string;
     language?: string;
     trackActivity?: boolean;
+    activityNotify?: boolean;
     profilePublic?: boolean;
 }
 
