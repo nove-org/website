@@ -1,0 +1,325 @@
+{
+    /*
+     ! IMPORTANT. Read before translating the file.                                            
+     ! Do not translate {objects in brackets} <-- like this one, it's a variable.
+     ! Do not translate the key.
+     ! File syntax:
+        "category": {
+            "page-name": {
+                        translate this    do not translate this
+                        vvvvvvvvvvvvvvvvv vvvvvvvvvv 
+                "key": "Text to translate {variable}" <-- this whole line, we call it prop
+                ^^^^^
+                this is the key, do not translate it
+            }
+        }
+     ! Leave HTML tags as they are and do not add any new tags to the text. Only change the text inside of it.
+
+     * Some of the props that are listed here have an explanation comment. Do not translate it.
+     * After translating this file, create a pull request on Gitea with "translations" label. Remember to fork this repository.
+
+     * If a key ends with "h1", "p", "btn":
+     * - "h1", means title
+     * - "p", means description
+     * - "btn", means button
+     * or if it starts with "ul" or "title":
+     * - "ul", means that is a list of elements
+     * - "title", means that the browser would read that text and display it as tab title
+     * otherwise it's just a group of elements/category
+
+     ? WARNING: The text shouldn't extend the original English version by much. It will wrap weirdly on the page.
+
+     Translated by Laby "https://example.com" <you@example.com>
+    */
+    "modules": {
+        "navigation": {
+            "ul-products": "Producten",
+            "ul-about": "Over",
+            "ul-blog": "Blog",
+            "ul-donate": "Doneren",
+            "login-btn": "Log in",
+            "register-btn": "Account maken",
+            "switcher-profile": "Mijn profiel",
+            "switcher-security": "Beveiliging",
+            "switcher-logout": "Uitloggen",
+            "products-files": "Bewaar je data veilig in de cloud",
+            "products-napi": "Laat je gebruikers verifiëren met hun Nove account",
+            "products-crm": "Beheer je klanten gemakkelijk"
+        },
+        "footer": {
+            "license": "Onder licentie",
+            "made-with-love": "Gemaakt met ❤️ door",
+            "contributors": "Bijdragers",
+            "ul-about": "Over",
+            "ul-foss": "Projecten",
+            "ul-docs": "Documenten",
+            "ul-blog": "Blog",
+            "ul-donate": "Doneren",
+            "ul-login": "Log in",
+            "ul-register": "Account maken",
+            "ul-support": "Help",
+            "ul-src": "Source code",
+            "ul-privacy": "Privacy Beleid",
+            "ul-terms": "Voorwaarden",
+            "ul-developers": "Ontwikkelaars"
+        },
+        "actions": {
+            "back": "Ga terug",
+            "proceed": "Ga verder",
+            "go": "Ga",
+            "cancel": "Annuleren",
+            "enable": "Inschakelen",
+            "disable": "Uitschakelen",
+            "ok": "Ik snap het",
+            "next": "Volgende",
+            "previous": "Vorige",
+            "save-changes": "Bewaar wijzigingen",
+            "save": "Bewaren",
+            "edit": "Bewerken",
+            "delete": "Verwijderen",
+            "create": "Maak"
+        },
+        "errors": {
+            "header": "Er is iets erg fout gegaan!",
+            "offline": "Sorry maar onze servers zijn offline",
+            "session": "We kunnen je gegevens niet ophalen",
+            "verify-email": "Verifieer je email om toegang tot je account te verkrijgen",
+            "not-found": "We konden de pagina die u zocht niet vinden"
+        }
+    },
+    "main": {
+        "landing": {
+            "title": "Ontmoet de wereld waar jouw privacy belangrijk is",
+            "hero-h1": "Ontmoet de wereld waar <span>jouw privacy</span> belangrijk is.",
+            "hero-note-trust": "Geloof ons niet op ons woord. Kijk zelf naar de<a class={style} target=\"_blank\" rel=\"noopener noreferrer\" href={repository}>code</a> ",
+            "hero-description": "Ditch Google, Facebook en andere bedrijven die je informatie verkopen, je profileren en je volgen. Neem de controle terug and en begin met het gebruiken van gratis, open-source and privacy-respecterende oplossingen door Nove.",
+            "hero-btn": "Meld je vandaag aan",
+            "word-h1": "In ons ecosystem, jouw informatie is van jou, en alleen van jou.",
+            "word-card1-title": "Veilig opgeslagen in onze servers",
+            "word-card1-description": "Wij encrypten jouw informatie wanneer mogelijk om het te beveiligen van overheden, hackers and tech bedrijven inclusief onszelf.",
+            "word-card2-title": "Geen tracking of verkoop van gegevens",
+            "word-card2-description": "Wij zullen je nooit tracken. en, we verkopen geen informatie aan derde-partijen. Jouw informatie is van jou, niet van ons of hun.",
+            "word-card3-title": "Voor altijd gratis, wat er ook gebeurt",
+            "word-card3-description": "De meeste van onze diesten hebben gratis versies, dus je hoeft ons nieteens te vertrouwen. Begin vandaag!",
+            "word-trust": "Je kan dit allemaal zelf verifiëren, check hier de source code. open voor iedereen, Bekijk het op",
+            "breakup-h1": "Gemaakt door privacy enthousiasten en de mensen zelf",
+            "breakup-description": "Hier bij Nove, maken wij onze projecten open-source en waarderen we alle steun. Omdat <b>privacy en Veiligheid</b> samengaat met<b>open-source en controleerbaren</b>.",
+            "breakup-li-1": "Makkelijk te vinden projecten door Gitea",
+            "breakup-li-2": "Help zelf door bugs te vinden, de code te verbeteren or of suggesties te maken",
+            "breakup-li-3": "Host je eigen fork van onze software direct op je eigen hardware",
+            "ready-h1": "Ben je klaar om in een wereld van privacy te duiken?",
+            "ready-p": "Begin vandaag, en meld je gratis aan.",
+            "ready-btn": "Meld je aan met een paar snelle klikken"
+        },
+        "about": {
+            "hero-h1": "Ons <b>Doel</b> is om het internet <span>privé</span> en <span>veilig</span> voor iedereen te maken",
+            "hero-p": "Wij leveren tools zonder bloatware, trackers en irritante advertenties. Met een gratis & open-source policy.",
+            "pos1": "CEO, front-end developer en UI/UX designer",
+            "pos2": "Main back-end developer, code maintainer",
+            "pos3": "UI/UX designer en project manager",
+            "pos4": "Front-end developer en CEO van Peekr",
+            "pos5": "Ex back-end developer"
+        },
+        "foss": {
+            "hero-h1": "Wij houden van <span>gratis</span> en <span>open-source</span>",
+            "hero-p": "Omdat <b>open-source</b> software een belangrijke rol speelt in de samenwerking, het beschermenen van de gebruikers hun privacy, en de betrouwbaarheid van de apps.",
+            "ul-napi": "Maak je eigen applicaties door gebruik te maken van het NAPI OAuth2 systeem die toegang biedt tot inloggen met Nove.",
+            "ul-manager": "Officiele website die door ons word gebruikt op ons main domain om grafische toegang tot de NAPI te bieden.",
+            "ul-files": "Cloudhosting voor algemeen gebruik met wachtwoordgecodeerde uploads die met slechts één klik voor iedereen beschikbaar zijn."
+        },
+        "login": {
+            "hero-h1": "Welkom terug",
+            "hero-p": "Voor uw details in om uw Nove account te gebruiken",
+            "input-login": "Log in",
+            "input-password": "Wachtwoord",
+            "mfa-h1": "Authenticatie code nodig",
+            "mfa-p": "Geef de code van ur TOTP authenticator app off gebruik een backup-code.",
+            "mfa-label": "Code",
+            "password-reset": "Wachtwoord vergeten?"
+        },
+        "register": {
+            "hero-h1": "Nieuw Nove account",
+            "hero-p": "Vul dit in en creëer een spiksplinter nieuw account",
+            "input-email": "E-mail Adress",
+            "input-username": "Gebruikersnaam",
+            "input-password": "Wachtwoord"
+        },
+        "password-reset": {
+            "hero-h1": "Wachtwoord resetten",
+            "hero-p": "Vul je e-mail en nieuw wachtwoord in om verder te gaan",
+            "input-email": "E-mail",
+            "input-new-password": "Nieuw wachtwoord",
+            "request-success": "Een Conformatie e-mail is als mogelijk naar dit email-adress gestuurd"
+        },
+        "blog": {
+            "warn-h1": "Kijk uit",
+            "warn-p": "De posts zijn op dit moment alleen nog maar in het engels, maar dat gaat in de toekomts veranderen."
+        }
+    },
+    "dashboard": {
+        "layout": {
+            "title": "Dashboard",
+            "header": "Instellingen",
+            "ul-overview": "Overzicht",
+            "ul-security": "Beveiliging",
+            "ul-profile": "Mijn Profiel",
+            "ul-language": "Taal",
+            "header-admin": "Moderatie",
+            "ul-users": "Gebruikers",
+            "ul-posts": "Posts",
+            "ul-logs": "Audit logboek"
+        },
+        "main": {
+            "tips-header": "Tips om je veiligheid en privacy te verbeteren",
+            "tips-1": "Gebruik gratis en open-source software",
+            "tips-2": "Probeer wanneer mogelijk MFA te gebruiken",
+            "tips-3": "Heb zo weinig accounts als mogelijk",
+            "card-1-h1": "Taal",
+            "card-1-p": "Verander je taal op alles van Nove",
+            "card-2-h1": "Activiteit",
+            "card-2-p": "Beheer gemakkelijk rencentelijke activiteit op uw account",
+            "card-2-action": "{number} actieve sesies",
+            "card-3-h1": "Inloggen",
+            "card-3-p": "Verander of voeg gemakkelijk extra beveiliging toe",
+            "card-3-action": "Ga",
+            "card-4-h1": "Herstellen",
+            "card-4-p": "Zet 2 factor authenticatie aan en download backup codes",
+            "connections-title": "App connecties",
+            "connections-btn-privacy": "Privacy Policy",
+            "connections-btn-tos": "Terms of Service",
+            "connections-permissions": "Permissions",
+            "connections-last-access": "Laatste keer ingelogt op",
+            "connections-expire": "Vergaat op"
+        },
+        "security": {
+            "devices-h1": "Uw apparaten",
+            "devices-p": "Lijst met recent ingelogde apparaten",
+            "devices-no-data-h1": "Geen apparaat data gevonden",
+            "devices-no-data-p": "U heeft zich afgemeld voor activiteiten of we hebben er nog geen geregistreerd",
+            "devices-privacy-notice": "We slaan informatie op over apparaten die de afgelopen maand op uw account zijn ingelogd op onze servers. We gebruiken ifconfig.net om locatie informatie te verkrijgen tijdens het inloggen.",
+            "hds-h1": "Hoe log je in",
+            "hds-p": "Voeg manieren toe of bewerk manieren om in te loggen en uw identiteit te bevestigen",
+            "hds-password-btn": "Wachtwoord",
+            "hds-password-h1": "Verander uw wachtwoord",
+            "hds-password-p": "Kies een sterk wachtwoord en gebruik het niet voor andere accounts. Als u uw wachtwoord wijzigt, wordt u op alle apparaten uitgelogd.",
+            "hds-password-label-1": "Oud wachtwoord",
+            "hds-password-placeholder-1": "Verifiër uw oude wachtwoord",
+            "hds-password-label-2": "Nieuw wachtwoord",
+            "hds-password-placeholder-2": "Geef uw nieuwe wachtwoord op",
+            "hds-email-btn": "E-mail",
+            "hds-email-h1": "Verander uw e-mail",
+            "hds-email-p": "Het adres waarop we contact met u kunnen opnemen als er ongebruikelijke activiteit op uw account plaatsvindt of als u wordt buitengesloten. Je kunt het ook gebruiken om in te loggen.",
+            "hds-email-label-1": "Nieuw e-mail adres",
+            "hds-email-placeholder-1": "Geef uw nieuwe e-mail",
+            "hds-mfa-btn": "MFA",
+            "hds-mfa-h1": "Multi-factor authenticatie",
+            "hds-mfa-p": "Een betere manier om uw account te beveiligen tegen hackers. Hier kunt u MFA in- of uitschakelen.",
+            "hds-mfa-label-code": "Code",
+            "hds-mfa-recovery-codes": "Backup codes",
+            "hds-recovery": "Herstel",
+            "hds-recovery-h1": "Backup codes",
+            "hds-recovery-p": "Kopieer de back-up codes van uw account voor het geval u uw telefoon met de TOTP-applicatie erop kwijtraakt.",
+            "hds-recovery-label": "MFA code",
+            "delete-h1": "Verwijder Uw Nove account",
+            "delete-p": "Om uw account te verwijderen, hebben we uw wachtwoord nodig om uw acties te bevestigen. Dit proces is onomkeerbaar en al uw gegevens die aan dit account zijn gekoppeld, worden onmiddellijk van onze servers verwijderd! U kunt uw account op elk gewenst moment verwijderen. Zorg ervoor dat u alle accounts van derden heeft verwijderd die u met uw Nove-account heeft geregistreerd. Anders kunt u zich er niet bij aanmelden.",
+            "delete-p2": "Geef uw wachtwoord op, zodat we kunnen verifiëren dat u het bent. Vergeet niet om alle accounts te verwijderen die u met dit Nove-account heeft geregistreerd. Anders zijn ze mogelijk niet toegankelijk. Deze actie wordt onmiddellijk uitgevoerd en is onomkeerbaar.",
+            "delete-label": "Uw wachtwoord",
+            "delete-placeholder": "Wachtwoord",
+            "delete-btn": "Verwijder mijn account" 
+        },
+        "profile": {
+            "description": "Beheer uw persoonlijke gegevens die op uw profiel worden weergegeven. U kunt de weergavemethode van uw profiel wijzigen in privé en openbaar. Bij een privé acount delen we alleen basisinformatie over uw account, bestaande uit gebruikersnaam, avatar.",
+            "hero-ul-1": "Basis account informatie",
+            "hero-ul-2": "Details",
+            "input-username": "Gebruikersnaam",
+            "input-username-placeholder": "{username} (Nieuwe gebruikersnaam hier)",
+            "input-avatar": "Avatar",
+            "input-avatar-btn": "Selecteer bestand",
+            "input-avatar-filename": "Er is niks geselecteerd",
+            "input-avatar-too-big": "Het bestand dat u probeert te uploaden is te groot",
+            "input-avatar-not-allowed": "Het bestandstype dat u probeert te uploaden is niet toegestaan",
+            "input-bio": "Over mij",
+            "input-pgp": "Versleutel berichten van Nove met PGP key (optioneel)",
+            "input-pgp-placeholder": "begint met '-----BEGIN PGP PUBLIC KEY BLOCK-----'",
+            "input-activity-notify": "Ontvang notificaties wanneer er een nieuw apparaat inlogt op uw account",
+            "input-profile-state-label": "Geef meer details weer op uw openbare profiel"
+        },
+        "language": {
+            "hero-h1": "Taal",
+            "hero-p1": "Selecteer uw voorkeurstaal. Deze instelling wordt gebruikt om de goede taal weer te geven in alle Nove-producten, ook kunnen uw verbonden apps kunnen hier gebruik van maken.",
+            "hero-p2": "Waarschuwing: nog niet volledig ondersteund."
+        }
+    },
+    "admin": {
+        "users": {
+            "hero-h1": "Gebruikers lijst",
+            "popup-btn": "Autoriseer uw actie",
+            "popup-h1": "We moeten verifiëren dat u het bent",
+            "popup-p": "Geef uw MFA-code op via de TOTP-app op uw telefoon. U kunt ook uw back-upcode gebruiken.",
+            "popup-label": "MFA code",
+            "popup-reason": "Rede"
+        },
+        "posts": {
+            "header": "{number} posts",
+            "new-btn": "Creër nieuwe post",
+            "new-h1": "Creër nieuwe post",
+            "new-label": "Titel",
+            "new-label-content": "Inhoud",
+            "edit-h1": "Bewerk uw posts"
+        }
+    },
+    "documents": {
+        "privacy-policy": {
+            "title": "Privacy Policy",
+            "last-modified": "Last modified: <time>30th of September 2023</time>",
+            "p1": "We serve (mostly) free and open-source services. We do not track nor sell user's data to third-parties. Neither we use any form of tracking pixels or unique fingerprinting.",
+            "p2": "We keep the right to update this document without notifying our users about the change.",
+            "p3": "By using our services you agree to our Privacy Policy and Terms of Service.",
+            "inf-header": "Infrastructure",
+            "inf-p1": "We host our projects on the infrastructure provided by FTdL (<a href=\"https://ftdl.pl/services/\" rel=\"noopener noreferrer\" target=\"_blank\">website</a>) which is located in Krakow, Poland. Your data administrator is Nove (nove.team; <a href=\"mailto:reply@nove.team\">reply@nove.team</a>)",
+            "inf-p2": "In our database, we only store necessary info you provided us through NAPI. Detailing",
+            "inf-li-1": "username (shown always)",
+            "inf-li-2": "e-mail (not shown)",
+            "inf-li-3": "account about me (not shown on private profile)",
+            "inf-li-4": "account language (not shown on private profile)",
+            "inf-li-5": "account creation date (not shown on private profile)",
+            "inf-li-6": "account updated date (not shown)",
+            "inf-li-7": "account verified state (not shown)",
+            "inf-li-8": "account profile public state (shown)",
+            "inf-li-9": "MFA credentials (not shown)",
+            "inf-li-10": "your encrypted password (not shown)",
+            "inf-li-11": "account avatar (shown)",
+            "inf-p3": "Some of this info is accessible publicly and we provide a tool that allows you to change the state of your profile. Sensitive data like language, account about me is not displayed if you change it to private.",
+            "inf-p4": "We have additional features that collect data and are disabled by default: device logger. When enabled it collects device IP and platform (OS, type). It displays that information in the account security tab. That data is stored for 30 days on our servers and later is deleted. If you opt-out from this feature the data is immediately deleted.",
+            "inf-p5": "Provided e-mail is not used for marketing purposes.",
+            "drp-header": "Data retention policy",
+            "drp-p1": "To delete your account go to Security section on the Account page, then scroll down to 'Delete Nove account'.",
+            "drp-p2": "Data you have encrypted in our services using your password is truly encrypted and we cannot decrypt it.",
+            "drp-p3": "We can delete accounts if they are not verified for at least 3 days.",
+            "drp-p4": "We can delete accounts for violation of our Terms of Service.",
+            "drp-p5": "Every account deletion performed by a service administrator has a cause that the owner of the deleted or disabled account is aware of after or a few days before the deletion.",
+            "drp-p6": "If a user lost access to their account, they can request password reset or account deletion through the mail they provided to us during registration.",
+            "drp-p7": "We keep user data as long as they have account in NAPI.",
+            "oa2-header": "OAuth2 applications",
+            "oa2-p1": "This section is not ready yet."
+        },
+        "terms-of-service": {
+            "title": "Terms of Service",
+            "last-modified": "Last modified: <time>12nd of August 2023</time>",
+            "p1": "By using services hosted by us (Nove) you agree to our Terms of Service and Privacy Policy. If you do not accept these, you are not allowed to use our services. As a reminder, this document applies for all our products.",
+            "p2": "We are not responsible for any content posted by users",
+            "p3": "Actions we do not tolerate",
+            "li-1": "NSFW and NSFL content is strictly forbidden. This includes violence, 'gore' movies, and terrorist materials. NSFL stands for 'Not Safe for Life', which means everything that can endanger human life.",
+            "li-2": "Any pornographic material involving minors will be removed if noticed, and the associated account will be banned entirely, which will cause the removal of all the data associated with it.",
+            "li-3": "Any material intended to destroy (directly or indirectly) a computer or any other device is strictly prohibited.",
+            "li-4": "Content depicting activities prohibited by local (and/or Polish) law, including federal law, is strictly forbidden.",
+            "li-5": "By abusing our API you expose your account for possible suspension by administrators.",
+            "li-5-li-1": "Sending too many requests for the same thing to the API is abuse",
+            "li-5-li-2": "Sending prepared exploits to the API is abuse",
+            "li-5-li-3": "Any discovered bugs have to be imminently reported through e-mail or Gitea Issues",
+            "li-6": "If we will be forced by law enforcement to show everything we got on a user, we will share it with them.",
+            "p4": "Please do not create multiple accounts. Keep things simple.",
+            "p5": "We have the right to update Privacy Policy and Terms of Service without notifying our users."
+        }
+    }
+}
