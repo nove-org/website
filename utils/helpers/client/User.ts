@@ -84,7 +84,7 @@ export async function patchPassword({ oldPassword, newPassword, code }: Password
     });
 }
 
-export async function patchUser({ username, bio, language, trackActivity, profilePublic }: UserPatch): Promise<string[]> {
+export async function patchUser({ username, bio, pubkey, language, trackActivity, activityNotify, profilePublic }: UserPatch): Promise<string[]> {
     return new Promise(async (resolve, reject) => {
         const user: Response<string[]> = (
             await axiosClient
@@ -93,8 +93,10 @@ export async function patchUser({ username, bio, language, trackActivity, profil
                     {
                         username,
                         bio,
+                        pubkey,
                         language,
                         trackActivity,
+                        activityNotify,
                         profilePublic,
                     },
                     {

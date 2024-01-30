@@ -33,9 +33,11 @@ export interface User {
     bio: string;
     username: string;
     language: string;
+    pubkey: string;
     verified: boolean;
     profilePublic: boolean;
     trackActivity: boolean;
+    activityNotify: boolean;
     mfaEnabled: boolean;
     disabled: boolean;
     permissionLevel: number;
