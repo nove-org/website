@@ -83,7 +83,8 @@
             "header": "何かがひどく問題が発生しました",
             "offline": "申し訳ありませんが、サーバーは現在オフラインです",
             "session": "何か問題が発生し、データの取得中にエラーが発生しました",
-            "verify-email": "アカウントにアクセスするには、メールアドレスを確認してください"
+            "verify-email": "アカウントにアクセスするには、メールアドレスを確認してください",
+            "not-found": "あなたが探していたページが見つかりませんでした"
         }
     },
     "main": {
@@ -238,6 +239,9 @@
             "input-avatar-too-big": "アップロードしようとしているファイルは大きすぎます",
             "input-avatar-not-allowed": "アップロードしようとしているファイルの種類は許可されていません",
             "input-bio": "自己紹介",
+            "input-pgp": "Nove からのメッセージを PGP キーで暗号化　（任意）",
+            "input-pgp-placeholder": "'-----BEGIN PGP PUBLIC KEY BLOCK-----' で始まる",
+            "input-activity-notify": "新しいデバイスがアカウントにログインした際に通知を受け取る",
             "input-profile-state-label": "あなたの公開プロフィールでさらに詳細を表示"
         },
         "language": {

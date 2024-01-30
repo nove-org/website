@@ -55,14 +55,14 @@ export default async function Overview() {
                 />
                 <PGP
                     lang={{
-                        header: 'Encrypt email messages with armored PGP key (optional)',
+                        header: lang.getProp('input-pgp'),
                         save: lang.getCustomProp('modules.actions.save'),
                         delete: lang.getCustomProp('modules.actions.delete'),
-                        placeholder: "Begins with '-----BEGIN PGP PUBLIC KEY BLOCK-----'...",
+                        placeholder: lang.getProp('input-pgp-placeholder'),
                     }}
                     user={user}
                 />
-                <ActivityNotify lang={{ label: 'Receive notification when a new device logs in to your account' }} user={user} />
+                <ActivityNotify lang={{ label: lang.getProp('input-activity-notify') }} user={user} />
                 <ProfilePublic
                     lang={{
                         label: lang.getProp('input-profile-state-label'),

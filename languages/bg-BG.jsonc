@@ -239,6 +239,9 @@
             "input-avatar-too-big": "The file type you are trying to upload is too big",
             "input-avatar-not-allowed": "The file type you are trying to upload is not allowed",
             "input-bio": "About me",
+            "input-pgp": "Encrypt messages from Nove with PGP key (optional)",
+            "input-pgp-placeholder": "Begins with '-----BEGIN PGP PUBLIC KEY BLOCK-----'",
+            "input-activity-notify": "Receive notification when a new device logs in to your account",
             "input-profile-state-label": "Display more details on your public profile"
         },
         "language": {
