@@ -1,6 +1,6 @@
 {
     /*
-     ! IMPORTANT. Read before translating the file.                                            not done yet but getting there xx - laby
+     ! IMPORTANT. Read before translating the file.                                            
      ! Do not translate {objects in brackets} <-- like this one, it's a variable.
      ! Do not translate the key.
      ! File syntax:
@@ -49,7 +49,7 @@
         "footer": {
             "license": "Onder licentie",
             "made-with-love": "Gemaakt met ❤️ door",
-            "contributors": "bijdragers",
+            "contributors": "Bijdragers",
             "ul-about": "Over",
             "ul-foss": "Projecten",
             "ul-docs": "Documenten",
@@ -97,7 +97,7 @@
             "word-h1": "In ons ecosystem, jouw informatie is van jou, en alleen van jou.",
             "word-card1-title": "Veilig opgeslagen in onze servers",
             "word-card1-description": "Wij encrypten jouw informatie wanneer mogelijk om het te beveiligen van overheden, hackers and tech bedrijven inclusief onszelf.",
-            "word-card2-title": "geen tracking of verkoop van gegevens",
+            "word-card2-title": "Geen tracking of verkoop van gegevens",
             "word-card2-description": "Wij zullen je nooit tracken. en, we verkopen geen informatie aan derde-partijen. Jouw informatie is van jou, niet van ons of hun.",
             "word-card3-title": "Voor altijd gratis, wat er ook gebeurt",
             "word-card3-description": "De meeste van onze diesten hebben gratis versies, dus je hoeft ons nieteens te vertrouwen. Begin vandaag!",
@@ -139,7 +139,7 @@
         },
         "register": {
             "hero-h1": "Nieuw Nove account",
-            "hero-p": "ful dit in en creëer een spiksplinter nieuw account",
+            "hero-p": "Vul dit in en creëer een spiksplinter nieuw account",
             "input-email": "E-mail Adress",
             "input-username": "Gebruikersnaam",
             "input-password": "Wachtwoord"
@@ -149,11 +149,11 @@
             "hero-p": "Vul je e-mail en nieuw wachtwoord in om verder te gaan",
             "input-email": "E-mail",
             "input-new-password": "Nieuw wachtwoord",
-            "request-success": "een Conformatie e-mail is als mogelijk naar dit email-adress gestuurd"
+            "request-success": "Een Conformatie e-mail is als mogelijk naar dit email-adress gestuurd"
         },
         "blog": {
             "warn-h1": "Kijk uit",
-            "warn-p": "De posts zijn op dit moment alleen nog maar in het engels maar dat gaat in de toekomts veranderen."
+            "warn-p": "De posts zijn op dit moment alleen nog maar in het engels, maar dat gaat in de toekomts veranderen."
         }
     },
     "dashboard": {
@@ -183,89 +183,89 @@
             "card-3-p": "Verander of voeg gemakkelijk extra beveiliging toe",
             "card-3-action": "Ga",
             "card-4-h1": "Herstellen",
-            "card-4-p": "Set up two factor authentication and download backup codes",
-            "connections-title": "App connections",
+            "card-4-p": "Zet 2 factor authenticatie aan en download backup codes",
+            "connections-title": "App connecties",
             "connections-btn-privacy": "Privacy Policy",
             "connections-btn-tos": "Terms of Service",
             "connections-permissions": "Permissions",
-            "connections-last-access": "Last accessed on",
-            "connections-expire": "Expires on"
+            "connections-last-access": "Laatste keer ingelogt op",
+            "connections-expire": "Vergaat op"
         },
         "security": {
-            "devices-h1": "Your devices",
-            "devices-p": "List of most recent devices that logged in to your account",
-            "devices-no-data-h1": "No device data found",
-            "devices-no-data-p": "You have opted-out from activity or we did not record any yet",
-            "devices-privacy-notice": "We store information about devices that logged in to your account in the last month on our servers. We use ifconfig.net to get location information during login.",
-            "hds-h1": "How do you sign in",
-            "hds-p": "Add or modify ways of signing in and confirming your identity",
-            "hds-password-btn": "Password",
-            "hds-password-h1": "Change your password",
-            "hds-password-p": "Choose a strong password and don't reuse it for other accounts. Changing your password will sign you out on all devices.",
-            "hds-password-label-1": "Old password",
-            "hds-password-placeholder-1": "Verify your old password",
-            "hds-password-label-2": "New password",
-            "hds-password-placeholder-2": "Provide your new password",
+            "devices-h1": "Uw apparaten",
+            "devices-p": "Lijst met recent ingelogde apparaten",
+            "devices-no-data-h1": "Geen apparaat data gevonden",
+            "devices-no-data-p": "U heeft zich afgemeld voor activiteiten of we hebben er nog geen geregistreerd",
+            "devices-privacy-notice": "We slaan informatie op over apparaten die de afgelopen maand op uw account zijn ingelogd op onze servers. We gebruiken ifconfig.net om locatie informatie te verkrijgen tijdens het inloggen.",
+            "hds-h1": "Hoe log je in",
+            "hds-p": "Voeg manieren toe of bewerk manieren om in te loggen en uw identiteit te bevestigen",
+            "hds-password-btn": "Wachtwoord",
+            "hds-password-h1": "Verander uw wachtwoord",
+            "hds-password-p": "Kies een sterk wachtwoord en gebruik het niet voor andere accounts. Als u uw wachtwoord wijzigt, wordt u op alle apparaten uitgelogd.",
+            "hds-password-label-1": "Oud wachtwoord",
+            "hds-password-placeholder-1": "Verifiër uw oude wachtwoord",
+            "hds-password-label-2": "Nieuw wachtwoord",
+            "hds-password-placeholder-2": "Geef uw nieuwe wachtwoord op",
             "hds-email-btn": "E-mail",
-            "hds-email-h1": "Change your e-mail",
-            "hds-email-p": "The address where we can contact you if there is an unusual activity on your account or if you'll get locked out. You can also use it to log in.",
-            "hds-email-label-1": "New e-mail",
-            "hds-email-placeholder-1": "Provide your new e-mail",
+            "hds-email-h1": "Verander uw e-mail",
+            "hds-email-p": "Het adres waarop we contact met u kunnen opnemen als er ongebruikelijke activiteit op uw account plaatsvindt of als u wordt buitengesloten. Je kunt het ook gebruiken om in te loggen.",
+            "hds-email-label-1": "Nieuw e-mail adres",
+            "hds-email-placeholder-1": "Geef uw nieuwe e-mail",
             "hds-mfa-btn": "MFA",
-            "hds-mfa-h1": "Multi-factor authentication",
-            "hds-mfa-p": "A better way to secure your account from hackers. You can toggle MFA on or off here.",
+            "hds-mfa-h1": "Multi-factor authenticatie",
+            "hds-mfa-p": "Een betere manier om uw account te beveiligen tegen hackers. Hier kunt u MFA in- of uitschakelen.",
             "hds-mfa-label-code": "Code",
-            "hds-mfa-recovery-codes": "Recovery codes",
-            "hds-recovery": "Recovery",
-            "hds-recovery-h1": "Recovery codes",
-            "hds-recovery-p": "Copy your account backup codes in case you will lose your phone with TOTP application on it.",
+            "hds-mfa-recovery-codes": "Backup codes",
+            "hds-recovery": "Herstel",
+            "hds-recovery-h1": "Backup codes",
+            "hds-recovery-p": "Kopieer de back-up codes van uw account voor het geval u uw telefoon met de TOTP-applicatie erop kwijtraakt.",
             "hds-recovery-label": "MFA code",
-            "delete-h1": "Delete your Nove account",
-            "delete-p": "To delete your account we need you to provide your account password to confirm your actions. This process is irreversible and all your data associated with this account will be deleted from our servers instantly! You can delete your account anytime you want. Please, make sure that you have removed all third-party accounts you registered using your Nove account. Otherwise - you won't be able to log in to them.",
-            "delete-p2": "Provide your password so we can verify that it's you. Remember to delete all accounts that you registered using this Nove account. Otherwise, they might be unaccessible. This action is performed instantly - it's irreversible.",
-            "delete-label": "Your password",
-            "delete-placeholder": "Password",
-            "delete-btn": "Delete my account"
+            "delete-h1": "Verwijder Uw Nove account",
+            "delete-p": "Om uw account te verwijderen, hebben we uw wachtwoord nodig om uw acties te bevestigen. Dit proces is onomkeerbaar en al uw gegevens die aan dit account zijn gekoppeld, worden onmiddellijk van onze servers verwijderd! U kunt uw account op elk gewenst moment verwijderen. Zorg ervoor dat u alle accounts van derden heeft verwijderd die u met uw Nove-account heeft geregistreerd. Anders kunt u zich er niet bij aanmelden.",
+            "delete-p2": "Geef uw wachtwoord op, zodat we kunnen verifiëren dat u het bent. Vergeet niet om alle accounts te verwijderen die u met dit Nove-account heeft geregistreerd. Anders zijn ze mogelijk niet toegankelijk. Deze actie wordt onmiddellijk uitgevoerd en is onomkeerbaar.",
+            "delete-label": "Uw wachtwoord",
+            "delete-placeholder": "Wachtwoord",
+            "delete-btn": "Verwijder mijn account" 
         },
         "profile": {
-            "description": "Manage your personal info that is displayed on your profile. You can change the display method of your profile to private and public. While on private we will share only basic information about your account, detailing: username, avatar.",
-            "hero-ul-1": "Basic account info",
+            "description": "Beheer uw persoonlijke gegevens die op uw profiel worden weergegeven. U kunt de weergavemethode van uw profiel wijzigen in privé en openbaar. Bij een privé acount delen we alleen basisinformatie over uw account, bestaande uit gebruikersnaam, avatar.",
+            "hero-ul-1": "Basis account informatie",
             "hero-ul-2": "Details",
-            "input-username": "Username",
-            "input-username-placeholder": "{username} (new username here)",
+            "input-username": "Gebruikersnaam",
+            "input-username-placeholder": "{username} (Nieuwe gebruikersnaam hier)",
             "input-avatar": "Avatar",
-            "input-avatar-btn": "Select file",
-            "input-avatar-filename": "Nothing is selected",
-            "input-avatar-too-big": "The file type you are trying to upload is too big",
-            "input-avatar-not-allowed": "The file type you are trying to upload is not allowed",
-            "input-bio": "About me",
-            "input-pgp": "Encrypt messages from Nove with PGP key (optional)",
-            "input-pgp-placeholder": "Begins with '-----BEGIN PGP PUBLIC KEY BLOCK-----'",
-            "input-activity-notify": "Receive notification when a new device logs in to your account",
-            "input-profile-state-label": "Display more details on your public profile"
+            "input-avatar-btn": "Selecteer bestand",
+            "input-avatar-filename": "Er is niks geselecteerd",
+            "input-avatar-too-big": "Het bestand dat u probeert te uploaden is te groot",
+            "input-avatar-not-allowed": "Het bestandstype dat u probeert te uploaden is niet toegestaan",
+            "input-bio": "Over mij",
+            "input-pgp": "Versleutel berichten van Nove met PGP key (optioneel)",
+            "input-pgp-placeholder": "begint met '-----BEGIN PGP PUBLIC KEY BLOCK-----'",
+            "input-activity-notify": "Ontvang notificaties wanneer er een nieuw apparaat inlogt op uw account",
+            "input-profile-state-label": "Geef meer details weer op uw openbare profiel"
         },
         "language": {
-            "hero-h1": "Language",
-            "hero-p1": "Select your preferred language. This setting will be used to display content in your language in all Nove products and your connected apps might use it.",
-            "hero-p2": "Warning: not fully supported by us yet."
+            "hero-h1": "Taal",
+            "hero-p1": "Selecteer uw voorkeurstaal. Deze instelling wordt gebruikt om de goede taal weer te geven in alle Nove-producten, ook kunnen uw verbonden apps kunnen hier gebruik van maken.",
+            "hero-p2": "Waarschuwing: nog niet volledig ondersteund."
         }
     },
     "admin": {
         "users": {
-            "hero-h1": "User list",
-            "popup-btn": "Authorize your action",
-            "popup-h1": "We need to verify it's you",
-            "popup-p": "Please provide your MFA code from TOTP app on your phone. You can use your backup code.",
+            "hero-h1": "Gebruikers lijst",
+            "popup-btn": "Autoriseer uw actie",
+            "popup-h1": "We moeten verifiëren dat u het bent",
+            "popup-p": "Geef uw MFA-code op via de TOTP-app op uw telefoon. U kunt ook uw back-upcode gebruiken.",
             "popup-label": "MFA code",
-            "popup-reason": "Reason"
+            "popup-reason": "Rede"
         },
         "posts": {
             "header": "{number} posts",
-            "new-btn": "Create new post",
-            "new-h1": "Create new post",
-            "new-label": "Title",
-            "new-label-content": "Content",
-            "edit-h1": "Edit your post"
+            "new-btn": "Creër nieuwe post",
+            "new-h1": "Creër nieuwe post",
+            "new-label": "Titel",
+            "new-label-content": "Inhoud",
+            "edit-h1": "Bewerk uw posts"
         }
     },
     "documents": {
