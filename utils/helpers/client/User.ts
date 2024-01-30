@@ -43,7 +43,7 @@ export async function patchEmail({ newEmail, code }: EmailPatch): Promise<Succes
     return new Promise(async (resolve, reject) => {
         const email: Response<Success> = (
             await axiosClient
-                .patch(
+                .post(
                     '/v1/users/emailReset',
                     { newEmail },
                     {
