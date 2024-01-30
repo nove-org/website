@@ -1,30 +1,25 @@
-import { axiosClient } from '@util/axios';
+export const dynamic = 'force-dynamic';
+import a from '@sass/account/part.module.sass';
 import o from '@sass/account/profile/page.module.sass';
 import { cookies, headers } from 'next/headers';
-import { Response, User } from '@util/schema';
 import Username from './Username';
 import Bio from './Bio';
 import ProfilePublic from './ProfilePublic';
 import Avatar from './Avatar';
 import LanguageHandler from '@util/handlers/LanguageHandler';
+import { getUser } from '@util/helpers/User';
+import ActivityNotify from './ActivityNotify';
+import PGP from './PGP';
 
 export default async function Overview() {
-    const user: Response<User> = (
-        await axiosClient
-            .get('/v1/users/me', {
-                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-            })
-            .catch((e) => e.response)
-    )?.data;
-
+    const user = await getUser();
     const cookie = cookies().get('napiAuthorizationToken')?.value;
+    const lang = await new LanguageHandler('dashboard/profile', user).init(headers());
 
-    const lang = await new LanguageHandler('dashboard/profile', user?.body?.data).init(headers());
-
-    return user?.body?.data?.username ? (
-        <div className={o.content}>
-            <h1 className={o.title}>{lang.getCustomProp('dashboard.layout.ul-profile')}</h1>
-            <p className={o.desc}>{lang.getProp('description')}</p>
+    return user?.username ? (
+        <div className={a.content}>
+            <h1 className={a.title}>{lang.getCustomProp('dashboard.layout.ul-profile')}</h1>
+            <p className={a.desc}>{lang.getProp('description')}</p>
             <h2>{lang.getProp('hero-ul-1')}</h2>
             <ul className={o.options}>
                 <Avatar
@@ -37,18 +32,16 @@ export default async function Overview() {
                         tooBig: lang.getProp('input-avatar-too-big'),
                         notAllowed: lang.getProp('input-avatar-not-allowed'),
                     }}
-                    user={user.body.data}
-                    cookie={cookie}
+                    user={user}
                 />
                 <Username
                     lang={{
                         header: lang.getProp('input-username'),
                         edit: lang.getCustomProp('modules.actions.edit'),
                         save: lang.getCustomProp('modules.actions.save'),
-                        placeholder: lang.getProp('input-username-placeholder', { username: user?.body?.data?.username }),
+                        placeholder: lang.getProp('input-username-placeholder', { username: user.username }),
                     }}
-                    user={user.body.data}
-                    cookie={cookie}
+                    user={user}
                 />
             </ul>
             <h2>{lang.getProp('hero-ul-2')}</h2>
@@ -58,22 +51,30 @@ export default async function Overview() {
                         header: lang.getProp('input-bio'),
                         save: lang.getCustomProp('modules.actions.save'),
                     }}
-                    user={user.body.data}
-                    cookie={cookie}
+                    user={user}
                 />
+                <PGP
+                    lang={{
+                        header: 'Encrypt email messages with armored PGP key (optional)',
+                        save: lang.getCustomProp('modules.actions.save'),
+                        delete: lang.getCustomProp('modules.actions.delete'),
+                        placeholder: "Begins with '-----BEGIN PGP PUBLIC KEY BLOCK-----'...",
+                    }}
+                    user={user}
+                />
+                <ActivityNotify lang={{ label: 'Receive notification when a new device logs in to your account' }} user={user} />
                 <ProfilePublic
                     lang={{
                         label: lang.getProp('input-profile-state-label'),
                     }}
-                    user={user.body.data}
-                    cookie={cookie}
+                    user={user}
                 />
             </ul>
         </div>
     ) : (
-        <div className={o.content}>
-            <h1 className={o.title}>{lang.getCustomProp('modules.errors.header')}</h1>
-            <p>{lang.getCustomProp('modules.errors.session')}</p>
+        <div className={a.content}>
+            <h1 className={a.title}>{lang.getCustomProp('modules.errors.header')}</h1>
+            <p className={a.desc}>{lang.getCustomProp('modules.errors.session')}</p>
         </div>
     );
 }

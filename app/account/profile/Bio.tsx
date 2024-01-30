@@ -1,47 +1,34 @@
 'use client';
 
-import { axiosClient } from '@util/axios';
-import { User } from '@util/schema';
+import { Response, User } from '@util/schema';
 import { useState } from 'react';
-import o from '@sass/account/profile/page.module.sass';
 import { useRouter } from 'next/navigation';
 import Loader from '@app/Loader';
+import { patchUser } from '@util/helpers/client/User';
+import { errorHandler } from '@util/helpers/Main';
+import { AxiosError } from 'axios';
 
-export default function Bio({ user, cookie, lang }: { user: User; cookie?: string; lang: { header: string; save: string } }) {
+export default function Bio({ user, lang }: { user: User; lang: { header: string; save: string } }) {
     const router = useRouter();
-    const [postError, setPostError] = useState<string>();
     const [loading, setLoading] = useState<boolean>(false);
 
-    const throwError = (message?: string, bool?: boolean) => {
-        if (bool === false) return setPostError('');
-
-        if (message) {
-            setPostError(message.charAt(0).toUpperCase() + message.slice(1).toLowerCase());
-
-            setTimeout(() => setPostError(''), 4000);
-        }
-    };
-
-    const handleSubmit = async (e: any) => (
-        e.preventDefault(),
+    const handleSubmit = async (e: FormData) => (
         setLoading(true),
-        await axiosClient
-            .patch('/v1/users/me', { bio: e.target.bio.value }, { headers: { Authorization: `Owner ${cookie}` } })
-            .then(() => (setTimeout(() => setLoading(false), 1500), router.refresh()))
-            .catch((e) => throwError(e.response?.data.body?.error.message ? e.response.data.body.error.message : 'Something went wrong and we cannot explain it.'))
+        await patchUser({ bio: e.get('bio')?.toString() })
+            .then(() => setTimeout(() => (setLoading(false), router.refresh()), 1500))
+            .catch((err: AxiosError) => (setLoading(false), alert(errorHandler(err.response?.data as Response<null>))))
     );
 
     return (
         <>
             <header>{lang.header}</header>
             <li>
-                <form onSubmit={handleSubmit}>
+                <form action={handleSubmit}>
                     <textarea spellCheck={false} name="bio" defaultValue={user.bio} />
                     <button type="submit">
                         {lang.save}
                         {loading ? <Loader type="button" /> : null}
                     </button>
-                    {postError ? <p className="error">{postError}</p> : null}
                 </form>
             </li>
         </>

@@ -1,41 +1,33 @@
-import { axiosClient } from '@util/axios';
+export const dynamic = 'force-dynamic';
 import Logo from '../Logo';
 import o from '@sass/login.module.sass';
 import LanguageHandler from '@util/handlers/LanguageHandler';
-import { cookies, headers } from 'next/headers';
+import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
-import { User, Response } from '@util/schema';
 import ResetForm from './Form';
+import { getUser } from '@util/helpers/User';
+import ObjectHelper from '@util/helpers/Object';
+import ConfirmForm from './ConfirmForm';
 
-export const metadata = {
-    title: 'Nove | Reset your password',
-    openGraph: {
-        title: 'Nove | Reset your password',
-        images: [],
-    },
-    twitter: {
-        title: 'Nove | Reset your password',
-        images: [],
-    },
-    keywords: ['nove', 'nove password reset', 'about'],
-};
+export async function generateMetadata() {
+    const lang = await new LanguageHandler('main/password-reset', await getUser()).init(headers());
+    const title: string = `${lang.getProp('hero-h1')} | Nove`;
 
-export default async function PasswordReset() {
-    const user: Response<User> = (
-        await axiosClient
-            .get('/v1/users/me', {
-                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-            })
-            .catch((e) => e.response)
-    )?.data;
+    return {
+        title,
+        openGraph: { title },
+        twitter: { title },
+    };
+}
 
-    if (user?.body?.data?.username) return redirect('/account');
+export default async function PasswordReset({ searchParams }: { searchParams: [key: string | string[]] | undefined }) {
+    const user = await getUser();
+    const key = ObjectHelper.getValueByStringPath(searchParams, 'key');
+    if (user?.username) return redirect('/account');
+    const lang = await new LanguageHandler('main/password-reset', user).init(headers());
 
-    const lang = await new LanguageHandler('main/password-reset', user?.body?.data).init(headers());
-
-    return (
+    return !key ? (
         <section className={o.box}>
-            <title>{`Nove | ${lang.getProp('hero-h1')}`}</title>
             <div className={o.content}>
                 <Logo size={48} />
                 <h1>{lang.getProp('hero-h1')}</h1>
@@ -44,6 +36,22 @@ export default async function PasswordReset() {
                     lang={{
                         inputBtn: lang.getCustomProp('modules.actions.proceed'),
                         inputEmail: lang.getProp('input-email'),
+                        inputNewPassword: lang.getProp('input-new-password'),
+                        success: lang.getProp('request-success'),
+                    }}
+                />
+            </div>
+        </section>
+    ) : (
+        <section className={o.box}>
+            <div className={o.content}>
+                <Logo size={48} />
+                <h1>Confirm password reset</h1>
+                <p>Type your new password again to confirm</p>
+                <ConfirmForm
+                    code={key}
+                    lang={{
+                        inputBtn: lang.getCustomProp('modules.actions.proceed'),
                         inputNewPassword: lang.getProp('input-new-password'),
                         success: lang.getProp('request-success'),
                     }}

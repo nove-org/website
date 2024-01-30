@@ -36,11 +36,11 @@ export default function Comment({ user, post }: { user: User; post: Post }) {
                     headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}` },
                 }
             )
-            .then((r) => (setLoading(false), (document.getElementById('comment') as HTMLFormElement).reset(), router.refresh()))
-            .catch((err) => (setLoading(false), err?.response?.data?.body?.error ? throwError(err.response.data.body.error.message) : console.error(err)));
+            .then((r) => setTimeout(() => (setLoading(false), (document.getElementById('comment') as HTMLFormElement).reset(), router.refresh()), 500))
+            .catch((err) => setTimeout(() => (setLoading(false), err?.response?.data?.body?.error ? throwError(err.response.data.body.error.message) : console.error(err)), 500));
     };
 
-    return user?.username && post.commentsAllowed ? (
+    return post.commentsAllowed ? (
         <form action={handlePost} id="comment">
             <Image src={user.avatar} alt="User avatar" width={48} height={48} />
             <div className={b.content}>

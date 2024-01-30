@@ -1,5 +1,17 @@
 nav.box
     width: 100%
+    @media screen and (max-width: 950px)
+        &.account
+            & div.padding
+                justify-content: flex-end
+                flex-direction: row-reverse
+                gap: 12px
+            & div.flex
+                width: 100%
+                justify-content: space-between
+                & header
+                    & img
+                        display: none
     & div.padding
         padding: 20px 0
         display: flex
@@ -9,23 +21,16 @@ nav.box
         height: 100%
         width: calc(100% - 100px * 2)
         margin: 0 auto
-        transition-duration: .2s
+        transition: background-color .15s linear
         @media screen and (max-width: 1430px)
             width: calc(100% - 70px * 2)
         @media screen and (max-width: 1100px)
             width: calc(100% - 40px * 2)
-        @media screen and (max-width: 950px)
-            justify-content: flex-end
-            flex-direction: row-reverse
-            gap: 12px
         @media screen and (max-width: 500px)
             width: calc(100% - 20px * 2)
     & div.flex
         display: flex
         align-items: center
-        @media screen and (max-width: 950px)
-            width: 100%
-            justify-content: space-between
         & a
             text-decoration: none
         & header
@@ -35,9 +40,6 @@ nav.box
             font-size: 20px
             font-weight: 600
             color: var(--font-st)
-            @media screen and (max-width: 950px)
-                & svg
-                    display: none
             & p
                 margin: 0
                 font-size: 20px
@@ -49,7 +51,7 @@ nav.box
             margin: 0
             margin-left: 25px
             gap: 8px
-            @media screen and (max-width: 540px)
+            @media screen and (max-width: 640px)
                 display: none
             & li
                 & details.projects
@@ -64,11 +66,10 @@ nav.box
                         position: absolute
                         top: 40px
                         left: 0
-                        background: var(--secondary-nd)
+                        background: var(--secondary)
                         border-radius: var(--box-roundness)
                         display: flex
                         gap: 8px
-                        align-items: flex-start
                         justify-content: center
                         max-width: 450px
                         width: max-content
@@ -87,6 +88,7 @@ nav.box
                             padding: 12px 14px
                             width: 100%
                             border-radius: var(--box-roundness)
+                            opacity: 1
                             &:hover
                                 background: var(--tertiary)
                             & h1
@@ -110,18 +112,20 @@ nav.box
                             100%
                                 opacity: 1
                                 transform: translateY(0)
-                & a
+                & a, div.button
                     font-size: 14px
-                    font-weight: 300
+                    font-weight: 400
                     text-decoration: none
                     color: var(--font-st)
-                    transition-duration: .2s
+                    opacity: .8
+                    transition: background-color .15s linear
                     cursor: pointer
                     padding: 5px 10px
                     border-radius: 50px
                     &:hover
+                        opacity: 1
                         background: var(--secondary)
-                        color: var(--font-rd)
+                        color: var(--font-nd)
     & details.user
         position: relative
         & summary
@@ -129,38 +133,17 @@ nav.box
             padding: 0
             display: flex
             align-items: flex-start
+            cursor: pointer
             justify-content: flex-end
-            & header
-                display: flex
-                align-items: center
-                margin: 0
-                padding: 1px
-                background: var(--secondary)
-                border-radius: 50px
-                text-decoration: none
-                color: var(--font-st)
-                padding-right: 8px
-                font-size: 14px
-                font-weight: 500
-                cursor: pointer
-                width: fit-content
-                gap: 5px
-                @media screen and (max-width: 950px)
-                    padding: 0
-                    & p
-                        display: none
-                    & img
-                        min-width: 26px
-                        min-height: 26px
-                & p
-                    margin: 0
-                & img
-                    border-radius: 50%
+            & img
+                min-width: 26px
+                min-height: 26px
+                border-radius: 50%
         & div.module
             position: absolute
             top: 40px
             right: 0
-            background: var(--secondary-nd)
+            background: var(--secondary)
             border-radius: var(--box-roundness)
             display: flex
             flex-direction: column
@@ -189,34 +172,39 @@ nav.box
                 font-size: 15px
                 color: var(--font-st)
                 text-decoration: none
-                transition-duration: .1s
+                transition: background-color .1s linear
                 width: calc( 100% - 12px * 2 )
                 border-radius: 50px
                 gap: 7px
                 &:hover
                     background: var(--tertiary)
-                    color: var(--font-rd)
+                    color: var(--font-nd)
     & div.buttons
         display: flex
         align-items: center
         gap: 10px
         & a
             font-size: 14px
-            font-weight: 300
+            font-weight: 400
             text-decoration: none
             color: var(--font-st)
-            transition-duration: .2s
+            transition: background-color .15s linear
             cursor: pointer
             padding: 5px 10px
+            opacity: .8
             border-radius: 50px
+            &.login
+                outline: 1px solid var(--primary)
             &:hover
-                background: var(--secondary)
-                color: var(--font-rd)
+                opacity: 1
+                color: var(--font-nd)
             &:last-child
                 padding: 5px 10px
                 border-radius: 50px
-                background: var(--secondary)
-                transition-duration: .1s
+                background: var(--tertiary)
+                transition: background-color .1s linear
                 font-weight: 500
+                opacity: 1
+                color: var(--font-nd)
                 &:hover
-                    background: var(--tertiary)
+                    background: var(--quaternary)

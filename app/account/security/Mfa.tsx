@@ -2,11 +2,13 @@
 
 import { useState } from 'react';
 import o from '@sass/popup.module.sass';
-import { axiosClient } from '@util/axios';
-import { getCookie } from 'cookies-next';
 import { Mfa, User } from '@util/schema';
 import { QRCodeSVG } from 'qrcode.react';
 import { useRouter } from 'next/navigation';
+import { activateMfa, patchMfa } from '@util/helpers/client/User';
+import { errorHandler } from '@util/helpers/Main';
+import { Response } from '@util/schema';
+import { AxiosError } from 'axios';
 
 export default function Mfa({
     lang,
@@ -28,50 +30,28 @@ export default function Mfa({
     const [popup, setPopup] = useState<boolean>(false);
     const [dataPopup, setDataPopup] = useState<boolean>(true);
     const [mfaData, setMfaData] = useState<Mfa>();
-    const [postError, setPostError] = useState<string>();
 
-    const throwError = (message?: string, bool?: boolean) => {
-        if (bool === false) return setPostError('');
-
-        if (message) {
-            setPostError(message.charAt(0).toUpperCase() + message.slice(1).toLowerCase());
-
-            setTimeout(() => setPostError(''), 4000);
-        }
-    };
-
-    const handleSubmit = async (form: FormData) => {
-        await axiosClient
-            .patch('/v1/users/me/mfa', { enabled: true }, { headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } })
-            .then((r) => {
-                setPopup(false);
-                setDataPopup(true);
-                setMfaData(r?.data?.body?.data);
-            })
-            .catch((e) => (e?.response?.data?.body?.error ? throwError(e.response.data.body.error.message) : console.error(e)));
-    };
-
-    const handleDelete = async (form: FormData) => {
-        await axiosClient
-            .patch(
-                '/v1/users/me/mfa',
-                {
-                    enabled: false,
-                },
-                {
-                    headers: {
-                        Authorization: `Owner ${getCookie('napiAuthorizationToken')}`,
-                        'x-mfa': (form.get('mfa') as string) || '',
-                    },
+    const handleMfa = async (e: FormData) =>
+        await patchMfa({ code: u.mfaEnabled ? e.get('mfa')?.toString() : undefined })
+            .then((mfa) => {
+                if (!u.mfaEnabled) {
+                    setPopup(false);
+                    setDataPopup(true);
+                    setMfaData(mfa);
+                } else {
+                    setPopup(false);
+                    router.refresh();
                 }
-            )
-            .then((r) => router.refresh())
-            .catch((e) => (e?.response?.data?.body?.error ? throwError(e.response.data.body.error.message) : console.error(e)));
-    };
+            })
+            .catch((err: AxiosError) => alert(errorHandler(err.response?.data as Response<null>)));
+
+    const handleMfaActivate = async (e?: FormData, cancel?: boolean) =>
+        await activateMfa({ code: !cancel ? e?.get('mfaVerify')?.toString() : undefined, cancel })
+            .then(() => (setPopup(false), setDataPopup(false), router.refresh()))
+            .catch((err: AxiosError) => alert(errorHandler(err.response?.data as Response<null>)));
 
     return (
         <>
-            {postError ? <p className="error">{postError}</p> : null}
             <li onClick={() => setPopup((p) => !p)}>
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 24 24">
                     <path
@@ -93,11 +73,11 @@ export default function Mfa({
                     <div className={o.container}>
                         <h1>{lang.h1}</h1>
                         <p>{lang.p}</p>
-                        <form action={u.mfaEnabled ? handleDelete : handleSubmit}>
+                        <form action={handleMfa}>
                             {u.mfaEnabled ? (
                                 <label>
                                     {lang.labelCode}
-                                    <input type="text" required autoComplete="off" autoFocus={true} autoCorrect="off" id="mfa" name="mfa" placeholder="000000" />
+                                    <input type="text" required autoComplete="off" autoFocus={true} autoCorrect="off" id="mfa" name="mfa" placeholder="123456" />
                                 </label>
                             ) : null}
                             <div className={o.footer}>
@@ -125,11 +105,16 @@ export default function Mfa({
                                 <p key={code}>{code}</p>
                             ))}
                         </div>
-                        <form>
+                        <form action={handleMfaActivate}>
+                            <label>
+                                {lang.labelCode}
+                                <input type="text" required autoComplete="off" autoFocus={true} autoCorrect="off" id="mfaVerify" name="mfaVerify" placeholder="123456" />
+                            </label>
                             <div className={o.footer}>
-                                <button onClick={() => setDataPopup(false)} type="reset">
-                                    {lang.gotIt}
+                                <button onClick={() => handleMfaActivate(undefined, true)} type="reset">
+                                    {lang.cancel}
                                 </button>
+                                <button type="submit">{lang.change}</button>
                             </div>
                         </form>
                     </div>

@@ -1,6 +1,9 @@
+footer.hide
+    @media screen and (max-width: 950px)
+        display: none
+
 footer.box
     width: 100%
-    border-top: 1px solid var(--border-st)
     & div.padding
         padding: 60px 0
         display: flex
@@ -9,7 +12,7 @@ footer.box
         height: 100%
         width: calc(100% - 100px * 2)
         margin: 0 auto
-        transition-duration: .2s
+        transition: background-color .15s linear
         @media screen and (max-width: 1430px)
             width: calc(100% - 70px * 2)
         @media screen and (max-width: 1100px)
@@ -25,8 +28,7 @@ footer.box
                 font-weight: 600
                 display: flex
                 align-items: center
-                & svg
-                    margin-right: 5px
+                gap: 8px
             & div.copyright
                 font-size: 14px
                 font-weight: 400
@@ -58,3 +60,7 @@ footer.box
                         cursor: pointer
                         &:hover
                             opacity: 1
+
+div.emptyMr
+    @media screen and (max-width: 950px)
+        margin-top: 95px

@@ -2,14 +2,16 @@
 
 import { useState } from 'react';
 import o from '@sass/account/admin/page.module.sass';
+import e from '@sass/account/part.module.sass';
 import p from '@sass/popup.module.sass';
-import { axiosClient } from '@util/axios';
-import { getCookie } from 'cookies-next';
 import { Response, User } from '@util/schema';
 import Image from 'next/image';
 import Disable from './Disable';
 import Delete from './Delete';
 import { useRouter } from 'next/navigation';
+import { getUsers } from '@util/helpers/client/User';
+import { errorHandler } from '@util/helpers/Main';
+import { AxiosError } from 'axios';
 
 export default function Form({
     lang,
@@ -29,36 +31,19 @@ export default function Form({
     u: User;
 }) {
     const router = useRouter();
-    const [popup, setPopup] = useState<boolean>(true);
     const [users, setUsers] = useState<User[]>();
-    const [postError, setPostError] = useState<string>();
 
-    const throwError = (message?: string, bool?: boolean) => {
-        if (bool === false) return setPostError('');
-
-        if (message) {
-            setPostError(message.charAt(0).toUpperCase() + message.slice(1).toLowerCase());
-
-            setTimeout(() => setPostError(''), 5000);
-        }
-    };
-
-    const getUsers = async (form: FormData) => {
-        await axiosClient
-            .get('/v1/admin/users', {
-                headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}`, 'x-mfa': (form.get('mfa') as string) || '' },
-            })
-            .then((r) => (setUsers(r.data.body.data), setPopup(false)))
-            .catch((err) => (err?.response?.data?.body?.error ? throwError(err.response.data.body.error.message) : console.error(err)));
-    };
+    const fetchUsers = async (e: FormData) =>
+        await getUsers({ mfa: e.get('mfa')?.toString() })
+            .then((users) => setUsers(users))
+            .catch((err: AxiosError) => alert(errorHandler(err.response?.data as Response<null>)));
 
     return !users ? (
         <div className={p.popup}>
-            {postError ? <p className="error">{postError}</p> : null}
             <div className={p.container}>
                 <h1>{lang.h1}</h1>
                 <p>{lang.p}</p>
-                <form action={getUsers}>
+                <form action={fetchUsers}>
                     <label>
                         {lang.label}
                         <input required minLength={6} maxLength={10} autoComplete="off" autoFocus={true} autoCorrect="off" type="text" placeholder={'000000'} id="mfa" name="mfa" />
@@ -73,8 +58,8 @@ export default function Form({
             </div>
         </div>
     ) : (
-        <div className={o.content}>
-            <h1 className={o.title}>{users.length} users</h1>
+        <div className={e.content}>
+            <h1 className={e.title}>{users.length} users</h1>
             <ul className={o.users}>
                 {users.map((user) => (
                     <li key={user.id}>

@@ -1,30 +1,22 @@
+export const dynamic = 'force-dynamic';
 import Link from 'next/link';
 import Logo from '@app/Logo';
 import Image from 'next/image';
 import o from '@sass/Navigation.module.sass';
-import { axiosClient } from '@util/axios';
-import { cookies, headers } from 'next/headers';
-import { DONATE_LINK, REPOSITORY } from '@util/CONSTS';
+import { headers } from 'next/headers';
+import { DONATE_LINK } from '@util/CONSTS';
 import LanguageHandler from '@util/handlers/LanguageHandler';
-import { Response, User } from '@util/schema';
+import { User } from '@util/schema';
 
-export default async function Navigation() {
-    const user: Response<User> = (
-        await axiosClient
-            .get('/v1/users/me', {
-                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-            })
-            .catch((e) => e.response)
-    )?.data;
-
-    const lang = await new LanguageHandler('modules/navigation', user?.body?.data).init(headers());
+export default async function Navigation({ user }: { user?: User }) {
+    const lang = await new LanguageHandler('modules/navigation', user).init(headers());
 
     return (
-        <nav className={o.box}>
+        <nav className={o.box + ` ${user ? o.account : ''}`}>
             <div className={o.padding}>
                 <div className={o.flex}>
                     <a href="/">
-                        <header>
+                        <header className={o.logo}>
                             <Logo size={20} />
                             <p>Nove</p>
                         </header>
@@ -33,7 +25,7 @@ export default async function Navigation() {
                         <li>
                             <details className={o.projects}>
                                 <summary>
-                                    <a>{lang.getProp('ul-products')}</a>
+                                    <div className={o.button}>{lang.getProp('ul-products')}</div>
                                 </summary>
                                 <div className={o.menu}>
                                     <a href="https://files.nove.team">
@@ -58,7 +50,7 @@ export default async function Navigation() {
                                         </h1>
                                         <p>{lang.getProp('products-napi')}</p>
                                     </a>
-                                    <a>
+                                    <a href="https://procurel.nove.team">
                                         <h1>
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
                                                 <path
@@ -85,13 +77,10 @@ export default async function Navigation() {
                         </li>
                     </ul>
                 </div>
-                {user?.body?.data ? (
+                {user ? (
                     <details open={false} id="navbarMenu" className={o.user}>
                         <summary>
-                            <header>
-                                <Image src={user.body.data.avatar} width="28" height="28" alt="Avatar" />
-                                <p>{user.body.data.username}</p>
-                            </header>
+                            <Image src={user.avatar} width="28" height="28" alt="Avatar" />
                         </summary>
                         <div className={o.module}>
                             <a href="/account">
@@ -122,7 +111,9 @@ export default async function Navigation() {
                     </details>
                 ) : (
                     <div className={o.buttons}>
-                        <Link href="/login">{lang.getProp('login-btn')}</Link>
+                        <Link className={o.login} href="/login">
+                            {lang.getProp('login-btn')}
+                        </Link>
                         <Link href="/register">{lang.getProp('register-btn')}</Link>
                     </div>
                 )}

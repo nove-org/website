@@ -1,240 +1,220 @@
-div.content
+ul.overview
+    display: flex
+    align-items: center
+    list-style: none
+    padding: 0
+    margin: 0
     width: 100%
+    gap: 2rem
     height: 100%
-    min-height: calc( 100vh - 68px )
-    & h1.title
-        font-size: 32px
-        font-weight: 500
-        margin-bottom: 10px
-        opacity: .9
-        @media screen and (max-width: 950px)
-            margin-top: 10px
-    & ul.overview
+    @media screen and (max-width: 1810px)
+        gap: 1.5rem
+    @media screen and (max-width: 1660px)
+        flex-wrap: wrap
+    & div.flex
         display: flex
-        align-items: center
-        list-style: none
-        padding: 0
-        margin: 0
-        width: 100%
+        justify-content: space-between
         gap: 2rem
-        height: 100%
+        width: 100%
         @media screen and (max-width: 1810px)
             gap: 1.5rem
-        @media screen and (max-width: 1660px)
-            flex-wrap: wrap
-        & div.flex
-            display: flex
-            justify-content: space-between
-            gap: 2rem
+        @media screen and (max-width: 1215px)
+            flex-direction: column
+        & li.card
             width: 100%
-            @media screen and (max-width: 1810px)
-                gap: 1.5rem
-            @media screen and (max-width: 1215px)
+            & a
+                text-decoration: none
+                color: var(--font-st)
+                min-height: calc( 280px - 25px * 2 )
+                padding: 25px
+                border-radius: 30px
+                background: var(--secondary-nd)
+                display: flex
                 flex-direction: column
-            & li.card
-                width: 100%
-                & a
-                    text-decoration: none
-                    color: var(--font-st)
-                    min-height: calc( 280px - 25px * 2 )
-                    padding: 25px
-                    border-radius: 30px
-                    background: var(--secondary-nd)
-                    display: flex
-                    flex-direction: column
-                    position: relative
-                    transition-duration: .2s
-                    z-index: 1
-                    @media screen and (max-width: 1660px)
-                        min-height: calc( 250px - 25px * 2 )
-                    @media screen and (max-width: 1450px)
-                        min-height: calc( 270px - 25px * 2 )
-                    @media screen and (max-width: 1215px)
-                        min-height: 100%
+                position: relative
+                transition: background-color .15s linear
+                z-index: 1
+                @media screen and (max-width: 1660px)
+                    min-height: calc( 250px - 25px * 2 )
+                @media screen and (max-width: 1450px)
+                    min-height: calc( 270px - 25px * 2 )
+                @media screen and (max-width: 1215px)
+                    min-height: 100%
+                @media screen and (max-width: 950px)
+                    padding: 20px
+                &:hover
+                    background: var(--tertiary)
+                & h1
+                    margin: 5px 0
+                    font-size: 30px
+                    font-weight: 500
+                    @media screen and (max-width: 1810px)
+                        font-size: 28px
                     @media screen and (max-width: 950px)
-                        padding: 20px
-                    &:hover
-                        background: var(--tertiary)
-                    & h1
-                        margin: 5px 0
-                        font-size: 30px
-                        font-weight: 500
-                        @media screen and (max-width: 1810px)
-                            font-size: 28px
-                        @media screen and (max-width: 950px)
-                            font-size: 24px
-                    & p
+                        font-size: 24px
+                & p
+                    font-size: 20px
+                    margin: 0
+                    @media screen and (max-width: 1810px)
+                        font-size: 18px
+                    @media screen and (max-width: 950px)
+                        font-size: 18px
+                & span
+                    position: absolute
+                    bottom: 25px
+                    right: 25px
+                    @media screen and (max-width: 1215px)
+                        top: 25px
+                    @media screen and (max-width: 950px)
+                        display: none
+                    & svg
+                        margin-left: 5px
+    & li.profile
+        max-width: 442px
+        max-height: calc( 280px - 30px * 2 )
+        height: 100%
+        width: 100%
+        padding: 30px
+        border-radius: 30px
+        background: var(--secondary-nd)
+        @media screen and (max-width: 1750px)
+            max-width: 400px
+        @media screen and (max-width: 1660px)
+            max-width: 100%
+            width: calc( 100% - 30px * 2 )
+        @media screen and (max-width: 950px)
+            max-height: 100%
+            width: calc( 100% - 20px * 2 )
+            padding: 20px
+        & header
+            display: flex
+            align-items: center
+            & img
+                border-radius: 50%
+                margin-right: 15px
+                @media screen and (max-width: 950px)
+                    max-width: 36px
+                    max-height: 36px
+            & div.data
+                & h1
+                    font-size: 24px
+                    font-weight: 600
+                    margin: 2px 0
+                    word-wrap: anywhere
+                    @media screen and (max-width: 950px)
                         font-size: 20px
-                        margin: 0
-                        @media screen and (max-width: 1810px)
-                            font-size: 18px
-                        @media screen and (max-width: 950px)
-                            font-size: 18px
-                    & span
-                        position: absolute
-                        bottom: 25px
-                        right: 25px
-                        @media screen and (max-width: 1215px)
-                            top: 25px
-                        @media screen and (max-width: 950px)
-                            display: none
-                        & svg
-                            margin-left: 5px
-        & li.profile
-            max-width: 442px
-            max-height: calc( 280px - 30px * 2 )
-            height: 100%
-            width: 100%
-            padding: 30px
-            border-radius: 30px
-            background: var(--secondary-nd)
-            @media screen and (max-width: 1750px)
-                max-width: 400px
-            @media screen and (max-width: 1660px)
-                max-width: 100%
-                width: calc( 100% - 30px * 2 )
-            @media screen and (max-width: 950px)
-                max-height: 100%
-                width: calc( 100% - 20px * 2 )
-                padding: 20px
-            & header
+                & p
+                    font-size: 16px
+                    font-weight: 400
+                    margin: 2px 0
+                    word-wrap: anywhere
+                    @media screen and (max-width: 950px)
+                        font-size: 14px
+        & h2
+            font-size: 14px
+            font-weight: 600
+            text-transform: uppercase
+            margin: 35px 0 10px 0
+        & ul
+            margin: 0
+            padding: 0
+            list-style: none
+            display: flex
+            flex-wrap: wrap
+            gap: .7rem
+            & li
+                max-width: 200px
                 display: flex
                 align-items: center
-                & img
-                    border-radius: 50%
-                    margin-right: 15px
-                    @media screen and (max-width: 950px)
-                        max-width: 36px
-                        max-height: 36px
-                & div.data
-                    & h1
-                        font-size: 24px
-                        font-weight: 600
-                        margin: 2px 0
-                        word-wrap: anywhere
-                        @media screen and (max-width: 950px)
-                            font-size: 20px
-                    & p
-                        font-size: 16px
-                        font-weight: 400
-                        margin: 2px 0
-                        word-wrap: anywhere
-                        @media screen and (max-width: 950px)
-                            font-size: 14px
-            & h2
-                font-size: 14px
-                font-weight: 600
-                text-transform: uppercase
-                margin: 35px 0 10px 0
-            & ul
-                margin: 0
-                padding: 0
-                list-style: none
-                display: flex
-                flex-wrap: wrap
-                gap: .7rem
-                & li
-                    max-width: 200px
-                    display: flex
-                    align-items: center
-                    @media screen and (max-width: 1750px)
-                        font-size: 14px
-                        max-width: 180px
-                    & svg
-                        margin-right: 10px
-                        min-width: 16px
-    & ul.connections
+                @media screen and (max-width: 1750px)
+                    font-size: 14px
+                    max-width: 180px
+                & svg
+                    margin-right: 10px
+                    min-width: 16px
+ul.connections
+    display: flex
+    flex-direction: column
+    list-style: none
+    padding: 0
+    margin: 0
+    width: 100%
+    gap: 1.5rem
+    height: 100%
+    & li.card
+        text-decoration: none
+        color: var(--font-st)
+        width: calc( 100% - 25px * 2 )
+        height: fit-content
+        padding: 25px
+        border-radius: 30px
+        background: var(--secondary-nd)
         display: flex
         flex-direction: column
-        list-style: none
-        padding: 0
-        margin: 0
-        width: 100%
-        gap: 1.5rem
-        height: 100%
-        margin-bottom: 50px
-        & li.card
-            text-decoration: none
-            color: var(--font-st)
-            width: calc( 100% - 25px * 2 )
-            height: fit-content
-            padding: 25px
-            border-radius: 30px
-            background: var(--secondary-nd)
+        position: relative
+        transition: background-color .15s linear
+        z-index: 1
+        & header
             display: flex
-            flex-direction: column
-            position: relative
-            transition-duration: .2s
-            z-index: 1
-            & header
+            align-items: flex-start
+            justify-content: space-between
+            margin-bottom: 5px
+            @media screen and (max-width: 950px)
+                flex-direction: column
+                align-items: flex-start
+                gap: 5px
+            & div.name
+                & h1
+                    margin: 0
+                    font-size: 24px
+                    font-weight: 500
+                    display: flex
+                    align-items: center
+                    & a
+                        text-decoration: none
+                        color: var(--font-st)
+                & p
+                    font-size: 16px
+                    margin: 0
+                & svg
+                    margin-right: 5px
+                    min-width: 18px
+                    min-height: 18px
+            & div.buttons
                 display: flex
                 align-items: center
-                justify-content: space-between
-                margin-bottom: 5px
-                @media screen and (max-width: 950px)
-                    flex-direction: column
-                    align-items: flex-start
-                    gap: 5px
-                & div.name
-                    display: flex
-                    align-items: center
-                    gap: 5px
-                    & h1
-                        margin: 0
-                        font-size: 26px
-                        font-weight: 500
-                        & a
-                            text-decoration: none
-                            color: var(--font-st)
-                    & p
-                        font-size: 18px
-                        margin: 0
-                    & svg
-                        margin-right: 5px
-                        min-width: 18px
-                        min-height: 18px
-                & div.buttons
-                    display: flex
-                    align-items: center
-                    gap: 5px
-                    & a
-                        display: block
-                        padding: 5px 7px
-                        border-radius: 50px
+                gap: 15px
+                & a
+                    font-size: 14px
+                    font-weight: 500
+                    color: var(--font-nd)
+                    cursor: pointer
+                    text-decoration: none
+                    text-align: center
+                    @media screen and (max-width: 950px)
                         font-size: 14px
-                        font-weight: 500
-                        color: var(--primary)
-                        background: var(--font-st)
-                        outline: 0
-                        border: 0
-                        cursor: pointer
-                        transition-duration: .2s
-                        text-decoration: none
-                        text-align: center
-                        @media screen and (max-width: 950px)
-                            font-size: 14px
-                            margin: 3px 0
-                        &:hover
-                            opacity: .8
-            & p.title
-                font-size: 20px
-                margin: 0
-                margin-top: 10px
-                font-weight: 500
-                @media screen and (max-width: 950px)
-                    font-size: 18px
-                    margin-top: 5px
-            & ul
-                margin: 2px 0
-                padding: 0
-                padding-left: 15px
-            & span
-                position: absolute
-                bottom: 25px
-                right: 25px
-                opacity: .7
-                text-align: right
-                @media screen and (max-width: 950px)
-                    display: none
-                & svg
-                    margin-left: 5px
+                        margin: 3px 0
+                    &:hover
+                        text-decoration: underline
+        & p.title
+            font-size: 20px
+            margin: 0
+            margin-top: 10px
+            font-weight: 500
+            @media screen and (max-width: 950px)
+                font-size: 18px
+                margin-top: 5px
+        & ul
+            margin: 2px 0
+            padding: 0
+            padding-left: 15px
+        & span
+            position: absolute
+            bottom: 25px
+            right: 25px
+            opacity: .7
+            text-align: right
+            @media screen and (max-width: 950px)
+                display: none
+            & svg
+                margin-left: 5px

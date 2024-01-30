@@ -10,6 +10,7 @@ export interface Response<T> {
             type: string;
             details?: {
                 code: string;
+                validation: string;
                 minimum: number;
                 maximum: number;
                 type: string;
@@ -32,12 +33,15 @@ export interface User {
     bio: string;
     username: string;
     language: string;
+    pubkey: string;
     verified: boolean;
     profilePublic: boolean;
     trackActivity: boolean;
+    activityNotify: boolean;
     mfaEnabled: boolean;
     disabled: boolean;
     permissionLevel: number;
+    token: string;
     createdAt: string;
 }
 
@@ -105,6 +109,10 @@ export interface Post {
         createdAt: string;
         updatedAt: string;
     }[];
+}
+
+export interface Success {
+    success: boolean;
 }
 
 export interface Languages {

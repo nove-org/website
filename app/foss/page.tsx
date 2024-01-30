@@ -1,39 +1,27 @@
+export const dynamic = 'force-dynamic';
 import o from '@sass/foss.module.sass';
 import LanguageHandler from '@util/handlers/LanguageHandler';
-import { axiosClient } from '@util/axios';
-import { cookies, headers } from 'next/headers';
-import { Response, User } from '@util/schema';
+import { headers } from 'next/headers';
+import { getUser } from '@util/helpers/User';
 
-export const metadata = {
-    title: 'Nove | FOSS projects',
-    description: 'List of our projects that are FOSS. Learn about our free and open-source software nature.',
-    openGraph: {
-        title: 'Nove | Free and open-source projects',
-        description: 'List of our projects that are FOSS. Learn about our free and open-source software nature.',
-        images: [],
-    },
-    twitter: {
-        title: 'Nove | Free and open-source projects',
-        description: `List of our projects that are FOSS. Learn about our free and open-source software nature.`,
-        images: [],
-    },
-    keywords: ['nove', 'foss', 'open source'],
-};
+export async function generateMetadata() {
+    const lang = await new LanguageHandler('main/foss', await getUser()).init(headers());
+    const title: string = `${lang.getCustomProp('modules.footer.ul-foss')} | Nove`;
+    const description: string = 'List of our projects that are FOSS. Learn about our free and open-source software nature.';
+
+    return {
+        title,
+        description,
+        openGraph: { title, description },
+        twitter: { title, description },
+    };
+}
 
 export default async function FOSS() {
-    const user: Response<User> = (
-        await axiosClient
-            .get('/v1/users/me', {
-                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-            })
-            .catch((e) => e.response)
-    )?.data;
-
-    const lang = await new LanguageHandler('main/foss', user?.body?.data).init(headers());
+    const lang = await new LanguageHandler('main/foss', await getUser()).init(headers());
 
     return (
         <section className={o.hero}>
-            <title>{`Nove | ${lang.getCustomProp('modules.footer.ul-foss')}`}</title>
             <h1 className={o.title} dangerouslySetInnerHTML={{ __html: lang.getProp('hero-h1') }} />{' '}
             <p className={o.desc} dangerouslySetInnerHTML={{ __html: lang.getProp('hero-p') }} />
             <ul>

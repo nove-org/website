@@ -2,13 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 
-export default function Back({
-    lang,
-}: {
-    lang: {
-        btn: string;
-    };
-}) {
+export default function Back({ lang }: { lang: { btn: string } }) {
     const router = useRouter();
 
     return (

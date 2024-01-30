@@ -1,39 +1,27 @@
+export const dynamic = 'force-dynamic';
 import o from '@sass/article.module.sass';
-import { axiosClient } from '@util/axios';
 import LanguageHandler from '@util/handlers/LanguageHandler';
-import { Response, User } from '@util/schema';
-import { cookies, headers } from 'next/headers';
+import { getUser } from '@util/helpers/User';
+import { headers } from 'next/headers';
 
-export const metadata = {
-    title: 'Nove | Terms of Service',
-    description: 'Read about our Terms of Service and learn what we can do with your account and what you are allowed to do.',
-    openGraph: {
-        title: 'Nove | Terms of Service',
-        description: 'Read about our Terms of Service and learn what we can do with your account and what you are allowed to do.',
-        images: [],
-    },
-    twitter: {
-        title: 'Nove | Terms of Service',
-        description: `Read about our Terms of Service and learn what we can do with your account and what you are allowed to do.`,
-        images: [],
-    },
-    keywords: ['nove', 'terms', 'tos', 'terms of service'],
-};
+export async function generateMetadata() {
+    const lang = await new LanguageHandler('documents/terms-of-service', await getUser()).init(headers());
+    const title: string = `${lang.getProp('title')} | Nove`;
+    const description: string = 'Read about our Terms of Service and learn what we can do with your account and what you are allowed to do.';
+
+    return {
+        title,
+        description,
+        openGraph: { title, description },
+        twitter: { title, description },
+    };
+}
 
 export default async function Terms() {
-    const user: Response<User> = (
-        await axiosClient
-            .get('/v1/users/me', {
-                headers: { Authorization: `Owner ${cookies()?.get('napiAuthorizationToken')?.value}` },
-            })
-            .catch((e) => e.response)
-    )?.data;
-
-    const lang = await new LanguageHandler('documents/terms-of-service', user?.body?.data).init(headers());
+    const lang = await new LanguageHandler('documents/terms-of-service', await getUser()).init(headers());
 
     return (
         <article className={o.content}>
-            <title>{`Nove | ${lang.getProp('title')}`}</title>
             <h1>{lang.getProp('title')}</h1>
             <h2 dangerouslySetInnerHTML={{ __html: lang.getProp('last-modified') }} />
             <p>{lang.getProp('p1')}</p>

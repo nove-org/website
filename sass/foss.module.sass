@@ -8,7 +8,7 @@ section.hero
     padding: 50px 0
     & h1.title
         font-size: 42px
-        font-weight: 700
+        font-weight: 600
         margin: 5px 0
         text-align: center
         & span
@@ -36,17 +36,17 @@ section.hero
                 text-decoration: none
                 border-radius: var(--box-roundness)
                 background: var(--secondary-nd)
-                max-width: 200px
+                max-width: 230px
                 min-height: 100px
                 height: 100%
                 width: 100%
-                transition-duration: .2s
+                transition: background-color .15s linear
                 flex: max-content
                 &:hover
                     background: var(--secondary)
                 @media screen and (max-width: 1170px)
                     max-width: 100%
-                    width: calc(100% - 20px * 2)
+                    width: 100%
                     min-height: fit-content
                 & h1
                     margin: 0

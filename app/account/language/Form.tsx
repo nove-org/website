@@ -1,36 +1,37 @@
 'use client';
 
-import { axiosClient } from '@util/axios';
-import { Languages, User } from '@util/schema';
-import { getCookie } from 'cookies-next';
+import { Response, Languages, User } from '@util/schema';
 import ReactCountryFlag from 'react-country-flag';
 import Image from 'next/image';
 import o from '@sass/account/language/page.module.sass';
 import { useState } from 'react';
 import Loader from '@app/Loader';
 import { useRouter } from 'next/navigation';
+import { patchUser } from '@util/helpers/client/User';
+import { errorHandler } from '@util/helpers/Main';
+import { AxiosError } from 'axios';
 
 export default function Form({ user, code, saveChanges }: { user: User; code: Languages; saveChanges: string }) {
     const router = useRouter();
+    const lang = new Intl.DisplayNames([user.language === 'sw-PL' ? 'pl-PL' : user.language], { type: 'language' });
     const [loading, setLoading] = useState<boolean>(false);
 
-    const handleLanguage = async (e: any) => (
-        e.preventDefault(),
+    const handleLanguage = async (e: FormData) => (
         setLoading(true),
-        await axiosClient
-            .patch('/v1/users/me', { language: e.target.language.value }, { headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}` } })
+        await patchUser({ language: e.get('language')?.toString() })
             .then((r) => (setLoading(false), router.refresh()))
+            .catch((err: AxiosError) => (setLoading(false), alert(errorHandler(err.response?.data as Response<null>))))
     );
 
-    const lang = new Intl.DisplayNames([user.language], { type: 'language' });
-
     return (
-        <form className={o.box} id="languageForm" onSubmit={handleLanguage}>
+        <form className={o.box} id="languageForm" action={handleLanguage}>
             {code.AVAILABLE_LANGUAGES.map((code) => (
                 <label key={code} className={o.card}>
                     <header>
-                        {code === 'pl-SW' ? <Image src="/pl-SW.png" width="16" height="12" alt="pl-SW flag" /> : <ReactCountryFlag countryCode={code.split('-')[1]} />}
-                        {code === 'pl-SW' ? 'Szwajnisch (Poland)' : lang.of(code)}
+                        {code === 'sw-PL' ? <Image src="/sw-PL.png" width="16" height="12" alt="pl-SW flag" /> : <ReactCountryFlag countryCode={code.split('-')[1]} />}
+                        {code === 'sw-PL'
+                            ? (lang.of('pl-PL')?.charAt(0) === lang.of('pl-PL')?.charAt(0).toUpperCase() ? 'Szwajnisch' : 'szwajnisch') + ` ${lang.of('pl-PL')?.split(/\s+/)[1]}`
+                            : lang.of(code)}
                     </header>
                     <input defaultChecked={user.language === code} type="radio" name="language" value={code} />
                 </label>
