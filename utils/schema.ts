@@ -31,6 +31,7 @@ export interface User {
     id: string;
     email: string;
     bio: string;
+    website: string;
     username: string;
     language: string;
     pubkey: string;
@@ -94,6 +95,8 @@ export interface Post {
     authorId: string;
     authorAvatar: string;
     authorUsername: string;
+    authorBio?: string;
+    authorWebsite?: string;
     text: string;
     title: string;
     commentsAllowed: boolean;

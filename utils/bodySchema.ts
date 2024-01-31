@@ -17,6 +17,7 @@ export interface PasswordPatch {
 export interface UserPatch {
     username?: string;
     bio?: string;
+    website?: string;
     pubkey?: string;
     language?: string;
     trackActivity?: boolean;

@@ -10,6 +10,7 @@ import LanguageHandler from '@util/handlers/LanguageHandler';
 import { getUser } from '@util/helpers/User';
 import ActivityNotify from './ActivityNotify';
 import PGP from './PGP';
+import Website from './Website';
 
 export default async function Overview() {
     const user = await getUser();
@@ -50,6 +51,14 @@ export default async function Overview() {
                     lang={{
                         header: lang.getProp('input-bio'),
                         save: lang.getCustomProp('modules.actions.save'),
+                    }}
+                    user={user}
+                />
+                <Website
+                    lang={{
+                        header: lang.getProp('input-website'),
+                        save: lang.getCustomProp('modules.actions.save'),
+                        delete: lang.getCustomProp('modules.actions.delete'),
                     }}
                     user={user}
                 />
