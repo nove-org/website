@@ -26,6 +26,7 @@ import { getUser } from '@util/helpers/User';
 import { usePathname } from 'next/navigation';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import { headers } from 'next/headers';
+import NextTopLoader from 'nextjs-toploader';
 
 export const viewport: Viewport = {
     width: 'device-width',
@@ -63,6 +64,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     return (
         <html lang="en">
             <body className={inter.className} style={inter.style}>
+                <NextTopLoader color="#e74d5f" height={3} zIndex={999999} showSpinner={false} />
                 <Navigation user={user} />
 
                 <main style={inter.style}>{children}</main>
