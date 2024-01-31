@@ -239,6 +239,7 @@
             "input-avatar-too-big": "アップロードしようとしているファイルは大きすぎます",
             "input-avatar-not-allowed": "アップロードしようとしているファイルの種類は許可されていません",
             "input-bio": "自己紹介",
+            "input-website": "Webサイト",
             "input-pgp": "Nove からのメッセージを PGP キーで暗号化　（任意）",
             "input-pgp-placeholder": "'-----BEGIN PGP PUBLIC KEY BLOCK-----' で始まる",
             "input-activity-notify": "新しいデバイスがアカウントにログインした際に通知を受け取る",

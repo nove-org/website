@@ -239,6 +239,7 @@
             "input-avatar-too-big": "Plik, który próbujesz przesłać, jest za duży",
             "input-avatar-not-allowed": "Plik, który próbujesz przesłać, nie jest dozwolony",
             "input-bio": "O mnie",
+            "input-website": "Strona internetowa",
             "input-pgp": "Szyfruj wiadomości z Nove kluczem PGP (opcjonalne)",
             "input-pgp-placeholder": "Zaczyna się od '-----BEGIN PGP PUBLIC KEY BLOCK-----'",
             "input-activity-notify": "Otrzymuj powiadomienie gdy nowe urządzenie loguje się na Twoje konto",

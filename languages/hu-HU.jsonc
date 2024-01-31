@@ -241,6 +241,7 @@
             "input-avatar-too-big": "A feltölteni kívánt fájl túl nagy",
             "input-avatar-not-allowed": "A feltölteni kívánt fájl nem engedélyezett",
             "input-bio": "Én bemutatkozás",
+            "input-website": "Weboldal",
             "input-pgp": "A Nove-tól érkező üzenetek titkosítása PGP-kulccsal (opcionális)",
             "input-pgp-placeholder": "A következővel kezdődik '-----BEGIN PGP PUBLIC KEY BLOCK-----'",
             "input-activity-notify": "Értesítést kap, ha egy új eszköz jelentkezik be a fiókjába",

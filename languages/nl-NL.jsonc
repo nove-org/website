@@ -225,7 +225,7 @@
             "delete-p2": "Geef uw wachtwoord op, zodat we kunnen verifiëren dat u het bent. Vergeet niet om alle accounts te verwijderen die u met dit Nove-account heeft geregistreerd. Anders zijn ze mogelijk niet toegankelijk. Deze actie wordt onmiddellijk uitgevoerd en is onomkeerbaar.",
             "delete-label": "Uw wachtwoord",
             "delete-placeholder": "Wachtwoord",
-            "delete-btn": "Verwijder mijn account" 
+            "delete-btn": "Verwijder mijn account"
         },
         "profile": {
             "description": "Beheer uw persoonlijke gegevens die op uw profiel worden weergegeven. U kunt de weergavemethode van uw profiel wijzigen in privé en openbaar. Bij een privé acount delen we alleen basisinformatie over uw account, bestaande uit gebruikersnaam, avatar.",
@@ -239,6 +239,7 @@
             "input-avatar-too-big": "Het bestand dat u probeert te uploaden is te groot",
             "input-avatar-not-allowed": "Het bestandstype dat u probeert te uploaden is niet toegestaan",
             "input-bio": "Over mij",
+            "input-website": "Website",
             "input-pgp": "Versleutel berichten van Nove met PGP key (optioneel)",
             "input-pgp-placeholder": "begint met '-----BEGIN PGP PUBLIC KEY BLOCK-----'",
             "input-activity-notify": "Ontvang notificaties wanneer er een nieuw apparaat inlogt op uw account",
