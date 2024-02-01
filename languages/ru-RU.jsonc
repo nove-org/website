@@ -34,13 +34,13 @@
     */
     "modules": {
         "navigation": {
-            "ul-products": "Products",
-            "ul-about": "About",
-            "ul-blog": "Blog",
+            "ul-products": "Продукты",
+            "ul-about": "О нас",
+            "ul-blog": "Блог",
             "ul-donate": "Donate",
             "login-btn": "Log in",
             "register-btn": "Sign up",
-            "switcher-profile": "My profile",
+            "switcher-profile": "Мой профайл",
             "switcher-security": "Security",
             "switcher-logout": "Log out",
             "products-files": "Store your data securely in the cloud",
@@ -51,10 +51,10 @@
             "license": "Licensed under",
             "made-with-love": "Made with ❤️ by",
             "contributors": "contributors",
-            "ul-about": "About",
+            "ul-about": "О нас",
             "ul-foss": "Projects",
             "ul-docs": "Docs",
-            "ul-blog": "Blog",
+            "ul-blog": "Блог",
             "ul-donate": "Donate",
             "ul-login": "Log in",
             "ul-register": "Sign up",
@@ -139,7 +139,7 @@
             "password-reset": "Forgot your password?"
         },
         "register": {
-            "hero-h1": "New Nove account",
+            "hero-h1": "Новый аккаунт Nove",
             "hero-p": "Complete the form and create brand new account",
             "input-email": "E-mail",
             "input-username": "Username",
@@ -164,7 +164,7 @@
             "ul-overview": "Overview",
             "ul-security": "Security",
             "ul-profile": "My profile",
-            "ul-language": "Language",
+            "ul-language": "Язык",
             "header-admin": "Moderation",
             "ul-users": "Users",
             "ul-posts": "Posts",
