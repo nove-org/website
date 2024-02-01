@@ -29,7 +29,8 @@
 
      ? WARNING: The text shouldn't extend the original English version by much. It will wrap weirdly on the page.
 
-     Base language file
+     Japanese language file
+     Translated by Alexander M. Yell "https://mastodon.nove.team/@NotYourMagicBonkStick"
     */
     "modules": {
         "navigation": {
