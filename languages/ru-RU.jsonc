@@ -220,56 +220,56 @@
             "hds-recovery": "Recovery",
             "hds-recovery-h1": "Recovery codes",
             "hds-recovery-p": "Copy your account backup codes in case you will lose your phone with TOTP application on it.",
-            "hds-recovery-label": "MFA code",
-            "delete-h1": "Delete your Nove account",
+            "hds-recovery-label": "Код МФА",
+            "delete-h1": "Удалите ваш аккаынт Nove",
             "delete-p": "To delete your account we need you to provide your account password to confirm your actions. This process is irreversible and all your data associated with this account will be deleted from our servers instantly! You can delete your account anytime you want. Please, make sure that you have removed all third-party accounts you registered using your Nove account. Otherwise - you won't be able to log in to them.",
             "delete-p2": "Provide your password so we can verify that it's you. Remember to delete all accounts that you registered using this Nove account. Otherwise, they might be inaccessible. This action is performed instantly - it's irreversible.",
             "delete-label": "Ваши пароль",
             "delete-placeholder": "Пароль",
-            "delete-btn": "Delete my account"
+            "delete-btn": "Удалите мой аккаунт"
         },
         "profile": {
             "description": "Manage your personal info that is displayed on your profile. You can change the display method of your profile to private and public. While on private we will share only basic information about your account, detailing: username, avatar.",
-            "hero-ul-1": "Basic account info",
-            "hero-ul-2": "Details",
+            "hero-ul-1": "Базовая информация о аккаунте",
+            "hero-ul-2": "Детали",
             "input-username": "Имя пользователя",
             "input-username-placeholder": "{username} (Новое имя пользователя здесь)",
             "input-avatar": "Изображение профаиля",
             "input-avatar-btn": "Выберите фай",
             "input-avatar-filename": "Ничего не выбрано",
-            "input-avatar-too-big": "The file you are trying to upload is too big",
-            "input-avatar-not-allowed": "The file type you are trying to upload is not allowed",
+            "input-avatar-too-big": "Файл, который вы пытаетесь загрузить, слишком велик",
+            "input-avatar-not-allowed": "Тип файла, который вы пытаете загрузить, не разрешен",
             "input-bio": "Обо мне",
             "input-profile-state-label": "Display more details on your public profile"
         },
         "language": {
             "hero-h1": "Язык",
             "hero-p1": "Select your preferred language. This setting will be used to display content in your language in all Nove products and your connected apps might use it.",
-            "hero-p2": "Warning: not fully supported by us yet."
+            "hero-p2": "Предупреждение: мы еще не полностью поддерживаем."
         }
     },
     "admin": {
         "users": {
-            "hero-h1": "User list",
-            "popup-btn": "Authorize your action",
-            "popup-h1": "We need to verify it's you",
-            "popup-p": "Please provide your MFA code from TOTP app on your phone. You can use your backup code.",
+            "hero-h1": "Список пользователей",
+            "popup-btn": "Авторизуйте ваше действие",
+            "popup-h1": "Нам нужно подтвердить, что это вы",
+            "popup-p": "Пожалуста, укажите ваш код МФА из приложения TOTP на вашем телефоне. Вы можете использовать свой резервный код.",
             "popup-label": "Код МФА",
             "popup-reason": "Причина"
         },
         "posts": {
             "header": "{number} постов",
-            "new-btn": "Create new post",
-            "new-h1": "Create new post",
-            "new-label": "Title",
-            "new-label-content": "Content",
+            "new-btn": "Создайте новый пост",
+            "new-h1": "Создайте новый пост",
+            "new-label": "Заголовок",
+            "new-label-content": "Содержание",
             "edit-h1": "Редактируйте ваше посты"
         }
     },
     "documents": {
         "privacy-policy": {
             "title": "Политика конфиденциальности",
-            "last-modified": "Last modified: <time>30th of September 2023</time>",
+            "last-modified": "Поцледнее изменение: <time>30 сентября 2023</time>",
             "p1": "We serve (mostly) free and open-source services. We do not track nor sell user's data to third-parties. Neither we use any form of tracking pixels or unique fingerprinting.",
             "p2": "We keep the right to update this document without notifying our users about the change.",
             "p3": "By using our services you agree to our Privacy Policy and Terms of Service.",
@@ -303,7 +303,7 @@
         },
         "terms-of-service": {
             "title": "Условия использования",
-            "last-modified": "Last modified: <time>12th of August 2023</time>",
+            "last-modified": "Поцледнее изменение: <time>12 августа 2023</time>",
             "p1": "By using services hosted by us (Nove) you agree to our Terms of Service and Privacy Policy. If you do not accept these, you are not allowed to use our services. As a reminder, this document applies for all our products.",
             "p2": "We are not responsible for any content posted by users",
             "p3": "Actions we do not tolerate",
