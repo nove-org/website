@@ -140,7 +140,7 @@
         },
         "register": {
             "hero-h1": "Новый аккаунт Nove",
-            "hero-p": "Complete the form and create brand new account",
+            "hero-p": "Заполните форму и создайте новый аккаунт",
             "input-email": "Электронная почта",
             "input-username": "Имя пользователя",
             "input-password": "Пароль"
@@ -150,7 +150,7 @@
             "hero-p": "Укажите ваш адрес электронной почты и новый пароль, чтобы продолжить.",
             "input-email": "Электронная почта",
             "input-new-password": "Новый пароль",
-            "request-success": "Confirmation e-mail was sent to that address if this account exists"
+            "request-success": "Подтверждающее письмо было отправлено на этот адрес, если данныи аккаунт существует."
         },
         "blog": {
             "warn-h1": "Предупреждение",
@@ -183,7 +183,7 @@
             "card-3-h1": "Logging in",
             "card-3-p": "Change your account credentials or add security layers with ease",
             "card-3-action": "Идти",
-            "card-4-h1": "Recovery",
+            "card-4-h1": "Восстановление",
             "card-4-p": "Set up two factor authentication and download backup codes",
             "connections-title": "App connections",
             "connections-btn-privacy": "Политика конфиденциальности",
@@ -211,14 +211,14 @@
             "hds-email-h1": "Измените адрес ваши электронной почты",
             "hds-email-p": "The address where we can contact you if there is an unusual activity on your account or if you'll get locked out. You can also use it to log in.",
             "hds-email-label-1": "Новая электронная почта",
-            "hds-email-placeholder-1": "Provide your new e-mail",
+            "hds-email-placeholder-1": "Ввведите ваш новый адрес электронной почты",
             "hds-mfa-btn": "МФА",
-            "hds-mfa-h1": "Multi-factor authentication",
+            "hds-mfa-h1": "Многофакторная аутентификация",
             "hds-mfa-p": "A better way to secure your account from hackers. You can toggle MFA on or off here.",
             "hds-mfa-label-code": "Код",
-            "hds-mfa-recovery-codes": "Recovery codes",
-            "hds-recovery": "Recovery",
-            "hds-recovery-h1": "Recovery codes",
+            "hds-mfa-recovery-codes": "Коды восстановления",
+            "hds-recovery": "Восстановление",
+            "hds-recovery-h1": "Коды восстановления",
             "hds-recovery-p": "Copy your account backup codes in case you will lose your phone with TOTP application on it.",
             "hds-recovery-label": "Код МФА",
             "delete-h1": "Удалите ваш аккаынт Nove",
@@ -240,11 +240,11 @@
             "input-avatar-too-big": "Файл, который вы пытаетесь загрузить, слишком велик",
             "input-avatar-not-allowed": "Тип файла, который вы пытаете загрузить, не разрешен",
             "input-bio": "Обо мне",
-            "input-profile-state-label": "Display more details on your public profile"
+            "input-profile-state-label": "Покажите больше деталей на вашем публичном профиле"
         },
         "language": {
             "hero-h1": "Язык",
-            "hero-p1": "Select your preferred language. This setting will be used to display content in your language in all Nove products and your connected apps might use it.",
+            "hero-p1": "Выберите ваш предпочитаемный язык. Эта настройка будет использована для отображения содержания на вашем языке во всех продуктах Nove и ваши подключенные приложения могут её использовать.",
             "hero-p2": "Предупреждение: мы еще не полностью поддерживаем."
         }
     },
