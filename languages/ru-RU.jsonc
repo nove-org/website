@@ -219,7 +219,7 @@
             "hds-mfa-recovery-codes": "Коды восстановления",
             "hds-recovery": "Восстановление",
             "hds-recovery-h1": "Коды восстановления",
-            "hds-recovery-p": "Copy your account backup codes in case you will lose your phone with TOTP application on it.",
+            "hds-recovery-p": "Скопируйте резервные коды доступа к вашему аккаунту на случай потери вашего телефона с установленным приложением TOTP.",
             "hds-recovery-label": "Код МФА",
             "delete-h1": "Удалите ваш аккаынт Nove",
             "delete-p": "To delete your account we need you to provide your account password to confirm your actions. This process is irreversible and all your data associated with this account will be deleted from our servers instantly! You can delete your account anytime you want. Please, make sure that you have removed all third-party accounts you registered using your Nove account. Otherwise - you won't be able to log in to them.",
@@ -230,6 +230,7 @@
         },
         "profile": {
             "description": "Управляйте своей личной информацией, которая отображается в вашем профиле. Вы можете изменить свой профиль на приватный или публичный. На приватном режиме будет отображаться только основная информация о вашем аккаунте, такая как имя пользователя и изображение профиля.",
+            "hero-ul-1": "Базовая информация о аккаунте",
             "hero-ul-2": "Детали",
             "input-username": "Имя пользователя",
             "input-username-placeholder": "{username} (Новое имя пользователя здесь)",
