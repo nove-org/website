@@ -180,17 +180,17 @@
             "card-2-h1": "Activity",
             "card-2-p": "Manage recent activity on your account with ease using activity logs",
             "card-2-action": "{number} active sessions",
-            "card-3-h1": "Logging in",
+            "card-3-h1": "Вошли",
             "card-3-p": "Change your account credentials or add security layers with ease",
             "card-3-action": "Идти",
             "card-4-h1": "Восстановление",
             "card-4-p": "Set up two factor authentication and download backup codes",
-            "connections-title": "App connections",
+            "connections-title": ""Связи приложений"",
             "connections-btn-privacy": "Политика конфиденциальности",
             "connections-btn-tos": "Условия использования",
             "connections-permissions": "Позволения",
-            "connections-last-access": "Last accessed on",
-            "connections-expire": "Expires on"
+            "connections-last-access": "Последний доступ:",
+            "connections-expire": "Истекает:"
         },
         "security": {
             "devices-h1": "Ваши устройства",
@@ -222,8 +222,8 @@
             "hds-recovery-p": "Скопируйте резервные коды доступа к вашему аккаунту на случай потери вашего телефона с установленным приложением TOTP.",
             "hds-recovery-label": "Код МФА",
             "delete-h1": "Удалите ваш аккаынт Nove",
-            "delete-p": "To delete your account we need you to provide your account password to confirm your actions. This process is irreversible and all your data associated with this account will be deleted from our servers instantly! You can delete your account anytime you want. Please, make sure that you have removed all third-party accounts you registered using your Nove account. Otherwise - you won't be able to log in to them.",
-            "delete-p2": "Provide your password so we can verify that it's you. Remember to delete all accounts that you registered using this Nove account. Otherwise, they might be inaccessible. This action is performed instantly - it's irreversible.",
+            "delete-p": "Чтобы удалить ваш аккаунт, нам необходимо, чтобы вы предоставили пароль вашего аккаунта для подтверждения ваших действий. Этот процесс невозможно отменить, и все данные, связанные с этим аккаунтом, будут немедленно удалены с наших серверов! Вы можете удалить свой аккаунт в любое время, когда захотите. Пожалуйста, убедитесь, что вы удалили все сторонние аккаунты, которые вы зарегистрировали, используя ваш аккаунт Nove, иначе вы не сможете войти в них.",
+            "delete-p2": "Укажите ваш пароль, чтобы мы могли подтвердить, что это вы. Не забудьте удалить все аккаунты, которые вы зарегистрировали, используя этот аккаунт Nove. В противном случае они могут быть недоступными. Это действие выполняется мгновенно. Это необратимо.",
             "delete-label": "Ваши пароль",
             "delete-placeholder": "Пароль",
             "delete-btn": "Удалите мой аккаунт"
