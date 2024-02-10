@@ -83,7 +83,7 @@
             "header": "Something went horribly wrong",
             "offline": "Sorry but our servers are currently offline",
             "session": "We cannot sign your session which leads to data retrieval failure",
-            "verify-email": "Please verify your e-mail to gain access to the account",
+            "verify-email": "Please verify your email to gain access to the account",
             "not-found": "We couldn't find the page you were looking for"
         }
     },
@@ -140,16 +140,16 @@
         "register": {
             "hero-h1": "New Nove account",
             "hero-p": "Complete the form and create brand new account",
-            "input-email": "E-mail",
+            "input-email": "Email",
             "input-username": "Username",
             "input-password": "Password"
         },
         "password-reset": {
             "hero-h1": "Password reset",
-            "hero-p": "Enter your e-mail and new password to continue",
-            "input-email": "E-mail",
+            "hero-p": "Enter your email and new password to continue",
+            "input-email": "Email",
             "input-new-password": "New password",
-            "request-success": "Confirmation e-mail was sent to that address if this account exists"
+            "request-success": "Confirmation email was sent to that address if this account exists"
         },
         "blog": {
             "warn-h1": "Warning",
@@ -206,11 +206,11 @@
             "hds-password-placeholder-1": "Verify your old password",
             "hds-password-label-2": "New password",
             "hds-password-placeholder-2": "Provide your new password",
-            "hds-email-btn": "E-mail",
-            "hds-email-h1": "Change your e-mail",
+            "hds-email-btn": "Email",
+            "hds-email-h1": "Change your email",
             "hds-email-p": "The address where we can contact you if there is an unusual activity on your account or if you'll get locked out. You can also use it to log in.",
-            "hds-email-label-1": "New e-mail",
-            "hds-email-placeholder-1": "Provide your new e-mail",
+            "hds-email-label-1": "New email",
+            "hds-email-placeholder-1": "Provide your new email",
             "hds-mfa-btn": "MFA",
             "hds-mfa-h1": "Multi-factor authentication",
             "hds-mfa-p": "A better way to secure your account from hackers. You can toggle MFA on or off here.",
@@ -239,6 +239,10 @@
             "input-avatar-too-big": "The file you are trying to upload is too big",
             "input-avatar-not-allowed": "The file type you are trying to upload is not allowed",
             "input-bio": "About me",
+            "input-website": "Website",
+            "input-pgp": "Encrypt messages from Nove with PGP key (optional)",
+            "input-pgp-placeholder": "Begins with '-----BEGIN PGP PUBLIC KEY BLOCK-----'",
+            "input-activity-notify": "Receive notification when a new device logs in to your account",
             "input-profile-state-label": "Display more details on your public profile"
         },
         "language": {
@@ -276,7 +280,7 @@
             "inf-p1": "We host our projects on the infrastructure provided by FTdL (<a href=\"https://ftdl.pl/services/\" rel=\"noopener noreferrer\" target=\"_blank\">website</a>) which is located in Krakow, Poland. Your data manager is Nove (nove.team; <a href=\"mailto:reply@nove.team\">reply@nove.team</a>)",
             "inf-p2": "In our database, we only store necessary info you provided us through NAPI. Detailing",
             "inf-li-1": "username (shown always)",
-            "inf-li-2": "e-mail (not shown)",
+            "inf-li-2": "email (not shown)",
             "inf-li-3": "account about me (not shown on private profile)",
             "inf-li-4": "account language (not shown on private profile)",
             "inf-li-5": "account creation date (not shown on private profile)",
@@ -288,7 +292,7 @@
             "inf-li-11": "account avatar (shown)",
             "inf-p3": "Some of this info is accessible publicly and we provide a tool that allows you to change the state of your profile. Sensitive data like language, account about me is not displayed if you change it to private.",
             "inf-p4": "We have additional features that collect data and are disabled by default: device logger. When enabled it collects device IP and platform (OS, type). It displays that information in the account security tab. That data is stored for 30 days on our servers and later is deleted. If you opt-out from this feature the data is immediately deleted.",
-            "inf-p5": "Provided e-mail is not used for marketing purposes.",
+            "inf-p5": "Provided email is not used for marketing purposes.",
             "drp-header": "Data retention policy",
             "drp-p1": "To delete your account go to Security section on the Account page, then scroll down to 'Delete Nove account'.",
             "drp-p2": "Data you have encrypted in our services using your password is truly encrypted and we cannot decrypt it.",
@@ -313,7 +317,7 @@
             "li-5": "By abusing our API you expose your account for possible suspension by managers.",
             "li-5-li-1": "Sending too many requests for the same thing to the API is abuse",
             "li-5-li-2": "Sending prepared exploits to the API is abuse",
-            "li-5-li-3": "Any discovered bugs have to be imminently reported through e-mail or Gitea Issues",
+            "li-5-li-3": "Any discovered bugs have to be imminently reported through email or Gitea Issues",
             "li-6": "If we will be forced by law enforcement to show everything we got on a user, we will share it with them.",
             "p4": "Please do not create multiple accounts. Keep things simple.",
             "p5": "We have the right to update Privacy Policy and Terms of Service without notifying our users."

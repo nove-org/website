@@ -240,6 +240,10 @@
             "input-avatar-too-big": "Plik, który próbujeta przesłać zbyt jebitny",
             "input-avatar-not-allowed": "Plik, który próbujeta przesłać je niedozwolony",
             "input-bio": "O mie",
+            "input-website": "Strona internyetowa",
+            "input-pgp": "Szyfrujta wiadomości klóczem PGP od Nove (opcjonalne)",
+            "input-pgp-placeholder": "Zaczyna siem od '-----BEGIN PGP PUBLIC KEY BLOCK-----'",
+            "input-activity-notify": "Otrzymej powiadomienie gdy nowe órządzenie loguje siem na Wasze kunto",
             "input-profile-state-label": "Wyświetlaj wincyj informacji na póblicznym profilarzu"
         },
         "language": {

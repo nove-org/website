@@ -19,7 +19,7 @@ export default function Form({ user, code, saveChanges }: { user: User; code: La
     const handleLanguage = async (e: FormData) => (
         setLoading(true),
         await patchUser({ language: e.get('language')?.toString() })
-            .then((r) => (setLoading(false), router.refresh()))
+            .then(() => setTimeout(() => (setLoading(false), router.refresh()), 1500))
             .catch((err: AxiosError) => (setLoading(false), alert(errorHandler(err.response?.data as Response<null>))))
     );
 

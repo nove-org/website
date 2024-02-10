@@ -43,7 +43,7 @@ export async function patchEmail({ newEmail, code }: EmailPatch): Promise<Succes
     return new Promise(async (resolve, reject) => {
         const email: Response<Success> = (
             await axiosClient
-                .patch(
+                .post(
                     '/v1/users/emailReset',
                     { newEmail },
                     {
@@ -84,7 +84,7 @@ export async function patchPassword({ oldPassword, newPassword, code }: Password
     });
 }
 
-export async function patchUser({ username, bio, pubkey, language, trackActivity, activityNotify, profilePublic }: UserPatch): Promise<string[]> {
+export async function patchUser({ username, bio, pubkey, language, trackActivity, activityNotify, profilePublic, website }: UserPatch): Promise<string[]> {
     return new Promise(async (resolve, reject) => {
         const user: Response<string[]> = (
             await axiosClient
@@ -93,6 +93,7 @@ export async function patchUser({ username, bio, pubkey, language, trackActivity
                     {
                         username,
                         bio,
+                        website,
                         pubkey,
                         language,
                         trackActivity,
