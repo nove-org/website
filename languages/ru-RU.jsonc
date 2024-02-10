@@ -29,7 +29,6 @@
 
      ? WARNING: The text shouldn't extend the original English version by much. It will wrap weirdly on the page.
 
-     Russian language file
      Translated by Alexander M. Yell "https://mastodon.nove.team/@NotYourMagicBonkStick"
     */
     "modules": {
@@ -241,6 +240,9 @@
             "input-avatar-not-allowed": "Тип файла, который Вы пытаете загрузить, не разрешен",
             "input-bio": "Обо мне",
             "input-website": "Саит",
+            "input-pgp": "Шифруйте сообщения от xxxx с помощью ключа PGP (необязательно)",
+            "input-pgp-placeholder": "Начинается с '-----BEGIN PGP PUBLIC KEY BLOCK-----'",
+            "input-activity-notify": "Получайте уведомление, когда новое устройство входит в ваш аккаунт",
             "input-profile-state-label": "Покажите больше деталей на Вашем публичном профиле"
         },
         "language": {
@@ -276,7 +278,7 @@
             "p3": "By using our services you agree to our Privacy Policy and Terms of Service.",
             "inf-header": "Infrastructure",
             "inf-p1": "We host our projects on the infrastructure provided by FTdL (<a href=\"https://ftdl.pl/services/\" rel=\"noopener noreferrer\" target=\"_blank\">website</a>) which is located in Krakow, Poland. Your data administrator is Nove (nove.team; <a href=\"mailto:reply@nove.team\">reply@nove.team</a>)",
-            "inf-p2": "In our database, we only store necessary info you provided us through NAPI. Detailing",
+            "inf-p2": "In our database, we only store necessary inyoufo you provided us through NAPI. Detailing",
             "inf-li-1": "username (shown always)",
             "inf-li-2": "e-mail (not shown)",
             "inf-li-3": "account about me (not shown on private profile)",
