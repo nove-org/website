@@ -30,6 +30,7 @@
      ? WARNING: The text shouldn't extend the original English version by much. It will wrap weirdly on the page.
 
      Translated by wnm210 "https://matt.nove.team" <matt@nove.team>
+     Corrected by Alexander M. Yell "https://mastodon.nove.team/@NotYourMagicBonkStick"
     */
     "modules": {
         "navigation": {
@@ -92,7 +93,7 @@
             "title": "Wejdź do świata, gdzie Twoja prywatność ma znaczenie",
             "hero-h1": "Wejdź do świata, gdzie <span>Twoja prywatność</span> ma znaczenie.",
             "hero-note-trust": "Nie wierz nam na słowo. Przejrzyj nasz <a class={style} target=\"_blank\" rel=\"noopener noreferrer\" href={repository}>kod</a> samodzielnie",
-            "hero-description": "Porzuć Google, Facebooka i innych sprzedających Twoje dane, profilujących Cię i śledzących. Odzyskaj kontrolę i zacznij używać otwartoźródłowych, darmowych i respektujących prywatność rozwiązań Nove.",
+            "hero-description": "Porzuć Google, Facebooka i innych sprzedających Twoje dane, profilujących Cię i śledzących. Odzyskaj kontrolę i zacznij używać otwartoźródłowych, darmowych i szanujących prywatność rozwiązań Nove.",
             "hero-btn": "Zacznij juz dziś",
             "word-h1": "W naszym ekosystemie Twoje dane to Twoja sprawa.",
             "word-card1-title": "Przechowywane bezpiecznie",
@@ -152,8 +153,8 @@
             "request-success": "Wiadomość potwierdzająca została wysłana na podany adres"
         },
         "blog": {
-            "warn-h1": "Warning",
-            "warn-p": "Right now, we only share posts in English but it will change in the future as we evolve."
+            "warn-h1": "Ostrzeżenie",
+            "warn-p": "Obecnie, wstawiamy posty tylko po angielsku, ale to się zmieni w przyszłości wraz z naszym rozwojem."
         }
     },
     "dashboard": {
@@ -172,7 +173,7 @@
         "main": {
             "tips-header": "Jak poprawić bezpieczeństwo i prywatność",
             "tips-1": "Używaj oprogramowania FOSS",
-            "tips-2": "Włącz weryfikacje dwuetapową",
+            "tips-2": "Włącz weryfikacje dwuetapową", 
             "tips-3": "Nie twórz zbyt dużej ilości kont",
             "card-1-h1": "Język",
             "card-1-p": "Zmień język wyświetlany we wszystkich usługach Nove",
@@ -212,7 +213,7 @@
             "hds-email-label-1": "Nowy email",
             "hds-email-placeholder-1": "Podaj nowy email",
             "hds-mfa-btn": "MFA",
-            "hds-mfa-h1": "Weryfikacja dwuetapowa",
+            "hds-mfa-h1": "Weryfikacja wieloetapowa",
             "hds-mfa-p": "Zabezpiecz swoje konto przed osobami, które chcą je ukraść. Możesz tu włączyć lub wyłączyć MFA.",
             "hds-mfa-label-code": "Kod",
             "hds-mfa-recovery-codes": "Kody zapasowe",
@@ -221,7 +222,7 @@
             "hds-recovery-p": "Kopiuj kody zapasowe twojego konta, jako awaryjna metoda logowania, gdy zgubisz swój telefon z aplikacją TOTP.",
             "hds-recovery-label": "Kod MFA",
             "delete-h1": "Usuń moje konto Nove",
-            "delete-p": "Aby usunąć konto, musisz podać swoje hasło w celach bezpieczeństwa. Ten proces jest nieodwracalny, a my niezwłocznie usuniemy dane z naszych serwerów! Możesz usunąć swoje konto kiedy tylko zechcesz i nie musisz się z nami w tej sprawie kontaktować. Pamiętaj, aby usunąć wszystkie konta zarejestrowane przez OAuth2. W innym wypadku mogą być niedostępne.",
+            "delete-p": "Aby usunąć konto, musisz podać swoje hasło w celach bezpieczeństwa. Ten proces jest nieodwracalny! Niezwłocznie usuniemy dane z naszych serwerów! Możesz usunąć swoje konto kiedy tylko zechcesz i nie musisz się z nami w tej sprawie kontaktować. Pamiętaj, aby usunąć wszystkie konta zarejestrowane przez OAuth2. W innym wypadku mogą być niedostępne.",
             "delete-p2": "Podaj Twoje hasło abyśmy mogli zweryfikować twoją tożsamość. Pamiętaj aby usunąć wszystkie konta zarejestrowane przez OAuth2. W innym wypadku mogą być niedostępne. Ta akcja jest wykonywana od razu i nie ma odwrotu.",
             "delete-label": "Twoje hasło",
             "delete-placeholder": "Hasło",
