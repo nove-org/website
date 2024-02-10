@@ -115,18 +115,18 @@
         "about": {
             "hero-h1": "Our <b>goal</b> is to make the Internet <span>private</span> and <span>safe</span> for everyone",
             "hero-p": "We provide tools free from bloatware, trackers and annoying advertisements. With free & open-source policy.",
-            "pos1": "CEO, front-end developer and UI/UX designer",
-            "pos2": "Main back-end developer, code maintainer",
-            "pos3": "UI/UX designer and project manager",
-            "pos4": "Front-end developer and CEO of Peekr",
-            "pos5": "Retired back-end developer"
+            "pos1": "Владелец, фронтенд разработчик и дизайнер интерфейсов (UI/UX)",
+            "pos2": "Главный бэкенд-разработчик и сопровождающий код",
+            "pos3": "Дизайнер интерфейсов (UI/UX) и менеджер проекта",
+            "pos4": "Фронтенд разработчик и владелец Peekr",
+            "pos5": "Оставный бэкенд разработчик"
         },
         "foss": {
-            "hero-h1": "We love <span>free</span> and <span>open-source</span>",
-            "hero-p": "Because <b>open-source</b> software takes essential part in working together, protecting users' privacy, and ensuring app reliability.",
-            "ul-napi": "Create your desired applications with use of NAPI OAuth2 system which provides access to signing in with Nove.",
-            "ul-manager": "Official website that is used by us on our main domain to serve graphical access to the NAPI.",
-            "ul-files": "General purpose cloud hosting with password encrypted uploads available to everyone with just one click."
+            "hero-h1": "Мы любим <span>свободное</span> и <span>открытое исходное</span>",
+            "hero-p": "Поэтому что программное обеспечение с <b>открытым исходным кодом</b> принимает существенное участие в совместнои работе, защите конфиденциальности пользователей и обеспечении надежности прилиожения.",
+            "ul-napi": "Создавайте желаемые приложения, используя систему NAPI OAuth2, которая обеспечивает доступ к входу в систему с помощью Nove.",
+            "ul-manager": "Официальный сайт, который мы используем на нашем основном домене для предоставления графического доступа к NAPI.",
+            "ul-files": "Облачный хостинг общего назначения с зашифрованной паролем загрузкой, доступной каждому одним щелчком."
         },
         "login": {
             "hero-h1": "Добро пожаловайте снова",
