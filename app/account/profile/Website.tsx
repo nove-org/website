@@ -14,7 +14,7 @@ export default function Website({ user, lang }: { user: User; lang: { header: st
 
     const handleSubmit = async (e: FormData) => (
         setLoading(true),
-        await patchUser({ website: !user.website ? e.get('website')?.toString() : 'https://nove.team/delete' })
+        await patchUser({ website: !user.website ? e.get('website')?.toString() : '' })
             .then(() => setTimeout(() => (setLoading(false), router.refresh()), 1500))
             .catch((err: AxiosError) => (setLoading(false), alert(errorHandler(err.response?.data as Response<null>))))
     );

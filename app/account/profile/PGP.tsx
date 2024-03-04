@@ -14,7 +14,7 @@ export default function PGP({ user, lang }: { user: User; lang: { header: string
 
     const handleSubmit = async (e: FormData) => (
         setLoading(true),
-        await patchUser({ pubkey: !user.pubkey ? e.get('pubkey')?.toString() : 'false' })
+        await patchUser({ pubkey: !user.pubkey ? e.get('pubkey')?.toString() : '' })
             .then(() => setTimeout(() => (setLoading(false), router.refresh()), 1500))
             .catch((err: AxiosError) => (setLoading(false), alert(errorHandler(err.response?.data as Response<null>))))
     );
