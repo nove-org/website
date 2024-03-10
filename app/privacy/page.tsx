@@ -1,5 +1,4 @@
-export const dynamic = 'force-dynamic';
-import o from '@sass/article.module.sass';
+import o from '@sass/blog.module.sass';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import { getUser } from '@util/helpers/User';
 import { headers } from 'next/headers';
@@ -18,44 +17,180 @@ export async function generateMetadata() {
 }
 
 export default async function Privacy() {
-    const lang = await new LanguageHandler('documents/privacy-policy', await getUser()).init(headers());
+    const user = await getUser();
+    const lang = await new LanguageHandler('documents/privacy-policy', user).init(headers());
 
     return (
-        <article className={o.content}>
-            <h1>{lang.getProp('title')}</h1>
-            <h2 dangerouslySetInnerHTML={{ __html: lang.getProp('last-modified') }}></h2>
-            <p>{lang.getProp('p1')}</p>
-            <p>{lang.getProp('p2')}</p>
-            <p>{lang.getProp('p3')}</p>
-
-            <h2>{lang.getProp('inf-header')}</h2>
-            <p dangerouslySetInnerHTML={{ __html: lang.getProp('inf-p1') }} />
-            <p>{lang.getProp('inf-p2')}</p>
-            <ul>
-                <li>{lang.getProp('inf-li-1')}</li>
-                <li>{lang.getProp('inf-li-2')}</li>
-                <li>{lang.getProp('inf-li-3')}</li>
-                <li>{lang.getProp('inf-li-4')}</li>
-                <li>{lang.getProp('inf-li-5')}</li>
-                <li>{lang.getProp('inf-li-6')}</li>
-                <li>{lang.getProp('inf-li-7')}</li>
-                <li>{lang.getProp('inf-li-8')}</li>
-                <li>{lang.getProp('inf-li-9')}</li>
-                <li>{lang.getProp('inf-li-10')}</li>
-                <li>{lang.getProp('inf-li-11')}</li>
-            </ul>
-            <p>{lang.getProp('inf-p3')}</p>
-            <p>{lang.getProp('inf-p4')}</p>
-            <p>{lang.getProp('inf-p5')}</p>
-
-            <h2>{lang.getProp('drp-header')}</h2>
-            <p>{lang.getProp('drp-p1')}</p>
-            <p>{lang.getProp('drp-p2')}</p>
-            <p>{lang.getProp('drp-p3')}</p>
-            <p>{lang.getProp('drp-p4')}</p>
-            <p>{lang.getProp('drp-p5')}</p>
-            <p>{lang.getProp('drp-p6')}</p>
-            <p>{lang.getProp('drp-p7')}</p>
+        <article className={o.blog}>
+            <div className={o.content}>
+                <h1>{lang.getProp('title')}</h1>
+                <time>
+                    {lang.getProp('last-modified', {
+                        time: new Date(2024, 2, 10).toLocaleString(user?.language || 'en-US', { day: 'numeric', month: 'long', year: 'numeric' }),
+                    })}
+                </time>
+                <p>{lang.getProp('s1-p1')}</p>
+                <p>{lang.getProp('s1-p2')}</p>
+                <h2>{lang.getProp('s2')}</h2>
+                <p>{lang.getProp('s2-p1')}</p>
+                <ul>
+                    <li
+                        dangerouslySetInnerHTML={{
+                            __html: lang.getProp('u1-l1', { emails: '<a href="mailto:reply@nove.team">reply@nove.team</a>, <a href="mailto:matt@nove.team">matt@nove.team</a>' }),
+                        }}
+                    />
+                    <li dangerouslySetInnerHTML={{ __html: lang.getProp('u1-l2', { link: '<a href="https://mastodon.nove.team/@nove">@nove@nove.team</a>' }) }} />
+                </ul>
+                <h2>{lang.getProp('s3')}</h2>
+                <p>{lang.getProp('s3-p1')}</p>
+                <ul>
+                    <li>{lang.getProp('u2-l1')}</li>
+                    <li>{lang.getProp('u2-l2')}</li>
+                    <li>{lang.getProp('u2-l3')}</li>
+                    <li>{lang.getProp('u2-l4')}</li>
+                </ul>
+                <p dangerouslySetInnerHTML={{ __html: lang.getProp('s3-p2', { link: '<a href="https://uodo.gov.pl">https://uodo.gov.pl</a>' }) }} />
+                <h2>{lang.getProp('s4')}</h2>
+                <p>{lang.getProp('s4-p1')}</p>
+                <ul>
+                    <li>{lang.getProp('u3-l1')}</li>
+                    <li>{lang.getProp('u3-l2')}</li>
+                </ul>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>{lang.getProp('th-1')}</th>
+                            <th>{lang.getProp('th-2')}</th>
+                            <th>{lang.getProp('th-3')}</th>
+                            <th>{lang.getProp('th-4')}</th>
+                        </tr>
+                        <tr>
+                            <td>{lang.getProp('td-username')}</td>
+                            <td>{lang.getProp('td-visible')}</td>
+                            <td>{lang.getProp('td-visible')}</td>
+                            <td>{lang.getProp('td-not-encrypted')}</td>
+                        </tr>
+                        <tr>
+                            <td>{lang.getProp('td-avatar')}</td>
+                            <td>{lang.getProp('td-visible')}</td>
+                            <td>{lang.getProp('td-visible')}</td>
+                            <td>{lang.getProp('td-not-encrypted')}</td>
+                        </tr>
+                        <tr>
+                            <td>{lang.getProp('td-bio')}</td>
+                            <td>{lang.getProp('td-visible')}</td>
+                            <td>{lang.getProp('td-hidden')}</td>
+                            <td>{lang.getProp('td-encrypted-private', { marks: '¹' })}</td>
+                        </tr>
+                        <tr>
+                            <td>{lang.getProp('td-website')}</td>
+                            <td>{lang.getProp('td-visible')}</td>
+                            <td>{lang.getProp('td-hidden')}</td>
+                            <td>{lang.getProp('td-encrypted-private', { marks: '¹' })}</td>
+                        </tr>
+                        <tr>
+                            <td>{lang.getProp('td-language')}</td>
+                            <td>{lang.getProp('td-visible')}</td>
+                            <td>{lang.getProp('td-hidden')}</td>
+                            <td>{lang.getProp('td-encrypted-private', { marks: '¹' })}</td>
+                        </tr>
+                        <tr>
+                            <td>{lang.getProp('td-creation')}</td>
+                            <td>{lang.getProp('td-visible')}</td>
+                            <td>{lang.getProp('td-hidden')}</td>
+                            <td>{lang.getProp('td-not-encrypted')}</td>
+                        </tr>
+                        <tr>
+                            <td>{lang.getProp('td-email')}</td>
+                            <td>{lang.getProp('td-hidden')}</td>
+                            <td>{lang.getProp('td-hidden')}</td>
+                            <td>{lang.getProp('td-not-encrypted')}</td>
+                        </tr>
+                        <tr>
+                            <td>{lang.getProp('td-pgp')}</td>
+                            <td>{lang.getProp('td-hidden')}</td>
+                            <td>{lang.getProp('td-hidden')}</td>
+                            <td>{lang.getProp('td-not-encrypted')}</td>
+                        </tr>
+                        <tr>
+                            <td>{lang.getProp('td-permissions')}</td>
+                            <td>{lang.getProp('td-hidden')}</td>
+                            <td>{lang.getProp('td-hidden')}</td>
+                            <td>{lang.getProp('td-not-encrypted')}</td>
+                        </tr>
+                        <tr>
+                            <td>{lang.getProp('td-token')}</td>
+                            <td>{lang.getProp('td-hidden')}</td>
+                            <td>{lang.getProp('td-hidden')}</td>
+                            <td>{lang.getProp('td-fully-encrypted', { marks: '' })}</td>
+                        </tr>
+                        <tr>
+                            <td>{lang.getProp('td-password')}</td>
+                            <td>{lang.getProp('td-hidden')}</td>
+                            <td>{lang.getProp('td-hidden')}</td>
+                            <td>{lang.getProp('td-fully-encrypted', { marks: '' })}</td>
+                        </tr>
+                        <tr>
+                            <td>{lang.getProp('td-mfa')}</td>
+                            <td>{lang.getProp('td-na')}</td>
+                            <td>{lang.getProp('td-na')}</td>
+                            <td>{lang.getProp('td-unknown')}</td>
+                        </tr>
+                        <tr>
+                            <td>{lang.getProp('td-recovery')}</td>
+                            <td>{lang.getProp('td-na')}</td>
+                            <td>{lang.getProp('td-na')}</td>
+                            <td>{lang.getProp('td-unknown')}</td>
+                        </tr>
+                        <tr>
+                            <td>{lang.getProp('td-devices')}</td>
+                            <td>{lang.getProp('td-na')}</td>
+                            <td>{lang.getProp('td-na')}</td>
+                            <td>{lang.getProp('td-fully-encrypted', { marks: '' })}</td>
+                        </tr>
+                        <tr>
+                            <td>{lang.getProp('td-oauth2-tokens')}</td>
+                            <td>{lang.getProp('td-na')}</td>
+                            <td>{lang.getProp('td-na')}</td>
+                            <td>{lang.getProp('td-fully-encrypted', { marks: '¹' })}</td>
+                        </tr>
+                        <tr>
+                            <td>{lang.getProp('td-oauth2s')}</td>
+                            <td>{lang.getProp('td-na')}</td>
+                            <td>{lang.getProp('td-na')}</td>
+                            <td>{lang.getProp('td-encryption-available', { marks: '¹ ²' })}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    {lang.getProp('s4-p2')}
+                    <br />
+                    {lang.getProp('s4-p3')}
+                </p>
+                <p>{lang.getProp('s4-p4')}</p>
+                <h2>{lang.getProp('s5')}</h2>
+                <p>{lang.getProp('s5-p1')}</p>
+                <ul>
+                    <li
+                        dangerouslySetInnerHTML={{
+                            __html: lang.getProp('u4-l1', { link: '<a href="https://ftdl.pl">https://ftdl.pl</a>', mail: '<a href="mailto:biuro@ftdl.pl">biuro@ftdl.pl</a>' }),
+                        }}
+                    />
+                    <li dangerouslySetInnerHTML={{ __html: lang.getProp('u4-l2', { link: '<a href="https://ovhcloud.com">https://ovhcloud.com</a>' }) }} />
+                    <li dangerouslySetInnerHTML={{ __html: lang.getProp('u4-l3', { link: '<a href="https://mastodon.nove.team/@nove">@nove@nove.team</a>' }) }} />
+                </ul>
+                <p>{lang.getProp('s5-p2')}</p>
+                <h2>{lang.getProp('s6')}</h2>
+                <p>{lang.getProp('s6-p1')}</p>
+                <h2>{lang.getProp('s7')}</h2>
+                <ul>
+                    <li>{lang.getProp('u5-l1')}</li>
+                    <li>{lang.getProp('u5-l2')}</li>
+                    <li>{lang.getProp('u5-l3')}</li>
+                    <li>{lang.getProp('u5-l4')}</li>
+                    <li>{lang.getProp('u5-l5')}</li>
+                </ul>
+            </div>
         </article>
     );
 }

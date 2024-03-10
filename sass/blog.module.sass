@@ -83,44 +83,53 @@ article.blog
     flex-direction: column
     gap: 20px
     & div.content
+        & h1, h2, p, strong, b, i, a, code, time, em, pre, li, td, th
+            user-select: text
         & h1
             font-size: 36px
             font-weight: 500
             margin: 10px 0
-            user-select: text
         & h2
             font-size: 26px
             font-weight: 500
             margin: 5px 0
             margin-top: 20px
-            user-select: text
         & p
             font-size: 18px
             margin: 0
             margin: 25px 0
-            user-select: text
         & hr
             border: 1px dashed var(--font-st)
             opacity: 0.5
             margin: 15px 0
+        & table
+            width: 100%
+            border: 1px solid var(--font-st)
+            & th
+                font-size: 16px
+                font-weight: 500
+            & td, th
+                border: 1px solid var(--font-st)
         & strong, b
             font-weight: 500
         & em
             font-size: 16px
             & a
                 font-size: 16px
+        & li
+            & a
+                font-size: 16px
         & a
             color: var(--accent-st)
             font-size: 18px
             text-decoration: none
-            user-select: text
+            margin: 0
+            margin-bottom: 10px
             &:hover
                 text-decoration: underline
         & code
             font-family: monospace
             font-size: 18px
-            user-select: text
-            user-select: text
         & button
             display: flex
             align-items: center
@@ -142,10 +151,6 @@ article.blog
                 background: var(--quaternary)
             & svg
                 rotate: 180deg
-        & a
-            font-size: 18px
-            margin: 0
-            margin-bottom: 10px
         & img
             border-radius: 20px
             width: 100%
