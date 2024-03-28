@@ -57,24 +57,24 @@ export default async function Home() {
                 <p>{lang.getProp('hero-description')}</p>
                 <ul>
                     <li>
-                        <a href="/register" className={o.button}>
+                        <Link href="/register" className={o.button}>
                             {!user?.username ? lang.getProp('hero-btn') : lang.getCustomProp('dashboard.layout.ul-profile')}
                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 30 30">
                                 <path
                                     fill="currentColor"
                                     d="M 9.9902344 3.9902344 A 1.0001 1.0001 0 0 0 9.2929688 5.7070312 L 18.585938 15 L 9.2929688 24.292969 A 1.0001 1.0001 0 1 0 10.707031 25.707031 L 20.707031 15.707031 A 1.0001 1.0001 0 0 0 20.707031 14.292969 L 10.707031 4.2929688 A 1.0001 1.0001 0 0 0 9.9902344 3.9902344 z"></path>
                             </svg>
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a href={DONATE_LINK} className={o.button}>
+                        <Link href={DONATE_LINK} className={o.button}>
                             {lang.getCustomProp('modules.navigation.ul-donate')}
                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
                                 <path
                                     fill="currentColor"
                                     d="M16.256,3.005C13.515,3.117,12,5.09,12,5.09s-1.515-1.973-4.256-2.085C5.906,2.93,4.221,3.845,3.111,5.312 c-3.862,5.104,3.45,11.075,5.17,12.678c1.029,0.959,2.299,2.098,3.057,2.773c0.379,0.338,0.944,0.338,1.323,0 c0.758-0.675,2.028-1.814,3.057-2.773c1.72-1.603,9.033-7.574,5.17-12.678C19.779,3.845,18.094,2.93,16.256,3.005z"></path>
                             </svg>
-                        </a>
+                        </Link>
                     </li>
                 </ul>
             </section>
@@ -141,7 +141,7 @@ export default async function Home() {
             <section className={o.ready}>
                 <h1>{lang.getProp('ready-h1')}</h1>
                 <p>{lang.getProp('ready-p')}</p>
-                <Link href="/register">
+                <Link className={o.button} href="/register">
                     {!user?.username ? lang.getProp('ready-btn') : lang.getCustomProp('dashboard.layout.ul-profile')}
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 30 30">
                         <path
