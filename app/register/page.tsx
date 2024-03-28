@@ -33,17 +33,21 @@ export default async function Register({ searchParams }: { searchParams: { [key:
             <div className={o.content}>
                 {!status ? <p className="error">{lang.getCustomProp('modules.errors.offline')}</p> : null}
                 <Logo size={48} />
-                <h1>{lang.getProp('hero-h1')}</h1>
-                <p>{lang.getProp('hero-p')}</p>
-                <RegisterForm
-                    lang={{
-                        inputEmail: lang.getProp('input-email'),
-                        inputUsername: lang.getProp('input-username'),
-                        inputPassword: lang.getProp('input-password'),
-                        inputBtn: lang.getCustomProp('modules.actions.proceed'),
-                    }}
-                    searchParam={redirectBack}
-                />
+                <div className={o.flex}>
+                    <aside>
+                        <h1>{lang.getProp('hero-h1')}</h1>
+                        <p>{lang.getProp('hero-p')}</p>
+                    </aside>
+                    <RegisterForm
+                        lang={{
+                            inputEmail: lang.getProp('input-email'),
+                            inputUsername: lang.getProp('input-username'),
+                            inputPassword: lang.getProp('input-password'),
+                            inputBtn: lang.getCustomProp('modules.actions.proceed'),
+                        }}
+                        searchParam={redirectBack}
+                    />
+                </div>
             </div>
         </section>
     );

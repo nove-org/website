@@ -30,32 +30,40 @@ export default async function PasswordReset({ searchParams }: { searchParams: [k
         <section className={o.box}>
             <div className={o.content}>
                 <Logo size={48} />
-                <h1>{lang.getProp('hero-h1')}</h1>
-                <p>{lang.getProp('hero-p')}</p>
-                <ResetForm
-                    lang={{
-                        inputBtn: lang.getCustomProp('modules.actions.proceed'),
-                        inputEmail: lang.getProp('input-email'),
-                        inputNewPassword: lang.getProp('input-new-password'),
-                        success: lang.getProp('request-success'),
-                    }}
-                />
+                <div className={o.flex}>
+                    <aside>
+                        <h1>{lang.getProp('hero-h1')}</h1>
+                        <p>{lang.getProp('hero-p')}</p>
+                    </aside>
+                    <ResetForm
+                        lang={{
+                            inputBtn: lang.getCustomProp('modules.actions.proceed'),
+                            inputEmail: lang.getProp('input-email'),
+                            inputNewPassword: lang.getProp('input-new-password'),
+                            success: lang.getProp('request-success'),
+                        }}
+                    />
+                </div>
             </div>
         </section>
     ) : (
         <section className={o.box}>
             <div className={o.content}>
                 <Logo size={48} />
-                <h1>Confirm password reset</h1>
-                <p>Type your new password again to confirm</p>
-                <ConfirmForm
-                    code={key}
-                    lang={{
-                        inputBtn: lang.getCustomProp('modules.actions.proceed'),
-                        inputNewPassword: lang.getProp('input-new-password'),
-                        success: lang.getProp('request-success'),
-                    }}
-                />
+                <div className={o.flex}>
+                    <aside>
+                        <h1>Confirm password reset</h1>
+                        <p>Type your new password again to confirm</p>
+                    </aside>
+                    <ConfirmForm
+                        code={key}
+                        lang={{
+                            inputBtn: lang.getCustomProp('modules.actions.proceed'),
+                            inputNewPassword: lang.getProp('input-new-password'),
+                            success: lang.getProp('request-success'),
+                        }}
+                    />
+                </div>
             </div>
         </section>
     );

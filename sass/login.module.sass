@@ -5,72 +5,108 @@ section.box
     justify-content: center
     min-height: calc( 100vh - 68px )
     & div.content
-        max-width: 330px
-        padding: 35px
-        border: 1px solid var(--secondary)
-        border-radius: var(--box-roundness)
-        margin: auto
-        display: flex
-        flex-direction: column
-        align-items: center
-        justify-content: center
+        max-width: 1100px
+        width: 100%
+        @media screen and (max-width: 800px)
+            margin: 0 auto
+            width: fit-content
+        & img
+            padding: 20px
+            background: var(--secondary)
+            border-radius: 20px
+        & div.flex
+            display: flex
+            justify-content: space-between
+            margin-top: 10px
+            gap: 4rem
+            @media screen and (max-width: 800px)
+                flex-direction: column
+                gap: 2rem
         & a
             text-decoration: none
-            color: var(--font-st)
-            opacity: .7
+            color: var(--font-rd)
             font-size: 14px
-            font-weight: 400
+            font-weight: 500
             text-transform: none
             &:hover
-                opacity: 1
-        & h1
-            margin: 5px 0
-            margin-top: 15px
-            font-size: 32px
-            font-weight: 500
-            text-align: center
-        & p
-            margin: 15px 0
-            margin-top: -5px
-            font-size: 20px
-            font-weight: 400
-            text-align: center
-        & form.login
-            width: 100%
-            & label
-                font-size: 14px
-                font-weight: 600
-                text-transform: uppercase
-                margin: 0
-                margin-bottom: 3px
-                display: flex
-                align-items: center
-                justify-content: space-between
-            & input[type=text], input[type=password], input[type=email]
-                color: var(--font-st)
-                border-radius: 50px
-                width: calc( 100% - 12px * 2 )
-                padding: 10px 12px
-                margin: 5px 0 10px 0
-                border: 0
-                background: var(--secondary-nd)
-                outline: 0
-                font-size: 14px
-            & button[type=submit]
-                border-radius: 50px
-                width: fit-content
-                display: flex
-                align-items: center
-                margin: 0
-                background: var(--secondary)
-                color: var(--font-st)
+                text-decoration: underline
+        & aside
+            max-width: 400px
+            & h1
+                font-size: 42px
                 font-weight: 500
-                font-size: 14px
-                padding: 9px 12px
-                outline: 0
-                border: 0
-                cursor: pointer
-                transition: background-color .15s linear
-                margin-top: 10px
-                &:hover
-                    background: var(--quaternary)
+                margin: 5px 0
+            & p
+                font-size: 16px
+                margin: 5px 0
+        & form.login
+            max-width: 400px
+            width: 100%
+            display: flex
+            flex-direction: column
+            gap: 15px
+            & label
+                font-size: 16px
+                font-weight: 500
+                display: flex
+                flex-direction: column
+                gap: 5px
+                & input[type=text], input[type=password], input[type=email]
+                    color: var(--font-st)
+                    border-radius: 7px
+                    width: calc( 100% - 15px * 2 )
+                    padding: 14px
+                    font-size: 16px !important
+                    background: 0
+                    border: 1px solid var(--accent-st)
+                    outline: 0
+                    font-size: 14px
+            & div.buttons
+                display: flex
+                justify-content: flex-end
+                gap: 15px
+                margin-top: 40px
+                width: 100%
+                & a
+                    font-size: 16px
+                    font-weight: 500
+                    display: flex
+                    align-items: center
+                    padding: 10px 14px
+                    border-radius: 50px
+                    transition: background-color .15s linear
+                    cursor: pointer
+                    color: var(--font-rd)
+                    text-decoration: none
+                    gap: 5px
+                    text-align: center
+                    font-weight: 500
+                    @media screen and (max-width: 300px)
+                        width: calc( 100% - 15px * 2 )
+                        max-width: 100%
+                        justify-content: space-between
+                    &:hover
+                        background: var(--tertiary)
+                & button
+                    border: 0
+                    outline: 0
+                    font-size: 16px
+                    font-weight: 500
+                    display: flex
+                    align-items: center
+                    padding: 10px 14px
+                    border-radius: 50px
+                    background: var(--accent-st)
+                    transition: background-color .15s linear
+                    cursor: pointer
+                    color: var(--primary)
+                    text-decoration: none
+                    gap: 5px
+                    text-align: center
+                    font-weight: 500
+                    @media screen and (max-width: 300px)
+                        width: calc( 100% - 15px * 2 )
+                        max-width: 100%
+                        justify-content: space-between
+                    &:hover
+                        background: var(--font-nd)

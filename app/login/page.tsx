@@ -33,22 +33,26 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
             <div className={o.content}>
                 {!status ? <p className="error">{lang.getCustomProp('modules.errors.offline')}</p> : null}
                 <Logo size={48} />
-                <h1>{lang.getProp('hero-h1')}</h1>
-                <p>{lang.getProp('hero-p')}</p>
-                <LoginForm
-                    lang={{
-                        inputLogin: lang.getProp('input-login'),
-                        inputPassword: lang.getProp('input-password'),
-                        inputBtn: lang.getCustomProp('modules.actions.proceed'),
-                        mfaTitle: lang.getProp('mfa-h1'),
-                        mfaDescription: lang.getProp('mfa-p'),
-                        mfaLabel: lang.getProp('mfa-label'),
-                        mfaCancel: lang.getCustomProp('modules.actions.cancel'),
-                        mfaSubmit: lang.getCustomProp('modules.navigation.login-btn'),
-                        forgor: lang.getProp('password-reset'),
-                    }}
-                    searchParam={redirectBack}
-                />
+                <div className={o.flex}>
+                    <aside>
+                        <h1>{lang.getProp('hero-h1')}</h1>
+                        <p>{lang.getProp('hero-p')}</p>
+                    </aside>
+                    <LoginForm
+                        lang={{
+                            inputLogin: lang.getProp('input-login'),
+                            inputPassword: lang.getProp('input-password'),
+                            inputBtn: lang.getCustomProp('modules.actions.proceed'),
+                            mfaTitle: lang.getProp('mfa-h1'),
+                            mfaDescription: lang.getProp('mfa-p'),
+                            mfaLabel: lang.getProp('mfa-label'),
+                            mfaCancel: lang.getCustomProp('modules.actions.cancel'),
+                            mfaSubmit: lang.getCustomProp('modules.navigation.login-btn'),
+                            forgor: lang.getProp('password-reset'),
+                        }}
+                        searchParam={redirectBack}
+                    />
+                </div>
             </div>
         </section>
     );
