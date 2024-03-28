@@ -50,14 +50,14 @@ export default async function Navigation({ user }: { user?: User }) {
                                         </h1>
                                         <p>{lang.getProp('products-napi')}</p>
                                     </a>
-                                    <a href="https://procurel.nove.team">
+                                    <a href="https://procurel.com">
                                         <h1>
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
                                                 <path
                                                     fill="currentColor"
                                                     d="M 3 3 C 1.895 3 1 3.895 1 5 L 1 17 C 1 18.105 1.895 19 3 19 L 4.6523438 19 C 5.1993437 18.197 6.073875 17.514 7.171875 17 L 3 17 L 3 5 L 21 5 L 21 17 L 16.828125 17 C 17.926125 17.514 18.800656 18.197 19.347656 19 L 21 19 C 22.105 19 23 18.105 23 17 L 23 5 C 23 3.895 22.105 3 21 3 L 3 3 z M 12 10 C 10.3 10 9 11.3 9 13 C 9 14.7 10.3 16 12 16 C 13.7 16 15 14.7 15 13 C 15 11.3 13.7 10 12 10 z M 12 18 C 8.722 18 6 19.429 6 21 L 6 22 L 18 22 L 18 21 C 18 19.429 15.278 18 12 18 z"></path>
                                             </svg>
-                                            CRM
+                                            Procurel
                                         </h1>
                                         <p>{lang.getProp('products-crm')}</p>
                                     </a>
