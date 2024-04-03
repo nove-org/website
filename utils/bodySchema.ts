@@ -76,6 +76,7 @@ export interface ResetPasswordPost {
 
 export interface ConfirmResetPasswordPost {
     code?: string;
+    userId?: string;
     newPassword?: string;
 }
 

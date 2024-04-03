@@ -29,9 +29,9 @@ export async function resetPasswordCall({ email, newPassword }: ResetPasswordPos
     });
 }
 
-export async function confirmResetPasswordCall({ code, newPassword }: ConfirmResetPasswordPost): Promise<Success & User> {
+export async function confirmResetPasswordCall({ code, userId, newPassword }: ConfirmResetPasswordPost): Promise<Success & User> {
     return new Promise(async (resolve, reject) => {
-        const success: Response<Success & User> = (await axiosClient.post(`/v1/users/passwordKey`, { code, password: newPassword }).catch((e) => reject(e)))?.data;
+        const success: Response<Success & User> = (await axiosClient.post(`/v1/users/passwordKey`, { code, userId, password: newPassword }).catch((e) => reject(e)))?.data;
 
         resolve(success?.body?.data);
     });

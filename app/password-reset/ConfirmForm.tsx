@@ -8,9 +8,9 @@ import { Response } from '@util/schema';
 import { COOKIE_HOSTNAME } from '@util/CONSTS';
 import { setCookie } from 'cookies-next';
 
-export default function ConfirmForm({ code, lang }: { code: string; lang: { inputNewPassword: string; inputBtn: string; success: string } }) {
+export default function ConfirmForm({ code, userId, lang }: { code: string; userId: string; lang: { inputNewPassword: string; inputBtn: string; success: string } }) {
     const handleResetForm = async (e: FormData) =>
-        await confirmResetPasswordCall({ code, newPassword: e.get('password')?.toString() })
+        await confirmResetPasswordCall({ code, userId, newPassword: e.get('password')?.toString() })
             .then((user) => {
                 setCookie('napiAuthorizationToken', `${user?.token} ${user?.id}`, {
                     maxAge: 3 * 30 * 24 * 60 * 60,

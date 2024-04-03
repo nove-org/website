@@ -22,8 +22,10 @@ export async function generateMetadata() {
 
 export default async function PasswordReset({ searchParams }: { searchParams: [key: string | string[]] | undefined }) {
     const user = await getUser();
-    const key = ObjectHelper.getValueByStringPath(searchParams, 'key');
     if (user?.username) return redirect('/account');
+
+    const key = ObjectHelper.getValueByStringPath(searchParams, 'key');
+    const userId = ObjectHelper.getValueByStringPath(searchParams, 'ref');
     const lang = await new LanguageHandler('main/password-reset', user).init(headers());
 
     return !key ? (
@@ -57,6 +59,7 @@ export default async function PasswordReset({ searchParams }: { searchParams: [k
                     </aside>
                     <ConfirmForm
                         code={key}
+                        userId={userId}
                         lang={{
                             inputBtn: lang.getCustomProp('modules.actions.proceed'),
                             inputNewPassword: lang.getProp('input-new-password'),
