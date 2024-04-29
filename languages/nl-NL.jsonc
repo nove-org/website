@@ -118,14 +118,16 @@
             "pos2": "Main back-end developer, code maintainer",
             "pos3": "UI/UX designer en project manager",
             "pos4": "Front-end developer en CEO van Peekr",
-            "pos5": "Ex back-end developer"
+            "thanks": "Special thanks to {name} for providing us with hardware to run our services seamlessly!"
         },
         "foss": {
             "hero-h1": "Wij houden van <span>gratis</span> en <span>open-source</span>",
             "hero-p": "Omdat <b>open-source</b> software een belangrijke rol speelt in de samenwerking, het beschermenen van de gebruikers hun privacy, en de betrouwbaarheid van de apps.",
             "ul-napi": "Maak je eigen applicaties door gebruik te maken van het NAPI OAuth2 systeem die toegang biedt tot inloggen met Nove.",
             "ul-manager": "Officiele website die door ons word gebruikt op ons main domain om grafische toegang tot de NAPI te bieden.",
-            "ul-files": "Cloudhosting voor algemeen gebruik met wachtwoordgecodeerde uploads die met slechts één klik voor iedereen beschikbaar zijn."
+            "ul-files": "General purpose cloud hosting with encrypted uploads. Available to everyone with just one click.",
+            "ul-procurel": "Advanced customer relationship management application with great accessibility on mobile devices.",
+            "ul-peekr": "Privacy-respecting search engine with it's own index that's excluding big tech. Growing every day."
         },
         "login": {
             "hero-h1": "Welkom terug",

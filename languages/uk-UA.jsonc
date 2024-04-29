@@ -118,14 +118,16 @@
             "pos2": "Основний бекенд-розробник, супровід коду",
             "pos3": "Дизайнер UI/UX та менеджер проектів",
             "pos4": "Фронтенд-розробник і генеральний директор Peekr",
-            "pos5": "Досвідчений провідний бекенд-розробник у відставці"
+            "thanks": "Special thanks to {name} for providing us with hardware to run our services seamlessly!"
         },
         "foss": {
             "hero-h1": "Ми любимо програмне забезпечення <span>вільним</span> і <span>з відкритим вихідним кодом</span>",
             "hero-p": "Тому що програмне забезпечення <b>з відкритим вихідним кодом</b> відіграє важливу роль у спільній роботі, захищаючи конфіденційність користувачів і забезпечуючи надійність додатків.",
             "ul-napi": "Створюйте бажані додатки за допомогою системи NAPI OAuth2, яка надає доступ до входу в Nove.",
             "ul-manager": "Офіційний веб-сайт, який ми використовуємо на нашому основному домені для графічного доступу до NAPI.",
-            "ul-files": "Хмарний хостинг загального призначення із захищеними паролем завантаженнями, доступними в один клік."
+            "ul-files": "General purpose cloud hosting with encrypted uploads. Available to everyone with just one click.",
+            "ul-procurel": "Advanced customer relationship management application with great accessibility on mobile devices.",
+            "ul-peekr": "Privacy-respecting search engine with it's own index that's excluding big tech. Growing every day."
         },
         "login": {
             "hero-h1": "Ласкаво просимо назад",

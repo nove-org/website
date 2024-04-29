@@ -119,14 +119,16 @@
             "pos2": "Główny programista API oraz opiekun kodu",
             "pos3": "Designer UI/UX i menadżer projektów",
             "pos4": "Programista stron i właściciel Peekr",
-            "pos5": "Emerytowany programista API"
+            "thanks": "Bardzo dziękujemy {name} za dostarczanie nam wymaganego sprzętu do prowadzenia naszych serwisów bez przeszkód!"
         },
         "foss": {
             "hero-h1": "Kochamy <span>darmowe</span> i <span>otwartoźródłowe</span>",
             "hero-p": "Ponieważ <b>otwartoźródłowe</b> oprogramowanie to ważna rola w pracy w grupie, ochronie prywatności użytkowników i niezawodności systemu.",
             "ul-napi": "Twórz aplikacje, korzystając z systemu NAPI OAuth2, dającego możliwość logowania się za pomocą Nove.",
             "ul-manager": "Oficjalna strona internetowa używana przez nas, w celu zapewnienia graficznego dostępu do konta.",
-            "ul-files": "Chmura ogólnego przeznaczenia z szyfrowaniem wgrywanych plików, dostępna dla każdego przez jedno kliknięcie."
+            "ul-files": "Chmura generalnego zastosowania z szyfrowaniem plików. Dostępna dla każdego za jednym kliknięciem.",
+            "ul-procurel": "Zaawansowana aplikacja zarządzania klientami z wybitną dostępnością na urządzeniach mobilnych.",
+            "ul-peekr": "Wyszukiwarka szanująca prywatność prowadząca własny indeks który rośnie każdego dnia, bez big techu."
         },
         "login": {
             "hero-h1": "Witaj ponownie",

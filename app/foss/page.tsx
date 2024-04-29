@@ -37,10 +37,22 @@ export default async function FOSS() {
                         <p>{lang.getProp('ul-manager')}</p>
                     </a>
                 </li>
-                <li>
+                <li className="disabled">
                     <a target="_blank" rel="noopener noreferrer" href="https://git.nove.team/nove-org/files.backend">
                         <h1>Files</h1>
                         <p>{lang.getProp('ul-files')}</p>
+                    </a>
+                </li>
+                <li className="disabled">
+                    <a target="_blank" rel="noopener noreferrer" href="https://git.nove.team/nove-org/crm.backend">
+                        <h1>Procurel</h1>
+                        <p>{lang.getProp('ul-procurel')}</p>
+                    </a>
+                </li>
+                <li className="disabled">
+                    <a target="_blank" rel="noopener noreferrer" href="https://git.nove.team/peekr/">
+                        <h1>Peekr</h1>
+                        <p>{lang.getProp('ul-peekr')}</p>
                     </a>
                 </li>
             </ul>

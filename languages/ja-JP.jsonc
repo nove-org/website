@@ -119,14 +119,16 @@
             "pos2": "メインバックエンド開発者、コードメンテナー",
             "pos3": "UI/UX デザイナーとプロジェクトマネージャー",
             "pos4": "フロントエンド開発者と Peekr の CEO",
-            "pos5": "引退したバックエンド開発者"
+            "thanks": "Special thanks to {name} for providing us with hardware to run our services seamlessly!"
         },
         "foss": {
             "hero-h1": "私たちは<span>無料</span>と<span>オープンソース</span>を愛しています",
             "hero-p": "それは、共同作業、ユーザーのプライバシーの保護とアプリの信頼性の確保に不可欠な役割を担っているからです。",
             "ul-napi": "Nove でサインインできるアクセスを提供する NAPI OAuth2 システムを使用して、希望のアプリケーションを作成。",
             "ul-manager": "NAPI へのグラフィカル アクセスを提供するために当社のメイン ドメインで使用される公式 ウェブサイト。",
-            "ul-files": "汎用クラウドホスティングとパスワードで暗号化されたアップロードはたった一つのクリックですべての人でも利用できます。"
+            "ul-files": "General purpose cloud hosting with encrypted uploads. Available to everyone with just one click.",
+            "ul-procurel": "Advanced customer relationship management application with great accessibility on mobile devices.",
+            "ul-peekr": "Privacy-respecting search engine with it's own index that's excluding big tech. Growing every day."
         },
         "login": {
             "hero-h1": "お帰りなさいませ",

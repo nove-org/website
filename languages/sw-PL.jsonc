@@ -118,14 +118,16 @@
             "pos2": "Główny programista API ora opiekón koda",
             "pos3": "Dizajner ÓI/UX i menadżyr projektuf",
             "pos4": "Programista stron i dyktatur Peekr",
-            "pos5": "Emeryt, zjadacz podwawelskiej"
+            "thanks": "Special thanks to {name} for providing us with hardware to run our services seamlessly!"
         },
         "foss": {
             "hero-h1": "Kochamy <span>darmowe</span> i <span>otwartoźródłowe</span> (nie seks)",
             "hero-p": "Poniważ <b>otwartoźródłowe</b> oprogramowanie to ważna rola w pracy w grópie, ochronie prywatności użytkowników i niezawodności systema.",
             "ul-napi": "Twórz programy, korzystajunc z systema NAPI OAuth2, dającego możliwościa logowania siem za pomocą Nove.",
             "ul-manager": "Oficjalna strona internetowa óżywana przez nas, w celu zapewnienia graficznego dostępa do kunta.",
-            "ul-files": "Bunclok ogólnego przeznaczenia z szyfrowaniem wgrywanych plików, dostępny dla każdego przez jedno kliknięcie."
+            "ul-files": "General purpose cloud hosting with encrypted uploads. Available to everyone with just one click.",
+            "ul-procurel": "Advanced customer relationship management application with great accessibility on mobile devices.",
+            "ul-peekr": "Privacy-respecting search engine with it's own index that's excluding big tech. Growing every day."
         },
         "login": {
             "hero-h1": "Witej ponownie",

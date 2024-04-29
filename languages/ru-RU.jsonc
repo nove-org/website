@@ -118,14 +118,16 @@
             "pos2": "Главный бэкенд-разработчик и сопровождающий код",
             "pos3": "Дизайнер интерфейсов (UI/UX) и менеджер проекта",
             "pos4": "Фронтенд разработчик и владелец Peekr",
-            "pos5": "Оставный бэкенд разработчик"
+            "thanks": "Special thanks to {name} for providing us with hardware to run our services seamlessly!"
         },
         "foss": {
             "hero-h1": "Мы любим <span>свободное</span> и <span>открытое исходное</span>",
             "hero-p": "Поэтому что программное обеспечение с <b>открытым исходным кодом</b> принимает существенное участие в совместнои работе, защите конфиденциальности пользователей и обеспечении надежности прилиожения.",
             "ul-napi": "Создавайте желаемые приложения, используя систему NAPI OAuth2, которая обеспечивает доступ к входу в систему с помощью Nove.",
             "ul-manager": "Официальный сайт, который мы используем на нашем основном домене для предоставления графического доступа к NAPI.",
-            "ul-files": "Облачный хостинг общего назначения с зашифрованной паролем загрузкой, доступной каждому одним щелчком."
+            "ul-files": "General purpose cloud hosting with encrypted uploads. Available to everyone with just one click.",
+            "ul-procurel": "Advanced customer relationship management application with great accessibility on mobile devices.",
+            "ul-peekr": "Privacy-respecting search engine with it's own index that's excluding big tech. Growing every day."
         },
         "login": {
             "hero-h1": "Добро пожаловайте снова",

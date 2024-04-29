@@ -24,9 +24,11 @@ section.hero
         padding: 0
         list-style: none
         display: flex
+        flex-wrap: wrap
+        justify-content: center
         gap: 2rem
         align-items: normal
-        @media screen and (max-width: 1170px)
+        @media screen and (max-width: 700px)
             flex-direction: column
             gap: 1rem
         & li
@@ -43,8 +45,8 @@ section.hero
                 transition: background-color .15s linear
                 flex: max-content
                 &:hover
-                    background: var(--secondary)
-                @media screen and (max-width: 1170px)
+                    background: var(--tertiary)
+                @media screen and (max-width: 700px)
                     max-width: 100%
                     width: 100%
                     min-height: fit-content
@@ -59,7 +61,8 @@ section.hero
                     flex-direction: column
                     justify-content: center
                     background: var(--tertiary)
-                    border-radius: var(--box-roundness)
+                    border-top-left-radius: var(--box-roundness)
+                    border-top-right-radius: var(--box-roundness)
                 & p
                     margin: 0
                     font-size: 16px

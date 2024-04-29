@@ -119,14 +119,16 @@
             "pos2": "Vezető API-fejlesztő és kódkarbantartó",
             "pos3": "UI/UX tervező és projektmenedzser",
             "pos4": "Frontend fejlesztő és a Peekr vezérigazgatója",
-            "pos5": "Nyugdíjas API fejlesztő"
+            "thanks": "Special thanks to {name} for providing us with hardware to run our services seamlessly!"
         },
         "foss": {
             "hero-h1": "Szeretjük az <span>ingyenes</span> és <span>nyílt forráskódú</span> programokat.",
             "hero-p": "Mert a <b>nyílt forráskódú</b> szoftverek fontos szerepet játszanak a csapatmunkában, a felhasználói adatvédelemben és a rendszer megbízhatóságában.",
             "ul-napi": "A NAPI OAuth2 rendszert használó alkalmazások létrehozása, amely lehetővé teszi a bejelentkezést a Nove segítségével.",
             "ul-manager": "Az általunk használt hivatalos weboldal, amely grafikus hozzáférést biztosít a fiókjához.",
-            "ul-files": "Általános célú felhő a feltöltött fájlok titkosításával, amely bárki számára egyetlen kattintással elérhető."
+            "ul-files": "General purpose cloud hosting with encrypted uploads. Available to everyone with just one click.",
+            "ul-procurel": "Advanced customer relationship management application with great accessibility on mobile devices.",
+            "ul-peekr": "Privacy-respecting search engine with it's own index that's excluding big tech. Growing every day."
         },
         "login": {
             "hero-h1": "Jó napot kivanok!",
