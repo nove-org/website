@@ -46,12 +46,16 @@ export default async function About() {
                     <h1>Oliwier</h1>
                     <p>{lang.getProp('pos4')}</p>
                 </li>
-                <li>
-                    <Image src="https://api.nove.team/v1/users/b9dk4Pdm/avatar.webp" width="64" height="64" alt="Avatar" />
-                    <h1>Mikołaj</h1>
-                    <p>{lang.getProp('pos5')}</p>
-                </li>
             </ul>
+            <div className={o.thanks}>
+                <p
+                    dangerouslySetInnerHTML={{
+                        __html: lang.getProp('thanks', {
+                            name: '<a href="https://ftdl.pl" rel="noopener noreferrer" target="_blank"><img src="/ftdl.webp" alt="FTdL" /></a>',
+                        }),
+                    }}
+                />
+            </div>
         </section>
     );
 }
