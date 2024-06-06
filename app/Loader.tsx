@@ -1,4 +1,4 @@
-import o from '@sass/Loader.module.sass';
+import o from './Loader.module.sass';
 
 export default function Loader({ type, text }: { type?: 'classic' | 'window' | 'button' | 'hidden'; text?: string }) {
     return (

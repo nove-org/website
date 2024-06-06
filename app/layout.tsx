@@ -16,17 +16,13 @@
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-export const dynamic = 'force-dynamic';
-import '@sass/globals.sass';
-import Navigation from '@app/Navigation';
-import Footer from '@app/Footer';
-import type { Metadata, Viewport } from 'next';
-import { inter } from '@util/fonts';
-import { getUser } from '@util/helpers/User';
-import { usePathname } from 'next/navigation';
-import LanguageHandler from '@util/handlers/LanguageHandler';
-import { headers } from 'next/headers';
+import './globals.sass';
 import NextTopLoader from 'nextjs-toploader';
+import { inter } from '@util/fonts/manager';
+import type { Metadata, Viewport } from 'next';
+import Navigation from './Navigation';
+
+export const revalidate = 60;
 
 export const viewport: Viewport = {
     width: 'device-width',
@@ -45,48 +41,27 @@ export const metadata: Metadata = {
         authors: ['Nove Group', 'Contributors'],
     },
     authors: [{ name: 'Nove Group', url: 'https://nove.team' }],
-    keywords: ['nove', 'vave', 'vave bot', 'nove team', 'nove group'],
+    keywords: ['nove', 'nove team', 'nove group'],
     robots: {
         index: true,
         follow: true,
     },
     icons: {
         icon: '/logo.png',
-        shortcut: '/banner.png',
         apple: '/logo.png',
     },
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-    const user = await getUser();
-    const lang = await new LanguageHandler('modules/footer', user).init(headers());
-
     return (
         <html lang="en">
             <body className={inter.className} style={inter.style}>
                 <NextTopLoader color="#e74d5f" height={3} zIndex={999999} showSpinner={false} />
-                <Navigation user={user} />
+                <main style={inter.style}>
+                    <Navigation />
 
-                <main style={inter.style}>{children}</main>
-
-                <Footer
-                    lang={{
-                        license: lang.getProp('license'),
-                        made_with: lang.getProp('made-with-love'),
-                        contributors: lang.getProp('contributors'),
-                        about: lang.getProp('ul-about'),
-                        blog: lang.getProp('ul-blog'),
-                        docs: lang.getProp('ul-docs'),
-                        donate: lang.getProp('ul-donate'),
-                        login: lang.getProp('ul-login'),
-                        register: lang.getProp('ul-register'),
-                        support: lang.getProp('ul-support'),
-                        src: lang.getProp('ul-src'),
-                        privacy: lang.getProp('ul-privacy'),
-                        terms: lang.getProp('ul-terms'),
-                        developers: lang.getProp('ul-developers'),
-                    }}
-                />
+                    {children}
+                </main>
             </body>
         </html>
     );

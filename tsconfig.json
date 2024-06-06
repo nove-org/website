@@ -22,7 +22,6 @@
         "baseUrl": "./",
         "paths": {
             "@app/*": ["app/*"],
-            "@sass/*": ["sass/*"],
             "@util/*": ["utils/*"]
         }
     },

@@ -1,7 +1,7 @@
 {
     "typescript.tsdk": "node_modules/typescript/lib",
     "typescript.enablePromptUseWorkspaceTsdk": true,
-    "cSpell.words": [
+    "cSpell.ignoreWords": [
         "authorise",
         "commenters",
         "commitlint",
@@ -30,9 +30,12 @@
         "pevs",
         "Procurel",
         "rivacy",
+        "selfhosted",
         "Szwajnisch",
         "vave",
-        "Zuzia"
-    ],
-    "cSpell.ignoreWords": ["TOTP", "dompurify", "qrcode"]
+        "Zuzia",
+        "TOTP",
+        "dompurify",
+        "qrcode"
+    ]
 }

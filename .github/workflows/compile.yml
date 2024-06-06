@@ -5,9 +5,9 @@ name: Build website from source
 
 on:
     push:
-        branches: ['main']
+        branches: ['main', 'v2']
     pull_request:
-        branches: ['main']
+        branches: ['main', 'v2']
 
 jobs:
     build:
@@ -29,4 +29,3 @@ jobs:
               run: yarn
             - name: Compile the project
               run: yarn build
-

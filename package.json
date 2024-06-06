@@ -1,7 +1,8 @@
 {
     "name": "website",
+    "description": "Main Nove website created using Next.JS and Sass with power of NAPI.",
     "version": "2.0.0",
-    "license": "AGPL-3.0",
+    "license": "AGPL-3.0-only",
     "author": {
         "name": "Nove Group",
         "url": "https://nove.team"
