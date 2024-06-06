@@ -1,7 +1,7 @@
 {
     "name": "website",
     "version": "1.1.0",
-    "license": "AGPL-3.0",
+    "license": "AGPL-3.0-only",
     "author": {
         "name": "Nove Group",
         "url": "https://nove.team"
