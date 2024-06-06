@@ -1,4 +1,4 @@
-import { User } from './schema';
+import { User } from './Schema';
 
 export interface MfaGet {
     mfa?: string;
