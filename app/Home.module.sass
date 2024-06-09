@@ -1,0 +1,597 @@
+section.hero
+    width: 100%
+    max-width: 1700px
+    margin: 0 auto
+    height: calc( 100vh - 70px * 2 )
+    display: flex
+    align-items: center
+    justify-content: space-between
+    & div.text
+        max-width: 950px
+        & h1
+            font-size: 64px
+            font-weight: 700
+            margin: 15px 0
+            & span
+                color: var(--primary)
+                & word
+                    position: relative
+                    &::after
+                        content: ""
+                        display: inline-block
+                        position: absolute
+                        width: 100%
+                        height: 100%
+                        z-index: -1
+                        top: 0
+                        left: 0
+                        background: linear-gradient(to top, var(--outline-variant) 50%, transparent 50%)
+                        animation: highlight 1s linear
+                        border-radius: 5px
+                    &:last-child
+                        &::after
+                            animation: highlightNd 1.5s linear
+                    @keyframes highlight
+                        0%
+                            width: 0
+
+                        100%
+                            width: 100%
+                    @keyframes highlightNd
+                        0%
+                            width: 0
+                        50%
+                            width: 0
+                        100%
+                            width: 100%
+        & p
+            font-size: 22px
+            margin: 10px 0
+        & div.buttons
+            display: flex
+            align-items: center
+            gap: 15px
+            margin-top: 30px
+            & .highlight
+                background: var(--primary)
+                color: var(--on-primary)
+                &:hover
+                    background: var(--secondary)
+                    color: var(--on-secondary)
+
+section.decentralization
+    width: 100%
+    max-width: 1700px
+    margin: 0 auto
+    margin-top: 150px
+    min-height: 600px
+    display: flex
+    justify-content: flex-end
+    gap: 50px
+    position: relative
+    & div.text
+        margin-top: 100px
+        max-width: 800px
+        text-align: right
+        & h1
+            font-size: 40px
+            color: var(--primary)
+            font-weight: 600
+            margin: 5px 0
+            & strong
+                font-weight: 600
+                color: var(--on-background)
+                position: relative
+        & p
+            font-size: 20px
+            color: var(--on-background)
+            font-weight: 400
+            margin: 5px 0
+        & div.servers
+            display: flex
+            align-items: center
+            justify-content: flex-end
+            margin-top: 30px
+            gap: 100px
+            & div.server
+                width: 100px
+                height: 100px
+                border-radius: 10px
+                display: flex
+                align-items: center
+                justify-content: center
+                background: var(--primary-container)
+                color: var(--primary)
+                position: relative
+                &::before
+                    content: ""
+                    display: block
+                    max-width: 80px
+                    width: 10%
+                    height: 4px
+                    background: linear-gradient(to right, #ac0c09, #c98a0b)
+                    position: absolute
+                    top: 50%
+                    left: 110px
+                    transform: translateY(-50%)
+                    z-index: 2
+                    animation: expand 4s ease infinite
+                    @keyframes expand
+                        0%
+                            width: 0
+                        20%
+                            width: 100%
+                            opacity: 1
+                        40%
+                            width: 100%
+                            opacity: 0
+                        100%
+                            width: 0
+                            opacity: 0
+                &::after
+                    content: ""
+                    display: block
+                    width: 80px
+                    height: 2px
+                    background: var(--outline)
+                    position: absolute
+                    top: 50%
+                    left: 110px
+                    transform: translateY(-50%)
+                & div.progressBackwards
+                    display: flex
+                    justify-content: flex-end
+                    width: 80px
+                    height: 4px
+                    position: absolute
+                    top: 50%
+                    left: 110px
+                    transform: translateY(-50%)
+                    z-index: 2
+                    & div.line
+                        width: 10%
+                        height: 4px
+                        background: linear-gradient(to left, #ac0c09, #c98a0b)
+                        animation: expandOut 4s ease infinite
+                        @keyframes expandOut
+                            0%
+                                width: 0
+                            50%
+                                width: 0
+                            70%
+                                width: 100%
+                                opacity: 1
+                            90%
+                                width: 100%
+                                opacity: 0
+                            100%
+                                width: 0
+                                opacity: 0
+                &:last-child
+                    &::after, &::before, & div.progressBackwards
+                        width: 0 !important
+                & div.badge
+                    position: absolute
+                    top: 110px
+                    left: 50%
+                    transform: translateX(-50%)
+                    padding: 5px
+                    border-radius: 10px
+                    font-size: 14px
+                    background: var(--secondary-container)
+                    border: 1px solid var(--secondary)
+                    box-sizing: border-box
+                    color: var(--on-secondary-container)
+                    display: flex
+                    align-items: center
+                    gap: 3px
+    & div.spheres
+        width: 300px
+        height: 600px
+        box-sizing: border-box
+        border-top-right-radius: 500px
+        border-bottom-right-radius: 500px
+        border: 1px solid gray
+        border-left: 0
+        position: absolute
+        left: 0
+        transform: translate(-50%)
+        & div.origin
+            width: 600px
+            height: 600px
+            position: absolute
+            box-sizing: border-box
+            top: -2px
+            left: calc( -100% - 4px )
+            border-radius: 50%
+            transform: rotate(40deg)
+            animation: rotateOriginSt 120s linear infinite
+            @keyframes rotateOriginSt
+                0%
+                    transform: rotate(0deg)
+                50%
+                    transform: rotate(40deg)
+                100%
+                    transform: rotate(0deg)
+            &:nth-child(2)
+                animation: rotateOriginNd 120s linear infinite
+                @keyframes rotateOriginNd
+                    0%
+                        transform: rotate(-40deg)
+                    50%
+                        transform: rotate(0deg)
+                    100%
+                        transform: rotate(-40deg)
+                & div.bubble
+                    transform: rotate(0deg)
+                    animation: rotateBubbleNd 120s linear infinite
+                    @keyframes rotateBubbleNd
+                        0%
+                            transform: rotate(40deg)
+                        50%
+                            transform: rotate(0deg)
+                        100%
+                            transform: rotate(40deg)
+            & div.bubble
+                --size: 36px
+                content: ""
+                display: block
+                position: absolute
+                width: var(--size)
+                height: var(--size)
+                border-radius: 50%
+                top: 50%
+                right: calc( var(--size) / -2 )
+                background: linear-gradient(270deg, var(--primary), var(--secondary))
+                color: var(--on-primary)
+                display: flex
+                align-items: center
+                justify-content: center
+                animation: rotateBubbleSt 120s linear infinite
+                @keyframes rotateBubbleSt
+                    0%
+                        transform: rotate(0deg)
+                    50%
+                        transform: rotate(-40deg)
+                    100%
+                        transform: rotate(0deg)
+
+                & img
+                    border-radius: 50%
+                & span.holo
+                    position: absolute
+                    top: 50%
+                    left: calc( var(--size) + 10px )
+                    transform: translateY(-50%)
+                    background: var(--primary-container)
+                    color: var(--primary)
+                    padding: 5px
+                    border-radius: 10px
+                    & i
+                        font-style: normal
+                        opacity: .5
+
+section.why
+    width: 100%
+    max-width: 1700px
+    margin: 0 auto
+    margin-top: 150px
+    min-height: 600px
+    gap: 50px
+    position: relative
+    & div.text
+        max-width: 800px
+        & h1
+            font-size: 40px
+            color: var(--primary)
+            font-weight: 600
+            margin: 5px 0
+            & strong
+                font-weight: 700
+        & p
+            font-size: 20px
+            color: var(--on-background)
+            font-weight: 400
+            margin: 5px 0
+    & ul
+        list-style: none
+        padding: 0
+        margin: 0
+        margin-top: 30px
+        width: 100%
+        display: flex
+        gap: 30px
+        @media screen and (max-width: 700px)
+            flex-direction: column
+        & li
+            border-radius: 20px
+            max-width: 285px
+            width: 100%
+            min-height: 190px
+            background: var(--primary-container)
+            color: var(--on-primary-container)
+            position: relative
+            & img
+                border-top-left-radius: 20px
+                border-top-right-radius: 20px
+                max-width: 285px
+                max-height: auto
+                height: auto
+                width: 100%
+            & h1
+                font-size: 24px
+                font-weight: 500
+                margin: 0
+                padding: 8px 16px
+            & p
+                font-size: 16px
+                opacity: .9
+                margin: 0
+                padding: 0 16px
+                padding-bottom: 14px
+
+section.community
+    width: 100%
+    max-width: 1700px
+    margin: 0 auto
+    min-height: 600px
+    display: flex
+    align-items: center
+    justify-content: space-between
+    gap: 50px
+    position: relative
+    & div.text
+        max-width: 800px
+        text-align: right
+        & h1
+            font-size: 40px
+            color: var(--primary)
+            font-weight: 600
+            margin: 5px 0
+            & strong
+                font-weight: 700
+        & p
+            font-size: 20px
+            color: var(--on-background)
+            font-weight: 400
+            margin: 5px 0
+        & ul
+            margin: 20px 0
+            padding: 0
+            list-style: none
+            display: flex
+            flex-direction: column
+            gap: 5px
+            & li::after
+                content: ' ―'
+                font-size: 18px
+    & aside.code
+        width: 100%
+        & div.editor
+            border-radius: 15px
+            border: 1px solid #b59f9f
+            background: linear-gradient(132deg, #ffeded, #ffe1e1)
+            max-width: 500px
+            width: 100%
+            max-height: 250px
+            height: 100%
+            position: relative
+            & div.committer
+                position: absolute
+                top: 180px
+                left: 300px
+                width: max-content
+                height: max-content
+                border-radius: 20px
+                border: 1px solid #d0b7b7
+                background: var(--primary-container)
+                color: var(--on-primary-container)
+                padding: 15px
+                box-shadow: 0 0 25px 0 #0000001e
+                box-sizing: border-box
+                & img
+                    border-radius: 50%
+                & h1
+                    font-size: 18px
+                    font-weight: 500
+                    margin: 0
+                    & span
+                        font-size: 14px
+                        opacity: .8
+                & p
+                    font-size: 16px
+                    font-weight: 400
+                    margin: 5px 0
+                    margin-bottom: 0
+            & div.navbar
+                display: flex
+                align-items: center
+                gap: 15px
+                padding: 0 10px
+                width: 100%
+                height: 50px
+                box-sizing: border-box
+                border-bottom: 1px solid #b59f9f
+                & div.file
+                    display: flex
+                    align-items: center
+                    box-sizing: border-box
+                    gap: 3px
+                    font-size: 14px
+                    &:first-child
+                        border: 1px solid #b59f9f
+                        color: #008caf
+                        padding: 4px 6px
+                        border-radius: 8px
+            & ul.lines
+                width: 100%
+                height: calc( 100% - 50px )
+                box-sizing: border-box
+                padding: 10px 0
+                font-family: monospace
+                font-size: 14px
+                margin: 0
+                list-style: none
+                & li.line
+                    color: gray
+                    padding: 0 12px
+                    &.highlight
+                        background: #08d40c2f
+                    & span
+                        &.red
+                            color: #b82d2d
+                        &.white
+                            color: #161616
+                        &.lightblue
+                            color: #5b6bc5
+                        &.blue
+                            color: #31429e
+                        &.yellow
+                            color: #a18623
+
+section.call
+    width: 100%
+    max-width: 1300px
+    height: 100%
+    min-height: 500px
+    margin: 200px auto
+    margin-top: 200px
+    border-radius: 30px
+    background: var(--primary-container)
+    color: var(--on-primary-container)
+    display: flex
+    align-items: center
+    justify-content: center
+    gap: 10px
+    flex-direction: column
+    & h1
+        font-size: 40px
+        font-weight: 500
+        margin: 0
+        color: var(--primary)
+    & p
+        font-size: 20px
+        margin: 0
+    & a
+        background: var(--secondary-container)
+        border: 1px solid var(--secondary)
+        color: var(--on-secondary-container)
+        margin-top: 10px
+        &:hover
+            background: var(--tertiary-container)
+            border: 1px solid var(--tertiary)
+            color: var(--on-tertiary-container)
+
+aside.block
+    display: flex
+    flex-direction: column
+    align-items: flex-end
+    gap: 50px
+    padding-right: 50px
+    @keyframes serverConnectionSt
+        0%
+            height: 0
+        50%
+            height: 0
+        100%
+            height: 525px
+    @keyframes serverConnectionNd
+        0%
+            height: 0
+        50%
+            height: 0
+        100%
+            height: 200px
+    & div.server
+        font-size: 14px
+        position: relative
+        &::before
+            content: ""
+            display: block
+            width: 10px
+            height: 10px
+            border-radius: 50%
+            border: 2px solid gray
+            margin: 0 auto
+            margin-bottom: 5px
+        &::after
+            content: ""
+            display: block
+            position: absolute
+            top: 45px
+            left: 50%
+            transform: translateX(-50%)
+            width: 2px
+            height: 525px
+            animation: serverConnectionSt 4s linear
+            background: linear-gradient(to top, var(--primary), var(--secondary))
+            border-radius: 1px
+            margin: 0 auto
+        &.nd
+            &::after
+                height: 200px
+                animation: serverConnectionNd 8s linear
+                background: linear-gradient(to top, #00000000, var(--primary))
+        & div.actions
+            position: absolute
+            bottom: 25px
+            right: 60px
+            max-width: 300px
+            width: max-content
+            max-height: 200px
+            height: max-content
+            transition: height .2s ease
+            background: var(--primary-container)
+            color: var(--on-primary-container)
+            padding: 10px
+            border-radius: 10px
+            animation: showActionsMenu 2s ease
+            @keyframes showActionsMenu
+                0%
+                    opacity: 0
+                    right: 40px
+                75%
+                    opacity: 0
+                    right: 40px
+                100%
+                    opacity: 1
+                    right: 60px
+            & h1
+                font-size: 12px
+                font-weight: 500
+                margin: 0
+                margin-bottom: 8px
+            & ul
+                padding: 0
+                margin: 0
+                position: relative
+                list-style: none
+                & li.action
+                    display: flex
+                    align-items: center
+                    gap: 5px
+                    font-size: 14px
+                    font-weight: 400
+                    &:nth-child(2)
+                        margin-top: 5px
+                        animation: showNdAction 6s ease
+                        @keyframes showNdAction
+                            0%
+                                opacity: 0
+                                margin-top: -20px
+                            90%
+                                opacity: 0
+                                margin-top: -20px
+                            95%
+                                opacity: 0
+                            100%
+                                opacity: 1
+                                margin-top: 5px
+                    & i
+                        font-style: normal
+                        opacity: .5
+                    & strong
+                        color: var(--primary)
+                        font-weight: 400
+                    & img
+                        border-radius: 50%

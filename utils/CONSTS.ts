@@ -56,4 +56,4 @@ export const MOTD: {
 //* Allow users access registration form. WARNING: If you disable this users are still able to sign up using API
 //* routes. Make sure to disable registrations in NAPI configuration as well.
 //* Default: false
-export const ENABLE_REGISTER_PAGE: boolean = false;
+export const ENABLE_REGISTER_PAGE: boolean = true;

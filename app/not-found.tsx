@@ -1,7 +1,7 @@
-import LanguageHandler from '@util/handlers/LanguageHandler';
-import o from './Information.module.sass';
-import { cookies, headers } from 'next/headers';
 import NAPI from '@util/helpers/NAPI';
+import LanguageHandler from '@util/handlers/LanguageHandler';
+import o from './NotFound.module.sass';
+import { cookies, headers } from 'next/headers';
 
 export async function generateMetadata() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);

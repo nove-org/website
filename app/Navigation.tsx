@@ -1,8 +1,9 @@
 import NAPI from '@util/helpers/NAPI';
+import LanguageHandler from '@util/handlers/LanguageHandler';
+import Link from 'next/link';
 import o from './Navigation.module.sass';
 import { cookies, headers } from 'next/headers';
-import Link from 'next/link';
-import LanguageHandler from '@util/handlers/LanguageHandler';
+import { ENABLE_REGISTER_PAGE } from '@util/CONSTS';
 const { DONATE_LINK } = process.env;
 
 export default async function Navigation() {
@@ -12,52 +13,67 @@ export default async function Navigation() {
 
     return (
         <nav className={o.box}>
-            <header>
-                <img src="/logo_w.png" width={20} height={20} alt="Logo: N letter" />
-                Nove
-            </header>
-            <section className={o.links}>
-                <details className={o.link}>
-                    <summary>{lang.getProp('ul-products')}</summary>
-                    <div className={o.modules}>
-                        <div className={o.module}>
-                            <h1>
-                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
-                                    <path
-                                        fill="currentColor"
-                                        d="M 12 4 A 7.5 7.5 0 0 0 5.3515625 8.0429688 A 6 6 0 0 0 0 14 A 6 6 0 0 0 6 20 L 19 20 A 5 5 0 0 0 24 15 A 5 5 0 0 0 19.34375 10.017578 A 7.5 7.5 0 0 0 12 4 z"></path>
-                                </svg>
-                                Files
-                            </h1>
-                            <p>{lang.getProp('products-files')}</p>
+            <section className={o.main}>
+                <Link href="/" className={o.header}>
+                    <img src="/logo_w.png" width={20} height={20} alt="Logo: N letter" />
+                    Nove
+                </Link>
+                <div className={o.links}>
+                    <details className={o.link}>
+                        <summary>
+                            {lang.getProp('ul-products')}{' '}
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="18" height="18" viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M 7.4296875 9.5 L 5.9296875 11 L 12 17.070312 L 18.070312 11 L 16.570312 9.5 L 12 14.070312 L 7.4296875 9.5 z"></path>
+                            </svg>
+                        </summary>
+                        <div className={o.modules}>
+                            <a href="https://files.nove.team" rel="noreferrer noopener nofollow" className={o.module}>
+                                <h1>
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
+                                        <path
+                                            fill="currentColor"
+                                            d="M 12 4 A 7.5 7.5 0 0 0 5.3515625 8.0429688 A 6 6 0 0 0 0 14 A 6 6 0 0 0 6 20 L 19 20 A 5 5 0 0 0 24 15 A 5 5 0 0 0 19.34375 10.017578 A 7.5 7.5 0 0 0 12 4 z"></path>
+                                    </svg>
+                                    Files
+                                </h1>
+                                <p>{lang.getProp('products-files')}</p>
+                            </a>
+                            <a href="https://procurel.com" rel="noreferrer noopener nofollow" className={o.module}>
+                                <h1>
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
+                                        <path
+                                            fill="currentColor"
+                                            d="M 3 3 C 1.895 3 1 3.895 1 5 L 1 17 C 1 18.105 1.895 19 3 19 L 4.6523438 19 C 5.1993437 18.197 6.073875 17.514 7.171875 17 L 3 17 L 3 5 L 21 5 L 21 17 L 16.828125 17 C 17.926125 17.514 18.800656 18.197 19.347656 19 L 21 19 C 22.105 19 23 18.105 23 17 L 23 5 C 23 3.895 22.105 3 21 3 L 3 3 z M 12 10 C 10.3 10 9 11.3 9 13 C 9 14.7 10.3 16 12 16 C 13.7 16 15 14.7 15 13 C 15 11.3 13.7 10 12 10 z M 12 18 C 8.722 18 6 19.429 6 21 L 6 22 L 18 22 L 18 21 C 18 19.429 15.278 18 12 18 z"></path>
+                                    </svg>
+                                    Procurel
+                                </h1>
+                                <p>{lang.getProp('products-crm')}</p>
+                            </a>
+                            <a href="https://peekr.org" rel="noreferrer noopener nofollow" className={o.module}>
+                                <h1>
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
+                                        <path
+                                            fill="currentColor"
+                                            d="M 9 2 C 5.1458514 2 2 5.1458514 2 9 C 2 12.854149 5.1458514 16 9 16 C 10.747998 16 12.345009 15.348024 13.574219 14.28125 L 14 14.707031 L 14 16 L 19.585938 21.585938 C 20.137937 22.137937 21.033938 22.137938 21.585938 21.585938 C 22.137938 21.033938 22.137938 20.137938 21.585938 19.585938 L 16 14 L 14.707031 14 L 14.28125 13.574219 C 15.348024 12.345009 16 10.747998 16 9 C 16 5.1458514 12.854149 2 9 2 z M 9 4 C 11.773268 4 14 6.2267316 14 9 C 14 11.773268 11.773268 14 9 14 C 6.2267316 14 4 11.773268 4 9 C 4 6.2267316 6.2267316 4 9 4 z"></path>
+                                    </svg>
+                                    Peekr
+                                </h1>
+                                <p>{lang.getProp('products-peekr')}</p>
+                            </a>
                         </div>
-                        <div className={o.module}>
-                            <h1>
-                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
-                                    <path
-                                        fill="currentColor"
-                                        d="M 3 3 C 1.895 3 1 3.895 1 5 L 1 17 C 1 18.105 1.895 19 3 19 L 4.6523438 19 C 5.1993437 18.197 6.073875 17.514 7.171875 17 L 3 17 L 3 5 L 21 5 L 21 17 L 16.828125 17 C 17.926125 17.514 18.800656 18.197 19.347656 19 L 21 19 C 22.105 19 23 18.105 23 17 L 23 5 C 23 3.895 22.105 3 21 3 L 3 3 z M 12 10 C 10.3 10 9 11.3 9 13 C 9 14.7 10.3 16 12 16 C 13.7 16 15 14.7 15 13 C 15 11.3 13.7 10 12 10 z M 12 18 C 8.722 18 6 19.429 6 21 L 6 22 L 18 22 L 18 21 C 18 19.429 15.278 18 12 18 z"></path>
-                                </svg>
-                                Procurel
-                            </h1>
-                            <p>{lang.getProp('products-crm')}</p>
-                        </div>
-                        <div className={o.module}>
-                            <h1>
-                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
-                                    <path
-                                        fill="currentColor"
-                                        d="M 9 2 C 5.1458514 2 2 5.1458514 2 9 C 2 12.854149 5.1458514 16 9 16 C 10.747998 16 12.345009 15.348024 13.574219 14.28125 L 14 14.707031 L 14 16 L 19.585938 21.585938 C 20.137937 22.137937 21.033938 22.137938 21.585938 21.585938 C 22.137938 21.033938 22.137938 20.137938 21.585938 19.585938 L 16 14 L 14.707031 14 L 14.28125 13.574219 C 15.348024 12.345009 16 10.747998 16 9 C 16 5.1458514 12.854149 2 9 2 z M 9 4 C 11.773268 4 14 6.2267316 14 9 C 14 11.773268 11.773268 14 9 14 C 6.2267316 14 4 11.773268 4 9 C 4 6.2267316 6.2267316 4 9 4 z"></path>
-                                </svg>
-                                Peekr
-                            </h1>
-                            <p>{lang.getProp('products-peekr')}</p>
-                        </div>
-                    </div>
-                </details>
-                <Link href="/about">{lang.getProp('ul-about')}</Link>
-                <Link href="/blog">{lang.getProp('ul-blog')}</Link>
-                {DONATE_LINK && <Link href={DONATE_LINK}>{lang.getProp('ul-donate')}</Link>}
+                    </details>
+                    <Link className={o.link} href="/about">
+                        {lang.getProp('ul-about')}
+                    </Link>
+                    <Link className={o.link} href="/blog">
+                        {lang.getProp('ul-blog')}
+                    </Link>
+                    {DONATE_LINK && (
+                        <Link className={o.link} href={DONATE_LINK}>
+                            {lang.getProp('ul-donate')}
+                        </Link>
+                    )}
+                </div>
             </section>
             <section className={o.account}>
                 {user ? (
@@ -95,11 +111,13 @@ export default async function Navigation() {
                 ) : (
                     <div className={o.buttons}>
                         <Link href="/login">{lang.getProp('login-btn')}</Link>
-                        <Link
-                            href="/register
+                        {ENABLE_REGISTER_PAGE && (
+                            <Link
+                                href="/register
                         ">
-                            {lang.getProp('register-btn')}
-                        </Link>
+                                {lang.getProp('register-btn')}
+                            </Link>
+                        )}
                     </div>
                 )}
             </section>

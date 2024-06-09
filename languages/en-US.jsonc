@@ -43,7 +43,7 @@
             "switcher-security": "Security",
             "switcher-logout": "Log out",
             "products-files": "Store your data securely in the cloud",
-            "products-peekr": "Peek through the web without AI everywhere",
+            "products-peekr": "Peek through the web without AI on every corner",
             "products-crm": "Manage your customers quickly with ease"
         },
         "footer": {
@@ -90,7 +90,7 @@
     "main": {
         "landing": {
             "title": "Meet the world where your privacy matters",
-            "hero-h1": "Meet the world where <span>your privacy</span> matters.",
+            "hero-h1": "Meet the world where <span><word>your</word> <word>privacy</word></span> matters.",
             "hero-note-trust": "Don't take our word for this. View the <a class={style} target=\"_blank\" rel=\"noopener noreferrer\" href={repository}>code</a> yourself",
             "hero-description": "Ditch Google, Facebook and other companies that sell data, profile and track you. Take back control and start using free, open-source and privacy-respecting solutions by Nove.",
             "hero-btn": "Sign up today",

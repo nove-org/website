@@ -17,10 +17,10 @@
 */
 
 import './globals.sass';
+import Navigation from './Navigation';
 import NextTopLoader from 'nextjs-toploader';
 import { inter } from '@util/fonts/manager';
 import type { Metadata, Viewport } from 'next';
-import Navigation from './Navigation';
 
 export const revalidate = 60;
 
