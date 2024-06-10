@@ -4,6 +4,7 @@ import Link from 'next/link';
 import o from './Navigation.module.sass';
 import { cookies, headers } from 'next/headers';
 import { ENABLE_REGISTER_PAGE } from '@util/CONSTS';
+import Image from 'next/image';
 const { DONATE_LINK } = process.env;
 
 export default async function Navigation() {
@@ -15,7 +16,7 @@ export default async function Navigation() {
         <nav className={o.box}>
             <section className={o.main}>
                 <Link href="/" className={o.header}>
-                    <img src="/logo_w.png" width={20} height={20} alt="Logo: N letter" />
+                    <Image src="/logo_w.png" width={20} height={20} alt="Logo: N letter" />
                     Nove
                 </Link>
                 <div className={o.links}>

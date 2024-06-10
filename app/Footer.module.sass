@@ -1,0 +1,45 @@
+footer.box
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: space-between
+    margin-top: 100px
+    padding: 50px 0
+    & header
+        display: flex
+        flex-direction: column
+        gap: 5px
+        & div.logo
+            display: flex
+            align-items: center
+            gap: 5px
+            font-size: 20px
+            font-weight: 600
+        & p
+            font-size: 14px
+            margin: 0
+            & a
+                color: var(--primary)
+                text-decoration: none
+                &:hover
+                    text-decoration: underline
+    & div.links
+        display: flex
+        gap: 80px
+        & div.category
+            display: flex
+            flex-direction: column
+            gap: 5px
+            & h2
+                font-size: 16px
+                font-weight: 500
+                margin: 0
+            & a
+                font-size: 14px
+                margin: 0
+                opacity: .6
+                color: var(--on-background)
+                text-decoration: none
+                &:hover
+                    opacity: 1
+                    text-decoration: underline

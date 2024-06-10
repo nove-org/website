@@ -21,6 +21,7 @@ import Navigation from './Navigation';
 import NextTopLoader from 'nextjs-toploader';
 import { inter } from '@util/fonts/manager';
 import type { Metadata, Viewport } from 'next';
+import Footer from './Footer';
 
 export const revalidate = 60;
 
@@ -61,6 +62,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                     <Navigation />
 
                     {children}
+
+                    <Footer />
                 </main>
             </body>
         </html>

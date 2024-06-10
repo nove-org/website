@@ -47,11 +47,12 @@
             "products-crm": "Manage your customers quickly with ease"
         },
         "footer": {
-            "license": "Licensed under",
-            "made-with-love": "Made with ❤️ by",
+            "license": "Licensed under {license}",
+            "made-with-love": "Made with ❤️ by {contributors}",
             "contributors": "contributors",
+            "ul-general": "General",
+            "ul-documents": "Documents",
             "ul-about": "About",
-            "ul-foss": "Projects",
             "ul-docs": "Docs",
             "ul-blog": "Blog",
             "ul-donate": "Donate",
