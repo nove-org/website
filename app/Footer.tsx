@@ -17,9 +17,7 @@ export default async function Footer() {
                     <Image src="/logo_w.png" width={20} height={20} alt="Logo: N letter" />
                     Nove
                 </div>
-                <p>
-                    &copy; 2019-{new Date().getFullYear()} {lang.getProp('license', { license: 'GNU AGPL v3' })}
-                </p>
+                <p>&copy; 2019-{new Date().getFullYear() + ' ' + lang.getProp('license', { license: 'GNU AGPL v3' })}</p>
                 <p
                     dangerouslySetInnerHTML={{
                         __html: lang.getProp('made-with-love', {

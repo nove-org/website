@@ -20,6 +20,8 @@ nav.box
             display: flex
             align-items: center
             gap: 5px
+            @media screen and (max-width: 750px)
+                display: none
             & a.link, & details.link summary
                 display: flex
                 align-items: center
@@ -163,3 +165,6 @@ nav.box
                     &:hover
                         color: var(--on-secondary-container)
                         background: var(--secondary-container)
+                @media screen and (max-width: 350px)
+                    &:first-child
+                        display: none

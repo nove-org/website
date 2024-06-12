@@ -1,10 +1,12 @@
 footer.box
     width: 100%
     display: flex
-    align-items: center
     justify-content: space-between
     margin-top: 100px
     padding: 50px 0
+    @media screen and (max-width: 750px)
+        gap: 30px
+        flex-direction: column
     & header
         display: flex
         flex-direction: column
@@ -26,6 +28,9 @@ footer.box
     & div.links
         display: flex
         gap: 80px
+        @media screen and (max-width: 350px)
+            flex-direction: column
+            gap: 20px
         & div.category
             display: flex
             flex-direction: column
