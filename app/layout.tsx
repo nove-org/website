@@ -58,13 +58,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <html lang="en">
             <body className={inter.className} style={inter.style}>
                 <NextTopLoader color="#e74d5f" height={3} zIndex={999999} showSpinner={false} />
-                <main style={inter.style}>
-                    <Navigation />
+                <Navigation />
 
-                    {children}
+                <main style={inter.style}>{children}</main>
 
-                    <Footer />
-                </main>
+                <Footer />
             </body>
         </html>
     );

@@ -3,7 +3,16 @@ footer.box
     display: flex
     justify-content: space-between
     margin-top: 100px
-    padding: 50px 0
+    padding: 50px 110px
+    box-sizing: border-box
+    @media screen and (max-width: 1600px)
+        padding: 50px 70px
+    @media screen and (max-width: 1300px)
+        padding: 50px 40px
+    @media screen and (max-width: 750px)
+        padding: 50px 30px
+    @media screen and (max-width: 450px)
+        padding: 50px 20px
     @media screen and (max-width: 750px)
         gap: 30px
         flex-direction: column
