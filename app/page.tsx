@@ -214,13 +214,6 @@ export default async function Home() {
             <section className={o.community}>
                 <aside className={o.code}>
                     <div className={o.editor}>
-                        <div className={o.committer}>
-                            <img src="https://api.nove.team/v1/users/00000001/avatar.webp" alt="dawid's avatar" width={48} height={48} />
-                            <h1>
-                                Dawid-03 <span>committed on Jun 10, 2024</span>
-                            </h1>
-                            <p>feat: full name and id display</p>
-                        </div>
                         <div className={o.navbar}>
                             <div className={o.file}>
                                 <img src="/go.png" width={24} alt="Golang logo" />

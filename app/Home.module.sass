@@ -1,15 +1,21 @@
 section.hero
     width: 100%
     height: calc( 100vh - 70px * 2 )
+    min-height: 830px
     display: flex
     align-items: center
     justify-content: space-between
+    gap: 350px
+    @media screen and (max-width: 1000px)
+        gap: 70px
     & div.text
         max-width: 950px
         & h1
             font-size: 64px
             font-weight: 700
             margin: 15px 0
+            @media screen and (max-width: 600px)
+                font-size: 48px
             & span
                 color: var(--primary)
                 & word
@@ -45,11 +51,17 @@ section.hero
         & p
             font-size: 22px
             margin: 10px 0
+            @media screen and (max-width: 600px)
+                font-size: 20px
         & div.buttons
             display: flex
             align-items: center
             gap: 15px
             margin-top: 30px
+            @media screen and (max-width: 600px)
+                flex-direction: column
+                align-items: flex-start
+                gap: 10px
             & .highlight
                 background: var(--primary)
                 color: var(--on-primary)
@@ -64,15 +76,29 @@ section.decentralization
     justify-content: flex-end
     gap: 50px
     position: relative
+    @media screen and (max-width: 800px)
+        justify-content: space-between
+    @media screen and (max-width: 600px)
+        min-height: 700px
+        & aside
+            position: absolute
+            top: 0
+            right: 0
     & div.text
         margin-top: 100px
         max-width: 800px
         text-align: right
+        @media screen and (max-width: 1200px)
+            max-width: 500px
+        @media screen and (max-width: 800px)
+            text-align: left
         & h1
             font-size: 40px
             color: var(--primary)
             font-weight: 600
             margin: 5px 0
+            @media screen and (max-width: 600px)
+                font-size: 36px
             & strong
                 font-weight: 600
                 color: var(--on-background)
@@ -82,15 +108,26 @@ section.decentralization
             color: var(--on-background)
             font-weight: 400
             margin: 5px 0
+            @media screen and (max-width: 600px)
+                font-size: 18px
         & div.servers
+            --server-size: 100px
+            --server-progress-gap: 10px
             display: flex
             align-items: center
             justify-content: flex-end
             margin-top: 30px
-            gap: 100px
+            gap: var(--server-size)
+            @media screen and (max-width: 800px)
+                justify-content: flex-start
+                --server-size: 80px
+            @media screen and (max-width: 600px)
+                --server-size: 60px
+            @media screen and (max-width: 350px)
+                --server-size: 40px
             & div.server
-                width: 100px
-                height: 100px
+                width: var(--server-size)
+                height: var(--server-size)
                 border-radius: 10px
                 display: flex
                 align-items: center
@@ -101,13 +138,13 @@ section.decentralization
                 &::before
                     content: ""
                     display: block
-                    max-width: 80px
+                    max-width: calc( var(--server-size) - 2 * var(--server-progress-gap) )
                     width: 10%
                     height: 4px
                     background: linear-gradient(to right, #ac0c09, #c98a0b)
                     position: absolute
                     top: 50%
-                    left: 110px
+                    left: calc( var(--server-size) + var(--server-progress-gap) )
                     transform: translateY(-50%)
                     z-index: 2
                     animation: expand 4s ease infinite
@@ -126,21 +163,23 @@ section.decentralization
                 &::after
                     content: ""
                     display: block
-                    width: 80px
+                    width: calc( var(--server-size) - 2 * var(--server-progress-gap) )
                     height: 2px
                     background: var(--outline)
                     position: absolute
                     top: 50%
-                    left: 110px
+                    left: calc( var(--server-size) + var(--server-progress-gap) )
                     transform: translateY(-50%)
+                & svg
+                    max-width: calc( var(--server-size) / 3.3 )
                 & div.progressBackwards
                     display: flex
                     justify-content: flex-end
-                    width: 80px
+                    width: calc( var(--server-size) - 2 * var(--server-progress-gap) )
                     height: 4px
                     position: absolute
                     top: 50%
-                    left: 110px
+                    left: calc( var(--server-size) + var(--server-progress-gap) )
                     transform: translateY(-50%)
                     z-index: 2
                     & div.line
@@ -167,7 +206,7 @@ section.decentralization
                         width: 0 !important
                 & div.badge
                     position: absolute
-                    top: 110px
+                    top: calc( var(--server-size) + var(--server-progress-gap) )
                     left: 50%
                     transform: translateX(-50%)
                     padding: 5px
@@ -180,6 +219,8 @@ section.decentralization
                     display: flex
                     align-items: center
                     gap: 3px
+                    @media screen and (max-width: 600px)
+                        display: none
     & div.spheres
         width: 300px
         height: 600px
@@ -189,8 +230,17 @@ section.decentralization
         border: 1px solid gray
         border-left: 0
         position: absolute
+        z-index: -1
         left: 0
         transform: translate(-50%)
+        @media screen and (max-width: 1300px)
+            margin-left: -50px
+        @media screen and (max-width: 1100px)
+            margin-left: -80px
+        @media screen and (max-width: 900px)
+            margin-left: -100px
+        @media screen and (max-width: 800px)
+            display: none
         & div.origin
             width: 600px
             height: 600px
@@ -262,14 +312,22 @@ section.decentralization
                     color: var(--primary)
                     padding: 5px
                     border-radius: 10px
+                    font-size: 16px
+                    @media screen and (max-width: 1300px)
+                        top: calc( 100% + 5px )
+                        left: 0
+                        transform: none
+                        font-size: 14px
+                    @media screen and (max-width: 1000px)
+                        display: none
                     & i
                         font-style: normal
                         opacity: .5
 
 section.why
     width: 100%
+    min-height: 700px
     position: relative
-    min-height: calc( 100vh - 100px * 2 )
     display: flex
     flex-direction: column
     justify-content: center
@@ -280,13 +338,19 @@ section.why
             color: var(--primary)
             font-weight: 600
             margin: 5px 0
+            @media screen and (max-width: 600px)
+                font-size: 36px
             & strong
-                font-weight: 700
+                font-weight: 600
+                color: var(--on-background)
+                position: relative
         & p
             font-size: 20px
             color: var(--on-background)
             font-weight: 400
             margin: 5px 0
+            @media screen and (max-width: 600px)
+                font-size: 18px
     & ul
         list-style: none
         padding: 0
@@ -294,8 +358,9 @@ section.why
         margin-top: 30px
         width: 100%
         display: flex
+        flex-wrap: wrap
         gap: 30px
-        @media screen and (max-width: 700px)
+        @media screen and (max-width: 660px)
             flex-direction: column
         & li
             border-radius: 20px
@@ -305,6 +370,8 @@ section.why
             background: var(--primary-container)
             color: var(--on-primary-container)
             position: relative
+            @media screen and (max-width: 660px)
+                max-width: 100%
             & img
                 border-top-left-radius: 20px
                 border-top-right-radius: 20px
@@ -312,6 +379,8 @@ section.why
                 max-height: auto
                 height: auto
                 width: 100%
+                @media screen and (max-width: 660px)
+                    max-width: 100%
             & h1
                 font-size: 24px
                 font-weight: 500
@@ -326,27 +395,43 @@ section.why
 
 section.community
     width: 100%
-    min-height: calc( 100vh - 100px * 2 )
+    min-height: 700px
     display: flex
     justify-content: space-between
     align-items: center
     gap: 50px
     position: relative
+    @media screen and (max-width: 1000px)
+        justify-content: center
+        align-items: flex-start
+        flex-direction: column
+        min-height: 800px
+        gap: 20px
+    @media screen and (max-width: 660px)
+        margin-top: 150px
     & div.text
         max-width: 800px
         text-align: right
+        @media screen and (max-width: 1000px)
+            text-align: left
         & h1
             font-size: 40px
             color: var(--primary)
             font-weight: 600
             margin: 5px 0
+            @media screen and (max-width: 600px)
+                font-size: 36px
             & strong
-                font-weight: 700
+                font-weight: 600
+                color: var(--on-background)
+                position: relative
         & p
             font-size: 20px
             color: var(--on-background)
             font-weight: 400
             margin: 5px 0
+            @media screen and (max-width: 600px)
+                font-size: 18px
         & ul
             margin: 20px 0
             padding: 0
@@ -354,6 +439,13 @@ section.community
             display: flex
             flex-direction: column
             gap: 5px
+            @media screen and (max-width: 1000px)
+                & li::before
+                    content: ' ―'
+                    font-size: 18px
+                    margin-right: 5px
+                & li::after
+                    display: none
             & li::after
                 content: ' ―'
                 font-size: 18px
@@ -365,36 +457,12 @@ section.community
             background: linear-gradient(132deg, #f8cacab7, #ffe1e1)
             max-width: 500px
             width: 100%
+            overflow-x: auto
             max-height: 250px
             height: 100%
             position: relative
-            & div.committer
-                position: absolute
-                top: 180px
-                left: 300px
-                width: max-content
-                height: max-content
-                border-radius: 20px
-                border: 1px solid #d0b7b7
-                background: var(--primary-container)
-                color: var(--on-primary-container)
-                padding: 15px
-                box-shadow: 0 0 25px 0 #0000001e
-                box-sizing: border-box
-                & img
-                    border-radius: 50%
-                & h1
-                    font-size: 18px
-                    font-weight: 500
-                    margin: 0
-                    & span
-                        font-size: 14px
-                        opacity: .8
-                & p
-                    font-size: 16px
-                    font-weight: 400
-                    margin: 5px 0
-                    margin-bottom: 0
+            @media screen and (max-width: 660px)
+                max-width: 100%
             & div.navbar
                 display: flex
                 align-items: center
@@ -447,12 +515,15 @@ section.call
     min-height: 500px
     margin: 0 auto
     margin-top: 150px
+    padding: 20px
+    box-sizing: border-box
     border-radius: 30px
     background: var(--primary-container)
     color: var(--on-primary-container)
     display: flex
     align-items: center
     justify-content: center
+    text-align: center
     gap: 10px
     flex-direction: column
     & h1
@@ -460,9 +531,13 @@ section.call
         font-weight: 500
         margin: 0
         color: var(--primary)
+        @media screen and (max-width: 600px)
+            font-size: 36px
     & p
         font-size: 20px
         margin: 0
+        @media screen and (max-width: 600px)
+            font-size: 18px
     & a
         background: var(--secondary-container)
         border: 1px solid var(--secondary)
@@ -481,6 +556,10 @@ aside.block
     padding-right: 50px
     --height-first-bar: 375px
     --height-second-bar: 200px
+    @media screen and (max-width: 1200px)
+        padding-right: 0
+    @media screen and (max-width: 400px)
+        display: none
     @keyframes serverConnectionSt
         0%
             height: 0
@@ -498,6 +577,7 @@ aside.block
     & div.server
         font-size: 14px
         position: relative
+        width: max-content
         &::before
             content: ""
             display: block
@@ -539,6 +619,8 @@ aside.block
             padding: 10px
             border-radius: 10px
             animation: showActionsMenu 2s ease
+            @media screen and (max-width: 1000px)
+                display: none
             @keyframes showActionsMenu
                 0%
                     opacity: 0
