@@ -241,6 +241,7 @@ section.decentralization
             margin-left: -100px
         @media screen and (max-width: 800px)
             display: none
+        --sphere-speed: 50s
         & div.origin
             width: 600px
             height: 600px
@@ -250,7 +251,7 @@ section.decentralization
             left: calc( -100% - 4px )
             border-radius: 50%
             transform: rotate(40deg)
-            animation: rotateOriginSt 120s linear infinite
+            animation: rotateOriginSt var(--sphere-speed) linear infinite
             @keyframes rotateOriginSt
                 0%
                     transform: rotate(0deg)
@@ -259,7 +260,7 @@ section.decentralization
                 100%
                     transform: rotate(0deg)
             &:nth-child(2)
-                animation: rotateOriginNd 120s linear infinite
+                animation: rotateOriginNd var(--sphere-speed) linear infinite
                 @keyframes rotateOriginNd
                     0%
                         transform: rotate(-40deg)
@@ -269,7 +270,7 @@ section.decentralization
                         transform: rotate(-40deg)
                 & div.bubble
                     transform: rotate(0deg)
-                    animation: rotateBubbleNd 120s linear infinite
+                    animation: rotateBubbleNd var(--sphere-speed) linear infinite
                     @keyframes rotateBubbleNd
                         0%
                             transform: rotate(40deg)
@@ -292,7 +293,7 @@ section.decentralization
                 display: flex
                 align-items: center
                 justify-content: center
-                animation: rotateBubbleSt 120s linear infinite
+                animation: rotateBubbleSt var(--sphere-speed) linear infinite
                 @keyframes rotateBubbleSt
                     0%
                         transform: rotate(0deg)
@@ -351,7 +352,7 @@ section.why
             margin: 5px 0
             @media screen and (max-width: 600px)
                 font-size: 18px
-    & ul
+    & ul.whys
         list-style: none
         padding: 0
         margin: 0
@@ -362,7 +363,7 @@ section.why
         gap: 30px
         @media screen and (max-width: 660px)
             flex-direction: column
-        & li
+        & li.card
             border-radius: 20px
             max-width: 285px
             width: 100%
@@ -372,20 +373,161 @@ section.why
             position: relative
             @media screen and (max-width: 660px)
                 max-width: 100%
-            & img
+                min-height: 100%
+                display: flex
+            @media screen and (max-width: 570px)
+                flex-direction: column
+            & figure
+                padding: 0
+                margin: 0
+                display: block
+                max-width: 285px
+                height: 110px
                 border-top-left-radius: 20px
                 border-top-right-radius: 20px
-                max-width: 285px
-                max-height: auto
-                height: auto
-                width: 100%
+                position: relative
                 @media screen and (max-width: 660px)
-                    max-width: 100%
+                    min-width: 285px
+                    border-radius: 20px
+                    margin-top: 15px
+                    margin-left: 15px
+            & figure.encryption
+                background: #f29797
+                & svg
+                    position: absolute
+                    top: 30%
+                    left: 50%
+                    transform: translate(-50%, -50%)
+                    color: var(--primary)
+                & div.st, div.nd, div.rd
+                    position: absolute
+                    top: 65%
+                    left: 50%
+                    transform: translate(-50%, -50%)
+                    width: max-content
+                    font-family: monospace
+                    font-size: 18px
+                    padding: 5px 10px
+                    border-radius: 10px
+                    background: var(--secondary-container)
+                    border: 1px solid var(--secondary)
+                    color: var(--primary)
+                & div.st
+                    z-index: 3
+                    animation: encryptionText 4s ease infinite
+                & div.nd
+                    z-index: 2
+                    animation: encryptionNd .5s cubic-bezier(1,0,1,0) infinite
+                & div.rd
+                    z-index: 1
+                    animation: encryptionRd .5s cubic-bezier(1,0,1,0) infinite
+                    //
+                @keyframes encryptionNd
+                    0%
+                        opacity: 1
+                    50%
+                        opacity: 0
+                    100%
+                        opacity: 0
+                @keyframes encryptionRd
+                    0%
+                        opacity: 0
+                    50%
+                        opacity: 1
+                    100%
+                        opacity: 1
+                @keyframes encryptionText
+                    0%
+                        opacity: 0
+                    20%
+                        opacity: 0
+                    30%
+                        opacity: 1
+                    70%
+                        opacity: 1
+                    80%
+                        opacity: 0
+                    100%
+                        opacity: 0
+            & figure.tracking
+                background: #f29797
+                display: flex
+                flex-direction: column
+                align-items: center
+                justify-content: center
+                gap: 10px
+                & div.cross
+                    color: var(--primary)
+                    position: relative
+                    &::after
+                        display: block
+                        content: ''
+                        width: 100%
+                        height: 5px
+                        background: black
+                        position: absolute
+                        top: 50%
+                        left: 0
+                        rotate: -45deg
+                        border-radius: 2px
+            & figure.free
+                background: #f29797
+                display: flex
+                flex-direction: column
+                align-items: center
+                justify-content: center
+                gap: 10px
+                & p
+                    padding: 0
+                    font-size: 14px
+                    font-weight: 500
+                    text-transform: uppercase
+                    color: var(--primary)
+                    display: flex
+                    align-items: center
+                    gap: 5px
+                & div.progress
+                    width: 80%
+                    background: var(--secondary-container)
+                    height: 10px
+                    border-radius: 50px
+                    position: relative
+                    &::before, &::after
+                        content: ''
+                        display: block
+                        position: absolute
+                        border-radius: 50px
+                        top: 0
+                        width: 50%
+                        height: 10px
+                        background: linear-gradient(to right, #bf5151, #c73737)
+                    &::before
+                        animation: progressLeft 5s ease infinite
+                        right: 0
+                    &::after
+                        animation: progressRight 5s ease infinite
+                        left: 0
+                    @keyframes progressLeft
+                        0%
+                            width: 100%
+                        40%
+                            width: 0%
+                        100%
+                            width: 0%
+                    @keyframes progressRight
+                        0%
+                            width: 0%
+                        60%
+                            width: 0%
+                        100%
+                            width: 100%
+
             & h1
                 font-size: 24px
                 font-weight: 500
                 margin: 0
                 padding: 8px 16px
+                padding-top: 12px
             & p
                 font-size: 16px
                 opacity: .9
@@ -449,65 +591,6 @@ section.community
             & li::after
                 content: ' ―'
                 font-size: 18px
-    & aside.code
-        width: 100%
-        & div.editor
-            border-radius: 15px
-            border: 1px solid #b59f9f
-            background: linear-gradient(132deg, #f8cacab7, #ffe1e1)
-            max-width: 500px
-            width: 100%
-            overflow-x: auto
-            max-height: 250px
-            height: 100%
-            position: relative
-            @media screen and (max-width: 660px)
-                max-width: 100%
-            & div.navbar
-                display: flex
-                align-items: center
-                gap: 15px
-                padding: 0 10px
-                width: 100%
-                height: 50px
-                box-sizing: border-box
-                border-bottom: 1px solid #b59f9f
-                & div.file
-                    display: flex
-                    align-items: center
-                    box-sizing: border-box
-                    gap: 3px
-                    font-size: 14px
-                    &:first-child
-                        border: 1px solid #b59f9f
-                        color: #008caf
-                        padding: 4px 6px
-                        border-radius: 8px
-            & ul.lines
-                width: 100%
-                height: calc( 100% - 50px )
-                box-sizing: border-box
-                padding: 10px 0
-                font-family: monospace
-                font-size: 14px
-                margin: 0
-                list-style: none
-                & li.line
-                    color: gray
-                    padding: 0 12px
-                    &.highlight
-                        background: #08d40c2f
-                    & span
-                        &.red
-                            color: #b82d2d
-                        &.white
-                            color: #161616
-                        &.lightblue
-                            color: #5b6bc5
-                        &.blue
-                            color: #31429e
-                        &.yellow
-                            color: #a18623
 
 section.call
     width: 100%
@@ -526,6 +609,9 @@ section.call
     text-align: center
     gap: 10px
     flex-direction: column
+    & svg
+        color: var(--primary)
+        margin-bottom: 10px
     & h1
         font-size: 40px
         font-weight: 500
@@ -547,6 +633,38 @@ section.call
             background: var(--tertiary-container)
             border: 1px solid var(--tertiary)
             color: var(--on-tertiary-container)
+
+section.welcome
+    width: 100%
+    min-height: calc( 100vh - 70px )
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    text-align: center
+    gap: 10px
+    & h1
+        font-size: 36px
+        font-weight: 500
+        margin: 0
+    & p
+        font-size: 20px
+        margin: 0
+    & div.buttons
+        display: flex
+        align-items: center
+        gap: 15px
+        margin-top: 10px
+        @media screen and (max-width: 300px)
+            flex-direction: column
+            align-items: flex-start
+            gap: 10px
+        & .highlight
+            background: var(--primary)
+            color: var(--on-primary)
+            &:hover
+                background: var(--secondary)
+                color: var(--on-secondary)
 
 aside.block
     display: flex
@@ -670,35 +788,3 @@ aside.block
                         font-weight: 400
                     & img
                         border-radius: 50%
-
-section.welcome
-    width: 100%
-    min-height: calc( 100vh - 70px )
-    display: flex
-    align-items: center
-    justify-content: center
-    flex-direction: column
-    text-align: center
-    gap: 10px
-    & h1
-        font-size: 36px
-        font-weight: 500
-        margin: 0
-    & p
-        font-size: 20px
-        margin: 0
-    & div.buttons
-        display: flex
-        align-items: center
-        gap: 15px
-        margin-top: 10px
-        @media screen and (max-width: 300px)
-            flex-direction: column
-            align-items: flex-start
-            gap: 10px
-        & .highlight
-            background: var(--primary)
-            color: var(--on-primary)
-            &:hover
-                background: var(--secondary)
-                color: var(--on-secondary)
