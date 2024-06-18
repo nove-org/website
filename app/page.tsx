@@ -53,7 +53,7 @@ export default async function Home() {
                     <div className={o.buttons}>
                         {process.env.DONATE_LINK && (
                             <Link href={process.env.DONATE_LINK} className={`btn ${o.highlight}`}>
-                                Donate
+                                {lang.getCustomProp('modules.navigation.ul-donate')}
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
                                     <path
                                         fill="currentColor"
@@ -62,7 +62,11 @@ export default async function Home() {
                             </Link>
                         )}
                         <Link href={user ? '/account' : ENABLE_REGISTER_PAGE ? '/register' : '/login'} className="btn">
-                            {user ? 'My profile' : ENABLE_REGISTER_PAGE ? 'Sign up today' : 'Log in'}
+                            {user
+                                ? lang.getCustomProp('dashboard.layout.ul-profile')
+                                : ENABLE_REGISTER_PAGE
+                                  ? lang.getProp('hero-btn')
+                                  : lang.getCustomProp('modules.navigation.login-btn')}
                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
                                 <path
                                     fill="currentColor"
@@ -73,20 +77,26 @@ export default async function Home() {
                 </div>
                 <aside className={o.block}>
                     <div className={o.server}>
-                        Instance 1
+                        {lang.getProp('instance')} 1
                         <div className={o.actions}>
-                            <h1>Action Log</h1>
+                            <h1>{lang.getProp('action-log')}</h1>
                             <ul>
                                 <li className={o.action}>
                                     <img src="https://api.nove.team/v1/users/00000000/avatar.webp" alt="wnm210's avatar" width={20} height={20} />
-                                    wnm210 uploaded <strong>backup.sql</strong>
+                                    <div dangerouslySetInnerHTML={{ __html: lang.getProp('action-upload', { user: 'wnm210', file: '<strong>backup.sql</strong>' }) }} />
                                 </li>
                                 <li className={o.action + ' ' + o.nd}>
                                     <img src="https://api.nove.team/v1/users/00000001/avatar.webp" alt="dawid's avatar" width={20} height={20} />
-                                    <span>
-                                        Dawid<i>@instance-2</i>
-                                    </span>{' '}
-                                    viewed <strong>backup.sql</strong>
+                                    <div
+                                        dangerouslySetInnerHTML={{
+                                            __html: lang.getProp('action-view', {
+                                                user: `<span>
+                                        Dawid<i>@${lang.getProp('instance').toLowerCase()}-2</i>
+                                    </span>`,
+                                                file: '<strong>backup.sql</strong>',
+                                            }),
+                                        }}
+                                    />
                                 </li>
                             </ul>
                         </div>
@@ -99,7 +109,7 @@ export default async function Home() {
                         <div className={o.bubble}>
                             <img src="https://api.nove.team/v1/users/00000002/avatar.webp" width={36} height={36} />
                             <span className={o.holo}>
-                                @ars<i>@instance-4</i>
+                                @ars<i>@{lang.getProp('instance').toLowerCase()}-4</i>
                             </span>
                         </div>
                     </div>
@@ -107,16 +117,14 @@ export default async function Home() {
                         <div className={o.bubble}>
                             <img src="https://api.nove.team/v1/users/OzcH9li3/avatar.webp" width={36} height={36} />
                             <span className={o.holo}>
-                                @slavistapl<i>@instance-3</i>
+                                @slavistapl<i>@{lang.getProp('instance').toLowerCase()}-3</i>
                             </span>
                         </div>
                     </div>
                 </div>
                 <div className={o.text}>
-                    <h1>
-                        Because <strong>decentralization</strong> is the future.
-                    </h1>
-                    <p>All of our services are made with decentralization and self-hosting in mind. So you can run your own instance easily if you don't want or can't trust us.</p>
+                    <h1 dangerouslySetInnerHTML={{ __html: lang.getProp('decentralization-h1') }} />
+                    <p>{lang.getProp('decentralization-p')}</p>
                     <div className={o.servers}>
                         <div className={o.server}>
                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 24 24">
@@ -133,7 +141,7 @@ export default async function Home() {
                                         fill="currentColor"
                                         d="M 19.28125 5.28125 L 9 15.5625 L 4.71875 11.28125 L 3.28125 12.71875 L 8.28125 17.71875 L 9 18.40625 L 9.71875 17.71875 L 20.71875 6.71875 Z"></path>
                                 </svg>
-                                Online
+                                {lang.getProp('online')}
                             </div>
                         </div>
                         <div className={o.server}>
@@ -151,7 +159,7 @@ export default async function Home() {
                                         fill="currentColor"
                                         d="M 19.28125 5.28125 L 9 15.5625 L 4.71875 11.28125 L 3.28125 12.71875 L 8.28125 17.71875 L 9 18.40625 L 9.71875 17.71875 L 20.71875 6.71875 Z"></path>
                                 </svg>
-                                Online
+                                {lang.getProp('online')}
                             </div>
                         </div>
                         <div className={o.server}>
@@ -169,7 +177,7 @@ export default async function Home() {
                                         fill="currentColor"
                                         d="M 19.28125 5.28125 L 9 15.5625 L 4.71875 11.28125 L 3.28125 12.71875 L 8.28125 17.71875 L 9 18.40625 L 9.71875 17.71875 L 20.71875 6.71875 Z"></path>
                                 </svg>
-                                Online
+                                {lang.getProp('online')}
                             </div>
                         </div>
                     </div>
@@ -180,8 +188,8 @@ export default async function Home() {
             </section>
             <section className={o.why}>
                 <div className={o.text}>
-                    <h1>With all the great features you expect, and more...</h1>
-                    <p>Including the modern design, intuitive user interface and accessibility options.</p>
+                    <h1>{lang.getProp('word-h1')}</h1>
+                    <p>{lang.getProp('word-p')}</p>
                 </div>
                 <ul className={o.whys}>
                     <li className={o.card}>
@@ -261,12 +269,12 @@ export default async function Home() {
         </>
     ) : (
         <section className={o.welcome}>
-            <h1>Welcome to NAPI</h1>
-            <p>Libre, self-hosted and decentralized OAuth2 provider.</p>
+            <h1>{lang.getProp('welcome-h1')}</h1>
+            <p>{lang.getProp('welcome-p')}</p>
             <div className={o.buttons}>
                 {process.env.DONATE_LINK && (
                     <Link href={process.env.DONATE_LINK} className={`btn ${o.highlight}`}>
-                        Donate
+                        {lang.getCustomProp('modules.navigation.ul-donate')}
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
                             <path
                                 fill="currentColor"
@@ -275,7 +283,11 @@ export default async function Home() {
                     </Link>
                 )}
                 <Link href={user ? '/account' : ENABLE_REGISTER_PAGE ? '/register' : '/login'} className="btn">
-                    {user ? 'My profile' : ENABLE_REGISTER_PAGE ? 'Sign up' : 'Log in'}
+                    {user
+                        ? lang.getCustomProp('dashboard.layout.ul-profile')
+                        : ENABLE_REGISTER_PAGE
+                          ? lang.getProp('hero-btn')
+                          : lang.getCustomProp('modules.navigation.login-btn')}
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
                         <path
                             fill="currentColor"

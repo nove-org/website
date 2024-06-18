@@ -95,7 +95,15 @@
             "hero-note-trust": "Don't take our word for this. View the <a class={style} target=\"_blank\" rel=\"noopener noreferrer\" href={repository}>code</a> yourself",
             "hero-description": "Ditch Google, Facebook and other companies that sell data, profile and track you. Take back control and start using free, open-source and privacy-respecting solutions by Nove.",
             "hero-btn": "Sign up today",
-            "word-h1": "In our ecosystem, your data belongs to you, and only you.",
+            "instance": "Instance",
+            "online":"Online",
+            "action-log": "Action log",
+            "action-upload": "{user} uploaded {file}",
+            "action-view": "{user} viewed {file}",
+            "decentralization-h1": "Because <strong>decentralization</strong> is the future.",
+            "decentralization-p": "All of our services are made with decentralization and self-hosting in mind. So you can run your own instance easily if you don't want or can't trust us.",
+            "word-h1": "With all the great features you expect, and more...",
+            "word-p": "Including the modern design, intuitive user interface and accessibility options.",
             "word-card1-title": "Stored securely on our servers",
             "word-card1-description": "We encrypt your data whenever possible to protect it from governments, hackers and tech companies including us.",
             "word-card2-title": "No tracking nor selling",
@@ -110,7 +118,9 @@
             "breakup-li-3": "Host your own fork of our software directly on your hardware",
             "ready-h1": "Are you ready to dive into the world of privacy?",
             "ready-p": "Start your journey, sign up for free today.",
-            "ready-btn": "Sign up with just few clicks"
+            "ready-btn": "Sign up with just few clicks",
+            "welcome-h1": "Welcome to NAPI",
+            "welcome-p":"Libre, self-hosted and decentralized OAuth2 provider."
         },
         "about": {
             "hero-h1": "Our <b>goal</b> is to make the Internet <span>private</span> and <span>safe</span> for everyone",
