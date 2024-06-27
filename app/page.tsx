@@ -18,11 +18,10 @@
 
 import NAPI from '@util/helpers/NAPI';
 import LanguageHandler from '@util/handlers/LanguageHandler';
+import Link from 'next/link';
 import o from './Home.module.sass';
 import { cookies, headers } from 'next/headers';
-import Link from 'next/link';
 import { ENABLE_REGISTER_PAGE, OFFICIAL_LANDING } from '@util/CONSTS';
-import ObjectHelper from '@util/helpers/Object';
 
 export async function generateMetadata() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);

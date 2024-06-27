@@ -194,6 +194,7 @@
             "ul-logs": "Audit log"
         },
         "main": {
+            "title": "Account",
             "tips-header": "Tips to improve your security and privacy",
             "tips-1": "Use free and open-source software",
             "tips-2": "Try to use MFA whenever possible",
