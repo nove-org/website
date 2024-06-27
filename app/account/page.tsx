@@ -21,9 +21,13 @@ export default async function Account() {
     const user = await api.user().get({ caching: true });
     const lang = await new LanguageHandler('dashboard/main', user).init(headers());
 
-    return (
-        <section className={o.account}>
-            {lang.getProp('title')} {user?.username}
-        </section>
+    return user ? (
+        <div className={o.content}>
+            <h1>Overview</h1>
+        </div>
+    ) : (
+        <div className={o.content}>
+            <h1>E</h1>
+        </div>
     );
 }

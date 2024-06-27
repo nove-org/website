@@ -120,8 +120,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                         login: nav.getProp('login-btn'),
                         register: nav.getProp('register-btn'),
                         profile: nav.getProp('switcher-profile'),
-                        security: nav.getProp('switcher-profile'),
-                        logout: nav.getProp('switcher-profile'),
+                        security: nav.getProp('switcher-security'),
+                        logout: nav.getProp('switcher-logout'),
                     }}
                 />
 
