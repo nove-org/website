@@ -100,6 +100,9 @@ export default class NAPI {
                 const config = { path: '/v1/users/me/connections', options };
                 return caching ? await getCachedData<Connection[]>(config) : await getData<Connection[]>(config);
             },
+            authorize: async ({ body }: { body: { username: string; password: string } }) => {
+                return await getData<User>({ path: '/v1/users/login', type: RequestType.Post, body });
+            },
         };
     }
 }

@@ -21,8 +21,8 @@ import LanguageHandler from '@util/handlers/LanguageHandler';
 import o from './Home.module.sass';
 import { cookies, headers } from 'next/headers';
 import Link from 'next/link';
-import Image from 'next/image';
 import { ENABLE_REGISTER_PAGE, OFFICIAL_LANDING } from '@util/CONSTS';
+import ObjectHelper from '@util/helpers/Object';
 
 export async function generateMetadata() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
@@ -39,7 +39,7 @@ export async function generateMetadata() {
     };
 }
 
-export default async function Home() {
+export default async function Home({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
     const user = await api.user().get({ caching: true });
     const lang = await new LanguageHandler('main/landing', user).init(headers());

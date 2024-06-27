@@ -30,7 +30,7 @@ export const DOMAIN_REGEX: RegExp = /^(https:\/\/)?([a-zA-Z0-9]{1,32}\.)?(nove\.
 /// Appearance
 //* Landing page
 //* Switch between selfhosted view and official (promo) view. Default: false
-export const OFFICIAL_LANDING: boolean = false;
+export const OFFICIAL_LANDING: boolean = true;
 //* Message of the day
 //* Add a custom notification on top of every page. Configuration options below.
 export const MOTD: {
