@@ -1,16 +1,18 @@
 import Databox from '@app/Databox';
-import o from './Login.module.sass';
 import Link from 'next/link';
+import MFA from './MFA';
+import Password from './Password';
 import NAPI from '@util/helpers/NAPI';
-import { cookies, headers } from 'next/headers';
+import Encryption from '@util/helpers/Encryption';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import ObjectHelper from '@util/helpers/Object';
-import { redirect } from 'next/navigation';
+import o from './Login.module.sass';
+import { cookies, headers } from 'next/headers';
+import { RedirectType, redirect } from 'next/navigation';
 import { axiosClient } from '@util/helpers/Axios';
 import { Response, User } from '@util/helpers/Schema';
 import { AxiosError, AxiosResponse } from 'axios';
 import { COOKIE_HOSTNAME } from '@util/CONSTS';
-import Encryption from '@util/helpers/Encryption';
 
 export async function generateMetadata() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
@@ -35,7 +37,7 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
     const error: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 'et');
     const mfa: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 'mfa');
 
-    if (user?.id) redirect('/');
+    if (user?.id) redirect('/account');
     if (handle && handle.split('@').length === 3) redirect(`https://${handle.split('@')[2]}/login?h=${handle.split('@')[1]}`);
     if (mfa && (!handle || !cookies().get('tempAuthId')?.value)) return redirect('/login?et=ci');
 
@@ -77,7 +79,7 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
                     maxAge: 1,
                     expires: 1,
                 });
-                redirect('/');
+                redirect('/account');
             })
             .catch((e: AxiosError) => {
                 const user = e.response?.data as Response<null>;
@@ -137,43 +139,49 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
                             {lang.getProp('handle-faq')}
                         </Link>
                     </div>
-                    {handle && (
+                    {handle ? (
                         <>
                             <h2 className={o.userInfo}>
                                 <span>{handle.charAt(0)}</span> {handle}
                                 <Link href="/login">Not you?</Link>
                             </h2>
                             {mfa ? (
-                                <Databox id="mfa" title={lang.getProp('input-mfa')} description={lang.getProp('input-mfa-p')} type="text" required={true} placeholder="123456" />
+                                <MFA
+                                    lang={{
+                                        mfa: lang.getProp('input-mfa'),
+                                        mfaP: lang.getProp('input-mfa-p'),
+                                        new: lang.getProp('input-new'),
+                                        login: lang.getProp('input-login'),
+                                    }}
+                                />
                             ) : (
-                                <>
-                                    <Databox
-                                        id="password"
-                                        title={lang.getProp('input-password')}
-                                        type="password"
-                                        required={true}
-                                        placeholder={lang.getProp('input-password-placeholder')}
-                                    />
-                                    <Link className={o.link} href="/password-reset">
-                                        {lang.getProp('password-reset')}
-                                    </Link>
-                                </>
+                                <Password
+                                    et={error}
+                                    lang={{
+                                        password: lang.getProp('input-password'),
+                                        passwordP: lang.getProp('input-password-placeholder'),
+                                        reset: lang.getProp('password-reset'),
+                                        new: lang.getProp('input-new'),
+                                        login: lang.getProp('input-login'),
+                                    }}
+                                />
                             )}
                         </>
+                    ) : (
+                        <div className={o.buttons}>
+                            <Link className="btn" href="/register">
+                                {lang.getProp('input-new')}
+                            </Link>
+                            <button className={'btn ' + o.highlight} type="submit">
+                                {lang.getProp('input-next')}
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
+                                    <path
+                                        fill="currentColor"
+                                        d="M 14 4.9296875 L 12.5 6.4296875 L 17.070312 11 L 3 11 L 3 13 L 17.070312 13 L 12.5 17.570312 L 14 19.070312 L 21.070312 12 L 14 4.9296875 z"></path>
+                                </svg>
+                            </button>
+                        </div>
                     )}
-                    <div className={o.buttons}>
-                        <Link className="btn" href="/register">
-                            {lang.getProp('input-new')}
-                        </Link>
-                        <button className={'btn ' + o.highlight} type="submit">
-                            {handle ? lang.getProp('input-login') : lang.getProp('input-next')}
-                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
-                                <path
-                                    fill="currentColor"
-                                    d="M 14 4.9296875 L 12.5 6.4296875 L 17.070312 11 L 3 11 L 3 13 L 17.070312 13 L 12.5 17.570312 L 14 19.070312 L 21.070312 12 L 14 4.9296875 z"></path>
-                            </svg>
-                        </button>
-                    </div>
                 </form>
             </div>
         </section>
