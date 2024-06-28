@@ -182,16 +182,17 @@
     },
     "dashboard": {
         "layout": {
-            "title": "Dashboard",
-            "header": "Settings",
+            "header": "My account",
             "ul-overview": "Overview",
-            "ul-security": "Security",
-            "ul-profile": "My profile",
+            "ul-oauth2": "OAuth2 authorizations",
+            "ul-security": "Security & privacy",
+            "ul-profile": "Profile options",
             "ul-language": "Language",
             "header-admin": "Moderation",
             "ul-users": "Users",
             "ul-posts": "Posts",
-            "ul-logs": "Audit log"
+            "ul-logs": "Audit log",
+            "latest-news": "Latest news from developers"
         },
         "main": {
             "title": "Account",
