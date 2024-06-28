@@ -1,6 +1,6 @@
 import Loader from './Loader';
 import o from './Databox.module.sass';
-import { ChangeEventHandler, MouseEventHandler } from 'react';
+import { ChangeEventHandler, KeyboardEventHandler, MouseEventHandler } from 'react';
 
 export default function Databox({
     title,
@@ -16,6 +16,7 @@ export default function Databox({
     navigateTrigger,
     navigateLoading,
     onChange,
+    onKeyDown,
     location,
 }: {
     title: string;
@@ -31,11 +32,12 @@ export default function Databox({
     navigateTrigger?: MouseEventHandler<HTMLButtonElement>;
     navigateLoading?: boolean;
     onChange?: ChangeEventHandler<HTMLSelectElement | HTMLInputElement | HTMLTextAreaElement>;
+    onKeyDown?: KeyboardEventHandler<HTMLSelectElement | HTMLInputElement | HTMLTextAreaElement> | undefined;
     location?: MouseEventHandler<HTMLButtonElement>;
 }) {
     return type === 'select' ? (
         <label className={o.npt}>
-            <select id={id} name={id} defaultValue={value} required={required} aria-readonly={readOnly} onChange={onChange}>
+            <select id={id} name={id} defaultValue={value} required={required} aria-readonly={readOnly} onChange={onChange} onKeyDown={onKeyDown}>
                 {value && (
                     <option value={value} key={value}>
                         {options?.find((v) => v.value === value)?.text || 'error'}
@@ -59,7 +61,7 @@ export default function Databox({
     ) : type === 'switch' ? (
         <label className={o.npt + ' ' + o.swt}>
             <label className={o.switch}>
-                <input type="checkbox" id={id} name={id} defaultChecked={checked} readOnly={readOnly} onChange={onChange} />
+                <input type="checkbox" id={id} name={id} defaultChecked={checked} readOnly={readOnly} onChange={onChange} onKeyDown={onKeyDown} />
                 <span className={o.slider}></span>
             </label>
             <p>
@@ -69,7 +71,7 @@ export default function Databox({
         </label>
     ) : type === 'textarea' ? (
         <label className={o.npt}>
-            <textarea id={id} name={id} defaultValue={value} readOnly={readOnly} placeholder={placeholder} required={required} onChange={onChange} rows={5} />
+            <textarea id={id} name={id} defaultValue={value} readOnly={readOnly} placeholder={placeholder} required={required} onChange={onChange} onKeyDown={onKeyDown} rows={5} />
             <p>
                 {title}
                 {description && <span>{description}</span>}
@@ -87,6 +89,7 @@ export default function Databox({
                 required={required}
                 readOnly={readOnly}
                 onChange={onChange}
+                onKeyDown={onKeyDown}
             />
             <p>
                 {title}
@@ -125,7 +128,17 @@ export default function Databox({
                 </button>
             ) : null}
             <label className={o.npt}>
-                <input type={type} id={id} name={id} defaultValue={value} placeholder={placeholder} required={required} readOnly={readOnly} onChange={onChange} />
+                <input
+                    type={type}
+                    id={id}
+                    name={id}
+                    defaultValue={value}
+                    placeholder={placeholder}
+                    required={required}
+                    readOnly={readOnly}
+                    onChange={onChange}
+                    onKeyDown={onKeyDown}
+                />
                 <p>
                     {title}
                     {description && <span>{description}</span>}
