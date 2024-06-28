@@ -75,11 +75,22 @@ aside.navigation
         & div.user
             display: flex
             align-items: center
-            gap: 5px
-            font-size: 16px
-            font-weight: 500
-            & img
-                border-radius: 50%
+            justify-content: space-between
+            & div.profile
+                display: flex
+                align-items: center
+                gap: 5px
+                font-size: 16px
+                font-weight: 500
+                & img
+                    border-radius: 50%
+            & a
+                font-size: 14px
+                font-weight: 400
+                color: var(--primary)
+                text-decoration: none
+                &:hover
+                    text-decoration: underline
     & div.header
         display: flex
         flex-direction: column
@@ -97,6 +108,11 @@ aside.navigation
         display: flex
         flex-direction: column
         gap: 4px
+        & h2
+            font-size: 18px
+            font-weight: 500
+            margin: 0 10px
+            margin-bottom: 5px
         & a
             display: flex
             align-items: center
