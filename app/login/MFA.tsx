@@ -7,8 +7,10 @@ import o from './Login.module.sass';
 import { useState } from 'react';
 
 export default function MFA({
+    et,
     lang,
 }: {
+    et?: string;
     lang: {
         mfa: string;
         mfaP: string;
@@ -26,8 +28,8 @@ export default function MFA({
                 <Link className="btn" href="/register">
                     {lang.new}
                 </Link>
-                <button className={'btn ' + (loading ? o.loading : o.highlight)} onClick={() => triggerLoading()} type="submit">
-                    {loading ? (
+                <button className={'btn ' + (loading && !et ? o.loading : o.highlight)} onClick={() => triggerLoading()} type="submit">
+                    {loading && !et ? (
                         <Loader type="button" />
                     ) : (
                         <>

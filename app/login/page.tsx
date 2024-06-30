@@ -147,6 +147,7 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
                             </h2>
                             {mfa ? (
                                 <MFA
+                                    et={error}
                                     lang={{
                                         mfa: lang.getProp('input-mfa'),
                                         mfaP: lang.getProp('input-mfa-p'),
