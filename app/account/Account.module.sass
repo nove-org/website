@@ -7,7 +7,40 @@ div.content
     border-bottom-left-radius: 25px
     padding: 20px
     box-sizing: border-box
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    gap: 10px
+    & img
+        border-radius: 50%
     & h1
         font-size: 30px
         font-weight: 500
         margin: 0
+    & p
+        font-size: 16px
+        font-weight: 400
+        margin: 0
+    & div.links
+        display: flex
+        gap: 15px
+        margin-top: 15px
+        & div.card
+            padding: 12px
+            box-sizing: border-box
+            max-width: 250px
+            width: 100%
+            display: flex
+            flex-direction: column
+            gap: 5px
+            background: var(--primary-container)
+            color: var(--on-primary-container)
+            border-radius: 15px
+            & h1
+                font-size: 18px
+                font-weight: 500
+                margin: 0
+            & p
+                font-size: 14px
+                margin: 0

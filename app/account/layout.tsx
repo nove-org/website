@@ -4,12 +4,16 @@ import LanguageHandler from '@util/handlers/LanguageHandler';
 import React from 'react';
 import o from './AccountLayout.module.sass';
 import { cookies, headers } from 'next/headers';
+import { Post } from '@util/helpers/Schema';
+import { FETCH_OFFICIAL_BLOG } from '@util/CONSTS';
 
 export default async function AccountLayout({ children }: { children: React.ReactNode }) {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
-    const blog = await api.blog().getPosts({ caching: true });
     const user = await api.user().get({ caching: true });
     const lang = await new LanguageHandler('dashboard/layout', user).init(headers());
+
+    let blog: Post[] = [];
+    if (FETCH_OFFICIAL_BLOG) blog = await api.blog().getPosts({ caching: true });
 
     return (
         <section className={o.account}>
