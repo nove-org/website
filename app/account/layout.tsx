@@ -12,28 +12,26 @@ export default async function AccountLayout({ children }: { children: React.Reac
     const lang = await new LanguageHandler('dashboard/layout', user).init(headers());
 
     return (
-        user && (
-            <section className={o.account}>
-                <Sidebar
-                    user={user}
-                    blog={blog}
-                    lang={{
-                        header: lang.getProp('header'),
-                        headerAdmin: lang.getProp('header-admin'),
-                        overview: lang.getProp('ul-overview'),
-                        oauth2: lang.getProp('ul-oauth2'),
-                        security: lang.getProp('ul-security'),
-                        profile: lang.getProp('ul-profile'),
-                        language: lang.getProp('ul-language'),
-                        users: lang.getProp('ul-users'),
-                        posts: lang.getProp('ul-posts'),
-                        logs: lang.getProp('ul-logs'),
-                        latestNews: lang.getProp('latest-news'),
-                        logout: lang.getCustomProp('modules.navigation.switcher-logout'),
-                    }}
-                />
-                {children}
-            </section>
-        )
+        <section className={o.account}>
+            <Sidebar
+                user={user}
+                blog={blog}
+                lang={{
+                    header: lang.getProp('header'),
+                    headerAdmin: lang.getProp('header-admin'),
+                    overview: lang.getProp('ul-overview'),
+                    oauth2: lang.getProp('ul-oauth2'),
+                    security: lang.getProp('ul-security'),
+                    profile: lang.getProp('ul-profile'),
+                    language: lang.getProp('ul-language'),
+                    users: lang.getProp('ul-users'),
+                    posts: lang.getProp('ul-posts'),
+                    logs: lang.getProp('ul-logs'),
+                    latestNews: lang.getProp('latest-news'),
+                    logout: lang.getCustomProp('modules.navigation.switcher-logout'),
+                }}
+            />
+            {user ? children : null}
+        </section>
     );
 }

@@ -4,14 +4,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import o from './AccountLayout.module.sass';
 import { Post, User } from '@util/helpers/Schema';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 export default function Sidebar({
     user,
     blog,
     lang,
 }: {
-    user: User;
+    user?: User;
     blog: Post[];
     lang: {
         header: string;
@@ -28,8 +28,11 @@ export default function Sidebar({
         logout: string;
     };
 }) {
+    const router = useRouter();
     const pathname = usePathname();
     const halloween = new Date().getMonth() == 9 && new Date().getDate() == 31;
+
+    if (!user) router.replace('/login?redirectBack=' + pathname);
 
     const links = [
         {
@@ -83,7 +86,7 @@ export default function Sidebar({
             admin: true,
         },
     ];
-    return (
+    return user ? (
         <aside className={o.navigation}>
             <div className={o.top}>
                 <div className={o.header}>
@@ -147,5 +150,7 @@ export default function Sidebar({
                 </div>
             </div>
         </aside>
+    ) : (
+        <></>
     );
 }
