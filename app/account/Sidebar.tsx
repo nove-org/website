@@ -124,16 +124,9 @@ export default function Sidebar({
                 )}
             </div>
             <div className={o.bottom}>
-                {blog.length && (
+                {blog.length > 0 && (
                     <div className={o.blog}>
-                        <h2>
-                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
-                                <path
-                                    fill="currentColor"
-                                    d="M 5 3 C 3.9069372 3 3 3.9069372 3 5 L 3 19 C 3 20.093063 3.9069372 21 5 21 L 19 21 C 20.093063 21 21 20.093063 21 19 L 21 5 C 21 3.9069372 20.093063 3 19 3 L 5 3 z M 5 5 L 19 5 L 19 19 L 5 19 L 5 5 z M 7 7 L 7 9 L 8 9 C 11.877484 9 15 12.122516 15 16 L 15 17 L 17 17 L 17 16 C 17 11.041484 12.958516 7 8 7 L 7 7 z M 7 11 L 7 13 L 8 13 C 9.6684839 13 11 14.331516 11 16 L 11 17 L 13 17 L 13 16 C 13 13.250484 10.749516 11 8 11 L 7 11 z M 8 15 A 1 1 0 0 0 7 16 A 1 1 0 0 0 8 17 A 1 1 0 0 0 9 16 A 1 1 0 0 0 8 15 z"></path>
-                            </svg>
-                            {lang.latestNews}
-                        </h2>
+                        <h2>{lang.latestNews}</h2>
                         <a href={'https://nove.team/blog/' + blog[0].id} className={o.card}>
                             <Image src="https://files-api.nove.team/v1/uploads/p2e8ppfnlab/file" width={500} height={222} alt="text" />
                             <div className={o.shadow}></div>

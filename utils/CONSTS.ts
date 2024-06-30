@@ -30,7 +30,7 @@ export const DOMAIN_REGEX: RegExp = /^(https:\/\/)?([a-zA-Z0-9]{1,32}\.)?(nove\.
 /// Appearance
 //* Landing page
 //* Switch between selfhosted view and official (promo) view. Default: false
-export const OFFICIAL_LANDING: boolean = true;
+export const OFFICIAL_LANDING: boolean = false;
 //* Message of the day
 //* Add a custom notification on top of every page. Configuration options below.
 export const MOTD: {
@@ -57,3 +57,6 @@ export const MOTD: {
 //* routes. Make sure to disable registrations in NAPI configuration as well.
 //* Default: false
 export const ENABLE_REGISTER_PAGE: boolean = true;
+
+/// Privacy
+export const FETCH_OFFICIAL_BLOG: boolean = false;
