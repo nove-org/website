@@ -1,4 +1,4 @@
-import { AxiosError } from 'axios';
+import { AxiosError, AxiosRequestConfig } from 'axios';
 import { axiosClient } from './Axios';
 import { Connection, Device, Languages, Post, Response, User } from './Schema';
 
@@ -20,7 +20,7 @@ interface MethodOptions {
 
 interface DataGet {
     path: string;
-    options?: object;
+    options?: AxiosRequestConfig<any>;
     type?: RequestType;
     body?: object;
 }
@@ -73,7 +73,7 @@ export default class NAPI {
 
     language() {
         return {
-            get: async ({ caching }: MethodOptions) => {
+            getAll: async ({ caching }: MethodOptions) => {
                 const config = { path: '/v1/languages' };
                 return caching ? await getCachedData<Languages>(config) : await getData<Languages>(config);
             },
@@ -117,8 +117,8 @@ export default class NAPI {
                 const config = { path: '/v1/users/me/connections', options };
                 return caching ? await getCachedData<Connection[]>(config) : await getData<Connection[]>(config);
             },
-            authorize: async ({ body }: { body: { username: string; password: string } }) => {
-                return await getData<User>({ path: '/v1/users/login', type: RequestType.Post, body });
+            authorize: async ({ body, mfa }: { body: { username: string; password: string }; mfa?: string }) => {
+                return await getData<User>({ path: '/v1/users/login', options: mfa ? { headers: { 'x-mfa': mfa } } : undefined, type: RequestType.Post, body });
             },
         };
     }
