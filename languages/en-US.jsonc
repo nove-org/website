@@ -206,7 +206,8 @@
             "card-3-h1": "Logging in",
             "card-3-p": "Change your account credentials or add security layers with ease",
             "card-4-h1": "Recovery",
-            "card-4-p": "Set up two factor authentication and download backup codes"
+            "card-4-p": "Set up two factor authentication and download backup codes",
+            "applications": "Applications"
         },
         "security": {
             "devices-h1": "Your devices",

@@ -10,37 +10,87 @@ div.content
     display: flex
     align-items: center
     justify-content: center
-    flex-direction: column
-    gap: 10px
-    & img
-        border-radius: 50%
-    & h1
-        font-size: 30px
-        font-weight: 500
-        margin: 0
-    & p
-        font-size: 16px
-        font-weight: 400
-        margin: 0
-    & div.links
+    & div.container
         display: flex
-        gap: 15px
-        margin-top: 15px
-        & div.card
-            padding: 12px
-            box-sizing: border-box
-            max-width: 250px
-            width: 100%
-            display: flex
-            flex-direction: column
-            gap: 5px
-            background: var(--primary-container)
-            color: var(--on-primary-container)
-            border-radius: 15px
+        flex-direction: column
+        gap: 30px
+        & div.profile
+            text-align: center
+            & img
+                border-radius: 50%
             & h1
-                font-size: 18px
+                font-size: 30px
                 font-weight: 500
                 margin: 0
             & p
-                font-size: 14px
+                font-size: 16px
+                font-weight: 400
+                margin: 5px 0
+        & div.links
+            display: flex
+            gap: 10px
+            & a.card
+                padding: 12px
+                box-sizing: border-box
+                max-width: 220px
+                width: 100%
+                display: flex
+                flex-direction: column
+                gap: 5px
+                background: var(--primary-container)
+                color: var(--on-primary-container)
+                border-radius: 15px
+                text-decoration: none
+                transition: background-color .1s
+                &:hover
+                    background: var(--secondary-container)
+                    color: var(--on-secondary-container)
+                & h1
+                    font-size: 18px
+                    font-weight: 500
+                    margin: 0
+                & p
+                    font-size: 14px
+                    margin: 0
+        & div.products
+            display: flex
+            flex-direction: column
+            gap: 10px
+            & h1
+                font-size: 16px
+                font-weight: 500
                 margin: 0
+                display: flex
+                align-items: center
+                gap: 4px
+            & div.apps
+                display: flex
+                gap: 10px
+                align-items: center
+                & a.blue, a.green
+                    position: relative
+                    width: 80px
+                    height: 80px
+                    border-radius: 15px
+                    background: var(--primary-container)
+                    color: var(--on-primary-container)
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    flex-direction: column
+                    gap: 4px
+                    font-size: 14px
+                    font-weight: 500
+                    text-decoration: none
+                & a.blue
+                    background: #d4a9d6a1
+                    color: #4f0065
+                & a.green
+                    background: #8aae7979
+                    color: #062100
+        & p.footer
+            margin-top: 20px
+            font-size: 10px
+            width: 100%
+            text-align: right
+            opacity: .8

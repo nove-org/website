@@ -35,7 +35,24 @@ async function getData<T>({ path, options, type, body }: DataGet) {
                 ? axiosClient.post(path, body, options)
                 : axiosClient.get(path, options);
     const response = await request.then((r) => r.data).catch((e: AxiosError) => e.response?.data);
-    return (response?.body?.data || response?.body?.error) as T & { code?: string };
+    let final = (response?.body?.data || response?.body?.error) as T & {
+        code?: string;
+        meta?: {
+            timestamp: string;
+            version: string;
+            server: string;
+        };
+    };
+    if (path === '/v1/users/me')
+        final = {
+            ...final,
+            meta: {
+                timestamp: response?.meta?.timestamp,
+                version: response?.meta?.version,
+                server: response?.meta?.server,
+            },
+        };
+    return final;
 }
 
 async function getCachedData<T>({ path, options, type, body }: DataGet) {
