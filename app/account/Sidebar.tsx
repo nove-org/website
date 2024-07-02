@@ -93,7 +93,7 @@ export default function Sidebar({
                     <Link href="/">
                         <Image src="/logo_w.png" width={28} height={28} alt="Nove logo" />
                     </Link>
-                    {lang.header}
+                    <span>{lang.header}</span>
                 </div>
                 <div className={o.links}>
                     {links
@@ -103,12 +103,12 @@ export default function Sidebar({
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="18" height="18" viewBox="0 0 24 24">
                                     <path fill="currentColor" d={link.d}></path>
                                 </svg>
-                                {link.label}
+                                <span dangerouslySetInnerHTML={{ __html: link.label }} />
                             </Link>
                         ))}
                 </div>
                 {user.permissionLevel > 0 && (
-                    <div className={o.links}>
+                    <div className={o.links + ' ' + o.admin}>
                         <h2>{lang.headerAdmin}</h2>
                         {links
                             .filter((v) => v.admin)
@@ -117,7 +117,7 @@ export default function Sidebar({
                                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="18" height="18" viewBox="0 0 24 24">
                                         <path fill="currentColor" d={link.d}></path>
                                     </svg>
-                                    {link.label}
+                                    <span dangerouslySetInnerHTML={{ __html: link.label }} />
                                 </Link>
                             ))}
                     </div>
@@ -127,19 +127,19 @@ export default function Sidebar({
                 {blog.length > 0 && (
                     <div className={o.blog}>
                         <h2>{lang.latestNews}</h2>
-                        <a href={'https://nove.team/blog/' + blog[0].id} className={o.card}>
+                        <Link href={'https://nove.team/blog/' + blog[0].id} className={o.card}>
                             <Image src="https://files-api.nove.team/v1/uploads/p2e8ppfnlab/file" width={500} height={222} alt="text" />
                             <div className={o.shadow}></div>
                             <span>{blog[0].title}</span>
-                        </a>
+                        </Link>
                     </div>
                 )}
                 <div className={o.user}>
                     <div className={o.profile}>
                         <Image src={user.avatar} alt="User's avatar" width={24} height={24} />
-                        {user.username}
+                        <span>{user.username}</span>
                     </div>
-                    <a href="/logout">{lang.logout}</a>
+                    <Link href="/logout">{lang.logout}</Link>
                 </div>
             </div>
         </aside>

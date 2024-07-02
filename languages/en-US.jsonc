@@ -179,8 +179,8 @@
         "layout": {
             "header": "My account",
             "ul-overview": "Overview",
-            "ul-oauth2": "OAuth2 authorizations",
-            "ul-security": "Security & privacy",
+            "ul-oauth2": "OAuth2 history",
+            "ul-security": "Security <i>&</i> privacy",
             "ul-profile": "Profile options",
             "ul-language": "Language",
             "header-admin": "Moderation",
