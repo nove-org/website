@@ -10,6 +10,8 @@ div.content
     display: flex
     align-items: center
     justify-content: center
+    @media screen and (max-width: 600px)
+        margin-bottom: 25px
     & div.container
         display: flex
         flex-direction: column
@@ -29,6 +31,8 @@ div.content
         & div.links
             display: flex
             gap: 10px
+            @media screen and (max-width: 600px)
+                flex-direction: column
             & a.card
                 padding: 12px
                 box-sizing: border-box
@@ -42,6 +46,8 @@ div.content
                 border-radius: 15px
                 text-decoration: none
                 transition: background-color .1s
+                @media screen and (max-width: 600px)
+                    max-width: 100%
                 &:hover
                     background: var(--secondary-container)
                     color: var(--on-secondary-container)
