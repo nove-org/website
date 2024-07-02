@@ -8,10 +8,7 @@ import LanguageHandler from '@util/handlers/LanguageHandler';
 import ObjectHelper from '@util/helpers/Object';
 import o from './Login.module.sass';
 import { cookies, headers } from 'next/headers';
-import { RedirectType, redirect } from 'next/navigation';
-import { axiosClient } from '@util/helpers/Axios';
-import { Response, User } from '@util/helpers/Schema';
-import { AxiosError, AxiosResponse } from 'axios';
+import { redirect } from 'next/navigation';
 import { COOKIE_HOSTNAME } from '@util/CONSTS';
 
 export async function generateMetadata() {
@@ -38,7 +35,7 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
     const mfa: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 'mfa');
 
     if (user?.id) redirect('/account');
-    if (handle && handle.split('@').length === 3) redirect(`https://${handle.split('@')[2]}/login?h=${handle.split('@')[1]}`);
+    if (handle && handle.split('/').length === 2 && handle.startsWith('@')) redirect(`https://${handle.split('/')[1]}/login?h=${handle.split('/')[0].slice(1)}`);
     if (mfa && (!handle || !cookies().get('tempAuthId')?.value)) return redirect('/login?et=ci');
 
     const handleLogin = async (e: FormData) => {
@@ -56,54 +53,50 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
         if (!password) return redirect('/login?et=ne');
         if (cookies().get('napiAuthorizationToken')?.value) return;
 
-        await axiosClient
-            .post(
-                '/v1/users/login',
-                {
-                    username: handle,
-                    password: mfa ? Encryption.read(password, handle) : password,
-                },
-                { headers: mfa ? { 'x-mfa': code } : undefined },
-            )
-            .then((r: AxiosResponse) => {
-                const user = r.data as Response<User>;
-                cookies().set('napiAuthorizationToken', `${user.body.data.token} ${user.body.data.id}`, {
-                    maxAge: 3 * 30 * 24 * 60 * 60,
-                    expires: 3 * 30 * 24 * 60 * 60 * 1000,
-                    domain: COOKIE_HOSTNAME,
-                    httpOnly: true,
-                    secure: true,
-                    sameSite: 'strict',
-                });
-                cookies().set('tempAuthId', '', {
-                    maxAge: 1,
-                    expires: 1,
-                });
-                redirect('/account');
-            })
-            .catch((e: AxiosError) => {
-                const user = e.response?.data as Response<null>;
-                switch (user?.body?.error?.code) {
-                    case 'invalid_user':
-                    case 'invalid_password':
-                        redirect('/login?et=ne' + (mfa ? '&mfa=y' : '') + (handle ? `&h=${handle}` : ''));
-                    case 'rate_limit':
-                        redirect('/login?et=rl' + (mfa ? '&mfa=y' : '') + (handle ? `&h=${handle}` : ''));
-                    case 'mfa_required':
-                        cookies().set('tempAuthId', Encryption.create(password, handle), {
-                            maxAge: 180,
-                            domain: COOKIE_HOSTNAME,
-                            httpOnly: true,
-                            secure: true,
-                            sameSite: 'strict',
-                        });
-                        redirect('/login?mfa=y' + (handle ? `&h=${handle}` : ''));
-                    case 'invalid_mfa_token':
-                        redirect('/login?et=m&mfa=y' + (handle ? `&h=${handle}` : ''));
-                    default:
-                        redirect('/login?et=u' + (mfa ? '&mfa=y' : '') + (handle ? `&h=${handle}` : ''));
-                }
+        const authorization = await new NAPI().user().authorize({
+            body: {
+                username: handle,
+                password: mfa ? Encryption.read(password, handle) : password,
+            },
+            mfa: code,
+        });
+
+        if (authorization?.code) {
+            switch (authorization.code) {
+                case 'invalid_user':
+                case 'invalid_password':
+                    redirect('/login?et=ne' + (mfa ? '&mfa=y' : '') + (handle ? `&h=${handle}` : ''));
+                case 'rate_limit':
+                    redirect('/login?et=rl' + (mfa ? '&mfa=y' : '') + (handle ? `&h=${handle}` : ''));
+                case 'mfa_required':
+                    cookies().set('tempAuthId', Encryption.create(password, handle), {
+                        maxAge: 180,
+                        domain: COOKIE_HOSTNAME,
+                        httpOnly: true,
+                        secure: true,
+                        sameSite: 'strict',
+                    });
+                    redirect('/login?mfa=y' + (handle ? `&h=${handle}` : ''));
+                case 'invalid_mfa_token':
+                    redirect('/login?et=m&mfa=y' + (handle ? `&h=${handle}` : ''));
+                default:
+                    redirect('/login?et=u' + (mfa ? '&mfa=y' : '') + (handle ? `&h=${handle}` : ''));
+            }
+        } else {
+            cookies().set('napiAuthorizationToken', `${authorization.token} ${authorization.id}`, {
+                maxAge: 3 * 30 * 24 * 60 * 60,
+                expires: 3 * 30 * 24 * 60 * 60 * 1000,
+                domain: COOKIE_HOSTNAME,
+                httpOnly: true,
+                secure: true,
+                sameSite: 'strict',
             });
+            cookies().set('tempAuthId', '', {
+                maxAge: 1,
+                expires: 1,
+            });
+            redirect('/account');
+        }
     };
 
     return (
@@ -143,7 +136,7 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
                         <>
                             <h2 className={o.userInfo}>
                                 <span>{handle.charAt(0)}</span> {handle}
-                                <Link href="/login">Not you?</Link>
+                                <a href="/login">Not you?</a>
                             </h2>
                             {mfa ? (
                                 <MFA
