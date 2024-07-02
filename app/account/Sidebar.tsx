@@ -139,7 +139,7 @@ export default function Sidebar({
                         <Image src={user.avatar} alt="User's avatar" width={24} height={24} />
                         <span>{user.username}</span>
                     </div>
-                    <Link href="/logout">{lang.logout}</Link>
+                    <a href="/logout">{lang.logout}</a>
                 </div>
             </div>
         </aside>
