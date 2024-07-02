@@ -3,8 +3,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import o from './Navigation.module.sass';
-import { User } from '@util/helpers/Schema';
 import { usePathname } from 'next/navigation';
+import { User } from '@util/helpers/Schema';
 
 export default function Navigation({
     user,

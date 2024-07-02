@@ -23,6 +23,7 @@ import NAPI from '@util/helpers/NAPI';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import Footer from './Footer';
 import o from './Navigation.module.sass';
+import pkg from '../package.json';
 import { inter } from '@util/fonts/manager';
 import { cookies, headers } from 'next/headers';
 import { COOKIE_HOSTNAME, ENABLE_REGISTER_PAGE, OFFICIAL_LANDING } from '@util/CONSTS';
@@ -64,6 +65,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
     const user = await api.user().get({ caching: true });
     const nav = await new LanguageHandler('modules/navigation', user).init(headers());
+    const foo = await new LanguageHandler('modules/footer', user).init(headers());
 
     const handleHideJs = async () => {
         'use server';
@@ -127,7 +129,25 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
                 <main style={inter.style}>{children}</main>
 
-                <Footer />
+                <Footer
+                    lang={{
+                        license: foo.getProp('license', { license: pkg.license }),
+                        madeWithLove: foo.getProp('made-with-love', {
+                            contributors: `<a href="${process.env.SOURCE_CODE}" rel="noreferrer noopener nofollow">${foo.getProp('contributors')}</a>`,
+                        }),
+                        general: foo.getProp('ul-general'),
+                        about: nav.getProp('ul-about'),
+                        blog: nav.getProp('ul-blog'),
+                        donate: nav.getProp('ul-donate'),
+                        login: nav.getProp('login-btn'),
+                        support: foo.getProp('ul-support'),
+                        documents: foo.getProp('ul-documents'),
+                        src: foo.getProp('ul-src'),
+                        privacy: foo.getProp('ul-privacy'),
+                        terms: foo.getProp('ul-terms'),
+                        docs: foo.getProp('ul-docs'),
+                    }}
+                />
             </body>
         </html>
     );

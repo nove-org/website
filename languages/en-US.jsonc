@@ -53,17 +53,12 @@
             "contributors": "contributors",
             "ul-general": "General",
             "ul-documents": "Documents",
-            "ul-about": "About",
             "ul-docs": "Docs",
-            "ul-blog": "Blog",
             "ul-donate": "Donate",
-            "ul-login": "Log in",
-            "ul-register": "Sign up",
             "ul-support": "Help",
             "ul-src": "Source code",
             "ul-privacy": "Privacy Policy",
-            "ul-terms": "Terms of Service",
-            "ul-developers": "Developers"
+            "ul-terms": "Terms of Service"
         },
         "actions": {
             "back": "Go back",
