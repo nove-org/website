@@ -17,7 +17,7 @@ export default async function OAuth2() {
             <div className={o.connections}>
                 <div className={o.loader}>
                     <Loader type="button" />
-                    Please wait, loading the data...
+                    {lang.getCustomProp('modules.actions.loading')}
                 </div>
             </div>
         </div>

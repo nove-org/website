@@ -74,7 +74,8 @@
             "save": "Save",
             "edit": "Edit",
             "delete": "Delete",
-            "create": "Create"
+            "create": "Create",
+            "loading": "Please wait, loading the data..."
         },
         "errors": {
             "header": "Something went horribly wrong",
@@ -204,7 +205,13 @@
             "applications": "Applications"
         },
         "oauth2": {
-            "description": "OAuth2 is an authorization system used to share your identity across multiple services. By that, you don't have to create a new account on each of our products. This tab shows your history of authorizations. Authorizations are pop-ups asking you to grant an app access to your account. When an app is authorized it will show up here with all permissions it has."
+            "description": "OAuth2 is an authorization system used to share your identity across multiple services. By that, you don't have to create a new account on each of our products. This tab shows your history of authorizations. Authorizations are pop-ups asking you to grant an app access to your account. When an app is authorized it will show up here with all permissions it has.",
+            "by-who": "By {author}",
+            "links": "Links",
+            "homepage": "Home page",
+            "permissions": "Permissions",
+            "first-access": "First accessed on {date}",
+            "last-login": "Last successful login on {date}"
         },
         "security": {
             "devices-h1": "Your devices",
