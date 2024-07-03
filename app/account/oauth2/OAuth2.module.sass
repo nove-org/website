@@ -1,0 +1,82 @@
+div.content
+    width: 100%
+    height: 100%
+    & h1.title
+        font-size: 20px
+        font-weight: 500
+        margin: 0
+    & p.description
+        font-size: 14px
+        margin: 5px 0
+    & div.connections
+        margin-top: 20px
+        display: flex
+        flex-direction: column
+        gap: 20px
+        & div.card
+            padding: 15px
+            border-radius: 15px
+            border: 1px solid var(--secondary)
+            color: var(--on-primary-container)
+            & h1.sectionTitle
+                font-size: 16px
+                font-weight: 500
+                display: flex
+                align-items: center
+                gap: 4px
+                margin: 15px 0
+                margin-bottom: 5px
+            & div.header
+                display: flex
+                align-items: center
+                gap: 10px
+                & svg
+                    padding: 5px
+                    background: var(--primary-container)
+                    color: var(--primary)
+                    border-radius: 50%
+                    min-width: 24px
+                & div.info
+                    & h1
+                        font-size: 18px
+                        font-weight: 500
+                        margin: 0
+                        margin-bottom: 2px
+                    & p
+                        font-size: 14px
+                        opacity: .9
+                        margin: 0
+            & div.links
+                display: flex
+                align-items: center
+                gap: 10px
+                @media screen and (max-width: 450px)
+                    flex-direction: column
+                    gap: 8px
+                & a
+                    font-size: 14px
+                    padding: 8px
+                    @media screen and (max-width: 450px)
+                        width: 100%
+                        justify-content: center
+                    & svg
+                        min-width: 16px
+            & ul.scopes
+                padding: 0 10px
+                margin: 0
+                list-style: none
+                & li
+                    font-size: 14px
+                    font-family: monospace !important
+            & div.footer
+                margin-top: 15px
+                font-size: 12px
+                font-weight: 400
+                opacity: .9
+
+div.loader
+    display: flex
+    align-items: center
+    gap: 8px
+    font-size: 14px
+    font-weight: 500

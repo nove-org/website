@@ -190,7 +190,6 @@
             "latest-news": "Latest news from developers"
         },
         "main": {
-            "title": "Account",
             "hello": "Hello, {user}!",
             "hello-p": "Here is the place where you can manage your account and data associated with it.",
             "card-1-h1": "Language",
@@ -203,6 +202,9 @@
             "card-4-h1": "Recovery",
             "card-4-p": "Set up two factor authentication and download backup codes",
             "applications": "Applications"
+        },
+        "oauth2": {
+            "description": "OAuth2 is an authorization system used to share your identity across multiple services. By that, you don't have to create a new account on each of our products. This tab shows your history of authorizations. Authorizations are pop-ups asking you to grant an app access to your account. When an app is authorized it will show up here with all permissions it has."
         },
         "security": {
             "devices-h1": "Your devices",
