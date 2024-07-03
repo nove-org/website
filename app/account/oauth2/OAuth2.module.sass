@@ -9,10 +9,12 @@ div.content
         font-size: 14px
         margin: 5px 0
     & div.connections
-        margin-top: 20px
+        margin: 20px 0
         display: flex
         flex-direction: column
         gap: 20px
+        @media screen and (max-width: 600px)
+            margin-bottom: calc( 64px + 20px )
         & div.card
             padding: 15px
             border-radius: 15px
