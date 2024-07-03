@@ -73,9 +73,9 @@ export default async function AccountLayout({ children }: { children: React.Reac
                                 </a>
                             </div>
                         </details>
-                        <a className={o.title} href={`/account`}>
+                        <Link className={o.title} href={`/account`}>
                             {user.username}
-                        </a>
+                        </Link>
                     </aside>
                     {children}
                 </article>
