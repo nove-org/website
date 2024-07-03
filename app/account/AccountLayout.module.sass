@@ -1,3 +1,4 @@
+
 section.account
     margin: 0 -110px
     box-sizing: border-box
@@ -14,6 +15,81 @@ section.account
         margin: 0 -30px
     @media screen and (max-width: 450px)
         margin: 0 -20px
+    & article.dashboard
+        background: var(--background)
+        color: var(--on-background)
+        width: 100%
+        min-height: 100vh
+        border-top-left-radius: 25px
+        border-bottom-left-radius: 25px
+        padding: 20px
+        box-sizing: border-box
+        @media screen and (max-width: 600px)
+            margin-bottom: 25px
+            border-top-left-radius: 0
+            border-bottom-left-radius: 0
+        & aside.topbar
+            display: flex
+            align-items: center
+            gap: 8px
+            @media screen and (min-width: 601px)
+                display: none
+            & details.profile
+                position: relative
+                &[open] summary img
+                    border-radius: 35%
+                & summary
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    border-radius: 50%
+                    cursor: pointer
+                    & img
+                        border-radius: 50%
+                        transition: border-radius .3s ease
+                & div.options
+                    position: absolute
+                    left: 0
+                    top: 35px
+                    background: var(--primary-container)
+                    border-radius: 20px
+                    display: flex
+                    flex-direction: column
+                    align-items: flex-start
+                    justify-content: center
+                    max-width: 260px
+                    min-width: 200px
+                    width: 100%
+                    animation: fade .2s ease-in-out
+                    z-index: 99999
+                    padding: 5px
+                    box-shadow: 0 2px 3px 0 rgba(0,0,0,.2)
+                    @keyframes fade
+                        0%
+                            opacity: 0
+                            transform: translateY(-15px)
+                        100%
+                            opacity: 1
+                            transform: translateY(0)
+                & a
+                    display: flex
+                    align-items: center
+                    padding: 12px
+                    font-size: 15px
+                    color: var(--on-primary-container)
+                    text-decoration: none
+                    transition: background-color .1s linear
+                    width: calc( 100% - 12px * 2 )
+                    border-radius: 20px
+                    gap: 7px
+                    &:hover
+                        background: var(--secondary-container)
+                        color: var(--on-secondary-container)
+            & a.title
+                font-size: 18px
+                font-weight: 500
+                color: var(--on-background)
+                text-decoration: none
 
 aside.navigation
     max-width: 340px
