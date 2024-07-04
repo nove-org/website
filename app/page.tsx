@@ -38,7 +38,7 @@ export async function generateMetadata() {
     };
 }
 
-export default async function Home({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
+export default async function Home() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
     const user = await api.user().get({ caching: true });
     const lang = await new LanguageHandler('main/landing', user).init(headers());
