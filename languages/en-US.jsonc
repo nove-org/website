@@ -75,7 +75,9 @@
             "edit": "Edit",
             "delete": "Delete",
             "create": "Create",
-            "loading": "Please wait, loading the data..."
+            "loading": "Please wait, loading the data...",
+            "show-less": "Show less",
+            "show-more": "Show more"
         },
         "errors": {
             "header": "Something went horribly wrong",
@@ -215,12 +217,11 @@
         },
         "security": {
             "devices-h1": "Your devices",
-            "devices-p": "List of most recent devices that logged in to your account",
+            "devices-p": "List of devices that logged into your account in last month. We use ifconfig.net to get location information during sign ins. Data is encrypted.",
             "devices-no-data-h1": "No device data found",
             "devices-no-data-p": "You have opted-out from activity or we did not record any yet",
-            "devices-privacy-notice": "We store information about devices that logged in to your account in the last month on our servers. We use ifconfig.net to get location information while logging in.",
             "hds-h1": "How do you sign in",
-            "hds-p": "Add or modify ways of signing in and confirming your identity",
+            "hds-p": "Add or modify ways of signing in and confirming your identity.",
             "hds-password-btn": "Password",
             "hds-password-h1": "Change your password",
             "hds-password-p": "Choose a strong password and don't reuse it for other accounts. Changing your password will sign you out on all devices.",
@@ -238,7 +239,7 @@
             "hds-mfa-p": "A better way to secure your account from hackers. You can toggle MFA on or off here.",
             "hds-mfa-label-code": "Code",
             "hds-mfa-recovery-codes": "Recovery codes",
-            "hds-recovery": "Recovery",
+            "hds-recovery-btn": "Recovery",
             "hds-recovery-h1": "Recovery codes",
             "hds-recovery-p": "Copy your account backup codes in case you will lose your phone with TOTP application on it.",
             "hds-recovery-label": "MFA code",
