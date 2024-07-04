@@ -53,7 +53,7 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
         if (!password) return redirect('/login?et=ne');
         if (cookies().get('napiAuthorizationToken')?.value) return;
 
-        const authorization = await new NAPI().user().authorize({
+        const authorization = await new NAPI(undefined, headers().get('User-Agent')?.toString()).user().authorize({
             body: {
                 username: handle,
                 password: mfa ? Encryption.read(password, handle) : password,
