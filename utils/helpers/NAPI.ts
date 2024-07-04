@@ -64,17 +64,19 @@ async function getCachedData<T>({ path, options, type, body }: DataGet) {
 
 export default class NAPI {
     private key?: string;
+    private userAgent?: string;
     private authorization?: string;
 
-    constructor(authorization?: string, type?: AuthorizationType) {
+    constructor(authorization?: string, userAgent?: string, type?: AuthorizationType) {
         this.key = authorization;
+        this.userAgent = userAgent;
         this.authorization = type === AuthorizationType.Bearer ? `Bearer` : `Owner` + ` ${authorization}`;
     }
 
     language() {
         return {
             getAll: async ({ caching }: MethodOptions) => {
-                const config = { path: '/v1/languages' };
+                const config: DataGet = { path: '/v1/languages', options: this.userAgent ? { headers: { 'User-Agent': this.userAgent } } : undefined };
                 return caching ? await getCachedData<Languages>(config) : await getData<Languages>(config);
             },
         };
@@ -83,18 +85,18 @@ export default class NAPI {
     blog() {
         return {
             getPosts: async ({ caching }: MethodOptions) => {
-                const config = { path: '/v1/blog' };
+                const config: DataGet = { path: '/v1/blog', options: this.userAgent ? { headers: { 'User-Agent': this.userAgent } } : undefined };
                 return caching ? await getCachedData<Post[]>(config) : await getData<Post[]>(config);
             },
             getPost: async ({ id, caching }: MethodOptions & { id: string }) => {
-                const config = { path: '/v1/blog/' + id };
+                const config: DataGet = { path: '/v1/blog/' + id, options: this.userAgent ? { headers: { 'User-Agent': this.userAgent } } : undefined };
                 return caching ? await getCachedData<Post>(config) : await getData<Post>(config);
             },
         };
     }
 
     user() {
-        const options = { headers: { Authorization: this.authorization } };
+        const options = { headers: this.userAgent ? { Authorization: this.authorization, 'User-Agent': this.userAgent } : { Authorization: this.authorization } };
 
         return {
             get: async ({ caching }: MethodOptions) => {
@@ -118,7 +120,18 @@ export default class NAPI {
                 return caching ? await getCachedData<Connection[]>(config) : await getData<Connection[]>(config);
             },
             authorize: async ({ body, mfa }: { body: { username: string; password: string }; mfa?: string }) => {
-                return await getData<User>({ path: '/v1/users/login', options: mfa ? { headers: { 'x-mfa': mfa } } : undefined, type: RequestType.Post, body });
+                return await getData<User>({
+                    path: '/v1/users/login',
+                    options: mfa
+                        ? this.userAgent
+                            ? { headers: { 'x-mfa': mfa, 'User-Agent': this.userAgent } }
+                            : { headers: { 'x-mfa': mfa } }
+                        : this.userAgent
+                          ? { headers: { 'User-Agent': this.userAgent } }
+                          : undefined,
+                    type: RequestType.Post,
+                    body,
+                });
             },
         };
     }
