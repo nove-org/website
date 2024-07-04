@@ -31,7 +31,7 @@ import { redirect } from 'next/navigation';
 import type { Metadata, Viewport } from 'next';
 const { DONATE_LINK } = process.env;
 
-export const revalidate = 60;
+export const revalidate = 300;
 
 export const viewport: Viewport = {
     width: 'device-width',
