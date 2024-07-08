@@ -38,8 +38,9 @@ label.npt
         color: var(--on-background)
         resize: none
         font-size: 16px
-        &[type=text],&[type=password],&[type=email]
-            width: calc( 100% - 12px * 2 )
+        width: 100%
+        box-sizing: border-box
+        &[type=text],&[type=password],&[type=email],&[type=url]
             padding: 12px
             border-radius: 8px
             border: 1px solid var(--secondary)
@@ -69,6 +70,10 @@ label.npt
                     position: absolute
         &:focus + p
             color: var(--primary)
+    & textarea
+        padding: 12px
+        border-radius: 8px
+        border: 1px solid var(--secondary)
 
 label.switch
     position: relative

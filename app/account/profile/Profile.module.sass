@@ -8,3 +8,82 @@ div.content
     & p.description
         font-size: 14px
         margin: 5px 0
+    & form
+        max-width: 600px
+        padding: 20px 0
+        display: flex
+        flex-direction: column
+        gap: 10px
+        & label p
+            gap: 1px
+        & label
+            & input[type=text], input[type=url], textarea
+                padding: 10px
+        & div.avatar
+            display: flex
+            flex-direction: column-reverse
+            width: 100%
+            gap: 4px
+            position: relative
+            & p
+                font-weight: 500
+                margin: 0
+                color: var(--font-st)
+                transition: color .15s linear
+                display: flex
+                flex-direction: column
+                gap: 0px
+                font-size: 16px
+                & span
+                    font-size: 14px
+                    font-weight: 400
+            & label
+                cursor: pointer
+                display: flex
+                align-items: center
+                gap: 10px
+                margin: 2px 0
+                &:hover
+                    & span
+                        text-decoration: underline
+                & img
+                    border-radius: 50%
+                & div.dynamic
+                    & span
+                        font-size: 16px
+                        font-weight: 500
+                        color: var(--primary)
+                        background: var(--background)
+                        position: relative
+                        z-index: 2
+                        padding: 5px 0
+                        padding-right: 10px
+                    & input
+                        margin-left: -75px
+                        opacity: .9
+                        font-size: 14px
+                        @media screen and (max-width: 437px)
+                            opacity: 0
+                            position: absolute
+                            top: 0
+                            width: 0
+                            left: 0
+                            height: 0
+                            visibility: hidden
+        & div.buttons
+            display: flex
+            align-items: center
+            gap: 8px
+            padding: 10px 0
+            @media screen and (max-width: 600px)
+                padding-bottom: 80px
+            & button
+                font-size: 14px
+                padding: 8px
+                border-radius: 10px
+                &.primary
+                    background: var(--primary)
+                    color: var(--on-primary)
+                    &:hover
+                        background: var(--secondary)
+                        color: var(--on-secondary)

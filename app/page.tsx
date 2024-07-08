@@ -124,6 +124,7 @@ export default async function Home() {
                 <div className={o.text}>
                     <h1 dangerouslySetInnerHTML={{ __html: lang.getProp('decentralization-h1') }} />
                     <p>{lang.getProp('decentralization-p')}</p>
+                    <span>{lang.getProp('decentralization-span')}</span>
                     <div className={o.servers}>
                         <div className={o.server}>
                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 24 24">

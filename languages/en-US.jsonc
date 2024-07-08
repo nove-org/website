@@ -103,6 +103,7 @@
             "action-view": "{user} viewed {file}",
             "decentralization-h1": "Because <strong>decentralization</strong> is the future.",
             "decentralization-p": "All of our services are made with decentralization and self-hosting in mind. So you can run your own instance easily if you don't want or can't trust us.",
+            "decentralization-span": "Note: we are currently working on integrating decentralization into our products. It's not available yet.",
             "word-h1": "With all the great features you expect, and more...",
             "word-p": "Including the modern design, intuitive user interface and accessibility options.",
             "word-card1-title": "Stored securely on our servers",
