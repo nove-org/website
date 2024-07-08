@@ -8,9 +8,12 @@ div.content
     & p.description
         font-size: 14px
         margin: 5px 0
+    & div.profile
+        display: flex
+        gap: 150px
+        padding: 20px 0
     & form
         max-width: 600px
-        padding: 20px 0
         display: flex
         flex-direction: column
         gap: 10px
@@ -87,3 +90,8 @@ div.content
                     &:hover
                         background: var(--secondary)
                         color: var(--on-secondary)
+    & aside
+        & h1
+            font-size: 16px
+            font-weight: 500
+            margin: 0

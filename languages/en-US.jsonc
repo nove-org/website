@@ -270,9 +270,7 @@
             "input-profile-state-label": "Display more details on your public profile"
         },
         "language": {
-            "hero-h1": "Language",
-            "hero-p1": "Select your preferred language. This setting will be used to display content in your language in all Nove products and your connected apps might use it.",
-            "hero-p2": "Warning: not fully supported by us yet."
+            "description": "Select your preferred language. This setting will be used to display content in your language in all Nove products and your connected apps might use it."
         }
     },
     "admin": {
