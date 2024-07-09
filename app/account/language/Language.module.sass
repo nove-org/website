@@ -8,3 +8,54 @@ div.content
     & p.description
         font-size: 14px
         margin: 5px 0
+    & form
+        padding: 20px 0
+        & label.lang
+            position: relative
+            & input
+                position: absolute
+                top: 0
+                left: 0
+                width: 0
+                height: 0
+                opacity: 0
+                visibility: hidden
+            & input:checked + div.header
+                background: var(--primary-container)
+                color: var(--primary)
+                border: 1px solid var(--primary-container)
+            & div.header
+                cursor: pointer
+                padding: 8px
+                border: 1px solid var(--secondary)
+                border-radius: 10px
+                width: 100%
+                display: flex
+                align-items: center
+                gap: 8px
+                margin-bottom: 10px
+                box-sizing: border-box
+                transition: border-color .05s, background-color .05s, color .1s
+                &:hover
+                    color: var(--primary)
+                & span
+                    padding: 5px
+                    border-radius: 50%
+                    background: var(--primary-container)
+        & div.buttons
+            display: flex
+            align-items: center
+            gap: 8px
+            padding: 10px 0
+            @media screen and (max-width: 600px)
+                padding-bottom: 80px
+            & button
+                font-size: 14px
+                padding: 8px
+                border-radius: 10px
+                &.primary
+                    background: var(--primary)
+                    color: var(--on-primary)
+                    &:hover
+                        background: var(--secondary)
+                        color: var(--on-secondary)
