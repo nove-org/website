@@ -32,7 +32,7 @@ export default async function Language() {
             <form>
                 {languages.AVAILABLE_LANGUAGES.map((language) => (
                     <label key={language} className={o.lang}>
-                        <input type="radio" value={language} name="language" />
+                        <input type="radio" value={language} name="language" defaultChecked={user.language === language} />
                         <div className={o.header}>
                             <ReactCountryFlag countryCode={language.split('-')[1]} />
                             {l.of(language)}
