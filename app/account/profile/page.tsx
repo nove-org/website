@@ -66,7 +66,7 @@ export default async function Profile() {
                     <Databox id="profilePublic" title={lang.getProp('profile-view-h1')} description={lang.getProp('profile-view-p')} type="switch" checked={user.profilePublic} />
                     <div className={o.buttons}>
                         <button type="submit" className={'btn ' + o.primary}>
-                            {lang.getCustomProp('modules.actions.save')}
+                            {lang.getCustomProp('modules.actions.save-changes')}
                         </button>
                         <button type="reset" className="btn">
                             {lang.getCustomProp('modules.actions.cancel')}
@@ -74,7 +74,7 @@ export default async function Profile() {
                     </div>
                 </form>
                 <aside>
-                    <h1>Profile preview</h1>
+                    <h1>{lang.getProp('preview-h1')}</h1>
                     <div className={o.profile}>
                         <Image src={user.avatar} width={52} height={52} alt="User's avatar" />
                         <h1>
@@ -92,13 +92,13 @@ export default async function Profile() {
                             <>
                                 {user.bio.length && (
                                     <div className={o.section}>
-                                        <h2>About me</h2>
+                                        <h2>{lang.getProp('bio-h1')}</h2>
                                         <p>{user.bio}</p>
                                     </div>
                                 )}
                                 {user.website.length && (
                                     <div className={o.section}>
-                                        <h2>Website</h2>
+                                        <h2>{lang.getProp('website-h1')}</h2>
                                         <a href={user.website} rel="nofollow noopener noreferrer">
                                             {new URL(user.website).hostname + (new URL(user.website).pathname !== '/' ? new URL(user.website).pathname : '')}
                                         </a>
@@ -108,7 +108,11 @@ export default async function Profile() {
                         )}
                         <div className={o.footer}>
                             {user.profilePublic && (
-                                <span>Created {new Date(user.createdAt).toLocaleDateString(user.language, { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+                                <span>
+                                    {lang.getProp('created-at', {
+                                        date: new Date(user.createdAt).toLocaleDateString(user.language, { year: 'numeric', month: 'short', day: 'numeric' }),
+                                    })}
+                                </span>
                             )}
                             <span>#{user.id}</span>
                         </div>
