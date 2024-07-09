@@ -1,0 +1,87 @@
+article.blog
+    width: 100%
+    max-width: 1000px
+    height: 100%
+    min-height: calc( 100vh - 68px )
+    margin: 0 auto
+    margin-top: 40px
+    display: flex
+    flex-direction: column
+    gap: 20px
+    & div.content
+        & h1, h2, p, strong, b, i, a, code, time, em, pre, li, td, th
+            user-select: text
+        & h1
+            font-size: 36px
+            font-weight: 500
+            margin: 10px 0
+        & h2
+            font-size: 26px
+            font-weight: 500
+            margin: 5px 0
+            margin-top: 20px
+        & p
+            font-size: 18px
+            margin: 0
+            margin: 25px 0
+        & hr
+            border: 1px dashed var(--on-background)
+            opacity: 0.5
+            margin: 15px 0
+        & table
+            width: 100%
+            border: 1px solid var(--on-background)
+            & th
+                font-size: 16px
+                font-weight: 500
+            & td, th
+                border: 1px solid var(--on-background)
+        & strong, b
+            font-weight: 500
+        & em
+            font-size: 16px
+            & a
+                font-size: 16px
+        & li
+            & a
+                font-size: 16px
+        & a
+            color: var(--primary)
+            font-size: 18px
+            text-decoration: none
+            margin: 0
+            margin-bottom: 10px
+            &:hover
+                text-decoration: underline
+        & code
+            font-family: monospace
+            font-size: 18px
+        & button
+            display: flex
+            align-items: center
+            font-size: 14px
+            font-weight: 500
+            gap: 6px
+            padding: 8px
+            width: fit-content
+            border-radius: 8px
+            background: var(--primary-container)
+            color: var(--primary)
+            text-decoration: none
+            transition: background-color .1s ease, color .1s ease
+            outline: 0
+            box-sizing: border-box
+            box-shadow: 0
+            border: 0
+            cursor: pointer
+            &:hover
+                background: var(--secondary-container)
+                color: var(--on-secondary-container)
+        & img
+            border-radius: 20px
+            width: 100%
+            margin: 10px 0
+        & div.flex
+            display: flex
+            align-items: center
+            gap: 5px
