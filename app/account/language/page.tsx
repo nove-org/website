@@ -41,10 +41,10 @@ export default async function Language() {
                 ))}
                 <div className={o.buttons}>
                     <button type="submit" className={'btn ' + o.primary}>
-                        Save changes
+                        {lang.getCustomProp('modules.actions.save-changes')}
                     </button>
                     <button type="reset" className="btn">
-                        Cancel
+                        {lang.getCustomProp('modules.actions.cancel')}
                     </button>
                 </div>
             </form>
