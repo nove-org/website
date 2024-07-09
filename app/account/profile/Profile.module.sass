@@ -12,11 +12,18 @@ div.content
         display: flex
         gap: 150px
         padding: 20px 0
+        @media screen and (max-width: 1400px)
+            gap: 50px
+        @media screen and (max-width: 800px)
+            flex-direction: column-reverse
+            gap: 30px
     & form
         max-width: 600px
         display: flex
         flex-direction: column
         gap: 10px
+        @media screen and (max-width: 800px)
+            max-width: 100%
         & label p
             gap: 1px
         & label
@@ -91,7 +98,65 @@ div.content
                         background: var(--secondary)
                         color: var(--on-secondary)
     & aside
+        max-width: 350px
+        width: 100%
+        @media screen and (max-width: 800px)
+            max-width: 100%
         & h1
             font-size: 16px
             font-weight: 500
             margin: 0
+            margin-bottom: 10px
+        & div.profile
+            display: flex
+            flex-direction: column
+            gap: 10px
+            background: var(--primary-container)
+            color: var(--on-primary-container)
+            padding: 15px
+            border-radius: 12px
+            width: 100%
+            max-width: 350px
+            box-sizing: border-box
+            @media screen and (max-width: 800px)
+                margin: 0 auto
+            & img
+                border-radius: 50%
+            & h1
+                font-size: 24px
+                font-weight: 500
+                margin: 0
+                display: flex
+                align-items: center
+                gap: 8px
+                user-select: text
+                & span
+                    font-size: 14px
+            & h2
+                font-size: 14px
+                font-weight: 500
+                margin: 0
+            & div.section
+                display: flex
+                flex-direction: column
+                gap: 2px
+                & p
+                    font-size: 16px
+                    margin: 0
+                    user-select: text
+                & a
+                    color: var(--primary)
+                    font-weight: 500
+                    text-decoration: none
+                    user-select: text
+                    &:hover
+                        text-decoration: underline
+            & div.footer
+                display: flex
+                justify-content: space-between
+                align-items: center
+                margin-top: 5px
+                & span
+                    font-size: 12px
+                    opacity: .9
+                    user-select: text
