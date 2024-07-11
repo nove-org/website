@@ -44,6 +44,7 @@ export default async function Terms() {
                         <li>{lang.getProp('u1-l4')}</li>
                         <li>{lang.getProp('u1-l5')}</li>
                         <li>{lang.getProp('u1-l6')}</li>
+                        <li>{lang.getProp('u1-l7')}</li>
                     </ul>
 
                     <h2>{lang.getProp('s3')}</h2>
