@@ -81,14 +81,14 @@
         },
         "errors": {
             "header": "Something went horribly wrong",
-            "offline": "Sorry but our servers are currently offline",
-            "session": "We could not sign your session which has lead to data retrieval failure",
+            "offline": "Sorry but our servers are currently offline.",
+            "session": "We could not sign your session which has lead to data retrieval failure.",
             "verify-email": "Verify your email",
             "verify-email-p": "A verification link has been sent to your email address. Open it to confirm account creation. Unverified accounts get removed after 3 days.",
             "verify-email-btn": "I opened the link",
             "account-suspended": "Your account is suspended",
             "account-suspended-p": "Write to us (reply@nove.team) if you have any further questions.",
-            "not-found": "We couldn't find the page you were looking for",
+            "not-found": "We couldn't find the page you were looking for.",
             "rate-limit": "You are being rate-limited. Please try again later.",
             "other": "Something went wrong and we are not sure what happened."
         }
