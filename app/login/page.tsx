@@ -35,7 +35,7 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
     const error: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 'et');
     const mfa: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 'mfa');
 
-    if (user?.id) redirect('/aeh' + (next ? `?next=${next}` : ''));
+    if (user?.id) redirect(next ? next : '/account');
     if (handle && handle.split('/').length === 2 && handle.startsWith('@')) redirect(`https://${handle.split('/')[1]}/login?h=${handle.split('/')[0].slice(1)}`);
     if (mfa && (!handle || !cookies().get('tempAuthId')?.value)) return redirect('/login?et=ci');
 
@@ -96,7 +96,7 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
                 maxAge: 1,
                 expires: 1,
             });
-            redirect('/aeh' + (next ? `?next=${next}` : ''));
+            redirect(next ? next : '/account');
         }
     };
 
