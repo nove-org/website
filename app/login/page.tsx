@@ -30,11 +30,12 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
     const user = await api.user().get({});
     const lang = await new LanguageHandler('main/login', user).init(headers());
+    const next: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 'next');
     const handle: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 'h');
     const error: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 'et');
     const mfa: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 'mfa');
 
-    if (user?.id) redirect('/account');
+    if (user?.id) redirect('/aeh' + (next ? `?next=${next}` : ''));
     if (handle && handle.split('/').length === 2 && handle.startsWith('@')) redirect(`https://${handle.split('/')[1]}/login?h=${handle.split('/')[0].slice(1)}`);
     if (mfa && (!handle || !cookies().get('tempAuthId')?.value)) return redirect('/login?et=ci');
 
@@ -43,14 +44,14 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
 
         if (!handle) {
             const username = e.get('username')?.toString();
-            if (!username) return redirect('/login?et=ne');
+            if (!username) return redirect('/login?et=ne' + (next ? `&next=${next}` : ''));
 
-            return redirect('/login?h=' + username);
+            return redirect('/login?h=' + username + (next ? `&next=${next}` : ''));
         }
 
         const password = e.get('password')?.toString() || cookies().get('tempAuthId')?.value,
             code = e.get('mfa')?.toString();
-        if (!password) return redirect('/login?et=ne');
+        if (!password) return redirect('/login?et=ne&h=' + handle + (next ? `&next=${next}` : ''));
         if (cookies().get('napiAuthorizationToken')?.value) return;
 
         const authorization = await new NAPI(undefined, headers().get('User-Agent')?.toString()).user().authorize({
@@ -65,9 +66,9 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
             switch (authorization.code) {
                 case 'invalid_user':
                 case 'invalid_password':
-                    redirect('/login?et=ne' + (mfa ? '&mfa=y' : '') + (handle ? `&h=${handle}` : ''));
+                    redirect('/login?et=ne' + (mfa ? '&mfa=y' : '') + (handle ? `&h=${handle}` : '') + (next ? `&next=${next}` : ''));
                 case 'rate_limit':
-                    redirect('/login?et=rl' + (mfa ? '&mfa=y' : '') + (handle ? `&h=${handle}` : ''));
+                    redirect('/login?et=rl' + (mfa ? '&mfa=y' : '') + (handle ? `&h=${handle}` : '') + (next ? `&next=${next}` : ''));
                 case 'mfa_required':
                     cookies().set('tempAuthId', Encryption.create(password, handle), {
                         maxAge: 180,
@@ -76,11 +77,11 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
                         secure: true,
                         sameSite: 'strict',
                     });
-                    redirect('/login?mfa=y' + (handle ? `&h=${handle}` : ''));
+                    redirect('/login?mfa=y' + (handle ? `&h=${handle}` : '') + (next ? `&next=${next}` : ''));
                 case 'invalid_mfa_token':
-                    redirect('/login?et=m&mfa=y' + (handle ? `&h=${handle}` : ''));
+                    redirect('/login?et=m&mfa=y' + (handle ? `&h=${handle}` : '') + (next ? `&next=${next}` : ''));
                 default:
-                    redirect('/login?et=u' + (mfa ? '&mfa=y' : '') + (handle ? `&h=${handle}` : ''));
+                    redirect('/login?et=u' + (mfa ? '&mfa=y' : '') + (handle ? `&h=${handle}` : '') + (next ? `&next=${next}` : ''));
             }
         } else {
             cookies().set('napiAuthorizationToken', `${authorization.token} ${authorization.id}`, {
@@ -95,7 +96,7 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
                 maxAge: 1,
                 expires: 1,
             });
-            redirect('/account');
+            redirect('/aeh' + (next ? `?next=${next}` : ''));
         }
     };
 
@@ -163,7 +164,7 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
                         </>
                     ) : (
                         <div className={o.buttons}>
-                            <Link className="btn" href="/register">
+                            <Link className="btn" href={`/register` + (next ? `?next=${next}` : '')}>
                                 {lang.getProp('input-new')}
                             </Link>
                             <button className={'btn ' + o.highlight} type="submit">
