@@ -32,7 +32,7 @@ export default function Sidebar({
     const pathname = usePathname();
     const halloween = new Date().getMonth() == 9 && new Date().getDate() == 31;
 
-    if (!user) router.replace('/login?redirectBack=' + pathname);
+    if (!user?.id) router.replace('/aeh?next=' + pathname);
 
     const links = [
         {
