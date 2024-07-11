@@ -133,6 +133,14 @@ export default class NAPI {
                     body,
                 });
             },
+            register: async ({ body }: { body: { email: string; username: string; password: string; language?: string } }) => {
+                return await getData<User>({
+                    path: '/v1/users/register',
+                    options: this.userAgent ? { headers: { 'User-Agent': this.userAgent } } : undefined,
+                    type: RequestType.Post,
+                    body,
+                });
+            },
         };
     }
 }
