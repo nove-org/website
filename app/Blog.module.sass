@@ -2,7 +2,7 @@ article.blog
     width: 100%
     max-width: 1000px
     height: 100%
-    min-height: calc( 100vh - 68px )
+    min-height: calc( 100vh - 70px )
     margin: 0 auto
     margin-top: 40px
     display: flex
@@ -85,3 +85,161 @@ article.blog
             display: flex
             align-items: center
             gap: 5px
+
+div.content
+    width: 100%
+    max-width: 1000px
+    height: 100%
+    min-height: calc( 100vh - 70px )
+    margin: 0 auto
+    margin-top: 40px
+    display: flex
+    flex-direction: column
+    & div.header
+        display: flex
+        align-items: center
+        justify-content: space-between
+        & h1.title
+            font-size: 28px
+            font-weight: 500
+            margin: 0
+    & h2.header
+        display: flex
+        align-items: center
+        gap: 5px
+        font-size: 16px
+        font-weight: 500
+        margin-top: 20px
+        margin-bottom: 10px
+        &.highlight
+            padding: 5px 10px
+            border-radius: 50px
+            font-size: 16px
+            background: linear-gradient(to right, var(--primary), var(--secondary))
+            color: var(--on-primary)
+            width: fit-content
+            position: absolute
+            top: -10px
+            left: -10px
+            margin-top: 0
+            margin-bottom: 0
+    & div.featured
+        display: flex
+        background: var(--primary-container)
+        color: var(--on-primary-container)
+        border-radius: 15px
+        position: relative
+        margin-top: 20px
+        @media screen and (max-width: 640px)
+            flex-direction: column
+        & img.decor
+            width: 100%
+            max-width: 700px
+            height: auto
+            border-top-left-radius: 15px
+            border-bottom-left-radius: 15px
+            @media screen and (max-width: 640px)
+                border-bottom-left-radius: 0
+                border-top-right-radius: 15px
+        & aside.info
+            padding: 12px 14px
+            box-sizing: border-box
+            display: flex
+            justify-content: space-between
+            flex-direction: column
+            gap: 5px
+            max-width: 300px
+            & h1
+                font-size: 30px
+                font-weight: 500
+                margin: 0
+                @media screen and (max-width: 900px)
+                    font-size: 24px
+                @media screen and (max-width: 800px)
+                    line-height: 1.8rem
+                    height: 3.6rem
+                    overflow-y: hidden
+            & div.meta
+                display: flex
+                flex-direction: column
+                gap: 5px
+                & div.time
+                    display: flex
+                    align-items: center
+                    gap: 5px
+                    font-size: 16px
+                & div.footer
+                    font-size: 16px
+                    font-weight: 500
+                    display: flex
+                    align-items: center
+                    gap: 5px
+                    & img
+                        border-radius: 50%
+
+    & ul.articles
+        display: grid
+        grid-template-columns: repeat(3, 1fr)
+        width: 100%
+        gap: 20px
+        list-style: none
+        margin: 0px
+        padding: 0px
+        @media screen and (max-width: 800px)
+            grid-template-columns: repeat(1, 1fr)
+        & li
+            & a
+                display: block
+                max-width: 100%
+                text-decoration: none
+                background: var(--primary-container)
+                color: var(--on-primary-container)
+                border-radius: 15px
+                @media screen and (max-width: 800px)
+                    display: flex
+                @media screen and (max-width: 640px)
+                    flex-direction: column
+                & img
+                    border-top-left-radius: 15px
+                    border-top-right-radius: 15px
+                    max-width: 100%
+                    height: auto
+                    @media screen and (max-width: 800px)
+                        max-width: 280px
+                        border-top-right-radius: 0
+                        border-bottom-left-radius: 15px
+                    @media screen and (max-width: 640px)
+                        max-width: 100%
+                        border-top-left-radius: 15px
+                        border-top-right-radius: 15px
+                        border-bottom-left-radius: 0
+                & div.info
+                    padding: 15px
+                    padding-top: 10px
+                    margin-top: -5px
+                    box-sizing: border-box
+                    display: flex
+                    flex-direction: column
+                    gap: 5px
+                    @media screen and (max-width: 800px)
+                        padding-top: 15px
+                    & h1
+                        font-size: 24px
+                        font-weight: 500
+                        margin: 0
+                        line-height: 1.3em
+                        height: 2.6em
+                        overflow-y: hidden
+                    & div.time
+                        display: flex
+                        align-items: center
+                        gap: 5px
+                        font-size: 14px
+                    & div.footer
+                        font-size: 14px
+                        font-weight: 500
+                        display: flex
+                        align-items: center
+                        gap: 5px
+                        & img
+                            border-radius: 50%

@@ -101,6 +101,8 @@ export interface Post {
     authorWebsite?: string;
     text: string;
     title: string;
+    header: string;
+    headerAlt: string;
     commentsAllowed: boolean;
     createdAt: string;
     updatedAt: string;
