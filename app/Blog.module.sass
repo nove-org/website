@@ -131,6 +131,10 @@ div.content
         position: relative
         margin-top: 20px
         text-decoration: none
+        transition: background-color .1s, color .1s
+        &:hover
+            background: var(--secondary-container)
+            color: var(--on-secondary-container)
         @media screen and (max-width: 640px)
             flex-direction: column
         & img.decor
@@ -196,6 +200,10 @@ div.content
                 background: var(--primary-container)
                 color: var(--on-primary-container)
                 border-radius: 15px
+                transition: background-color .1s, color .1s
+                &:hover
+                    background: var(--secondary-container)
+                    color: var(--on-secondary-container)
                 @media screen and (max-width: 800px)
                     display: flex
                 @media screen and (max-width: 640px)
