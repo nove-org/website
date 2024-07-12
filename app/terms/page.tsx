@@ -29,7 +29,7 @@ export default async function Terms() {
                 <h1>{lang.getProp('title')}</h1>
                 <time>
                     {lang.getProp('last-modified', {
-                        time: new Date(2024, 2, 10).toLocaleString(user?.language || 'en-US', { day: 'numeric', month: 'long', year: 'numeric' }),
+                        time: new Date(2024, 6, 12).toLocaleString(user?.language || 'en-US', { day: 'numeric', month: 'long', year: 'numeric' }),
                     })}
                 </time>
                 <div>
