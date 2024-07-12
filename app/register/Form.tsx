@@ -15,10 +15,13 @@ export default function Form({
     login: string;
     lang: {
         username: string;
+        usernameD: string;
         usernameP: string;
         email: string;
+        emailD: string;
         emailP: string;
         password: string;
+        passwordD: string;
         passwordP: string;
         login: string;
         register: string;
@@ -29,9 +32,33 @@ export default function Form({
 
     return (
         <>
-            <Databox id="username" title={lang.username} type="text" required={true} placeholder={lang.usernameP} onKeyDown={(e) => e.key === 'Enter' && triggerLoading()} />
-            <Databox id="email" title={lang.email} type="email" required={true} placeholder={lang.emailP} onKeyDown={(e) => e.key === 'Enter' && triggerLoading()} />
-            <Databox id="password" title={lang.password} type="password" required={true} placeholder={lang.passwordP} onKeyDown={(e) => e.key === 'Enter' && triggerLoading()} />
+            <Databox
+                id="username"
+                title={lang.username}
+                description={lang.usernameD}
+                type="text"
+                required={true}
+                placeholder={lang.usernameP}
+                onKeyDown={(e) => e.key === 'Enter' && triggerLoading()}
+            />
+            <Databox
+                id="email"
+                title={lang.email}
+                description={lang.emailD}
+                type="email"
+                required={true}
+                placeholder={lang.emailP}
+                onKeyDown={(e) => e.key === 'Enter' && triggerLoading()}
+            />
+            <Databox
+                id="password"
+                title={lang.password}
+                description={lang.passwordD}
+                type="password"
+                required={true}
+                placeholder={lang.passwordP}
+                onKeyDown={(e) => e.key === 'Enter' && triggerLoading()}
+            />
             <div className={o.buttons}>
                 <Link className="btn" href={login}>
                     {lang.login}

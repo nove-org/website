@@ -132,6 +132,9 @@ export default async function Register({ searchParams }: { searchParams: { [key:
                             usernameP: lang.getProp('input-username-placeholder'),
                             emailP: lang.getProp('input-email-placeholder'),
                             passwordP: lang.getProp('input-password-placeholder'),
+                            usernameD: lang.getProp('input-usernameD'),
+                            emailD: lang.getProp('input-emailD'),
+                            passwordD: lang.getProp('input-passwordD'),
                             login: lang.getProp('input-login'),
                             register: lang.getProp('input-register'),
                         }}
