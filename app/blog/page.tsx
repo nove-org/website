@@ -5,6 +5,19 @@ import { cookies, headers } from 'next/headers';
 import Image from 'next/image';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 
+export async function generateMetadata() {
+    const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
+    const user = await api.user().get({ caching: true });
+    const lang = await new LanguageHandler('main/blog', user).init(headers());
+    const title: string = `${lang.getProp('title')} | Nove`;
+
+    return {
+        title,
+        openGraph: { title },
+        twitter: { card: 'summary_large_image', title },
+    };
+}
+
 export default async function Blog() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
     const user = await api.user().get({ caching: true });
