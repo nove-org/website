@@ -1,5 +1,5 @@
 name: Build website from source
-on: [push, pull_request]
+on: [push]
 
 jobs:
     build:
