@@ -182,8 +182,12 @@
             "request-success": "Confirmation email was sent to that address if this account exists"
         },
         "blog": {
-            "warn-h1": "Warning",
-            "warn-p": "Right now, we only share posts in English but it will change in the future."
+            "title": "Blog",
+            "new-post": "New post",
+            "featured": "Featured",
+            "other": "Other posts",
+            "published-on": "Published on {date}",
+            "by-author": "By {author}"
         }
     },
     "dashboard": {
