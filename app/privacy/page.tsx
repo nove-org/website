@@ -25,7 +25,7 @@ export default async function Privacy() {
 
     return (
         <article className={o.blog}>
-            <div className={o.content}>
+            <div className={o.text}>
                 <h1>{lang.getProp('title')}</h1>
                 <time>
                     {lang.getProp('last-modified', {

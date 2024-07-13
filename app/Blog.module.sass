@@ -8,22 +8,57 @@ article.blog
     display: flex
     flex-direction: column
     gap: 20px
-    & div.content
+    & div.text
+        & div.header
+            & h1
+                display: flex
+                align-items: center
+                justify-content: space-between
+                @media screen and (max-width: 600px)
+                    flex-direction: column-reverse
+                    gap: 5px
+                    margin-bottom: 20px
+                    align-items: flex-start
+                & div.buttons
+                    display: flex
+                    align-items: center
+                    gap: 10px
+                    & a
+                        margin-bottom: 0
+                        min-width: max-content
+                        user-select: none
+                        & svg
+                            min-width: 16px
+                        &:hover
+                            text-decoration: none
+            & p
+                display: flex
+                align-items: center
+                gap: 5px
+                margin: 0
+                & b
+                    cursor: pointer
+                    user-select: none
+                    &:hover
+                        text-decoration: underline
+                & img
+                    width: fit-content
+                    margin: 0
         & h1, h2, p, strong, b, i, a, code, time, em, pre, li, td, th
             user-select: text
         & h1
-            font-size: 36px
+            font-size: 30px
             font-weight: 500
             margin: 10px 0
         & h2
-            font-size: 26px
+            font-size: 24px
             font-weight: 500
             margin: 5px 0
             margin-top: 20px
         & p
-            font-size: 18px
+            font-size: 16px
             margin: 0
-            margin: 25px 0
+            margin: 20px 0
         & hr
             border: 1px dashed var(--on-background)
             opacity: 0.5
@@ -47,7 +82,7 @@ article.blog
                 font-size: 16px
         & a
             color: var(--primary)
-            font-size: 18px
+            font-size: 16px
             text-decoration: none
             margin: 0
             margin-bottom: 10px
@@ -80,6 +115,7 @@ article.blog
         & img
             border-radius: 20px
             width: 100%
+            height: auto
             margin: 10px 0
         & div.flex
             display: flex
@@ -99,8 +135,9 @@ div.content
         display: flex
         align-items: center
         justify-content: space-between
+        margin: 10px 0
         & h1.title
-            font-size: 28px
+            font-size: 30px
             font-weight: 500
             margin: 0
     & h2.header
@@ -252,3 +289,53 @@ div.content
                         gap: 5px
                         & img
                             border-radius: 50%
+
+div.comments
+    margin-top: 50px
+    & ul
+        padding: 0
+        margin: 0
+        list-style: none
+        & li
+            box-sizing: border-box
+            padding: 12px
+            margin: 0
+            border-radius: 15px
+            background: var(--primary-container)
+            color: var(--on-primary-container)
+            width: 100%
+            & div.user
+                display: flex
+                align-items: center
+                gap: 5px
+                & div.card
+                    display: flex
+                    align-items: center
+                    gap: 5px
+                    font-size: 16px
+                    font-weight: 500
+                    cursor: pointer
+                    &:hover
+                        text-decoration: underline
+                    & img
+                        border-radius: 50%
+                        width: 20px
+                        margin: 0
+            & p
+                font-size: 14px
+                margin: 8px 0 !important
+                margin-bottom: 0 !important
+            & div.actions
+                display: flex
+                align-items: center
+                gap: 5px
+                margin-top: 5px
+                & svg
+                    cursor: pointer
+                    padding: 5px
+                    border-radius: 10px
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    background: var(--secondary-container)
+                    color: var(--on-secondary-container)
