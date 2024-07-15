@@ -4,6 +4,8 @@ import Error from '../Error';
 import o from './Language.module.sass';
 import { cookies, headers } from 'next/headers';
 import ReactCountryFlag from 'react-country-flag';
+import { redirect } from 'next/navigation';
+import Submit from './Submit';
 
 export async function generateMetadata() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
@@ -25,11 +27,24 @@ export default async function Language() {
     const lang = await new LanguageHandler('dashboard/language', user).init(headers());
     const l = new Intl.DisplayNames([user?.language || 'en-US'], { type: 'language' });
 
+    const setLanguage = async (e: FormData) => {
+        'use server';
+
+        const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
+        await api.user().update({
+            body: {
+                language: e.get('language')?.toString(),
+            },
+        });
+
+        redirect(`?s=${new Date().getTime()}`);
+    };
+
     return user ? (
         <div className={o.content}>
             <h1 className={o.title}>{lang.getCustomProp('dashboard.layout.ul-language')}</h1>
             <p className={o.description}>{lang.getProp('description')}</p>
-            <form>
+            <form action={setLanguage}>
                 {languages.AVAILABLE_LANGUAGES.map((language) => (
                     <label key={language} className={o.lang}>
                         <input type="radio" value={language} name="language" defaultChecked={user.language === language} />
@@ -39,14 +54,7 @@ export default async function Language() {
                         </div>
                     </label>
                 ))}
-                <div className={o.buttons}>
-                    <button type="submit" className={'btn ' + o.primary}>
-                        {lang.getCustomProp('modules.actions.save-changes')}
-                    </button>
-                    <button type="reset" className="btn">
-                        {lang.getCustomProp('modules.actions.cancel')}
-                    </button>
-                </div>
+                <Submit lang={{ save: lang.getCustomProp('modules.actions.save-changes'), cancel: lang.getCustomProp('modules.actions.cancel') }} />
             </form>
         </div>
     ) : (
