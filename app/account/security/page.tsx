@@ -38,15 +38,17 @@ export default async function Account() {
                     <button>{lang.getCustomProp('modules.actions.disable')}</button>
                 </Header>
                 <ul className={o.devices}>{devices?.slice(0, 3)?.map((device) => <Device key={device.id} device={device} lang={user.language} />)}</ul>
-                <div className={o.more}>
-                    <details>
-                        <summary>
-                            <span className={o.closed}>{lang.getCustomProp('modules.actions.show-more')}</span>
-                            <span className={o.open}>{lang.getCustomProp('modules.actions.show-less')}</span>
-                        </summary>
-                    </details>
-                    <ul className={o.devices}>{devices?.slice(3)?.map((device) => <Device key={device.id} device={device} lang={user.language} />)}</ul>
-                </div>
+                {(devices?.length || 0) > 3 && (
+                    <div className={o.more}>
+                        <details>
+                            <summary>
+                                <span className={o.closed}>{lang.getCustomProp('modules.actions.show-more')}</span>
+                                <span className={o.open}>{lang.getCustomProp('modules.actions.show-less')}</span>
+                            </summary>
+                        </details>
+                        <ul className={o.devices}>{devices?.slice(3)?.map((device) => <Device key={device.id} device={device} lang={user.language} />)}</ul>
+                    </div>
+                )}
             </div>
             <div className={o.securityLayers}>
                 <Header
