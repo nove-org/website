@@ -187,7 +187,8 @@
             "featured": "Featured",
             "other": "Other posts",
             "published-on": "Published on {date}",
-            "by-author": "By {author}"
+            "by-author": "By {author}",
+            "no-data":"Comment cannot be empty."
         }
     },
     "dashboard": {

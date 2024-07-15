@@ -1,6 +1,6 @@
 import { AxiosError, AxiosRequestConfig } from 'axios';
 import { axiosClient } from './Axios';
-import { Connection, Device, Languages, Post, Response, User } from './Schema';
+import { Connection, Device, Languages, Post, PostComment, Response, User } from './Schema';
 
 export enum AuthorizationType {
     Owner,
@@ -91,6 +91,23 @@ export default class NAPI {
             getPost: async ({ id, caching }: MethodOptions & { id: string }) => {
                 const config: DataGet = { path: '/v1/blog/' + id, options: this.userAgent ? { headers: { 'User-Agent': this.userAgent } } : undefined };
                 return caching ? await getCachedData<Post>(config) : await getData<Post>(config);
+            },
+            createComment: async ({ id, text }: { id: string; text: string }) => {
+                const config: DataGet = {
+                    path: '/v1/blog/' + id + '/comment',
+                    options: { headers: this.userAgent ? { Authorization: this.authorization, 'User-Agent': this.userAgent } : { Authorization: this.authorization } },
+                    type: RequestType.Post,
+                    body: { text },
+                };
+                return await getData<PostComment>(config);
+            },
+            deleteComment: async ({ id, commentId }: { id: string; commentId: string }) => {
+                const config: DataGet = {
+                    path: '/v1/blog/' + id + '/comment/' + commentId,
+                    options: { headers: this.userAgent ? { Authorization: this.authorization, 'User-Agent': this.userAgent } : { Authorization: this.authorization } },
+                    type: RequestType.Delete,
+                };
+                return await getData<PostComment>(config);
             },
         };
     }

@@ -106,16 +106,18 @@ export interface Post {
     commentsAllowed: boolean;
     createdAt: string;
     updatedAt: string;
-    comments: {
-        id: string;
-        authorId: string;
-        authorUsername: string;
-        authorAvatar: string;
-        text: string;
-        blogPostId: string;
-        createdAt: string;
-        updatedAt: string;
-    }[];
+    comments: PostComment[];
+}
+
+export interface PostComment {
+    id: string;
+    authorId: string;
+    authorUsername: string;
+    authorAvatar: string;
+    text: string;
+    blogPostId: string;
+    createdAt: string;
+    updatedAt: string;
 }
 
 export interface Success {

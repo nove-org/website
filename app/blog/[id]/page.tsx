@@ -2,9 +2,14 @@ import o from '../../Blog.module.sass';
 import NAPI from '@util/helpers/NAPI';
 import { sanitize } from 'isomorphic-dompurify';
 import { Post } from '@util/helpers/Schema';
-import { cookies } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
+import Databox from '@app/Databox';
+import { redirect } from 'next/navigation';
+import Comment from './Comment';
+import ObjectHelper from '@util/helpers/Object';
+import LanguageHandler from '@util/handlers/LanguageHandler';
 
 async function getPostData(api: NAPI, id: string): Promise<Post | undefined> {
     const posts = await api.blog().getPosts({ caching: true });
@@ -26,10 +31,25 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
     };
 }
 
-export default async function BlogParams({ params }: { params: { id: string } }) {
+export default async function BlogParams({ params, searchParams }: { params: { id: string }; searchParams: { [key: string]: string | string[] | undefined } }) {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
     const user = await api.user().get({ caching: true });
     const post = await getPostData(api, params.id);
+    const error: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 'et');
+    const lang = await new LanguageHandler('main/blog', user).init(headers());
+
+    const commentCreate = async (e: FormData) => {
+        'use server';
+
+        const text = e.get('comment')?.toString();
+        if (!text) redirect('?et=nd');
+
+        const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
+        const comment = await api.blog().createComment({ id: post?.id as string, text });
+
+        if (!comment?.code) redirect('?s=' + new Date().getTime());
+        else redirect('?et=rf');
+    };
 
     return post?.title ? (
         <article className={o.blog}>
@@ -69,28 +89,34 @@ export default async function BlogParams({ params }: { params: { id: string } })
                 {post.commentsAllowed && (
                     <div className={o.comments}>
                         <h1>Comments ({post.comments.length})</h1>
-                        <ul>
-                            {post.comments.map((comment) => (
-                                <li key={comment.id}>
-                                    <div className={o.user}>
-                                        <div className={o.card}>
-                                            <Image src={comment.authorAvatar} width={20} height={20} alt="User's avatar" />
-                                            {comment.authorUsername}
-                                        </div>
-                                        &middot;
-                                        {' ' +
-                                            new Date(comment.createdAt).toLocaleDateString(user?.language || 'en-US', { year: 'numeric', month: 'short', day: 'numeric' }) +
-                                            (comment.createdAt !== comment.updatedAt ? ' (edited)' : '')}
-                                    </div>
-                                    <p>{comment.text}</p>
-                                    <div className={o.actions}>
+                        {user?.id && (
+                            <form action={commentCreate} className={o.new}>
+                                {error && (
+                                    <div className={o.error}>
                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
                                             <path
                                                 fill="currentColor"
-                                                d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z"></path>
+                                                d="M 12 3.0292969 C 11.436813 3.0292969 10.873869 3.2917399 10.558594 3.8164062 L 1.7617188 18.451172 C 1.1134854 19.529186 1.94287 21 3.2011719 21 L 20.796875 21 C 22.054805 21 22.886515 19.529186 22.238281 18.451172 L 13.441406 3.8164062 C 13.126131 3.29174 12.563187 3.0292969 12 3.0292969 z M 12 5.2988281 L 20.236328 19 L 3.7636719 19 L 12 5.2988281 z M 11 9 L 11 14 L 13 14 L 13 9 L 11 9 z M 11 16 L 11 18 L 13 18 L 13 16 L 11 16 z"></path>
                                         </svg>
+                                        {error === 'nd'
+                                            ? lang.getProp('no-data')
+                                            : error === 'rf'
+                                              ? lang.getCustomProp('modules.errors.rate-limit')
+                                              : lang.getCustomProp('modules.errors.other')}
                                     </div>
-                                </li>
+                                )}
+                                <Databox type="textarea" title={`Comment as ${user.username}...`} placeholder="..." required={true} id="comment" />
+                                <button type="submit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
+                                        <path fill="currentColor" d="M 11 3 L 11 11 L 3 11 L 3 13 L 11 13 L 11 21 L 13 21 L 13 13 L 21 13 L 21 11 L 13 11 L 13 3 L 11 3 z"></path>
+                                    </svg>
+                                    Post
+                                </button>
+                            </form>
+                        )}
+                        <ul>
+                            {post.comments.map((comment) => (
+                                <Comment key={comment.id} user={user} comment={comment} />
                             ))}
                         </ul>
                     </div>

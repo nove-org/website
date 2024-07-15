@@ -292,6 +292,26 @@ div.content
 
 div.comments
     margin-top: 50px
+    & form.new
+        margin: 15px 0
+        margin-bottom: 30px
+        & div.error
+            font-size: 15px
+            display: flex
+            gap: 5px
+            margin-bottom: 5px
+            color: var(--primary)
+            & svg
+                min-width: 16px
+        & label
+            & textarea
+                border-radius: 15px
+            & p
+                margin: 0
+        & button
+            padding: 12px
+            padding: 10px 12px
+            border-radius: 12px
     & ul
         padding: 0
         margin: 0
@@ -304,6 +324,7 @@ div.comments
             background: var(--primary-container)
             color: var(--on-primary-container)
             width: 100%
+            margin-bottom: 10px
             & div.user
                 display: flex
                 align-items: center
@@ -330,12 +351,19 @@ div.comments
                 align-items: center
                 gap: 5px
                 margin-top: 5px
-                & svg
-                    cursor: pointer
-                    padding: 5px
-                    border-radius: 10px
-                    display: flex
-                    align-items: center
-                    justify-content: center
-                    background: var(--secondary-container)
-                    color: var(--on-secondary-container)
+                & button
+                    background: 0 !important
+                    border: 0
+                    padding: 0
+                    margin: 0
+                    border-radius: 0
+                    color: 0
+                    & svg
+                        cursor: pointer
+                        padding: 5px
+                        border-radius: 10px
+                        display: flex
+                        align-items: center
+                        justify-content: center
+                        background: var(--secondary-container)
+                        color: var(--on-secondary-container)
