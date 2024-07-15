@@ -83,6 +83,7 @@ export default class NAPI {
     }
 
     blog() {
+        const options = { headers: this.userAgent ? { Authorization: this.authorization, 'User-Agent': this.userAgent } : { Authorization: this.authorization } };
         return {
             getPosts: async ({ caching }: MethodOptions) => {
                 const config: DataGet = { path: '/v1/blog', options: this.userAgent ? { headers: { 'User-Agent': this.userAgent } } : undefined };
@@ -95,7 +96,7 @@ export default class NAPI {
             createComment: async ({ id, text }: { id: string; text: string }) => {
                 const config: DataGet = {
                     path: '/v1/blog/' + id + '/comment',
-                    options: { headers: this.userAgent ? { Authorization: this.authorization, 'User-Agent': this.userAgent } : { Authorization: this.authorization } },
+                    options,
                     type: RequestType.Post,
                     body: { text },
                 };
@@ -104,7 +105,7 @@ export default class NAPI {
             deleteComment: async ({ id, commentId }: { id: string; commentId: string }) => {
                 const config: DataGet = {
                     path: '/v1/blog/' + id + '/comment/' + commentId,
-                    options: { headers: this.userAgent ? { Authorization: this.authorization, 'User-Agent': this.userAgent } : { Authorization: this.authorization } },
+                    options,
                     type: RequestType.Delete,
                 };
                 return await getData<PostComment>(config);
@@ -135,6 +136,27 @@ export default class NAPI {
                 if (!this.key) return undefined;
                 const config = { path: '/v1/users/me/connections', options };
                 return caching ? await getCachedData<Connection[]>(config) : await getData<Connection[]>(config);
+            },
+            update: async ({
+                body,
+            }: {
+                body: {
+                    username?: string;
+                    bio?: string;
+                    pubkey?: string;
+                    language?: string;
+                    trackActivity?: string;
+                    activityNotify?: string;
+                    profilePublic?: string;
+                    website?: string;
+                };
+            }) => {
+                return await getData<User>({
+                    path: '/v1/users/me',
+                    options,
+                    type: RequestType.Patch,
+                    body,
+                });
             },
             authorize: async ({ body, mfa }: { body: { username: string; password: string }; mfa?: string }) => {
                 return await getData<User>({
