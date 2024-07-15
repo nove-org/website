@@ -7,6 +7,7 @@ import Loader from '@app/Loader';
 export default function Submit({ lang }: { lang: { save: string; cancel: string } }) {
     const [loading, setLoading] = useState<boolean>(false);
     const triggerLoading = () => setLoading(true);
+
     return (
         <div className={o.buttons}>
             <button type="submit" className={'btn ' + (loading ? o.loading : o.primary)} onClick={() => triggerLoading()}>

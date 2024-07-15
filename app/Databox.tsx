@@ -13,6 +13,11 @@ export default function Databox({
     required,
     readOnly,
     description,
+    minLength,
+    maxLength,
+    min,
+    max,
+    regex,
     navigateTrigger,
     navigateLoading,
     onChange,
@@ -29,6 +34,11 @@ export default function Databox({
     required?: boolean;
     readOnly?: boolean;
     description?: string;
+    minLength?: number;
+    maxLength?: number;
+    min?: number;
+    max?: number;
+    regex?: string;
     navigateTrigger?: MouseEventHandler<HTMLButtonElement>;
     navigateLoading?: boolean;
     onChange?: ChangeEventHandler<HTMLSelectElement | HTMLInputElement | HTMLTextAreaElement>;
@@ -71,7 +81,19 @@ export default function Databox({
         </label>
     ) : type === 'textarea' ? (
         <label className={o.npt}>
-            <textarea id={id} name={id} defaultValue={value} readOnly={readOnly} placeholder={placeholder} required={required} onChange={onChange} onKeyDown={onKeyDown} rows={5} />
+            <textarea
+                minLength={minLength}
+                maxLength={maxLength}
+                id={id}
+                name={id}
+                defaultValue={value}
+                readOnly={readOnly}
+                placeholder={placeholder}
+                required={required}
+                onChange={onChange}
+                onKeyDown={onKeyDown}
+                rows={5}
+            />
             <p>
                 {title}
                 {description && <span>{description}</span>}
@@ -136,6 +158,11 @@ export default function Databox({
                     placeholder={placeholder}
                     required={required}
                     readOnly={readOnly}
+                    minLength={minLength}
+                    maxLength={maxLength}
+                    min={min}
+                    max={max}
+                    pattern={regex}
                     onChange={onChange}
                     onKeyDown={onKeyDown}
                 />

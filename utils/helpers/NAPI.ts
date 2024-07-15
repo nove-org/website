@@ -143,12 +143,12 @@ export default class NAPI {
                 body: {
                     username?: string;
                     bio?: string;
+                    website?: string;
                     pubkey?: string;
                     language?: string;
-                    trackActivity?: string;
-                    activityNotify?: string;
-                    profilePublic?: string;
-                    website?: string;
+                    trackActivity?: boolean;
+                    activityNotify?: boolean;
+                    profilePublic?: boolean;
                 };
             }) => {
                 return await getData<User>({

@@ -6,6 +6,10 @@ import { cookies, headers } from 'next/headers';
 import Databox from '@app/Databox';
 import Image from 'next/image';
 import ReactCountryFlag from 'react-country-flag';
+import { redirect } from 'next/navigation';
+import Submit from './Submit';
+import FormError from '../FormError';
+import ObjectHelper from '@util/helpers/Object';
 
 export async function generateMetadata() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
@@ -20,23 +24,55 @@ export async function generateMetadata() {
     };
 }
 
-export default async function Profile() {
+export default async function Profile({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
     const user = await api.user().get({ caching: true });
+    const error: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 'et');
     const lang = await new LanguageHandler('dashboard/profile', user).init(headers());
+
+    const setProfile = async (e: FormData) => {
+        'use server';
+
+        const oldUsername = user?.username;
+        const newUsername = e.get('username')?.toString();
+
+        if ((e.get('avatar') as File).name !== 'undefined' && (e.get('avatar') as File).size !== 0) {
+            console.log(e.get('avatar') as File);
+        }
+
+        const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
+        const updated = await api.user().update({
+            body: {
+                username: newUsername !== oldUsername ? newUsername : undefined,
+                website: e.get('website')?.toString(),
+                bio: e.get('bio')?.toString(),
+                profilePublic: Boolean(e.get('profilePublic')?.toString()),
+            },
+        });
+
+        if (updated?.code) {
+            switch (updated?.code) {
+                case 'username_taken':
+                    redirect(`?et=ut`);
+                default:
+                    redirect(`?et=u`);
+            }
+        } else redirect(`?s=${new Date().getTime()}`);
+    };
 
     return user ? (
         <div className={o.content}>
             <h1 className={o.title}>{lang.getCustomProp('dashboard.layout.ul-profile')}</h1>
             <p className={o.description}>{lang.getProp('description')}</p>
             <div className={o.profile}>
-                <form>
+                <form action={setProfile}>
+                    {error === 'u' && <FormError text={lang.getCustomProp('modules.errors.other')} />}
                     <div className={o.avatar}>
                         <label>
                             <Image src={user.avatar} width={36} height={36} alt="User's avatar" />
                             <div className={o.dynamic}>
                                 <span>{lang.getProp('avatar-btn')}</span>
-                                <input type="file" accept="image/*" />
+                                <input type="file" id="avatar" name="avatar" accept="image/*" />
                             </div>
                         </label>
                         <p>
@@ -53,7 +89,11 @@ export default async function Profile() {
                         placeholder="..."
                         value={user.username}
                         required={true}
+                        minLength={3}
+                        max={24}
+                        regex={'[a-zA-Z0-9\\-_\\.]+'}
                     />
+                    {error === 'ut' && <FormError text={lang.getProp('username-taken')} />}
                     <Databox
                         id="website"
                         title={lang.getProp('website-h1')}
@@ -61,17 +101,11 @@ export default async function Profile() {
                         type="url"
                         placeholder="https://nove.team"
                         value={user.website}
+                        minLength={7}
                     />
-                    <Databox id="bio" title={lang.getProp('bio-h1')} description={lang.getProp('bio-p')} type="textarea" placeholder="..." value={user.bio} />
+                    <Databox id="bio" title={lang.getProp('bio-h1')} description={lang.getProp('bio-p')} type="textarea" placeholder="..." value={user.bio} maxLength={256} />
                     <Databox id="profilePublic" title={lang.getProp('profile-view-h1')} description={lang.getProp('profile-view-p')} type="switch" checked={user.profilePublic} />
-                    <div className={o.buttons}>
-                        <button type="submit" className={'btn ' + o.primary}>
-                            {lang.getCustomProp('modules.actions.save-changes')}
-                        </button>
-                        <button type="reset" className="btn">
-                            {lang.getCustomProp('modules.actions.cancel')}
-                        </button>
-                    </div>
+                    <Submit lang={{ save: lang.getCustomProp('modules.actions.save-changes'), cancel: lang.getCustomProp('modules.actions.cancel') }} />
                 </form>
                 <aside>
                     <h1>{lang.getProp('preview-h1')}</h1>

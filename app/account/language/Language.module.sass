@@ -42,26 +42,33 @@ div.content
                     padding: 5px
                     border-radius: 50%
                     background: var(--primary-container)
-        & div.buttons
+
+div.buttons
+    display: flex
+    align-items: center
+    gap: 8px
+    padding: 10px 0
+    @media screen and (max-width: 600px)
+        padding-bottom: 80px
+    & button
+        font-size: 14px
+        padding: 8px
+        border-radius: 10px
+        position: relative
+        &.loading
+            width: 80px
+            height: 33px
             display: flex
             align-items: center
-            gap: 8px
-            padding: 10px 0
-            @media screen and (max-width: 600px)
-                padding-bottom: 80px
-            & button
-                font-size: 14px
-                padding: 8px
-                border-radius: 10px
-                &.loading
-                    width: 80px
-                    height: 33px
-                    display: flex
-                    align-items: center
-                    justify-content: center
-                &.primary
-                    background: var(--primary)
-                    color: var(--on-primary)
-                    &:hover
-                        background: var(--secondary)
-                        color: var(--on-secondary)
+            justify-content: center
+            & div::first
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%, -50%)
+        &.primary
+            background: var(--primary)
+            color: var(--on-primary)
+            &:hover
+                background: var(--secondary)
+                color: var(--on-secondary)

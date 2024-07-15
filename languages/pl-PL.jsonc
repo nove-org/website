@@ -279,7 +279,8 @@
             "profile-view-h1": "Public profile",
             "profile-view-p" :"Display more details (language, about me, website) on your public profile. OAuth2 apps are able (with proper permissions) to access this data no matter the setting.",
             "preview-h1": "Profile preview",
-            "created-at": "Created at {date}"
+            "created-at": "Created at {date}",
+            "username-taken": "Sorry but this username is already taken."
         },
         "language": {
             "description": "Select your preferred language. This setting will be used to display content in your language in all Nove products and your connected apps might use it."
