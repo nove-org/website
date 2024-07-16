@@ -8,7 +8,7 @@ export default function Header({ title, d, children }: { title: string; d: strin
             </svg>
             <div className={o.info}>
                 <h1>{title}</h1>
-                <p>{children}</p>
+                <div className={o.p}>{children}</div>
             </div>
         </header>
     );
