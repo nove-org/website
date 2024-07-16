@@ -54,6 +54,8 @@ export default async function Profile({ searchParams }: { searchParams: { [key: 
             switch (updated?.code) {
                 case 'username_taken':
                     redirect(`?et=ut`);
+                case 'rate_limit':
+                    redirect(`?et=rl`);
                 default:
                     redirect(`?et=u`);
             }
@@ -66,7 +68,11 @@ export default async function Profile({ searchParams }: { searchParams: { [key: 
             <p className={o.description}>{lang.getProp('description')}</p>
             <div className={o.profile}>
                 <form action={setProfile}>
-                    {error === 'u' && <FormError text={lang.getCustomProp('modules.errors.other')} />}
+                    {error === 'u' ? (
+                        <FormError text={lang.getCustomProp('modules.errors.other')} />
+                    ) : error === 'rl' ? (
+                        <FormError text={lang.getCustomProp('modules.errors.rate-limit')} />
+                    ) : null}
                     <div className={o.avatar}>
                         <label>
                             <Image src={user.avatar} width={36} height={36} alt="User's avatar" />
