@@ -1,5 +1,5 @@
 import NAPI from '@util/helpers/NAPI';
-import o from '../Popup.module.sass';
+import o from './Security.module.sass';
 import Popup from '../Popup';
 import { cookies, headers } from 'next/headers';
 import LanguageHandler from '@util/handlers/LanguageHandler';
@@ -88,10 +88,10 @@ export default async function Password({ et }: { et?: string }) {
                 )}
                 <div className={o.buttons}>
                     <button type="submit" className={'btn ' + o.primary}>
-                        Save changes
+                        {lang.getCustomProp('modules.actions.save-changes')}
                     </button>
                     <Link href="?et=cancel" className="btn">
-                        Cancel
+                        {lang.getCustomProp('modules.actions.cancel')}
                     </Link>
                 </div>
             </form>

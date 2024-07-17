@@ -171,3 +171,49 @@ header.title
                 cursor: pointer
                 &:hover
                     text-decoration: underline
+
+div.buttons
+    display: flex
+    align-items: center
+    gap: 8px
+    padding: 5px 0
+    padding-bottom: 0
+    & button, a
+        font-size: 14px
+        padding: 8px
+        border-radius: 10px
+        position: relative
+        &.loading
+            width: 80px
+            height: 33px
+            display: flex
+            align-items: center
+            justify-content: center
+            & div::first
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%, -50%)
+        &.primary
+            background: var(--primary)
+            color: var(--on-primary)
+            &:hover
+                background: var(--secondary)
+                color: var(--on-secondary)
+
+div.email
+    display: flex
+    gap: 40px
+    margin-top: 30px
+    & div.update
+        width: 100%
+        & h2
+            font-size: 18px
+            font-weight: 500
+            margin: 0
+        & p.d
+            font-size: 14px
+            margin: 0
+            margin-bottom: 12px
+    & form.addons
+        width: 100%
