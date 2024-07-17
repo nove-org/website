@@ -1,0 +1,113 @@
+div.popup
+    position: fixed
+    top: 0
+    left: 0
+    padding: 0
+    margin: 10px
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    background: var(--popup-background)
+    width: calc( 100% - 10px * 2 )
+    height: calc( 100vh - 10px * 2 )
+    z-index: 99999
+    animation: opacityin 370ms ease-in-out
+    @keyframes opacityin
+        0%
+            opacity: 0
+        100%
+            opacity: 1
+    & div.container
+        padding: 18px
+        border-radius: 15px
+        background: var(--popup-container)
+        backdrop-filter: blur(15px)
+        color: var(--on-background)
+        width: calc( 100% - 20px * 2 )
+        max-width: 350px
+        height: fit-content
+        border: 1px solid var(--popup)
+        box-shadow: 0 0 25px 0 rgba(0,0,0,.1)
+        margin: 10px
+        animation: bouncein 350ms ease-in-out
+        @keyframes bouncein
+            0%
+                transform: scale(0.2)
+                opacity: 0
+            40%
+                opacity: 1
+            60%
+                transform: scale(0.96)
+            100%
+                transform: scale(1)
+        & svg.header
+            padding: 10px
+            border-radius: 12px
+            background: var(--primary-container)
+            color: var(--primary)
+            margin-bottom: 5px
+        & h1.title
+            font-size: 20px
+            font-weight: 500
+            margin: 0
+        & p.description
+            font-size: 14px
+            margin: 5px 0
+        & div.image
+            & svg
+                border-radius: 20px
+                background: #ffffff
+                margin: 5px 0
+            & p
+                font-size: 14px
+                opacity: .8
+                margin: 0
+                margin-bottom: 20px
+        & div.codes
+            display: grid
+            grid-template-columns: repeat(2, 1fr)
+            margin: 10px 0
+            & p
+                margin: 5px 0
+                user-select: text
+                font-family: monospace
+        & form
+            margin-top: 10px
+            & label p
+                gap: 1px
+            & label
+                margin-top: 5px
+                & input[type=text], input[type=password]
+                    padding: 10px
+
+div.buttons
+    display: flex
+    align-items: center
+    gap: 8px
+    padding: 10px 0
+    padding-bottom: 0
+    @media screen and (max-width: 600px)
+        padding-bottom: 80px
+    & button, a
+        font-size: 14px
+        padding: 8px
+        border-radius: 10px
+        position: relative
+        &.loading
+            width: 80px
+            height: 33px
+            display: flex
+            align-items: center
+            justify-content: center
+            & div::first
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%, -50%)
+        &.primary
+            background: var(--primary)
+            color: var(--on-primary)
+            &:hover
+                background: var(--secondary)
+                color: var(--on-secondary)
