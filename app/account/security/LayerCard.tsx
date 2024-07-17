@@ -4,7 +4,7 @@ export default function LayerCard({ link, d, children }: { link: string; d: stri
     return (
         <Link href={link}>
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 24 24">
-                <path fill="currentColor" d={d}></path>
+                <path fill="currentColor" d={d} />
             </svg>
             <span>
                 {children}
