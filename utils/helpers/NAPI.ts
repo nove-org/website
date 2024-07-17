@@ -158,6 +158,38 @@ export default class NAPI {
                     body,
                 });
             },
+            updateAvatar: async ({ body }: { body: { file?: File } }) => {
+                return await getData<User>({
+                    path: '/v1/users/me/avatar',
+                    options: { headers: { ...options.headers, 'Content-Type': 'multipart/form-data' } },
+                    type: RequestType.Patch,
+                    body,
+                });
+            },
+            updatePassword: async ({ body }: { body: { oldPassword?: string; newPassword?: string; code?: string } }) => {
+                return await getData<{ success: boolean } & User>({
+                    path: '/v1/users/password',
+                    options: { headers: { ...options.headers, 'x-mfa': body.code } },
+                    type: RequestType.Patch,
+                    body,
+                });
+            },
+            updateEmail: async ({ body }: { body: { newEmail?: string; code?: string } }) => {
+                return await getData<{ success: boolean }>({
+                    path: '/v1/users/emailReset',
+                    options: { headers: { ...options.headers, 'x-mfa': body.code } },
+                    type: RequestType.Patch,
+                    body,
+                });
+            },
+            setMFA: async ({ body }: { body: { code?: string } }) => {
+                return await getData<{ success: boolean }>({
+                    path: '/v1/users/me/mfa',
+                    options: { headers: { ...options.headers, 'x-mfa': body.code } },
+                    type: RequestType.Patch,
+                    body: {},
+                });
+            },
             authorize: async ({ body, mfa }: { body: { username: string; password: string }; mfa?: string }) => {
                 return await getData<User>({
                     path: '/v1/users/login',
