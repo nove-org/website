@@ -77,7 +77,8 @@
             "create": "Create",
             "loading": "Please wait, loading the data...",
             "show-less": "Show less",
-            "show-more": "Show more"
+            "show-more": "Show more",
+            "update": "Update"
         },
         "errors": {
             "header": "Something went horribly wrong",
@@ -243,8 +244,16 @@
             "hds-password-label-2": "New password",
             "hds-password-placeholder-2": "Provide your new password",
             "hds-email-btn": "Email",
-            "hds-email-h1": "Change your email",
-            "hds-email-p": "The address where we can contact you if there is an unusual activity on your account or if you'll get locked out. You can also use it to log in.",
+            "hds-email-h1": "Email options",
+            "hds-email-p": "Change your address or add additional security with PGP keys. Toggle receiving of security notifications.",
+            "hds-email-change-h2": "Change your email",
+            "hds-email-change-p": "The address where we can contact you if there is an unusual activity on your account or if you'll get locked out. You can also use it to log in.",
+            "hds-email-pgp-h2": "PGP public key",
+            "hds-email-pgp-p": "Encrypt all outgoing emails from Nove with your PGP key.",
+            // do not translate "'-----BEGIN PGP PUBLIC KEY BLOCK-----'"
+            "hds-email-pgp-h": "Begins with '-----BEGIN PGP PUBLIC KEY BLOCK-----'",
+            "hds-email-security-h2": "Security updates",
+            "hds-email-security-p": "Receive security notifications when you log in to your account on a new device.",
             "hds-email-label-1": "New email",
             "hds-email-placeholder-1": "Provide your new email",
             "hds-mfa-btn": "MFA",
@@ -263,7 +272,11 @@
             "delete-placeholder": "Password",
             "delete-btn": "Delete my account",
             "invalid-password": "Invalid password. Please try again.",
-            "no-data":"Input fields cannot be empty."
+            "no-data":"Input fields cannot be empty.",
+            "invalid-pgp": "Provided PGP public key seems to be invalid.",
+            "invalid-email": "Invalid email address.",
+            "email-sent": "Email has been sent. Check your old and new inbox and confirm the change.",
+            "could-not-send-email": "Couldn't deliver the email to provided addresses."
         },
         "profile": {
             "description": "Manage your personal info that is displayed on your profile. You can change the display method of your profile to private and public. While on private we will share only basic information about your account, detailing: username, avatar.",

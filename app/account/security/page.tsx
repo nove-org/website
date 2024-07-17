@@ -11,6 +11,7 @@ import { redirect } from 'next/navigation';
 import FormError from '../FormError';
 import ObjectHelper from '@util/helpers/Object';
 import Password from './Password';
+import Email from './Email';
 
 export async function generateMetadata() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
@@ -126,6 +127,7 @@ export default async function Account({ searchParams }: { searchParams: { [key: 
                 </Link>
             </div>
             {popup === 'password' && <Password et={error} />}
+            {popup === 'email' && <Email et={error} />}
         </div>
     ) : (
         <Error />
