@@ -158,7 +158,7 @@ export default class NAPI {
                     body,
                 });
             },
-            updateAvatar: async ({ body }: { body: { file?: File } }) => {
+            updateAvatar: async ({ body }: { body: { file: File } }) => {
                 return await getData<User>({
                     path: '/v1/users/me/avatar',
                     options: { headers: { ...options.headers, 'Content-Type': 'multipart/form-data' } },
@@ -166,7 +166,7 @@ export default class NAPI {
                     body,
                 });
             },
-            updatePassword: async ({ body }: { body: { oldPassword?: string; newPassword?: string; code?: string } }) => {
+            updatePassword: async ({ body }: { body: { oldPassword: string; newPassword: string; code?: string } }) => {
                 return await getData<{ success: boolean } & User>({
                     path: '/v1/users/password',
                     options: { headers: { ...options.headers, 'x-mfa': body.code } },
@@ -174,7 +174,7 @@ export default class NAPI {
                     body,
                 });
             },
-            updateEmail: async ({ body }: { body: { newEmail?: string; code?: string } }) => {
+            updateEmail: async ({ body }: { body: { newEmail: string; code?: string } }) => {
                 return await getData<{ success: boolean }>({
                     path: '/v1/users/emailReset',
                     options: { headers: { ...options.headers, 'x-mfa': body.code } },

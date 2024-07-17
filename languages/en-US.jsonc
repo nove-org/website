@@ -261,7 +261,9 @@
             "delete-p2": "Provide your password so we can verify that it's you. Remember to delete all accounts that you registered using this Nove account. Otherwise, they might be inaccessible. This action is performed instantly - it's irreversible.",
             "delete-label": "Your password",
             "delete-placeholder": "Password",
-            "delete-btn": "Delete my account"
+            "delete-btn": "Delete my account",
+            "invalid-password": "Invalid password. Please try again.",
+            "no-data":"Input fields cannot be empty."
         },
         "profile": {
             "description": "Manage your personal info that is displayed on your profile. You can change the display method of your profile to private and public. While on private we will share only basic information about your account, detailing: username, avatar.",

@@ -51,7 +51,7 @@ export default async function Profile({ searchParams }: { searchParams: { [key: 
         });
 
         if (updated?.code) {
-            switch (updated?.code) {
+            switch (updated.code) {
                 case 'username_taken':
                     redirect(`?et=ut`);
                 case 'rate_limit':
