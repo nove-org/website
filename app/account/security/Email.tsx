@@ -19,7 +19,7 @@ export default async function Email({ et }: { et?: string }) {
         'use server';
 
         const newEmail = e.get('newEmail')?.toString();
-        const code = e.get('code')?.toString();
+        const code = e.get('mfa')?.toString();
 
         if (!newEmail || (!code && user.mfaEnabled)) redirect('?p=password&et=nd');
 
@@ -39,6 +39,7 @@ export default async function Email({ et }: { et?: string }) {
                     redirect('?p=password&et=cm');
                 case 'rate_limit':
                     redirect('?p=password&et=rl');
+                case 'mfa_required':
                 case 'invalid_mfa':
                     redirect('?p=password&et=im');
                 default:
@@ -79,6 +80,7 @@ export default async function Email({ et }: { et?: string }) {
             description={lang.getProp('hds-email-p')}
             type="large"
             d="M 7 2 A 1.0001 1.0001 0 0 0 6 3 L 6 5.4921875 L 2.9921875 7.2460938 C 2.3801875 7.6030938 2 8.2656094 2 8.9746094 L 2 19 C 2 20.103 2.897 21 4 21 L 20 21 C 21.103 21 22 20.103 22 19 L 22 8.9746094 C 22 8.2656094 21.619812 7.6030937 21.007812 7.2460938 L 18 5.4921875 L 18 3 A 1.0001 1.0001 0 0 0 17 2 L 7 2 z M 8 4 L 16 4 L 16 11.333984 L 12 13.822266 L 8 11.332031 L 8 4 z M 6 7.8066406 L 6 10.087891 L 4.1074219 8.9101562 L 6 7.8066406 z M 18 7.8085938 L 19.892578 8.9121094 L 18 10.089844 L 18 7.8085938 z">
+            {et === 'nd' && <FormError text={lang.getCustomProp('modules.errors.no-data')} />}
             {et === 'rl' && <FormError text={lang.getCustomProp('modules.errors.rate-limit')} />}
             {et === 'u' && <FormError text={lang.getCustomProp('modules.errors.other')} />}
             <div className={o.email}>

@@ -79,6 +79,7 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
                         sameSite: 'strict',
                     });
                     redirect('/login?mfa=y' + (handle ? `&h=${handle}` : '') + (next ? `&next=${next}` : ''));
+                case 'invalid_mfa':
                 case 'invalid_mfa_token':
                     redirect('/login?et=m&mfa=y' + (handle ? `&h=${handle}` : '') + (next ? `&next=${next}` : ''));
                 default:
