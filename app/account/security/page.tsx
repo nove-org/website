@@ -13,6 +13,7 @@ import ObjectHelper from '@util/helpers/Object';
 import Password from './Password';
 import Email from './Email';
 import Recovery from './Recovery';
+import MFA from './MFA';
 
 export async function generateMetadata() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
@@ -32,6 +33,7 @@ export default async function Account({ searchParams }: { searchParams: { [key: 
     const user = await api.user().get({ caching: true });
     const devices = await api.user().getDevices({ caching: true });
     const lang = await new LanguageHandler('dashboard/security', user).init(headers());
+    const success: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 's');
     const code: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 'c');
     const error: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 'et');
     const popup: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 'p');
@@ -67,11 +69,8 @@ export default async function Account({ searchParams }: { searchParams: { [key: 
                         <button type="submit">{user.trackActivity ? lang.getCustomProp('modules.actions.disable') : lang.getCustomProp('modules.actions.enable')}</button>
                     </form>
                 </Header>
-                {error === 'u' ? (
-                    <FormError text={lang.getCustomProp('modules.errors.other')} />
-                ) : error === 'rl' ? (
-                    <FormError text={lang.getCustomProp('modules.errors.rate-limit')} />
-                ) : null}
+                {!popup && error === 'rl' && <FormError text={lang.getCustomProp('modules.errors.rate-limit')} />}
+                {!popup && error === 'u' && <FormError text={lang.getCustomProp('modules.errors.other')} />}
                 {devices && (devices?.length || 0) > 0 && (
                     <>
                         <ul className={o.devices}>{devices?.slice(0, 3)?.map((device) => <Device key={device.id} device={device} lang={user.language} />)}</ul>
@@ -131,6 +130,7 @@ export default async function Account({ searchParams }: { searchParams: { [key: 
             </div>
             {popup === 'password' && <Password et={error} />}
             {popup === 'email' && <Email et={error} />}
+            {popup === 'mfa' && <MFA et={error} s={success} />}
             {popup === 'recovery' && <Recovery et={error} code={code} />}
         </div>
     ) : (

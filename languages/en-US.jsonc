@@ -93,7 +93,8 @@
             "not-found": "We couldn't find the page you were looking for.",
             "no-data":"Input fields cannot be empty.",
             "rate-limit": "You are being rate-limited. Please try again later.",
-            "other": "Something went wrong and we are not sure what happened."
+            "other": "Something went wrong and we are not sure what happened.",
+            "decryption": "We couldn't decrypt account data. Please try again."
         }
     },
     "main": {
@@ -155,8 +156,7 @@
             "input-login": "Log in",
             "input-new": "Create an account",
             "invalid-mfa": "Entered authentication code is not a valid code.",
-            "invalid-password": "User under this email/username doesn't exist or provided password is incorrect.",
-            "invalid-cipher": "We couldn't decrypt your password. Please try again."
+            "invalid-password": "User under this email/username doesn't exist or provided password is incorrect."
         },
         "register": {
             "hero-h1": "New Nove account",
@@ -222,7 +222,7 @@
             "applications": "Applications"
         },
         "oauth2": {
-            "description": "OAuth2 is an authorization system used to share your identity across multiple services. By that, you don't have to create a new account on each of our products. This tab shows your history of authorizations. Authorizations are pop-ups asking you to grant an app access to your account. When an app is authorized it will show up here with all permissions it has.",
+            "description": "OAuth2 is an authorization system used to share your identity across multiple services. By that, you don't have to create a new account on each of our products. This tab shows your history of authorizations. Authorizations are pop-ups asking you to grant an application access to your account. When application is authorized it will show up here with all permissions it has.",
             "by-who": "By {author}",
             "links": "Links",
             "homepage": "Home page",
@@ -259,12 +259,14 @@
             "hds-email-placeholder-1": "Provide your new email",
             "hds-mfa-btn": "MFA",
             "hds-mfa-h1": "Multi-factor authentication",
-            "hds-mfa-p": "A better way to secure your account from hackers. You can toggle MFA on or off here.",
+            "hds-mfa-p": "Secure your account against breach attempts. You can toggle multi-factor authentication on or off here.",
+            "hds-mfa-scan-h1": "Scan this QR code...",
+            "hds-mfa-scan-p": "...with your desired multi-factor authentication app.",
             "hds-mfa-label-code": "Code",
             "hds-mfa-recovery-codes": "Recovery codes",
             "hds-recovery-btn": "Recovery",
             "hds-recovery-h1": "Recovery codes",
-            "hds-recovery-p": "Copy your account backup codes in case you will lose your phone with TOTP application on it.",
+            "hds-recovery-p": "Copy backup codes in case you lose access to your multi-factor authentication code generator.",
             "hds-recovery-label": "MFA code",
             "delete-h1": "Delete your Nove account",
             "delete-p": "To delete your account we need you to provide your account password to confirm your actions. This process is irreversible and all your data associated with this account will be deleted from our servers instantly! You can delete your account anytime you want. Please, make sure that you have removed all third-party accounts you registered using your Nove account. Otherwise - you won't be able to log in to them.",
@@ -307,7 +309,7 @@
             "hero-h1": "User list",
             "popup-btn": "Authorize your action",
             "popup-h1": "We need to verify it's you",
-            "popup-p": "Please provide your MFA code from TOTP app on your phone. You can use your backup code.",
+            "popup-p": "Please provide your MFA code from application on your phone. You can use your backup code.",
             "popup-label": "MFA code",
             "popup-reason": "Reason"
         },
