@@ -7,6 +7,7 @@ import Databox from '@app/Databox';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import FormError from '../FormError';
+import { COOKIE_HOSTNAME } from '@util/CONSTS';
 
 export default async function Password({ et }: { et?: string }) {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
@@ -50,7 +51,17 @@ export default async function Password({ et }: { et?: string }) {
                 default:
                     redirect('?p=password&et=u');
             }
-        } else redirect(`?s=${new Date().getTime()}`);
+        } else {
+            cookies().set('napiAuthorizationToken', `${updated.token} ${updated.id}`, {
+                maxAge: 3 * 30 * 24 * 60 * 60,
+                expires: 3 * 30 * 24 * 60 * 60 * 1000,
+                domain: COOKIE_HOSTNAME,
+                httpOnly: true,
+                secure: true,
+                sameSite: 'strict',
+            });
+            redirect(`?s=${new Date().getTime()}`);
+        }
     };
 
     return (
