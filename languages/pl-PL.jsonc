@@ -33,32 +33,32 @@
     */
     "modules": {
         "navigation": {
-            "ul-products": "Products",
-            "ul-about": "About",
+            "ul-products": "Produkty",
+            "ul-about": "O nas",
             "ul-blog": "Blog",
-            "ul-donate": "Donate",
-            "login-btn": "Log in",
-            "register-btn": "Sign up",
-            "switcher-profile": "My profile",
-            "switcher-security": "Security",
-            "switcher-logout": "Log out",
-            "products-files": "Store your data securely in the cloud",
-            "products-peekr": "Peek through the web without AI on every corner",
-            "products-crm": "Manage your customers quickly with ease",
-            "no-javascript": "We see that you have JavaScript disabled in your browser. But don't worry, our website works flawlessly even without it."
+            "ul-donate": "Dotacje",
+            "login-btn": "Zaloguj",
+            "register-btn": "Zarejestruj",
+            "switcher-profile": "Mój profil",
+            "switcher-security": "Bezpieczeństwo",
+            "switcher-logout": "Wyloguj się",
+            "products-files": "Przechowuj dane bezpiecznie w chmurze",
+            "products-peekr": "Otwartoźródłowa wyszukiwarka z własnym indeksem",
+            "products-crm": "Zarządzaj swoimi klientami szybko i sprawnie",
+            "no-javascript": "Widzimy, że JavaScript jest wyłączony w twojej przeglądarce. Ale się nie martw, nasza strona działa bezproblemowo nawet bez niego."
         },
         "footer": {
-            "license": "Licensed under {license}",
-            "made-with-love": "Made with ❤️ by {contributors}",
-            "contributors": "contributors",
-            "ul-general": "General",
-            "ul-documents": "Documents",
-            "ul-docs": "Docs",
-            "ul-donate": "Donate",
-            "ul-support": "Help",
-            "ul-src": "Source code",
-            "ul-privacy": "Privacy Policy",
-            "ul-terms": "Terms of Service"
+            "license": "Na licencji {license}",
+            "made-with-love": "Stworzone z ❤️ przez {contributors}",
+            "contributors": "społeczność",
+            "ul-general": "Ogólne",
+            "ul-documents": "Dokumenty",
+            "ul-docs": "Dokumentacja",
+            "ul-donate": "Dotacje",
+            "ul-support": "Pomoc",
+            "ul-src": "Kod źródłowy",
+            "ul-privacy": "Polityka Prywatności",
+            "ul-terms": "Warunki usługi"
         },
         "actions": {
             "back": "Powrót",
@@ -75,48 +75,54 @@
             "edit": "Edytuj",
             "delete": "Usuń",
             "create": "Stwórz",
-            "loading": "Please wait, loading the data...",
-            "show-less": "Show less",
-            "show-more": "Show more"
+            "loading": "Proszę czekać, ładowanie danych...",
+            "show-less": "Pokaż mniej",
+            "show-more": "Pokaż więcej",
+            "update": "Zaktualizuj",
+            "close": "Zamknij"
         },
         "errors": {
-            "header": "Coś poszło bardzo nie tak",
-            "offline": "Przepraszamy, nasze serwery są obecnie niedostępne",
-            "session": "Nie możemy przechwycić Twojej sesji, przez co wystąpił błąd pobierania informacji",
-            "verify-email": "Verify your email",
+            "verify-email": "Zweryfikuj swój email",
             "verify-email-p": "A verification link has been sent to your email address. Open it to confirm account creation. Unverified accounts get removed after 3 days.",
-            "verify-email-btn": "I opened the link",
-            "account-suspended": "Your account is suspended",
+            "verify-email-btn": "Otworzyłem link",
+            "account-suspended": "Twoje konto jest zawieszone",
             "account-suspended-p": "Write to us (reply@nove.team) if you have any further questions.",
-            "not-found": "Strona której szukasz, nie istnieje",
-            "rate-limit": "You are being rate-limited. Please try again later.",
-            "other": "Something went wrong and we are not sure what happened."
+            "header": "Coś poszło bardzo nie tak",
+            "offline": "Przepraszamy, ale nasze serwery są obecnie niedostępne.",
+            "not-found": "Nie mogliśmy znaleźć strony której szukasz.",
+            "no-data":"Pola danych nie mogą być puste.",
+            "rate-limit": "Wysyłasz za dużo zapytań. Spróbuj ponownie pózniej.",
+            "other": "Coś poszło nie tak i nie jesteśmy pewni co się stało.",
+            "decryption": "Nie mogliśmy odszyfrować danych konta. Spróbuj ponownie."
         }
     },
     "main": {
         "landing": {
             "title": "Wejdź do świata, gdzie Twoja prywatność ma znaczenie",
-            "hero-h1": "Wejdź do świata, gdzie <span>Twoja prywatność</span> ma znaczenie.",
-            "hero-note-trust": "Nie wierz nam na słowo. Przejrzyj nasz <a class={style} target=\"_blank\" rel=\"noopener noreferrer\" href={repository}>kod</a> samodzielnie",
+            // here - do not replace <span>, <word> etc.
+            // if you need more words in "your privacy" do the following:
+            // original: "... <span><word>your</word> <word>privacy</word></span> ..."
+            // i dont need more words: "... <span><word>TRANSLATE THIS</word> <word>TRANSLATE THIS</word></span> ..."
+            // i need more words: "... <span><word>WORD NR 1</word> <word>WORD NR 2</word></span> <word>WORD NR 3</word></span> ..."
+            "hero-h1": "Wejdź do świata, gdzie <span><word>twoja</word> <word>prywatność</word></span> ma znaczenie.",
             "hero-description": "Porzuć Google, Facebooka i innych sprzedających Twoje dane, profilujących Cię i śledzących. Odzyskaj kontrolę i zacznij używać otwartoźródłowych, darmowych i szanujących prywatność rozwiązań Nove.",
-            "hero-btn": "Sign up today",
-            "instance": "Instance",
-            "online":"Online",
-            "action-log": "Action log",
-            "action-upload": "{user} uploaded {file}",
-            "action-view": "{user} viewed {file}",
-            "decentralization-h1": "Because <strong>decentralization</strong> is the future.",
-            "decentralization-p": "All of our services are made with decentralization and self-hosting in mind. So you can run your own instance easily if you don't want or can't trust us.",
-            "decentralization-span": "Note: we are currently working on integrating decentralization into our products. It's not available yet.",
-            "word-h1": "W naszym ekosystemie Twoje dane to Twoja sprawa.",
-            "word-p": "Including the modern design, intuitive user interface and accessibility options.",
+            "hero-btn": "Zarejestruj się już dziś",
+            "instance": "Instancja",
+            "online":"Połączone",
+            "action-log": "Dziennik zdarzeń",
+            "action-upload": "{user} przesłał {file}",
+            "action-view": "{user} zobaczył {file}",
+            "decentralization-h1": "Ponieważ <strong>decentralizacja</strong> to przyszłość.",
+            "decentralization-p": "Wszystkie nasze produkty zostały stworzone z myślą o decentralizacji i możliwości samodzielnego prowadzenia instancji. Tak, abyś mógł prowadzić własną wersję jeśli nie możesz nam zaufać.",
+            "decentralization-span": "Informacja: pracujemy obecnie nad wdrażaniem systemu decentralizacji. Nie jest on jeszcze dostępny.",
+            "word-h1": "Z wszystkimi funkcjami których oczekujesz, a nawet i więcej...",
+            "word-p": "Nowoczesny design, intuicyjny interfejs użytkownika i opcje dostępności.",
             "word-card1-title": "Przechowywane bezpiecznie",
             "word-card1-description": "Szyfrujemy Twoje dane zawsze, gdy to możliwe, by zabezpieczyć je przed złodziejami, agencjami rządowymi oraz przed nami.",
             "word-card2-title": "Bez śledzenia i sprzedaży",
             "word-card2-description": "Nigdy Cię domyślnie nie śledzimy. Nie sprzedajemy też Twoich danych, ponieważ należą do Ciebie, nie do nas czy do nich.",
             "word-card3-title": "Darmowy plan na zawsze",
-            "word-card3-description": "Większość naszych usług zawiera darmowy plan, więc nie musisz nam bezwzględnie ufać. Rozpocznij swoją przygodę już teraz!",
-            "word-trust": "Wszystko to można łatwo zweryfikować przez otwarty kod źródłowy. Sprawdź go na",
+            "word-card3-description": "Niektóre nasze serwisy są płatne. Ale nie jest to obowiązkowe aby ich używać. Możesz je również uruchomić na swoim sprzęcie bez opłat.",
             "breakup-h1": "Tworzone przez aktywistów prywatności oraz społeczność",
             "breakup-description": "W Nove tworzymy otwartoźródłowo i doceniamy każdą pomoc w rozwoju. Ponieważ <b>prywatność i bezpieczeństwo</b> idzie w parze z <b>otwartoźródłowością i audytowalnością</b>.",
             "breakup-li-1": "Projekty łatwo dostepne na Gitea",
@@ -125,8 +131,8 @@
             "ready-h1": "Jesteś gotowy na zanurzenie się w świecie prywatności?",
             "ready-p": "Rozpocznij swoją przygodę i zarejestruj się już teraz.",
             "ready-btn": "Zacznij już dziś",
-            "welcome-h1": "Welcome to NAPI",
-            "welcome-p":"Libre, self-hosted and decentralized OAuth2 provider."
+            "welcome-h1": "Witaj w NAPI",
+            "welcome-p":"Wolny, z możliwością samodzielnego uruchomienia i zdecentralizowany dostawca systemu OAuth2."
         },
         "about": {
             "hero-h1": "Naszym <b>celem</b> jest uczynienie Internetu <span>prywatnym</span> oraz <span>bezpiecznym</span>",
@@ -135,10 +141,10 @@
             "pos2": "Główny programista API oraz opiekun kodu",
             "pos3": "Designer UI/UX i menadżer projektów",
             "pos4": "Programista stron i właściciel Peekr",
-            "thanks": "Bardzo dziękujemy {name} za dostarczanie nam wymaganego sprzętu do prowadzenia naszych serwisów bez przeszkód!"
+            "thanks": "Bardzo dziękujemy {name} za wsparcie nas wymaganym sprzętem do prowadzenia naszych usług bez przeszkód!"
         },
         "login": {
-            "hero-h1": "Welcome back",
+            "hero-h1": "Witaj spowrotem",
             "hero-p": "Provide your credentials to access your Nove account.",
             "input-email": "Email, username or handle",
             "input-email-placeholder": "Your email, username or handle",
@@ -152,8 +158,7 @@
             "input-login": "Log in",
             "input-new": "Create an account",
             "invalid-mfa": "Entered authentication code is not a valid code.",
-            "invalid-password": "User under this email/username doesn't exist or provided password is incorrect.",
-            "invalid-cipher": "We couldn't decrypt your password. Please try again."
+            "invalid-password": "User under this email/username doesn't exist or provided password is incorrect."
         },
         "register": {
             "hero-h1": "New Nove account",
@@ -176,10 +181,14 @@
         },
         "password-reset": {
             "hero-h1": "Reset hasła",
-            "hero-p": "Aby kontynuować, podaj swój email i nowe hasło",
-            "input-email": "Email",
-            "input-new-password": "Nowe hasło",
-            "request-success": "Wiadomość potwierdzająca została wysłana na podany adres"
+            "hero-p": "Aby kontynuować, podaj swój email oraz nowe hasło.",
+            "confirm-h1": "Confirm password reset",
+            "confirm-p": "Enter your new password again to finish resetting your password.",
+            "request-success-h1":"Check your inbox...",
+            "request-success-p": "Confirmation email was sent to that address if account registered on it exists",
+            "login": "Log in instead",
+            "invalid-code":"Invalid password recovery code was provided!",
+            "invalid-user": "Invalid user Id was provided!"
         },
         "blog": {
             "title": "Blog",
@@ -187,15 +196,14 @@
             "featured": "Featured",
             "other": "Other posts",
             "published-on": "Published on {date}",
-            "by-author": "By {author}",
-            "no-data":"Comment cannot be empty."
+            "by-author": "By {author}"
         }
     },
     "dashboard": {
         "layout": {
-            "header": "Ustawienia",
+            "header": "Moje konto",
             "ul-overview": "Przegląd",
-            "ul-oauth2": "OAuth2 history",
+            "ul-oauth2": "Historia OAuth2",
             "ul-security": "Bezpiecz. <i>i</i> prywatność",
             "ul-profile": "Profil",
             "ul-language": "Język",
@@ -203,10 +211,10 @@
             "ul-users": "Użytkownicy",
             "ul-posts": "Posty",
             "ul-logs": "Logi aktywności",
-            "latest-news": "Latest news from developers"
+            "latest-news": "Najświeższe wiadomości od twórców"
         },
         "main": {
-            "hello": "Hello, {user}!",
+            "hello": "Witaj, {user}!",
             "hello-p": "Here is the place where you can manage your account and data associated with it.",
             "card-1-h1": "Język",
             "card-1-p": "Zmień język wyświetlany we wszystkich usługach Nove",
@@ -230,7 +238,7 @@
         },
         "security": {
             "devices-h1": "Twoje urządzenia",
-            "devices-p": "Lista najnowszych urządzeń, logujących się w tym miesiącu na Twoje konto",
+            "devices-p": "List of devices that logged into your account in last month. We use ifconfig.net to get location information during sign ins. Data is encrypted.",
             "devices-no-data-h1": "No device data found",
             "devices-no-data-p": "Wyłączyłeś zbieranie aktywności lub niczego jeszcze nie zapisaliśmy",
             "hds-h1": "Jak się logujesz",
@@ -243,13 +251,23 @@
             "hds-password-label-2": "Nowe hasło",
             "hds-password-placeholder-2": "Podaj Twoje nowe hasło",
             "hds-email-btn": "Email",
-            "hds-email-h1": "Zmień adres email",
-            "hds-email-p": "Adres email, poprzez który możemy się z tobą skontaktować w celach bezpieczeństwa. Możesz go też używać przy logowaniu się do konta.",
-            "hds-email-label-1": "Nowy email",
-            "hds-email-placeholder-1": "Podaj nowy email",
+            "hds-email-h1": "Opcje email",
+            "hds-email-p": "Change your address or add additional security with PGP keys. Toggle receiving of security notifications.",
+            "hds-email-change-h2": "Change your email",
+            "hds-email-change-p": "The address where we can contact you if there is an unusual activity on your account or if you'll get locked out. You can also use it to log in.",
+            "hds-email-pgp-h2": "PGP public key",
+            "hds-email-pgp-p": "Encrypt all outgoing emails from Nove with your PGP key.",
+            // do not translate "'-----BEGIN PGP PUBLIC KEY BLOCK-----'"
+            "hds-email-pgp-h": "Begins with '-----BEGIN PGP PUBLIC KEY BLOCK-----'",
+            "hds-email-security-h2": "Security updates",
+            "hds-email-security-p": "Receive security notifications when you log in to your account on a new device.",
+            "hds-email-label-1": "New email",
+            "hds-email-placeholder-1": "Provide your new email",
             "hds-mfa-btn": "MFA",
             "hds-mfa-h1": "Weryfikacja wieloetapowa",
-            "hds-mfa-p": "Zabezpiecz swoje konto przed osobami, które chcą je ukraść. Możesz tu włączyć lub wyłączyć MFA.",
+            "hds-mfa-p": "Zabezpiecz swoje konto przed osobami, które chcą je ukraść. Możesz tu włączyć lub wyłączyć weryfikacje dwuetapową.",
+            "hds-mfa-scan-h1": "Scan this QR code...",
+            "hds-mfa-scan-p": "...with your desired multi-factor authentication app.",
             "hds-mfa-label-code": "Kod",
             "hds-mfa-recovery-codes": "Kody zapasowe",
             "hds-recovery-btn": "Przywr.",
@@ -259,9 +277,13 @@
             "delete-h1": "Usuń moje konto Nove",
             "delete-p": "Aby usunąć konto, musisz podać swoje hasło w celach bezpieczeństwa. Ten proces jest nieodwracalny! Niezwłocznie usuniemy dane z naszych serwerów! Możesz usunąć swoje konto kiedy tylko zechcesz i nie musisz się z nami w tej sprawie kontaktować. Pamiętaj, aby usunąć wszystkie konta zarejestrowane przez OAuth2. W innym wypadku mogą być niedostępne.",
             "delete-p2": "Podaj Twoje hasło abyśmy mogli zweryfikować twoją tożsamość. Pamiętaj aby usunąć wszystkie konta zarejestrowane przez OAuth2. W innym wypadku mogą być niedostępne. Ta akcja jest wykonywana od razu i nie ma odwrotu.",
-            "delete-label": "Twoje hasło",
-            "delete-placeholder": "Hasło",
-            "delete-btn": "Usuń moje konto"
+            "delete-btn": "Delete my account",
+            "code-used": "code used",
+            "invalid-password": "Invalid password. Please try again.",
+            "invalid-pgp": "Provided PGP public key seems to be invalid.",
+            "invalid-email": "Invalid email address. Please try again.",
+            "email-sent": "Email has been sent. Check your old and new inbox and confirm the change.",
+            "could-not-send-email": "Couldn't deliver the email to provided addresses."
         },
         "profile": {
             "description": "Manage your personal info that is displayed on your profile. You can change the display method of your profile to private and public. While on private we will share only basic information about your account, detailing: username, avatar.",
