@@ -83,7 +83,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     return (
         <html lang="en">
             <body className={inter.className} style={inter.style}>
-                <NextTopLoader color="#e74d5f" height={3} zIndex={999999} showSpinner={false} />
+                <NextTopLoader color="#e74d5f" height={3} zIndex={9999999} showSpinner={false} />
 
                 {!cookies().get('hjs')?.value && (
                     <noscript>
