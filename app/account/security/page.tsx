@@ -12,6 +12,7 @@ import FormError from '../FormError';
 import ObjectHelper from '@util/helpers/Object';
 import Password from './Password';
 import Email from './Email';
+import Recovery from './Recovery';
 
 export async function generateMetadata() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
@@ -31,6 +32,7 @@ export default async function Account({ searchParams }: { searchParams: { [key: 
     const user = await api.user().get({ caching: true });
     const devices = await api.user().getDevices({ caching: true });
     const lang = await new LanguageHandler('dashboard/security', user).init(headers());
+    const code: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 'c');
     const error: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 'et');
     const popup: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 'p');
 
@@ -111,7 +113,8 @@ export default async function Account({ searchParams }: { searchParams: { [key: 
                     </LayerCard>
                     <LayerCard
                         link="?p=recovery"
-                        d="M 2 7 L 2 16 L 11 16 L 7.3789062 12.378906 C 8.7653195 11.211569 10.5449 10.5 12.5 10.5 C 16.034 10.5 19.024984 12.794656 20.083984 15.972656 L 22.451172 15.183594 C 21.062172 11.012594 17.138 8 12.5 8 C 9.8543339 8 7.4570807 8.9979817 5.6152344 10.615234 L 2 7 z">
+                        d="M 2 7 L 2 16 L 11 16 L 7.3789062 12.378906 C 8.7653195 11.211569 10.5449 10.5 12.5 10.5 C 16.034 10.5 19.024984 12.794656 20.083984 15.972656 L 22.451172 15.183594 C 21.062172 11.012594 17.138 8 12.5 8 C 9.8543339 8 7.4570807 8.9979817 5.6152344 10.615234 L 2 7 z"
+                        disabled={!user.mfaEnabled}>
                         {lang.getProp('hds-recovery-btn')}
                     </LayerCard>
                 </div>
@@ -128,6 +131,7 @@ export default async function Account({ searchParams }: { searchParams: { [key: 
             </div>
             {popup === 'password' && <Password et={error} />}
             {popup === 'email' && <Email et={error} />}
+            {popup === 'recovery' && <Recovery et={error} code={code} />}
         </div>
     ) : (
         <Error />

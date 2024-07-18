@@ -172,6 +172,20 @@ header.title
                 &:hover
                     text-decoration: underline
 
+ul.codes
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    margin: 10px auto
+    padding: 0
+    list-style: none
+    width: fit-content
+    gap: 10px 30px
+    & li
+        font-size: 16px
+        margin: 0
+        user-select: text
+        font-family: monospace
+
 div.buttons
     display: flex
     align-items: center
@@ -205,6 +219,8 @@ div.email
     display: flex
     gap: 40px
     margin-top: 30px
+    @media screen and (max-width: 700px)
+        flex-direction: column
     & div.update
         width: 100%
         & h2
