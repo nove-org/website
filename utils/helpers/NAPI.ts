@@ -137,6 +137,11 @@ export default class NAPI {
                 const config = { path: '/v1/users/me/connections', options };
                 return caching ? await getCachedData<Connection[]>(config) : await getData<Connection[]>(config);
             },
+            getRecovery: async ({ mfa, caching }: MethodOptions & { mfa: string }) => {
+                if (!this.key) return undefined;
+                const config = { path: '/v1/users/me/mfa/securityCodes', options: { headers: { ...options.headers, 'x-mfa': mfa } } };
+                return caching ? await getCachedData<string[]>(config) : await getData<string[]>(config);
+            },
             update: async ({
                 body,
             }: {
