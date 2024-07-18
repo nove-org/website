@@ -45,6 +45,7 @@ export default async function Password({ et }: { et?: string }) {
                     redirect('?p=password&et=rl');
                 case 'mfa_required':
                 case 'invalid_mfa':
+                case 'invalid_mfa_token':
                     redirect('?p=password&et=im');
                 default:
                     redirect('?p=password&et=u');

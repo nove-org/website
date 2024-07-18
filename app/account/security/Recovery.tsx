@@ -33,6 +33,7 @@ export default async function Recovery({ et, code }: { et?: string; code?: strin
                     redirect('?p=recovery&et=rl');
                 case 'mfa_required':
                 case 'invalid_mfa':
+                case 'invalid_mfa_token':
                     redirect('?p=recovery&et=im');
                 default:
                     redirect('?p=recovery&et=u');
