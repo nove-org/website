@@ -11,10 +11,8 @@ import FormError from '../FormError';
 export default async function Recovery({ et, code }: { et?: string; code?: string }) {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
     const user = await api.user().get({ caching: true });
+    if (!user || !user.mfaEnabled) redirect('?et=cancel');
     const lang = await new LanguageHandler('dashboard/security', user).init(headers());
-
-    if (!user) redirect('/account/security');
-    if (!user.mfaEnabled) redirect('?et=cancel');
 
     const recovery = await api.user().getRecovery({ mfa: code as string, caching: true });
 

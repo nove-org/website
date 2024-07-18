@@ -11,9 +11,8 @@ import FormError from '../FormError';
 export default async function Email({ et }: { et?: string }) {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
     const user = await api.user().get({ caching: true });
+    if (!user) redirect('?et=cancel');
     const lang = await new LanguageHandler('dashboard/security', user).init(headers());
-
-    if (!user) redirect('/account/security');
 
     const updateEmail = async (e: FormData) => {
         'use server';
