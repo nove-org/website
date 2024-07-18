@@ -12,23 +12,27 @@ export default class Encryption {
     }
 
     public static read(string: string, key: string): string {
-        const combinedBuffer = Buffer.from(string, 'base64');
-        const ivLength = 16;
+        try {
+            const combinedBuffer = Buffer.from(string, 'base64');
+            const ivLength = 16;
 
-        const iv = Buffer.alloc(ivLength);
-        for (let i = 0; i < ivLength; i++) {
-            iv[i] = combinedBuffer[i];
+            const iv = Buffer.alloc(ivLength);
+            for (let i = 0; i < ivLength; i++) {
+                iv[i] = combinedBuffer[i];
+            }
+
+            const encryptedText = Buffer.alloc(combinedBuffer.byteLength - ivLength);
+            for (let i = ivLength; i < combinedBuffer.byteLength; i++) {
+                encryptedText[i - ivLength] = combinedBuffer[i];
+            }
+
+            const decipher = createDecipheriv(method, scryptSync(key, Buffer.alloc(16), 32), iv);
+
+            let dec = decipher.update(encryptedText);
+
+            return Buffer.concat([dec, decipher.final()]).toString();
+        } catch {
+            return '';
         }
-
-        const encryptedText = Buffer.alloc(combinedBuffer.byteLength - ivLength);
-        for (let i = ivLength; i < combinedBuffer.byteLength; i++) {
-            encryptedText[i - ivLength] = combinedBuffer[i];
-        }
-
-        const decipher = createDecipheriv(method, scryptSync(key, Buffer.alloc(16), 32), iv);
-
-        let dec = decipher.update(encryptedText);
-
-        return Buffer.concat([dec, decipher.final()]).toString();
     }
 }
