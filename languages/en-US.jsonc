@@ -43,7 +43,7 @@
             "switcher-security": "Security",
             "switcher-logout": "Log out",
             "products-files": "Store your data securely in the cloud",
-            "products-peekr": "Peek through the web without AI on every corner",
+            "products-peekr": "Open-source search engine with its own index",
             "products-crm": "Manage your customers quickly with ease",
             "no-javascript": "We see that you have JavaScript disabled in your browser. But don't worry, our website works flawlessly even without it."
         },
@@ -89,7 +89,6 @@
             "account-suspended-p": "Write to us (reply@nove.team) if you have any further questions.",
             "header": "Something went horribly wrong",
             "offline": "Sorry but our servers are currently offline.",
-            "session": "We could not sign your session which has lead to data retrieval failure.",
             "not-found": "We couldn't find the page you were looking for.",
             "no-data":"Input fields cannot be empty.",
             "rate-limit": "You are being rate-limited. Please try again later.",
@@ -100,8 +99,12 @@
     "main": {
         "landing": {
             "title": "Meet the world where your privacy matters",
+            // here - do not replace <span>, <word> etc.
+            // if you need more words in "your privacy" do the following:
+            // original: "... <span><word>your</word> <word>privacy</word></span> ..."
+            // i dont need more words: "... <span><word>TRANSLATE THIS</word> <word>TRANSLATE THIS</word></span> ..."
+            // i need more words: "... <span><word>WORD NR 1</word> <word>WORD NR 2</word></span> <word>WORD NR 3</word></span> ..."
             "hero-h1": "Meet the world where <span><word>your</word> <word>privacy</word></span> matters.",
-            "hero-note-trust": "Don't take our word for this. View the <a class={style} target=\"_blank\" rel=\"noopener noreferrer\" href={repository}>code</a> yourself",
             "hero-description": "Ditch Google, Facebook and other companies that sell data, profile and track you. Take back control and start using free, open-source and privacy-respecting solutions by Nove.",
             "hero-btn": "Sign up today",
             "instance": "Instance",
@@ -120,7 +123,6 @@
             "word-card2-description": "We never track you by default. And, we never sell your data to third-parties. It belongs to you, not to us or them.",
             "word-card3-title": "Free forever no matter what",
             "word-card3-description": "Some of our services are paid. But, it's not mandatory to send the money to us. You can host it on your hardware free of charge!",
-            "word-trust": "All of this is easily verifiable, check out our source code. It is open to everyone, view it on",
             "breakup-h1": "Built by privacy enthusiasts and the community",
             "breakup-description": "At Nove, we create open-source and we appreciate any support from the community. Because <b>privacy and safety</b> goes with <b>open-source and auditable</b>.",
             "breakup-li-1": "Easily accessible projects through Gitea",
