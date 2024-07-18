@@ -192,7 +192,7 @@ export default class NAPI {
                     path: '/v1/users/me/mfa',
                     options: { headers: { ...options.headers, 'x-mfa': body.code } },
                     type: RequestType.Patch,
-                    body: {},
+                    body,
                 });
             },
             activateMFA: async ({ body }: { body: { code: string } }) => {
@@ -200,7 +200,7 @@ export default class NAPI {
                     path: '/v1/users/me/mfa/activate',
                     options: { headers: { ...options.headers, 'x-mfa': body.code } },
                     type: RequestType.Patch,
-                    body: {},
+                    body,
                 });
             },
             authorize: async ({ body, mfa }: { body: { username: string; password: string }; mfa?: string }) => {
@@ -213,6 +213,30 @@ export default class NAPI {
                         : this.userAgent
                           ? { headers: { 'User-Agent': this.userAgent } }
                           : undefined,
+                    type: RequestType.Post,
+                    body,
+                });
+            },
+            delete: async ({ body }: { body: { password: string; code?: string } }) => {
+                return await getData<Mfa>({
+                    path: '/v1/users/me/delete',
+                    options: { headers: { ...options.headers, 'x-mfa': body.code } },
+                    type: RequestType.Patch,
+                    body,
+                });
+            },
+            resetPassword: async ({ body }: { body: { email: string; newPassword: string } }) => {
+                return await getData<{ success: boolean }>({
+                    path: '/v1/users/passwordRecovery',
+                    options: this.userAgent ? { headers: { 'User-Agent': this.userAgent } } : undefined,
+                    type: RequestType.Post,
+                    body,
+                });
+            },
+            confirmResetPassword: async ({ body }: { body: { code: string; userId: string; password: string } }) => {
+                return await getData<User & { success: boolean }>({
+                    path: '/v1/users/passwordKey',
+                    options: this.userAgent ? { headers: { 'User-Agent': this.userAgent } } : undefined,
                     type: RequestType.Post,
                     body,
                 });

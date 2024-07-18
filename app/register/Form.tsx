@@ -3,7 +3,7 @@
 import Databox from '@app/Databox';
 import Link from 'next/link';
 import Loader from '@app/Loader';
-import o from './Login.module.sass';
+import o from '../login/Login.module.sass';
 import { useState } from 'react';
 
 export default function Form({

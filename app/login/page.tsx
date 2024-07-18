@@ -45,14 +45,14 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
 
         if (!handle) {
             const username = e.get('username')?.toString();
-            if (!username) return redirect('/login?et=ne' + (next ? `&next=${next}` : ''));
+            if (!username) return redirect('/login?et=nd' + (next ? `&next=${next}` : ''));
 
             return redirect('/login?h=' + username + (next ? `&next=${next}` : ''));
         }
 
         const password = e.get('password')?.toString() || cookies().get('tempAuthId')?.value,
             code = e.get('mfa')?.toString();
-        if (!password) return redirect('/login?et=ne&h=' + handle + (next ? `&next=${next}` : ''));
+        if (!password) return redirect('/login?et=nd&h=' + handle + (next ? `&next=${next}` : ''));
         if (cookies().get('napiAuthorizationToken')?.value) return;
 
         const authorization = await new NAPI(undefined, headers().get('User-Agent')?.toString()).user().authorize({
@@ -67,7 +67,7 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
             switch (authorization.code) {
                 case 'invalid_user':
                 case 'invalid_password':
-                    redirect('/login?et=ne' + (mfa ? '&mfa=y' : '') + (handle ? `&h=${handle}` : '') + (next ? `&next=${next}` : ''));
+                    redirect('/login?et=ip' + (mfa ? '&mfa=y' : '') + (handle ? `&h=${handle}` : '') + (next ? `&next=${next}` : ''));
                 case 'rate_limit':
                     redirect('/login?et=rl' + (mfa ? '&mfa=y' : '') + (handle ? `&h=${handle}` : '') + (next ? `&next=${next}` : ''));
                 case 'mfa_required':
@@ -81,7 +81,7 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
                     redirect('/login?mfa=y' + (handle ? `&h=${handle}` : '') + (next ? `&next=${next}` : ''));
                 case 'invalid_mfa':
                 case 'invalid_mfa_token':
-                    redirect('/login?et=m&mfa=y' + (handle ? `&h=${handle}` : '') + (next ? `&next=${next}` : ''));
+                    redirect('/login?et=im&mfa=y' + (handle ? `&h=${handle}` : '') + (next ? `&next=${next}` : ''));
                 default:
                     redirect('/login?et=u' + (mfa ? '&mfa=y' : '') + (handle ? `&h=${handle}` : '') + (next ? `&next=${next}` : ''));
             }
@@ -111,21 +111,12 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
                     <p>{lang.getProp('hero-p')}</p>
                 </aside>
                 <form action={handleLogin}>
-                    {error && (
-                        <FormError
-                            text={
-                                error === 'ne'
-                                    ? lang.getProp('invalid-password')
-                                    : error === 'rl'
-                                      ? lang.getCustomProp('modules.errors.rate-limit')
-                                      : error === 'm'
-                                        ? lang.getProp('invalid-mfa')
-                                        : error === 'ci'
-                                          ? lang.getProp('invalid-cipher')
-                                          : lang.getCustomProp('modules.errors.other')
-                            }
-                        />
-                    )}
+                    {error === 'nd' && <FormError text={lang.getCustomProp('modules.errors.no-data')} />}
+                    {error === 'ip' && <FormError text={lang.getProp('invalid-password')} />}
+                    {error === 'im' && <FormError text={lang.getProp('invalid-mfa')} />}
+                    {error === 'rl' && <FormError text={lang.getCustomProp('modules.errors.rate-limit')} />}
+                    {error === 'ci' && <FormError text={lang.getProp('invalid-cipher')} />}
+                    {error === 'u' && <FormError text={lang.getCustomProp('modules.errors.other')} />}
                     <div className={handle ? o.hidden : o.shown}>
                         <Databox id="username" title={lang.getProp('input-email')} type="text" required={!handle} placeholder={lang.getProp('input-email-placeholder')} />
                         <Link className={o.link} href="/blog/">

@@ -14,6 +14,7 @@ import Password from './Password';
 import Email from './Email';
 import Recovery from './Recovery';
 import MFA from './MFA';
+import Delete from './Delete';
 
 export async function generateMetadata() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
@@ -124,7 +125,7 @@ export default async function Account({ searchParams }: { searchParams: { [key: 
                     d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z">
                     {lang.getProp('delete-p')}
                 </Header>
-                <Link className="btn" href="?delete=t">
+                <Link className="btn" href="?p=delete">
                     {lang.getProp('delete-btn')}
                 </Link>
             </div>
@@ -132,6 +133,7 @@ export default async function Account({ searchParams }: { searchParams: { [key: 
             {popup === 'email' && <Email et={error} />}
             {popup === 'mfa' && <MFA et={error} s={success} />}
             {popup === 'recovery' && <Recovery et={error} code={code} />}
+            {popup === 'delete' && <Delete et={error} />}
         </div>
     ) : (
         <Error />

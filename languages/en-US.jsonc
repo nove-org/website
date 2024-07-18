@@ -179,10 +179,14 @@
         },
         "password-reset": {
             "hero-h1": "Password reset",
-            "hero-p": "Enter your email and new password to continue",
-            "input-email": "Email",
-            "input-new-password": "New password",
-            "request-success": "Confirmation email was sent to that address if this account exists"
+            "hero-p": "Enter your email and new password to continue.",
+            "confirm-h1": "Confirm password reset",
+            "confirm-p": "Enter your new password again to finish resetting your password.",
+            "request-success-h1":"Check your inbox...",
+            "request-success-p": "Confirmation email was sent to that address if account registered on it exists",
+            "login": "Log in instead",
+            "invalid-code":"Invalid password recovery code was provided!",
+            "invalid-user": "Invalid user Id was provided!"
         },
         "blog": {
             "title": "Blog",
@@ -271,13 +275,11 @@
             "delete-h1": "Delete your Nove account",
             "delete-p": "To delete your account we need you to provide your account password to confirm your actions. This process is irreversible and all your data associated with this account will be deleted from our servers instantly! You can delete your account anytime you want. Please, make sure that you have removed all third-party accounts you registered using your Nove account. Otherwise - you won't be able to log in to them.",
             "delete-p2": "Provide your password so we can verify that it's you. Remember to delete all accounts that you registered using this Nove account. Otherwise, they might be inaccessible. This action is performed instantly - it's irreversible.",
-            "delete-label": "Your password",
-            "delete-placeholder": "Password",
             "delete-btn": "Delete my account",
             "code-used": "code used",
             "invalid-password": "Invalid password. Please try again.",
             "invalid-pgp": "Provided PGP public key seems to be invalid.",
-            "invalid-email": "Invalid email address.",
+            "invalid-email": "Invalid email address. Please try again.",
             "email-sent": "Email has been sent. Check your old and new inbox and confirm the change.",
             "could-not-send-email": "Couldn't deliver the email to provided addresses."
         },

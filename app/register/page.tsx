@@ -1,7 +1,7 @@
 import NAPI from '@util/helpers/NAPI';
 import LanguageHandler from '@util/handlers/LanguageHandler';
 import ObjectHelper from '@util/helpers/Object';
-import o from './Login.module.sass';
+import o from '../login/Login.module.sass';
 import { cookies, headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { COOKIE_HOSTNAME } from '@util/CONSTS';
@@ -33,7 +33,7 @@ export default async function Register({ searchParams }: { searchParams: { [key:
 
     if (user?.id) redirect(`/aeh` + (next ? `?next=${next}` : ''));
 
-    const handleLogin = async (e: FormData) => {
+    const handleRegister = async (e: FormData) => {
         'use server';
 
         function link(url: string, keepQuery?: boolean) {
@@ -55,7 +55,7 @@ export default async function Register({ searchParams }: { searchParams: { [key:
         const username = e.get('username')?.toString();
         const password = e.get('password')?.toString();
         if (cookies().get('napiAuthorizationToken')?.value) return;
-        if (!email || !username || !password) redirect(link('/register?et=nf'));
+        if (!email || !username || !password) redirect(link('/register?et=nd'));
 
         const authorization = await new NAPI(undefined, headers().get('User-Agent')?.toString()).user().register({
             body: {
@@ -104,24 +104,14 @@ export default async function Register({ searchParams }: { searchParams: { [key:
                     <h1>{lang.getProp('hero-h1')}</h1>
                     <p>{lang.getProp('hero-p')}</p>
                 </aside>
-                <form action={handleLogin}>
-                    {error && (
-                        <FormError
-                            text={
-                                error === 'at'
-                                    ? lang.getProp('account-taken')
-                                    : error === 'rl'
-                                      ? lang.getCustomProp('modules.errors.rate-limit')
-                                      : error === 'wp'
-                                        ? lang.getProp('weak-password')
-                                        : error === 'iu'
-                                          ? lang.getProp('invalid-username')
-                                          : error === 'ee'
-                                            ? lang.getProp('email-error')
-                                            : lang.getCustomProp('modules.errors.other')
-                            }
-                        />
-                    )}
+                <form action={handleRegister}>
+                    {error === 'nd' && <FormError text={lang.getCustomProp('modules.errors.no-data')} />}
+                    {error === 'at' && <FormError text={lang.getProp('account-taken')} />}
+                    {error === 'rl' && <FormError text={lang.getCustomProp('modules.errors.rate-limit')} />}
+                    {error === 'wp' && <FormError text={lang.getProp('weak-password')} />}
+                    {error === 'iu' && <FormError text={lang.getProp('invalid-username')} />}
+                    {error === 'ee' && <FormError text={lang.getProp('email-error')} />}
+                    {error === 'u' && <FormError text={lang.getCustomProp('modules.errors.other')} />}
                     <Form
                         lang={{
                             username: lang.getProp('input-username'),
