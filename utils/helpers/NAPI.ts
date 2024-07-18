@@ -1,6 +1,6 @@
 import { AxiosError, AxiosRequestConfig } from 'axios';
 import { axiosClient } from './Axios';
-import { Connection, Device, Languages, Post, PostComment, Response, User } from './Schema';
+import { Connection, Device, Languages, Mfa, Post, PostComment, Response, User } from './Schema';
 
 export enum AuthorizationType {
     Owner,
@@ -188,8 +188,16 @@ export default class NAPI {
                 });
             },
             setMFA: async ({ body }: { body: { code?: string } }) => {
-                return await getData<{ success: boolean }>({
+                return await getData<Mfa>({
                     path: '/v1/users/me/mfa',
+                    options: { headers: { ...options.headers, 'x-mfa': body.code } },
+                    type: RequestType.Patch,
+                    body: {},
+                });
+            },
+            activateMFA: async ({ body }: { body: { code: string } }) => {
+                return await getData<Mfa>({
+                    path: '/v1/users/me/mfa/activate',
                     options: { headers: { ...options.headers, 'x-mfa': body.code } },
                     type: RequestType.Patch,
                     body: {},

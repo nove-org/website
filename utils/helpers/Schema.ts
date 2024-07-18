@@ -84,12 +84,14 @@ export interface Connection {
 }
 
 export interface Mfa {
-    secret: {
+    message: string;
+    enabled: boolean;
+    secret?: {
         secret: string;
         uri: string;
         qr: string;
     };
-    codes: string[];
+    codes?: string[];
 }
 
 export interface Post {
