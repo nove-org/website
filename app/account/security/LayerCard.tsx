@@ -1,8 +1,8 @@
 import Link from 'next/link';
 
-export default function LayerCard({ link, d, children }: { link: string; d: string; children: React.ReactNode }) {
+export default function LayerCard({ link, d, disabled, children }: { link: string; d: string; disabled?: boolean; children: React.ReactNode }) {
     return (
-        <Link href={link}>
+        <Link href={link} className={disabled ? 'disabled' : ''}>
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 24 24">
                 <path fill="currentColor" d={d} />
             </svg>
