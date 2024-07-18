@@ -32,12 +32,3 @@ export default function Submit({ lang }: { lang: { save: string; cancel: string 
         </div>
     );
 }
-/*
-
-        (document.getElementById('bio')?.textContent?.length || 0) <= 256 &&
-        (document.getElementById('username')?.textContent?.length || 0) <= 24 &&
-        (document.getElementById('username')?.textContent?.length || 0) > 2 &&
-        document.getElementById('username')?.textContent?.match(/[a-zA-Z0-9\.\_\-]{3,24}$/g) &&
-        (document.getElementById('website')?.textContent?.length || 0) >= 1 &&
-        document.getElementById('website')?.textContent?.match(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/gi)
-        */
