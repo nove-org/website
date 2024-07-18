@@ -115,7 +115,7 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
                     {error === 'ip' && <FormError text={lang.getProp('invalid-password')} />}
                     {error === 'im' && <FormError text={lang.getProp('invalid-mfa')} />}
                     {error === 'rl' && <FormError text={lang.getCustomProp('modules.errors.rate-limit')} />}
-                    {error === 'ci' && <FormError text={lang.getProp('invalid-cipher')} />}
+                    {error === 'ci' && <FormError text={lang.getCustomProp('modules.errors.decryption')} />}
                     {error === 'u' && <FormError text={lang.getCustomProp('modules.errors.other')} />}
                     <div className={handle ? o.hidden : o.shown}>
                         <Databox id="username" title={lang.getProp('input-email')} type="text" required={!handle} placeholder={lang.getProp('input-email-placeholder')} />
