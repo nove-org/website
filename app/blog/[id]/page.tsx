@@ -96,7 +96,7 @@ export default async function BlogParams({ params, searchParams }: { params: { i
                                     <FormError
                                         text={
                                             error === 'nd'
-                                                ? lang.getProp('no-data')
+                                                ? lang.getCustomProp('modules.errors.no-data')
                                                 : error === 'rf'
                                                   ? lang.getCustomProp('modules.errors.rate-limit')
                                                   : lang.getCustomProp('modules.errors.other')
