@@ -256,7 +256,7 @@
     "admin": {
         "users": {
             "hero-h1": "User list",
-            "popup-btn": "Authorize your action",
+            "popup-btn": "Authorise your action",
             "popup-h1": "We need to verify it's you",
             "popup-p": "Please provide your MFA code from TOTP app on your phone. You can use your backup code.",
             "popup-label": "MFA code",
