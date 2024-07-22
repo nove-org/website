@@ -29,7 +29,7 @@
 
      ? WARNING: The text shouldn't extend the original English version by much. It will wrap weirdly on the page.
 
-     Translated by nobody - please translate :)
+     Translated by Oliwier Jaszczyszyn "https://oliwierjaszczyszyn.com"
     */
     "modules": {
         "navigation": {
@@ -356,8 +356,8 @@
             "u4-l2": "Domain and DNS nameservers are provided by <b>OVH</b> - website: {link}, office address: OVH SAS, Data Protection Officer, 2 rue Kellermann, 59100 Roubaix, France.",
             "u4-l3": "We are running social media accounts on our fediverse instance that federates with 3rd-party services. Any interaction with us and them is subject to the privacy policies of these platforms. Our official Nove account is available at {link}. Interacting with our posts by liking, reposting or commenting them require data about such interactions to be stored on our and other servers that previously interacted with our account and instance. <b>You can delete such data by retracting all of your interactions and unfollowing our account.</b>",
             "s5-p2": "Please note our services weren't made for the sake of gaining anonymity. When authorities will turn to us, we are obliged to provide them with data we can access. However, when they allow us to do so, we'll tell you about that.",
-            "s6": "Cookie policy",
-            "s6-p1": "We use only first party cookies, in order to help you use this website more conveniently (e.g. remembering your preferences, or a login session). No third party cookies are installed in your browser.",
+            "s6": "Biscuit policy",
+            "s6-p1": "We use only first party biscuits, in order to help you use this website more conveniently (e.g. remembering your preferences, or a login session). No third party biscuits are installed in your browser.",
             "s7": "Data retention policy",
             "u5-l1": "You can delete your account by going to Security section on Nove account page, and scroll to 'Delete your account'. This action is not reversible, and we do not artificially postpone it.",
             "u5-l2": "We reserve the right to delete all unverified accounts. Each unverified account is stored in our database up to 3 days. We deem the account unverified if someone who registered never verified themselves by clicking through the link we have sent to the e-mail address used.",
