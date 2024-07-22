@@ -26,10 +26,9 @@ import o from './Navigation.module.sass';
 import pkg from '../package.json';
 import { inter } from '@util/fonts/manager';
 import { cookies, headers } from 'next/headers';
-import { COOKIE_HOSTNAME, ENABLE_REGISTER_PAGE, OFFICIAL_LANDING } from '@util/CONSTS';
+import { COOKIE_HOSTNAME, DONATE_LINK, ENABLE_REGISTER_PAGE, OFFICIAL_LANDING, SOURCE_CODE } from '@util/CONSTS';
 import { redirect } from 'next/navigation';
 import type { Metadata, Viewport } from 'next';
-const { DONATE_LINK } = process.env;
 
 export const revalidate = 300;
 
@@ -133,7 +132,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                     lang={{
                         license: foo.getProp('license', { license: pkg.license }),
                         madeWithLove: foo.getProp('made-with-love', {
-                            contributors: `<a href="${process.env.SOURCE_CODE}" rel="noreferrer noopener nofollow">${foo.getProp('contributors')}</a>`,
+                            contributors: `<a href="${SOURCE_CODE}" rel="noreferrer noopener nofollow">${foo.getProp('contributors')}</a>`,
                         }),
                         general: foo.getProp('ul-general'),
                         about: nav.getProp('ul-about'),

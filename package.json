@@ -19,6 +19,7 @@
         "postinstall": "yarn -s patch-package"
     },
     "dependencies": {
+        "@types/rss": "^0.0.32",
         "axios": "^1.7.2",
         "cookies-next": "^4.2.1",
         "crypto": "^1.0.1",
@@ -31,6 +32,7 @@
         "react": "18.3.1",
         "react-country-flag": "^3.1.0",
         "react-dom": "18.3.1",
+        "rss": "^1.2.2",
         "sass": "^1.77.6",
         "sharp": "^0.33.4",
         "typescript": "^5.5.3"

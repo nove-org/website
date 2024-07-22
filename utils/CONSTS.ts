@@ -26,6 +26,9 @@ export const COOKIE_HOSTNAME: string = 'localhost';
 //* Redirect URI security
 //* Allow redirect backs only for trusted domains. Default: configured to permit redirects for *.nove.team/*
 export const DOMAIN_REGEX: RegExp = /^(https:\/\/)?([a-zA-Z0-9]{1,32}\.)?(nove\.team)|^(?!([a-zA-Z0-9]{1,}:)).*$/g;
+export const SOURCE_CODE: string = 'https://git.nove.team/nove-org/website';
+export const DONATE_LINK: string = 'https://github.com/sponsors/nove-org';
+export const SUPPORT_MAIL: string = 'reply@nove.team';
 
 /// Appearance
 //* Landing page
