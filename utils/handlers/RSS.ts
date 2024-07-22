@@ -28,6 +28,7 @@ export default class RSSHandler {
                 title: post.title,
                 description: post.text.replace(brPattern, '\n').replace(urlPattern, '$2 ($1) ').replace(tagPattern, ''),
                 url: `https://${COOKIE_HOSTNAME}/blog/${post.id}`,
+                author: post.authorUsername,
                 date: post.createdAt,
             });
         });
