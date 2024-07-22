@@ -85,9 +85,9 @@
         "errors": {
             "verify-email": "Zweryfikuj swój email",
             "verify-email-p": "Link weryfikacyjny został wysłany na Twoją skrzynkę. Otwórz go, żeby zweryfikować Twoje konto. Niezweryfikowane konta są usuwane po 3 dniach.",
-            "verify-email-btn": "Link został otwarty",
+            "verify-email-btn": "Otworzono, kontynuuj",
             "account-suspended": "Twoje konto jest zawieszone",
-            "account-suspended-p": "Napisz do nas maila na reply@nove.team, jeżeli masz pytania.",
+            "account-suspended-p": "Napisz do nas na adres reply@nove.team, jeżeli masz pytania.",
             "header": "Coś poszło bardzo nie tak",
             "offline": "Przepraszamy, ale nasze serwery są obecnie niedostępne.",
             "not-found": "Nie mogliśmy znaleźć strony której szukasz.",
@@ -146,7 +146,7 @@
         },
         "login": {
             "hero-h1": "Witaj ponownie",
-            "hero-p": "Podaj poniżej dane, żeby się zalogować do swojego konta.",
+            "hero-p": "Podaj dane poniżej, żeby się zalogować do swojego konta.",
             "input-email": "Adres e-mail, pseudonim lub handle",
             "input-email-placeholder": "Twój adres e-mail, pseudonim lub handle",
             "input-password": "Hasło",
@@ -154,7 +154,7 @@
             "input-mfa":"Kod weryfikacyjny",
             "input-mfa-p": "Kod generowany przez Twoją aplikację TOTP. Możesz użyć także kodu zapasowego.",
             "handle-faq": "Czym jest handle?",
-            "password-reset": "Zapomniałeś:aś hasła?",
+            "password-reset": "Zresetuj hasło",
             "input-next": "Następny krok",
             "input-login": "Zaloguj się",
             "input-new": "Utwórz konto",
@@ -168,7 +168,7 @@
             "input-usernameD": "Nazwa użytkownika jest widoczna dla wszystkich. Możesz jej użyć podczas logowania.",
             "input-username-placeholder": "Twoja nazwa użytkownika",
             "input-email": "Adres e-mail",
-            "input-emailD": "Adres e-mail dla celów weryfikacji i odzyskiwania dostępu do konta. Będziemy również tutaj wysyłać informacje bezpieczeństwa, np. ostatnie próby logowania.",
+            "input-emailD": "Adres e-mail dla celów weryfikacji i odzyskiwania dostępu do konta. Możemy tam również wysyłać informacje bezpieczeństwa, np. ostatnie próby logowania.",
             "input-email-placeholder": "Twój adres e-mail",
             "input-password": "Hasło",
             "input-passwordD": "Klucz do Twojego konta. Powinno składać się przynajmniej z 1 dużej litery, 1 znaku specjalnego, 1 cyfry oraz mieć minimum 8 znaków.",
@@ -197,7 +197,7 @@
             "featured": "Wyróżniony post",
             "other": "Inne posty",
             "published-on": "Opublikowano dnia {date}",
-            "by-author": "Opracował(a) {author}"
+            "by-author": "Opracowane przez {author}"
         }
     },
     "dashboard": {
@@ -239,9 +239,9 @@
         },
         "security": {
             "devices-h1": "Twoje urządzenia",
-            "devices-p": "Lista urządzeń, na których udało się zalogować na Twoje konto. Wykorzystujemy ifconfig.net, żeby pokazać Tobie informacje o przybliżonej lokalizacji. Dane są zaszyfrowane.",
+            "devices-p": "Lista urządzeń, na których udało się zalogować na Twoje konto. Wykorzystujemy ifconfig.net, by pokazać Ci informacje o przybliżonej lokalizacji. Dane są zaszyfrowane.",
             "devices-no-data-h1": "Brak danych",
-            "devices-no-data-p": "Wyłączyłeś:aś zbieranie aktywności, lub niczego jeszcze nie zapisaliśmy",
+            "devices-no-data-p": "Zbieranie aktywności zostało wyłączone, lub niczego jeszcze nie zapisaliśmy",
             "hds-h1": "Jak się logujesz",
             "hds-p": "Dodaj lub modyfikuj metody potwierdzania twojej tożsamości",
             "hds-password-btn": "Hasło",
@@ -259,7 +259,7 @@
             "hds-email-pgp-h2": "Klucz publiczny PGP",
             "hds-email-pgp-p": "Szyfruj wszystkie e-maile z Nove swoim kluczem PGP.",
             // do not translate "'-----BEGIN PGP PUBLIC KEY BLOCK-----'"
-            "hds-email-pgp-h": "Powinien zacząć się od '-----BEGIN PGP PUBLIC KEY BLOCK-----'",
+            "hds-email-pgp-h": "Powinien zaczynać się od '-----BEGIN PGP PUBLIC KEY BLOCK-----'",
             "hds-email-security-h2": "Powiadomienia bezpieczeństwa",
             "hds-email-security-p": "Otrzymuj powiadomienia, gdy logujesz się na konto z nowego urządzenia.",
             "hds-email-label-1": "Nowy e-mail",
