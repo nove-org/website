@@ -37,7 +37,9 @@ export default async function Profile({ searchParams }: { searchParams: { [key: 
         const oldUsername = user?.username;
         const newUsername = e.get('username')?.toString();
 
-        if ((e.get('avatar') as File).name !== 'undefined' && (e.get('avatar') as File).size !== 0) await api.user().updateAvatar({ body: { file: e.get('avatar') as File } });
+        if ((e.get('avatar') as File).name !== 'undefined' && (e.get('avatar') as File).size !== 0) {
+            await api.user().updateAvatar({ body: { file: e.get('avatar') as File } });
+        }
 
         const updated = await api.user().update({
             body: {
