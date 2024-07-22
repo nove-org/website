@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import o from './Footer.module.sass';
 import { usePathname } from 'next/navigation';
+import { DONATE_LINK, SOURCE_CODE, SUPPORT_MAIL } from '@util/CONSTS';
 
 export default function Footer({
     lang,
@@ -45,22 +46,22 @@ export default function Footer({
                     <h2>{lang.general}</h2>
                     <Link href="/about">{lang.about}</Link>
                     <Link href="/blog">{lang.blog}</Link>
-                    <a rel="noreferrer noopener nofollow" href={process.env.DONATE_LINK}>
+                    <a rel="noreferrer noopener nofollow" href={DONATE_LINK}>
                         {lang.donate}
                     </a>
                     <Link href="/login">{lang.login}</Link>
-                    <a rel="noreferrer noopener nofollow" href={'mailto:' + process.env.SUPPORT_MAIL}>
+                    <a rel="noreferrer noopener nofollow" href={'mailto:' + SUPPORT_MAIL}>
                         {lang.support}
                     </a>
                 </div>
                 <div className={o.category}>
                     <h2>{lang.documents}</h2>
-                    <a rel="noreferrer noopener nofollow" href={process.env.SOURCE_CODE}>
+                    <a rel="noreferrer noopener nofollow" href={SOURCE_CODE}>
                         {lang.src}
                     </a>
                     <Link href="/privacy">{lang.privacy}</Link>
                     <Link href="/terms">{lang.terms}</Link>
-                    <a rel="noreferrer noopener nofollow" href={process.env.SOURCE_CODE + '/wiki'}>
+                    <a rel="noreferrer noopener nofollow" href={SOURCE_CODE + '/wiki'}>
                         {lang.docs}
                     </a>
                 </div>

@@ -21,7 +21,7 @@ import LanguageHandler from '@util/handlers/LanguageHandler';
 import Link from 'next/link';
 import o from './Home.module.sass';
 import { cookies, headers } from 'next/headers';
-import { ENABLE_REGISTER_PAGE, OFFICIAL_LANDING } from '@util/CONSTS';
+import { DONATE_LINK, ENABLE_REGISTER_PAGE, OFFICIAL_LANDING } from '@util/CONSTS';
 
 export async function generateMetadata() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
@@ -50,8 +50,8 @@ export default async function Home() {
                     <h1 dangerouslySetInnerHTML={{ __html: lang.getProp('hero-h1') }} />
                     <p>{lang.getProp('hero-description')}</p>
                     <div className={o.buttons}>
-                        {process.env.DONATE_LINK && (
-                            <Link href={process.env.DONATE_LINK} className={`btn ${o.highlight}`}>
+                        {DONATE_LINK && (
+                            <Link href={DONATE_LINK} className={`btn ${o.highlight}`}>
                                 {lang.getCustomProp('modules.navigation.ul-donate')}
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
                                     <path
@@ -272,8 +272,8 @@ export default async function Home() {
             <h1>{lang.getProp('welcome-h1')}</h1>
             <p>{lang.getProp('welcome-p')}</p>
             <div className={o.buttons}>
-                {process.env.DONATE_LINK && (
-                    <Link href={process.env.DONATE_LINK} className={`btn ${o.highlight}`}>
+                {DONATE_LINK && (
+                    <Link href={DONATE_LINK} className={`btn ${o.highlight}`}>
                         {lang.getCustomProp('modules.navigation.ul-donate')}
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
                             <path
