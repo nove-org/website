@@ -28,16 +28,26 @@ export default async function Blog() {
         <div className={o.content}>
             <div className={o.header}>
                 <h1 className={o.title}>{lang.getProp('title')}</h1>
-                {user?.permissionLevel === 2 && (
-                    <Link className="btn" href="/account/blog">
+                <div className={o.buttons}>
+                    <Link className="btn" href="/blog/rss.xml">
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
                             <path
                                 fill="currentColor"
-                                d="M 21.808594 0 C 21.652219 0 21.495953 0.0601875 21.376953 0.1796875 L 20.154297 1.4003906 L 22.599609 3.8457031 L 23.820312 2.6230469 C 24.059313 2.3840469 24.059313 1.9977656 23.820312 1.7597656 L 22.240234 0.1796875 C 22.120734 0.0601875 21.964969 0 21.808594 0 z M 19.289062 2.265625 L 12 9.5566406 L 12 12 L 14.443359 12 L 21.734375 4.7089844 L 19.289062 2.265625 z M 5 3 C 3.897 3 3 3.897 3 5 L 3 19 C 3 20.103 3.897 21 5 21 L 19 21 C 20.103 21 21 20.103 21 19 L 21 8.2714844 L 19.001953 10.271484 L 19.001953 19 L 5 19 L 5 9 L 9.7285156 9 L 11.728516 7 L 5 7 L 5 5 L 13.728516 5 L 15.728516 3 L 5 3 z"></path>
+                                d="M 5 3 C 3.9069372 3 3 3.9069372 3 5 L 3 19 C 3 20.093063 3.9069372 21 5 21 L 19 21 C 20.093063 21 21 20.093063 21 19 L 21 5 C 21 3.9069372 20.093063 3 19 3 L 5 3 z M 5 5 L 19 5 L 19 19 L 5 19 L 5 5 z M 7 7 L 7 9 L 8 9 C 11.877484 9 15 12.122516 15 16 L 15 17 L 17 17 L 17 16 C 17 11.041484 12.958516 7 8 7 L 7 7 z M 7 11 L 7 13 L 8 13 C 9.6684839 13 11 14.331516 11 16 L 11 17 L 13 17 L 13 16 C 13 13.250484 10.749516 11 8 11 L 7 11 z M 8 15 A 1 1 0 0 0 7 16 A 1 1 0 0 0 8 17 A 1 1 0 0 0 9 16 A 1 1 0 0 0 8 15 z"></path>
                         </svg>
-                        {lang.getProp('new-post')}
+                        RSS
                     </Link>
-                )}
+                    {user?.permissionLevel === 2 && (
+                        <Link className="btn" href="/account/blog">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
+                                <path
+                                    fill="currentColor"
+                                    d="M 21.808594 0 C 21.652219 0 21.495953 0.0601875 21.376953 0.1796875 L 20.154297 1.4003906 L 22.599609 3.8457031 L 23.820312 2.6230469 C 24.059313 2.3840469 24.059313 1.9977656 23.820312 1.7597656 L 22.240234 0.1796875 C 22.120734 0.0601875 21.964969 0 21.808594 0 z M 19.289062 2.265625 L 12 9.5566406 L 12 12 L 14.443359 12 L 21.734375 4.7089844 L 19.289062 2.265625 z M 5 3 C 3.897 3 3 3.897 3 5 L 3 19 C 3 20.103 3.897 21 5 21 L 19 21 C 20.103 21 21 20.103 21 19 L 21 8.2714844 L 19.001953 10.271484 L 19.001953 19 L 5 19 L 5 9 L 9.7285156 9 L 11.728516 7 L 5 7 L 5 5 L 13.728516 5 L 15.728516 3 L 5 3 z"></path>
+                            </svg>
+                            {lang.getProp('new-post')}
+                        </Link>
+                    )}
+                </div>
             </div>
             <Link href={'/blog/' + blog[0].title.toLowerCase().split(' ').join('-') + '-' + blog[0].id.split('-')[blog[0].id.split('-').length - 1]} className={o.featured}>
                 <h2 className={o.header + ' ' + o.highlight}>
