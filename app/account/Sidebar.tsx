@@ -128,7 +128,7 @@ export default function Sidebar({
                     <div className={o.blog}>
                         <h2>{lang.latestNews}</h2>
                         <Link href={'https://nove.team/blog/' + blog[0].id} className={o.card}>
-                            <Image src="https://files-api.nove.team/v1/uploads/p2e8ppfnlab/file" width={500} height={222} alt="text" />
+                            <Image src={blog[0].header} width={500} height={222} alt={blog[0].headerAlt} />
                             <div className={o.shadow}></div>
                             <span>{blog[0].title}</span>
                         </Link>

@@ -33,14 +33,12 @@ export default async function Profile({ searchParams }: { searchParams: { [key: 
     const setProfile = async (e: FormData) => {
         'use server';
 
+        const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
         const oldUsername = user?.username;
         const newUsername = e.get('username')?.toString();
 
-        if ((e.get('avatar') as File).name !== 'undefined' && (e.get('avatar') as File).size !== 0) {
-            console.log(e.get('avatar') as File);
-        }
+        if ((e.get('avatar') as File).name !== 'undefined' && (e.get('avatar') as File).size !== 0) await api.user().updateAvatar({ body: { file: e.get('avatar') as File } });
 
-        const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
         const updated = await api.user().update({
             body: {
                 username: newUsername !== oldUsername ? newUsername : undefined,
