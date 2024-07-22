@@ -164,11 +164,14 @@ export default class NAPI {
                 });
             },
             updateAvatar: async ({ body }: { body: { file: File } }) => {
+                const data = new FormData();
+                data.append('file', body.file);
+
                 return await getData<User>({
                     path: '/v1/users/me/avatar',
                     options: { headers: { ...options.headers, 'Content-Type': 'multipart/form-data' } },
                     type: RequestType.Patch,
-                    body,
+                    body: data,
                 });
             },
             updatePassword: async ({ body }: { body: { oldPassword: string; newPassword: string; code?: string } }) => {
