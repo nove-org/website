@@ -52,10 +52,8 @@ export default async function Password({ et }: { et?: string }) {
             }
         } else {
             cookies().set('napiAuthorizationToken', `${updated.token} ${updated.id}`, {
-                maxAge: 3 * 30 * 24 * 60 * 60,
                 expires: 3 * 30 * 24 * 60 * 60 * 1000,
                 domain: COOKIE_HOSTNAME,
-                httpOnly: true,
                 secure: true,
                 sameSite: 'strict',
             });

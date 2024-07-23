@@ -87,15 +87,12 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
             }
         } else {
             cookies().set('napiAuthorizationToken', `${authorization.token} ${authorization.id}`, {
-                maxAge: 3 * 30 * 24 * 60 * 60,
                 expires: 3 * 30 * 24 * 60 * 60 * 1000,
                 domain: COOKIE_HOSTNAME,
-                httpOnly: true,
                 secure: true,
                 sameSite: 'strict',
             });
             cookies().set('tempAuthId', '', {
-                maxAge: 1,
                 expires: 1,
                 domain: COOKIE_HOSTNAME,
             });

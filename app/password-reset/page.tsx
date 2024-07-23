@@ -95,10 +95,8 @@ export default async function PasswordReset({ searchParams }: { searchParams: [k
             }
         } else {
             cookies().set('napiAuthorizationToken', `${reset.token} ${reset.id}`, {
-                maxAge: 3 * 30 * 24 * 60 * 60,
                 expires: 3 * 30 * 24 * 60 * 60 * 1000,
                 domain: COOKIE_HOSTNAME,
-                httpOnly: true,
                 secure: true,
                 sameSite: 'strict',
             });
