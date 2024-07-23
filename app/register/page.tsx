@@ -85,7 +85,7 @@ export default async function Register({ searchParams }: { searchParams: { [key:
             }
         } else {
             cookies().set('napiAuthorizationToken', `${authorization.token} ${authorization.id}`, {
-                expires: 3 * 30 * 24 * 60 * 60 * 1000,
+                maxAge: 3 * 30 * 24 * 60 * 60,
                 domain: COOKIE_HOSTNAME,
                 secure: true,
                 sameSite: 'strict',

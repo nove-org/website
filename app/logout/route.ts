@@ -4,11 +4,11 @@ import { redirect } from 'next/navigation';
 
 export async function GET() {
     cookies().set('napiAuthorizationToken', '', {
-        expires: 1,
+        maxAge: 1,
         domain: COOKIE_HOSTNAME,
     });
     cookies().set('tempAuthId', '', {
-        expires: 1,
+        maxAge: 1,
         domain: COOKIE_HOSTNAME,
     });
 
