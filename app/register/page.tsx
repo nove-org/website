@@ -31,7 +31,7 @@ export default async function Register({ searchParams }: { searchParams: { [key:
     const next: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 'next');
     const error: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 'et');
 
-    if (user?.id) redirect(`/aeh` + (next ? `?next=${next}` : ''));
+    if (user?.id) redirect(`/aeh` + (next ? `?next=${encodeURIComponent(next)}` : ''));
 
     const handleRegister = async (e: FormData) => {
         'use server';
@@ -41,7 +41,7 @@ export default async function Register({ searchParams }: { searchParams: { [key:
             const existingQuery = url.match(/\?\w{0,32}=/g);
 
             const queries = [];
-            if (next) queries.push(`next=${next}`);
+            if (next) queries.push(`next=${encodeURIComponent(next)}`);
 
             const formatted = queries.map((q, i) => {
                 if (i === 0) return (existingQuery ? '&' : '?') + q;
@@ -124,7 +124,7 @@ export default async function Register({ searchParams }: { searchParams: { [key:
                             login: lang.getProp('input-login'),
                             register: lang.getProp('input-register'),
                         }}
-                        login={'/login' + (next ? `?next=${next}` : '')}
+                        login={'/login' + (next ? `?next=${encodeURIComponent(next)}` : '')}
                         et={error}
                     />
                 </form>

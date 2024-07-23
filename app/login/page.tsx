@@ -29,7 +29,7 @@ export async function generateMetadata() {
 
 export default async function Login({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
-    const user = await api.user().get({});
+    const user = await api.user().get({ caching: false });
     const lang = await new LanguageHandler('main/login', user).init(headers());
     const next: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 'next');
     const handle: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 'h');
@@ -45,14 +45,14 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
 
         if (!handle) {
             const username = e.get('username')?.toString();
-            if (!username) return redirect('/login?et=nd' + (next ? `&next=${next}` : ''));
+            if (!username) return redirect('/login?et=nd' + (next ? `&next=${encodeURIComponent(next)}` : ''));
 
-            return redirect('/login?h=' + username + (next ? `&next=${next}` : ''));
+            return redirect('/login?h=' + username + (next ? `&next=${encodeURIComponent(next)}` : ''));
         }
 
         const password = e.get('password')?.toString() || cookies().get('tempAuthId')?.value,
             code = e.get('mfa')?.toString();
-        if (!password) return redirect('/login?et=nd&h=' + handle + (next ? `&next=${next}` : ''));
+        if (!password) return redirect('/login?et=nd&h=' + handle + (next ? `&next=${encodeURIComponent(next)}` : ''));
         if (cookies().get('napiAuthorizationToken')?.value) return;
 
         const authorization = await new NAPI(undefined, headers().get('User-Agent')?.toString()).user().authorize({
@@ -67,9 +67,9 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
             switch (authorization.code) {
                 case 'invalid_user':
                 case 'invalid_password':
-                    redirect('/login?et=ip' + (mfa ? '&mfa=y' : '') + (handle ? `&h=${handle}` : '') + (next ? `&next=${next}` : ''));
+                    redirect('/login?et=ip' + (mfa ? '&mfa=y' : '') + (handle ? `&h=${handle}` : '') + (next ? `&next=${encodeURIComponent(next)}` : ''));
                 case 'rate_limit':
-                    redirect('/login?et=rl' + (mfa ? '&mfa=y' : '') + (handle ? `&h=${handle}` : '') + (next ? `&next=${next}` : ''));
+                    redirect('/login?et=rl' + (mfa ? '&mfa=y' : '') + (handle ? `&h=${handle}` : '') + (next ? `&next=${encodeURIComponent(next)}` : ''));
                 case 'mfa_required':
                     cookies().set('tempAuthId', Encryption.create(password, handle), {
                         maxAge: 180,
@@ -78,12 +78,12 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
                         secure: true,
                         sameSite: 'strict',
                     });
-                    redirect('/login?mfa=y' + (handle ? `&h=${handle}` : '') + (next ? `&next=${next}` : ''));
+                    redirect('/login?mfa=y' + (handle ? `&h=${handle}` : '') + (next ? `&next=${encodeURIComponent(next)}` : ''));
                 case 'invalid_mfa':
                 case 'invalid_mfa_token':
-                    redirect('/login?et=im&mfa=y' + (handle ? `&h=${handle}` : '') + (next ? `&next=${next}` : ''));
+                    redirect('/login?et=im&mfa=y' + (handle ? `&h=${handle}` : '') + (next ? `&next=${encodeURIComponent(next)}` : ''));
                 default:
-                    redirect('/login?et=u' + (mfa ? '&mfa=y' : '') + (handle ? `&h=${handle}` : '') + (next ? `&next=${next}` : ''));
+                    redirect('/login?et=u' + (mfa ? '&mfa=y' : '') + (handle ? `&h=${handle}` : '') + (next ? `&next=${encodeURIComponent(next)}` : ''));
             }
         } else {
             cookies().set('napiAuthorizationToken', `${authorization.token} ${authorization.id}`, {
@@ -152,7 +152,7 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
                         </>
                     ) : (
                         <div className={o.buttons}>
-                            <Link className="btn" href={`/register` + (next ? `?next=${next}` : '')}>
+                            <Link className="btn" href={`/register` + (next ? `?next=${encodeURIComponent(next)}` : '')}>
                                 {lang.getProp('input-new')}
                             </Link>
                             <button className={'btn ' + o.highlight} type="submit">
