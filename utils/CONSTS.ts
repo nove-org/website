@@ -24,8 +24,8 @@ export const NAPI_URL: string = 'https://api.nove.team';
 //* Domain the cookie will be saved on. For production use domain name, e.g. "nove.team". Default: "localhost"
 export const COOKIE_HOSTNAME: string = 'localhost';
 //* Redirect URI security
-//* Allow redirect backs only for trusted domains. Default: configured to permit redirects for *.nove.team/*
-export const DOMAIN_REGEX: RegExp = /^(https:\/\/)?([a-zA-Z0-9]{1,32}\.)?(nove\.team)|^(?!([a-zA-Z0-9]{1,}:)).*$/g;
+//* Allow redirect backs only for trusted domains. Default: configured to permit redirects for *.nove.team/*, *.procurel.com/* and *.peekr.org/*
+export const DOMAIN_REGEX: RegExp = /^(https:\/\/)?([a-zA-Z0-9]{1,32}\.)?(nove\.team|procurel\.com|peekr\.org)|^(?!([a-zA-Z0-9]{1,}:)).*$/g;
 export const SOURCE_CODE: string = 'https://git.nove.team/nove-org/website';
 export const DONATE_LINK: string = 'https://github.com/sponsors/nove-org';
 export const SUPPORT_MAIL: string = 'reply@nove.team';

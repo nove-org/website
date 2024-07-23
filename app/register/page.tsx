@@ -26,7 +26,7 @@ export async function generateMetadata() {
 
 export default async function Register({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
-    const user = await api.user().get({});
+    const user = await api.user().get({ caching: false });
     const lang = await new LanguageHandler('main/register', user).init(headers());
     const next: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 'next');
     const error: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 'et');
