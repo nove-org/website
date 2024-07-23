@@ -9,7 +9,7 @@ export async function generateMetadata() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
     const user = await api.user().get({ caching: true });
     const lang = await new LanguageHandler('modules/errors', user).init(headers());
-    const title: string = `${lang.getProp('verify-email')} | Nove`;
+    const title: string = `${lang.getProp('header')} | Nove`;
 
     return {
         title,
