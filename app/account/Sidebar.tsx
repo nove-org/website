@@ -5,6 +5,7 @@ import Link from 'next/link';
 import o from './AccountLayout.module.sass';
 import { Post, User } from '@util/helpers/Schema';
 import { usePathname, useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 export default function Sidebar({
     user,
@@ -32,7 +33,9 @@ export default function Sidebar({
     const pathname = usePathname();
     const halloween = new Date().getMonth() == 9 && new Date().getDate() == 31;
 
-    if (!user?.id) router.replace('/aeh?next=' + pathname);
+    useEffect(() => {
+        if (!user?.id) router.replace('/aeh?next=' + pathname);
+    }, []);
 
     const links = [
         {
