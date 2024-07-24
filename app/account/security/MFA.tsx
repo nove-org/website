@@ -108,11 +108,9 @@ export default async function MFA({ et, s }: { et?: string; s?: string }) {
         } else {
             cookies().set('tempMID', '', {
                 maxAge: 1,
-                expires: 1,
             });
             cookies().set('tempRID', '', {
                 maxAge: 1,
-                expires: 1,
             });
             redirect(`?s=${new Date().getTime()}`);
         }

@@ -87,8 +87,9 @@ export default async function Register({ searchParams }: { searchParams: { [key:
             cookies().set('napiAuthorizationToken', `${authorization.token} ${authorization.id}`, {
                 maxAge: 3 * 30 * 24 * 60 * 60,
                 domain: COOKIE_HOSTNAME,
+                httpOnly: true,
                 secure: true,
-                sameSite: 'strict',
+                sameSite: 'lax',
             });
             redirect(link('/aeh'));
         }
