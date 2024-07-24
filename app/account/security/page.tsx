@@ -18,7 +18,7 @@ import Delete from './Delete';
 
 export async function generateMetadata() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
-    const user = await api.user().get({ caching: true });
+    const user = await api.user().get({ caching: false });
     const lang = await new LanguageHandler('dashboard/security', user).init(headers());
     const title: string = `${(lang.getCustomProp('dashboard.layout.ul-security') as string).replace(/<.*?>/g, '')} | Nove`;
 
@@ -31,8 +31,8 @@ export async function generateMetadata() {
 
 export default async function Account({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
-    const user = await api.user().get({ caching: true });
-    const devices = await api.user().getDevices({ caching: true });
+    const user = await api.user().get({ caching: false });
+    const devices = await api.user().getDevices({ caching: false });
     const lang = await new LanguageHandler('dashboard/security', user).init(headers());
     const success: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 's');
     const code: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 'c');

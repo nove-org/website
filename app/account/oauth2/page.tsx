@@ -8,7 +8,7 @@ import { Connection } from '@util/helpers/Schema';
 
 export async function generateMetadata() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
-    const user = await api.user().get({ caching: true });
+    const user = await api.user().get({ caching: false });
     const lang = await new LanguageHandler('dashboard/oauth2', user).init(headers());
     const title: string = `${lang.getCustomProp('dashboard.layout.ul-oauth2')} | Nove`;
 
@@ -21,8 +21,8 @@ export async function generateMetadata() {
 
 export default async function OAuth2() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
-    const user = await api.user().get({ caching: true });
-    const authorizations = await api.user().getConnections({ caching: true });
+    const user = await api.user().get({ caching: false });
+    const authorizations = await api.user().getConnections({ caching: false });
     const lang = await new LanguageHandler('dashboard/oauth2', user).init(headers());
 
     let connections: Connection[] = [];

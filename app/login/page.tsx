@@ -14,7 +14,7 @@ import FormError from '@app/account/FormError';
 
 export async function generateMetadata() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
-    const user = await api.user().get({ caching: true });
+    const user = await api.user().get({ caching: false });
     const lang = await new LanguageHandler('main/login', user).init(headers());
     const title: string = `${lang.getProp('hero-h1')} | Nove`;
     const description: string = lang.getProp('hero-p');

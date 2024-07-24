@@ -25,7 +25,7 @@ import { DONATE_LINK, ENABLE_REGISTER_PAGE, OFFICIAL_LANDING } from '@util/CONST
 
 export async function generateMetadata() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
-    const user = await api.user().get({ caching: true });
+    const user = await api.user().get({ caching: false });
     const lang = await new LanguageHandler('main/landing', user).init(headers());
     const title: string = `${lang.getProp('title')} | Nove`;
     const description: string = 'Ditch the government, Google, Facebook and others that share data, profile and track you. Take back control over this.';
@@ -40,7 +40,7 @@ export async function generateMetadata() {
 
 export default async function Home() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
-    const user = await api.user().get({ caching: true });
+    const user = await api.user().get({ caching: false });
     const lang = await new LanguageHandler('main/landing', user).init(headers());
 
     return OFFICIAL_LANDING ? (

@@ -7,7 +7,7 @@ import LanguageHandler from '@util/handlers/LanguageHandler';
 
 export async function generateMetadata() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
-    const user = await api.user().get({ caching: true });
+    const user = await api.user().get({ caching: false });
     const lang = await new LanguageHandler('main/blog', user).init(headers());
     const title: string = `${lang.getProp('title')} | Nove`;
 
@@ -20,8 +20,8 @@ export async function generateMetadata() {
 
 export default async function Blog() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
-    const user = await api.user().get({ caching: true });
-    const blog = await api.blog().getPosts({ caching: true });
+    const user = await api.user().get({ caching: false });
+    const blog = await api.blog().getPosts({ caching: false });
     const lang = await new LanguageHandler('main/blog', user).init(headers());
 
     return (

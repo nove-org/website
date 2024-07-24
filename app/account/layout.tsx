@@ -11,12 +11,12 @@ import Link from 'next/link';
 
 export default async function AccountLayout({ children }: { children: React.ReactNode }) {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
-    const user = await api.user().get({ caching: true });
+    const user = await api.user().get({ caching: false });
     const nav = await new LanguageHandler('modules/navigation', user).init(headers());
     const lang = await new LanguageHandler('dashboard/layout', user).init(headers());
 
     let blog: Post[] = [];
-    if (FETCH_OFFICIAL_BLOG) blog = await api.blog().getPosts({ caching: true });
+    if (FETCH_OFFICIAL_BLOG) blog = await api.blog().getPosts({ caching: false });
 
     return (
         <section className={o.account}>

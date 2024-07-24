@@ -9,7 +9,7 @@ import Submit from './Submit';
 
 export async function generateMetadata() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
-    const user = await api.user().get({ caching: true });
+    const user = await api.user().get({ caching: false });
     const lang = await new LanguageHandler('dashboard/language', user).init(headers());
     const title: string = `${lang.getCustomProp('dashboard.layout.ul-language')} | Nove`;
 
@@ -22,8 +22,8 @@ export async function generateMetadata() {
 
 export default async function Language() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
-    const user = await api.user().get({ caching: true });
-    const languages = await api.language().getAll({ caching: true });
+    const user = await api.user().get({ caching: false });
+    const languages = await api.language().getAll({ caching: false });
     const lang = await new LanguageHandler('dashboard/language', user).init(headers());
     const l = new Intl.DisplayNames([user?.language || 'en-US'], { type: 'language' });
 

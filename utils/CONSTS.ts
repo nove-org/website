@@ -22,7 +22,7 @@
 export const NAPI_URL: string = 'https://api.nove.team';
 //* Cookie domain
 //* Domain the cookie will be saved on. For production use domain name, e.g. "nove.team". Default: "localhost"
-export const COOKIE_HOSTNAME: string = 'localhost';
+export const COOKIE_HOSTNAME: string = '192.168.1.101';
 //* Redirect URI security
 //* Allow redirect backs only for trusted domains. Default: configured to permit redirects for *.nove.team/*, *.procurel.com/* and *.peekr.org/*
 export const DOMAIN_REGEX: RegExp = /^(https:\/\/)?([a-zA-Z0-9]{1,32}\.)?(nove\.team|procurel\.com|peekr\.org)|^(?!([a-zA-Z0-9]{1,}:)).*$/g;

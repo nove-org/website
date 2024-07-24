@@ -12,7 +12,7 @@ import { COOKIE_HOSTNAME } from '@util/CONSTS';
 
 export async function generateMetadata() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
-    const user = await api.user().get({ caching: true });
+    const user = await api.user().get({ caching: false });
     const lang = await new LanguageHandler('main/password-reset', user).init(headers());
     const title: string = `${lang.getProp('hero-h1')} | Nove`;
     const description: string = lang.getProp('hero-p');
@@ -27,7 +27,7 @@ export async function generateMetadata() {
 
 export default async function PasswordReset({ searchParams }: { searchParams: [key: string | string[]] | undefined }) {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
-    const user = await api.user().get({ caching: true });
+    const user = await api.user().get({ caching: false });
     if (user) redirect('/account');
 
     const key = ObjectHelper.getValueByStringPath(searchParams, 'key');

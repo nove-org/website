@@ -62,7 +62,7 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
-    const user = await api.user().get({ caching: true });
+    const user = await api.user().get({ caching: false });
     const nav = await new LanguageHandler('modules/navigation', user).init(headers());
     const foo = await new LanguageHandler('modules/footer', user).init(headers());
 

@@ -5,7 +5,7 @@ import { cookies, headers } from 'next/headers';
 
 export async function generateMetadata() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
-    const user = await api.user().get({ caching: true });
+    const user = await api.user().get({ caching: false });
     const lang = await new LanguageHandler('documents/terms-of-service', user).init(headers());
     const title: string = `${lang.getProp('title')} | Nove`;
     const description: string = 'Read about our Terms of Service and learn what we can do with your account and what you are allowed to do.';
@@ -20,7 +20,7 @@ export async function generateMetadata() {
 
 export default async function Terms() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
-    const user = await api.user().get({ caching: true });
+    const user = await api.user().get({ caching: false });
     const lang = await new LanguageHandler('documents/terms-of-service', user).init(headers());
 
     return (

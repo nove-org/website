@@ -13,7 +13,7 @@ import { QRCodeSVG } from 'qrcode.react';
 
 export default async function MFA({ et, s }: { et?: string; s?: string }) {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
-    const user = await api.user().get({ caching: true });
+    const user = await api.user().get({ caching: false });
     if (!user) redirect('?et=cancel');
     const lang = await new LanguageHandler('dashboard/security', user).init(headers());
 

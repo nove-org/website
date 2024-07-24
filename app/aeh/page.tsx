@@ -8,7 +8,7 @@ import { DOMAIN_REGEX } from '@util/CONSTS';
 
 export async function generateMetadata() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
-    const user = await api.user().get({ caching: true });
+    const user = await api.user().get({ caching: false });
     const lang = await new LanguageHandler('modules/errors', user).init(headers());
     const title: string = `${lang.getProp('header')} | Nove`;
 
@@ -21,7 +21,7 @@ export async function generateMetadata() {
 
 export default async function AccountErrorHandler({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
-    const user = await api.user().get({ caching: true });
+    const user = await api.user().get({ caching: false });
     const lang = await new LanguageHandler('modules/errors', user).init(headers());
     let next: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 'next');
     if (!next?.match(/^(?!(\/\/)).*$/g) || !next?.match(DOMAIN_REGEX)) next = undefined;

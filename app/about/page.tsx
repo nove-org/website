@@ -6,7 +6,7 @@ import NAPI from '@util/helpers/NAPI';
 
 export async function generateMetadata() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
-    const user = await api.user().get({ caching: true });
+    const user = await api.user().get({ caching: false });
     const lang = await new LanguageHandler('main/about', user).init(headers());
     const title: string = `${lang.getCustomProp('modules.navigation.ul-about')} | Nove`;
     const description: string = 'Our goal is to make the Internet more private and safer. Meet our team and learn more about us.';
@@ -21,7 +21,7 @@ export async function generateMetadata() {
 
 export default async function About() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
-    const user = await api.user().get({ caching: true });
+    const user = await api.user().get({ caching: false });
     const lang = await new LanguageHandler('main/about', await user).init(headers());
 
     return (

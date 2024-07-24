@@ -13,7 +13,7 @@ import LanguageHandler from '@util/handlers/LanguageHandler';
 import FormError from '@app/account/FormError';
 
 async function getPostData(api: NAPI, id: string): Promise<Post | undefined> {
-    const posts = await api.blog().getPosts({ caching: true });
+    const posts = await api.blog().getPosts({ caching: false });
     const searchParam: string = id.toLowerCase();
     let pid: string = posts?.filter((post) => post.title.toLowerCase().split(' ').join('-') + '-' + post.id.split('-')[post.id.split('-').length - 1] === searchParam)[0]?.id;
 
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
 
 export default async function BlogParams({ params, searchParams }: { params: { id: string }; searchParams: { [key: string]: string | string[] | undefined } }) {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
-    const user = await api.user().get({ caching: true });
+    const user = await api.user().get({ caching: false });
     const post = await getPostData(api, params.id);
     const error: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 'et');
     const lang = await new LanguageHandler('main/blog', user).init(headers());
