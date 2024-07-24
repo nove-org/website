@@ -13,9 +13,6 @@ export default async function AccountLayout({ children }: { children: React.Reac
     const user = await api.user().get({ caching: false });
     const nav = await new LanguageHandler('modules/navigation', user).init(headers());
     const lang = await new LanguageHandler('dashboard/layout', user).init(headers());
-    console.log(cookies().getAll());
-    console.log(cookies().get('napiAuthorizationToken')?.value);
-    console.log(user);
 
     let blog: Post[] = [];
     if (FETCH_OFFICIAL_BLOG) blog = await api.blog().getPosts({ caching: false });
