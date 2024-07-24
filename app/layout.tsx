@@ -30,7 +30,7 @@ import { COOKIE_HOSTNAME, DONATE_LINK, ENABLE_REGISTER_PAGE, OFFICIAL_LANDING, S
 import { redirect } from 'next/navigation';
 import type { Metadata, Viewport } from 'next';
 
-export const revalidate = 300;
+export const revalidate = 0;
 
 export const viewport: Viewport = {
     width: 'device-width',
