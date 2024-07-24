@@ -22,7 +22,7 @@
 export const NAPI_URL: string = 'https://api.nove.team';
 //* Cookie domain
 //* Domain the cookie will be saved on. For production use domain name, e.g. "nove.team". Default: "localhost"
-export const COOKIE_HOSTNAME: string = '192.168.1.101';
+export const COOKIE_HOSTNAME: string = 'localhost';
 //* Redirect URI security
 //* Allow redirect backs only for trusted domains. Default: configured to permit redirects for *.nove.team/*, *.procurel.com/* and *.peekr.org/*
 export const DOMAIN_REGEX: RegExp = /^(https:\/\/)?([a-zA-Z0-9]{1,32}\.)?(nove\.team|procurel\.com|peekr\.org)|^(?!([a-zA-Z0-9]{1,}:)).*$/g;
@@ -33,7 +33,7 @@ export const SUPPORT_MAIL: string = 'reply@nove.team';
 /// Appearance
 //* Landing page
 //* Switch between selfhosted view and official (promo) view. Default: false
-export const OFFICIAL_LANDING: boolean = true;
+export const OFFICIAL_LANDING: boolean = false;
 //* Message of the day
 //* Add a custom notification on top of every page. Configuration options below.
 export const MOTD: {
@@ -59,7 +59,7 @@ export const MOTD: {
 //* Allow users access registration form. WARNING: If you disable this users are still able to sign up using API
 //* routes. Make sure to disable registrations in NAPI configuration as well.
 //* Default: false
-export const ENABLE_REGISTER_PAGE: boolean = true;
+export const ENABLE_REGISTER_PAGE: boolean = false;
 
 /// Privacy
-export const FETCH_OFFICIAL_BLOG: boolean = true;
+export const FETCH_OFFICIAL_BLOG: boolean = false;
