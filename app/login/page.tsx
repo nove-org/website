@@ -90,7 +90,6 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
             cookies().set('napiAuthorizationToken', `${authorization.token} ${authorization.id}`, {
                 maxAge: 3 * 30 * 24 * 60 * 60,
                 domain: COOKIE_HOSTNAME,
-                httpOnly: true,
                 secure: true,
                 sameSite: 'lax',
             });
