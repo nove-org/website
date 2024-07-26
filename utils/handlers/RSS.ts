@@ -27,7 +27,7 @@ export default class RSSHandler {
         posts.forEach((post) => {
             this.feed?.item({
                 title: post.title,
-                description: post.text.replace(brPattern, '\n').replace(urlPattern, '$2 ($1) ').replace(tagPattern, ''),
+                description: `<![CDATA[${post.text}]]>`,
                 url: `https://${host}/blog/${post.id}`,
                 author: post.authorUsername,
                 date: post.createdAt,
