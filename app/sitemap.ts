@@ -1,12 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    const array: {
-        url: string;
-        lastModified?: string | Date | undefined;
-        changeFrequency?: 'yearly' | 'daily' | 'monthly' | 'always' | 'hourly' | 'weekly' | 'never' | undefined;
-        priority?: number | undefined;
-    }[] = [
+    const array: MetadataRoute.Sitemap = [
         {
             url: 'https://nove.team',
             lastModified: new Date(),
