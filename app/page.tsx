@@ -16,8 +16,8 @@
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import NAPI from '@util/helpers/NAPI';
-import LanguageHandler from '@util/handlers/LanguageHandler';
+import NAPI from '@util/NAPI';
+import LanguageHandler from '@util/languages';
 import Link from 'next/link';
 import o from './Home.module.sass';
 import { cookies, headers } from 'next/headers';

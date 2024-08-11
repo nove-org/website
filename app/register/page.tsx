@@ -1,12 +1,12 @@
-import NAPI from '@util/helpers/NAPI';
-import LanguageHandler from '@util/handlers/LanguageHandler';
-import ObjectHelper from '@util/helpers/Object';
+import NAPI from '@util/NAPI';
+import LanguageHandler from '@util/languages';
+import ObjectHelper from '@util/object';
 import o from '../login/Login.module.sass';
 import { cookies, headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { COOKIE_HOSTNAME } from '@util/CONSTS';
 import Form from './Form';
-import { Error } from '@util/helpers/Schema';
+import { Error } from '@util/schema';
 import FormError from '@app/account/FormError';
 
 export async function generateMetadata() {

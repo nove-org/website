@@ -1,5 +1,5 @@
-import RSSHandler from '@util/handlers/RSS';
-import NAPI from '@util/helpers/NAPI';
+import RSSHandler from '@util/rss';
+import NAPI from '@util/NAPI';
 
 export async function GET() {
     const api = new NAPI();

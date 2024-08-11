@@ -1,15 +1,15 @@
 import o from '../../Blog.module.sass';
-import NAPI from '@util/helpers/NAPI';
+import NAPI from '@util/NAPI';
 import { sanitize } from 'isomorphic-dompurify';
-import { Post } from '@util/helpers/Schema';
+import { Post } from '@util/schema';
 import { cookies, headers } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 import Databox from '@app/Databox';
 import { redirect } from 'next/navigation';
 import Comment from './Comment';
-import ObjectHelper from '@util/helpers/Object';
-import LanguageHandler from '@util/handlers/LanguageHandler';
+import ObjectHelper from '@util/object';
+import LanguageHandler from '@util/languages';
 import FormError from '@app/account/FormError';
 
 async function getPostData(api: NAPI, id: string): Promise<Post | undefined> {

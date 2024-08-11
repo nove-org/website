@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import o from './AccountLayout.module.sass';
-import { Post, User } from '@util/helpers/Schema';
+import { Post, User } from '@util/schema';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 

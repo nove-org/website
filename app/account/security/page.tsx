@@ -1,5 +1,5 @@
-import LanguageHandler from '@util/handlers/LanguageHandler';
-import NAPI from '@util/helpers/NAPI';
+import LanguageHandler from '@util/languages';
+import NAPI from '@util/NAPI';
 import Error from '../Error';
 import Device from './Device';
 import o from './Security.module.sass';
@@ -9,7 +9,7 @@ import LayerCard from './LayerCard';
 import Header from './Header';
 import { redirect } from 'next/navigation';
 import FormError from '../FormError';
-import ObjectHelper from '@util/helpers/Object';
+import ObjectHelper from '@util/object';
 import Password from './Password';
 import Email from './Email';
 import Recovery from './Recovery';

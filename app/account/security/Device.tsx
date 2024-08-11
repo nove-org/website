@@ -1,5 +1,5 @@
 import o from './Security.module.sass';
-import type { Device } from '@util/helpers/Schema';
+import type { Device } from '@util/schema';
 
 export default function Device({ device, lang }: { device: Device; lang: string }) {
     return (

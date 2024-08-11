@@ -1,9 +1,9 @@
-import NAPI from '@util/helpers/NAPI';
+import NAPI from '@util/NAPI';
 import o from '../Blog.module.sass';
 import Link from 'next/link';
 import { cookies, headers } from 'next/headers';
 import Image from 'next/image';
-import LanguageHandler from '@util/handlers/LanguageHandler';
+import LanguageHandler from '@util/languages';
 
 export async function generateMetadata() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);

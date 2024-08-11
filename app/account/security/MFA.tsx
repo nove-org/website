@@ -1,13 +1,13 @@
-import NAPI from '@util/helpers/NAPI';
+import NAPI from '@util/NAPI';
 import o from './Security.module.sass';
 import Popup from '../Popup';
 import { cookies, headers } from 'next/headers';
-import LanguageHandler from '@util/handlers/LanguageHandler';
+import LanguageHandler from '@util/languages';
 import Databox from '@app/Databox';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import FormError from '../FormError';
-import Encryption from '@util/helpers/Encryption';
+import Encryption from '@util/encryption';
 import { COOKIE_HOSTNAME } from '@util/CONSTS';
 import { QRCodeSVG } from 'qrcode.react';
 

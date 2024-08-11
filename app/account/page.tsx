@@ -1,9 +1,9 @@
-import LanguageHandler from '@util/handlers/LanguageHandler';
-import NAPI from '@util/helpers/NAPI';
+import LanguageHandler from '@util/languages';
+import NAPI from '@util/NAPI';
 import Error from './Error';
 import Image from 'next/image';
 import Link from 'next/link';
-import Version from '@util/helpers/Version';
+import Version from '@util/version';
 import o from './Account.module.sass';
 import { cookies, headers } from 'next/headers';
 

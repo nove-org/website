@@ -1,6 +1,6 @@
 import o from '../Blog.module.sass';
-import LanguageHandler from '@util/handlers/LanguageHandler';
-import NAPI from '@util/helpers/NAPI';
+import LanguageHandler from '@util/languages';
+import NAPI from '@util/NAPI';
 import { cookies, headers } from 'next/headers';
 
 export async function generateMetadata() {

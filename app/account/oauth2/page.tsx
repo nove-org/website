@@ -1,10 +1,10 @@
-import LanguageHandler from '@util/handlers/LanguageHandler';
-import NAPI from '@util/helpers/NAPI';
+import LanguageHandler from '@util/languages';
+import NAPI from '@util/NAPI';
 import Error from '../Error';
 import Link from 'next/link';
 import o from './OAuth2.module.sass';
 import { cookies, headers } from 'next/headers';
-import { Connection } from '@util/helpers/Schema';
+import { Connection } from '@util/schema';
 
 export async function generateMetadata() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);

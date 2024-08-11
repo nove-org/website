@@ -1,8 +1,8 @@
-import LanguageHandler from '@util/handlers/LanguageHandler';
-import NAPI from '@util/helpers/NAPI';
+import LanguageHandler from '@util/languages';
+import NAPI from '@util/NAPI';
 import o from './AccountErrorHandler.module.sass';
 import { cookies, headers } from 'next/headers';
-import ObjectHelper from '@util/helpers/Object';
+import ObjectHelper from '@util/object';
 import { redirect } from 'next/navigation';
 import { DOMAIN_REGEX } from '@util/CONSTS';
 

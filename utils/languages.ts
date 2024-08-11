@@ -1,7 +1,7 @@
-import ObjectHelper from '@util/helpers/Object';
+import ObjectHelper from '@util/object';
 import { readFileSync } from 'fs';
 import { jsonc } from 'jsonc';
-import { User } from '@util/helpers/Schema';
+import { User } from '@util/schema';
 import { ReadonlyHeaders } from 'next/dist/server/web/spec-extension/adapters/headers';
 
 export default class LanguageHandler {

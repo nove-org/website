@@ -1,9 +1,9 @@
-import { PostComment, User } from '@util/helpers/Schema';
+import { PostComment, User } from '@util/schema';
 import Image from 'next/image';
 import o from '../../Blog.module.sass';
 import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
-import NAPI from '@util/helpers/NAPI';
+import NAPI from '@util/NAPI';
 
 export default function Comment({ user, comment }: { user: User | undefined; comment: PostComment }) {
     const commentDelete = async (e: FormData) => {

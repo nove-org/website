@@ -1,8 +1,8 @@
 import o from './About.module.sass';
 import Image from 'next/image';
-import LanguageHandler from '@util/handlers/LanguageHandler';
+import LanguageHandler from '@util/languages';
 import { cookies, headers } from 'next/headers';
-import NAPI from '@util/helpers/NAPI';
+import NAPI from '@util/NAPI';
 
 export async function generateMetadata() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);

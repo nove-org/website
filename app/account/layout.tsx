@@ -1,10 +1,10 @@
-import NAPI from '@util/helpers/NAPI';
+import NAPI from '@util/NAPI';
 import Sidebar from './Sidebar';
-import LanguageHandler from '@util/handlers/LanguageHandler';
+import LanguageHandler from '@util/languages';
 import React from 'react';
 import o from './AccountLayout.module.sass';
 import { cookies, headers } from 'next/headers';
-import { Post } from '@util/helpers/Schema';
+import { Post } from '@util/schema';
 import { FETCH_OFFICIAL_BLOG } from '@util/CONSTS';
 import Link from 'next/link';
 

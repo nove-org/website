@@ -1,4 +1,4 @@
-import { Response } from '@util/helpers/Schema';
+import { Response } from '@util/schema';
 
 export default class ErrorParser {
     public static parse(err: Response<undefined>) {

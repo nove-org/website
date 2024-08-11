@@ -1,6 +1,6 @@
-import LanguageHandler from '@util/handlers/LanguageHandler';
-import NAPI from '@util/helpers/NAPI';
-import ObjectHelper from '@util/helpers/Object';
+import LanguageHandler from '@util/languages';
+import NAPI from '@util/NAPI';
+import ObjectHelper from '@util/object';
 import o from '../login/Login.module.sass';
 import b from '../aeh/AccountErrorHandler.module.sass';
 import { cookies, headers } from 'next/headers';

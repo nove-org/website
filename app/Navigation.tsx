@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import o from './Navigation.module.sass';
 import { usePathname } from 'next/navigation';
-import { User } from '@util/helpers/Schema';
+import { User } from '@util/schema';
 
 export default function Navigation({
     user,

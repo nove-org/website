@@ -1,5 +1,5 @@
-import LanguageHandler from '@util/handlers/LanguageHandler';
-import NAPI from '@util/helpers/NAPI';
+import LanguageHandler from '@util/languages';
+import NAPI from '@util/NAPI';
 import Error from '../Error';
 import o from './Language.module.sass';
 import { cookies, headers } from 'next/headers';

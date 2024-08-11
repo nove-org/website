@@ -1,5 +1,5 @@
 import { COOKIE_HOSTNAME } from '@util/CONSTS';
-import { Post } from '@util/helpers/Schema';
+import { Post } from '@util/schema';
 import RSS from 'rss';
 
 export default class RSSHandler {

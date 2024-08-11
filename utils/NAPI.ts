@@ -1,6 +1,6 @@
 import { AxiosError, AxiosRequestConfig } from 'axios';
-import { axiosClient } from './Axios';
-import { Connection, Device, Languages, Mfa, Post, PostComment, Response, User } from './Schema';
+import { axiosClient } from '@util/axios';
+import { Connection, Device, Languages, Mfa, Post, PostComment, Response, User } from '@util/schema';
 
 export enum AuthorizationType {
     Owner,

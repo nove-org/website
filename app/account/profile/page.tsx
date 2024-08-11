@@ -1,5 +1,5 @@
-import LanguageHandler from '@util/handlers/LanguageHandler';
-import NAPI from '@util/helpers/NAPI';
+import LanguageHandler from '@util/languages';
+import NAPI from '@util/NAPI';
 import Error from '../Error';
 import o from './Profile.module.sass';
 import { cookies, headers } from 'next/headers';
@@ -9,7 +9,7 @@ import ReactCountryFlag from 'react-country-flag';
 import { redirect } from 'next/navigation';
 import Submit from './Submit';
 import FormError from '../FormError';
-import ObjectHelper from '@util/helpers/Object';
+import ObjectHelper from '@util/object';
 
 export async function generateMetadata() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
