@@ -51,8 +51,8 @@
             "license": "Licensed under {license}",
             "made-with-love": "Made with ❤️ by {contributors}",
             "contributors": "контриб'ютерами",
-            "ul-about": "Про",
-            "ul-foss": "Проекти",
+            "ul-general": "General",
+            "ul-documents": "Documents",
             "ul-docs": "Док.",
             "ul-donate": "Пожертвувати",
             "ul-support": "Допомога",
@@ -223,7 +223,6 @@
             "card-2-action": "{number} активні сесії(я)",
             "card-3-h1": "Вхід в систему",
             "card-3-p": "Змінюйте свої облікові дані або додавайте рівні безпеки з легкістю",
-            "card-3-action": "Уперед",
             "card-4-h1": "Відновлення",
             "card-4-p": "Налаштуйте двофакторну автентифікацію та завантажте резервні коди",
             "applications": "Applications"

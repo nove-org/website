@@ -51,9 +51,9 @@
             "license": "Licensed under {license}",
             "made-with-love": "Made with ❤️ by {contributors}",
             "contributors": "közösség",
-            "ul-foss": "Projektek",
-            "ul-docs": "Dokumentáció",
-            "ul-blog": "Blog",
+            "ul-general": "General",
+            "ul-documents": "Documents",
+            "ul-docs": "Docs",
             "ul-donate": "Támogatások",
             "ul-support": "Segítség",
             "ul-src": "Forráskód",
@@ -223,9 +223,9 @@
             "card-2-action": "View active sessions",
             "card-3-h1": "Naplózás",
             "card-3-p": "Jelszó módosítása vagy további biztonsági funkciók hozzáadása",
-            "card-3-action": "Menj",
             "card-4-h1": "Helyreállítása",
-            "card-4-p": "Töltsd le a biztonsági kódok"
+            "card-4-p": "Töltsd le a biztonsági kódok",
+            "applications": "Applications"
         },
         "oauth2": {
             "description": "OAuth2 is an authorization system used to share your identity across multiple services. By that, you don't have to create a new account on each of our products. This tab shows your history of authorizations. Authorizations are pop-ups asking you to grant an application access to your account. When application is authorized it will show up here with all permissions it has.",
