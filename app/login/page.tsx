@@ -60,6 +60,7 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
             body: {
                 username: handle,
                 password: mfa ? Encryption.read(password, handle) : password,
+                address: headers().get('X-Real-IP')?.toString(),
             },
             mfa: code,
         });

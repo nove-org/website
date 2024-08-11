@@ -206,7 +206,7 @@ export default class NAPI {
                     body,
                 });
             },
-            authorize: async ({ body, mfa }: { body: { username: string; password: string }; mfa?: string }) => {
+            authorize: async ({ body, mfa }: { body: { username: string; password: string; address?: string }; mfa?: string }) => {
                 return await getData<User>({
                     path: '/v1/users/login',
                     options: mfa
