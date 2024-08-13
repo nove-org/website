@@ -29,7 +29,7 @@
 
      ? WARNING: The text shouldn't extend the original English version by much. It will wrap weirdly on the page.
 
-     Translated by River Hyperbola "https://github.com/degeneratehyperbola"
+     Translated by River Hyperbola <https://github.com/degeneratehyperbola>
     */
     "modules": {
         "navigation": {
@@ -43,25 +43,22 @@
             "switcher-security": "Безпека",
             "switcher-logout": "Вийти з системи",
             "products-files": "Зберігайте свої дані в нашій хмарі у безпеці",
-            "products-napi": "Менеджмент клієнтів за допомогою Nove",
-            "products-crm": "Легко та швидко адмініструйте своїми клієнтами"
+            "products-peekr": "Open-source search engine with its own index",
+            "products-crm": "Легко та швидко адмініструйте своїми клієнтами",
+            "no-javascript": "We see that you have JavaScript disabled in your browser. But don't worry, our website works flawlessly even without it."
         },
         "footer": {
-            "license": "Ліцензовано за ліцензією",
-            "made-with-love": "Зроблено з ❤️",
+            "license": "Licensed under {license}",
+            "made-with-love": "Made with ❤️ by {contributors}",
             "contributors": "контриб'ютерами",
-            "ul-about": "Про",
-            "ul-foss": "Проекти",
+            "ul-general": "General",
+            "ul-documents": "Documents",
             "ul-docs": "Док.",
-            "ul-blog": "Блог",
             "ul-donate": "Пожертвувати",
-            "ul-login": "Увійти в систему",
-            "ul-register": "Зареєструватися",
             "ul-support": "Допомога",
             "ul-src": "Вихідний код",
             "ul-privacy": "Політика конфіденційності",
-            "ul-terms": "Умови надання послуг",
-            "ul-developers": "Розробники"
+            "ul-terms": "Умови надання послуг"
         },
         "actions": {
             "back": "Назад",
@@ -77,31 +74,55 @@
             "save": "Зберегти",
             "edit": "Редагувати",
             "delete": "Видалити",
-            "create": "Створити"
+            "create": "Створити",
+            "loading": "Please wait, loading the data...",
+            "show-less": "Show less",
+            "show-more": "Show more",
+            "update": "Update",
+            "close": "Close"
         },
         "errors": {
-            "header": "Щось жахливо пішло не так",
-            "offline": "Вибачте, але наші сервери зараз не доступні",
-            "session": "Ми не змогли підтвердити вашу сесію, що призвело до збою в отриманні даних",
-            "verify-email": "Підтвердіть свою електронну пошту, аби отримати доступ до облікового запису",
-            "not-found": "Нам не вдалося знайти сторінку, яку ви шукали"
+            "verify-email": "Verify your email",
+            "verify-email-p": "A verification link has been sent to your email address. Open it to confirm account creation. Unverified accounts get removed after 3 days.",
+            "verify-email-btn": "I opened the link",
+            "account-suspended": "Your account is suspended",
+            "account-suspended-p": "Write to us (reply@nove.team) if you have any further questions.",
+            "header": "Something went horribly wrong",
+            "offline": "Sorry but our servers are currently offline.",
+            "not-found": "We couldn't find the page you were looking for.",
+            "no-data":"Input fields cannot be empty.",
+            "rate-limit": "You are being rate-limited. Please try again later.",
+            "other": "Something went wrong and we are not sure what happened.",
+            "decryption": "We couldn't decrypt account data. Please try again."
         }
     },
     "main": {
         "landing": {
             "title": "Познайомтеся зі світом, де ваша конфіденційність має значення",
-            "hero-h1": "Познайомтеся зі світом, де <span>ваша конфіденційність</span>має значення.",
-            "hero-note-trust": "Не вірте нам на слово. Перегляньте <a class={style} target=\"_blank\" rel=\"noopener noreferrer\" href={repository}>наш код</a> самі",
+            // here - do not replace <span>, <word> etc.
+            // if you need more words in "your privacy" do the following:
+            // original: "... <span><word>your</word> <word>privacy</word></span> ..."
+            // i dont need more words: "... <span><word>TRANSLATE THIS</word> <word>TRANSLATE THIS</word></span> ..."
+            // i need more words: "... <span><word>WORD NR 1</word> <word>WORD NR 2</word></span> <word>WORD NR 3</word></span> ..."
+            "hero-h1": "Познайомтеся зі світом, де <span><word>ваша</word> <word>конфіденційність</word></span>має значення.",
             "hero-description": "Забудьте про Google, Facebook та інші компанії, які продають дані, створюють профілі та відстежують вас.",
             "hero-btn": "Зареєструйтеся сьогодні",
-            "word-h1": "У нашій екосистемі ваші дані належать вам і тільки вам.",
+            "instance": "Instance",
+            "online":"Online",
+            "action-log": "Action log",
+            "action-upload": "{user} uploaded {file}",
+            "action-view": "{user} viewed {file}",
+            "decentralization-h1": "Because <strong>decentralization</strong> is the future.",
+            "decentralization-p": "All of our services are made with decentralization and self-hosting in mind. So you can run your own instance easily if you don't want or can't trust us.",
+            "decentralization-span": "Note: we are currently working on integrating decentralization into our products. It's not available yet.",
+            "word-h1": "With all the great features you expect, and more...",
+            "word-p": "Including the modern design, intuitive user interface and accessibility options.",
             "word-card1-title": "Надійне сховище на серверах",
             "word-card1-description": "Ми шифруємо ваші дані, коли це можливо, щоб захистити їх від урядів, хакерів і тех-компаній, включаючи нас.",
             "word-card2-title": "Не відстежується та не продається",
             "word-card2-description": "Ми ніколи не відстежуємо вас і ніколи не продаємо ваші дані третім особам. Вони належать тільки вам, а не нам чи їм.",
             "word-card3-title": "Вільні назавжди, незважаючи ні на що",
             "word-card3-description": "Наші послуги включають безкоштовний план, тому вам не треба довіряти нам одразу. Почніть вже сьогодні!",
-            "word-trust": "Все це легко перевірити, подивіться наш вихідний код. Він відкритий для всіх, переглянути його можна на",
             "breakup-h1": "Створений ентузіастами приватності та спільнотою",
             "breakup-description": "У Nove ми створюємо програмне забезпечення з відкритим вихідним кодом і цінуємо будь-яку підтримку спільноти. Тому що <b>конфіденційність і безпека</b> йде в комплекті з <b>відкритим вихідним кодом та можливістю аудиту</b>.",
             "breakup-li-1": "Легко доступні проекти через Gitea",
@@ -109,7 +130,9 @@
             "breakup-li-3": "Розмістіть власний форк нашого програмного забезпечення безпосередньо на своєму обладнанні",
             "ready-h1": "Ви готові зануритися у світ приватності?",
             "ready-p": "Розпочніть свою подорож, зареєструйтесь безкоштовно вже сьогодні.",
-            "ready-btn": "Зареєструйтеся всього за кілька кліків"
+            "ready-btn": "Зареєструйтеся всього за кілька кліків",
+            "welcome-h1": "Welcome to NAPI",
+            "welcome-p":"Libre, self-hosted and decentralized OAuth2 provider."
         },
         "about": {
             "hero-h1": "Наша <b>мета</b> полягає в тому, щоб зробити Інтернет <span>приватним</span> та <span>безпечним</span> для всіх",
@@ -118,65 +141,81 @@
             "pos2": "Основний бекенд-розробник, супровід коду",
             "pos3": "Дизайнер UI/UX та менеджер проектів",
             "pos4": "Фронтенд-розробник і генеральний директор Peekr",
-            "thanks": "Special thanks to {name} for providing us with hardware to run our services seamlessly!"
-        },
-        "foss": {
-            "hero-h1": "Ми любимо програмне забезпечення <span>вільним</span> і <span>з відкритим вихідним кодом</span>",
-            "hero-p": "Тому що програмне забезпечення <b>з відкритим вихідним кодом</b> відіграє важливу роль у спільній роботі, захищаючи конфіденційність користувачів і забезпечуючи надійність додатків.",
-            "ul-napi": "Створюйте бажані додатки за допомогою системи NAPI OAuth2, яка надає доступ до входу в Nove.",
-            "ul-manager": "Офіційний веб-сайт, який ми використовуємо на нашому основному домені для графічного доступу до NAPI.",
-            "ul-files": "General purpose cloud hosting with encrypted uploads. Available to everyone with just one click.",
-            "ul-procurel": "Advanced customer relationship management application with great accessibility on mobile devices.",
-            "ul-peekr": "Privacy-respecting search engine with it's own index that's excluding big tech. Growing every day."
+            "thanks": "Special thanks to {name} for supporting us with hardware to run our services seamlessly!"
         },
         "login": {
             "hero-h1": "Ласкаво просимо назад",
             "hero-p": "Надайте свої облікові дані для доступу до облікового запису Nove",
-            "input-login": "Логін",
-            "input-password": "Пароль",
-            "mfa-h1": "Authentication code required",
-            "mfa-p": "Введіть код, згенерований вашим додатком-автентифікатором TOTP, або скористайтеся резервним кодом.",
-            "mfa-label": "Код",
-            "mfa-submit": "Увійти",
-            "password-reset": "Забули пароль?"
+            "input-email": "Email, username or handle",
+            "input-email-placeholder": "Your email, username or handle",
+            "input-password": "Password",
+            "input-password-placeholder": "Your password",
+            "input-mfa":"MFA Code",
+            "input-mfa-p": "Code generated by your multi-factor authentication app. You can use a recovery code as well.",
+            "handle-faq": "What is a handle?",
+            "password-reset": "Forgot your password?",
+            "input-next": "Next",
+            "input-login": "Log in",
+            "input-new": "Create an account",
+            "invalid-mfa": "Entered authentication code is not a valid code.",
+            "invalid-password": "User under this email/username doesn't exist or provided password is incorrect."
         },
         "register": {
             "hero-h1": "Новий акаунт Nove",
             "hero-p": "Заповніть форму та створіть новий обліковий запис",
-            "input-email": "Електронна пошта",
-            "input-username": "Ім'я користувача",
-            "input-password": "Пароль"
+            "input-username": "Username",
+            "input-usernameD": "Username is shown to other users. It might be used to log in to your account as well.",
+            "input-username-placeholder": "Your username",
+            "input-email": "Email",
+            "input-emailD": "Email for verification and account recovery purposes. We can send you security emails optionally.",
+            "input-email-placeholder": "Your email",
+            "input-password": "Password",
+            "input-passwordD": "The key to your account. Must have at least 1 uppercase letter, 1 special character and 1 number and be at least 8 characters long.",
+            "input-password-placeholder": "Your password",
+            "input-login":"Have an account?",
+            "input-register":"Register",
+            "account-taken":"This account is already taken! Please use different email/username.",
+            "weak-password": "Your password is too weak! Use lowercase, uppercase letters, numbers and at least one special character.",
+            "email-error": "Couldn't send an email to this address. Please try again later.",
+            "invalid-username": "Your username is invalid! Make sure it's at least 3 characters and contains only a-Z, 0-9, _"
         },
         "password-reset": {
             "hero-h1": "Скидання пароля",
             "hero-p": "Введіть свою електронну пошту та новий пароль, щоб продовжити",
-            "input-email": "Електронна пошта",
-            "input-new-password": "Новий пароль",
-            "request-success": "На цю адресу було надіслано підтвердження, якщо такий обліковий запис існує"
+            "confirm-h1": "Confirm password reset",
+            "confirm-p": "Enter your new password again to finish resetting your password.",
+            "request-success-h1":"Check your inbox...",
+            "request-success-p": "Confirmation email was sent to that address if account registered on it exists",
+            "login": "Log in instead",
+            "invalid-code":"Invalid password recovery code was provided!",
+            "invalid-user": "Invalid user Id was provided!"
         },
         "blog": {
-            "warn-h1": "Увага",
-            "warn-p": "Наразі ми ділимося публікаціями лише англійською мовою, але в майбутньому це буде змінюватися, по мірі того, як ми розвиватимемося."
+            "title": "Blog",
+            "new-post": "New post",
+            "featured": "Featured",
+            "other": "Other posts",
+            "published-on": "Published on {date}",
+            "by-author": "By {author}"
         }
     },
     "dashboard": {
         "layout": {
-            "title": "Панель приладів",
             "header": "Налаштування",
             "ul-overview": "Огляд",
-            "ul-security": "Безпека",
-            "ul-profile": "Мій профіль",
+            "ul-oauth2": "OAuth2 history",
+            "ul-security": "Security <i>&</i> privacy",
+            "ul-profile": "Profile options",
             "ul-language": "Мова",
             "header-admin": "Модерація",
             "ul-users": "Користувачі",
             "ul-posts": "Пости",
-            "ul-logs": "Журнал аудиту"
+            "ul-logs": "Журнал аудиту",
+            "latest-news": "Latest news from developers"
         },
         "main": {
-            "tips-header": "Поради покращення безпеки та конфіденційності",
-            "tips-1": "Користуйтеся ПЗ з відкритим кодом",
-            "tips-2": "Використовуйте MFA, коли це є можливим",
-            "tips-3": "Створюйте якомога менше обл. записів",
+            "hello": "Hello, {user}!",
+            "hello-p": "Here is the place where you can manage your account and data associated with it.",
             "card-1-h1": "Мова",
             "card-1-p": "Змініть мову для всіх продуктів Nove",
             "card-2-h1": "Діяльність",
@@ -184,22 +223,24 @@
             "card-2-action": "{number} активні сесії(я)",
             "card-3-h1": "Вхід в систему",
             "card-3-p": "Змінюйте свої облікові дані або додавайте рівні безпеки з легкістю",
-            "card-3-action": "Уперед",
             "card-4-h1": "Відновлення",
             "card-4-p": "Налаштуйте двофакторну автентифікацію та завантажте резервні коди",
-            "connections-title": "Приєднані додатки",
-            "connections-btn-privacy": "Політика конфіденційності",
-            "connections-btn-tos": "Умови надання послуг",
-            "connections-permissions": "Повноваження",
-            "connections-last-access": "Останнє відвідування",
-            "connections-expire": "Термін дії"
+            "applications": "Applications"
+        },
+        "oauth2": {
+            "description": "OAuth2 is an authorization system used to share your identity across multiple services. By that, you don't have to create a new account on each of our products. This tab shows your history of authorizations. Authorizations are pop-ups asking you to grant an application access to your account. When application is authorized it will show up here with all permissions it has.",
+            "by-who": "By {author}",
+            "links": "Links",
+            "homepage": "Home page",
+            "permissions": "Permissions",
+            "first-access": "First accessed on {date}",
+            "last-login": "Last successful login on {date}"
         },
         "security": {
             "devices-h1": "Ваші пристрої",
-            "devices-p": "Список останніх пристроїв, які входили до вашого облікового запису",
+            "devices-p": "List of devices that logged into your account in last month. We use ifconfig.net to get location information during sign ins. Data is encrypted.",
             "devices-no-data-h1": "Дані про пристрої не знайдено",
             "devices-no-data-p": "Ви відмовилися від активності або ми ще не зафіксували жодної",
-            "devices-privacy-notice": "Ми зберігаємо на наших серверах інформацію про пристрої, які входили до вашого облікового запису протягом останнього місяця. Ми використовуємо ifconfig.net для отримання інформації про місцезнаходження під час входу.",
             "hds-h1": "Як увійти в систему",
             "hds-p": "Додайте або змініть способи входу та підтвердження особи",
             "hds-password-btn": "Пароль",
@@ -210,48 +251,61 @@
             "hds-password-label-2": "Новий пароль",
             "hds-password-placeholder-2": "Вкажіть новий пароль",
             "hds-email-btn": "Email",
-            "hds-email-h1": "Змінити електронну пошту",
-            "hds-email-p": "Адреса, за якою ми можемо зв'язатися з вами, якщо у вашому обліковому записі буде незвична активність або якщо вас заблокують. Ви також можете використовувати його для входу в систему.",
+            "hds-email-h1": "Email options",
+            "hds-email-p": "Change your address or add additional security with PGP keys. Toggle receiving of security notifications.",
+            "hds-email-change-h2": "Change your email",
+            "hds-email-change-p": "The address where we can contact you if there is an unusual activity on your account or if you'll get locked out. You can also use it to log in.",
+            "hds-email-pgp-h2": "PGP public key",
+            "hds-email-pgp-p": "Encrypt all outgoing emails from Nove with your PGP key.",
+            // do not translate "'-----BEGIN PGP PUBLIC KEY BLOCK-----'"
+            "hds-email-pgp-h": "Begins with '-----BEGIN PGP PUBLIC KEY BLOCK-----'",
+            "hds-email-security-h2": "Security updates",
+            "hds-email-security-p": "Receive security notifications when you log in to your account on a new device.",
             "hds-email-label-1": "Нова електронна пошта",
             "hds-email-placeholder-1": "Вкажіть свій новий email",
             "hds-mfa-btn": "MFA",
             "hds-mfa-h1": "Багатофакторна автентифікація",
-            "hds-mfa-p": "Кращий спосіб захистити свій акаунт від хакерів. Ви можете ввімкнути або вимкнути MFA тут.",
+            "hds-mfa-p": "Secure your account against breach attempts. You can toggle multi-factor authentication on or off here.",
+            "hds-mfa-scan-h1": "Scan this QR code...",
+            "hds-mfa-scan-p": "...with your desired multi-factor authentication app.",
             "hds-mfa-label-code": "Код",
             "hds-mfa-recovery-codes": "Коди відновлення",
-            "hds-recovery": "Відновлення",
+            "hds-recovery-btn": "Відновлення",
             "hds-recovery-h1": "Коди відновлення",
             "hds-recovery-p": "Скопіюйте резервні коди облікового запису на випадок, якщо ви загубите телефон із встановленим на ньому додатком TOTP.",
             "hds-recovery-label": "Код MFA",
             "delete-h1": "Видаліть свій обліковий запис Nove",
             "delete-p": "Щоб видалити ваш обліковий запис, нам потрібно, щоб ви вказали пароль від вашого облікового запису для підтвердження ваших дій. Цей процес є незворотнім, і всі ваші дані, пов'язані з цим обліковим записом, будуть миттєво видалені з наших серверів! Ви можете видалити свій обліковий запис у будь-який час. Будь ласка, переконайтеся, що ви видалили всі сторонні акаунти, які ви зареєстрували за допомогою свого облікового запису Nove. В іншому випадку - ви не зможете увійти до них.",
             "delete-p2": "Введіть свій пароль, щоб ми могли перевірити, що це ви. Ця дія виконується миттєво - вона незворотна. Не забудьте видалити всі акаунти, які ви зареєстрували за допомогою цього облікового запису Nove. Інакше вони можуть бути недоступні.",
-            "delete-label": "Ваш пароль",
-            "delete-placeholder": "Пароль",
-            "delete-btn": "Видалити мій обліковий запис"
+            "delete-btn": "Видалити мій обліковий запис",
+            "code-used": "code used",
+            "invalid-password": "Invalid password. Please try again.",
+            "invalid-pgp": "Provided PGP public key seems to be invalid.",
+            "invalid-email": "Invalid email address. Please try again.",
+            "email-sent": "Email has been sent. Check your old and new inbox and confirm the change.",
+            "could-not-send-email": "Couldn't deliver the email to provided addresses."
         },
         "profile": {
-            "description": "Керуйте особистою інформацією, яка відображається у вашому профілі.",
-            "hero-ul-1": "Основна інформація про обліковий запис",
-            "hero-ul-2": "Деталі",
-            "input-username": "Ім'я користувача",
-            "input-username-placeholder": "{username} (нове ім'я користувача тут)",
-            "input-avatar": "Аватар",
-            "input-avatar-btn": "Виберіть файл",
-            "input-avatar-filename": "Нічого не вибрано",
-            "input-avatar-too-big": "Тип файлу, який ви намагаєтеся завантажити, занадто великий",
-            "input-avatar-not-allowed": "Тип файлу, який ви намагаєтеся завантажити, є неприпустимим",
-            "input-bio": "Про мене",
-            "input-website": "Веб-сайт",
-            "input-pgp": "Шифрувати повідомлення від Nove за допомогою ключа PGP (опціонально)",
-            "input-pgp-placeholder": "Починається на '-----BEGIN PGP PUBLIC KEY BLOCK-----'",
-            "input-activity-notify": "Отримувати сповіщення, коли новий пристрій входить у ваш обліковий запис",
-            "input-profile-state-label": "Відображати більше інформації у вашому публічному профілі"
+            "description": "Manage your personal info that is displayed on your profile. You can change the display method of your profile to private and public. While on private we will share only basic information about your account, detailing: username, avatar.",
+            "avatar-h1": "Avatar",
+            "avatar-p": "An image shown to users on all our services. Helps in recognizing you among your friends and colleagues.",
+            "avatar-btn": "Change your avatar",
+            "uid-h1": "Unique identifier",
+            "uid-p": "Special identifier that is linked to your account. You can't modify it. Useful for developers.",
+            "username-h1": "Username",
+            "username-p": "Username that is displayed on all our services and is shown to other users.",
+            "website-h1": "Website",
+            "website-p": "Optional website field. A custom link that is placed below about me section on your profile.",
+            "bio-h1": "About me",
+            "bio-p": "Optional about me field. Personalized space where you can write your thoughts you want to share with the world.",
+            "profile-view-h1": "Public profile",
+            "profile-view-p" :"Display more details (language, about me, website) on your public profile. OAuth2 apps are able (with proper permissions) to access this data no matter the setting.",
+            "preview-h1": "Profile preview",
+            "created-at": "Created at {date}",
+            "username-taken": "Sorry but this username is already taken."
         },
         "language": {
-            "hero-h1": "Мова",
-            "hero-p1": "Виберіть мову, якій ви надаєте перевагу. Цей параметр використовуватиметься для відображення вмісту вашою мовою на всіх пристроях Nove, а також у підключених програмах.",
-            "hero-p2": "Попередження: ще не повністю підтримується нами."
+            "description": "Select your preferred language. This setting will be used to display content in your language in all Nove products and your connected apps might use it."
         }
     },
     "admin": {
@@ -259,7 +313,7 @@
             "hero-h1": "Користувачі",
             "popup-btn": "Авторизувати дію",
             "popup-h1": "Ми повинні переконатися, що це ви",
-            "popup-p": "Будь ласка, введіть код MFA з додатку TOTP на вашому телефоні. Ви можете використати свій резервний код.",
+            "popup-p": "Please provide your MFA code from application on your phone. You can use your backup code.",
             "popup-label": "Код MFA",
             "popup-reason": "Причина"
         },
@@ -277,7 +331,7 @@
             "title": "Privacy Policy",
             "last-modified": "Last updated and reviewed {time}",
             "s1-p1": "We serve free (as in freedom) open-source software (e.g. NAPI, Peekr, Procurel). We do not (a) sell your data, (b) fingerprint you, or (c) use tracking pixels.",
-            "s1-p2": "We keep the right to update this document without notifying you. It is upon your discretion to keep yourself updated. By using our services, you agree to the Privacy Policy and Terms of Service.",
+            "s1-p2": "For existing users, we always inform about Privacy Policy and/or Terms of Service updates on our blog a week before they are introduced. Any users registered after the update notice and before introduction date are subject to new documents. By using our services, you agree to this Privacy Policy and Terms of Service.",
             "s2": "Data manager",
             "s2-p1": "The data manager for this website is Nove. You can contact us through:",
             "u1-l1": "E-mail: {emails}",
@@ -300,15 +354,15 @@
             "s5-p1": "We are trying our best to keep this list as short as possible. Here is the current list:",
             "u4-l1": "Servers are provided by <b>Fundacja 'Technologie dla Ludzi'</b> (doing business also as FTdL) - website: {link}, mail: {mail}, office address: 2 Nabielaka Street, 31-409 Kraków, Poland.",
             "u4-l2": "Domain and DNS nameservers are provided by <b>OVH</b> - website: {link}, office address: OVH SAS, Data Protection Officer, 2 rue Kellermann, 59100 Roubaix, France.",
-            "u4-l3": "We are running social media accounts on our fediverse instance that federates with 3rd-party services. Any interaction with us and them is a subject to the privacy policies of these platforms. Our official Nove account is available at {link}. Interacting with our posts by liking, reposting or commenting them require data about such interactions to be stored on our and other servers that previously interacted with our account and instance. <b>You can delete such data by retracting all of your interactions and unfollowing our account.</b>",
+            "u4-l3": "We are running social media accounts on our fediverse instance that federates with 3rd-party services. Any interaction with us and them is subject to the privacy policies of these platforms. Our official Nove account is available at {link}. Interacting with our posts by liking, reposting or commenting them require data about such interactions to be stored on our and other servers that previously interacted with our account and instance. <b>You can delete such data by retracting all of your interactions and unfollowing our account.</b>",
             "s5-p2": "Please note our services weren't made for the sake of gaining anonymity. When authorities will turn to us, we are obliged to provide them with data we can access. However, when they allow us to do so, we'll tell you about that.",
             "s6": "Cookie policy",
             "s6-p1": "We use only first party cookies, in order to help you use this website more conveniently (e.g. remembering your preferences, or a login session). No third party cookies are installed in your browser.",
             "s7": "Data retention policy",
             "u5-l1": "You can delete your account by going to Security section on Nove account page, and scroll to 'Delete your account'. This action is not reversible, and we do not artificially postpone it.",
-            "u5-l2": "We reserve the right to delete all unverified accounts. Each unverified account is stored in our database up to 3 days.",
+            "u5-l2": "We reserve the right to delete all unverified accounts. Each unverified account is stored in our database up to 3 days. We deem the account unverified if someone who registered never verified themselves by clicking through the link we have sent to the e-mail address used.",
             "u5-l3": "We reserve the right to suspend or delete accounts for Terms of Service violations.",
-            "u5-l4": "If you lost access to an account, you can request resetting your password or account deletion by providing exact e-mail address you gave during registration.",
+            "u5-l4": "If you lost access to an account, you can request resetting your password or account deletion by providing exact e-mail address currently associated with your account. Account recovery is available upon typing your e-mail address in the login form. Account deletion might be requested when an account is inactive for at least 6 months, and is performed automatically after 2 years of inactivity. Inactivity period starts over when an account has been used to log in here or on a third-party website supporting Nove accounts, or when the account owner has modified their settings.",
             "u5-l5": "If you reset your password, we cannot recover any encrypted data. In other words: you lose it.",
             "th-1": "Data type",
             "th-2": "Public profile",
@@ -342,8 +396,8 @@
         "terms-of-service": {
             "title": "Terms of Service",
             "last-modified": "Last updated and reviewed {time}",
-            "s1-p1": "By using our services you agree to the terms written below. Please note that this document applies to all of our services and should be read alongside the Privacy Policy. If you do not agree to rules below, please stop using our services.",
-            "s1-p2": "We reserve the right to update this document without notifying you. It is upon your discretion to keep yourself updated.",
+            "s1-p1": "By using our services you agree to terms written below. Please note that this document applies to all of our services and should be read alongside the Privacy Policy.",
+            "s1-p2": "For existing users, we always inform about Privacy Policy and/or Terms of Service updates on our blog a week before they are introduced. Any users registered after the update notice and before introduction date are subject to new documents.",
             "s2": "What you can and what you cannot do",
             "u1-l1": "While we do not require an account to get started with at least some products, all account owners should be <b>at least 16</b>, or if their parents consent to register, the limit may be relaxed (required being 13 or older).",
             "u1-l2": "When we find out neither of required age limits was reached we will suspend the account permanently, and delete all associated data.",
@@ -351,6 +405,7 @@
             "u1-l4": "Any executables that may pose an imminent threat to our servers and/or other users' devices are strictly prohibited.",
             "u1-l5": "Any security issues, should be they found, must be reported immediately to us. Using them to your advantage is prohibited, and you may face a permanent suspension.",
             "u1-l6": "Please do not create additional accounts - one should be enough.",
+            "u1-l7": "Content encouraging things illegal by law (e.g. violence, discrimination of others no matter the field) is prohibited. This includes your \"about me\" section, linked websites, and usernames.",
             "s3": "Commenting rules",
             "s3-p1": "This is a section that we introduced due to the DSA coming into force on 17 February 2024. This section applies to comments section on our blog at <b>nove.team/blog</b>.",
             "u2-l1": "You <b>can</b> tell us what we are doing wrong, but you <b>cannot</b> post hateful content or slurs pointed towards Nove staff and other commenters.",

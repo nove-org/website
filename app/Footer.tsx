@@ -1,97 +1,71 @@
 'use client';
 
 import Link from 'next/link';
-import Logo from '@app/Logo';
-import o from '@sass/Footer.module.sass';
-import { SUPPORT_MAIL, REPOSITORY, DONATE_LINK } from '@util/CONSTS';
+import Image from 'next/image';
+import o from './Footer.module.sass';
 import { usePathname } from 'next/navigation';
+import { DONATE_LINK, SOURCE_CODE, SUPPORT_MAIL } from '@util/CONSTS';
 
 export default function Footer({
     lang,
 }: {
     lang: {
         license: string;
-        made_with: string;
-        contributors: string;
+        madeWithLove: string;
+        general: string;
         about: string;
         blog: string;
+        donate: string;
         login: string;
-        register: string;
         support: string;
+        documents: string;
         src: string;
         privacy: string;
         terms: string;
-        developers: string;
         docs: string;
-        donate: string;
     };
 }) {
-    const year = new Date().getFullYear();
     const pathname = usePathname();
 
     return (
-        <>
-            <div className={o.emptyMr}></div>
-            <footer className={o.box + ` ${pathname.startsWith('/account') ? o.hide : ''}`}>
-                <header>
-                    <div className={o.title}>
-                        <Logo size={20} />
-                        Nove
-                    </div>
-                    <div className={o.copyright}>
-                        &copy; 2019-{year} {lang.license + ' '}
-                        <a href="https://www.gnu.org/licenses/agpl-3.0.en.html" rel="noopener noreferrer" target="_blank">
-                            AGPL-3.0
-                        </a>
-                    </div>
-                    <div className={o.copyright}>
-                        {lang.made_with + ' '}
-                        <a href={REPOSITORY}>{lang.contributors}</a>
-                    </div>
-                </header>
-                <div className={o.links}>
-                    <ul>
-                        <h2>General</h2>
-                        <li>
-                            <Link href="/about">{lang.about}</Link>
-                        </li>
-                        <li>
-                            <Link href="/blog">{lang.blog}</Link>
-                        </li>
-                        <li>
-                            <a target="_blank" rel="noopener noreferrer" href={DONATE_LINK}>
-                                {lang.donate}
-                            </a>
-                        </li>
-                        <li>
-                            <Link href="/login">{lang.login}</Link>
-                        </li>
-                        <li>
-                            <a href={'mailto:' + SUPPORT_MAIL}>{lang.support}</a>
-                        </li>
-                        <li>
-                            <Link href="/foss">FOSS</Link>
-                        </li>
-                    </ul>
-                    <ul>
-                        <h2>Documents</h2>
-                        <li>
-                            <a target="_blank" rel="noopener noreferrer" href={REPOSITORY}>
-                                {lang.src}
-                            </a>
-                        </li>
-                        <li>
-                            <Link href="/privacy">{lang.privacy}</Link>
-                        </li>
-                        <li>
-                            <Link href="/terms">{lang.terms}</Link>
-                        </li>
-                        <li>
-                            <a href="https://git.nove.team/nove-org/NAPI/wiki">{lang.docs}</a>
-                        </li>
-                    </ul>
+        <footer className={o.box + ` ${pathname.startsWith('/account') ? o.hide : ''}`}>
+            <header>
+                <div className={o.logo}>
+                    <Image src="/logo_w.png" width={20} height={20} alt="Logo: N letter" />
+                    Nove
                 </div>
-            </footer>
-        </>
+                <p>&copy; 2019-{new Date().getFullYear() + ' ' + lang.license}</p>
+                <p
+                    dangerouslySetInnerHTML={{
+                        __html: lang.madeWithLove,
+                    }}
+                />
+            </header>
+            <div className={o.links}>
+                <div className={o.category}>
+                    <h2>{lang.general}</h2>
+                    <Link href="/about">{lang.about}</Link>
+                    <Link href="/blog">{lang.blog}</Link>
+                    <a rel="noreferrer noopener nofollow" href={DONATE_LINK}>
+                        {lang.donate}
+                    </a>
+                    <Link href="/login">{lang.login}</Link>
+                    <a rel="noreferrer noopener nofollow" href={'mailto:' + SUPPORT_MAIL}>
+                        {lang.support}
+                    </a>
+                </div>
+                <div className={o.category}>
+                    <h2>{lang.documents}</h2>
+                    <a rel="noreferrer noopener nofollow" href={SOURCE_CODE}>
+                        {lang.src}
+                    </a>
+                    <Link href="/privacy">{lang.privacy}</Link>
+                    <Link href="/terms">{lang.terms}</Link>
+                    <a rel="noreferrer noopener nofollow" href={SOURCE_CODE + '/wiki'}>
+                        {lang.docs}
+                    </a>
+                </div>
+            </div>
+        </footer>
     );
 }

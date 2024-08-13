@@ -1,0 +1,89 @@
+div.popup
+    position: fixed
+    top: 0
+    left: 0
+    padding: 10px
+    margin: 0
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    background: var(--popup-background)
+    box-sizing: border-box
+    width: 100%
+    height: 100vh
+    z-index: 99999
+    animation: opacityin 370ms ease-in-out
+    &.large
+        & div.container
+            max-width: 820px !important
+    @keyframes opacityin
+        0%
+            opacity: 0
+        100%
+            opacity: 1
+    & a.close
+        position: absolute
+        top: 0
+        left: 0
+        z-index: 99999
+        width: 100%
+        height: 100%
+        cursor: default
+    & div.container
+        padding: 18px
+        max-height: 600px
+        overflow-y: auto
+        border-radius: 15px
+        background: var(--popup-container)
+        backdrop-filter: blur(15px)
+        color: var(--on-background)
+        width: calc( 100% - 20px * 2 )
+        max-width: 350px
+        height: fit-content
+        border: 1px solid var(--popup)
+        box-shadow: 0 0 25px 0 rgba(0,0,0,.1)
+        margin: 10px
+        animation: bouncein 350ms ease-in-out
+        z-index: 99999
+        @keyframes bouncein
+            0%
+                transform: scale(0.2)
+                opacity: 0
+            40%
+                opacity: 1
+            60%
+                transform: scale(0.96)
+            100%
+                transform: scale(1)
+        & svg.header
+            padding: 10px
+            border-radius: 12px
+            background: var(--primary-container)
+            color: var(--primary)
+            margin-bottom: 5px
+        & h1.title
+            font-size: 20px
+            font-weight: 500
+            margin: 0
+        & p.description
+            font-size: 14px
+            margin: 5px 0
+            margin-bottom: 15px
+        & div.image
+            & svg
+                border-radius: 20px
+                background: #ffffff
+                margin: 5px 0
+            & p
+                font-size: 14px
+                opacity: .8
+                margin: 0
+                margin-bottom: 20px
+        & form
+            & label p
+                gap: 1px
+            & label
+                margin-bottom: 5px
+                & input[type=text], input[type=password]
+                    padding: 10px

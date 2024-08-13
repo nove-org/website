@@ -1,12 +1,13 @@
-export const dynamic = 'force-dynamic';
-import o from '@sass/about.module.sass';
+import o from './About.module.sass';
 import Image from 'next/image';
-import LanguageHandler from '@util/handlers/LanguageHandler';
-import { headers } from 'next/headers';
-import { getUser } from '@util/helpers/User';
+import LanguageHandler from '@util/languages';
+import { cookies, headers } from 'next/headers';
+import NAPI from '@util/NAPI';
 
 export async function generateMetadata() {
-    const lang = await new LanguageHandler('main/foss', await getUser()).init(headers());
+    const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
+    const user = await api.user().get({ caching: false });
+    const lang = await new LanguageHandler('main/about', user).init(headers());
     const title: string = `${lang.getCustomProp('modules.navigation.ul-about')} | Nove`;
     const description: string = 'Our goal is to make the Internet more private and safer. Meet our team and learn more about us.';
 
@@ -19,12 +20,14 @@ export async function generateMetadata() {
 }
 
 export default async function About() {
-    const lang = await new LanguageHandler('main/about', await getUser()).init(headers());
+    const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
+    const user = await api.user().get({ caching: false });
+    const lang = await new LanguageHandler('main/about', await user).init(headers());
 
     return (
         <section className={o.hero}>
             <h1 className={o.title} dangerouslySetInnerHTML={{ __html: lang.getProp('hero-h1') }} />
-            <p className={o.desc}>{lang.getProp('hero-p')}</p>
+            <p className={o.description}>{lang.getProp('hero-p')}</p>
             <ul>
                 <li>
                     <Image src="https://api.nove.team/v1/users/00000000/avatar.webp" width="64" height="64" alt="Avatar" />

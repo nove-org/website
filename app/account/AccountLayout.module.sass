@@ -1,0 +1,297 @@
+section.account
+    margin: 0 -110px
+    box-sizing: border-box
+    background: var(--primary-container)
+    color: var(--on-primary-container)
+    height: 100vh
+    overflow-y: auto
+    display: flex
+    @media screen and (max-width: 1600px)
+        margin: 0 -70px
+    @media screen and (max-width: 1300px)
+        margin: 0 -40px
+    @media screen and (max-width: 750px)
+        margin: 0 -30px
+    @media screen and (max-width: 450px)
+        margin: 0 -20px
+    & article.dashboard
+        background: var(--background)
+        color: var(--on-background)
+        width: 100%
+        height: 100vh
+        overflow-y: auto
+        border-top-left-radius: 25px
+        border-bottom-left-radius: 25px
+        padding: 25px 30px
+        box-sizing: border-box
+        @media screen and (max-width: 600px)
+            border-top-left-radius: 0
+            border-bottom-left-radius: 0
+            padding: 20px
+        & aside.topbar
+            display: flex
+            align-items: center
+            gap: 8px
+            margin-bottom: 20px
+            @media screen and (min-width: 601px)
+                display: none
+            & details.profile
+                position: relative
+                &[open] summary img
+                    border-radius: 35%
+                & summary
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    border-radius: 50%
+                    cursor: pointer
+                    & img
+                        border-radius: 50%
+                        transition: border-radius .3s ease
+                & div.options
+                    position: absolute
+                    left: 0
+                    top: 35px
+                    background: var(--primary-container)
+                    border-radius: 20px
+                    display: flex
+                    flex-direction: column
+                    align-items: flex-start
+                    justify-content: center
+                    max-width: 260px
+                    min-width: 200px
+                    width: 100%
+                    animation: fade .2s ease-in-out
+                    z-index: 99999
+                    padding: 5px
+                    box-shadow: 0 2px 3px 0 rgba(0,0,0,.2)
+                    @keyframes fade
+                        0%
+                            opacity: 0
+                            transform: translateY(-15px)
+                        100%
+                            opacity: 1
+                            transform: translateY(0)
+                & a
+                    display: flex
+                    align-items: center
+                    padding: 12px
+                    font-size: 15px
+                    color: var(--on-primary-container)
+                    text-decoration: none
+                    transition: background-color .1s linear
+                    width: calc( 100% - 12px * 2 )
+                    border-radius: 20px
+                    gap: 7px
+                    &:hover
+                        background: var(--secondary-container)
+                        color: var(--on-secondary-container)
+            & a.title
+                font-size: 18px
+                font-weight: 500
+                color: var(--on-background)
+                text-decoration: none
+
+aside.navigation
+    max-width: 340px
+    width: 100%
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    gap: 30px
+    padding: 30px 20px
+    box-sizing: border-box
+    @media screen and (max-width: 1100px)
+        max-width: 80px
+        padding: 25px 10px
+    @media screen and (max-width: 600px)
+        position: fixed
+        bottom: 0
+        left: 0
+        flex-direction: row
+        justify-content: center
+        width: 100%
+        max-width: 100%
+        box-sizing: border-box
+        background: var(--primary-container)
+        z-index: 1000
+        padding: 12px 32px
+    & div.top, div.bottom
+        display: flex
+        flex-direction: column
+        gap: 30px
+    & div.top
+        @media screen and (max-width: 600px)
+            width: 100%
+        & div.header
+            display: flex
+            flex-direction: column
+            gap: 10px
+            margin: 0 10px
+            font-size: 24px
+            font-weight: 500
+            @media screen and (max-width: 1100px)
+                align-items: center
+                & span
+                    display: none
+                & img
+                    max-width: 24px
+                    max-height: 24px
+            @media screen and (max-width: 600px)
+                display: none
+            & a
+                padding: 10px
+                width: 28px
+                height: 28px
+                background: var(--secondary-container)
+                border-radius: 15px
+                display: flex
+                align-items: center
+                justify-content: center
+                @media screen and (max-width: 1100px)
+                    background: transparent
+                    padding: 0
+                    border-radius: 0
+        & div.links
+            display: flex
+            flex-direction: column
+            gap: 4px
+            @media screen and (max-width: 1100px)
+                gap: 15px
+            @media screen and (max-width: 600px)
+                flex-direction: row
+                justify-content: space-around
+                gap: 0px
+            @media screen and (max-width: 395px)
+                gap: 20px
+            @media screen and (max-width: 350px)
+                gap: 10px
+            &.admin
+                @media screen and (max-width: 600px)
+                    display: none
+            & h2
+                font-size: 18px
+                font-weight: 500
+                margin: 0 10px
+                margin-bottom: 5px
+                @media screen and (max-width: 1100px)
+                    display: none
+            & a
+                display: flex
+                align-items: center
+                gap: 6px
+                color: var(--on-primary-container)
+                padding: 10px
+                border-radius: 12px
+                font-size: 16px
+                text-decoration: none
+                text-align: center
+                & i
+                    font-style: normal
+                @media screen and (max-width: 1100px)
+                    flex-direction: column
+                    font-size: 12px
+                    gap: 4px
+                    font-weight: 500
+                    padding: 0
+                    & svg
+                        padding: 4px 15px
+                        border-radius: 50px
+                @media screen and (max-width: 600px)
+                    & span
+                        line-height: 1.2em
+                        height: 1.2em
+                        overflow: hidden
+                        & i
+                            @media screen and (max-width: 533px)
+                                display: none
+                &:hover
+                    color: var(--primary)
+                &.active
+                    background: var(--secondary-container)
+                    color: var(--on-secondary-container)
+                    @media screen and (max-width: 1100px)
+                        background: transparent
+                        color: var(--on-primary-container)
+                        & svg
+                            background: var(--secondary-container)
+                            color: var(--on-secondary-container)
+
+    & div.bottom
+        margin: 0 10px
+        gap: 25px
+        @media screen and (max-width: 600px)
+            display: none
+        & div.blog
+            display: flex
+            flex-direction: column
+            gap: 8px
+            @media screen and (max-width: 1100px)
+                display: none
+            & h2
+                font-size: 14px
+                text-transform: uppercase
+                font-weight: 500
+                margin: 0
+                display: flex
+                align-items: center
+                gap: 5px
+            & a.card
+                position: relative
+                --image-border-radius: 15px
+                &:hover
+                    & span
+                        text-decoration: underline
+                & img
+                    width: 100%
+                    height: auto
+                    border-radius: var(--image-border-radius)
+                    margin-bottom: -4px
+                & div.shadow
+                    position: absolute
+                    top: 0
+                    left: 0
+                    width: 100%
+                    height: 100%
+                    background: rgba(43, 43, 43, 0.04)
+                    backdrop-filter: blur(2px)
+                    z-index: 1
+                    border-radius: var(--image-border-radius)
+                & span
+                    position: absolute
+                    bottom: 12px
+                    left: 10px
+                    font-weight: 500
+                    font-size: 14px
+                    margin: 0
+                    color: var(--on-primary)
+                    z-index: 2
+        & div.user
+            display: flex
+            align-items: center
+            justify-content: space-between
+            @media screen and (max-width: 1100px)
+                justify-content: center
+            & div.profile
+                display: flex
+                align-items: center
+                gap: 5px
+                font-size: 16px
+                font-weight: 500
+                & img
+                    border-radius: 50%
+                    @media screen and (max-width: 1100px)
+                        min-width: 28px
+                        min-height: 28px
+                & span
+                    @media screen and (max-width: 1100px)
+                        display: none
+            & a
+                font-size: 14px
+                font-weight: 400
+                color: var(--primary)
+                text-decoration: none
+                @media screen and (max-width: 1100px)
+                    display: none
+                &:hover
+                    text-decoration: underline

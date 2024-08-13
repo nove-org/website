@@ -1,29 +1,29 @@
-export const dynamic = 'force-dynamic';
-import b from '@sass/blog.module.sass';
-import { Post } from '@util/schema';
+import o from '../../Blog.module.sass';
+import NAPI from '@util/NAPI';
 import { sanitize } from 'isomorphic-dompurify';
-import { headers } from 'next/headers';
-import LanguageHandler from '@util/handlers/LanguageHandler';
-import Back from './Back';
-import Comment from './Comment';
+import { Post } from '@util/schema';
+import { cookies, headers } from 'next/headers';
 import Image from 'next/image';
-import Delete from './Delete';
-import { getUser } from '@util/helpers/User';
-import { getPost, getPosts } from '@util/helpers/Blog';
+import Link from 'next/link';
+import Databox from '@app/Databox';
+import { redirect } from 'next/navigation';
+import Comment from './Comment';
+import ObjectHelper from '@util/object';
+import LanguageHandler from '@util/languages';
+import FormError from '@app/account/FormError';
 
-async function getPostData(id: string): Promise<Post | undefined> {
-    return new Promise(async (resolve, reject) => {
-        const posts = await getPosts();
-        const searchParam: string = id.toLowerCase();
-        let pid: string = posts?.filter((post) => post.title.toLowerCase().split(' ').join('-') + '-' + post.id.split('-')[post.id.split('-').length - 1] === searchParam)[0]?.id;
+async function getPostData(api: NAPI, id: string): Promise<Post | undefined> {
+    const posts = await api.blog().getPosts({ caching: false });
+    const searchParam: string = id.toLowerCase();
+    let pid: string = posts?.filter((post) => post.title.toLowerCase().split(' ').join('-') + '-' + post.id.split('-')[post.id.split('-').length - 1] === searchParam)[0]?.id;
 
-        resolve(await getPost(pid || id));
-    });
+    return await api.blog().getPost({ id: pid || id, caching: true });
 }
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
-    const post = await getPostData(params.id);
-    const title: string = post ? post.title + ' | Nove Blog' : '404 | Nove Blog';
+    const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
+    const post = await getPostData(api, params.id);
+    const title: string = post?.title ? post.title + ' | Nove Blog' : '404 | Nove Blog';
 
     return {
         title,
@@ -32,87 +32,96 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
     };
 }
 
-export default async function Blog({ params }: { params: { id: string } }) {
-    const user = await getUser();
+export default async function BlogParams({ params, searchParams }: { params: { id: string }; searchParams: { [key: string]: string | string[] | undefined } }) {
+    const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
+    const user = await api.user().get({ caching: false });
+    const post = await getPostData(api, params.id);
+    const error: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 'et');
     const lang = await new LanguageHandler('main/blog', user).init(headers());
-    const post = await getPostData(params.id);
 
-    return post ? (
-        <article className={b.blog}>
-            <div className={b.content}>
-                <Back lang={{ btn: lang.getCustomProp('modules.actions.back') }} />
-                <h1>{post.title}</h1>
-                <div dangerouslySetInnerHTML={{ __html: sanitize(post.text) }} />
-            </div>
-            <div className={b.author}>
-                <h1>This article was written by</h1>
-                <div className={b.card}>
-                    <Image src={post.authorAvatar} alt="" width="64" height="64" />
-                    <div className={b.id}>
-                        <h1>{post.authorUsername}</h1>
-                        {post.authorBio ? <p>{post.authorBio}</p> : null}
-                        {post.authorWebsite ? (
-                            <a href={post.authorWebsite}>
-                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="14" height="14" viewBox="0 0 24 24">
+    const commentCreate = async (e: FormData) => {
+        'use server';
+
+        const text = e.get('comment')?.toString();
+        if (!text) redirect('?et=nd');
+
+        const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
+        const comment = await api.blog().createComment({ id: post?.id as string, text });
+
+        if (!comment?.code) redirect('?s=' + new Date().getTime());
+        else redirect('?et=rf');
+    };
+
+    return post?.title ? (
+        <article className={o.blog}>
+            <div className={o.text}>
+                <div className={o.header}>
+                    <h1>
+                        {post.title}
+                        <div className={o.buttons}>
+                            <Link href="/blog" className="btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
                                     <path
                                         fill="currentColor"
-                                        d="M 12 2 C 8.741068 2 5.8486894 3.5773875 4.0214844 6 L 4 6 L 4 6.0273438 C 2.7499527 7.6966931 2 9.7603852 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 15 4.5839844 C 17.935098 5.7673596 20 8.6326468 20 12 C 20 14.087831 19.200587 15.978318 17.898438 17.400391 C 17.642583 16.590687 16.894567 16 16 16 C 15.448 16 15 15.552 15 15 L 15 13 C 15 12.448 14.552 12 14 12 L 10 12 C 9.448 12 9 11.552 9 11 C 9 10.448 9.448 10 10 10 C 10.552 10 11 9.552 11 9 L 11 8 C 11 7.448 11.448 7 12 7 L 13 7 C 14.105 7 15 6.105 15 5 L 15 4.5839844 z M 4.2070312 10.207031 L 9 15 L 9 16 C 9 17.105 9.895 18 11 18 L 11 19.931641 C 7.0457719 19.441154 4 16.090654 4 12 C 4 11.382188 4.0755242 10.784034 4.2070312 10.207031 z"></path>
+                                        d="M 4 3 C 3.448 3 3 3.448 3 4 L 3 6 C 3 6.552 3.448 7 4 7 L 6 7 C 6.552 7 7 6.552 7 6 L 7 4 C 7 3.448 6.552 3 6 3 L 4 3 z M 11 3 C 10.448 3 10 3.448 10 4 L 10 6 C 10 6.552 10.448 7 11 7 L 13 7 C 13.552 7 14 6.552 14 6 L 14 4 C 14 3.448 13.552 3 13 3 L 11 3 z M 18 3 C 17.448 3 17 3.448 17 4 L 17 6 C 17 6.552 17.448 7 18 7 L 20 7 C 20.552 7 21 6.552 21 6 L 21 4 C 21 3.448 20.552 3 20 3 L 18 3 z M 4 10 C 3.448 10 3 10.448 3 11 L 3 13 C 3 13.552 3.448 14 4 14 L 6 14 C 6.552 14 7 13.552 7 13 L 7 11 C 7 10.448 6.552 10 6 10 L 4 10 z M 11 10 C 10.448 10 10 10.448 10 11 L 10 13 C 10 13.552 10.448 14 11 14 L 13 14 C 13.552 14 14 13.552 14 13 L 14 11 C 14 10.448 13.552 10 13 10 L 11 10 z M 18 10 C 17.448 10 17 10.448 17 11 L 17 13 C 17 13.552 17.448 14 18 14 L 20 14 C 20.552 14 21 13.552 21 13 L 21 11 C 21 10.448 20.552 10 20 10 L 18 10 z M 4 17 C 3.448 17 3 17.448 3 18 L 3 20 C 3 20.552 3.448 21 4 21 L 6 21 C 6.552 21 7 20.552 7 20 L 7 18 C 7 17.448 6.552 17 6 17 L 4 17 z M 11 17 C 10.448 17 10 17.448 10 18 L 10 20 C 10 20.552 10.448 21 11 21 L 13 21 C 13.552 21 14 20.552 14 20 L 14 18 C 14 17.448 13.552 17 13 17 L 11 17 z M 18 17 C 17.448 17 17 17.448 17 18 L 17 20 C 17 20.552 17.448 21 18 21 L 20 21 C 20.552 21 21 20.552 21 20 L 21 18 C 21 17.448 20.552 17 20 17 L 18 17 z"></path>
                                 </svg>
-                                Website
-                            </a>
-                        ) : null}
+                                View all
+                            </Link>
+                            {user?.permissionLevel === 2 && (
+                                <Link href={`/account/blog/${post.id}`} className="btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
+                                        <path
+                                            fill="currentColor"
+                                            d="M 15 3 C 11.698375 3 9 5.6983746 9 9 C 9 9.5259934 9.157478 9.9941578 9.2851562 10.472656 L 4.6347656 15.123047 C 3.1294504 15.513823 2 16.878977 2 18.5 C 2 20.421152 3.578848 22 5.5 22 C 7.1210229 22 8.486177 20.87055 8.8769531 19.365234 L 13.527344 14.714844 C 14.005842 14.842522 14.474007 15 15 15 C 18.301625 15 21 12.301625 21 9 C 21 8.2201415 20.839011 7.4833762 20.578125 6.8164062 L 20.021484 5.3925781 L 17.707031 7.7070312 L 17.705078 7.7070312 C 17.506764 7.9059013 17.258094 8 17 8 C 16.741906 8 16.493283 7.9059014 16.294922 7.7070312 L 16.292969 7.7070312 C 15.894042 7.3081043 15.894042 6.6918957 16.292969 6.2929688 L 18.607422 3.9785156 L 17.183594 3.421875 C 16.516624 3.1609894 15.779858 3 15 3 z M 14.814453 5.0371094 C 13.778085 6.2088531 13.759143 8.0013308 14.878906 9.1210938 C 15.460545 9.7042236 16.234094 10 17 10 C 17.708672 10 18.399092 9.6873874 18.962891 9.1875 C 18.860525 11.314481 17.15379 13 15 13 C 14.493858 13 14.007952 12.895958 13.544922 12.714844 L 12.935547 12.476562 L 8.5625 16.849609 C 8.2370689 16.251687 7.7483126 15.762931 7.1503906 15.4375 L 11.523438 11.064453 L 11.285156 10.455078 C 11.104042 9.9920482 11 9.5061415 11 9 C 11 6.8455427 12.686533 5.1384927 14.814453 5.0371094 z M 5.5 17 C 6.3402718 17 7 17.659728 7 18.5 C 7 19.340272 6.3402718 20 5.5 20 C 4.6597282 20 4 19.340272 4 18.5 C 4 17.659728 4.6597282 17 5.5 17 z"></path>
+                                    </svg>{' '}
+                                    Manage
+                                </Link>
+                            )}
+                        </div>
+                    </h1>
+                    <p>
+                        <Image src={post.authorAvatar} width={16} height={16} alt="User's avatar" />
+                        <b>{post.authorUsername}</b> &middot;{' '}
+                        <time>{new Date(post.createdAt).toLocaleDateString(user?.language || 'en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</time>
+                    </p>
+                    <Image src={post.header} alt={post.headerAlt} title={post.headerAlt} width={1000} height={444} />
+                </div>
+                <div dangerouslySetInnerHTML={{ __html: sanitize(post.text) }} />
+                {post.commentsAllowed && (
+                    <div className={o.comments}>
+                        <h1>Comments ({post.comments.length})</h1>
+                        {user?.id && (
+                            <form action={commentCreate} className={o.new}>
+                                {error && (
+                                    <FormError
+                                        text={
+                                            error === 'nd'
+                                                ? lang.getCustomProp('modules.errors.no-data')
+                                                : error === 'rf'
+                                                  ? lang.getCustomProp('modules.errors.rate-limit')
+                                                  : lang.getCustomProp('modules.errors.other')
+                                        }
+                                    />
+                                )}
+                                <Databox type="textarea" title={`Comment as ${user.username}...`} placeholder="..." required={true} id="comment" />
+                                <button type="submit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
+                                        <path fill="currentColor" d="M 11 3 L 11 11 L 3 11 L 3 13 L 11 13 L 11 21 L 13 21 L 13 13 L 21 13 L 21 11 L 13 11 L 13 3 L 11 3 z"></path>
+                                    </svg>
+                                    Post
+                                </button>
+                            </form>
+                        )}
+                        <ul>
+                            {post.comments.map((comment) => (
+                                <Comment key={comment.id} user={user} comment={comment} />
+                            ))}
+                        </ul>
                     </div>
-                </div>
-            </div>
-            <div className={b.comments}>
-                <h1>Comments</h1>
-                <div className={b.flex}>
-                    {user ? <Comment post={post} user={user} /> : null}
-                    <ul>
-                        {post.comments.length < 1 ? <p>No one commented on this post yet</p> : null}
-                        {post.comments.map((comment) => {
-                            const date = new Date(comment.createdAt);
-                            return (
-                                <li key={comment.id}>
-                                    <div className={b.container}>
-                                        <Image src={comment.authorAvatar} alt={comment.authorUsername + ' avatar'} width={32} height={32} />
-                                        <header>
-                                            <h1>{comment.authorUsername}</h1>
-                                            <p>
-                                                {comment.text} {comment.createdAt !== comment.updatedAt ? <span>(edited)</span> : null}
-                                            </p>
-                                        </header>
-                                    </div>
-                                    <aside>
-                                        {comment.authorId === user?.id || user?.permissionLevel === 2 ? (
-                                            <>
-                                                <Delete post={post} id={comment.id} />
-                                            </>
-                                        ) : null}
-                                        <time>{date.toLocaleString('en-US', { day: 'numeric', month: 'short', year: 'numeric' })}</time>
-                                    </aside>
-                                </li>
-                            );
-                        })}
-                    </ul>
-                </div>
+                )}
             </div>
         </article>
     ) : (
-        <article className={b.blog}>
-            <header className={b.warning}>
-                <h1 className={b.header}>
-                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 24 24">
-                        <path fill="currentColor" d="M17.196,3H6.804l-5.195,9l5.195,9h10.393l5.195-9L17.196,3z M13,17h-2v-2h2V17z M13,13h-2V7h2V13z"></path>
-                    </svg>
-                    {lang.getProp('warn-h1')}
-                </h1>
-                <p className={b.description}>{lang.getProp('warn-p')}</p>
-            </header>
-            <div className={b.content}>
-                <Back lang={{ btn: lang.getCustomProp('modules.actions.back') }} />
-                <p>{lang.getCustomProp('modules.errors.not-found')}</p>
-            </div>
-        </article>
+        <>not found</>
     );
 }

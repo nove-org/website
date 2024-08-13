@@ -1,0 +1,255 @@
+div.content
+    width: 100%
+    min-height: 100%
+    @media screen and (max-width: 600px)
+        padding-bottom: 100px
+    & h1.title
+        font-size: 20px
+        font-weight: 500
+        margin: 0
+    & p.description
+        font-size: 14px
+        margin: 5px 0
+    & div.devices
+        padding: 20px 0
+        & ul.devices
+            margin: 0
+            padding: 10px 0
+            list-style: none
+            display: flex
+            flex-direction: column
+            gap: 10px
+            & li
+                border: 1px solid var(--secondary)
+                border-radius: 15px
+                padding: 10px
+                box-sizing: border-box
+                width: 100%
+                display: flex
+                align-items: center
+                justify-content: space-between
+                @media screen and (max-width: 370px)
+                    flex-direction: column
+                    align-items: flex-start
+                    gap: 8px
+                & div.info
+                    display: flex
+                    gap: 8px
+                    align-items: center
+                    & svg
+                        padding: 5px
+                        border-radius: 50%
+                        background: var(--primary-container)
+                        color: var(--primary)
+                    & div.data
+                        & h1
+                            font-size: 16px
+                            font-weight: 500
+                            margin: 0
+                            margin-bottom: 2px
+                        & p
+                            font-size: 14px
+                            margin: 0
+                & time
+                    font-size: 14px
+                    margin: 0
+                    margin-right: 5px
+                    @media screen and (max-width: 370px)
+                        font-size: 12px
+        & div.more
+            display: flex
+            flex-direction: column-reverse
+            & ul.devices
+                display: none
+            & details
+                width: fit-content
+                & summary
+                    display: flex
+                    & span
+                        font-size: 14px
+                        font-weight: 500
+                        color: var(--primary)
+                        cursor: pointer
+                        &:hover
+                            text-decoration: underline
+                        &.open
+                            display: none
+                &[open]
+                    & summary
+                        & span.closed
+                            display: none
+                        & span.open
+                            display: block
+                    & + ul
+                        display: flex
+                        padding-top: 0
+    & div.securityLayers
+        display: flex
+        align-items: center
+        justify-content: space-between
+        padding: 100px 0
+        @media screen and (max-width: 900px)
+            flex-direction: column
+            align-items: stretch
+            gap: 20px
+            padding: 50px 0
+        & div.info
+            & p
+                max-width: 350px
+        & div.links
+            display: grid
+            grid-template-columns: repeat(3, 1fr)
+            gap: 12px
+            @media screen and (max-width: 1400px)
+                grid-template-columns: repeat(2, 1fr)
+            & a
+                padding: 12px
+                border-radius: 15px
+                background: var(--primary-container)
+                color: var(--on-primary-container)
+                min-width: 200px
+                min-height: 100px
+                box-sizing: border-box
+                text-decoration: none
+                font-size: 20px
+                font-weight: 500
+                display: flex
+                flex-direction: column
+                justify-content: flex-end
+                gap: 5px
+                transition: background-color .05s, color .05s
+                &:hover
+                    background: var(--secondary-container)
+                    color: var(--on-secondary-container)
+                @media screen and (max-width: 900px)
+                    min-width: 100%
+                & span
+                    width: 100%
+                    display: flex
+                    align-items: center
+                    justify-content: space-between
+    & div.deleteAccount
+        padding: 30px 0
+        & div.info
+            & p
+                max-width: 1000px
+        & a
+            margin-top: 20px
+            font-size: 14px
+            padding: 8px
+            border-radius: 10px
+
+header.title
+    display: flex
+    gap: 5px
+    & svg
+        min-width: 16px
+        margin-top: 2px
+    & div.info
+        & h1
+            margin: 0
+            margin-bottom: 2px
+            font-size: 18px
+            font-weight: 500
+        & div.p
+            margin: 0
+            font-size: 14px
+            display: flex
+            align-items: center
+            flex-wrap: wrap
+            gap: 5px
+            & form
+                width: fit-content
+            & button
+                padding: 0
+                margin: 0
+                border: 0
+                background: 0
+                outline: 0
+                font-weight: 500
+                font-size: 14px
+                cursor: pointer
+                &:hover
+                    text-decoration: underline
+
+ul.codes
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    margin: 10px auto
+    padding: 0
+    list-style: none
+    width: fit-content
+    gap: 10px 30px
+    & li
+        font-size: 16px
+        margin: 0
+        user-select: text
+        font-family: monospace
+
+div.buttons
+    display: flex
+    align-items: center
+    gap: 8px
+    padding: 5px 0
+    padding-bottom: 0
+    & button, a
+        font-size: 14px
+        padding: 8px
+        border-radius: 10px
+        position: relative
+        &.loading
+            width: 80px
+            height: 33px
+            display: flex
+            align-items: center
+            justify-content: center
+            & div::first
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%, -50%)
+        &.primary
+            background: var(--primary)
+            color: var(--on-primary)
+            &:hover
+                background: var(--secondary)
+                color: var(--on-secondary)
+
+div.email
+    display: flex
+    gap: 40px
+    margin-top: 30px
+    @media screen and (max-width: 700px)
+        flex-direction: column
+    & div.update
+        width: 100%
+        & h2
+            font-size: 18px
+            font-weight: 500
+            margin: 0
+        & p.d
+            font-size: 14px
+            margin: 0
+            margin-bottom: 12px
+    & form.addons
+        width: 100%
+
+div.mfa
+    & h2
+        font-size: 18px
+        font-weight: 500
+        margin: 0
+    & p.d
+        font-size: 14px
+        margin: 0
+        margin-top: 4px
+        margin-bottom: 12px
+    & div.qr
+        margin: 10px 0
+        & svg
+            background: #fff
+            border-radius: 10px
+            width: 100%
+            height: 150px
+    & div.recovery
+        margin: 10px 0

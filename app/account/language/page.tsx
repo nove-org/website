@@ -1,26 +1,63 @@
-export const dynamic = 'force-dynamic';
-import a from '@sass/account/part.module.sass';
-import { headers } from 'next/headers';
-import Form from './Form';
-import LanguageHandler from '@util/handlers/LanguageHandler';
-import { getUser } from '@util/helpers/User';
-import { getLanguages } from '@util/helpers/Main';
+import LanguageHandler from '@util/languages';
+import NAPI from '@util/NAPI';
+import Error from '../Error';
+import o from './Language.module.sass';
+import { cookies, headers } from 'next/headers';
+import ReactCountryFlag from 'react-country-flag';
+import { redirect } from 'next/navigation';
+import Submit from './Submit';
 
-export default async function Overview() {
-    const user = await getUser();
-    const languages = await getLanguages();
+export async function generateMetadata() {
+    const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
+    const user = await api.user().get({ caching: false });
     const lang = await new LanguageHandler('dashboard/language', user).init(headers());
+    const title: string = `${lang.getCustomProp('dashboard.layout.ul-language')} | Nove`;
 
-    return user?.username && languages ? (
-        <div className={a.content}>
-            <h1 className={a.title}>{lang.getProp('hero-h1')}</h1>
-            <p className={a.desc}>{lang.getProp('hero-p1')}</p>
-            <Form saveChanges={lang.getCustomProp('modules.actions.save-changes')} user={user} code={languages} />
+    return {
+        title,
+        openGraph: { title },
+        twitter: { card: 'summary_large_image', title },
+    };
+}
+
+export default async function Language() {
+    const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
+    const user = await api.user().get({ caching: false });
+    const languages = await api.language().getAll({ caching: false });
+    const lang = await new LanguageHandler('dashboard/language', user).init(headers());
+    const l = new Intl.DisplayNames([user?.language || 'en-US'], { type: 'language' });
+
+    const setLanguage = async (e: FormData) => {
+        'use server';
+
+        const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
+        await api.user().update({
+            body: {
+                language: e.get('language')?.toString(),
+            },
+        });
+
+        redirect(`?s=${new Date().getTime()}`);
+    };
+
+    return user ? (
+        <div className={o.content}>
+            <h1 className={o.title}>{lang.getCustomProp('dashboard.layout.ul-language')}</h1>
+            <p className={o.description}>{lang.getProp('description')}</p>
+            <form action={setLanguage}>
+                {languages.AVAILABLE_LANGUAGES.map((language) => (
+                    <label key={language} className={o.lang}>
+                        <input type="radio" value={language} name="language" defaultChecked={user.language === language} />
+                        <div className={o.header}>
+                            <ReactCountryFlag countryCode={language.split('-')[1]} />
+                            {l.of(language)}
+                        </div>
+                    </label>
+                ))}
+                <Submit lang={{ save: lang.getCustomProp('modules.actions.save-changes'), cancel: lang.getCustomProp('modules.actions.cancel') }} />
+            </form>
         </div>
     ) : (
-        <div className={a.content}>
-            <h1 className={a.title}>{lang.getCustomProp('modules.errors.header')}</h1>
-            <p className={a.desc}>{lang.getCustomProp('modules.errors.session')}</p>
-        </div>
+        <Error />
     );
 }

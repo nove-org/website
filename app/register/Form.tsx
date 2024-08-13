@@ -1,61 +1,83 @@
 'use client';
 
-import { setCookie } from 'cookies-next';
-import { COOKIE_HOSTNAME } from '@util/CONSTS';
-import o from '@sass/login.module.sass';
-import { registerCall } from '@util/helpers/client/Account';
-import { errorHandler } from '@util/helpers/Main';
-import { AxiosError } from 'axios';
-import { Response } from '@util/schema';
+import Databox from '@app/Databox';
 import Link from 'next/link';
+import Loader from '@app/Loader';
+import o from '../login/Login.module.sass';
+import { useState } from 'react';
 
-export default function RegisterForm({
-    searchParam,
+export default function Form({
+    et,
+    login,
     lang,
 }: {
-    searchParam: string | undefined;
+    et?: string;
+    login: string;
     lang: {
-        inputEmail: string;
-        inputUsername: string;
-        inputPassword: string;
-        inputBtn: string;
+        username: string;
+        usernameD: string;
+        usernameP: string;
+        email: string;
+        emailD: string;
+        emailP: string;
+        password: string;
+        passwordD: string;
+        passwordP: string;
+        login: string;
+        register: string;
     };
 }) {
-    const handleRegister = async (e: FormData) =>
-        await registerCall({ email: e.get('email')?.toString(), username: e.get('username')?.toString(), password: e.get('password')?.toString() })
-            .then((user) => {
-                setCookie('napiAuthorizationToken', `${user?.token} ${user?.id}`, {
-                    maxAge: 3 * 30 * 24 * 60 * 60,
-                    domain: COOKIE_HOSTNAME,
-                    sameSite: 'strict',
-                    secure: true,
-                });
-
-                const uri = searchParam || '/account';
-                if (uri == '__CLOSE__') window.close();
-                else window.location.replace(uri);
-            })
-            .catch((err: AxiosError) => alert(errorHandler(err.response?.data as Response<null>)));
+    const [loading, setLoading] = useState<boolean>(false);
+    const triggerLoading = () => (document.getElementById('mfa') as HTMLInputElement)?.value?.length > 0 && setLoading(true);
 
     return (
-        <form id="loginForm" action={handleRegister} className={o.login}>
-            <label htmlFor="email">
-                {lang.inputEmail}
-                <input type="email" id="email" name="email" placeholder="Your email" required />
-            </label>
-            <label htmlFor="username">
-                {lang.inputUsername}
-                <input type="text" id="username" name="username" placeholder="Your username" required />
-            </label>
-            <label htmlFor="password">
-                {lang.inputPassword}
-                <input type="password" id="password" name="password" placeholder="Your password" required />
-            </label>
-
+        <>
+            <Databox
+                id="username"
+                title={lang.username}
+                description={lang.usernameD}
+                type="text"
+                required={true}
+                placeholder={lang.usernameP}
+                onKeyDown={(e) => e.key === 'Enter' && triggerLoading()}
+            />
+            <Databox
+                id="email"
+                title={lang.email}
+                description={lang.emailD}
+                type="email"
+                required={true}
+                placeholder={lang.emailP}
+                onKeyDown={(e) => e.key === 'Enter' && triggerLoading()}
+            />
+            <Databox
+                id="password"
+                title={lang.password}
+                description={lang.passwordD}
+                type="password"
+                required={true}
+                placeholder={lang.passwordP}
+                onKeyDown={(e) => e.key === 'Enter' && triggerLoading()}
+            />
             <div className={o.buttons}>
-                <Link href="/login">{'Log in'}</Link>
-                <button type="submit">{'Create account'}</button>
+                <Link className="btn" href={login}>
+                    {lang.login}
+                </Link>
+                <button className={'btn ' + (loading && !et ? o.loading : o.highlight)} onClick={() => triggerLoading()} type="submit">
+                    {loading && !et ? (
+                        <Loader type="button" />
+                    ) : (
+                        <>
+                            {lang.register}
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
+                                <path
+                                    fill="currentColor"
+                                    d="M 14 4.9296875 L 12.5 6.4296875 L 17.070312 11 L 3 11 L 3 13 L 17.070312 13 L 12.5 17.570312 L 14 19.070312 L 21.070312 12 L 14 4.9296875 z"></path>
+                            </svg>
+                        </>
+                    )}
+                </button>
             </div>
-        </form>
+        </>
     );
 }

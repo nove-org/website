@@ -1,0 +1,114 @@
+/* 
+ Tool to manage your Nove account through NAPI
+ Copyright (C) 2019 Nove Group
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Affero General Public License as
+ published by the Free Software Foundation, either version 3 of the
+ License, or (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Affero General Public License for more details.
+
+ You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
+
+@use './brand' as *
+
+.disabled
+    pointer-events: none
+    opacity: .65
+
+p.error
+    background: var(--error-container)
+    color: var(--error)
+    font-weight: 500
+    font-size: 14px !important
+    padding: 8px 12px
+    border-radius: 50px
+    margin: 0
+    margin-left: 5px
+    animation: fade .3s ease-in-out
+    position: fixed
+    bottom: 25px
+    left: 50%
+    transform: translateX(-50%)
+    z-index: 99999999
+    text-align: center
+    @keyframes fade
+        0%
+            opacity: 0
+        100%
+            opacity: 1
+
+*
+    user-select: none
+    font-smooth: always
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+    text-rendering: optimizeLegibility
+
+input, textarea, button
+    font-family: inherit
+
+textarea
+    scrollbar-width: none
+    &::-webkit-scrollbar
+        display: none
+
+img
+    pointer-events: none
+
+html
+    width: 100%
+    height: 100%
+    overflow-x: hidden
+
+body
+    margin: 0
+    padding: 0
+    width: 100%
+    height: 100%
+    min-height: 100vh
+    background: var(--background)
+    color: var(--on-background)
+    font-family: sans-serif
+    background-size: cover
+    & main
+        width: 100%
+        min-height: calc(100vh - 70px)
+        padding: 0 110px
+        box-sizing: border-box
+        margin: 0 auto
+        @media screen and (max-width: 1600px)
+            padding: 0 70px
+        @media screen and (max-width: 1300px)
+            padding: 0 40px
+        @media screen and (max-width: 750px)
+            padding: 0 30px
+        @media screen and (max-width: 450px)
+            padding: 0 20px
+
+a.btn, button.btn
+    display: flex
+    align-items: center
+    font-size: 16px
+    font-weight: 500
+    gap: 6px
+    padding: 10px 12px
+    width: fit-content
+    border-radius: 12px
+    background: var(--primary-container)
+    color: var(--primary)
+    text-decoration: none
+    transition: background-color .1s ease, color .1s ease
+    outline: 0
+    box-sizing: border-box
+    box-shadow: 0
+    border: 0
+    cursor: pointer
+    &:hover
+        background: var(--secondary-container)
+        color: var(--on-secondary-container)

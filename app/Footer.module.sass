@@ -1,0 +1,61 @@
+footer.box
+    width: 100%
+    display: flex
+    justify-content: space-between
+    margin-top: 100px
+    padding: 50px 110px
+    box-sizing: border-box
+    @media screen and (max-width: 1600px)
+        padding: 50px 70px
+    @media screen and (max-width: 1300px)
+        padding: 50px 40px
+    @media screen and (max-width: 750px)
+        padding: 50px 30px
+    @media screen and (max-width: 450px)
+        padding: 50px 20px
+    @media screen and (max-width: 750px)
+        gap: 30px
+        flex-direction: column
+    &.hide
+        display: none
+    & header
+        display: flex
+        flex-direction: column
+        gap: 5px
+        & div.logo
+            display: flex
+            align-items: center
+            gap: 5px
+            font-size: 20px
+            font-weight: 600
+        & p
+            font-size: 14px
+            margin: 0
+            & a
+                color: var(--primary)
+                text-decoration: none
+                &:hover
+                    text-decoration: underline
+    & div.links
+        display: flex
+        gap: 80px
+        @media screen and (max-width: 350px)
+            flex-direction: column
+            gap: 20px
+        & div.category
+            display: flex
+            flex-direction: column
+            gap: 5px
+            & h2
+                font-size: 16px
+                font-weight: 500
+                margin: 0
+            & a
+                font-size: 14px
+                margin: 0
+                opacity: .6
+                color: var(--on-background)
+                text-decoration: none
+                &:hover
+                    opacity: 1
+                    text-decoration: underline

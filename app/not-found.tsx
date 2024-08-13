@@ -1,11 +1,12 @@
-export const dynamic = 'force-dynamic';
-import o from '@sass/information.module.sass';
-import LanguageHandler from '@util/handlers/LanguageHandler';
-import { headers } from 'next/headers';
-import { getUser } from '@util/helpers/User';
+import NAPI from '@util/NAPI';
+import LanguageHandler from '@util/languages';
+import o from './NotFound.module.sass';
+import { cookies, headers } from 'next/headers';
 
 export async function generateMetadata() {
-    const lang = await new LanguageHandler('modules/errors', await getUser()).init(headers());
+    const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
+    const user = await api.user().get({ caching: false });
+    const lang = await new LanguageHandler('modules/errors', user).init(headers());
 
     return {
         title: `${lang.getProp('not-found')} | Nove`,
@@ -13,7 +14,8 @@ export async function generateMetadata() {
 }
 
 export default async function NotFound() {
-    const user = await getUser();
+    const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
+    const user = await api.user().get({ caching: false });
     const lang = await new LanguageHandler('modules/errors', user).init(headers());
 
     return (

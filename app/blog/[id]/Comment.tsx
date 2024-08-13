@@ -1,53 +1,47 @@
-'use client';
-
-import { axiosClient } from '@util/axios';
-import { Post, User } from '@util/schema';
-import { getCookie } from 'cookies-next';
+import { PostComment, User } from '@util/schema';
 import Image from 'next/image';
-import Loader from '@app/Loader';
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import b from '@sass/blog.module.sass';
+import o from '../../Blog.module.sass';
+import { redirect } from 'next/navigation';
+import { cookies } from 'next/headers';
+import NAPI from '@util/NAPI';
 
-export default function Comment({ user, post }: { user: User; post: Post }) {
-    const [loading, setLoading] = useState<boolean>(false);
-    const router = useRouter();
-    const [postError, setPostError] = useState<string>();
+export default function Comment({ user, comment }: { user: User | undefined; comment: PostComment }) {
+    const commentDelete = async (e: FormData) => {
+        'use server';
 
-    const throwError = (message?: string, bool?: boolean) => {
-        if (bool === false) return setPostError('');
+        const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
+        const com = await api.blog().deleteComment({ id: comment.blogPostId, commentId: comment.id });
 
-        if (message) {
-            setPostError(message.charAt(0).toUpperCase() + message.slice(1).toLowerCase());
-
-            setTimeout(() => setPostError(''), 5000);
-        }
+        if (!com?.code) redirect('?s=' + new Date().getTime());
+        else redirect('?et=rc');
     };
 
-    const handlePost = async (form: FormData) => {
-        if (loading) return;
-        else setLoading(true);
-
-        await axiosClient
-            .post(
-                '/v1/blog/' + post.id + '/comment',
-                { text: form.get('text') },
-                {
-                    headers: { Authorization: `Owner ${getCookie('napiAuthorizationToken')}` },
-                }
-            )
-            .then((r) => setTimeout(() => (setLoading(false), (document.getElementById('comment') as HTMLFormElement).reset(), router.refresh()), 500))
-            .catch((err) => setTimeout(() => (setLoading(false), err?.response?.data?.body?.error ? throwError(err.response.data.body.error.message) : console.error(err)), 500));
-    };
-
-    return post.commentsAllowed ? (
-        <form action={handlePost} id="comment">
-            <Image src={user.avatar} alt="User avatar" width={48} height={48} />
-            <div className={b.content}>
-                <textarea name="text" id="text" placeholder="Content..." required rows={5} />
-                <button type="submit">{loading ? <Loader type="button" /> : null}Post</button>
+    return (
+        <li key={comment.id}>
+            <div className={o.user}>
+                <div className={o.card}>
+                    <Image src={comment.authorAvatar} width={20} height={20} alt="User's avatar" />
+                    {comment.authorUsername}
+                </div>
+                &middot;
+                {' ' +
+                    new Date(comment.createdAt).toLocaleDateString(user?.language || 'en-US', { year: 'numeric', month: 'short', day: 'numeric' }) +
+                    (comment.createdAt !== comment.updatedAt ? ' (edited)' : '')}
             </div>
-            {postError ? <p className="error">{postError}</p> : null}
-        </form>
-    ) : null;
+            <p>{comment.text}</p>
+            {(comment.authorId === user?.id || user?.permissionLevel === 2) && (
+                <div className={o.actions}>
+                    <form action={commentDelete}>
+                        <button type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
+                                <path
+                                    fill="currentColor"
+                                    d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z"></path>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            )}
+        </li>
+    );
 }

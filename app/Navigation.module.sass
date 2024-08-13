@@ -1,0 +1,215 @@
+nav.box
+    width: 100%
+    height: 70px
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding: 0 110px
+    box-sizing: border-box
+    @media screen and (max-width: 1600px)
+        padding: 0 70px
+    @media screen and (max-width: 1300px)
+        padding: 0 40px
+    @media screen and (max-width: 750px)
+        padding: 0 30px
+    @media screen and (max-width: 450px)
+        padding: 0 20px
+    &.hide
+        display: none
+    & section.main
+        display: flex
+        align-items: center
+        gap: 30px
+        & a.header
+            display: flex
+            align-items: center
+            gap: 6px
+            font-size: 20px
+            font-weight: 600
+            color: var(--on-background)
+            text-decoration: none
+        & div.links
+            display: flex
+            align-items: center
+            gap: 5px
+            @media screen and (max-width: 750px)
+                display: none
+            & a.link, & details.link summary
+                display: flex
+                align-items: center
+                gap: 5px
+                text-decoration: none
+                color: var(--on-background)
+                font-size: 14px
+                font-weight: 400
+                padding: 5px 10px
+                border-radius: 10px
+                transition: background-color .1s ease, color .1s ease, outline-color .1s ease
+                cursor: pointer
+                &:hover
+                    color: var(--secondary)
+                    background: var(--primary-container)
+            & details.link
+                position: relative
+                & div.modules
+                    position: absolute
+                    top: 40px
+                    background: var(--primary-container)
+                    border-radius: 20px
+                    display: flex
+                    justify-content: center
+                    gap: 8px
+                    max-width: 450px
+                    width: max-content
+                    animation: fade .2s ease-in-out
+                    z-index: 99999
+                    padding: 8px
+                    box-shadow: 0 2px 3px 0 rgba(0,0,0,.2)
+                    @keyframes fade
+                        0%
+                            opacity: 0
+                            transform: translateY(-15px)
+                        100%
+                            opacity: 1
+                            transform: translateY(0)
+                    & a.module
+                        display: flex
+                        flex-direction: column
+                        gap: 5px
+                        padding: 12px 14px
+                        width: 100%
+                        border-radius: 20px
+                        opacity: 1
+                        cursor: pointer
+                        text-decoration: none
+                        color: var(--on-primary-container)
+                        transition: background-color .1s ease, color .1s ease
+                        &:hover
+                            color: var(--on-secondary-container)
+                            background: var(--secondary-container)
+                        & h1
+                            display: flex
+                            align-items: center
+                            gap: 6px
+                            color: var(--font-st)
+                            margin: 0
+                            font-size: 20px
+                            font-weight: 500
+                        & p
+                            margin: 0
+                            font-size: 14px
+                            color: var(--font-st)
+
+    & section.account
+        & details.profile
+            position: relative
+            &[open] summary img
+                border-radius: 35%
+            & summary
+                display: flex
+                align-items: center
+                justify-content: center
+                border-radius: 50%
+                cursor: pointer
+                & img
+                    border-radius: 50%
+                    transition: border-radius .3s ease
+            & div.options
+                position: absolute
+                top: 40px
+                right: 0
+                background: var(--primary-container)
+                border-radius: 20px
+                display: flex
+                flex-direction: column
+                align-items: flex-start
+                justify-content: center
+                max-width: 260px
+                min-width: 200px
+                width: 100%
+                animation: fade .2s ease-in-out
+                z-index: 99999
+                padding: 5px
+                box-shadow: 0 2px 3px 0 rgba(0,0,0,.2)
+                @keyframes fade
+                    0%
+                        opacity: 0
+                        transform: translateY(-15px)
+                    100%
+                        opacity: 1
+                        transform: translateY(0)
+            & a
+                display: flex
+                align-items: center
+                padding: 12px
+                font-size: 15px
+                color: var(--on-primary-container)
+                text-decoration: none
+                transition: background-color .1s linear
+                width: calc( 100% - 12px * 2 )
+                border-radius: 20px
+                gap: 7px
+                &:hover
+                    background: var(--secondary-container)
+                    color: var(--on-secondary-container)
+        & div.buttons
+            display: flex
+            align-items: center
+            gap: 20px
+            & a
+                display: block
+                text-decoration: none
+                color: var(--on-background)
+                font-size: 14px
+                font-weight: 400
+                border-radius: 10px
+                transition: background-color .1s ease, color .1s ease
+                cursor: pointer
+                &:hover
+                    color: var(--primary)
+                &:last-child
+                    color: var(--primary)
+                    background: var(--primary-container)
+                    padding: 5px 10px
+                    &:hover
+                        color: var(--on-secondary-container)
+                        background: var(--secondary-container)
+                @media screen and (max-width: 350px)
+                    &:first-child
+                        display: none
+
+form.jsInfo
+    padding: 10px 20px
+    font-size: 14px
+    background: var(--primary-container)
+    color: var(--primary)
+    display: flex
+    align-items: center
+    justify-content: space-between
+    @media screen and (max-width: 800px)
+        flex-direction: column
+        align-items: flex-start
+        gap: 10px
+    & div.text
+        display: flex
+        align-items: center
+        gap: 8px
+    & svg
+        min-width: 16px
+    & button
+        display: block
+        outline: 0
+        border: 0
+        display: flex
+        align-items: center
+        gap: 4px
+        text-decoration: none
+        color: var(--on-secondary-container)
+        background: var(--secondary-container)
+        padding: 5px 10px
+        font-size: 14px
+        font-weight: 400
+        border-radius: 8px
+        transition: background-color .1s ease, color .1s ease
+        cursor: pointer
+        &:hover

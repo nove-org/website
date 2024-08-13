@@ -2,28 +2,30 @@ export interface Response<T> {
     status: number;
     body: {
         data: T;
-        error: {
-            code: string;
-            doc_url: string;
-            message: string;
-            param: string;
-            type: string;
-            details?: {
-                code: string;
-                validation: string;
-                minimum: number;
-                maximum: number;
-                type: string;
-                inclusive: boolean;
-                message: string;
-                path: string[];
-            }[];
-        };
+        error: Error;
     };
     meta: {
         timestamp: string;
         version: string;
     };
+}
+
+export interface Error {
+    code: string;
+    doc_url: string;
+    message: string;
+    param: string;
+    type: string;
+    details?: {
+        code: string;
+        validation: string;
+        minimum: number;
+        maximum: number;
+        type: string;
+        inclusive: boolean;
+        message: string;
+        path: string[];
+    }[];
 }
 
 export interface User {
@@ -82,12 +84,14 @@ export interface Connection {
 }
 
 export interface Mfa {
-    secret: {
+    message: string;
+    enabled: boolean;
+    secret?: {
         secret: string;
         uri: string;
         qr: string;
     };
-    codes: string[];
+    codes?: string[];
 }
 
 export interface Post {
@@ -99,19 +103,23 @@ export interface Post {
     authorWebsite?: string;
     text: string;
     title: string;
+    header: string;
+    headerAlt: string;
     commentsAllowed: boolean;
     createdAt: string;
     updatedAt: string;
-    comments: {
-        id: string;
-        authorId: string;
-        authorUsername: string;
-        authorAvatar: string;
-        text: string;
-        blogPostId: string;
-        createdAt: string;
-        updatedAt: string;
-    }[];
+    comments: PostComment[];
+}
+
+export interface PostComment {
+    id: string;
+    authorId: string;
+    authorUsername: string;
+    authorAvatar: string;
+    text: string;
+    blogPostId: string;
+    createdAt: string;
+    updatedAt: string;
 }
 
 export interface Success {

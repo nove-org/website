@@ -1,10 +1,12 @@
-import o from '@sass/blog.module.sass';
-import LanguageHandler from '@util/handlers/LanguageHandler';
-import { getUser } from '@util/helpers/User';
-import { headers } from 'next/headers';
+import o from '../Blog.module.sass';
+import LanguageHandler from '@util/languages';
+import NAPI from '@util/NAPI';
+import { cookies, headers } from 'next/headers';
 
 export async function generateMetadata() {
-    const lang = await new LanguageHandler('documents/terms-of-service', await getUser()).init(headers());
+    const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
+    const user = await api.user().get({ caching: false });
+    const lang = await new LanguageHandler('documents/terms-of-service', user).init(headers());
     const title: string = `${lang.getProp('title')} | Nove`;
     const description: string = 'Read about our Terms of Service and learn what we can do with your account and what you are allowed to do.';
 
@@ -17,16 +19,17 @@ export async function generateMetadata() {
 }
 
 export default async function Terms() {
-    const user = await getUser();
+    const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
+    const user = await api.user().get({ caching: false });
     const lang = await new LanguageHandler('documents/terms-of-service', user).init(headers());
 
     return (
         <article className={o.blog}>
-            <div className={o.content}>
+            <div className={o.text}>
                 <h1>{lang.getProp('title')}</h1>
                 <time>
                     {lang.getProp('last-modified', {
-                        time: new Date(2024, 2, 10).toLocaleString(user?.language || 'en-US', { day: 'numeric', month: 'long', year: 'numeric' }),
+                        time: new Date(2024, 6, 12).toLocaleString(user?.language || 'en-US', { day: 'numeric', month: 'long', year: 'numeric' }),
                     })}
                 </time>
                 <div>
@@ -41,6 +44,7 @@ export default async function Terms() {
                         <li>{lang.getProp('u1-l4')}</li>
                         <li>{lang.getProp('u1-l5')}</li>
                         <li>{lang.getProp('u1-l6')}</li>
+                        <li>{lang.getProp('u1-l7')}</li>
                     </ul>
 
                     <h2>{lang.getProp('s3')}</h2>

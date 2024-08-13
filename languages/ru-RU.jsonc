@@ -29,7 +29,7 @@
 
      ? WARNING: The text shouldn't extend the original English version by much. It will wrap weirdly on the page.
 
-     Translated by Alexander M. Yell "https://mastodon.nove.team/@NotYourMagicBonkStick"
+     Translated by Alexander M. Yell <https://mastodon.nove.team/@NotYourMagicBonkStick>
     */
     "modules": {
         "navigation": {
@@ -43,25 +43,22 @@
             "switcher-security": "Безопасность",
             "switcher-logout": "Выйти",
             "products-files": "Храните Ваши данные безопасно в облаке",
-            "products-napi": "Позвольте Вашим пользователям авторизоваться с помощью аккаунта Nove",
-            "products-crm": "Управляйте своими клиентами быстро и легко"
+            "products-peekr": "Open-source search engine with its own index",
+            "products-crm": "Управляйте своими клиентами быстро и легко",
+            "no-javascript": "We see that you have JavaScript disabled in your browser. But don't worry, our website works flawlessly even without it."
         },
         "footer": {
-            "license": "Под лицензией",
-            "made-with-love": "Сделано с ❤️",
+            "license": "Licensed under {license}",
+            "made-with-love": "Made with ❤️ by {contributors}",
             "contributors": "участниками",
-            "ul-about": "О нас",
-            "ul-foss": "Проекты",
+            "ul-general": "General",
+            "ul-documents": "Documents",
             "ul-docs": "Документация",
-            "ul-blog": "Блог",
             "ul-donate": "Дарите",
-            "ul-login": "Войти",
-            "ul-register": "Зарегистрируйтесь",
             "ul-support": "Помощь",
             "ul-src": "Исходный код",
             "ul-privacy": "Политика конфиденциальности",
-            "ul-terms": "Условия использования",
-            "ul-developers": "Разработчики"
+            "ul-terms": "Условия использования"
         },
         "actions": {
             "back": "Назад",
@@ -77,31 +74,55 @@
             "save": "Сохраните",
             "edit": "Редактируйте",
             "delete": "Удалите",
-            "create": "Создайте"
+            "create": "Создайте",
+            "loading": "Please wait, loading the data...",
+            "show-less": "Show less",
+            "show-more": "Show more",
+            "update": "Update",
+            "close": "Close"
         },
         "errors": {
-            "header": "Что-то пошло очень не так",
-            "offline": "Извини, наши серверы в настоящее время недоступаны",
-            "session": "Что-то пошло не так, произошла ошибка при получении данных",
-            "verify-email": "Пожалуйста, подтвердите свой адрес электронной почты, чтобы получить доступ к аккаунту",
-            "not-found": "Мы не смогли найти страницу, которую Вы искали"
+            "verify-email": "Verify your email",
+            "verify-email-p": "A verification link has been sent to your email address. Open it to confirm account creation. Unverified accounts get removed after 3 days.",
+            "verify-email-btn": "I opened the link",
+            "account-suspended": "Your account is suspended",
+            "account-suspended-p": "Write to us (reply@nove.team) if you have any further questions.",
+            "header": "Something went horribly wrong",
+            "offline": "Sorry but our servers are currently offline.",
+            "not-found": "We couldn't find the page you were looking for.",
+            "no-data":"Input fields cannot be empty.",
+            "rate-limit": "You are being rate-limited. Please try again later.",
+            "other": "Something went wrong and we are not sure what happened.",
+            "decryption": "We couldn't decrypt account data. Please try again."
         }
     },
     "main": {
         "landing": {
             "title": "Встретьте ц миром, где Ваша конфиденциальность имеет значение",
-            "hero-h1": "Встретьте с миром, где <span>Ваша конфиденциальность</span> имеет значение.",
-            "hero-note-trust": "Не верьте нам на слово. Посмотрите <a class={style} target=\"_blank\" rel=\"noopener noreferrer\" href={repository}>код</a> сами",
+            // here - do not replace <span>, <word> etc.
+            // if you need more words in "your privacy" do the following:
+            // original: "... <span><word>your</word> <word>privacy</word></span> ..."
+            // i dont need more words: "... <span><word>TRANSLATE THIS</word> <word>TRANSLATE THIS</word></span> ..."
+            // i need more words: "... <span><word>WORD NR 1</word> <word>WORD NR 2</word></span> <word>WORD NR 3</word></span> ..."
+            "hero-h1": "Встретьте с миром, где <span><word>Ваша</word> <word>конфиденциальность</word></span> имеет значение.",
             "hero-description": "Откажитесь от Google, Facebook и других компаний, которые продают Ваши данные, создают Ваш профиль и отслеживают Вас. Верните контроль и начните использовать свободные, открытые и уважающие конфиденциальность решения от Nove.",
             "hero-btn": "Зарегистрируйтесь сегодня",
-            "word-h1": "В нашей экосистеме Ваши данные принадлежат вам, и только вам.",
+            "instance": "Instance",
+            "online":"Online",
+            "action-log": "Action log",
+            "action-upload": "{user} uploaded {file}",
+            "action-view": "{user} viewed {file}",
+            "decentralization-h1": "Because <strong>decentralization</strong> is the future.",
+            "decentralization-p": "All of our services are made with decentralization and self-hosting in mind. So you can run your own instance easily if you don't want or can't trust us.",
+            "decentralization-span": "Note: we are currently working on integrating decentralization into our products. It's not available yet.",
+            "word-h1": "With all the great features you expect, and more...",
+            "word-p": "Including the modern design, intuitive user interface and accessibility options.",
             "word-card1-title": "Безопасно хранятся на наших серверах",
             "word-card1-description": "Мы шифруем Ваши данные, когда это возможно, чтобы защитить их от правительств, хакеров и технологических компаний, включая нас.",
             "word-card2-title": "Без отслеживания и продаж",
             "word-card2-description": "Мы никогда не отслеживаем Вас по умолчанию и никогда не продаем Ваши данные третьим сторонам. Эти принадлежат вам, а не нам или им.",
             "word-card3-title": "Бесплатно всегда, не важно что",
-            "word-card3-description": "Большинство наших услуг включают в себя бесплатный бессрочный план, поэтому вам не обязательно нам доверять с самого начала. Начните свой путь сегодня!",
-            "word-trust": "Все это легко проверить, посмотрите наш исходный код. Он открытый для всех, посмотрите его на",
+            "word-card3-description": "Some of our services are paid. But, it's not mandatory to send the money to us. You can host it on your hardware free of charge!",
             "breakup-h1": "Создано энтузиастами конфиденциальности и сообществом",
             "breakup-description": "В Nove мы создаём открытые исходники и ценим любую поддержку от сообщества. Потому что <b>конфиденциальность и безопасность</b> идут вместе с <b>открытыми исходниками и возможностью аудита</b>.",
             "breakup-li-1": "Легкодоступные проекты через Gitea",
@@ -109,7 +130,9 @@
             "breakup-li-3": "Хостите свою собственную версию нашего программного обеспечения непосредственно на Вашем оборудовании",
             "ready-h1": "Готовы ли Вы погрузиться в мир конфиденциальности?",
             "ready-p": "Начните свое путешествие, зарегистрируйтесь бесплатно сегодня.",
-            "ready-btn": "Зарегистрируйтесь всего в несколько кликов"
+            "ready-btn": "Зарегистрируйтесь всего в несколько кликов",
+            "welcome-h1": "Welcome to NAPI",
+            "welcome-p":"Libre, self-hosted and decentralized OAuth2 provider."
         },
         "about": {
             "hero-h1": "Наша <b>цель</b> - сделать Интернет <span>приватным</span> и <span>безопасным</span> для всех",
@@ -118,64 +141,81 @@
             "pos2": "Главный бэкенд-разработчик и сопровождающий код",
             "pos3": "Дизайнер интерфейсов (UI/UX) и менеджер проекта",
             "pos4": "Фронтенд разработчик и владелец Peekr",
-            "thanks": "Special thanks to {name} for providing us with hardware to run our services seamlessly!"
-        },
-        "foss": {
-            "hero-h1": "Мы любим <span>свободное</span> и <span>открытое исходное</span>",
-            "hero-p": "Поэтому что программное обеспечение с <b>открытым исходным кодом</b> принимает существенное участие в совместнои работе, защите конфиденциальности пользователей и обеспечении надежности прилиожения.",
-            "ul-napi": "Создавайте желаемые приложения, используя систему NAPI OAuth2, которая обеспечивает доступ к входу в систему с помощью Nove.",
-            "ul-manager": "Официальный сайт, который мы используем на нашем основном домене для предоставления графического доступа к NAPI.",
-            "ul-files": "General purpose cloud hosting with encrypted uploads. Available to everyone with just one click.",
-            "ul-procurel": "Advanced customer relationship management application with great accessibility on mobile devices.",
-            "ul-peekr": "Privacy-respecting search engine with it's own index that's excluding big tech. Growing every day."
+            "thanks": "Special thanks to {name} for supporting us with hardware to run our services seamlessly!"
         },
         "login": {
             "hero-h1": "Добро пожаловайте снова",
             "hero-p": "Укажите Ваши учетные данные, чтобы получить доступ к Вашему аккаунту Nove",
-            "input-login": "Войти",
-            "input-password": "Пароль",
-            "mfa-h1": "Код аутентификации нужен",
-            "mfa-p": "Укажите код, сгенерированный Вашим выбранным приложением для TOTP аутентификации, или используйте резервный код.",
-            "mfa-label": "Код",
-            "password-reset": "Забыли пароль"
+            "input-email": "Email, username or handle",
+            "input-email-placeholder": "Your email, username or handle",
+            "input-password": "Password",
+            "input-password-placeholder": "Your password",
+            "input-mfa":"MFA Code",
+            "input-mfa-p": "Code generated by your multi-factor authentication app. You can use a recovery code as well.",
+            "handle-faq": "What is a handle?",
+            "password-reset": "Forgot your password?",
+            "input-next": "Next",
+            "input-login": "Log in",
+            "input-new": "Create an account",
+            "invalid-mfa": "Entered authentication code is not a valid code.",
+            "invalid-password": "User under this email/username doesn't exist or provided password is incorrect."
         },
         "register": {
             "hero-h1": "Новый аккаунт Nove",
             "hero-p": "Заполните форму и создайте новый аккаунт",
-            "input-email": "Электронная почта",
-            "input-username": "Имя пользователя",
-            "input-password": "Пароль"
+            "input-username": "Username",
+            "input-usernameD": "Username is shown to other users. It might be used to log in to your account as well.",
+            "input-username-placeholder": "Your username",
+            "input-email": "Email",
+            "input-emailD": "Email for verification and account recovery purposes. We can send you security emails optionally.",
+            "input-email-placeholder": "Your email",
+            "input-password": "Password",
+            "input-passwordD": "The key to your account. Must have at least 1 uppercase letter, 1 special character and 1 number and be at least 8 characters long.",
+            "input-password-placeholder": "Your password",
+            "input-login":"Have an account?",
+            "input-register":"Register",
+            "account-taken":"This account is already taken! Please use different email/username.",
+            "weak-password": "Your password is too weak! Use lowercase, uppercase letters, numbers and at least one special character.",
+            "email-error": "Couldn't send an email to this address. Please try again later.",
+            "invalid-username": "Your username is invalid! Make sure it's at least 3 characters and contains only a-Z, 0-9, _"
         },
         "password-reset": {
             "hero-h1": "Сброс пароля",
             "hero-p": "Укажите Ваш адрес электронной почты и новый пароль, чтобы продолжить.",
-            "input-email": "Электронная почта",
-            "input-new-password": "Новый пароль",
-            "request-success": "Подтверждающее письмо было отправлено на этот адрес, если данныи аккаунт существует."
+            "confirm-h1": "Confirm password reset",
+            "confirm-p": "Enter your new password again to finish resetting your password.",
+            "request-success-h1":"Check your inbox...",
+            "request-success-p": "Confirmation email was sent to that address if account registered on it exists",
+            "login": "Log in instead",
+            "invalid-code":"Invalid password recovery code was provided!",
+            "invalid-user": "Invalid user Id was provided!"
         },
         "blog": {
-            "warn-h1": "Предупреждение",
-            "warn-p": "Сейчас у нас только посты на английском языке. Это изменится в будущем."
+            "title": "Blog",
+            "new-post": "New post",
+            "featured": "Featured",
+            "other": "Other posts",
+            "published-on": "Published on {date}",
+            "by-author": "By {author}"
         }
     },
     "dashboard": {
         "layout": {
-            "title": "Панель приборов",
             "header": "Настройки",
             "ul-overview": "Обзор",
-            "ul-security": "Безопасность",
-            "ul-profile": "Мой профайл",
+            "ul-oauth2": "OAuth2 history",
+            "ul-security": "Security <i>&</i> privacy",
+            "ul-profile": "Profile options",
             "ul-language": "Язык",
             "header-admin": "Модерация",
             "ul-users": "Пользователи",
             "ul-posts": "Посты",
-            "ul-logs": "Журнал аудита"
+            "ul-logs": "Журнал аудита",
+            "latest-news": "Latest news from developers"
         },
         "main": {
-            "tips-header": "Как улучшить безопасность и конфиденциальность",
-            "tips-1": "Используйте свободные и открытые программы",
-            "tips-2": "Используйте МФА, когда это возможно",
-            "tips-3": "Имейте как можно меньше аккаунтов",
+            "hello": "Hello, {user}!",
+            "hello-p": "Here is the place where you can manage your account and data associated with it.",
             "card-1-h1": "Язык",
             "card-1-p": "Измените предпочитаемый язык во всех продуктах Nove",
             "card-2-h1": "Активность",
@@ -183,22 +223,24 @@
             "card-2-action": "{number} активных сессий",
             "card-3-h1": "Вошли",
             "card-3-p": "С легкостью измените учетные данные своего аккаунта или добавьте уровни безопасности",
-            "card-3-action": "Идти",
             "card-4-h1": "Восстановление",
             "card-4-p": "Настройте двухфакторную аутентификацию и загрузите резервные коды",
-            "connections-title": "Связи приложений",
-            "connections-btn-privacy": "Политика конфиденциальности",
-            "connections-btn-tos": "Условия использования",
-            "connections-permissions": "Позволения",
-            "connections-last-access": "Последний доступ:",
-            "connections-expire": "Истекает:"
+            "applications": "Applications"
+        },
+        "oauth2": {
+            "description": "OAuth2 is an authorization system used to share your identity across multiple services. By that, you don't have to create a new account on each of our products. This tab shows your history of authorizations. Authorizations are pop-ups asking you to grant an application access to your account. When application is authorized it will show up here with all permissions it has.",
+            "by-who": "By {author}",
+            "links": "Links",
+            "homepage": "Home page",
+            "permissions": "Permissions",
+            "first-access": "First accessed on {date}",
+            "last-login": "Last successful login on {date}"
         },
         "security": {
             "devices-h1": "Ваши устройства",
-            "devices-p": "Список последних устройств, которые вошли в Ваш аккаунт",
+            "devices-p": "List of devices that logged into your account in last month. We use ifconfig.net to get location information during sign ins. Data is encrypted.",
             "devices-no-data-h1": "Данные об устройствах не найдены",
             "devices-no-data-p": "Вы отказались от активности или мы еще не записали никакую.",
-            "devices-privacy-notice": "Мы храним информацию о устройствах, которые вошли в Ваш аккаунт в течение последнего месяца, на наших серверах. Мы используем ifconfig.net для получения информации о местоположении при входе в систему.",
             "hds-h1": "Как Вы входите в систему",
             "hds-p": "Добавьте или измените способы входа и подтверждения Вашей личности",
             "hds-password-btn": "Пароль",
@@ -209,48 +251,61 @@
             "hds-password-label-2": "Новый пароль",
             "hds-password-placeholder-2": "Укажите Ваш новый пароль",
             "hds-email-btn": "Почта",
-            "hds-email-h1": "Измените адрес Ваши электронной почты",
-            "hds-email-p": "Адрес, по которому мы можем связаться с вами в случае необычной активности на Вашем аккаунте или если Вы заблокируетесь. Вы также можете использовать его для входа.",
+            "hds-email-h1": "Email options",
+            "hds-email-p": "Change your address or add additional security with PGP keys. Toggle receiving of security notifications.",
+            "hds-email-change-h2": "Change your email",
+            "hds-email-change-p": "The address where we can contact you if there is an unusual activity on your account or if you'll get locked out. You can also use it to log in.",
+            "hds-email-pgp-h2": "PGP public key",
+            "hds-email-pgp-p": "Encrypt all outgoing emails from Nove with your PGP key.",
+            // do not translate "'-----BEGIN PGP PUBLIC KEY BLOCK-----'"
+            "hds-email-pgp-h": "Begins with '-----BEGIN PGP PUBLIC KEY BLOCK-----'",
+            "hds-email-security-h2": "Security updates",
+            "hds-email-security-p": "Receive security notifications when you log in to your account on a new device.",
             "hds-email-label-1": "Новая электронная почта",
             "hds-email-placeholder-1": "Ввведите Ваш новый адрес электронной почты",
             "hds-mfa-btn": "МФА",
             "hds-mfa-h1": "Многофакторная аутентификация",
-            "hds-mfa-p": "Лучший способ защиты Вашего аккаунта от хакеров. Здесь Вы можете включить или выключить МФА.",
+            "hds-mfa-p": "Secure your account against breach attempts. You can toggle multi-factor authentication on or off here.",
+            "hds-mfa-scan-h1": "Scan this QR code...",
+            "hds-mfa-scan-p": "...with your desired multi-factor authentication app.",
             "hds-mfa-label-code": "Код",
             "hds-mfa-recovery-codes": "Коды восстановления",
-            "hds-recovery": "Восстанов",
+            "hds-recovery-btn": "Восстанов",
             "hds-recovery-h1": "Коды восстановления",
             "hds-recovery-p": "Скопируйте резервные коды доступа к Вашему аккаунту на случай потери Вашего телефона с установленным приложением TOTP.",
             "hds-recovery-label": "Код МФА",
             "delete-h1": "Удалите Ваш аккаынт Nove",
             "delete-p": "Чтобы удалить Ваш аккаунт, нам необходимо, чтобы Вы предоставили пароль Вашего аккаунта для подтверждения Ваших действий. Этот процесс невозможно отменить, и все данные, связанные с этим аккаунтом, будут немедленно удалены с наших серверов! Вы можете удалить свой аккаунт в любое время, когда захотите. Пожалуйста, убедитесь, что Вы удалили все сторонние аккаунты, которые Вы зарегистрировали, используя Ваш аккаунт Nove, иначе Вы не сможете войти в них.",
             "delete-p2": "Укажите Ваш пароль, чтобы мы могли подтвердить, что это Вы. Не забудьте удалить все аккаунты, которые Вы зарегистрировали, используя этот аккаунт Nove. В противном случае они могут быть недоступными. Это действие выполняется мгновенно. Это необратимо.",
-            "delete-label": "Ваши пароль",
-            "delete-placeholder": "Пароль",
-            "delete-btn": "Удалите мой аккаунт"
+            "delete-btn": "Удалите мой аккаунт",
+            "code-used": "code used",
+            "invalid-password": "Invalid password. Please try again.",
+            "invalid-pgp": "Provided PGP public key seems to be invalid.",
+            "invalid-email": "Invalid email address. Please try again.",
+            "email-sent": "Email has been sent. Check your old and new inbox and confirm the change.",
+            "could-not-send-email": "Couldn't deliver the email to provided addresses."
         },
         "profile": {
-            "description": "Управляйте своей личной информацией, которая отображается в Вашем профиле. Вы можете изменить свой профиль на приватный или публичный. На приватном режиме будет отображаться только основная информация о Вашем аккаунте, такая как имя пользователя и изображение профиля.",
-            "hero-ul-1": "Базовая информация о аккаунте",
-            "hero-ul-2": "Детали",
-            "input-username": "Имя пользователя",
-            "input-username-placeholder": "{username} (Новое имя пользователя здесь)",
-            "input-avatar": "Изображение профаиля",
-            "input-avatar-btn": "Выберите фай",
-            "input-avatar-filename": "Ничего не выбрано",
-            "input-avatar-too-big": "Файл, который Вы пытаетесь загрузить, слишком велик",
-            "input-avatar-not-allowed": "Тип файла, который Вы пытаете загрузить, не разрешен",
-            "input-bio": "Обо мне",
-            "input-website": "Саит",
-            "input-pgp": "Шифруйте сообщения от xxxx с помощью ключа PGP (необязательно)",
-            "input-pgp-placeholder": "Начинается с '-----BEGIN PGP PUBLIC KEY BLOCK-----'",
-            "input-activity-notify": "Получайте уведомление, когда новое устройство входит в ваш аккаунт",
-            "input-profile-state-label": "Покажите больше деталей на Вашем публичном профиле"
+            "description": "Manage your personal info that is displayed on your profile. You can change the display method of your profile to private and public. While on private we will share only basic information about your account, detailing: username, avatar.",
+            "avatar-h1": "Avatar",
+            "avatar-p": "An image shown to users on all our services. Helps in recognizing you among your friends and colleagues.",
+            "avatar-btn": "Change your avatar",
+            "uid-h1": "Unique identifier",
+            "uid-p": "Special identifier that is linked to your account. You can't modify it. Useful for developers.",
+            "username-h1": "Username",
+            "username-p": "Username that is displayed on all our services and is shown to other users.",
+            "website-h1": "Website",
+            "website-p": "Optional website field. A custom link that is placed below about me section on your profile.",
+            "bio-h1": "About me",
+            "bio-p": "Optional about me field. Personalized space where you can write your thoughts you want to share with the world.",
+            "profile-view-h1": "Public profile",
+            "profile-view-p" :"Display more details (language, about me, website) on your public profile. OAuth2 apps are able (with proper permissions) to access this data no matter the setting.",
+            "preview-h1": "Profile preview",
+            "created-at": "Created at {date}",
+            "username-taken": "Sorry but this username is already taken."
         },
         "language": {
-            "hero-h1": "Язык",
-            "hero-p1": "Выберите Ваш предпочитаемный язык. Эта настройка будет использована для отображения содержания на Вашем языке во всех продуктах Nove и Ваши подключенные приложения могут её использовать.",
-            "hero-p2": "Предупреждение: мы еще не полностью поддерживаем."
+            "description": "Select your preferred language. This setting will be used to display content in your language in all Nove products and your connected apps might use it."
         }
     },
     "admin": {
@@ -258,7 +313,7 @@
             "hero-h1": "Список пользователей",
             "popup-btn": "Авторизуйте Ваше действие",
             "popup-h1": "Нам нужно подтвердить, что это Вы",
-            "popup-p": "Пожалуста, укажите Ваш код МФА из приложения TOTP на Вашем телефоне. Вы можете использовать свой резервный код.",
+            "popup-p": "Please provide your MFA code from application on your phone. You can use your backup code.",
             "popup-label": "Код МФА",
             "popup-reason": "Причина"
         },
@@ -276,7 +331,7 @@
             "title": "Privacy Policy",
             "last-modified": "Last updated and reviewed {time}",
             "s1-p1": "We serve free (as in freedom) open-source software (e.g. NAPI, Peekr, Procurel). We do not (a) sell your data, (b) fingerprint you, or (c) use tracking pixels.",
-            "s1-p2": "We keep the right to update this document without notifying you. It is upon your discretion to keep yourself updated. By using our services, you agree to the Privacy Policy and Terms of Service.",
+            "s1-p2": "For existing users, we always inform about Privacy Policy and/or Terms of Service updates on our blog a week before they are introduced. Any users registered after the update notice and before introduction date are subject to new documents. By using our services, you agree to this Privacy Policy and Terms of Service.",
             "s2": "Data manager",
             "s2-p1": "The data manager for this website is Nove. You can contact us through:",
             "u1-l1": "E-mail: {emails}",
@@ -299,15 +354,15 @@
             "s5-p1": "We are trying our best to keep this list as short as possible. Here is the current list:",
             "u4-l1": "Servers are provided by <b>Fundacja 'Technologie dla Ludzi'</b> (doing business also as FTdL) - website: {link}, mail: {mail}, office address: 2 Nabielaka Street, 31-409 Kraków, Poland.",
             "u4-l2": "Domain and DNS nameservers are provided by <b>OVH</b> - website: {link}, office address: OVH SAS, Data Protection Officer, 2 rue Kellermann, 59100 Roubaix, France.",
-            "u4-l3": "We are running social media accounts on our fediverse instance that federates with 3rd-party services. Any interaction with us and them is a subject to the privacy policies of these platforms. Our official Nove account is available at {link}. Interacting with our posts by liking, reposting or commenting them require data about such interactions to be stored on our and other servers that previously interacted with our account and instance. <b>You can delete such data by retracting all of your interactions and unfollowing our account.</b>",
+            "u4-l3": "We are running social media accounts on our fediverse instance that federates with 3rd-party services. Any interaction with us and them is subject to the privacy policies of these platforms. Our official Nove account is available at {link}. Interacting with our posts by liking, reposting or commenting them require data about such interactions to be stored on our and other servers that previously interacted with our account and instance. <b>You can delete such data by retracting all of your interactions and unfollowing our account.</b>",
             "s5-p2": "Please note our services weren't made for the sake of gaining anonymity. When authorities will turn to us, we are obliged to provide them with data we can access. However, when they allow us to do so, we'll tell you about that.",
             "s6": "Cookie policy",
             "s6-p1": "We use only first party cookies, in order to help you use this website more conveniently (e.g. remembering your preferences, or a login session). No third party cookies are installed in your browser.",
             "s7": "Data retention policy",
             "u5-l1": "You can delete your account by going to Security section on Nove account page, and scroll to 'Delete your account'. This action is not reversible, and we do not artificially postpone it.",
-            "u5-l2": "We reserve the right to delete all unverified accounts. Each unverified account is stored in our database up to 3 days.",
+            "u5-l2": "We reserve the right to delete all unverified accounts. Each unverified account is stored in our database up to 3 days. We deem the account unverified if someone who registered never verified themselves by clicking through the link we have sent to the e-mail address used.",
             "u5-l3": "We reserve the right to suspend or delete accounts for Terms of Service violations.",
-            "u5-l4": "If you lost access to an account, you can request resetting your password or account deletion by providing exact e-mail address you gave during registration.",
+            "u5-l4": "If you lost access to an account, you can request resetting your password or account deletion by providing exact e-mail address currently associated with your account. Account recovery is available upon typing your e-mail address in the login form. Account deletion might be requested when an account is inactive for at least 6 months, and is performed automatically after 2 years of inactivity. Inactivity period starts over when an account has been used to log in here or on a third-party website supporting Nove accounts, or when the account owner has modified their settings.",
             "u5-l5": "If you reset your password, we cannot recover any encrypted data. In other words: you lose it.",
             "th-1": "Data type",
             "th-2": "Public profile",
@@ -341,8 +396,8 @@
         "terms-of-service": {
             "title": "Terms of Service",
             "last-modified": "Last updated and reviewed {time}",
-            "s1-p1": "By using our services you agree to the terms written below. Please note that this document applies to all of our services and should be read alongside the Privacy Policy. If you do not agree to rules below, please stop using our services.",
-            "s1-p2": "We reserve the right to update this document without notifying you. It is upon your discretion to keep yourself updated.",
+            "s1-p1": "By using our services you agree to terms written below. Please note that this document applies to all of our services and should be read alongside the Privacy Policy.",
+            "s1-p2": "For existing users, we always inform about Privacy Policy and/or Terms of Service updates on our blog a week before they are introduced. Any users registered after the update notice and before introduction date are subject to new documents.",
             "s2": "What you can and what you cannot do",
             "u1-l1": "While we do not require an account to get started with at least some products, all account owners should be <b>at least 16</b>, or if their parents consent to register, the limit may be relaxed (required being 13 or older).",
             "u1-l2": "When we find out neither of required age limits was reached we will suspend the account permanently, and delete all associated data.",
@@ -350,6 +405,7 @@
             "u1-l4": "Any executables that may pose an imminent threat to our servers and/or other users' devices are strictly prohibited.",
             "u1-l5": "Any security issues, should be they found, must be reported immediately to us. Using them to your advantage is prohibited, and you may face a permanent suspension.",
             "u1-l6": "Please do not create additional accounts - one should be enough.",
+            "u1-l7": "Content encouraging things illegal by law (e.g. violence, discrimination of others no matter the field) is prohibited. This includes your \"about me\" section, linked websites, and usernames.",
             "s3": "Commenting rules",
             "s3-p1": "This is a section that we introduced due to the DSA coming into force on 17 February 2024. This section applies to comments section on our blog at <b>nove.team/blog</b>.",
             "u2-l1": "You <b>can</b> tell us what we are doing wrong, but you <b>cannot</b> post hateful content or slurs pointed towards Nove staff and other commenters.",
