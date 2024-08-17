@@ -7,6 +7,7 @@ import Databox from '@app/Databox';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import FormError from '../FormError';
+import { COOKIE_HOSTNAME } from '@util/CONSTS';
 
 export default async function Delete({ et }: { et?: string }) {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
@@ -37,7 +38,18 @@ export default async function Delete({ et }: { et?: string }) {
                 default:
                     redirect('?p=delete&et=u');
             }
-        } else redirect(`/`);
+        } else {
+            cookies().set('napiAuthorizationToken', '', {
+                maxAge: 1,
+                domain: COOKIE_HOSTNAME,
+            });
+            cookies().set('tempAuthId', '', {
+                maxAge: 1,
+                domain: COOKIE_HOSTNAME,
+            });
+
+            return redirect('/');
+        }
     };
 
     return (
