@@ -28,7 +28,11 @@ export default function Form({
     };
 }) {
     const [loading, setLoading] = useState<boolean>(false);
-    const triggerLoading = () => (document.getElementById('mfa') as HTMLInputElement)?.value?.length > 0 && setLoading(true);
+    const triggerLoading = () =>
+        (document.getElementById('username') as HTMLInputElement)?.value?.length > 0 &&
+        (document.getElementById('email') as HTMLInputElement)?.value?.match(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/) &&
+        (document.getElementById('password') as HTMLInputElement)?.value?.length > 0 &&
+        setLoading(true);
 
     return (
         <>
