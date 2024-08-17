@@ -26,8 +26,6 @@ export default async function AccountErrorHandler({ searchParams }: { searchPara
     let next: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 'next');
     if (!next?.match(/^(?!(\/\/)).*$/g) || !next?.match(DOMAIN_REGEX)) next = undefined;
 
-    if (!user?.id && user?.code !== 'verify_email') redirect('/login' + (next ? `?next=${encodeURIComponent(next)}` : ''));
-
     if (user?.code === 'verify_email')
         return (
             <section className={o.information}>
@@ -46,7 +44,7 @@ export default async function AccountErrorHandler({ searchParams }: { searchPara
                 </a>
             </section>
         );
-    else if (user.disabled)
+    else if (user?.disabled)
         return (
             <section className={o.information}>
                 <svg className={o.header} xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 24 24">
@@ -58,5 +56,6 @@ export default async function AccountErrorHandler({ searchParams }: { searchPara
                 <p>{lang.getProp('account-suspended-p')}</p>
             </section>
         );
+    else if (!user?.id) redirect('/login' + (next ? `?next=${encodeURIComponent(next)}` : ''));
     else redirect(next ? next : '/account');
 }
