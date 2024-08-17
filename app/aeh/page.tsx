@@ -26,7 +26,7 @@ export default async function AccountErrorHandler({ searchParams }: { searchPara
     let next: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 'next');
     if (!next?.match(/^(?!(\/\/)).*$/g) || !next?.match(DOMAIN_REGEX)) next = undefined;
 
-    if (!user?.id) redirect('/login' + (next ? `?next=${encodeURIComponent(next)}` : ''));
+    if (!user?.id && user?.code !== 'verify_email') redirect('/login' + (next ? `?next=${encodeURIComponent(next)}` : ''));
 
     if (user?.code === 'verify_email')
         return (
