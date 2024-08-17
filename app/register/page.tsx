@@ -62,6 +62,7 @@ export default async function Register({ searchParams }: { searchParams: { [key:
                 email,
                 username,
                 password,
+                language: headers().get('Accept-Language')?.split(',')[0] || 'en-US',
             },
         });
 
