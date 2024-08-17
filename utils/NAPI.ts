@@ -224,7 +224,7 @@ export default class NAPI {
                 return await getData<Mfa>({
                     path: '/v1/users/me/delete',
                     options: { headers: { ...options.headers, 'x-mfa': body.code } },
-                    type: RequestType.Patch,
+                    type: RequestType.Post,
                     body,
                 });
             },
