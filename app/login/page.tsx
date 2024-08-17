@@ -9,7 +9,7 @@ import ObjectHelper from '@util/object';
 import o from './Login.module.sass';
 import { cookies, headers } from 'next/headers';
 import { redirect } from 'next/navigation';
-import { COOKIE_HOSTNAME, DOMAIN_REGEX } from '@util/CONSTS';
+import { COOKIE_HOSTNAME, DOMAIN_REGEX, ENABLE_REGISTER_PAGE } from '@util/CONSTS';
 import FormError from '@app/account/FormError';
 
 export async function generateMetadata() {
@@ -54,7 +54,6 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
         const password = e.get('password')?.toString() || cookies().get('tempAuthId')?.value,
             code = e.get('mfa')?.toString();
         if (!password) return redirect('/login?et=nd&h=' + handle + (next ? `&next=${encodeURIComponent(next)}` : ''));
-        if (cookies().get('napiAuthorizationToken')?.value) return;
 
         const authorization = await new NAPI(undefined, headers().get('User-Agent')?.toString()).user().authorize({
             body: {
@@ -154,9 +153,11 @@ export default async function Login({ searchParams }: { searchParams: { [key: st
                         </>
                     ) : (
                         <div className={o.buttons}>
-                            <Link className="btn" href={`/register` + (next ? `?next=${encodeURIComponent(next)}` : '')}>
-                                {lang.getProp('input-new')}
-                            </Link>
+                            {ENABLE_REGISTER_PAGE && (
+                                <Link className="btn" href={`/register` + (next ? `?next=${encodeURIComponent(next)}` : '')}>
+                                    {lang.getProp('input-new')}
+                                </Link>
+                            )}
                             <button className={'btn ' + o.highlight} type="submit">
                                 {lang.getProp('input-next')}
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">

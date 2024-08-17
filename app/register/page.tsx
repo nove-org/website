@@ -4,7 +4,7 @@ import ObjectHelper from '@util/object';
 import o from '../login/Login.module.sass';
 import { cookies, headers } from 'next/headers';
 import { redirect } from 'next/navigation';
-import { COOKIE_HOSTNAME } from '@util/CONSTS';
+import { COOKIE_HOSTNAME, ENABLE_REGISTER_PAGE } from '@util/CONSTS';
 import Form from './Form';
 import { Error } from '@util/schema';
 import FormError from '@app/account/FormError';
@@ -32,6 +32,7 @@ export default async function Register({ searchParams }: { searchParams: { [key:
     const error: string | undefined = ObjectHelper.getValueByStringPath(searchParams, 'et');
 
     if (user?.id) redirect(`/aeh` + (next ? `?next=${encodeURIComponent(next)}` : ''));
+    if (!ENABLE_REGISTER_PAGE) redirect('/login');
 
     const handleRegister = async (e: FormData) => {
         'use server';
@@ -54,15 +55,17 @@ export default async function Register({ searchParams }: { searchParams: { [key:
         const email = e.get('email')?.toString();
         const username = e.get('username')?.toString();
         const password = e.get('password')?.toString();
-        if (cookies().get('napiAuthorizationToken')?.value) return;
         if (!email || !username || !password) redirect(link('/register?et=nd'));
+
+        let browserLanguage = headers().get('Accept-Language')?.split(',')[0] || 'en-US';
+        if (!browserLanguage.split('-')[1]) browserLanguage = `${browserLanguage}-${browserLanguage.toUpperCase()}`;
 
         const authorization = await new NAPI(undefined, headers().get('User-Agent')?.toString()).user().register({
             body: {
                 email,
                 username,
                 password,
-                language: headers().get('Accept-Language')?.split(',')[0] || 'en-US',
+                language: browserLanguage,
             },
         });
 
