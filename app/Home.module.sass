@@ -383,6 +383,7 @@ section.why
                 display: block
                 max-width: 285px
                 height: 110px
+                background: var(--tertiary-container)
                 border-top-left-radius: 20px
                 border-top-right-radius: 20px
                 position: relative
@@ -392,13 +393,12 @@ section.why
                     margin-top: 15px
                     margin-left: 15px
             & figure.encryption
-                background: #f29797
                 & svg
                     position: absolute
                     top: 30%
                     left: 50%
                     transform: translate(-50%, -50%)
-                    color: var(--primary)
+                    color: var(--on-tertiary-container)
                 & div.st, div.nd, div.rd
                     position: absolute
                     top: 65%
@@ -409,8 +409,7 @@ section.why
                     font-size: 18px
                     padding: 5px 10px
                     border-radius: 10px
-                    background: var(--secondary-container)
-                    border: 1px solid var(--secondary)
+                    background: var(--primary-container)
                     color: var(--primary)
                 & div.st
                     z-index: 3
@@ -450,28 +449,26 @@ section.why
                     100%
                         opacity: 0
             & figure.tracking
-                background: #f29797
                 display: flex
                 flex-direction: column
                 align-items: center
                 justify-content: center
                 gap: 10px
                 & div.cross
-                    color: var(--primary)
+                    color: var(--on-tertiary-container)
                     position: relative
                     &::after
                         display: block
                         content: ''
                         width: 100%
                         height: 5px
-                        background: black
+                        background: var(--on-tertiary-container)
                         position: absolute
                         top: 50%
                         left: 0
                         rotate: -45deg
                         border-radius: 2px
             & figure.free
-                background: #f29797
                 display: flex
                 flex-direction: column
                 align-items: center
@@ -482,13 +479,13 @@ section.why
                     font-size: 14px
                     font-weight: 500
                     text-transform: uppercase
-                    color: var(--primary)
+                    color: var(--on-tertiary-container)
                     display: flex
                     align-items: center
                     gap: 5px
                 & div.progress
                     width: 80%
-                    background: var(--secondary-container)
+                    background: var(--primary-container)
                     height: 10px
                     border-radius: 50px
                     position: relative
@@ -500,7 +497,7 @@ section.why
                         top: 0
                         width: 50%
                         height: 10px
-                        background: linear-gradient(to right, #bf5151, #c73737)
+                        background: linear-gradient(to right, var(--primary), var(--tertiary))
                     &::before
                         animation: progressLeft 5s ease infinite
                         right: 0
