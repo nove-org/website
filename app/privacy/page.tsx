@@ -42,7 +42,7 @@ export default async function Privacy() {
                             __html: lang.getProp('u1-l1', { emails: '<a href="mailto:reply@nove.team">reply@nove.team</a>, <a href="mailto:matt@nove.team">matt@nove.team</a>' }),
                         }}
                     />
-                    <li dangerouslySetInnerHTML={{ __html: lang.getProp('u1-l2', { link: '<a href="https://mastodon.nove.team/@nove">@nove@nove.team</a>' }) }} />
+                    <li dangerouslySetInnerHTML={{ __html: lang.getProp('u1-l2', { link: '<a href="https://fedi.nove.team/@nove">@nove@fedi.nove.team</a>' }) }} />
                 </ul>
                 <h2>{lang.getProp('s3')}</h2>
                 <p>{lang.getProp('s3-p1')}</p>
@@ -180,7 +180,7 @@ export default async function Privacy() {
                         }}
                     />
                     <li dangerouslySetInnerHTML={{ __html: lang.getProp('u4-l2', { link: '<a href="https://ovhcloud.com">https://ovhcloud.com</a>' }) }} />
-                    <li dangerouslySetInnerHTML={{ __html: lang.getProp('u4-l3', { link: '<a href="https://mastodon.nove.team/@nove">@nove@nove.team</a>' }) }} />
+                    <li dangerouslySetInnerHTML={{ __html: lang.getProp('u4-l3', { link: '<a href="https://fedi.nove.team/@nove">@nove@fedi.nove.team</a>' }) }} />
                 </ul>
                 <p>{lang.getProp('s5-p2')}</p>
                 <h2>{lang.getProp('s6')}</h2>
