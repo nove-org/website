@@ -5,18 +5,13 @@ import Image from 'next/image';
 import o from './Navigation.module.sass';
 import { usePathname } from 'next/navigation';
 import { User } from '@util/schema';
+import { ENABLE_REGISTER_PAGE, OFFICIAL_LANDING, DONATE_LINK } from '@util/CONSTS';
 
 export default function Navigation({
     user,
-    registerPage,
-    officialLanding,
-    donateLink,
     lang,
 }: {
     user?: User;
-    registerPage: boolean;
-    officialLanding: boolean;
-    donateLink?: string;
     lang: {
         products: string;
         productsFiles: string;
@@ -42,7 +37,7 @@ export default function Navigation({
                     Nove
                 </Link>
                 <div className={o.links}>
-                    {officialLanding && (
+                    {OFFICIAL_LANDING && (
                         <details className={o.link}>
                             <summary>
                                 {lang.products}{' '}
@@ -95,8 +90,8 @@ export default function Navigation({
                     <Link className={o.link} href="/blog">
                         {lang.blog}
                     </Link>
-                    {donateLink && (
-                        <Link className={o.link} href={donateLink}>
+                    {DONATE_LINK && (
+                        <Link className={o.link} href={DONATE_LINK}>
                             {lang.donate}
                         </Link>
                     )}
@@ -106,7 +101,7 @@ export default function Navigation({
                 {user?.id ? (
                     <details className={o.profile}>
                         <summary>
-                            <img src={user.avatar} width={28} height={28} alt="User's avatar" />
+                            <Image src={user.avatar} width={28} height={28} alt="User's avatar" />
                         </summary>
                         <div className={o.options}>
                             <Link href="/account">
@@ -138,7 +133,7 @@ export default function Navigation({
                 ) : (
                     <div className={o.buttons}>
                         <Link href="/login">{lang.login}</Link>
-                        {registerPage && (
+                        {ENABLE_REGISTER_PAGE && (
                             <Link
                                 href="/register
                         ">

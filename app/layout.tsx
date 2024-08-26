@@ -26,7 +26,7 @@ import o from './Navigation.module.sass';
 import pkg from '../package.json';
 import { inter } from '@util/fonts/manager';
 import { cookies, headers } from 'next/headers';
-import { COOKIE_HOSTNAME, DONATE_LINK, ENABLE_REGISTER_PAGE, OFFICIAL_LANDING, SOURCE_CODE } from '@util/CONSTS';
+import { COOKIE_HOSTNAME, SOURCE_CODE } from '@util/CONSTS';
 import { redirect } from 'next/navigation';
 import type { Metadata, Viewport } from 'next';
 
@@ -108,9 +108,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
                 <Navigation
                     user={user}
-                    registerPage={ENABLE_REGISTER_PAGE}
-                    officialLanding={OFFICIAL_LANDING}
-                    donateLink={DONATE_LINK}
                     lang={{
                         products: nav.getProp('ul-products'),
                         productsFiles: nav.getProp('products-files'),
