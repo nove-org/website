@@ -12,6 +12,7 @@ div.content
         margin: 5px 0
     & div.devices
         padding: 20px 0
+        min-height: 340px
         & ul.devices
             margin: 0
             padding: 10px 0
@@ -19,6 +20,7 @@ div.content
             display: flex
             flex-direction: column
             gap: 10px
+            box-sizing: border-box
             & li
                 border: 1px solid var(--secondary)
                 border-radius: 15px
@@ -85,49 +87,58 @@ div.content
                         padding-top: 0
     & div.securityLayers
         display: flex
-        align-items: center
         justify-content: space-between
+        flex-direction: column
+        align-items: stretch
         padding: 100px 0
-        @media screen and (max-width: 900px)
-            flex-direction: column
-            align-items: stretch
-            gap: 20px
-            padding: 50px 0
+        gap: 20px
+        padding: 50px 0
         & div.info
             & p
                 max-width: 350px
         & div.links
             display: grid
-            grid-template-columns: repeat(3, 1fr)
-            gap: 12px
-            @media screen and (max-width: 1400px)
-                grid-template-columns: repeat(2, 1fr)
+            grid-template-columns: repeat(2, 1fr)
+            gap: 20px
             & a
                 padding: 12px
                 border-radius: 15px
                 background: var(--primary-container)
                 color: var(--on-primary-container)
                 min-width: 200px
-                min-height: 100px
+                min-height: 120px
                 box-sizing: border-box
                 text-decoration: none
-                font-size: 20px
+                font-size: 22px
                 font-weight: 500
                 display: flex
                 flex-direction: column
                 justify-content: flex-end
-                gap: 5px
+                gap: 8px
                 transition: background-color .05s, color .05s
                 &:hover
                     background: var(--secondary-container)
                     color: var(--on-secondary-container)
+                    & svg.header
+                        @media screen and (min-width: 601px)
+                            background: var(--primary-container)
+                            color: var(--primary)
                 @media screen and (max-width: 900px)
                     min-width: 100%
+                & svg.header
+                    @media screen and (min-width: 601px)
+                        padding: 8px
+                        border-radius: 12px
+                        background: var(--secondary-container)
+                        color: var(--secondary)
                 & span
                     width: 100%
                     display: flex
                     align-items: center
                     justify-content: space-between
+                    & svg
+                        @media screen and (max-width: 600px)
+                            display: none
     & div.deleteAccount
         padding: 30px 0
         & div.info
