@@ -28,8 +28,6 @@ export async function generateMetadata() {
 export default async function PasswordReset({ searchParams }: { searchParams: [key: string | string[]] | undefined }) {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
     const user = await api.user().get({ caching: false });
-    if (user) redirect('/account');
-
     const key = ObjectHelper.getValueByStringPath(searchParams, 'key');
     const userId = ObjectHelper.getValueByStringPath(searchParams, 'ref');
     const s = ObjectHelper.getValueByStringPath(searchParams, 's');
