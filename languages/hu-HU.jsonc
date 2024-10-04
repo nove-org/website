@@ -33,7 +33,7 @@
     */
     "modules": {
         "navigation": {
-            "ul-products": "Projektek",
+            "ul-applications": "Applications",
             "ul-about": "Bemutatkozás",
             "ul-blog": "Blog",
             "ul-donate": "Támogatások",

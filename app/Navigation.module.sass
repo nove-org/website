@@ -72,33 +72,27 @@ nav.box
                         100%
                             opacity: 1
                             transform: translateY(0)
-                    & a.module
+                    & a.blue, a.green, div.more
+                        position: relative
+                        width: 80px
+                        height: 80px
+                        border-radius: 15px
                         display: flex
+                        align-items: center
+                        justify-content: center
                         flex-direction: column
-                        gap: 5px
-                        padding: 12px 14px
-                        width: 100%
-                        border-radius: 20px
-                        opacity: 1
-                        cursor: pointer
+                        gap: 4px
+                        font-size: 14px
+                        font-weight: 500
                         text-decoration: none
-                        color: var(--on-primary-container)
-                        transition: background-color .1s ease, color .1s ease
-                        &:hover
-                            color: var(--on-secondary-container)
-                            background: var(--secondary-container)
-                        & h1
-                            display: flex
-                            align-items: center
-                            gap: 6px
-                            color: var(--font-st)
-                            margin: 0
-                            font-size: 20px
-                            font-weight: 500
-                        & p
-                            margin: 0
-                            font-size: 14px
-                            color: var(--font-st)
+                    & div.more
+                        width: 160px
+                    & a.blue
+                        background: var(--blueish)
+                        color: var(--on-blueish)
+                    & a.green
+                        background: var(--greenish)
+                        color: var(--on-greenish)
 
     & section.account
         & details.profile
@@ -177,39 +171,3 @@ nav.box
                 @media screen and (max-width: 350px)
                     &:first-child
                         display: none
-
-form.jsInfo
-    padding: 10px 20px
-    font-size: 14px
-    background: var(--primary-container)
-    color: var(--primary)
-    display: flex
-    align-items: center
-    justify-content: space-between
-    @media screen and (max-width: 800px)
-        flex-direction: column
-        align-items: flex-start
-        gap: 10px
-    & div.text
-        display: flex
-        align-items: center
-        gap: 8px
-    & svg
-        min-width: 16px
-    & button
-        display: block
-        outline: 0
-        border: 0
-        display: flex
-        align-items: center
-        gap: 4px
-        text-decoration: none
-        color: var(--on-secondary-container)
-        background: var(--secondary-container)
-        padding: 5px 10px
-        font-size: 14px
-        font-weight: 400
-        border-radius: 8px
-        transition: background-color .1s ease, color .1s ease
-        cursor: pointer
-        &:hover

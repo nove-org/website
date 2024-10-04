@@ -33,7 +33,7 @@
     */
     "modules": {
         "navigation": {
-            "ul-products": "Продукти",
+            "ul-applications": "Applications",
             "ul-about": "Про",
             "ul-blog": "Блог",
             "ul-donate": "Пожертвувати",

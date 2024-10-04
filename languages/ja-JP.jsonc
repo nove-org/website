@@ -33,7 +33,7 @@
     */
     "modules": {
         "navigation": {
-            "ul-products": "製品",
+            "ul-applications": "Applications",
             "ul-about": "ついて",
             "ul-blog": "ブログ",
             "ul-donate": "寄付",

@@ -33,7 +33,7 @@
     */
     "modules": {
         "navigation": {
-            "ul-products": "Products",
+            "ul-applications": "Applications",
             "ul-about": "About",
             "ul-blog": "Blog",
             "ul-donate": "Donate",
@@ -42,9 +42,6 @@
             "switcher-profile": "My profile",
             "switcher-security": "Security",
             "switcher-logout": "Log out",
-            "products-files": "Store your data securely in the cloud",
-            "products-peekr": "Open-source search engine with its own index",
-            "products-crm": "Manage your customers quickly with ease",
             "no-javascript": "We see that you have JavaScript disabled in your browser. But don't worry, our website works flawlessly even without it."
         },
         "footer": {

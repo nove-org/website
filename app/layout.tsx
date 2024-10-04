@@ -66,53 +66,15 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     const nav = await new LanguageHandler('modules/navigation', user).init(headers());
     const foo = await new LanguageHandler('modules/footer', user).init(headers());
 
-    const handleHideJs = async () => {
-        'use server';
-        cookies().set('hjs', 'true', {
-            maxAge: 100 * 12 * 30 * 24 * 60 * 60,
-            domain: COOKIE_HOSTNAME,
-            httpOnly: true,
-            secure: true,
-            sameSite: 'strict',
-        });
-        redirect('');
-    };
-
     return (
         <html lang="en">
             <body className={inter.className} style={inter.style}>
                 <NextTopLoader color="#e74d5f" height={3} zIndex={9999999} showSpinner={false} />
 
-                {!cookies().get('hjs')?.value && (
-                    <noscript>
-                        <form className={o.jsInfo} action={handleHideJs}>
-                            <div className={o.text}>
-                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
-                                    <path
-                                        fill="currentColor"
-                                        d="M 12 3.0292969 C 11.436813 3.0292969 10.873869 3.2917399 10.558594 3.8164062 L 1.7617188 18.451172 C 1.1134854 19.529186 1.94287 21 3.2011719 21 L 20.796875 21 C 22.054805 21 22.886515 19.529186 22.238281 18.451172 L 13.441406 3.8164062 C 13.126131 3.29174 12.563187 3.0292969 12 3.0292969 z M 12 5.2988281 L 20.236328 19 L 3.7636719 19 L 12 5.2988281 z M 11 9 L 11 14 L 13 14 L 13 9 L 11 9 z M 11 16 L 11 18 L 13 18 L 13 16 L 11 16 z"></path>
-                                </svg>
-                                {nav.getProp('no-javascript')}
-                            </div>
-                            <button type="submit">
-                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="14" height="14" viewBox="0 0 24 24">
-                                    <path
-                                        fill="currentColor"
-                                        d="M 19.28125 5.28125 L 9 15.5625 L 4.71875 11.28125 L 3.28125 12.71875 L 8.28125 17.71875 L 9 18.40625 L 9.71875 17.71875 L 20.71875 6.71875 Z"></path>
-                                </svg>
-                                {nav.getCustomProp('modules.actions.ok')}
-                            </button>
-                        </form>
-                    </noscript>
-                )}
-
                 <Navigation
                     user={user}
                     lang={{
-                        products: nav.getProp('ul-products'),
-                        productsFiles: nav.getProp('products-files'),
-                        productsCrm: nav.getProp('products-crm'),
-                        productsPeekr: nav.getProp('products-peekr'),
+                        applications: nav.getProp('ul-applications'),
                         about: nav.getProp('ul-about'),
                         blog: nav.getProp('ul-blog'),
                         donate: nav.getProp('ul-donate'),

@@ -13,10 +13,7 @@ export default function Navigation({
 }: {
     user?: User;
     lang: {
-        products: string;
-        productsFiles: string;
-        productsCrm: string;
-        productsPeekr: string;
+        applications: string;
         about: string;
         blog: string;
         donate: string;
@@ -40,7 +37,7 @@ export default function Navigation({
                     {OFFICIAL_LANDING && (
                         <details className={o.link}>
                             <summary>
-                                {lang.products}{' '}
+                                {lang.applications}{' '}
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="18" height="18" viewBox="0 0 24 24">
                                     <path
                                         fill="currentColor"
@@ -48,39 +45,22 @@ export default function Navigation({
                                 </svg>
                             </summary>
                             <div className={o.modules}>
-                                <a href="https://files.nove.team" rel="noreferrer noopener nofollow" className={o.module}>
-                                    <h1>
-                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
-                                            <path
-                                                fill="currentColor"
-                                                d="M 12 4 A 7.5 7.5 0 0 0 5.3515625 8.0429688 A 6 6 0 0 0 0 14 A 6 6 0 0 0 6 20 L 19 20 A 5 5 0 0 0 24 15 A 5 5 0 0 0 19.34375 10.017578 A 7.5 7.5 0 0 0 12 4 z"></path>
-                                        </svg>
-                                        Files
-                                    </h1>
-                                    <p>{lang.productsFiles}</p>
-                                </a>
-                                <a href="https://procurel.com" rel="noreferrer noopener nofollow" className={o.module}>
-                                    <h1>
-                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
-                                            <path
-                                                fill="currentColor"
-                                                d="M 3 3 C 1.895 3 1 3.895 1 5 L 1 17 C 1 18.105 1.895 19 3 19 L 4.6523438 19 C 5.1993437 18.197 6.073875 17.514 7.171875 17 L 3 17 L 3 5 L 21 5 L 21 17 L 16.828125 17 C 17.926125 17.514 18.800656 18.197 19.347656 19 L 21 19 C 22.105 19 23 18.105 23 17 L 23 5 C 23 3.895 22.105 3 21 3 L 3 3 z M 12 10 C 10.3 10 9 11.3 9 13 C 9 14.7 10.3 16 12 16 C 13.7 16 15 14.7 15 13 C 15 11.3 13.7 10 12 10 z M 12 18 C 8.722 18 6 19.429 6 21 L 6 22 L 18 22 L 18 21 C 18 19.429 15.278 18 12 18 z"></path>
-                                        </svg>
-                                        Procurel
-                                    </h1>
-                                    <p>{lang.productsCrm}</p>
-                                </a>
-                                <a href="https://peekr.org" rel="noreferrer noopener nofollow" className={o.module}>
-                                    <h1>
-                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
-                                            <path
-                                                fill="currentColor"
-                                                d="M 9 2 C 5.1458514 2 2 5.1458514 2 9 C 2 12.854149 5.1458514 16 9 16 C 10.747998 16 12.345009 15.348024 13.574219 14.28125 L 14 14.707031 L 14 16 L 19.585938 21.585938 C 20.137937 22.137937 21.033938 22.137938 21.585938 21.585938 C 22.137938 21.033938 22.137938 20.137938 21.585938 19.585938 L 16 14 L 14.707031 14 L 14.28125 13.574219 C 15.348024 12.345009 16 10.747998 16 9 C 16 5.1458514 12.854149 2 9 2 z M 9 4 C 11.773268 4 14 6.2267316 14 9 C 14 11.773268 11.773268 14 9 14 C 6.2267316 14 4 11.773268 4 9 C 4 6.2267316 6.2267316 4 9 4 z"></path>
-                                        </svg>
-                                        Peekr
-                                    </h1>
-                                    <p>{lang.productsPeekr}</p>
-                                </a>
+                                <Link href="https://procurel.com" className={o.blue}>
+                                    <Image src="/crm.png" width={30} height={30} alt="Procurel" />
+                                    Procurel
+                                </Link>
+                                <Link href="https://peekr.org" className={o.green}>
+                                    <Image src="/peekr.png" width={30} height={30} alt="Procurel" />
+                                    Peekr
+                                </Link>
+                                <div className={o.more}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
+                                        <path
+                                            fill="currentColor"
+                                            d="M15.5 5L13 11 7 13.5 13 16 15.5 22 18 16 24 13.5 18 11 15.5 5zM4.125 7.875L5.5 12 6.875 7.875 11 6.5 6.875 5.125 5.5 1 4.125 5.125 0 6.5zM6.375 18.625L5.5 16 4.625 18.625 2 19.5 4.625 20.375 5.5 23 6.375 20.375 9 19.5z"></path>
+                                    </svg>
+                                    More coming soon...
+                                </div>
                             </div>
                         </details>
                     )}

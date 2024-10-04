@@ -34,7 +34,7 @@
     */
     "modules": {
         "navigation": {
-            "ul-products": "Produkty",
+            "ul-applications": "Aplikacje",
             "ul-about": "O nas",
             "ul-blog": "Blog",
             "ul-donate": "Dotacje",

@@ -33,7 +33,7 @@
     */
     "modules": {
         "navigation": {
-            "ul-products": "Продукти",
+            "ul-applications": "Applications",
             "ul-about": "За нас",
             "ul-blog": "Blog",
             "ul-donate": "Дарения",
@@ -42,9 +42,6 @@
             "switcher-profile": "Моят профил",
             "switcher-security": "Поверителост",
             "switcher-logout": "Изход",
-            "products-files": "Съхранявайте данните си сигурно в облака",
-            "products-peekr": "Open-source search engine with its own index",
-            "products-crm": "Управлявай клиентите си бързо и лесно",
             "no-javascript": "We see that you have JavaScript disabled in your browser. But don't worry, our website works flawlessly even without it."
         },
         "footer": {
