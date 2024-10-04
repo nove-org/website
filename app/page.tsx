@@ -22,6 +22,9 @@ import Link from 'next/link';
 import o from './Home.module.sass';
 import { cookies, headers } from 'next/headers';
 import { DONATE_LINK, ENABLE_REGISTER_PAGE, OFFICIAL_LANDING } from '@util/CONSTS';
+import Image from 'next/image';
+import banner from '../public/banner.png';
+import eagle from '../public/eagle.png';
 
 export async function generateMetadata() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
@@ -46,6 +49,27 @@ export default async function Home() {
     return OFFICIAL_LANDING ? (
         <>
             <section className={o.hero}>
+                <figure className={o.background}>
+                    <Image className={o.eagle} src={eagle} alt="Eagle" />
+                    <Image className={o.mountains} src={banner} alt="Mountainous landscape" priority />
+                </figure>
+                <div className={o.attribution}>
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
+                        <path
+                            fill="currentColor"
+                            d="M 19.482422 2.0058594 C 18.868574 1.9915414 18.249155 2.192726 17.753906 2.6132812 A 1.0001 1.0001 0 0 0 17.751953 2.6152344 L 8.3789062 10.615234 A 1.0001 1.0001 0 0 0 8.3203125 10.667969 C 7.9401303 11.048151 7.749803 11.551289 7.7441406 12.056641 C 6.7948776 12.094998 5.8649059 12.457923 5.1621094 13.224609 C 4.7030913 13.725356 4.4103292 14.348544 4.0703125 15.107422 C 3.7302958 15.8663 3.3965424 16.733841 3.0976562 17.560547 C 2.4998841 19.21396 2.0429687 20.708984 2.0429688 20.708984 A 1.0001 1.0001 0 0 0 3.2773438 21.960938 C 3.2773438 21.960938 4.7752791 21.530148 6.4335938 20.943359 C 7.262751 20.649965 8.1338056 20.318263 8.8984375 19.970703 C 9.6630694 19.623143 10.300401 19.31288 10.806641 18.806641 C 11.512656 18.100625 11.887063 17.190234 11.958984 16.267578 C 12.464062 16.260355 12.966543 16.067655 13.345703 15.6875 A 1.0001 1.0001 0 0 0 13.398438 15.628906 L 21.392578 6.2402344 A 1.0001 1.0001 0 0 0 21.398438 6.234375 C 22.103009 5.3938552 22.01447 4.2763512 21.496094 3.3632812 A 1.0001 1.0001 0 0 0 21.181641 2.6933594 A 1.0001 1.0001 0 0 0 21.181641 2.6914062 C 20.706254 2.2485471 20.09627 2.0201774 19.482422 2.0058594 z M 19.435547 3.9960938 C 19.571089 3.9995614 19.705747 4.0531447 19.816406 4.15625 C 20.046562 4.3725474 20.068483 4.7067505 19.865234 4.9492188 L 14.394531 11.373047 L 12.634766 9.6132812 L 19.048828 4.1367188 C 19.16358 4.039274 19.300005 3.9926261 19.435547 3.9960938 z M 11.107422 10.914062 L 13.09375 12.900391 L 11.925781 14.271484 L 9.7382812 12.083984 L 11.107422 10.914062 z M 7.9785156 14.035156 C 8.484248 14.049476 9.006494 14.254162 9.4238281 14.636719 C 10.201008 15.349133 10.219383 16.565773 9.3925781 17.392578 C 9.2988171 17.486338 8.7494306 17.839747 8.0703125 18.148438 C 7.3911944 18.457128 6.5614677 18.775035 5.765625 19.056641 C 5.143343 19.276833 5.0772593 19.281794 4.5761719 19.441406 C 4.7432123 18.936798 4.751237 18.868877 4.9785156 18.240234 C 5.2671295 17.441941 5.587673 16.6087 5.8945312 15.923828 C 6.2013896 15.238956 6.5457368 14.675425 6.6367188 14.576172 C 6.9835763 14.197782 7.4727833 14.02084 7.9785156 14.035156 z"></path>
+                    </svg>
+                    <p>
+                        Image made by{' '}
+                        <Link rel="noreferrer noopener nofollow" href="https://mastodon.social/@orbite">
+                            Orbite
+                        </Link>
+                        . Support them on{' '}
+                        <Link rel="noreferrer noopener nofollow" href="https://ko-fi.com/orbitelambda">
+                            Ko-Fi
+                        </Link>
+                    </p>
+                </div>
                 <div className={o.text}>
                     <h1 dangerouslySetInnerHTML={{ __html: lang.getProp('hero-h1') }} />
                     <p>{lang.getProp('hero-description')}</p>
@@ -74,197 +98,6 @@ export default async function Home() {
                         </Link>
                     </div>
                 </div>
-                <aside className={o.block}>
-                    <div className={o.server}>
-                        {lang.getProp('instance')} 1
-                        <div className={o.actions}>
-                            <h1>{lang.getProp('action-log')}</h1>
-                            <ul>
-                                <li className={o.action}>
-                                    <img src="https://api.nove.team/v1/users/00000000/avatar.webp" alt="wnm210's avatar" width={20} height={20} />
-                                    <div dangerouslySetInnerHTML={{ __html: lang.getProp('action-upload', { user: 'wnm210', file: '<strong>backup.sql</strong>' }) }} />
-                                </li>
-                                <li className={o.action + ' ' + o.nd}>
-                                    <img src="https://api.nove.team/v1/users/00000001/avatar.webp" alt="dawid's avatar" width={20} height={20} />
-                                    <div
-                                        dangerouslySetInnerHTML={{
-                                            __html: lang.getProp('action-view', {
-                                                user: `<span>
-                                        Dawid<i>@${lang.getProp('instance').toLowerCase()}-2</i>
-                                    </span>`,
-                                                file: '<strong>backup.sql</strong>',
-                                            }),
-                                        }}
-                                    />
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </aside>
-            </section>
-            <section className={o.decentralization}>
-                <div className={o.spheres}>
-                    <div className={o.origin}>
-                        <div className={o.bubble}>
-                            <img src="https://api.nove.team/v1/users/00000002/avatar.webp" width={36} height={36} />
-                            <span className={o.holo}>
-                                @ars<i>@{lang.getProp('instance').toLowerCase()}-4</i>
-                            </span>
-                        </div>
-                    </div>
-                    <div className={o.origin}>
-                        <div className={o.bubble}>
-                            <img src="https://api.nove.team/v1/users/OzcH9li3/avatar.webp" width={36} height={36} />
-                            <span className={o.holo}>
-                                @slavistapl<i>@{lang.getProp('instance').toLowerCase()}-3</i>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div className={o.text}>
-                    <h1 dangerouslySetInnerHTML={{ __html: lang.getProp('decentralization-h1') }} />
-                    <p>{lang.getProp('decentralization-p')}</p>
-                    <span>{lang.getProp('decentralization-span')}</span>
-                    <div className={o.servers}>
-                        <div className={o.server}>
-                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 24 24">
-                                <path
-                                    fill="currentColor"
-                                    d="M 12 4 A 7.5 7.5 0 0 0 5.3515625 8.0429688 A 6 6 0 0 0 0 14 A 6 6 0 0 0 6 20 L 19 20 A 5 5 0 0 0 24 15 A 5 5 0 0 0 19.34375 10.017578 A 7.5 7.5 0 0 0 12 4 z"></path>
-                            </svg>
-                            <div className={o.progressBackwards}>
-                                <div className={o.line}></div>
-                            </div>
-                            <div className={o.badge}>
-                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
-                                    <path
-                                        fill="currentColor"
-                                        d="M 19.28125 5.28125 L 9 15.5625 L 4.71875 11.28125 L 3.28125 12.71875 L 8.28125 17.71875 L 9 18.40625 L 9.71875 17.71875 L 20.71875 6.71875 Z"></path>
-                                </svg>
-                                {lang.getProp('online')}
-                            </div>
-                        </div>
-                        <div className={o.server}>
-                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 24 24">
-                                <path
-                                    fill="currentColor"
-                                    d="M 12 4 A 7.5 7.5 0 0 0 5.3515625 8.0429688 A 6 6 0 0 0 0 14 A 6 6 0 0 0 6 20 L 19 20 A 5 5 0 0 0 24 15 A 5 5 0 0 0 19.34375 10.017578 A 7.5 7.5 0 0 0 12 4 z"></path>
-                            </svg>
-                            <div className={o.progressBackwards}>
-                                <div className={o.line}></div>
-                            </div>
-                            <div className={o.badge}>
-                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
-                                    <path
-                                        fill="currentColor"
-                                        d="M 19.28125 5.28125 L 9 15.5625 L 4.71875 11.28125 L 3.28125 12.71875 L 8.28125 17.71875 L 9 18.40625 L 9.71875 17.71875 L 20.71875 6.71875 Z"></path>
-                                </svg>
-                                {lang.getProp('online')}
-                            </div>
-                        </div>
-                        <div className={o.server}>
-                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 24 24">
-                                <path
-                                    fill="currentColor"
-                                    d="M 12 4 A 7.5 7.5 0 0 0 5.3515625 8.0429688 A 6 6 0 0 0 0 14 A 6 6 0 0 0 6 20 L 19 20 A 5 5 0 0 0 24 15 A 5 5 0 0 0 19.34375 10.017578 A 7.5 7.5 0 0 0 12 4 z"></path>
-                            </svg>
-                            <div className={o.progressBackwards}>
-                                <div className={o.line}></div>
-                            </div>
-                            <div className={o.badge}>
-                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
-                                    <path
-                                        fill="currentColor"
-                                        d="M 19.28125 5.28125 L 9 15.5625 L 4.71875 11.28125 L 3.28125 12.71875 L 8.28125 17.71875 L 9 18.40625 L 9.71875 17.71875 L 20.71875 6.71875 Z"></path>
-                                </svg>
-                                {lang.getProp('online')}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <aside className={o.block}>
-                    <div className={o.server + ' ' + o.nd}>Instance 2</div>
-                </aside>
-            </section>
-            <section className={o.why}>
-                <div className={o.text}>
-                    <h1>{lang.getProp('word-h1')}</h1>
-                    <p>{lang.getProp('word-p')}</p>
-                </div>
-                <ul className={o.whys}>
-                    <li className={o.card}>
-                        <figure className={o.encryption}>
-                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 24 24">
-                                <path
-                                    fill="currentColor"
-                                    d="M 12 1 C 8.6761905 1 6 3.6761905 6 7 L 6 8 C 4.9 8 4 8.9 4 10 L 4 20 C 4 21.1 4.9 22 6 22 L 18 22 C 19.1 22 20 21.1 20 20 L 20 10 C 20 8.9 19.1 8 18 8 L 18 7 C 18 3.6761905 15.32381 1 12 1 z M 12 3 C 14.27619 3 16 4.7238095 16 7 L 16 8 L 8 8 L 8 7 C 8 4.7238095 9.7238095 3 12 3 z M 12 13 C 13.1 13 14 13.9 14 15 C 14 16.1 13.1 17 12 17 C 10.9 17 10 16.1 10 15 C 10 13.9 10.9 13 12 13 z"></path>
-                            </svg>
-                            <div className={o.st}>Hey! How are you?</div>
-                            <div className={o.nd}>#$*%#$*!@#&*#$%*!</div>
-                            <div className={o.rd}>!-!$.*&#=!%-#%*$#</div>
-                        </figure>
-                        <div className={o.content}>
-                            <h1>{lang.getProp('word-card1-title')}</h1>
-                            <p>{lang.getProp('word-card1-description')}</p>
-                        </div>
-                    </li>
-                    <li className={o.card}>
-                        <figure className={o.tracking}>
-                            <div className={o.cross}>
-                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="54" height="54" viewBox="0 0 24 24">
-                                    <path
-                                        fill="currentColor"
-                                        d="M 10 2 C 5.589 2 2 5.589 2 10 C 2 14.411 5.589 18 10 18 C 14.411 18 18 14.411 18 10 C 18 5.589 14.411 2 10 2 z M 9.7128906 4.0136719 L 9.7128906 5.0273438 C 9.3738906 5.0703438 7.4765625 5.42875 7.4765625 7.71875 C 7.4765625 11.05975 10.935547 10.069828 10.935547 12.298828 C 10.935547 13.414828 10.213406 13.441406 10.066406 13.441406 C 9.9324062 13.441406 9.0527344 13.512688 9.0527344 11.804688 L 7.1621094 11.804688 C 7.1621094 14.696687 9.2602656 14.927703 9.5722656 14.970703 L 9.5722656 15.978516 C 6.462797 15.757912 4 13.164763 4 10 C 4 6.7878034 6.5375172 4.1647918 9.7128906 4.0136719 z M 10.720703 4.0488281 C 13.69045 4.4063489 16 6.9352803 16 10 C 16 13.11536 13.614798 15.680867 10.574219 15.970703 L 10.574219 14.970703 C 10.912219 14.928703 12.824219 14.613156 12.824219 12.285156 C 12.824219 9.0801563 9.3662344 9.6935625 9.3652344 7.7265625 C 9.3652344 6.5995625 9.9851406 6.5644531 10.119141 6.5644531 C 10.364141 6.5644531 10.947266 6.7812969 10.947266 8.1542969 L 12.837891 8.1542969 C 12.837891 5.5272969 11.041703 5.1176406 10.720703 5.0566406 L 10.720703 4.0488281 z M 19.892578 8.6074219 C 19.956578 9.0644219 20 9.526 20 10 C 20 10.774 19.903328 11.523094 19.736328 12.246094 C 19.906328 12.801094 20 13.39 20 14 C 20 17.309 17.309 20 14 20 C 13.39 20 12.801094 19.906328 12.246094 19.736328 C 11.523094 19.903328 10.774 20 10 20 C 9.526 20 9.0644219 19.956578 8.6074219 19.892578 C 10.031422 21.196578 11.921 22 14 22 C 18.411 22 22 18.411 22 14 C 22 11.921 21.196578 10.031422 19.892578 8.6074219 z"></path>
-                                </svg>
-                            </div>
-                        </figure>
-                        <div className={o.content}>
-                            <h1>{lang.getProp('word-card2-title')}</h1>
-                            <p>{lang.getProp('word-card2-description')}</p>
-                        </div>
-                    </li>
-                    <li className={o.card}>
-                        <figure className={o.free}>
-                            <p>
-                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16" height="16" viewBox="0 0 24 24">
-                                    <path
-                                        fill="currentColor"
-                                        d="M 3.9902344 2.9902344 A 1.0001 1.0001 0 0 0 3 4.1289062 L 3 16 A 1.0001 1.0001 0 0 0 3.2929688 16.707031 L 7.2050781 20.619141 A 1.0001 1.0001 0 0 0 8.1582031 21 L 20 21 A 1.0001 1.0001 0 0 0 21 20 L 21 8.1679688 A 1.0001 1.0001 0 0 0 20.623047 7.2070312 A 1.0001 1.0001 0 0 0 20.617188 7.203125 L 16.707031 3.2929688 A 1.0001 1.0001 0 0 0 16 3 L 4.1171875 3 A 1.0001 1.0001 0 0 0 3.9902344 2.9902344 z M 6.4140625 5 L 15.585938 5 L 17.585938 7 L 8.4140625 7 L 6.4140625 5 z M 5 6.4140625 L 7 8.4140625 L 7 17.585938 L 5 15.585938 L 5 6.4140625 z M 9 9 L 19 9 L 19 19 L 9 19 L 9 9 z"></path>
-                                </svg>
-                                Compiling from source...
-                            </p>
-                            <div className={o.progress}></div>
-                        </figure>
-                        <div className={o.content}>
-                            <h1>{lang.getProp('word-card3-title')}</h1>
-                            <p>{lang.getProp('word-card3-description')}</p>
-                        </div>
-                    </li>
-                </ul>
-            </section>
-            <section className={o.community}>
-                <div></div>
-                <div className={o.text}>
-                    <h1>{lang.getProp('breakup-h1')}</h1>
-                    <p dangerouslySetInnerHTML={{ __html: lang.getProp('breakup-description') }} />
-                    <ul>
-                        <li>{lang.getProp('breakup-li-1')}</li>
-                        <li>{lang.getProp('breakup-li-2')}</li>
-                        <li>{lang.getProp('breakup-li-3')}</li>
-                    </ul>
-                </div>
-            </section>
-            <section className={o.call}>
-                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 24 24">
-                    <path
-                        fill="currentColor"
-                        d="M 12 1 L 3 5 L 3 11 C 3 18.83 9.439 22.486 12 23 C 14.561 22.486 21 18.83 21 11 L 21 5 L 12 1 z M 12 3.1894531 L 19 6.3007812 L 19 11 C 19 12.835656 18.566184 14.395755 17.90625 15.707031 C 16.345706 14.530951 13.524154 14 12 14 C 10.475819 14 7.6533017 14.530907 6.09375 15.707031 C 5.4338159 14.395755 5 12.835656 5 11 L 5 6.3007812 L 12 3.1894531 z M 12 5.75 C 10.208 5.75 8.75 7.208 8.75 9 C 8.75 10.792 10.208 12.25 12 12.25 C 13.792 12.25 15.25 10.792 15.25 9 C 15.25 7.208 13.792 5.75 12 5.75 z M 12 7.75 C 12.689 7.75 13.25 8.311 13.25 9 C 13.25 9.689 12.689 10.25 12 10.25 C 11.311 10.25 10.75 9.689 10.75 9 C 10.75 8.311 11.311 7.75 12 7.75 z M 12 16 C 14.446733 16 15.977702 16.719961 16.908203 17.314453 C 15.340222 19.376141 13.256661 20.550006 12 20.9375 C 10.743339 20.550006 8.6597782 19.376141 7.0917969 17.314453 C 8.0222976 16.719961 9.5532669 16 12 16 z"></path>
-                </svg>
-                <h1>{lang.getProp('ready-h1')}</h1>
-                <p>{lang.getProp('ready-p')}</p>
-                <Link href="/register" className="btn">
-                    {lang.getProp('ready-btn')}
-                </Link>
             </section>
         </>
     ) : (

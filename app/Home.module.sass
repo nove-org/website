@@ -4,16 +4,95 @@ section.hero
     min-height: 830px
     display: flex
     align-items: center
-    justify-content: space-between
-    gap: 350px
-    @media screen and (max-width: 1000px)
-        gap: 70px
+    & figure.background
+        position: absolute
+        top: 0
+        left: 0
+        margin: 0
+        width: 100%
+        height: 100%
+        min-height: 830px
+        z-index: -1
+        & img.eagle
+            position: absolute
+            top: 200px
+            right: 300px
+            max-width: 500px
+            height: auto
+            filter: saturate(70%)
+            opacity: .9
+            transform: scaleX(-1)
+            transition: top .2s ease, right .2s ease, max-width .2s ease
+            @media screen and (max-width: 1750px)
+                max-width: 400px
+                right: 250px
+            @media screen and (max-width: 1600px)
+                right: 150px
+            @media screen and (max-width: 1460px)
+                top: 100px
+            @media screen and (max-width: 950px)
+                right: 50px
+        & img.mountains
+            width: 100%
+            height: 100%
+            object-fit: cover
+            object-position: 100% 50%
+            transition: object-position .5s ease
+            @media screen and (max-width: 1460px)
+                object-position: 80% 50%
+    & div.attribution
+        position: absolute
+        bottom: 15px
+        right: 15px
+        box-sizing: border-box
+        background: var(--popup-container-alternate)
+        color: var(--on-primary)
+        backdrop-filter: blur(20px)
+        border-radius: 10px
+        padding: 5px 8px
+        z-index: 100
+        display: flex
+        align-items: center
+        gap: 5px
+        @media screen and (max-width: 950px)
+            width: max-content
+            right: auto
+            left: 50%
+            transform: translateX(-50%)
+        @media screen and (max-width: 500px)
+            font-size: 12px
+            & svg
+                max-width: 12px
+        @media screen and (max-width: 400px)
+            display: inline
+            & svg
+                display: none
+        & p
+            font-size: 14px
+            font-weight: 500
+            margin: 0
+        & a
+            color: var(--primary-container)
+            text-decoration: none
     & div.text
         max-width: 950px
+        background: #00000000
+        padding: 0px
+        backdrop-filter: blur(0px)
+        border-radius: 0px
+        transition: background .2s ease, padding .2s ease, border-radius 1s ease
+        @media screen and (max-width: 950px)
+            background: #f4cbcb4a
+            padding: 30px
+            backdrop-filter: blur(20px)
+            border-radius: 25px
+            @media screen and (max-width: 600px)
+                padding: 20px
         & h1
             font-size: 64px
             font-weight: 700
             margin: 15px 0
+            margin-top: 0
             @media screen and (max-width: 600px)
                 font-size: 48px
             & span
@@ -58,728 +137,16 @@ section.hero
             align-items: center
             gap: 15px
             margin-top: 30px
-            @media screen and (max-width: 600px)
+            @media screen and (max-width: 400px)
                 flex-direction: column
                 align-items: flex-start
                 gap: 10px
+                & a
+                    width: 100%
+                    justify-content: center
             & .highlight
                 background: var(--primary)
                 color: var(--on-primary)
                 &:hover
                     background: var(--secondary)
                     color: var(--on-secondary)
-
-section.decentralization
-    width: 100%
-    min-height: 600px
-    display: flex
-    justify-content: flex-end
-    gap: 50px
-    position: relative
-    @media screen and (max-width: 800px)
-        justify-content: space-between
-    @media screen and (max-width: 600px)
-        min-height: 700px
-        & aside
-            position: absolute
-            top: 0
-            right: 0
-    & div.text
-        margin-top: 100px
-        max-width: 800px
-        text-align: right
-        @media screen and (max-width: 1200px)
-            max-width: 500px
-        @media screen and (max-width: 800px)
-            text-align: left
-        & h1
-            font-size: 40px
-            color: var(--primary)
-            font-weight: 600
-            margin: 5px 0
-            @media screen and (max-width: 600px)
-                font-size: 36px
-            & strong
-                font-weight: 600
-                color: var(--on-background)
-                position: relative
-        & p
-            font-size: 20px
-            color: var(--on-background)
-            font-weight: 400
-            margin: 5px 0
-            @media screen and (max-width: 600px)
-                font-size: 18px
-        & div.servers
-            --server-size: 100px
-            --server-progress-gap: 10px
-            display: flex
-            align-items: center
-            justify-content: flex-end
-            margin-top: 30px
-            gap: var(--server-size)
-            @media screen and (max-width: 800px)
-                justify-content: flex-start
-                --server-size: 80px
-            @media screen and (max-width: 600px)
-                --server-size: 60px
-            @media screen and (max-width: 350px)
-                --server-size: 40px
-            & div.server
-                width: var(--server-size)
-                height: var(--server-size)
-                border-radius: 10px
-                display: flex
-                align-items: center
-                justify-content: center
-                background: var(--primary-container)
-                color: var(--primary)
-                position: relative
-                &::before
-                    content: ""
-                    display: block
-                    max-width: calc( var(--server-size) - 2 * var(--server-progress-gap) )
-                    width: 10%
-                    height: 4px
-                    background: linear-gradient(to right, #ac0c09, #c98a0b)
-                    position: absolute
-                    top: 50%
-                    left: calc( var(--server-size) + var(--server-progress-gap) )
-                    transform: translateY(-50%)
-                    z-index: 2
-                    animation: expand 4s ease infinite
-                    @keyframes expand
-                        0%
-                            width: 0
-                        20%
-                            width: 100%
-                            opacity: 1
-                        40%
-                            width: 100%
-                            opacity: 0
-                        100%
-                            width: 0
-                            opacity: 0
-                &::after
-                    content: ""
-                    display: block
-                    width: calc( var(--server-size) - 2 * var(--server-progress-gap) )
-                    height: 2px
-                    background: var(--outline)
-                    position: absolute
-                    top: 50%
-                    left: calc( var(--server-size) + var(--server-progress-gap) )
-                    transform: translateY(-50%)
-                & svg
-                    max-width: calc( var(--server-size) / 3.3 )
-                & div.progressBackwards
-                    display: flex
-                    justify-content: flex-end
-                    width: calc( var(--server-size) - 2 * var(--server-progress-gap) )
-                    height: 4px
-                    position: absolute
-                    top: 50%
-                    left: calc( var(--server-size) + var(--server-progress-gap) )
-                    transform: translateY(-50%)
-                    z-index: 2
-                    & div.line
-                        width: 10%
-                        height: 4px
-                        background: linear-gradient(to left, #ac0c09, #c98a0b)
-                        animation: expandOut 4s ease infinite
-                        @keyframes expandOut
-                            0%
-                                width: 0
-                            50%
-                                width: 0
-                            70%
-                                width: 100%
-                                opacity: 1
-                            90%
-                                width: 100%
-                                opacity: 0
-                            100%
-                                width: 0
-                                opacity: 0
-                &:last-child
-                    &::after, &::before, & div.progressBackwards
-                        width: 0 !important
-                & div.badge
-                    position: absolute
-                    top: calc( var(--server-size) + var(--server-progress-gap) )
-                    left: 50%
-                    transform: translateX(-50%)
-                    padding: 5px
-                    border-radius: 10px
-                    font-size: 14px
-                    background: var(--secondary-container)
-                    border: 1px solid var(--secondary)
-                    box-sizing: border-box
-                    color: var(--on-secondary-container)
-                    display: flex
-                    align-items: center
-                    gap: 3px
-                    @media screen and (max-width: 600px)
-                        display: none
-    & div.spheres
-        width: 300px
-        height: 600px
-        box-sizing: border-box
-        border-top-right-radius: 500px
-        border-bottom-right-radius: 500px
-        border: 1px solid gray
-        border-left: 0
-        position: absolute
-        z-index: -1
-        left: 0
-        transform: translate(-50%)
-        @media screen and (max-width: 1300px)
-            margin-left: -50px
-        @media screen and (max-width: 1100px)
-            margin-left: -80px
-        @media screen and (max-width: 900px)
-            margin-left: -100px
-        @media screen and (max-width: 800px)
-            display: none
-        --sphere-speed: 50s
-        & div.origin
-            width: 600px
-            height: 600px
-            position: absolute
-            box-sizing: border-box
-            top: -2px
-            left: calc( -100% - 4px )
-            border-radius: 50%
-            transform: rotate(40deg)
-            animation: rotateOriginSt var(--sphere-speed) linear infinite
-            @keyframes rotateOriginSt
-                0%
-                    transform: rotate(0deg)
-                50%
-                    transform: rotate(40deg)
-                100%
-                    transform: rotate(0deg)
-            &:nth-child(2)
-                animation: rotateOriginNd var(--sphere-speed) linear infinite
-                @keyframes rotateOriginNd
-                    0%
-                        transform: rotate(-40deg)
-                    50%
-                        transform: rotate(0deg)
-                    100%
-                        transform: rotate(-40deg)
-                & div.bubble
-                    transform: rotate(0deg)
-                    animation: rotateBubbleNd var(--sphere-speed) linear infinite
-                    @keyframes rotateBubbleNd
-                        0%
-                            transform: rotate(40deg)
-                        50%
-                            transform: rotate(0deg)
-                        100%
-                            transform: rotate(40deg)
-            & div.bubble
-                --size: 36px
-                content: ""
-                display: block
-                position: absolute
-                width: var(--size)
-                height: var(--size)
-                border-radius: 50%
-                top: 50%
-                right: calc( var(--size) / -2 )
-                background: linear-gradient(270deg, var(--primary), var(--secondary))
-                color: var(--on-primary)
-                display: flex
-                align-items: center
-                justify-content: center
-                animation: rotateBubbleSt var(--sphere-speed) linear infinite
-                @keyframes rotateBubbleSt
-                    0%
-                        transform: rotate(0deg)
-                    50%
-                        transform: rotate(-40deg)
-                    100%
-                        transform: rotate(0deg)
-
-                & img
-                    border-radius: 50%
-                & span.holo
-                    position: absolute
-                    top: 50%
-                    left: calc( var(--size) + 10px )
-                    transform: translateY(-50%)
-                    background: var(--primary-container)
-                    color: var(--primary)
-                    padding: 5px
-                    border-radius: 10px
-                    font-size: 16px
-                    @media screen and (max-width: 1300px)
-                        top: calc( 100% + 5px )
-                        left: 0
-                        transform: none
-                        font-size: 14px
-                    @media screen and (max-width: 1000px)
-                        display: none
-                    & i
-                        font-style: normal
-                        opacity: .5
-
-section.why
-    width: 100%
-    min-height: 700px
-    position: relative
-    display: flex
-    flex-direction: column
-    justify-content: center
-    & div.text
-        max-width: 800px
-        & h1
-            font-size: 40px
-            color: var(--primary)
-            font-weight: 600
-            margin: 5px 0
-            @media screen and (max-width: 600px)
-                font-size: 36px
-            & strong
-                font-weight: 600
-                color: var(--on-background)
-                position: relative
-        & p
-            font-size: 20px
-            color: var(--on-background)
-            font-weight: 400
-            margin: 5px 0
-            @media screen and (max-width: 600px)
-                font-size: 18px
-    & ul.whys
-        list-style: none
-        padding: 0
-        margin: 0
-        margin-top: 30px
-        width: 100%
-        display: flex
-        flex-wrap: wrap
-        gap: 30px
-        @media screen and (max-width: 660px)
-            flex-direction: column
-        & li.card
-            border-radius: 20px
-            max-width: 285px
-            width: 100%
-            min-height: 190px
-            background: var(--primary-container)
-            color: var(--on-primary-container)
-            position: relative
-            @media screen and (max-width: 660px)
-                max-width: 100%
-                min-height: 100%
-                display: flex
-            @media screen and (max-width: 570px)
-                flex-direction: column
-            & figure
-                padding: 0
-                margin: 0
-                display: block
-                max-width: 285px
-                height: 110px
-                background: var(--tertiary-container)
-                border-top-left-radius: 20px
-                border-top-right-radius: 20px
-                position: relative
-                @media screen and (max-width: 660px)
-                    min-width: 285px
-                    border-radius: 20px
-                    margin-top: 15px
-                    margin-left: 15px
-            & figure.encryption
-                & svg
-                    position: absolute
-                    top: 30%
-                    left: 50%
-                    transform: translate(-50%, -50%)
-                    color: var(--on-tertiary-container)
-                & div.st, div.nd, div.rd
-                    position: absolute
-                    top: 65%
-                    left: 50%
-                    transform: translate(-50%, -50%)
-                    width: max-content
-                    font-family: monospace
-                    font-size: 18px
-                    padding: 5px 10px
-                    border-radius: 10px
-                    background: var(--primary-container)
-                    color: var(--primary)
-                & div.st
-                    z-index: 3
-                    animation: encryptionText 4s ease infinite
-                & div.nd
-                    z-index: 2
-                    animation: encryptionNd .5s cubic-bezier(1,0,1,0) infinite
-                & div.rd
-                    z-index: 1
-                    animation: encryptionRd .5s cubic-bezier(1,0,1,0) infinite
-                    //
-                @keyframes encryptionNd
-                    0%
-                        opacity: 1
-                    50%
-                        opacity: 0
-                    100%
-                        opacity: 0
-                @keyframes encryptionRd
-                    0%
-                        opacity: 0
-                    50%
-                        opacity: 1
-                    100%
-                        opacity: 1
-                @keyframes encryptionText
-                    0%
-                        opacity: 0
-                    20%
-                        opacity: 0
-                    30%
-                        opacity: 1
-                    70%
-                        opacity: 1
-                    80%
-                        opacity: 0
-                    100%
-                        opacity: 0
-            & figure.tracking
-                display: flex
-                flex-direction: column
-                align-items: center
-                justify-content: center
-                gap: 10px
-                & div.cross
-                    color: var(--on-tertiary-container)
-                    position: relative
-                    &::after
-                        display: block
-                        content: ''
-                        width: 100%
-                        height: 5px
-                        background: var(--on-tertiary-container)
-                        position: absolute
-                        top: 50%
-                        left: 0
-                        rotate: -45deg
-                        border-radius: 2px
-            & figure.free
-                display: flex
-                flex-direction: column
-                align-items: center
-                justify-content: center
-                gap: 10px
-                & p
-                    padding: 0
-                    font-size: 14px
-                    font-weight: 500
-                    text-transform: uppercase
-                    color: var(--on-tertiary-container)
-                    display: flex
-                    align-items: center
-                    gap: 5px
-                & div.progress
-                    width: 80%
-                    background: var(--primary-container)
-                    height: 10px
-                    border-radius: 50px
-                    position: relative
-                    &::before, &::after
-                        content: ''
-                        display: block
-                        position: absolute
-                        border-radius: 50px
-                        top: 0
-                        width: 50%
-                        height: 10px
-                        background: linear-gradient(to right, var(--primary), var(--tertiary))
-                    &::before
-                        animation: progressLeft 5s ease infinite
-                        right: 0
-                    &::after
-                        animation: progressRight 5s ease infinite
-                        left: 0
-                    @keyframes progressLeft
-                        0%
-                            width: 100%
-                        40%
-                            width: 0%
-                        100%
-                            width: 0%
-                    @keyframes progressRight
-                        0%
-                            width: 0%
-                        60%
-                            width: 0%
-                        100%
-                            width: 100%
-
-            & h1
-                font-size: 24px
-                font-weight: 500
-                margin: 0
-                padding: 8px 16px
-                padding-top: 12px
-            & p
-                font-size: 16px
-                opacity: .9
-                margin: 0
-                padding: 0 16px
-                padding-bottom: 14px
-
-section.community
-    width: 100%
-    min-height: 700px
-    display: flex
-    justify-content: space-between
-    align-items: center
-    gap: 50px
-    position: relative
-    @media screen and (max-width: 1000px)
-        justify-content: center
-        align-items: flex-start
-        flex-direction: column
-        min-height: 800px
-        gap: 20px
-    @media screen and (max-width: 660px)
-        margin-top: 150px
-    & div.text
-        max-width: 800px
-        text-align: right
-        @media screen and (max-width: 1000px)
-            text-align: left
-        & h1
-            font-size: 40px
-            color: var(--primary)
-            font-weight: 600
-            margin: 5px 0
-            @media screen and (max-width: 600px)
-                font-size: 36px
-            & strong
-                font-weight: 600
-                color: var(--on-background)
-                position: relative
-        & p
-            font-size: 20px
-            color: var(--on-background)
-            font-weight: 400
-            margin: 5px 0
-            @media screen and (max-width: 600px)
-                font-size: 18px
-        & ul
-            margin: 20px 0
-            padding: 0
-            list-style: none
-            display: flex
-            flex-direction: column
-            gap: 5px
-            @media screen and (max-width: 1000px)
-                & li::before
-                    content: ' ―'
-                    font-size: 18px
-                    margin-right: 5px
-                & li::after
-                    display: none
-            & li::after
-                content: ' ―'
-                font-size: 18px
-
-section.call
-    width: 100%
-    max-width: 1300px
-    min-height: 500px
-    margin: 0 auto
-    margin-top: 150px
-    padding: 20px
-    box-sizing: border-box
-    border-radius: 30px
-    background: var(--primary-container)
-    color: var(--on-primary-container)
-    display: flex
-    align-items: center
-    justify-content: center
-    text-align: center
-    gap: 10px
-    flex-direction: column
-    & svg
-        color: var(--primary)
-        margin-bottom: 10px
-    & h1
-        font-size: 40px
-        font-weight: 500
-        margin: 0
-        color: var(--primary)
-        @media screen and (max-width: 600px)
-            font-size: 36px
-    & p
-        font-size: 20px
-        margin: 0
-        @media screen and (max-width: 600px)
-            font-size: 18px
-    & a
-        background: var(--tertiary-container)
-        color: var(--on-secondary-container)
-        margin-top: 10px
-        &:hover
-            background: var(--tertiary-container)
-            color: var(--on-secondary-container)
-
-section.welcome
-    width: 100%
-    min-height: calc( 100vh - 70px )
-    display: flex
-    align-items: center
-    justify-content: center
-    flex-direction: column
-    text-align: center
-    gap: 10px
-    & h1
-        font-size: 36px
-        font-weight: 500
-        margin: 0
-    & p
-        font-size: 20px
-        margin: 0
-    & div.buttons
-        display: flex
-        align-items: center
-        gap: 15px
-        margin-top: 10px
-        @media screen and (max-width: 300px)
-            flex-direction: column
-            align-items: flex-start
-            gap: 10px
-        & .highlight
-            background: var(--primary)
-            color: var(--on-primary)
-            &:hover
-                background: var(--secondary)
-                color: var(--on-secondary)
-
-aside.block
-    display: flex
-    flex-direction: column
-    align-items: flex-end
-    gap: 50px
-    padding-right: 50px
-    --height-first-bar: 375px
-    --height-second-bar: 200px
-    @media screen and (max-width: 1200px)
-        padding-right: 0
-    @media screen and (max-width: 400px)
-        display: none
-    @keyframes serverConnectionSt
-        0%
-            height: 0
-        50%
-            height: 0
-        100%
-            height: var(--height-first-bar)
-    @keyframes serverConnectionNd
-        0%
-            height: 0
-        50%
-            height: 0
-        100%
-            height: var(--height-second-bar)
-    & div.server
-        font-size: 14px
-        position: relative
-        width: max-content
-        &::before
-            content: ""
-            display: block
-            width: 10px
-            height: 10px
-            border-radius: 50%
-            border: 2px solid gray
-            margin: 0 auto
-            margin-bottom: 5px
-        &::after
-            content: ""
-            display: block
-            position: absolute
-            top: 45px
-            left: 50%
-            transform: translateX(-50%)
-            width: 2px
-            height: var(--height-first-bar)
-            animation: serverConnectionSt 4s linear
-            background: linear-gradient(to top, var(--primary), var(--secondary))
-            border-radius: 1px
-            margin: 0 auto
-        &.nd
-            &::after
-                height: var(--height-second-bar)
-                animation: serverConnectionNd 8s linear
-                background: linear-gradient(to top, #00000000, var(--primary))
-        & div.actions
-            position: absolute
-            bottom: 25px
-            right: 60px
-            max-width: 300px
-            width: max-content
-            max-height: 200px
-            height: max-content
-            transition: height .2s ease
-            background: var(--primary-container)
-            color: var(--on-primary-container)
-            padding: 10px
-            border-radius: 10px
-            animation: showActionsMenu 2s ease
-            @media screen and (max-width: 1000px)
-                display: none
-            @keyframes showActionsMenu
-                0%
-                    opacity: 0
-                    right: 40px
-                75%
-                    opacity: 0
-                    right: 40px
-                100%
-                    opacity: 1
-                    right: 60px
-            & h1
-                font-size: 12px
-                font-weight: 500
-                margin: 0
-                margin-bottom: 8px
-            & ul
-                padding: 0
-                margin: 0
-                position: relative
-                list-style: none
-                & li.action
-                    display: flex
-                    align-items: center
-                    gap: 5px
-                    font-size: 14px
-                    font-weight: 400
-                    &:nth-child(2)
-                        margin-top: 5px
-                        animation: showNdAction 6s ease
-                        @keyframes showNdAction
-                            0%
-                                opacity: 0
-                                margin-top: -20px
-                            90%
-                                opacity: 0
-                                margin-top: -20px
-                            95%
-                                opacity: 0
-                            100%
-                                opacity: 1
-                                margin-top: 5px
-                    & i
-                        font-style: normal
-                        opacity: .5
-                    & strong
-                        color: var(--primary)
-                        font-weight: 400
-                    & img
-                        border-radius: 50%
