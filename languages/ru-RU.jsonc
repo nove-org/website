@@ -107,6 +107,7 @@
             "hero-h1": "Встретьте с миром, где <span><word>Ваша</word> <word>конфиденциальность</word></span> имеет значение.",
             "hero-description": "Откажитесь от Google, Facebook и других компаний, которые продают Ваши данные, создают Ваш профиль и отслеживают Вас. Верните контроль и начните использовать свободные, открытые и уважающие конфиденциальность решения от Nove.",
             "hero-btn": "Зарегистрируйтесь сегодня",
+            "hero-attribution": "Image made by {author}. Support them on {link}.",
             "instance": "Instance",
             "online":"Online",
             "action-log": "Action log",

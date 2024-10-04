@@ -107,6 +107,7 @@
             "hero-h1": "Meet the world where <span><word>your</word> <word>privacy</word></span> matters.",
             "hero-description": "Hagyja a Google-t, a Facebookot és másokat, akik eladják az adatait, profilokat készítenek és nyomon követik Önt. Vegye vissza az irányítást, és kezdje el használni a Nove nyílt forráskódú, ingyenes és az adatvédelmet tiszteletben tartó megoldásait.",
             "hero-btn": "Sign up today",
+            "hero-attribution": "Image made by {author}. Support them on {link}.",
             "instance": "Instance",
             "online":"Online",
             "action-log": "Action log",

@@ -107,6 +107,7 @@
             "hero-h1": "Découvrez le monde où <span><word>votre</word> <word>vie</word> <word>privée</word></span> importe.",
             "hero-description": "Abandonnez Google, Facebook et les autres entreprises qui vendent des données, établissent des profils et vous suivent à la trace. Reprenez le contrôle et commencez à utiliser des solutions gratuites, open-source et respectueuses de la vie privée par Nove.",
             "hero-btn": "Sign up today",
+            "hero-attribution": "Image made by {author}. Support them on {link}.",
             "instance": "Instance",
             "online":"Online",
             "action-log": "Action log",

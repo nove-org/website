@@ -104,6 +104,7 @@
             "hero-h1": "Meet the world where <span><word>your</word> <word>privacy</word></span> matters.",
             "hero-description": "Ditch Google, Facebook and other companies that sell data, profile and track you. Take back control and start using free, open-source and privacy-respecting solutions by Nove.",
             "hero-btn": "Sign up today",
+            "hero-attribution": "Image made by {author}. Support them on {link}.",
             "instance": "Instance",
             "online":"Online",
             "action-log": "Action log",

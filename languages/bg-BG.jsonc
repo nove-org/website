@@ -104,6 +104,7 @@
             "hero-h1": "Meet the world where <span><word>your</word> <word>privacy</word></span> matters.",
             "hero-description": "Зарежете Google, Facebook и други компании, които продават вашите данни, профили и ви проследяват. Вземете обратно контрола и започнете да използвате безплатниte, с отворен код и уважаващи поверителността решения от Nove..",
             "hero-btn": "Sign up today",
+            "hero-attribution": "Image made by {author}. Support them on {link}.",
             "instance": "Instance",
             "online":"Online",
             "action-log": "Action log",

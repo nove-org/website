@@ -108,6 +108,7 @@
             "hero-h1": "Wejdź do świata, gdzie <span><word>Twoja</word> <word>prywatność</word></span> ma znaczenie.",
             "hero-description": "Porzuć Google, Facebooka i innych sprzedających Twoje dane, profilujących i śledzących Cię. Odzyskaj kontrolę i zacznij używać otwartoźródłowych, darmowych i szanujących prywatność rozwiązań Nove.",
             "hero-btn": "Zarejestruj się już dziś",
+            "hero-attribution": "Grafika stworzona przez {author}. Wesprzyj ich na {link}.",
             "instance": "Instancja",
             "online":"Połączone",
             "action-log": "Dziennik zdarzeń",

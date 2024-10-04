@@ -107,6 +107,7 @@
             "hero-h1": "Ontmoet de wereld waar <span><word>jouw</word> <word>privacy</word></span> belangrijk is.",
             "hero-description": "Ditch Google, Facebook en andere bedrijven die je informatie verkopen, je profileren en je volgen. Neem de controle terug and en begin met het gebruiken van gratis, open-source and privacy-respecterende oplossingen door Nove.",
             "hero-btn": "Meld je vandaag aan",
+            "hero-attribution": "Image made by {author}. Support them on {link}.",
             "instance": "Instance",
             "online":"Online",
             "action-log": "Action log",
