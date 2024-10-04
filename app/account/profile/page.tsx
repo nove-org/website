@@ -139,7 +139,7 @@ export default async function Profile({ searchParams }: { searchParams: { [key: 
                                 {user.website.length && (
                                     <div className={o.section}>
                                         <h2>{lang.getProp('website-h1')}</h2>
-                                        <a href={user.website} rel="nofollow noopener noreferrer">
+                                        <a href={user.website} rel="noreferrer noopener nofollow">
                                             {new URL(user.website).hostname + (new URL(user.website).pathname !== '/' ? new URL(user.website).pathname : '')}
                                         </a>
                                     </div>
