@@ -90,7 +90,12 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
                 <Footer
                     lang={{
-                        license: foo.getProp('license', { license: pkg.license }),
+                        sourceLicense: foo.getProp('source-license', {
+                            license: `<a href="https://www.gnu.org/licenses/agpl-3.0.html" rel="noreferrer noopener nofollow">${pkg.license}</a>`,
+                        }),
+                        contentLicense: foo.getProp('content-license', {
+                            license: '<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noreferrer noopener nofollow">CC BY-NC-SA 4.0</a>',
+                        }),
                         madeWithLove: foo.getProp('made-with-love', {
                             contributors: `<a href="${SOURCE_CODE}" rel="noreferrer noopener nofollow">${foo.getProp('contributors')}</a>`,
                         }),

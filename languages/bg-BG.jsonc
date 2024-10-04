@@ -45,8 +45,9 @@
             "no-javascript": "We see that you have JavaScript disabled in your browser. But don't worry, our website works flawlessly even without it."
         },
         "footer": {
-            "license": "Licensed under {license}",
-            "made-with-love": "Made with ❤️ by {contributors}",
+            "source-license": "Source code licensed under {license}.",
+            "content-license": "Website content available on {license} license.",
+            "made-with-love": "Made with ❤️ by Nove and {contributors}.",
             "contributors": "contributors",
             "ul-general": "General",
             "ul-documents": "Documents",

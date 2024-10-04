@@ -49,8 +49,9 @@
             "no-javascript": "Widzimy, że JavaScript jest wyłączony w twojej przeglądarce. Ale się nie martw, nasza strona działa bezproblemowo nawet bez niego."
         },
         "footer": {
-            "license": "Na licencji {license}",
-            "made-with-love": "Stworzone z ❤️ przez {contributors}",
+            "source-license": "Kod źródłowy na licencji {license}.",
+            "content-license": "Treść strony dostępna pod licencją {license}.",
+            "made-with-love": "Stworzone z ❤️ przez Nove i {contributors}.",
             "contributors": "społeczność",
             "ul-general": "Ogólne",
             "ul-documents": "Dokumenty",

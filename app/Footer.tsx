@@ -10,7 +10,8 @@ export default function Footer({
     lang,
 }: {
     lang: {
-        license: string;
+        sourceLicense: string;
+        contentLicense: string;
         madeWithLove: string;
         general: string;
         about: string;
@@ -34,7 +35,13 @@ export default function Footer({
                     <Image src="/logo_w.png" width={20} height={20} alt="Logo: N letter" />
                     Nove
                 </div>
-                <p>&copy; 2019-{new Date().getFullYear() + ' ' + lang.license}</p>
+                <p>
+                    &copy; 2019-{new Date().getFullYear()} Nove Group
+                    <br />
+                    <span dangerouslySetInnerHTML={{ __html: lang.sourceLicense }} />
+                    <br />
+                    <span dangerouslySetInnerHTML={{ __html: lang.contentLicense }} />
+                </p>
                 <p
                     dangerouslySetInnerHTML={{
                         __html: lang.madeWithLove,
