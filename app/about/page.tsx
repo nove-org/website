@@ -3,6 +3,9 @@ import Image from 'next/image';
 import LanguageHandler from '@util/languages';
 import { cookies, headers } from 'next/headers';
 import NAPI from '@util/NAPI';
+import ftdl from '@app/../public/ftdl.webp';
+import fastly from '@app/../public/fastly.webp';
+import Link from 'next/link';
 
 export async function generateMetadata() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
@@ -28,7 +31,7 @@ export default async function About() {
         <section className={o.hero}>
             <h1 className={o.title} dangerouslySetInnerHTML={{ __html: lang.getProp('hero-h1') }} />
             <p className={o.description}>{lang.getProp('hero-p')}</p>
-            <ul>
+            <ul className={o.members}>
                 <li>
                     <Image src="https://api.nove.team/v1/users/00000000/avatar.webp" width="64" height="64" alt="Avatar" />
                     <h1>Mateusz</h1>
@@ -51,13 +54,19 @@ export default async function About() {
                 </li>
             </ul>
             <div className={o.thanks}>
-                <p
-                    dangerouslySetInnerHTML={{
-                        __html: lang.getProp('thanks', {
-                            name: '<a href="https://ftdl.pl" rel="noopener noreferrer" target="_blank"><img src="/ftdl.webp" alt="FTdL" /></a>',
-                        }),
-                    }}
-                />
+                <h1>Proudly sponsored by</h1>
+                <ul>
+                    <li>
+                        <Link href="https://ftdl.pl" rel="noreferrer noopener nofollow" target="_blank">
+                            <Image src={ftdl} alt="FTdL logo" />
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="https://fastly.com" rel="noreferrer noopener nofollow" target="_blank">
+                            <Image src={fastly} alt="Fastly logo" />
+                        </Link>
+                    </li>
+                </ul>
             </div>
         </section>
     );
