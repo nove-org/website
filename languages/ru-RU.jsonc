@@ -105,7 +105,7 @@
             // i dont need more words: "... <span><word>TRANSLATE THIS</word> <word>TRANSLATE THIS</word></span> ..."
             // i need more words: "... <span><word>WORD NR 1</word> <word>WORD NR 2</word></span> <word>WORD NR 3</word></span> ..."
             "hero-h1": "Встретьте с миром, где <span><word>Ваша</word> <word>конфиденциальность</word></span> имеет значение.",
-            "hero-description": "Откажитесь от Google, Facebook и других компаний, которые продают Ваши данные, создают Ваш профиль и отслеживают Вас. Верните контроль и начните использовать свободные, открытые и уважающие конфиденциальность решения от Nove.",
+            "hero-description": "Truly free and open source software for your day-to-day tasks. A great alternative to big tech with focus on design and users' privacy. This is us, this is Nove.",
             "hero-btn": "Зарегистрируйтесь сегодня",
             "hero-attribution": "Image made by {author}. Support them on {link}.",
             "instance": "Instance",

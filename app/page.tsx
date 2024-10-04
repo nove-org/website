@@ -96,6 +96,13 @@ export default async function Home() {
                         </Link>
                     </div>
                 </div>
+                <div className={o.attention}>
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 24 24">
+                        <path
+                            fill="currentColor"
+                            d="M 11 3 L 11 17.070312 L 6.4296875 12.5 L 4.9296875 14 L 12 21.070312 L 19.070312 14 L 17.570312 12.5 L 13 17.070312 L 13 3 L 11 3 z"></path>
+                    </svg>
+                </div>
             </section>
         </>
     ) : (
