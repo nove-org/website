@@ -90,15 +90,7 @@ export default async function Email({ et }: { et?: string }) {
                     {et === 'cm' && <FormError text={lang.getProp('could-not-send-email')} />}
                     {et === 's' && <FormError text={lang.getProp('email-sent')} />}
                     <form action={updateEmail}>
-                        <Databox
-                            type="text"
-                            title={lang.getProp('hds-email-label-1')}
-                            placeholder={lang.getProp('hds-email-placeholder-1')}
-                            id="newEmail"
-                            minLength={1}
-                            maxLength={128}
-                            required={true}
-                        />
+                        <Databox type="text" title={lang.getProp('hds-email-label-1')} placeholder={user.email} id="newEmail" minLength={1} maxLength={128} required={true} />
                         {et === 'ie' && <FormError text={lang.getProp('invalid-email')} />}
                         {user.mfaEnabled && (
                             <>

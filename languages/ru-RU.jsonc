@@ -266,7 +266,6 @@
             "hds-email-security-h2": "Security updates",
             "hds-email-security-p": "Receive security notifications when you log in to your account on a new device.",
             "hds-email-label-1": "Новая электронная почта",
-            "hds-email-placeholder-1": "Ввведите Ваш новый адрес электронной почты",
             "hds-mfa-btn": "МФА",
             "hds-mfa-h1": "Многофакторная аутентификация",
             "hds-mfa-p": "Secure your account against breach attempts. You can toggle multi-factor authentication on or off here.",
