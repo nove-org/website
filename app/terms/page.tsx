@@ -8,7 +8,7 @@ export async function generateMetadata() {
     const user = await api.user().get({ caching: false });
     const lang = await new LanguageHandler('documents/terms-of-service', user).init(headers());
     const title: string = `${lang.getProp('title')} | Nove`;
-    const description: string = 'Read about our Terms of Service and learn what we can do with your account and what you are allowed to do.';
+    const description: string = 'Read about our Terms of Service, what rules you must follow and what can we do with your account.';
 
     return {
         title,

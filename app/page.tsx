@@ -31,7 +31,8 @@ export async function generateMetadata() {
     const user = await api.user().get({ caching: false });
     const lang = await new LanguageHandler('main/landing', user).init(headers());
     const title: string = `${lang.getProp('title')} | Nove`;
-    const description: string = 'Ditch the government, Google, Facebook and others that share data, profile and track you. Take back control over this.';
+    const description: string =
+        "Truly free and open source software for your day-to-day tasks. A great alternative to big tech with focus on design and users' privacy. This is us, this is Nove.";
 
     return {
         title,

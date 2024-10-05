@@ -8,7 +8,7 @@ export async function generateMetadata() {
     const user = await api.user().get({ caching: false });
     const lang = await new LanguageHandler('documents/privacy-policy', user).init(headers());
     const title: string = `${lang.getProp('title')} | Nove`;
-    const description: string = 'Learn how we process information about you and what we are allowed to know.';
+    const description: string = 'Learn how we process your information, how data retention works and view data manager contact information.';
 
     return {
         title,
