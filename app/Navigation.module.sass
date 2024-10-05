@@ -124,7 +124,7 @@ nav.box
                     display: flex
                     flex-direction: column
                     gap: 4px
-                    padding: 10px
+                    padding: 12px
                     border-bottom: 1px solid var(--outline-variant)
                     box-sizing: border-box
                     width: 100%
@@ -170,7 +170,6 @@ nav.box
                                 box-shadow: 0 2px 3px 0 rgba(0,0,0,.1)
                                 transition: opacity .2s ease
                                 pointer-events: none
-
                 & div.buttons
                     padding: 4px
                     box-sizing: border-box
@@ -221,3 +220,10 @@ nav.box
                 @media screen and (max-width: 350px)
                     &:first-child
                         display: none
+@keyframes fadePopup
+    0%
+        opacity: 0
+        transform: translateY(-10px)
+    100%
+        opacity: 1
+        transform: translateY(0)
