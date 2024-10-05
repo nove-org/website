@@ -51,6 +51,8 @@ nav.box
                     background: var(--primary-container)
             & details.link
                 position: relative
+                &[open] div.modules
+                    animation: fadePopup .2s ease-in-out
                 & div.modules
                     position: absolute
                     top: 40px
@@ -61,18 +63,10 @@ nav.box
                     gap: 8px
                     max-width: 450px
                     width: max-content
-                    animation: fade .2s ease-in-out
                     z-index: 99999
                     padding: 8px
                     box-shadow: 0 2px 3px 0 rgba(0,0,0,.1)
                     border: 1px solid rgb(213, 213, 213)
-                    @keyframes fade
-                        0%
-                            opacity: 0
-                            transform: translateY(-15px)
-                        100%
-                            opacity: 1
-                            transform: translateY(0)
                     & a.blue, a.green, div.more
                         position: relative
                         width: 80px
@@ -100,6 +94,8 @@ nav.box
             position: relative
             &[open] summary img
                 border-radius: 35%
+            &[open] div.options
+                animation: fadePopup .2s ease-in-out
             & summary
                 display: flex
                 align-items: center
@@ -124,13 +120,6 @@ nav.box
                 z-index: 99999
                 box-shadow: 0 2px 3px 0 rgba(0,0,0,.1)
                 border: 1px solid var(--outline-variant)
-                @keyframes fade
-                    0%
-                        opacity: 0
-                        transform: translateY(-15px)
-                    100%
-                        opacity: 1
-                        transform: translateY(0)
                 & header
                     display: flex
                     flex-direction: column
