@@ -4,13 +4,14 @@ import RSS from 'rss';
 
 export default class RSSHandler {
     private feed?: RSS;
+    private host = COOKIE_HOSTNAME.startsWith('.') ? COOKIE_HOSTNAME.slice(1) : COOKIE_HOSTNAME;
 
     constructor() {
         this.feed = new RSS({
             title: 'Blog - Nove',
             description: 'Latest information about product releases and improvements.',
-            site_url: `https://${COOKIE_HOSTNAME}`,
-            feed_url: `https://${COOKIE_HOSTNAME}/blog/rss.xml`,
+            site_url: `https://${this.host}`,
+            feed_url: `https://${this.host}/blog/rss.xml`,
         });
     }
 
@@ -19,16 +20,11 @@ export default class RSSHandler {
     }
 
     public addItems({ posts }: { posts: Post[] }) {
-        const tagPattern = /<[^>]*?>/g;
-        const brPattern = /<br\s*\/?>/gi;
-        const urlPattern = /<a\s+(?:[^>]*?\s+)?href="([^"]*)"[^>]*>([^<]*)<\/a>/gi;
-        const host = COOKIE_HOSTNAME.startsWith('.') ? COOKIE_HOSTNAME.slice(1) : COOKIE_HOSTNAME;
-
         posts.forEach((post) => {
             this.feed?.item({
                 title: post.title,
                 description: `<![CDATA[${post.text}]]>`,
-                url: `https://${host}/blog/${post.id}`,
+                url: `https://${this.host}/blog/${post.id}`,
                 author: post.authorUsername,
                 date: post.createdAt,
             });
