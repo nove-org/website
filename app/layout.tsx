@@ -73,7 +73,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
                 <Navigation
                     user={user}
+                    domain={COOKIE_HOSTNAME}
                     lang={{
+                        copy: nav.getCustomProp('modules.actions.copy'),
+                        copied: nav.getCustomProp('modules.actions.copied'),
                         applications: nav.getProp('ul-applications'),
                         about: nav.getProp('ul-about'),
                         blog: nav.getProp('ul-blog'),

@@ -81,7 +81,9 @@
             "show-less": "Pokaż mniej",
             "show-more": "Pokaż więcej",
             "update": "Zaktualizuj",
-            "close": "Zamknij"
+            "close": "Zamknij",
+            "copy": "Kliknij aby skopiować",
+            "copied": "Skopiowane!"
         },
         "errors": {
             "verify-email": "Zweryfikuj swój email",

@@ -80,7 +80,9 @@
             "show-less": "Show less",
             "show-more": "Show more",
             "update": "Update",
-            "close": "Close"
+            "close": "Close",
+            "copy": "Click to copy",
+            "copied": "Copied!"
         },
         "errors": {
             "verify-email": "Verify your email",
