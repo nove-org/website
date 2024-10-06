@@ -23,8 +23,11 @@ import o from './Home.module.sass';
 import { cookies, headers } from 'next/headers';
 import { DONATE_LINK, ENABLE_REGISTER_PAGE, OFFICIAL_LANDING } from '@util/CONSTS';
 import Image from 'next/image';
-import banner from '../public/banner.png';
+import banner from '../public/b1.png';
+import banner2 from '../public/b2.png';
 import eagle from '../public/eagle.png';
+import HomeRepo from './HomeRepo';
+import HomeApp from './HomeApp';
 
 export async function generateMetadata() {
     const api = new NAPI(cookies().get('napiAuthorizationToken')?.value);
@@ -103,6 +106,37 @@ export default async function Home() {
                             fill="currentColor"
                             d="M 11 3 L 11 17.070312 L 6.4296875 12.5 L 4.9296875 14 L 12 21.070312 L 19.070312 14 L 17.570312 12.5 L 13 17.070312 L 13 3 L 11 3 z"></path>
                     </svg>
+                </div>
+            </section>
+            <figure className={o.background + ' ' + o.detached}>
+                <Image className={o.mountains} src={banner2} alt="Mountainous landscape" priority />
+            </figure>
+            <section className={o.applications}>
+                <div className={o.text}>
+                    <h1>Applications that actually make your life easier.</h1>
+                    <p>With the power of open-source software, beautiful layout and design, our community and, of course, you.</p>
+                    <ul className={o.applications}>
+                        <HomeApp link="procurel.com" className={o.blue} />
+                        <HomeApp link="peekr.org" className={o.green} />
+                        <li>
+                            <div className={o.more}>
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 24 24">
+                                    <path
+                                        fill="currentColor"
+                                        d="M15.5 5L13 11 7 13.5 13 16 15.5 22 18 16 24 13.5 18 11 15.5 5zM4.125 7.875L5.5 12 6.875 7.875 11 6.5 6.875 5.125 5.5 1 4.125 5.125 0 6.5zM6.375 18.625L5.5 16 4.625 18.625 2 19.5 4.625 20.375 5.5 23 6.375 20.375 9 19.5z"></path>
+                                </svg>
+                                More coming soon...
+                            </div>
+                        </li>
+                    </ul>
+                    <ul className={o.repositories}>
+                        <HomeRepo link="git.nove.team/nove-org/NAPI" />
+                        <HomeRepo link="git.nove.team/nove-org/website" />
+                        <HomeRepo link="git.nove.team/peekr/frontend" />
+                        <HomeRepo link="git.nove.team/peekr/python-crawler" />
+                        <HomeRepo link="git.nove.team/nove-org/crm.frontend" />
+                        <HomeRepo link="git.nove.team/nove-org/crm.backend" />
+                    </ul>
                 </div>
             </section>
         </>

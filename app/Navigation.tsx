@@ -35,7 +35,7 @@ export default function Navigation({
         <nav className={o.box + ` ${pathname.startsWith('/account') ? o.hide : ''}`}>
             <section className={o.main}>
                 <Link href="/" className={o.header}>
-                    <Image src="/logo_w.png" width={20} height={20} alt="Logo: N letter" />
+                    <Image src="/logo.png" width={20} height={20} alt="Logo: N letter" />
                     Nove
                 </Link>
                 <div className={o.links}>
@@ -51,7 +51,7 @@ export default function Navigation({
                             </summary>
                             <div className={o.modules}>
                                 <Link href="https://procurel.com" className={o.blue}>
-                                    <Image src="/crm.png" width={30} height={30} alt="Procurel" />
+                                    <Image src="/procurel.png" width={30} height={30} alt="Procurel" />
                                     Procurel
                                 </Link>
                                 <Link href="https://peekr.org" className={o.green}>

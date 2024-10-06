@@ -32,7 +32,7 @@ export default function Footer({
         <footer className={o.box + ` ${pathname.startsWith('/account') ? o.hide : ''}`}>
             <header>
                 <div className={o.logo}>
-                    <Image src="/logo_w.png" width={20} height={20} alt="Logo: N letter" />
+                    <Image src="/logo.png" width={20} height={20} alt="Logo: N letter" />
                     Nove
                 </div>
                 <p>
