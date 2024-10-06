@@ -94,7 +94,7 @@ export default function Sidebar({
             <div className={o.top}>
                 <div className={o.header}>
                     <Link href="/">
-                        <Image src="/logo_w.png" width={28} height={28} alt="Nove logo" />
+                        <Image src="/logo.png" width={28} height={28} alt="Nove logo" />
                     </Link>
                     <span>{lang.header}</span>
                 </div>

@@ -78,7 +78,7 @@ export default async function Account() {
                     </h1>
                     <div className={o.apps}>
                         <Link href="https://procurel.com" className={o.blue}>
-                            <Image src="/crm.png" width={30} height={30} alt="Procurel" />
+                            <Image src="/procurel.png" width={30} height={30} alt="Procurel" />
                             Procurel
                         </Link>
                         <Link href="https://peekr.org" className={o.green}>

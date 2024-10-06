@@ -102,7 +102,7 @@ export default async function Register({ searchParams }: { searchParams: { [key:
         <section className={o.login}>
             <div className={o.center}>
                 <aside>
-                    <img src="/logo_w.png" width={50} height={50} alt="Nove logo" />
+                    <img src="/logo.png" width={50} height={50} alt="Nove logo" />
                     <h1>{lang.getProp('hero-h1')}</h1>
                     <p>{lang.getProp('hero-p')}</p>
                 </aside>
