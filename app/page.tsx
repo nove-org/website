@@ -26,6 +26,7 @@ import Image from 'next/image';
 import banner from '../public/b1.png';
 import banner2 from '../public/b2.png';
 import eagle from '../public/eagle.png';
+import island from '../public/island.png';
 import HomeRepo from './HomeRepo';
 import HomeApp from './HomeApp';
 
@@ -136,7 +137,54 @@ export default async function Home() {
                         <HomeRepo link="git.nove.team/peekr/python-crawler" />
                         <HomeRepo link="git.nove.team/nove-org/crm.frontend" />
                         <HomeRepo link="git.nove.team/nove-org/crm.backend" />
+                        <HomeRepo link="git.nove.team/nove-org/gsm" />
+                        <HomeRepo link="git.nove.team/tasks/frontend" />
+                        <HomeRepo link="git.nove.team/tasks/backend" />
                     </ul>
+                </div>
+            </section>
+            <section className={o.community}>
+                <Image src={island} alt="island" width={900} />
+                <div className={o.text}>
+                    <h1>Because trust beings with openness.</h1>
+                    <p>
+                        Suggest new features, report bugs, improve code or audit it through our <Link href="https://git.nove.team">Gitea</Link>.
+                    </p>
+                    <div className={o.contributors}>
+                        <h2>With help from over 13 contributors</h2>
+                        <ul>
+                            <li>
+                                <Image src="https://api.nove.team/v1/users/00000000/avatar.webp" width={48} height={48} alt="Avatar" />
+                            </li>
+                            <li>
+                                <Image src="https://api.nove.team/v1/users/00000000/avatar.webp" width={48} height={48} alt="Avatar" />
+                            </li>
+                            <li>
+                                <Image src="https://api.nove.team/v1/users/00000000/avatar.webp" width={48} height={48} alt="Avatar" />
+                            </li>
+                            <li>
+                                <Image src="https://api.nove.team/v1/users/00000000/avatar.webp" width={48} height={48} alt="Avatar" />
+                            </li>
+                            <li>
+                                <Image src="https://api.nove.team/v1/users/00000000/avatar.webp" width={48} height={48} alt="Avatar" />
+                            </li>
+                            <li>
+                                <Image src="https://api.nove.team/v1/users/00000000/avatar.webp" width={48} height={48} alt="Avatar" />
+                            </li>
+                            <li>
+                                <Image src="https://api.nove.team/v1/users/00000000/avatar.webp" width={48} height={48} alt="Avatar" />
+                            </li>
+                            <li>
+                                <Image src="https://api.nove.team/v1/users/00000000/avatar.webp" width={48} height={48} alt="Avatar" />
+                            </li>
+                            <li>
+                                <Image src="https://api.nove.team/v1/users/00000000/avatar.webp" width={48} height={48} alt="Avatar" />
+                            </li>
+                            <li>
+                                <Image src="https://api.nove.team/v1/users/00000000/avatar.webp" width={48} height={48} alt="Avatar" />
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </section>
         </>
