@@ -280,10 +280,25 @@ section.community
     box-sizing: border-box
     padding: 0 6%
     padding-left: 0
+    @media screen and (max-width: 1300px)
+        padding-left: 6%
+        flex-direction: row-reverse
+    @media screen and (max-width: 1120px)
+        padding: 100px 6%
+    & img.banner
+        max-width: 900px
+        width: 100%
+        height: auto
+        @media screen and (max-width: 1120px)
+            display: none
     & div.text
         display: flex
         flex-direction: column
         gap: 10px
+        width: 100%
+        padding: 100px 0
+        @media screen and (max-width: 1120px)
+            padding: 0
         & svg.header
             padding: 12px
             background: var(--primary-container)
@@ -310,14 +325,21 @@ section.community
                 display: flex
                 gap: 5px
                 align-items: center
+                @media screen and (max-width: 500px)
+                    flex-direction: column
+                    align-items: flex-start
+                & svg
+                    min-width: 24px
             & ul
                 list-style: none
                 padding: 0
                 margin: 0
-                display: grid
+                display: flex
+                flex-wrap: wrap
                 gap: 10px
-                grid-template-columns: repeat(7, 1fr)
-                width: fit-content
+                max-width: 400px
+                @media screen and (max-width: 396px)
+                    justify-content: center
                 & li
                     width: 48px
                     height: 48px
@@ -327,6 +349,12 @@ section.community
             display: flex
             gap: 10px
             align-items: center
+            @media screen and (max-width: 396px)
+                flex-direction: column
+                & a
+                    width: 100%
+                    text-align: center
+                    justify-content: center
         & p.footnote
             margin: 0
             font-size: 12px
@@ -341,9 +369,11 @@ section.encourage
     & img
         width: 100%
         height: auto
-        min-height: 600px
+        min-height: 700px
         object-fit: cover
         border-radius: 35px
+        @media screen and (max-width: 570px)
+            border-radius: 25px
     & div.overlay
         position: absolute
         top: 0
@@ -372,6 +402,12 @@ section.encourage
             align-items: center
             gap: 10px
             margin-top: 10px
+            @media screen and (max-width: 570px)
+                flex-direction: column
+                & a
+                    width: 100%
+                    text-align: center
+                    justify-content: center
             & a
                 background: var(--background)
 

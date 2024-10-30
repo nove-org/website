@@ -157,7 +157,7 @@ export default async function Home() {
                 </div>
             </section>
             <section className={o.community}>
-                <Image src={island} alt="island" width={900} />
+                <Image className={o.banner} src={island} alt="island" width={900} />
                 <div className={o.text}>
                     <svg className={o.header} xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 24 24">
                         <path
