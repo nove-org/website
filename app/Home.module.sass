@@ -273,6 +273,108 @@ section.applications
                         font-size: 14px
                         font-weight: 400
 
+section.community
+    display: flex
+    gap: 100px
+    align-items: center
+    box-sizing: border-box
+    padding: 0 6%
+    padding-left: 0
+    & div.text
+        display: flex
+        flex-direction: column
+        gap: 10px
+        & svg.header
+            padding: 12px
+            background: var(--primary-container)
+            color: var(--primary)
+            border-radius: 15px
+        & h1
+            font-size: 36px
+            font-weight: 600
+            margin: 0
+        & p
+            font-size: 20px
+            margin: 0
+            & a
+                text-decoration: none
+                color: var(--primary)
+                &:hover
+                    text-decoration: underline
+        & div.contributors
+            margin: 30px 0
+            & h2
+                margin: 0 0 10px 0
+                font-size: 24px
+                font-weight: 500
+                display: flex
+                gap: 5px
+                align-items: center
+            & ul
+                list-style: none
+                padding: 0
+                margin: 0
+                display: grid
+                gap: 10px
+                grid-template-columns: repeat(7, 1fr)
+                width: fit-content
+                & li
+                    width: 48px
+                    height: 48px
+                    & img
+                        border-radius: 50%
+        & div.buttons
+            display: flex
+            gap: 10px
+            align-items: center
+        & p.footnote
+            margin: 0
+            font-size: 12px
+            font-weight: 400
+            opacity: .7
+
+section.encourage
+    box-sizing: border-box
+    padding: 0 6%
+    margin-top: 50px
+    position: relative
+    & img
+        width: 100%
+        height: auto
+        min-height: 600px
+        object-fit: cover
+        border-radius: 35px
+    & div.overlay
+        position: absolute
+        top: 0
+        left: 0
+        margin: 0 6%
+        padding: 0 6%
+        box-sizing: border-box
+        width: 88%
+        max-width: 900px
+        height: calc( 100% - 5px )
+        display: flex
+        gap: 10px
+        flex-direction: column
+        justify-content: center
+        & svg.header
+            color: var(--primary)
+        & h1
+            font-size: 48px
+            font-weight: 600
+            margin: 0
+        & p
+            font-size: 20px
+            margin: 0
+        & div.buttons
+            display: flex
+            align-items: center
+            gap: 10px
+            margin-top: 10px
+            & a
+                background: var(--background)
+
 section.welcome
     width: 100%
     min-height: calc( 100vh - 70px )
