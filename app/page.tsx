@@ -53,7 +53,8 @@ export default async function Home() {
     const lang = await new LanguageHandler('main/landing', user).init(headers());
 
     const applications = [
-        { link: 'procurel.com', theme: o.blue },
+        { link: 'tasks.nove.team', theme: o.blue },
+        { link: 'procurel.com', theme: o.purple },
         { link: 'peekr.org', theme: o.green },
     ];
 

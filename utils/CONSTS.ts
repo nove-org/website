@@ -33,33 +33,13 @@ export const SUPPORT_MAIL: string = 'reply@nove.team';
 /// Appearance
 //* Landing page
 //* Switch between selfhosted view and official (promo) view. Default: false
-export const OFFICIAL_LANDING: boolean = false;
-//* Message of the day
-//* Add a custom notification on top of every page. Configuration options below.
-export const MOTD: {
-    title: string; // Maximum of 16 characters
-    description: string;
-    authenticatedOnly: boolean; // Show to authenticated users only
-    type: 'notice' | 'warning' | 'error';
-}[] = [
-    // {
-    //     title: 'Example notification',
-    //     description: 'This is a test. You can modify these lines as long as it matches types above.',
-    //     authenticatedOnly: false,
-    //     type: 'notice'
-    // },
-    // {
-    //     title: 'Stack',
-    //     description: 'You can stack notifications too! They will show up in the same order you added them here.',
-    //     authenticatedOnly: false,
-    //     type: 'warning'
-    // }
-];
+export const OFFICIAL_LANDING: boolean = true;
+
 //* Enable registration page
 //* Allow users access registration form. WARNING: If you disable this users are still able to sign up using API
 //* routes. Make sure to disable registrations in NAPI configuration as well.
 //* Default: false
-export const ENABLE_REGISTER_PAGE: boolean = false;
+export const ENABLE_REGISTER_PAGE: boolean = true;
 
 /// Privacy
-export const FETCH_OFFICIAL_BLOG: boolean = false;
+export const FETCH_OFFICIAL_BLOG: boolean = true;

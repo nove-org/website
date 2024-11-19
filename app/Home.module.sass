@@ -216,7 +216,7 @@ section.applications
             list-style: none
             padding: 0
             margin: 25px 0
-            & a.blue, a.green, div.more
+            & a.blue, a.green, a.purple, div.more
                 position: relative
                 width: 90px
                 height: 90px
@@ -234,6 +234,9 @@ section.applications
                 background: var(--primary-container)
                 color: var(--on-primary-container)
                 padding: 0 15px
+            & a.purple
+                background: var(--purplish)
+                color: var(--on-purplish)
             & a.blue
                 background: var(--blueish)
                 color: var(--on-blueish)
@@ -338,7 +341,7 @@ section.community
                 flex-wrap: wrap
                 gap: 10px
                 max-width: 400px
-                @media screen and (max-width: 396px)
+                @media screen and (max-width: 400px)
                     justify-content: center
                 & li
                     width: 48px
@@ -349,7 +352,7 @@ section.community
             display: flex
             gap: 10px
             align-items: center
-            @media screen and (max-width: 396px)
+            @media screen and (max-width: 400px)
                 flex-direction: column
                 & a
                     width: 100%
