@@ -50,7 +50,11 @@ export default function Navigation({
                                 </svg>
                             </summary>
                             <div className={o.modules}>
-                                <Link href="https://procurel.com" className={o.blue}>
+                                <Link href="https://tasks.nove.team" className={o.blue}>
+                                    <Image src="/tasks.png" width={30} height={30} alt="Tasks" />
+                                    Tasks
+                                </Link>
+                                <Link href="https://procurel.com" className={o.purple}>
                                     <Image src="/procurel.png" width={30} height={30} alt="Procurel" />
                                     Procurel
                                 </Link>
