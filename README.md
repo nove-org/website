@@ -20,7 +20,7 @@ $ yarn dev
 Server started on port 3000
 ```
 
-### Copyright notice
+## License
 
 <pre>
 Copyright (C) 2019 Nove Group
@@ -38,3 +38,7 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with this program. If not, see https://www.gnu.org/licenses/.
 </pre>
+
+### Icons
+
+Project icons are provided by [Icons8](https://icons8.com) and are subject to [their license](https://icons8.com/license).
